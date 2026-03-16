@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eternal Nexus — Next Path Infra | Infraestrutura Estratégica</title>
+    <meta name="description" content="Plataforma viva de infraestrutura estratégica global. 5 megaprojetos que redesenham energia, computação e sistemas planetários — com morabeza cabo-verdiana." />
+    <meta name="author" content="Ivanildo Michel Monteiro Fernandes" />
+
+    <meta property="og:title" content="Eternal Nexus — Infraestrutura Estratégica Global" />
+    <meta property="og:description" content="Organismo digital vivo: 5 megaprojetos de infraestrutura planetária. Dossiês técnicos, simulações AI e streaming em tempo real." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="canonical" href="https://nextpathinfra.com" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Next Path Infra",
+      "alternateName": "Eternal Nexus",
+      "url": "https://nextpathinfra.com",
+      "description": "Plataforma de infraestrutura estratégica global — 5 megaprojetos planetários com simulações AI e streaming em tempo real.",
+      "founder": {
+        "@type": "Person",
+        "name": "Ivanildo Michel Monteiro Fernandes"
+      },
+      "knowsAbout": ["Infrastructure", "Energy Systems", "Geothermal", "Urban Planning", "AI Simulation"]
+    }
+    </script>
+  </head>
+
+  <body>
+    <a href="#main-heading" class="skip-link">Saltar para conteúdo principal</a>
+    <div id="root"></div>
+    <script>
+      // Auto-reload on stale chunk errors (after deploys)
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('Failed to fetch dynamically imported module')) {
+          if (!sessionStorage.getItem('chunk_reload')) {
+            sessionStorage.setItem('chunk_reload', '1');
+            window.location.reload();
+          }
+        }
+      });
+      window.addEventListener('load', function() { sessionStorage.removeItem('chunk_reload'); });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

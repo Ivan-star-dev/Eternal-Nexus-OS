@@ -1,0 +1,226 @@
+# ═══════════════════════════════════════════════════════════════
+# Pipeline CI/CD: pgTAP Database Tests
+#
+# Strategy:
+#   1. Template DB: migrate once, clone for each test suite
+#   2. tmpfs: DB runs 100% in RAM
+#   3. Parallel suites: RLS, schema, aggregation
+#   4. Minimal fixtures per suite
+# ═══════════════════════════════════════════════════════════════
+
+name: Database Tests
+
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/**'
+      - 'supabase/tests/**'
+  push:
+    branches: [main]
+
+concurrency:
+  group: db-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PG_VERSION: "16"
+  DB_HOST: localhost
+  DB_PORT: 5432
+  DB_USER: postgres
+  DB_PASSWORD: testpassword
+
+jobs:
+  # ═══════════════════════════════════════
+  # Prepare: Migrate once, export template
+  # ═══════════════════════════════════════
+  prepare-template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
+          POSTGRES_DB: template_npi
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+          --tmpfs /var/lib/postgresql/data:rw,size=512m
+          --shm-size=256m
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pgTAP extension
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq postgresql-client
+          psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/template_npi" <<'SQL'
+            CREATE EXTENSION IF NOT EXISTS pgtap;
+          SQL
+
+      - name: Create Supabase-compatible roles
+        run: |
+          psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/template_npi" <<'SQL'
+            DO $$
+            BEGIN
+              IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'anon') THEN
+                CREATE ROLE anon NOLOGIN;
+              END IF;
+              IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'authenticated') THEN
+                CREATE ROLE authenticated NOLOGIN;
+              END IF;
+              IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'service_role') THEN
+                CREATE ROLE service_role NOLOGIN;
+              END IF;
+            END $$;
+
+            GRANT USAGE ON SCHEMA public TO anon, authenticated;
+          SQL
+
+      - name: Apply migrations
+        run: |
+          for f in supabase/migrations/*.sql; do
+            echo "▸ $(basename $f)"
+            psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/template_npi" \
+              -v ON_ERROR_STOP=1 -f "$f"
+          done
+
+      - name: Grant permissions
+        run: |
+          psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/template_npi" <<'SQL'
+            GRANT SELECT, INSERT, UPDATE, DELETE
+              ON ALL TABLES IN SCHEMA public TO authenticated;
+            GRANT SELECT ON ALL TABLES IN SCHEMA public TO anon;
+          SQL
+
+      - name: Export template dump
+        run: |
+          pg_dump "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/template_npi" \
+            --format=custom --no-owner -f /tmp/template_npi.dump
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: db-template
+          path: /tmp/template_npi.dump
+          retention-days: 1
+
+  # ═══════════════════════════════════════
+  # Test Suite: RLS Policies
+  # ═══════════════════════════════════════
+  test-rls:
+    needs: prepare-template
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+          --tmpfs /var/lib/postgresql/data:rw,size=512m
+          --shm-size=256m
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: db-template
+          path: /tmp
+
+      - name: Restore template
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+          pg_restore "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/postgres" \
+            --create --clean --if-exists -d postgres /tmp/template_npi.dump 2>/dev/null || true
+          psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/postgres" \
+            -c "CREATE DATABASE test_rls TEMPLATE template_npi;"
+
+      - name: Install pg_prove
+        run: sudo cpan TAP::Parser::SourceHandler::pgTAP 2>/dev/null || true
+
+      - name: Run RLS tests
+        run: |
+          pg_prove \
+            --host $DB_HOST --port $DB_PORT --username $DB_USER \
+            --dbname test_rls --verbose --failures --timer \
+            supabase/tests/rls_*.test.sql
+
+  # ═══════════════════════════════════════
+  # Test Suite: Schema & Functions
+  # ═══════════════════════════════════════
+  test-schema:
+    needs: prepare-template
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
+          --tmpfs /var/lib/postgresql/data:rw,size=512m
+          --shm-size=256m
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: db-template
+          path: /tmp
+
+      - name: Restore template
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+          pg_restore "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/postgres" \
+            --create --clean --if-exists -d postgres /tmp/template_npi.dump 2>/dev/null || true
+          psql "postgresql://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/postgres" \
+            -c "CREATE DATABASE test_schema TEMPLATE template_npi;"
+
+      - name: Install pg_prove
+        run: sudo cpan TAP::Parser::SourceHandler::pgTAP 2>/dev/null || true
+
+      - name: Run schema + aggregation tests
+        run: |
+          pg_prove \
+            --host $DB_HOST --port $DB_PORT --username $DB_USER \
+            --dbname test_schema --verbose --failures --timer \
+            supabase/tests/aggregation.test.sql
+
+  # ═══════════════════════════════════════
+  # Quality Gate
+  # ═══════════════════════════════════════
+  quality-gate:
+    needs: [test-rls, test-schema]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check all suites
+        run: |
+          if [ "${{ needs.test-rls.result }}" != "success" ] || \
+             [ "${{ needs.test-schema.result }}" != "success" ]; then
+            echo "❌ Database test suite failed"
+            exit 1
+          fi
+          echo "✅ All database tests passed"

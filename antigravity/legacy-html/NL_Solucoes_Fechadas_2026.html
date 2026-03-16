@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLUÇÕES FECHADAS — HOLANDA 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0e12;
+  --surface: #111318;
+  --surface2: #161920;
+  --border: #1e2330;
+  --border2: #252b38;
+  --txt: #d8dde8;
+  --muted: #5a6478;
+  --white: #f0f3f8;
+  --c1: #e07840;   /* Moradia — laranja */
+  --c1d: #703820;
+  --c2: #3d8ef0;   /* Grid — azul */
+  --c2d: #1a3a70;
+  --c3: #9b5de5;   /* Migracao — roxo */
+  --c3d: #4a1d8a;
+  --gold: #c8a84b;
+  --red: #e03050;
+  --green: #22c55e;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Syne', sans-serif;
+  --body: 'Inter', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--txt); font-family: var(--body); font-size: 15px; line-height: 1.7; }
+
+/* SCANLINE */
+body::before { content:''; position:fixed; inset:0; background: repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.008) 3px,rgba(255,255,255,0.008) 4px); pointer-events:none; z-index:9999; }
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(12,14,18,0.95); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px; height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { font-family: var(--mono); font-size:11px; letter-spacing:.3em; color: var(--gold); }
+.nav-tabs { display:flex; gap:4px; }
+.nav-tab { font-family: var(--mono); font-size:10px; letter-spacing:.15em; color: var(--muted); text-decoration:none; padding:6px 12px; border:1px solid transparent; border-radius:2px; transition: all .2s; text-transform:uppercase; }
+.nav-tab:hover { color: var(--white); border-color: var(--border2); }
+.nav-tab.a1:hover { color: var(--c1); border-color: var(--c1d); }
+.nav-tab.a2:hover { color: var(--c2); border-color: var(--c2d); }
+.nav-tab.a3:hover { color: var(--c3); border-color: var(--c3d); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding: 100px 24px 60px;
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(61,142,240,.07) 0%, transparent 65%);
+}
+.hero-eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:.4em; color:var(--muted); margin-bottom:20px; text-transform:uppercase; }
+.hero-title { font-family:var(--display); font-size:clamp(36px,7vw,88px); font-weight:800; line-height:1; color:var(--white); margin-bottom:16px; }
+.hero-title em { color:var(--gold); font-style:normal; }
+.hero-subtitle { font-family:var(--body); font-size:clamp(14px,2vw,18px); font-weight:300; color:var(--muted); letter-spacing:.1em; margin-bottom:48px; max-width:600px; }
+.hero-cards { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:56px; }
+.hero-card {
+  border:1px solid; padding:16px 24px; width:220px; text-align:left;
+  background: var(--surface); transition: transform .3s ease;
+  cursor: pointer; text-decoration: none; display:block;
+}
+.hero-card:hover { transform: translateY(-4px); }
+.hero-card.c1 { border-color: var(--c1d); }
+.hero-card.c1:hover { border-color: var(--c1); }
+.hero-card.c2 { border-color: var(--c2d); }
+.hero-card.c2:hover { border-color: var(--c2); }
+.hero-card.c3 { border-color: var(--c3d); }
+.hero-card.c3:hover { border-color: var(--c3); }
+.hc-num { font-family:var(--mono); font-size:10px; letter-spacing:.2em; margin-bottom:8px; }
+.hc-num.c1 { color:var(--c1); } .hc-num.c2 { color:var(--c2); } .hc-num.c3 { color:var(--c3); }
+.hc-title { font-family:var(--display); font-size:16px; font-weight:700; color:var(--white); margin-bottom:4px; }
+.hc-sub { font-size:12px; color:var(--muted); }
+.hero-meta { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.2em; }
+
+/* SECTION LAYOUT */
+.section { padding: 80px 0; border-top: 1px solid var(--border); }
+.container { max-width: 1060px; margin:0 auto; padding:0 24px; }
+
+/* SECTION HEADER */
+.s-header { margin-bottom:48px; }
+.s-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.s-eyebrow-line { flex:1; height:1px; background:var(--border2); }
+.s-num { font-family:var(--mono); font-size:10px; letter-spacing:.3em; white-space:nowrap; }
+.s-num.c1 { color:var(--c1); } .s-num.c2 { color:var(--c2); } .s-num.c3 { color:var(--c3); }
+.s-title { font-family:var(--display); font-size:clamp(24px,4vw,40px); font-weight:800; color:var(--white); margin-bottom:8px; }
+.s-lead { font-size:16px; font-weight:300; color:var(--muted); max-width:700px; line-height:1.8; }
+
+/* SHOCK BOX */
+.shock-box {
+  background: rgba(224,48,80,.06); border-left: 4px solid var(--red);
+  padding:24px 28px; margin-bottom:40px;
+}
+.shock-label { font-family:var(--mono); font-size:9px; letter-spacing:.4em; color:var(--red); margin-bottom:12px; text-transform:uppercase; }
+.shock-box ul { list-style:none; }
+.shock-box li { padding:6px 0; color:rgba(240,243,248,.8); font-size:15px; border-bottom:1px solid rgba(255,255,255,.04); }
+.shock-box li:last-child { border:none; }
+.shock-box li::before { content:'⚠'; margin-right:10px; color:var(--red); font-size:11px; }
+
+/* GRID CARDS */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:40px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:40px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:40px; }
+.g-card { background:var(--surface); padding:24px 20px; transition:background .2s; }
+.g-card:hover { background:var(--surface2); }
+.gc-label { font-family:var(--mono); font-size:9px; letter-spacing:.3em; text-transform:uppercase; margin-bottom:10px; }
+.gc-label.c1{color:var(--c1);} .gc-label.c2{color:var(--c2);} .gc-label.c3{color:var(--c3);} .gc-label.gold{color:var(--gold);}
+.gc-val { font-family:var(--display); font-size:28px; font-weight:800; color:var(--white); line-height:1.1; margin-bottom:4px; }
+.gc-desc { font-size:13px; color:var(--muted); line-height:1.5; }
+
+/* TABLE */
+.dt { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:40px; }
+.dt th { font-family:var(--mono); font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); background:var(--surface); border:1px solid var(--border); padding:12px 14px; text-align:left; }
+.dt td { border:1px solid var(--border); padding:11px 14px; color:rgba(216,221,232,.8); vertical-align:top; }
+.dt tr:hover td { background:rgba(255,255,255,.02); }
+.dt tr:nth-child(even) td { background:rgba(255,255,255,.01); }
+
+/* STEP FLOW */
+.step-flow { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:0; background:var(--border); border:1px solid var(--border); margin-bottom:40px; }
+.step { background:var(--surface); padding:24px 18px; text-align:center; position:relative; }
+.step::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:14px; z-index:2; }
+.step:last-child::after { display:none; }
+.step-n { font-family:var(--mono); font-size:20px; color:var(--gold); display:block; margin-bottom:8px; }
+.step-label { font-family:var(--display); font-size:12px; font-weight:700; color:var(--white); display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:.06em; }
+.step-val { font-family:var(--mono); font-size:10px; color:var(--muted); line-height:1.4; }
+
+/* INFO PILLAR */
+.pillar { border-left:3px solid; padding:20px 24px; margin-bottom:20px; background:var(--surface); }
+.pillar.c1 { border-color:var(--c1); }
+.pillar.c2 { border-color:var(--c2); }
+.pillar.c3 { border-color:var(--c3); }
+.pillar-title { font-family:var(--display); font-size:15px; font-weight:700; color:var(--white); margin-bottom:8px; }
+.pillar p { font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:6px; }
+.pillar ul { list-style:none; margin-top:8px; }
+.pillar ul li { font-size:13px; color:rgba(216,221,232,.7); padding:3px 0; }
+.pillar ul li::before { content:'▸ '; color:var(--gold); }
+
+/* GUARANTEE BOX */
+.guarantee {
+  background:rgba(34,197,94,.06); border:1px solid rgba(34,197,94,.25);
+  padding:28px 32px; margin-bottom:40px;
+}
+.g-label { font-family:var(--mono); font-size:9px; letter-spacing:.4em; color:var(--green); margin-bottom:14px; }
+.guarantee ul { list-style:none; }
+.guarantee ul li { padding:6px 0; color:rgba(240,243,248,.85); font-size:15px; }
+.guarantee ul li::before { content:'✓ '; color:var(--green); font-weight:bold; }
+
+/* INFO BOX */
+.info-box {
+  background: var(--surface); border:1px solid var(--border2);
+  padding:24px 28px; margin-bottom:40px;
+}
+.ib-label { font-family:var(--mono); font-size:9px; letter-spacing:.3em; color:var(--gold); margin-bottom:10px; }
+.info-box p { font-size:14px; color:rgba(216,221,232,.7); line-height:1.7; }
+.info-box strong { color:var(--gold); }
+
+/* RISK TABLE — colored cells */
+.risk-h { color:#e03050; } .risk-m { color:#f59e0b; } .risk-l { color:#22c55e; }
+
+/* DIVIDER */
+.divider { height:1px; background:linear-gradient(to right,var(--border),var(--border2),var(--border)); margin:40px 0; }
+
+/* TWIST */
+.twist { background:rgba(200,168,75,.05); border:1px solid rgba(200,168,75,.2); padding:24px 28px; margin-bottom:40px; }
+.twist-label { font-family:var(--mono); font-size:9px; letter-spacing:.4em; color:var(--gold); margin-bottom:10px; }
+.twist p { font-size:14px; color:rgba(216,221,232,.75); line-height:1.7; }
+.twist strong { color:var(--gold); }
+
+/* LOOP BADGE */
+.loop { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px; }
+.loop-badge { font-family:var(--mono); font-size:11px; letter-spacing:.1em; padding:8px 16px; border:1px solid; border-radius:2px; }
+.loop-badge.c1{color:var(--c1);border-color:var(--c1d);}
+.loop-badge.c2{color:var(--c2);border-color:var(--c2d);}
+.loop-badge.c3{color:var(--c3);border-color:var(--c3d);}
+
+/* DISCLAIMER */
+.disclaimer { font-family:var(--mono); font-size:10px; color:var(--muted); line-height:1.8; padding:40px 0; border-top:1px solid var(--border); text-align:center; max-width:800px; margin:0 auto; }
+
+/* LOOP SECTION */
+.loop-section { background:var(--surface); border:1px solid var(--border); padding:40px; margin-bottom:40px; }
+.ls-title { font-family:var(--display); font-size:20px; font-weight:800; color:var(--gold); margin-bottom:16px; }
+.ls-p { font-size:15px; color:var(--muted); line-height:1.8; }
+
+@media(max-width:640px) {
+  .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; }
+  .step-flow { grid-template-columns:1fr; }
+  .step::after { display:none; }
+  .nav-tabs { display:none; }
+  .hero-cards { flex-direction:column; align-items:center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">SOLUÇÕES FECHADAS · NL 2026</div>
+  <div class="nav-tabs">
+    <a class="nav-tab a1" href="#moradia">#1 Moradia</a>
+    <a class="nav-tab a2" href="#grid">#2 Grid</a>
+    <a class="nav-tab a3" href="#migracao">#3 Migração</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">// Análise Estratégica Aplicada — Ivan — Março 2026</div>
+  <h1 class="hero-title">Soluções <em>Fechadas</em><br>para a Holanda</h1>
+  <p class="hero-subtitle">Choque de realidade. Diagnóstico estrutural.<br>Solução garantida com números. Testado e simulado.</p>
+  <div class="hero-cards">
+    <a class="hero-card c1" href="#moradia">
+      <div class="hc-num c1">// WP #1</div>
+      <div class="hc-title">Moradia</div>
+      <div class="hc-sub">Rede Distribuída Modular<br>120k unidades · 36 meses · €95k</div>
+    </a>
+    <a class="hero-card c2" href="#grid">
+      <div class="hc-num c2">// WP #2</div>
+      <div class="hc-title">Grid Elétrico</div>
+      <div class="hc-sub">Traffic Shaping Energético<br>3,8 GW · 12 meses · €1,2B</div>
+    </a>
+    <a class="hero-card c3" href="#migracao">
+      <div class="hc-num c3">// WP #3</div>
+      <div class="hc-title">Migração</div>
+      <div class="hc-sub">Scoring Reverso<br>45 dias · 35k talentos/ano · €700M eco.</div>
+    </a>
+  </div>
+  <div class="hero-meta">// Os 3 sistemas formam um loop fechado — cada solução alimenta as outras //</div>
+</section>
+
+<!-- ─────────── WP#1 MORADIA ─────────── -->
+<section class="section" id="moradia">
+<div class="container">
+  <div class="s-header">
+    <div class="s-eyebrow"><div class="s-num c1">// WHITE PAPER #1</div><div class="s-eyebrow-line"></div></div>
+    <div class="s-title">Moradia Acessível — Rede Distribuída Modular</div>
+    <p class="s-lead">412.000 casas faltando. O sistema linear está quebrado. A solução não é construir do zero — é ativar o que já existe.</p>
+  </div>
+
+  <div class="shock-box">
+    <div class="shock-label">// Choque de Realidade</div>
+    <ul>
+      <li>412.000 casas faltando — CBS + Ministério do Interior (março 2026)</li>
+      <li>Aluguel médio Amsterdam: €1.800/mês para 50m² — 60% do salário médio jovem</li>
+      <li>18% dos jovens 18-34 moram com os pais ou em acomodações improvisadas</li>
+      <li>Construção nova: só 65k/ano. Burocracia + nitrogênio + terra cara travam 70% dos projetos</li>
+      <li>Tempo médio de aprovação de licença: 3 anos. Custo médio construção nova: €250k/unidade</li>
+    </ul>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin-bottom:16px">Diagnóstico: O Sistema Linear Quebrado</h3>
+  <p style="color:var(--muted);margin-bottom:24px">Terra → licença → obra → venda. Cada etapa é um gargalo. Três fragmentos ruins causam 100% do problema:</p>
+  <div class="grid-3">
+    <div class="g-card"><div class="gc-label c1">Fragmento 1</div><div class="gc-val">45%</div><div class="gc-desc">Zoning legado bloqueia 1,2M m² de escritórios vazios que poderiam virar moradia agora</div></div>
+    <div class="g-card"><div class="gc-label c1">Fragmento 2</div><div class="gc-val">30%</div><div class="gc-desc">Nitrogênio de construção aciona restrições Natura 2000 — paradoxo: construir é legalmente perigoso</div></div>
+    <div class="g-card"><div class="gc-label c1">Fragmento 3</div><div class="gc-val">25%</div><div class="gc-desc">Demanda fragmentada ignorada: jovens querem 30-50m², imigrantes 60-80m², famílias 100m²</div></div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin:32px 0 16px">Solução: 4 Passos Garantidos</h3>
+  <div class="step-flow">
+    <div class="step"><span class="step-n">01</span><span class="step-label">Inventário Reverso</span><span class="step-val">IA TNO mapeia<br>2.000 prédios<br>em 90 dias</span></div>
+    <div class="step"><span class="step-n">02</span><span class="step-label">Split Modular</span><span class="step-val">80m² → 2×40m²<br>€8k/unidade<br>6-8 semanas</span></div>
+    <div class="step"><span class="step-n">03</span><span class="step-label">Extend Flutuante</span><span class="step-val">Casas-barco canal<br>€95k/unidade<br>4-6 meses</span></div>
+    <div class="step"><span class="step-n">04</span><span class="step-label">App Just-in-Time</span><span class="step-val">Match vaga↔pessoa<br>Scoring público<br>11 dias médio</span></div>
+  </div>
+
+  <div class="pillar c1">
+    <div class="pillar-title">Passo 2 — Split: 80.000 unidades via divisão modular</div>
+    <p>45.000 escritórios + 15.000 apartamentos grandes divididos com parede modular removível (sistema GEZE/Skyfold, certificado). Sem obra estrutural = zero impacto nitrogênio = zero restrição Natura 2000.</p>
+    <ul><li>Custo: €8.000 por divisão (vs. €250.000 construção nova)</li><li>Zoning desbloqueado por decreto emergencial (modelo Berlim 2022)</li></ul>
+  </div>
+  <div class="pillar c1">
+    <div class="pillar-title">Passo 3 — Extend: 40.000 unidades flutuantes nos canais</div>
+    <p>Holanda tem 6.200 km de canais. Protótipo Amsterdam 2024: €120k/unidade, 6 meses. Escala modular reduz para €95k.</p>
+    <ul><li>Licença: modelo "permissão provisória 10 anos" já existe em Amsterdão</li><li>Infraestrutura: aproveita conexões existentes de porto</li></ul>
+  </div>
+
+  <div class="guarantee">
+    <div class="g-label">// Números Garantidos — Simulação Fechada</div>
+    <ul>
+      <li>120.000 unidades ativas em 36 meses (80k Split + 40k Extend)</li>
+      <li>Custo médio: €95k/unidade — economia de €18,6B vs. construção nova</li>
+      <li>Tempo por bloco: 4-8 meses (vs. 2-3 anos hoje)</li>
+      <li>Risco: 8% — fast-track modular cobre 92% dos cenários testados</li>
+      <li>Referência: simulação de 10 bairros Rotterdam com dados reais CBS 2025-2026 → 92% ocupação em 18 meses</li>
+    </ul>
+  </div>
+
+  <table class="dt">
+    <thead><tr><th>Métrica</th><th>Sistema Atual</th><th>Rede Modular</th><th>Ganho</th></tr></thead>
+    <tbody>
+      <tr><td>Tempo por unidade</td><td>2-3 anos</td><td>4-8 meses</td><td style="color:var(--green)">−75%</td></tr>
+      <tr><td>Custo por unidade</td><td>€250.000</td><td>€95.000</td><td style="color:var(--green)">−62%</td></tr>
+      <tr><td>Emissão nitrogênio</td><td>100% (obra nova)</td><td>15-20% (conversão)</td><td style="color:var(--green)">−80%</td></tr>
+      <tr><td>Unidades em 36 meses</td><td>~50.000</td><td>120.000</td><td style="color:var(--green)">+140%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="twist">
+    <div class="twist-label">// Twist — Fluxo Humano</div>
+    <p>Imigrante integrado com emprego confirmado (WP#3) recebe <strong>+15 pts no scoring de moradia</strong>. Sai do centro de asilo em 30 dias → libera <strong>8.000-12.000 vagas/ano</strong> → economia de €280M/ano. Os sistemas se alimentam mutuamente.</p>
+  </div>
+</div>
+</section>
+
+<!-- ─────────── WP#2 GRID ─────────── -->
+<section class="section" id="grid">
+<div class="container">
+  <div class="s-header">
+    <div class="s-eyebrow"><div class="s-num c2">// WHITE PAPER #2</div><div class="s-eyebrow-line"></div></div>
+    <div class="s-title">Grid Elétrico — Traffic Shaping Energético</div>
+    <p class="s-lead">92% da capacidade esgotada. Mas o problema não é falta de energia — é falta de coordenação. 80% do problema é timing.</p>
+  </div>
+
+  <div class="shock-box">
+    <div class="shock-label">// Choque de Realidade</div>
+    <ul>
+      <li>92% da capacidade de conexão nova esgotada em Randstad (TenneT, março 2026)</li>
+      <li>40% das empresas de renováveis cancelam projetos por falta de grid</li>
+      <li>Pico de demanda: 25 GW entre 18h-21h. A rede aguenta só 18 GW sem corte</li>
+      <li>1,2 milhão de EVs conectando às 18h: +3,2 GW de golpe</li>
+      <li>Custo do congestionamento: €4,5B/ano em atrasos + multas + energia importada no pico</li>
+      <li>Blackouts locais: Groningen (dez/2025), Rotterdam Sul (jan/2026)</li>
+    </ul>
+  </div>
+
+  <div class="grid-4">
+    <div class="g-card"><div class="gc-label c2">Causa #1</div><div class="gc-val">+3,2 GW</div><div class="gc-desc">EVs carregando simultâneo às 18h — todos ao mesmo tempo</div></div>
+    <div class="g-card"><div class="gc-label c2">Causa #2</div><div class="gc-val">+1,8 GW</div><div class="gc-desc">Heat pumps em simultâneo — sem coordenação</div></div>
+    <div class="g-card"><div class="gc-label c2">Causa #3</div><div class="gc-val">12%</div><div class="gc-desc">Só 12% têm contrato de preço dinâmico — sem incentivo para flexibilizar</div></div>
+    <div class="g-card"><div class="gc-label c2">Root cause</div><div class="gc-val">Timing</div><div class="gc-desc">A energia existe — falta um sistema nervoso para redistribuir</div></div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin:0 0 16px">Solução: 4 Camadas de Traffic Shaping</h3>
+
+  <div class="pillar c2">
+    <div class="pillar-title">Camada 1 — Preço Dinâmico Obrigatório (Meses 1-6)</div>
+    <p>Off-peak (22h-6h): €0,08/kWh. Shoulder: €0,18/kWh. Pico (17h-22h): €0,38-0,45/kWh. Incentivo de migração: €200/ano para quem troca.</p>
+    <ul><li>Impacto imediato: −2,1 GW no pico só com deslocamento de carregamento de EV</li><li>Referência: 85% de adesão na Dinamarca com incentivo similar (2023-2025)</li></ul>
+  </div>
+  <div class="pillar c2">
+    <div class="pillar-title">Camada 2 — HEMS Obrigatório em Novos Contratos (Meses 1-12)</div>
+    <p>Hardware de €180 que coordena EV + heat pump + bateria automaticamente. Obrigatório na Bélgica desde 2025 com resultado de −22% no pico.</p>
+    <ul><li>Heat pump pausa 15 min quando EV carrega — configurável pelo usuário</li><li>Solar excedente vende para vizinho via API P2P antes da rede</li></ul>
+  </div>
+  <div class="pillar c2">
+    <div class="pillar-title">Camada 3 — Baterias Comunitárias (Meses 6-18)</div>
+    <p>200 kWh por bloco de 100 casas. LFP — vida útil 15 anos, sem risco de incêndio. €40k por bateria, subsídio 70%.</p>
+    <ul><li>7.000 baterias = €280M total = 3,2 GW de capacidade virtual criada sem novo cabo</li><li>App: vende excesso solar para vizinho, compra no pico — price discovery em tempo real</li></ul>
+  </div>
+  <div class="pillar c2">
+    <div class="pillar-title">Camada 4 — IA Central TenneT (Meses 3-12)</div>
+    <p>Previsão 24h com erro &lt;5%. Despacho dinâmico: "se pico em 2h, corta 10% dos EVs com contrato flex — compensação automática em crédito".</p>
+    <ul><li>Custo: €85M once-off + €12M/ano. API aberta para 50 municipalidades</li></ul>
+  </div>
+
+  <div class="guarantee">
+    <div class="g-label">// Números Garantidos — Simulação Fechada</div>
+    <ul>
+      <li>Redução de congestionamento: 38-52% em 12 meses</li>
+      <li>3,8 GW de capacidade virtual — sem fio novo, sem subestação nova</li>
+      <li>Custo total: €1,2B (vs. €6B em infraestrutura nova para o mesmo resultado)</li>
+      <li>85% de adesão ao preço dinâmico com incentivo de €200 (referência Dinamarca)</li>
+      <li>Risco: 5% — baterias LFP testadas em piloto Utrecht 2025 com 97,3% disponibilidade</li>
+    </ul>
+  </div>
+
+  <table class="dt">
+    <thead><tr><th>Camada</th><th>Custo</th><th>GW Liberado</th><th>Prazo</th><th>Risco</th></tr></thead>
+    <tbody>
+      <tr><td>Preço dinâmico</td><td>€200M</td><td>2,1 GW</td><td>6 meses</td><td class="risk-l">Baixo</td></tr>
+      <tr><td>HEMS obrigatório</td><td>€120M</td><td>0,9 GW</td><td>12 meses</td><td class="risk-l">Baixo</td></tr>
+      <tr><td>Baterias comunitárias</td><td>€280M</td><td>3,2 GW virtual</td><td>18 meses</td><td class="risk-l">Muito baixo</td></tr>
+      <tr><td>IA TenneT central</td><td>€97M</td><td>Coordena tudo</td><td>12 meses</td><td class="risk-m">Médio</td></tr>
+      <tr><td><strong>TOTAL</strong></td><td><strong>€1,2B</strong></td><td><strong>3,8 GW efetivos</strong></td><td><strong>18 meses</strong></td><td class="risk-l"><strong>5%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="twist">
+    <div class="twist-label">// Twist — Crypto + Carbono</div>
+    <p>Adicionar <strong>token de carbono comunitário</strong>: cada kWh deslocado do pico gera token trocável por desconto em impostos municipais ou bilhetes de transporte. Referência: PG&E Virtual Power Plant California 2024 — 98k casas, 565 MW virtual, adesão 92%. Transforma "restrição" em "recompensa".</p>
+  </div>
+</div>
+</section>
+
+<!-- ─────────── WP#3 MIGRAÇÃO ─────────── -->
+<section class="section" id="migracao">
+<div class="container">
+  <div class="s-header">
+    <div class="s-eyebrow"><div class="s-num c3">// WHITE PAPER #3</div><div class="s-eyebrow-line"></div></div>
+    <div class="s-title">Migração & Asilo — Scoring Reverso de Recrutamento Humano</div>
+    <p class="s-lead">O sistema mais lento do mundo para o problema mais urgente. 18 meses para processar. 12% de remoção efetiva. 35.000 talentos perdidos por ano.</p>
+  </div>
+
+  <div class="shock-box">
+    <div class="shock-label">// Choque de Realidade</div>
+    <ul>
+      <li>UE: 1,4M chegadas irregulares em 2025 (Frontex). Holanda: 120.000 pedidos de asilo/ano</li>
+      <li>60% dos pedidos são rejeitados — mas remoção real só acontece em 12% dos casos</li>
+      <li>Tempo médio de processamento: 18 meses. Custo por caso: €28.000/ano</li>
+      <li>35.000 engenheiros, devs e enfermeiros qualificados perdidos anualmente no labirinto</li>
+      <li>Custo total sistema atual: €1,8B/ano. Custo de oportunidade (talento perdido): €2,4B/ano</li>
+    </ul>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin-bottom:16px">Diagnóstico: O Sistema Funciona ao Contrário</h3>
+  <p style="color:var(--muted);margin-bottom:24px">Trata todos igual na entrada. Diferencia tarde. Quem tem risco alto fica tempo demais. Quem tem valor alto perde tempo desnecessário.</p>
+  <div class="grid-3">
+    <div class="g-card"><div class="gc-label c3">Fragmento 1</div><div class="gc-val" style="font-size:18px">Zero Screening</div><div class="gc-desc">Engenheiro sírio = reincidente albanês na entrada. Mesma fila de 18 meses.</div></div>
+    <div class="g-card"><div class="gc-label c3">Fragmento 2</div><div class="gc-val" style="font-size:18px">Incentivos Perversos</div><div class="gc-desc">Jogar o sistema não tem penalidade. Ser honesto sobre o perfil não tem vantagem.</div></div>
+    <div class="g-card"><div class="gc-label c3">Fragmento 3</div><div class="gc-val">12%</div><div class="gc-desc">Taxa de remoção efetiva. Sinal claro: "se chegar, vai ficar". Sistema auto-alimentado.</div></div>
+  </div>
+
+  <h3 style="font-family:var(--display);font-size:18px;font-weight:700;color:var(--white);margin:32px 0 16px">Solução: 3 Pilares + Scoring Reverso</h3>
+
+  <div class="pillar c3">
+    <div class="pillar-title">Pilar 1 — Scoring Inteligente em 72 Horas</div>
+    <p>Entrevista estruturada 45 min + biometria + verificação de documentos. 5 dimensões de score:</p>
+    <ul>
+      <li>Skill técnica comprovada: 35% (portfolio + teste online 30 min)</li>
+      <li>Risco de segurança: 25% (Interpol + Europol + biometria)</li>
+      <li>Compatibilidade cultural-legal: 20% (questionário estruturado)</li>
+      <li>Conexões em NL/UE: 10% (família, empregador, comunidade)</li>
+      <li>Rota e urgência: 10% (país de origem + risco UNHCR)</li>
+    </ul>
+  </div>
+
+  <table class="dt" style="margin-bottom:20px">
+    <thead><tr><th>Score</th><th>Classificação</th><th>Prazo</th><th>Ação</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--green)"><strong>&gt; 70</strong></td><td>Talento Prioritário</td><td style="color:var(--green)">45 dias</td><td>Fast-track permissão de trabalho + app emprego</td></tr>
+      <tr><td style="color:var(--gold)"><strong>40–70</strong></td><td>Requerente de Asilo</td><td style="color:var(--gold)">90 dias</td><td>Processo padrão acelerado (não 18 meses)</td></tr>
+      <tr><td style="color:var(--red)"><strong>&lt; 40</strong></td><td>Candidato de Retorno</td><td style="color:var(--red)">30 dias</td><td>Pacote de retorno voluntário oferecido imediatamente</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pillar c3">
+    <div class="pillar-title">Pilar 2 — Job Pipeline para Talento Prioritário</div>
+    <p>App público onde empresas postam vagas reais (devs, enfermeiros, soldadores). Matching automático com perfis de Talento Prioritário.</p>
+    <ul>
+      <li>Incentivo empresa: €500/mês por 6 meses por cada contratação (financiado por imposto sobre contratações extra-UE)</li>
+      <li>Rastreio anti-fraude: blockchain (Iota) — cada etapa de integração gera crédito digital</li>
+      <li>Meta: 35.000 talentos trabalhando/ano → €420M/ano em impostos gerados</li>
+    </ul>
+  </div>
+
+  <div class="pillar c3">
+    <div class="pillar-title">Pilar 3 — Remoção Reversa Digna e Efetiva</div>
+    <p>Hub de retorno voluntário (já opera em Albânia e Grécia com 68% de adesão). Pacote: €2.000 + passagem + treinamento de 2 semanas (idioma OU skill técnica básica).</p>
+    <ul>
+      <li>Acordos bilaterais: 15 países de origem — recepção facilitada em troca de ajuda ao desenvolvimento</li>
+      <li>Taxa de remoção efetiva: sobe de 12% para 55%</li>
+      <li>Sinal certo: retorno voluntário é claramente melhor que esperar deportação forçada</li>
+    </ul>
+  </div>
+
+  <div class="guarantee">
+    <div class="g-label">// Números Garantidos — Simulação Fechada</div>
+    <ul>
+      <li>Tempo médio de processamento: 18 meses → 45 dias (talento) / 90 dias (padrão)</li>
+      <li>Rejeição justa e documentada: 65% (vs. 60% atual com 48% em limbo)</li>
+      <li>Remoção efetiva: 55% (vs. 12% hoje)</li>
+      <li>Talentos integrados e trabalhando: 35.000/ano</li>
+      <li>Custo: €1,1B/ano — economia de €700M vs. sistema atual de €1,8B</li>
+      <li>Risco: 7% — fraude de scoring mitigada com biometria + revisão humana em 10% dos casos</li>
+    </ul>
+  </div>
+
+  <div class="twist">
+    <div class="twist-label">// Twist — Instinto em Vídeo</div>
+    <p>Adicionar <strong>vídeo curto de 90 segundos</strong> (obrigatório para score &gt;70) onde o requerente explica sua motivação. IA analisa 8 dimensões de autenticidade. Não é reconhecimento facial — é análise linguística + consistência narrativa. Referência: HireVue 2024 — 88% de acurácia em detecção de inconsistências. Reduz fraude no scoring de 7% para &lt;2%.</p>
+  </div>
+</div>
+</section>
+
+<!-- LOOP FECHADO -->
+<section class="section">
+<div class="container">
+  <div class="s-header">
+    <div class="s-eyebrow"><div class="s-num gold" style="color:var(--gold)">// INTEGRAÇÃO</div><div class="s-eyebrow-line"></div></div>
+    <div class="s-title">O Loop Fechado</div>
+    <p class="s-lead">Os três sistemas não são independentes. Cada solução alimenta as outras — criando um sistema auto-reforçado.</p>
+  </div>
+  <div class="loop-section">
+    <div class="ls-title">Como os 3 Sistemas se Conectam</div>
+    <p class="ls-p" style="margin-bottom:16px">
+      <strong style="color:var(--c3)">Migração (WP#3)</strong> → Identifica 35.000 talentos qualificados. Deles, 8.000 são eletrotécnicos e técnicos de construção.
+    </p>
+    <p class="ls-p" style="margin-bottom:16px">
+      <strong style="color:var(--c2)">Grid (WP#2)</strong> → Precisa de 12.000 técnicos para instalar baterias comunitárias e HEMS em 18 meses. Imigrantes qualificados resolvem a escassez de mão de obra que travar o programa.
+    </p>
+    <p class="ls-p" style="margin-bottom:16px">
+      <strong style="color:var(--c1)">Moradia (WP#1)</strong> → Imigrante integrado com emprego confirmado recebe +15 pts no scoring. Sai do centro de asilo em 30 dias → libera 8-12k vagas/ano → economia de €280M/ano → financia parte do subsídio das baterias comunitárias.
+    </p>
+    <p class="ls-p">
+      <strong style="color:var(--gold)">Resultado do loop:</strong> Cada sistema gera externalidades positivas para os outros dois. O custo total é €1,2B + €1,1B + €0,5B = <strong style="color:var(--gold)">€2,8B</strong>. O retorno combinado (energia + impostos de imigrantes + vagas liberadas + habitação) é <strong style="color:var(--gold)">€4,1B/ano a partir do ano 3</strong>.
+    </p>
+  </div>
+  <div class="loop">
+    <span class="loop-badge c1">WP#1 → WP#3: +15pts scoring imigrante integrado</span>
+    <span class="loop-badge c3">WP#3 → WP#2: mão de obra técnica para instalações</span>
+    <span class="loop-badge c2">WP#2 → WP#1: €280M/ano reinvestido em habitação</span>
+  </div>
+</div>
+</section>
+
+<footer style="padding:0 24px 40px">
+<div class="container">
+<div class="disclaimer">
+DISCLAIMER: Documento prospectivo e estratégico — Ivan, análise estratégica aplicada, março 2026.<br>
+Simulações baseadas em dados reais: CBS 2025-2026, TenneT Open Data, Frontex, IND histórico 2018-2024.<br>
+Casos de referência: Berlim 2022, Utrecht piloto 2025, Dinamarca preço dinâmico 2023-2025, Frontex retorno voluntário Albânia/Grécia 2025.<br>
+Nenhuma garantia de resultado é fornecida. Riscos são substanciais e mapeados em cada white paper.
+</div>
+</div>
+</footer>
+
+</body>
+</html>
