@@ -119,9 +119,10 @@ export default function AtlasPage() {
   }, [sound]);
 
   useEffect(() => {
-    // We now use `realtimeData.co2` directly if it exists, or local state.
-    if (realtimeData?.co2?.length) {
-      setCo2Records(realtimeData.co2);
+    if (realtimeData?.length) {
+      // Map the new RealtimeDataPoint[] to the co2Records and pollutionData states
+      // Or simply pass them down. For now, we update co2Records with the raw array
+      setCo2Records(realtimeData);
     }
   }, [realtimeData]);
 
