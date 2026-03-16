@@ -21,7 +21,7 @@ const DEFAULT_SOURCES: RealtimeDataPoint['source'][] = ['climate', 'economy', 'g
 
 // sacred-flow: API endpoints — expandir com keys reais
 const DATA_ENDPOINTS: Record<RealtimeDataPoint['source'], string> = {
-  climate: '/api/data/climate',
+  climate: 'https://api.open-meteo.com/v1/forecast?latitude=14.93&longitude=-23.51&current=temperature_2m,relative_humidity_2m&timezone=auto', // Real feed!
   economy: '/api/data/economy',
   geopolitics: '/api/data/geopolitics',
   energy: '/api/data/energy',
@@ -52,17 +52,32 @@ export function useRealtimeData(options: UseRealtimeDataOptions = {}): RealtimeD
     setState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
+      const allData: RealtimeDataPoint[] = [];
       const results = await Promise.allSettled(
         sources.map(async (source) => {
+          if (source === 'climate') {
+            const res = await fetch(DATA_ENDPOINTS[source]);
+            if (!res.ok) throw new Error(`${source}: ${res.status}`);
+            const data = await res.json();
+            allData.push({
+               source: 'climate',
+               value: data.current.temperature_2m,
+               lat: 14.93,
+               lng: -23.51,
+               timestamp: Date.now(),
+               severity: data.current.temperature_2m > 30 ? 0.8 : 0.3,
+               temperature: data.current.temperature_2m
+            });
+            return;
+          }
           const res = await fetch(DATA_ENDPOINTS[source]);
           if (!res.ok) throw new Error(`${source}: ${res.status}`);
           return res.json() as Promise<RealtimeDataPoint[]>;
         })
       );
 
-      const allData: RealtimeDataPoint[] = [];
       results.forEach((result) => {
-        if (result.status === 'fulfilled') {
+        if (result.status === 'fulfilled' && result.value) {
           allData.push(...result.value);
         }
       });

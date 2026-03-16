@@ -32,6 +32,7 @@ const CanalTransparencia = lazy(() => import("./pages/CanalTransparencia"));
 const InvestorNexusPortal = lazy(() => import("./pages/InvestorNexusPortal"));
 const SalaDeCrise = lazy(() => import("./pages/SalaDeCrise"));
 const EducacaoNacional = lazy(() => import("./pages/EducacaoNacional"));
+const IndexPage = lazy(() => import("./pages/IndexPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -69,10 +70,35 @@ const App = () => (
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/geopolitics" element={<Geopolitics />} />
                 <Route path="/gallery" element={<Gallery />} />
-                <Route path="/atlas" element={<AtlasPage />} />
+                <Route path="/atlas" element={
+                  <OrganErrorBoundary organName="Atlas">
+                    <Suspense fallback={<OrganSuspenseFallback organName="Atlas" />}>
+                      <AtlasPage />
+                    </Suspense>
+                  </OrganErrorBoundary>
+                } />
                 <Route path="/nexus" element={<NexusPage />} />
-                <Route path="/news" element={<NewsPortal />} />
-                <Route path="/tribunal" element={<GeopoliticsNarrative />} />
+                <Route path="/news" element={
+                  <OrganErrorBoundary organName="News">
+                    <Suspense fallback={<OrganSuspenseFallback organName="News" />}>
+                      <NewsPortal />
+                    </Suspense>
+                  </OrganErrorBoundary>
+                } />
+                <Route path="/organism-index" element={
+                  <OrganErrorBoundary organName="Index">
+                    <Suspense fallback={<OrganSuspenseFallback organName="Index" />}>
+                      <IndexPage />
+                    </Suspense>
+                  </OrganErrorBoundary>
+                } />
+                <Route path="/tribunal" element={
+                  <OrganErrorBoundary organName="Tribunal">
+                    <Suspense fallback={<OrganSuspenseFallback organName="Tribunal" />}>
+                      <GeopoliticsNarrative />
+                    </Suspense>
+                  </OrganErrorBoundary>
+                } />
                 <Route path="/nexus-organism" element={<NexusOrganismBuilder />} />
                 <Route path="/plataforma-nacional" element={<PlataformaNacional />} />
                 <Route path="/comando-geopolitico" element={<CentroComandoGeopolitico />} />

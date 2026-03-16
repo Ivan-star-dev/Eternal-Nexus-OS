@@ -352,7 +352,7 @@ export default function SalaDeCrise() {
         <motion.div
           className="fixed inset-0 border-2 border-red-500/50 pointer-events-none z-50"
           animate={{ opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          transition={{ duration: 1.5, repeat: Infinity } as any}
         />
       )}
 
