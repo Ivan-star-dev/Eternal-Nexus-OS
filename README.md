@@ -1,73 +1,78 @@
-# Welcome to your Lovable project
+# Eternal Nexus — Repositório Operacional
 
-## Project info
+Este repositório contém a base React + TypeScript + Vite do projeto Eternal Nexus, incluindo páginas, componentes e pipelines de validação.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Invariantes do projeto (não negociáveis)
+- Não simplificar o projeto.
+- Não renomear órgãos, agentes, fluxos ou estruturas centrais.
+- Preservar o fluxo sagrado: **Tribunal → Atlas → Index → News**.
+- Usar apenas evidência do próprio repositório para implementação e documentação.
 
-## How can I edit this code?
+## Estrutura relevante
+- Aplicação: `src/`
+- Páginas-chave do fluxo:
+  - Tribunal: `src/components/tribunal/`
+  - Atlas: `src/pages/AtlasPage.tsx` e `src/lib/atlas/`
+  - Index: `src/pages/Index.tsx`
+  - News: `src/pages/NewsPortal.tsx`
+- Documentação de Fase 3: `docs/DOC_FASE3.md`
+- Governança de agentes:
+  - `AGENTS.md`
+  - `.github/copilot-instructions.md`
+- CI:
+  - App quality: `.github/workflows/app-quality.yml`
+  - Database tests: `.github/workflows/database-tests.yml`
 
-There are several ways of editing your application.
+## Pré-requisitos
+- Node.js 20+
+- npm
 
-**Use Lovable**
+## Instalação
+```bash
+npm ci
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## Execução local
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Validação local
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts reais disponíveis
+Definidos em `package.json`:
+- `dev`
+- `build`
+- `build:dev`
+- `lint`
+- `test`
+- `test:watch`
+- `typecheck`
+- `preview`
 
-**Use GitHub Codespaces**
+## Governança da Fase 3
+A fonte de verdade da Fase 3 neste repositório é:
+- `docs/DOC_FASE3.md`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Esse documento define:
+- escopo e não-escopo
+- requisitos verificáveis
+- critérios de aceitação auditáveis
+- rastreabilidade mínima requisito → evidência
 
-## What technologies are used for this project?
+## Estado atual baseado em evidência de repositório
+Em vigor neste repositório:
+- Documento versionado de Fase 3
+- Instruções persistentes para agentes
+- Workflow de CI para qualidade da aplicação
+- Workflow de CI para testes de banco
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Não afirmado por falta de evidência técnica fechada neste repositório:
+- Novas capacidades de produto além do que já está codificado/documentado
+- Critérios funcionais detalhados não versionados em arquivos do projeto
