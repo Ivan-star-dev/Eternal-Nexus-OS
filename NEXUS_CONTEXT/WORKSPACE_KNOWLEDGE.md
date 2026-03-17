@@ -1,13 +1,18 @@
-﻿# Eternal Nexus â€” WORKSPACE_KNOWLEDGE (como trabalhar sem confusÃ£o)
+# Eternal Nexus — WORKSPACE_KNOWLEDGE (como trabalhar sem confusão)
 
 ## Branches e worktrees
-- main: ./ (repo root)
-- agent/claude: ./_worktrees/claude
-- agent/codex: ./_worktrees/codex
-- agent/antigravity: ./_worktrees/antigravity
+- `main`: `./` (repo root)
+- `agent/claude`: `./_worktrees/claude`
+- `agent/codex`: `./_worktrees/codex`
+- `agent/antigravity`: `./_worktrees/antigravity`
 
-## PR padrÃ£o
-TÃ­tulo: [agent] objetivo â€” gate
+## Lab branches (per pioneer)
+- `lab/<agent>/01..03` — experimental, never merge to main directly
+- Validate → re-implement → PR from agent branch
+
+## PR padrão
+Título: `[agent] objetivo — gate`
+
 Corpo:
 - O que mudou
 - Gate que protege/atinge
@@ -15,46 +20,25 @@ Corpo:
 - Riscos / rollback
 
 ## Session log
-Sempre criar log em NEXUS_CONTEXT/LOGS/YYYY-MM-DD_agent.md e linkar PR/Issue.
+Sempre criar log em `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md` e linkar PR/Issue.
+
+### Mandatory log structure
+1. What changed (file paths)
+2. Why (aligned to Sacred Flow + phase gate)
+3. How to verify (commands + expected output)
+4. Risks + rollback
+5. Next 3 tasks
+6. Suggestions for other pioneers
+7. Optional: external references (license + adoption plan)
+
+## Post-merge checklist
+After every PR merge to `main`:
+1. Append state bump to `NEXUS_CONTEXT/PROJECT_STATE.md`
+2. Update `PROJECT_KNOWLEDGE.md` if phase reality changed
+3. Leave handoff note in `NEXUS_CONTEXT/INSIGHTS.md`
 
 ## Releases (artefatos)
-Artefatos (ZIP/PDF/posters) vÃ£o para GitHub Releases.
-Baixar via CLI: gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
-"@
-
- = @"
-# Eternal Nexus â€” VISUAL_DNA (heranÃ§a em cascata)
-
-## Regra central
-Cada hub herda: **DNA da mÃ£e (Nexus)** + **DNA da aba** + **intensificaÃ§Ã£o contextual**.
-Nunca inventar um estilo novo no fundo do stack.
-
-## ProibiÃ§Ãµes (sem exceÃ§Ãµes)
-- Misturar famÃ­lias (propÃ³sitos diferentes) na mesma tela/poster
-- Dashboards estÃ¡ticos e â€œcards aleatÃ³riosâ€
-- Clutter e widgets â€œdev leftoversâ€
-- Neon soup / over-bloom global
-
-## TransiÃ§Ãµes permitidas (apenas 3)
-1) Push-in (portal/zoom) â€” entrar num subhub
-2) Pull-out â€” subir um nÃ­vel
-3) Lateral glide â€” mudar de modo no mesmo nÃ­vel
-
-## Breadcrumbs
-Sempre mostrar caminho (folder feeling): NEXUS / <ABA> / ... / <HUB>
-"@
-
- = @"
-# LOGS (como registrar sessÃµes)
-
-Cada sessÃ£o de qualquer pioneiro termina com um log em Markdown:
-
-YYYY-MM-DD_<agent>.md
-
-Estrutura sugerida:
-- Contexto (o que foi pedido)
-- O que foi feito
-- O que NÃƒO foi feito (cut-list)
-- Links (PR/Issue/commit)
-- PrÃ³ximos 3 passos
-- Riscos/Blockers
+Artefatos (ZIP/PDF/posters) vão para GitHub Releases.
+```
+gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
+```
