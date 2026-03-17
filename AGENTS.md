@@ -36,9 +36,8 @@
 6. Design considered always, executed last — structure first
 7. Performance budgets are non-negotiable — target FPS per tier
 8. Lab branches for innovation — isolated, never merged directly
-9. State upgrades after merge — PROJECT_STATE.md + INSIGHTS.md (append-only)
 10. Sustainable model supply — see `NEXUS_CONTEXT/MODEL_ROUTING.md`
-11. Universal Neural Link (The Handoff Rule) — On task completion, write a `HANDOFF.md` tagging the next pioneers (`@claude`, `@antigravity`, `@codex`, `@copilot`) to keep the continuous workflow loop unbroken.
+11. Universal Neural Link (The Pipeline Rule) — Let tasks accumulate in `NEXUS_CONTEXT/PIPELINE.md`. On task completion, write a `HANDOFF.md` tagging the next pioneers, and if the pipeline is low, YOU MUST generate more tasks. An autonomous loop of self-planning and execution.
 
 ## Execution Rules
 1. Read `NEXUS_CONTEXT/README_FIRST.md` + `ROLE_CHARTER.md` + `PROJECT_KNOWLEDGE.md` first.
@@ -100,6 +99,8 @@ Your output (PLAN MODE, do not implement unless requested):
 5) HANDOFF TO TEAM (Universal Neural Link)
    - Mandatory: If your task is fully done, write a `HANDOFF.md` file.
    - Tag the exact pioneers (@claude, @antigravity, @codex, @copilot) to take the next baton.
+   - Strike out your task in `NEXUS_CONTEXT/PIPELINE.md`.
+   - If the pipeline is low (under 3 tasks), YOU MUST break down the gate and add new tasks. We do not wait for the user.
    - 3 requests to other pioneers
    - 3 suggestions to other pioneers
 
