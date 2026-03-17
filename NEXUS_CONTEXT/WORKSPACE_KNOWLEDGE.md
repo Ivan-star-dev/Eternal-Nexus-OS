@@ -40,6 +40,17 @@ Rules:
 - Never commit the filled private founder profile.
 - Update shared state only when there is evidence.
 
+## Local task watcher
+Codex has a local 5-minute task watcher:
+- `scripts/automation/check-codex-task.ps1`
+- `scripts/automation/register-codex-task-scan.ps1`
+- `scripts/automation/unregister-codex-task-scan.ps1`
+
+Rules:
+- The watcher reads `TASK_SEQUENCE.md` and `HANDOFF.md`.
+- It writes snapshots to `NEXUS_CONTEXT/_private/task-scan/`.
+- It never auto-edits the repo or self-assigns work.
+
 ## Benchmark tags
 Use these tags in handoffs, debate docs, and PR review requests:
 - `@claude`
