@@ -3,29 +3,27 @@
 ## Pioneer and backup map
 | Area | Pioneer | Backup | Rule |
 |---|---|---|---|
-| Architecture, contracts, event bus | Claude Code | antigravity | Defines invariants and avoids ops or visual drift |
-| Tests, CI, quality gates | Codex | Copilot | Protects the Sacred Flow and blocks drift |
-| Ops, scaffold, releases, setup | antigravity | Codex | Keeps desktop mirrors, GitHub flow, and releases aligned |
+| Architecture, spine, contracts, event bus | Claude Code | antigravity | Owns invariants and does not drift into ops or polish |
+| Tests, CI, quality gates | Codex | Copilot | Protects Sacred Flow and blocks drift |
+| Ops, scaffold, releases, setup, templates | antigravity | Codex | Keeps desktop mirrors, automation, and releases aligned |
 | Review, security, lint | Copilot | - | Works in PR review without a dedicated branch |
-| Premium UI, motion, shaders | Cursor (if used) | Claude Code | Must preserve the inherited visual DNA |
-| Atlas, Cesium, tiles | Gemini (if used) | Claude Code | Owns LOD, performance, and tiles strategy |
+| Premium UI, motion, shader polish | Cursor (if used) | Claude Code | Executes polish last, after the spine is proven |
 
 ## Branch discipline
-- `main`: source of truth
-- `agent/claude`: architecture, systems, contracts
-- `agent/codex`: tests, CI, gates
-- `agent/antigravity`: ops, setup, releases
+- Work only in the assigned agent branch for real work.
+- Merge to `main` only via PR.
+- Use `lab/<agent>/01..03` only for experiments.
+- Rebuild promising lab work cleanly in the agent branch before asking for merge.
 
-## Limits by agent
+## Limits by pioneer
 ### Claude (`agent/claude`)
-- Do not touch ops or releases.
-- Do not refactor UI only for style.
-- Do work on contracts, schemas, event bus, and Sacred Flow state machines.
+- Owns architecture, schemas, event flow, and state machines.
+- Does not own ops or release machinery.
 
 ### Codex (`agent/codex`)
-- Do not create product features in `/src` outside what tests or gates require.
-- Do work on `/tests`, `/.github/workflows`, gates, lint, and e2e coverage.
+- Owns tests, CI, lint, gates, and verification surfaces.
+- Does not create product features in `/src` unless directly required by a test or gate.
 
 ### antigravity (`agent/antigravity`)
-- Do not change architecture or schemas without an approved PR.
-- Do work on scaffolds, scripts, worktrees, releases, organization, and automation.
+- Owns setup, templates, scaffolds, worktrees, release flow, and automation.
+- Does not change core architecture without an approved PR.

@@ -1,60 +1,67 @@
 # Eternal Nexus - README_FIRST
 
-You are inside the only official project. Nothing happens "outside".
-Source of truth: the GitHub repo plus the canonical `NEXUS_CONTEXT/` folder.
+You are inside the only official project. Nothing happens outside the repo.
+Source of truth: `main` plus `NEXUS_CONTEXT/`.
 
 Repo: `Ivan-star-dev/Eternal-Nexus-OS`
 
 ## 0) Immutable DNA
-- Fixed organs: Nexus (core), Tribunal (decision), Atlas (perception), Index (memory), News (voice)
+- Fixed organs: Nexus, Tribunal, Atlas, Index, News
 - Sacred Flow: `Tribunal -> Atlas -> Index -> News -> Streams`
-- No dashboards: every hub must show a live loop, evidence, and a next action
-- Cascading inheritance: every click goes deeper and inherits the parent visual DNA
-- Elite rule: one pioneer plus one backup per task; if it does not fit, it becomes an issue
+- No dashboards: every hub must be a living loop with evidence and a next action
+- Cascading inheritance: every deeper level inherits the parent visual DNA
+- Elite rule: one pioneer plus one backup per task
 
-## 1) Operating rule: 1 main + 3 branches
+## 1) Branch topology
 - `main` = source of truth
-- `agent/claude` = architecture, contracts, event bus
-- `agent/codex` = tests, CI, quality gates
-- `agent/antigravity` = ops, scaffold, releases, setup
+- `agent/claude` = architecture, spine, contracts
+- `agent/codex` = tests, CI, gates
+- `agent/antigravity` = ops, scaffold, releases, templates
+- optional `agent/ui` = polish only, after the spine is bulletproof
 
-Merge to `main` only through pull requests.
+Each pioneer may also use up to three lab branches:
+- `lab/<agent>/01`
+- `lab/<agent>/02`
+- `lab/<agent>/03`
 
-## 2) Desktop workspaces
-Expected worktree layout:
-- `./` = `main`
-- `./_worktrees/claude`
-- `./_worktrees/codex`
-- `./_worktrees/antigravity`
+Lab branches are for experiments only. They never merge directly to `main`.
+If a lab idea becomes real, it must be re-implemented cleanly in the agent branch with evidence and a report.
 
-If the worktrees do not exist, create them before continuing.
+## 2) Commit-as-Report OS
+Every meaningful change must ship as:
+1. Code change
+2. Test or evidence where possible
+3. A strong report committed with it
+
+The report path is:
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
 
 ## 3) Neural Link
-Every platform or pioneer starts by reading:
+Every pioneer starts by reading:
 - `NEXUS_CONTEXT/README_FIRST.md`
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
-- `NEXUS_CONTEXT/DECISIONS.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
+- `NEXUS_CONTEXT/PROJECT_STATE.md`
 - `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md`
+- `NEXUS_CONTEXT/STACK_REGISTRY.md`
 - `NEXUS_CONTEXT/VISUAL_DNA.md`
 
-The repo carries the memory. No ad hoc uploads.
-
 ## 4) Session protocol
-Start of session:
-1. Read `README_FIRST.md`.
-2. Confirm the role in `ROLE_CHARTER.md` and the current branch.
-3. Open an issue or checklist with a clear gate.
+At the start of the session:
+1. Read the Neural Link files.
+2. Confirm the role and current branch.
+3. Propose the top three aligned ideas with effort size and proof plan.
+4. Implement only one idea unless a broader scope is explicitly requested.
 
-End of session:
-1. Write a log in `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_agent.md`.
-2. Update `DECISIONS.md` if a rule or architecture changed. Keep it append-only.
-3. Open a PR to `main` with the standard format: `[agent] objective - gate`.
+At the end of the session:
+1. Commit code plus evidence plus report.
+2. Open or update a PR to `main`.
+3. If the work is merged later, append the state bump and handoff notes.
 
-## 5) Releases
-Artifacts such as ZIPs, PDFs, and posters live in GitHub Releases.
-Default download:
-
-```bash
-gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
-```
+## 5) Design order
+Design polish is always considered, but it is executed last.
+The order is:
+1. spine and contracts
+2. gates and evidence
+3. ops and automation
+4. polish and motion

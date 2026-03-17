@@ -21,6 +21,11 @@ Build a living ecosystem that simulates a parallel world governed by EIs, fed by
 - Phase E: Lab and Space hubs
 - Phase F: global polish and consistency
 
+## Current execution rule
+- Structure first, polish last.
+- Every session should produce aligned ideas, measurable proof, and a clear collaboration surface.
+- Innovation can happen in labs, but only clean, verified agent-branch work reaches `main`.
+
 ## Quality gate examples
 - Nervous System Gate: two clients see the same event with the same id, geo, and time propagation
 - Cascade Gate: each click goes deeper while preserving inherited visual DNA

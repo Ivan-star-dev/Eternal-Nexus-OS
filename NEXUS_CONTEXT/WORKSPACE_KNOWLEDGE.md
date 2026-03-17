@@ -6,6 +6,19 @@
 - `agent/codex`: `./_worktrees/codex`
 - `agent/antigravity`: `./_worktrees/antigravity`
 
+## Commit-as-Report requirements
+Every meaningful commit must carry a report in:
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+
+The report must contain:
+- What changed, with file paths
+- Why it changed, aligned to Sacred Flow and the current phase gate
+- How to verify, with commands and expected output
+- Risks and rollback
+- Next 3 tasks
+- Suggestions for other pioneers
+- Optional external references, with feasibility notes
+
 ## Standard PR format
 Title: `[agent] objective - gate`
 
@@ -15,21 +28,14 @@ Body:
 - How to test
 - Risks and rollback
 
-## Session log
-Always create `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_agent.md` and link the PR or issue.
+## Post-merge state upgrade
+After merge, the responsible pioneer must:
+1. Append a state bump to `NEXUS_CONTEXT/PROJECT_STATE.md`
+2. Update `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` if the phase reality changed
+3. Append a handoff note to `NEXUS_CONTEXT/INSIGHTS.md`
 
-Suggested sections:
-- Context
-- What was done
-- What was not done (cut-list)
-- Links (PR, issue, commit)
-- Next 3 steps
-- Risks and blockers
-
-## Releases
-Artifacts such as ZIPs, PDFs, and posters go to GitHub Releases.
-Download with:
-
-```bash
-gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
-```
+## External harvesting
+Any external repo or library must go through:
+1. `NEXUS_CONTEXT/STACK_REGISTRY.md`
+2. lab branch validation
+3. clean agent-branch implementation for PR
