@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,6 +10,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import ReactMarkdown from "react-markdown";
 import AIAnchor3D from "@/components/news/AIAnchor3D";
 import BroadcastBar from "@/components/news/BroadcastBar";
+import { useOrganismFlow } from "@/hooks/useOrganismFlow";
+import type { IndexEntry } from "@/types/index-organ";
 
 // ═══ Report types ═══
 interface NewsReport {
@@ -125,59 +127,49 @@ function NewsTicker({ reports }: { reports: NewsReport[] }) {
   );
 }
 
-// ═══ Generate mock daily reports from live data ═══
-function generateDailyReports(): NewsReport[] {
-  const now = new Date();
-  return [
-    {
-      id: "1", category: "climate", severity: "high",
-      title: "CO₂ global atinge 423ppm — novo recorde mensal",
-      summary: "O Observatório Mauna Loa registrou concentração de CO₂ de 423.1ppm, +2.3ppm vs ano anterior. O Conselho AI recomenda aceleração de captura direta.",
-      timestamp: now.toISOString(), source: "NOAA/Mauna Loa",
-      fullAnalysis: "## Análise Completa\n\nA concentração global de CO₂ atingiu **423.1 ppm**, representando um aumento de 2.3 ppm em relação ao mesmo período do ano anterior.\n\n### Impacto Projetado\n- **Temperatura**: +0.03°C adicional na anomalia global\n- **Nível do mar**: contribuição de +0.8mm/ano\n- **Acidificação oceânica**: pH -0.002\n\n### Recomendação do Conselho\n1. Escalar DAC (Direct Air Capture) em 40%\n2. Acelerar transição energética nos top-10 emissores\n3. Implementar taxa carbono global de $85/ton",
-    },
-    {
-      id: "2", category: "health", severity: "critical",
-      title: "OMS alerta: variante respiratória em 12 países",
-      summary: "Nova variante de influenza aviária H5N8 detectada em humanos em 12 países. CFR estimado: 2.1%. Conselho AI ativou protocolo de preparação pandémica.",
-      timestamp: new Date(now.getTime() - 3600000).toISOString(), source: "WHO GISRS",
-      fullAnalysis: "## Alerta Pandémico\n\n**Variante H5N8-M2** detectada em transmissão humano-humano em 12 países.\n\n### Métricas Críticas\n- **R0 estimado**: 3.4 (acima do limiar pandémico)\n- **CFR**: 2.1% (10x gripe sazonal)\n- **GHS Index médio** dos países afetados: 42/100\n\n### Ações do Conselho\n1. Screening em 200 aeroportos internacionais\n2. Stockpiling de antivirais (oseltamivir) em 72h\n3. Sequenciamento genómico em tempo real via GISAID\n4. Mobilização de hospitais modulares em 5 hotspots",
-    },
-    {
-      id: "3", category: "security", severity: "high",
-      title: "Conflito ativo no Sudão: 2.3M deslocados este mês",
-      summary: "Escalada de violência em Darfur gerou 2.3M novos deslocados internos. Infraestrutura de água destruída em 60% da região.",
-      timestamp: new Date(now.getTime() - 7200000).toISOString(), source: "ACLED/UNHCR",
-    },
-    {
-      id: "4", category: "economy", severity: "moderate",
-      title: "Fundo Soberano Global: $340B alocados para adaptação climática",
-      summary: "O Conselho AI propôs e 147 nações ratificaram alocação de $340B para infraestrutura costeira, hospitais modulares e transição energética.",
-      timestamp: new Date(now.getTime() - 10800000).toISOString(), source: "Nexus Council",
-    },
-    {
-      id: "5", category: "infra", severity: "info",
-      title: "Delta Spine NL: fase 2 concluída — 85% operacional",
-      summary: "Infraestrutura modular holandesa atingiu 85% de operacionalidade. Proteção costeira para 4.2M habitantes ativada.",
-      timestamp: new Date(now.getTime() - 14400000).toISOString(), source: "NPI Operations",
-    },
-    {
-      id: "6", category: "climate", severity: "critical",
-      title: "Terremoto M7.2 no Pacífico — alerta tsunami emitido",
-      summary: "USGS registrou sismo M7.2 a 35km de profundidade. Tsunami watch para costas do Japão, Filipinas e Indonésia.",
-      timestamp: new Date(now.getTime() - 18000000).toISOString(), source: "USGS/PTWC",
-    },
-  ];
-}
+
+const mapIndexCategory = (category: IndexEntry['category']): NewsReport['category'] => {
+  if (category === 'verdict') return 'security';
+  return category;
+};
+
+const mapSeverity = (score: number): NewsReport['severity'] => {
+  if (score >= 0.85) return 'critical';
+  if (score >= 0.65) return 'high';
+  if (score >= 0.4) return 'moderate';
+  return 'info';
+};
+
+const mapIndexEntryToReport = (entry: IndexEntry): NewsReport => ({
+  id: entry.id,
+  title: entry.title,
+  summary: entry.summary,
+  category: mapIndexCategory(entry.category),
+  severity: mapSeverity(entry.severity),
+  timestamp: new Date(entry.timestamp).toISOString(),
+  source: entry.sources.map((source) => source.organ).join('/'),
+});
 
 // ═══ Main Page ═══
 export default function NewsPortal() {
   const { user } = useAuth();
-  const [reports] = useState<NewsReport[]>(generateDailyReports);
+  const { indexEntries, setNewsItems } = useOrganismFlow();
+  const reports = useMemo<NewsReport[]>(() => indexEntries.map(mapIndexEntryToReport), [indexEntries]);
   const [selectedReport, setSelectedReport] = useState<NewsReport | null>(null);
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const anchor = useAIAnchor();
+
+  useEffect(() => {
+    setNewsItems(reports.map((report) => ({
+      id: report.id,
+      title: report.title,
+      summary: report.summary,
+      category: report.category,
+      timestamp: report.timestamp,
+      source: report.source,
+    })));
+  }, [reports, setNewsItems]);
 
   const readReport = useCallback((report: NewsReport) => {
     setSelectedReport(report);
@@ -259,6 +251,14 @@ export default function NewsPortal() {
 
       {/* Ticker */}
       <NewsTicker reports={reports} />
+
+      {reports.length === 0 ? (
+        <div className="max-w-7xl mx-auto px-4 pt-4">
+          <div className="bg-card border border-border/30 rounded-lg p-3">
+            <span className="font-mono text-[0.5rem] text-muted-foreground">Aguardando fluxo do Index para publicação no News.</span>
+          </div>
+        </div>
+      ) : null}
 
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* ═══ AI ANCHOR 3D AVATAR ═══ */}
