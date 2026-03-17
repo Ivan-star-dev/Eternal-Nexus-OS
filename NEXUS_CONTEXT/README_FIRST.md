@@ -1,28 +1,39 @@
-﻿# Eternal Nexus â€” README_FIRST (ler antes de qualquer aÃ§Ã£o)
+# Eternal Nexus — README_FIRST (ler antes de qualquer ação)
 
-**VocÃª estÃ¡ dentro do Ãºnico projeto oficial. Nada acontece â€œforaâ€.**  
-Fonte da verdade: **GitHub repo** + pasta canÃ´nica NEXUS_CONTEXT/.
+**Você está dentro do único projeto oficial. Nada acontece "fora".**
+Fonte da verdade: **GitHub repo** + pasta canônica NEXUS_CONTEXT/.
 
 Repo: Ivan-star-dev/Eternal-Nexus-OS
 
 ---
 
-## 0) DNA imutÃ¡vel (nÃ£o discutir, sÃ³ proteger)
-- **Ã“rgÃ£os fixos:** Nexus (core), Tribunal (decisÃ£o), Atlas (percepÃ§Ã£o), Index (memÃ³ria), News (voz)
-- **Sacred Flow:** Tribunal â†’ Atlas â†’ Index â†’ News â†’ Streams
-- **Nada de dashboards:** todo hub tem **loop vivo + evidÃªncia + prÃ³xima aÃ§Ã£o**
-- **Cascata hereditÃ¡ria:** cada clique aprofunda (folderâ†’folder) e **herda o DNA visual**
-- **Regra Elite:** para cada tarefa, **1 pioneiro + 1 backup** (benchmark) â€” se nÃ£o encaixa, vira issue
+## 0) DNA imutável (não discutir, só proteger)
+- **Órgãos fixos:** Nexus (core), Tribunal (decisão), Atlas (percepção), Index (memória), News (voz)
+- **Sacred Flow:** Tribunal → Atlas → Index → News → Streams
+- **Nada de dashboards:** todo hub tem **loop vivo + evidência + próxima ação**
+- **Cascata hereditária:** cada clique aprofunda (folder→folder) e **herda o DNA visual**
+- **Regra Elite:** para cada tarefa, **1 pioneiro + 1 backup** (benchmark) — se não encaixa, vira issue
 
 ---
 
-## 1) Regra operacional: 1 main + 3 branches (sem confusÃ£o)
-- main = **fonte da verdade**
-- gent/claude = arquitetura/contratos/event-bus (sistemas)
-- gent/codex = testes/CI/quality gates
-- gent/antigravity = ops/scaffold/releases/setup
+## 1) Regra operacional: 1 main + 3 agent branches + lab branches
 
-**Merge sÃ³ via PR** para main.
+### Agent branches (long-lived)
+- main = **fonte da verdade**
+- agent/claude = arquitetura/contratos/event-bus (sistemas)
+- agent/codex = testes/CI/quality gates
+- agent/antigravity = ops/scaffold/releases/setup
+
+**Merge só via PR** para main.
+
+### Lab branches (isoladas, por pioneiro)
+Cada pioneiro pode ter até **3 lab branches**:
+- `lab/<agent>/01`, `lab/<agent>/02`, `lab/<agent>/03`
+
+Regras:
+- Lab branches podem ser experimentais (wild)
+- Lab branches **nunca fazem merge direto para main**
+- Se um experimento vira "real": re-implementar limpo no agent branch com testes + report → PR
 
 ---
 
@@ -33,72 +44,77 @@ Estrutura esperada (worktrees):
 - ./_worktrees/codex
 - ./_worktrees/antigravity
 
-> Se worktrees nÃ£o existirem, crie antes de continuar.
+> Se worktrees não existirem, crie antes de continuar.
 
 ---
 
-## 3) â€œNeural Linkâ€: como todas as plataformas recebem contexto
-Todas as plataformas/agentes comeÃ§am lendo:
+## 3) "Neural Link": como todas as plataformas recebem contexto
+Todas as plataformas/agentes começam lendo:
 - NEXUS_CONTEXT/README_FIRST.md (este arquivo)
 - NEXUS_CONTEXT/ROLE_CHARTER.md
 - NEXUS_CONTEXT/DECISIONS.md
 - NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md
 - NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md
 - NEXUS_CONTEXT/VISUAL_DNA.md
+- NEXUS_CONTEXT/PROJECT_STATE.md (estado atual — onde estamos agora)
+- NEXUS_CONTEXT/INSIGHTS.md (learnings cross-agent — append-only)
+- NEXUS_CONTEXT/STACK_REGISTRY.md (tech externo candidato/adotado)
 
-Nada de uploads caÃ³ticos: o repo carrega a memÃ³ria.
+Nada de uploads caóticos: o repo carrega a memória.
 
 ---
 
-## 4) Protocolo de sessÃ£o (para qualquer pioneiro)
-**ComeÃ§o da sessÃ£o**
+## 4) Protocolo de sessão (para qualquer pioneiro)
+
+### Início da sessão
 1) Ler README_FIRST
 2) Confirmar o **papel** (ROLE_CHARTER) e o **branch**
-3) Abrir issue (ou checklist) com gate claro
+3) Ler PROJECT_STATE.md para saber o estado atual
+4) Abrir issue (ou checklist) com gate claro
 
-**Fim da sessÃ£o**
-1) Escrever log: NEXUS_CONTEXT/LOGS/<agent>.md
+### Durante a sessão (commit-as-report)
+Todo commit significativo **deve incluir um REPORT** em:
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+
+O report deve conter:
+- **O que mudou** (paths)
+- **Por quê** (alinhado ao Sacred Flow + phase gate)
+- **Como verificar** (comandos + output esperado)
+- **Riscos** + rollback
+- **Próximos 3 passos**
+- **Sugestões para outros pioneiros** (baseado no benchmark deles)
+- **Referências externas** opcionais (com licença + plano de adoção)
+
+### Fim da sessão
+1) Garantir que o log existe em NEXUS_CONTEXT/LOGS/
 2) Atualizar DECISIONS.md se uma regra/arquitetura mudou (append-only)
-3) Abrir PR para main com tÃ­tulo padrÃ£o:
-   - [agent] objetivo â€” gate
+3) Abrir PR para main com título padrão: `[agent] objetivo — gate`
+
+### Pós-merge (depois do PR ser mergeado)
+1) Append em NEXUS_CONTEXT/PROJECT_STATE.md: o que mudou + novo estado
+2) Append em NEXUS_CONTEXT/INSIGHTS.md: 1–3 learnings + requests para outros agents
 
 ---
 
-## 5) Releases (CLI)
-Artefatos (ZIP/PDF/posters) vivem em **GitHub Releases**.  
-Download padrÃ£o:
+## 5) Innovation harvesting (tech externo)
+Qualquer repo/lib externo deve ser registrado primeiro em:
+`NEXUS_CONTEXT/STACK_REGISTRY.md`
+
+Fluxo: **registry entry → lab branch validation → clean implementation PR**
+
+Nunca copy-paste direto. Sempre com licença, plano e decisão documentada.
+
+---
+
+## 6) Stop condition
+Se uma proposta **quebra o DNA** (órgãos/flow/cascata) ou cria "feature soup":
+**parar e propor uma alternativa menor e alinhada.**
+
+---
+
+## 7) Releases (CLI)
+Artefatos (ZIP/PDF/posters) vivem em **GitHub Releases**.
+Download padrão:
+```
 gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
-"@
-
- = @"
-# Eternal Nexus â€” ROLE_CHARTER (pioneiro/backup + limites)
-
-## PapÃ©is (benchmark-only)
-| Ãrea | Pioneiro | Backup | Regra |
-|---|---|---|---|
-| Arquitetura / contratos / event-bus | Claude Code (Anthropic) | antigravity | define invariantes; nÃ£o mexe em ops/estÃ©tica |
-| Tests / CI / Quality Gates | Codex | Copilot | protege sacred flow; impede drift |
-| Ops / scaffold / releases / setup | antigravity | Codex | mantÃ©m espelho desktopâ†”GitHub e releases |
-| Review / seguranÃ§a / lint | Copilot | â€” | atua em PR; sem branch dedicada |
-| UI premium / motion / shaders | Cursor (se usar) | Claude Code | Apple-feel; heranÃ§a visual obrigatÃ³ria |
-| Atlas/Cesium/tiles (se usar) | Gemini (se usar) | Claude Code | LOD, performance, tiles strategy |
-
-## Branch discipline (long-lived)
-- main: fonte da verdade
-- gent/claude: arquitetura/sistemas/contratos
-- gent/codex: testes/CI/gates
-- gent/antigravity: ops/setup/releases
-
-## Limites por agente (o que NÃƒO tocar)
-### Claude (agent/claude)
-- NÃƒO: mexer em ops/releases (isso Ã© antigravity)
-- NÃƒO: refatorar UI sÃ³ por estÃ©tica (isso Ã© Cursor/UI)
-- SIM: contratos, schemas, event bus, state machine do sacred flow
-
-### Codex (agent/codex)
-- NÃƒO: criar features em /src fora do necessÃ¡rio para testes
-- SIM: /tests, /.github/workflows, gates, lint, e2e
-
-### antigravity (agent/antigravity)
-- NÃƒO: mudar arquitetura/schemas sem PR aprovado
-- SIM: scaffolds, scripts, worktrees, releases, organizaÃ§Ã£o, automaÃ§Ã£o
+```
