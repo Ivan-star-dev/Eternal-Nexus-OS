@@ -16,7 +16,12 @@ import { makeEventId, seedFromId, fnv1a32 } from '../lib/events/id';
 import { createReplaySession } from '../lib/events/replay';
 import { createNexusClient } from '../lib/events/client';
 import { validateEvent } from '../lib/events/validation';
-import type { NexusEvent, TribunalVerdictPayload } from '../types/sacred-flow';
+import type {
+  NexusEvent,
+  TribunalVerdictPayload,
+  IndexEntryPayload,
+  NewsBroadcastPayload,
+} from '../types/sacred-flow';
 
 // ── Helpers ──
 
@@ -376,6 +381,220 @@ describe('Nervous System v1 — Phase Gate', () => {
 
       bus.publish(newsEvent);
       expect(received).toHaveLength(0);
+    });
+  });
+
+  // ════════════════════════════════════════════════════
+  // GATE 6: LOGGED (Index consumes bus events)
+  // ════════════════════════════════════════════════════
+
+  describe('GATE 6: Logged — Index consumes bus events', () => {
+    it('Index subscriber receives tribunal.verdict and publishes index.entry', () => {
+      // Simulate the Index organ subscribing to tribunal verdicts
+      const index = createNexusClient({
+        organ: 'index',
+        types: ['tribunal.verdict'],
+        bus,
+      });
+
+      const verdictsSeen: NexusEvent[] = [];
+      index.subscribe((e) => {
+        verdictsSeen.push(e);
+
+        // Index processes the verdict and publishes an index.entry
+        const payload: IndexEntryPayload = {
+          title: (e.payload as TribunalVerdictPayload).topic,
+          category: 'verdict',
+          rank: e.severity * e.confidence,
+          linkedVerdictId: e.id,
+        };
+
+        index.emit<IndexEntryPayload>('index.entry', payload, {
+          severity: e.severity,
+          confidence: e.confidence,
+        });
+      });
+
+      // Tribunal publishes a verdict
+      const tribunal = createNexusClient({ organ: 'tribunal', bus });
+      const emitted = tribunal.emit<TribunalVerdictPayload>(
+        'tribunal.verdict',
+        {
+          topic: 'Climate Crisis 2026',
+          judges: ['zeta-9', 'kronos', 'nanobanana'],
+          verdict: 'approved',
+          reasoning: 'Evidence supports action',
+          flowTarget: 'atlas',
+        },
+        { severity: 0.8, confidence: 0.9 },
+      );
+
+      // Verify: Index received the verdict
+      expect(verdictsSeen).toHaveLength(1);
+      expect(verdictsSeen[0].id).toBe(emitted!.id);
+
+      // Verify: Index published an index.entry event to the bus
+      const allEvents = bus.replay({ limit: 100 });
+      const indexEntries = allEvents.filter((e) => e.type === 'index.entry');
+      expect(indexEntries).toHaveLength(1);
+      expect((indexEntries[0].payload as IndexEntryPayload).linkedVerdictId).toBe(emitted!.id);
+      expect((indexEntries[0].payload as IndexEntryPayload).title).toBe('Climate Crisis 2026');
+      expect(indexEntries[0].source).toBe('index');
+    });
+
+    it('index.entry events are idempotent (same verdict processed twice)', () => {
+      const index = createNexusClient({ organ: 'index', bus });
+
+      // Publish the same index.entry twice
+      const payload: IndexEntryPayload = {
+        title: 'Duplicate Test',
+        category: 'verdict',
+        rank: 0.72,
+        linkedVerdictId: 'nxe_test_123',
+      };
+
+      const first = index.emit('index.entry', payload, { severity: 0.8, confidence: 0.9 });
+      const second = index.emit('index.entry', payload, { severity: 0.8, confidence: 0.9 });
+
+      // First succeeds, second is duplicate (same content → same ID → rejected)
+      expect(first).not.toBeNull();
+      expect(second).toBeNull();
+      expect(bus.size()).toBe(1);
+    });
+  });
+
+  // ════════════════════════════════════════════════════
+  // GATE 7: NARRATABLE (News constructs narrative from Index)
+  // ════════════════════════════════════════════════════
+
+  describe('GATE 7: Narratable — News constructs narrative from Index', () => {
+    it('News subscriber receives index.entry and publishes news.broadcast', () => {
+      // Set up the full Sacred Flow chain
+      const index = createNexusClient({ organ: 'index', bus });
+      const news = createNexusClient({
+        organ: 'news',
+        types: ['index.entry'],
+        bus,
+      });
+
+      const indexEntriesSeen: NexusEvent[] = [];
+      news.subscribe((e) => {
+        indexEntriesSeen.push(e);
+
+        // News transforms index entry into a human-readable broadcast
+        const indexPayload = e.payload as IndexEntryPayload;
+        const broadcastPayload: NewsBroadcastPayload = {
+          title: `BREAKING: ${indexPayload.title}`,
+          content: `[Severity: ${e.severity.toFixed(1)}] ${indexPayload.title} — ranked #${indexPayload.rank.toFixed(2)} in Index.`,
+          live: false,
+          linkedVerdictId: indexPayload.linkedVerdictId,
+        };
+
+        news.emit<NewsBroadcastPayload>('news.broadcast', broadcastPayload, {
+          severity: e.severity,
+          confidence: e.confidence,
+        });
+      });
+
+      // Index publishes an entry
+      index.emit<IndexEntryPayload>('index.entry', {
+        title: 'Climate Crisis 2026',
+        category: 'verdict',
+        rank: 0.72,
+        linkedVerdictId: 'nxe_tribunal_verdict_abc',
+      }, { severity: 0.8, confidence: 0.9 });
+
+      // Verify: News received the index entry
+      expect(indexEntriesSeen).toHaveLength(1);
+
+      // Verify: News published a broadcast
+      const allEvents = bus.replay({ limit: 100 });
+      const broadcasts = allEvents.filter((e) => e.type === 'news.broadcast');
+      expect(broadcasts).toHaveLength(1);
+
+      const broadcastPayload = broadcasts[0].payload as NewsBroadcastPayload;
+      expect(broadcastPayload.title).toContain('Climate Crisis 2026');
+      expect(broadcastPayload.content).toContain('Severity');
+      expect(broadcastPayload.linkedVerdictId).toBe('nxe_tribunal_verdict_abc');
+      expect(broadcasts[0].source).toBe('news');
+    });
+
+    it('Full Sacred Flow: Tribunal → Index → News (end-to-end)', () => {
+      // Wire up all three organs
+      const tribunal = createNexusClient({ organ: 'tribunal', bus });
+      const index = createNexusClient({
+        organ: 'index',
+        types: ['tribunal.verdict'],
+        bus,
+      });
+      const news = createNexusClient({
+        organ: 'news',
+        types: ['index.entry'],
+        bus,
+      });
+
+      // Index processes verdicts → publishes index.entry
+      index.subscribe((verdictEvent) => {
+        const vp = verdictEvent.payload as TribunalVerdictPayload;
+        index.emit<IndexEntryPayload>('index.entry', {
+          title: vp.topic,
+          category: 'verdict',
+          rank: verdictEvent.severity * verdictEvent.confidence,
+          linkedVerdictId: verdictEvent.id,
+        }, {
+          severity: verdictEvent.severity,
+          confidence: verdictEvent.confidence,
+        });
+      });
+
+      // News narrates index entries → publishes news.broadcast
+      news.subscribe((indexEvent) => {
+        const ip = indexEvent.payload as IndexEntryPayload;
+        news.emit<NewsBroadcastPayload>('news.broadcast', {
+          title: `NEXUS REPORT: ${ip.title}`,
+          content: `The Tribunal has ${ip.linkedVerdictId ? 'ruled' : 'noted'} on "${ip.title}".`,
+          live: false,
+          linkedVerdictId: ip.linkedVerdictId,
+        }, {
+          severity: indexEvent.severity,
+          confidence: indexEvent.confidence,
+        });
+      });
+
+      // Tribunal emits a verdict
+      const verdict = tribunal.emit<TribunalVerdictPayload>(
+        'tribunal.verdict',
+        {
+          topic: 'Global Water Crisis',
+          judges: ['zeta-9', 'kronos', 'nanobanana'],
+          verdict: 'needs-review',
+          reasoning: 'Insufficient data from 3 continents',
+          flowTarget: 'atlas',
+        },
+        { severity: 0.9, confidence: 0.85 },
+      );
+
+      // Verify the complete Sacred Flow on the bus
+      const allEvents = bus.replay({ limit: 100 });
+      expect(allEvents).toHaveLength(3);
+
+      // Event 1: tribunal.verdict
+      expect(allEvents[0].type).toBe('tribunal.verdict');
+      expect(allEvents[0].source).toBe('tribunal');
+
+      // Event 2: index.entry (logged)
+      expect(allEvents[1].type).toBe('index.entry');
+      expect(allEvents[1].source).toBe('index');
+      expect((allEvents[1].payload as IndexEntryPayload).linkedVerdictId).toBe(verdict!.id);
+
+      // Event 3: news.broadcast (narratable)
+      expect(allEvents[2].type).toBe('news.broadcast');
+      expect(allEvents[2].source).toBe('news');
+      expect((allEvents[2].payload as NewsBroadcastPayload).title).toContain('Global Water Crisis');
+
+      // The full flow is traceable: Tribunal → Index → News
+      // All events share the same verdict lineage
+      expect((allEvents[2].payload as NewsBroadcastPayload).linkedVerdictId).toBe(verdict!.id);
     });
   });
 });
