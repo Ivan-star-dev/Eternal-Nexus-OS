@@ -10,6 +10,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import ReactMarkdown from "react-markdown";
 import AIAnchor3D from "@/components/news/AIAnchor3D";
 import BroadcastBar from "@/components/news/BroadcastBar";
+import { useIndexOrgan } from "@/hooks/useIndexOrgan";
+import { IndexEntry } from "@/types/index-organ";
 
 // ═══ Report types ═══
 interface NewsReport {
@@ -173,11 +175,32 @@ function generateDailyReports(): NewsReport[] {
 // ═══ Main Page ═══
 export default function NewsPortal() {
   const { user } = useAuth();
-  const [reports] = useState<NewsReport[]>(generateDailyReports);
+  const { entries } = useIndexOrgan();
+  
+  // Map IndexEntry to NewsReport
+  const reports: NewsReport[] = entries.map(e => ({
+    id: e.id,
+    title: e.title,
+    summary: e.summary,
+    category: e.category === 'verdict' ? 'security' : (e.category as any),
+    severity: e.severity > 0.8 ? 'critical' : e.severity > 0.6 ? 'high' : e.severity > 0.3 ? 'moderate' : 'info',
+    timestamp: new Date(e.timestamp).toISOString(),
+    source: e.sources[0]?.organ || 'Nexus',
+    fullAnalysis: e.summary
+  }));
+
   const [selectedReport, setSelectedReport] = useState<NewsReport | null>(null);
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const anchor = useAIAnchor();
+
+  // Initial report selection
+  useEffect(() => {
+    if (reports.length > 0 && !selectedReport) {
+      setSelectedReport(reports[0]);
+      setAiAnalysis(reports[0].fullAnalysis || null);
+    }
+  }, [reports, selectedReport]);
 
   const readReport = useCallback((report: NewsReport) => {
     setSelectedReport(report);
