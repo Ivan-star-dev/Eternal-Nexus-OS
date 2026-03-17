@@ -12,6 +12,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
+import { useNexusState } from "@/hooks/useNexusState";
+import { TribunalVerdict } from "@/types";
 
 // ═══ Judge definitions ═══
 interface Judge {
@@ -193,6 +195,7 @@ export default function GeopoliticsNarrative() {
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [muted, setMuted] = useState(false);
+  const { addVerdict } = useNexusState();
 
   // Cycle through judges animation
   useEffect(() => {
@@ -233,6 +236,18 @@ export default function GeopoliticsNarrative() {
       });
       if (data?.synthesis?.response) {
         setAiAnalysis(data.synthesis.response);
+        
+        // sacred-flow: persistence — push verdict to shared organism memory
+        addVerdict({
+          id: `tribunal-${Date.now()}`,
+          topic: ev.title,
+          judges: ['zeta-9', 'kronos', 'nanobanana'],
+          verdict: ev.truthScore > 40 ? 'approved' : 'needs-review',
+          confidence: ev.truthScore / 100,
+          reasoning: data.synthesis.response,
+          timestamp: Date.now(),
+          flowTarget: 'index'
+        });
       }
     } catch (err) {
       console.warn("Judge analysis failed:", err);

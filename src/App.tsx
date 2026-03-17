@@ -9,6 +9,9 @@ import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
 import { lazy, Suspense } from "react";
+import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
+import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
+import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
 
 const Index = lazy(() => import("./pages/Index"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -57,6 +60,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <OrganTransitionParticles />
+            <NexusFlowInspector />
             <Suspense fallback={<PageSkeleton />}>
               <Routes>
                 <Route path="/" element={<Index />} />

@@ -4,8 +4,10 @@ import { TribunalVerdict } from '@/types/index';
 import { IndexEntry, IndexStats } from '@/types/index-organ';
 import { aggregateOrganism } from '@/lib/index-organ/aggregator';
 import { useRealtimeData } from '@/hooks/useRealtimeData';
+import { useNexusState } from '@/hooks/useNexusState';
 
-export const useIndexOrgan = (verdicts: TribunalVerdict[] = []) => {
+export const useIndexOrgan = () => {
+  const { verdicts } = useNexusState();
   const { data: realtimeData, isLoading, error } = useRealtimeData();
   const [entries, setEntries] = useState<IndexEntry[]>([]);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
