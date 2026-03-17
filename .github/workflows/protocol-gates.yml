@@ -1,0 +1,19 @@
+name: Protocol Gates
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-branches-and-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed for deep git logs
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run Lab Validation Gate
+        run: node scripts/gates/lab-branch-validation-gate.mjs
