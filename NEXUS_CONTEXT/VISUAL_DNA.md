@@ -16,4 +16,8 @@ Nunca inventar um estilo novo no fundo do stack.
 3) Lateral glide — mudar de modo no mesmo nível
 
 ## Breadcrumbs
-Sempre mostrar caminho (folder feeling): NEXUS / <ABA> / ... / <HUB>
+Sempre mostrar caminho (folder feeling): `NEXUS / <ABA> / ... / <HUB>`
+
+## Design execution timing
+Design polish is **considered always**, but **executed last**, after the spine is bulletproof.
+UI work happens only after architecture and gates are validated.

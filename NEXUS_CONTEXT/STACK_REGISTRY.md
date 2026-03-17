@@ -1,93 +1,70 @@
 # Eternal Nexus — STACK_REGISTRY (external tech candidates)
 
-> Rule: No random copy-paste. All external tech goes through:
-> **registry entry → lab branch validation → clean implementation PR**
+> **Rule:** No random copy-paste. All external tech goes through:
+> registry entry → lab branch validation → clean implementation PR
 >
-> Each entry must have: subsystem, candidate, license, why it's best, integration plan, risks, decision.
+> Each entry must contain: subsystem, candidate, license, rationale,
+> integration plan, risks, and adoption decision.
 
 ---
 
-## Format
+## Registry format
 
 ```
-### [Subsystem] — [Candidate name]
-- **Repo/URL:** ...
-- **License:** ...
-- **Why best-in-class:** ...
-- **Integration plan:** ...
-- **Risks:** ...
-- **Decision:** adopt | reject | evaluate-in-lab
-- **Lab branch:** (if evaluating)
+### <Subsystem>
+- **Candidate:** <repo URL or npm package>
+- **License:** <e.g., MIT, Apache-2.0, GPL-3.0>
+- **Why best-in-class:** <brief rationale>
+- **Integration plan:** <how it connects to Sacred Flow>
+- **Risks:** <bundle size, maintenance, lock-in>
+- **Lab branch:** <lab/<agent>/XX or "not yet tested">
+- **Decision:** 🟡 PENDING | ✅ ADOPT | ❌ REJECT
 - **Date:** YYYY-MM-DD
-- **Agent:** who proposed
 ```
 
 ---
 
-## Already adopted (baseline stack)
+## Current stack (already in use — not candidates)
 
-### Globe rendering — CesiumJS
-- **Repo/URL:** https://github.com/CesiumGS/cesium
-- **License:** Apache 2.0
-- **Why best-in-class:** Industry-standard 3D geospatial. Handles LOD, terrain, tiles natively.
-- **Integration plan:** Already integrated via `resium` + direct Cesium API in `src/components/atlas/cesium/`.
-- **Risks:** Bundle size (~4MB). COOP/COEP headers needed for SharedArrayBuffer.
-- **Decision:** adopt (already in use)
-- **Date:** 2026-03-17
-- **Agent:** (pre-existing)
+### UI Framework
+- **In use:** React 18 + Vite + TypeScript
+- **Status:** ✅ Established
 
-### UI primitives — Radix UI
-- **Repo/URL:** https://github.com/radix-ui/primitives
-- **License:** MIT
-- **Why best-in-class:** Accessible, unstyled, composable. shadcn/ui layer on top.
-- **Decision:** adopt (already in use)
-- **Date:** 2026-03-17
-- **Agent:** (pre-existing)
+### State Management
+- **In use:** TanStack Query (nervous system backbone)
+- **Status:** ✅ Established
 
-### 3D rendering — Three.js + React Three Fiber
-- **Repo/URL:** https://github.com/pmndrs/react-three-fiber
-- **License:** MIT
-- **Why best-in-class:** Declarative Three.js for React. Used in Tribunal holographic judges.
-- **Decision:** adopt (already in use)
-- **Date:** 2026-03-17
-- **Agent:** (pre-existing)
+### 3D/Globe
+- **In use:** Cesium + React Three Fiber
+- **Status:** ✅ Established
 
-### Backend — Supabase
-- **Repo/URL:** https://supabase.com
-- **License:** Apache 2.0 (self-host) / proprietary (cloud)
-- **Why best-in-class:** Postgres + Realtime + Auth in one. Already wired in hooks.
-- **Decision:** adopt (already in use)
-- **Date:** 2026-03-17
-- **Agent:** (pre-existing)
+### Styling
+- **In use:** Tailwind CSS + shadcn/ui
+- **Status:** ✅ Established
+
+### Testing
+- **In use:** Vitest
+- **Status:** ✅ Established
+
+### Backend
+- **In use:** Supabase (edge functions + DB)
+- **Status:** ✅ Established
 
 ---
 
-## Candidates to evaluate
+## Candidates (pending evaluation)
 
-### Event transport — Supabase Realtime (Channels)
-- **Repo/URL:** https://supabase.com/docs/guides/realtime
-- **License:** Apache 2.0
-- **Why best-in-class:** Already in stack. Channels support broadcast + presence. Could replace in-memory bus for persistence + cross-tab sync.
-- **Integration plan:** Implement `NexusEventBus` interface backed by Supabase Realtime Channel. In-memory bus stays as fallback.
-- **Risks:** Latency on free tier. Realtime row-level security adds complexity.
-- **Decision:** evaluate-in-lab
-- **Lab branch:** (TBD — Claude)
-- **Date:** 2026-03-17
-- **Agent:** Claude
+> Add entries here as pioneers discover best-in-class options.
+> No entry = no adoption. Period.
 
-### Camera inertia — @react-three/drei (Controls)
-- **Repo/URL:** https://github.com/pmndrs/drei
+<!-- Example entry:
+### Camera inertia (Atlas globe)
+- **Candidate:** https://github.com/example/smooth-camera
 - **License:** MIT
-- **Why best-in-class:** OrbitControls with damping, already in R3F ecosystem.
-- **Integration plan:** Already partially used. Evaluate for Atlas 3D camera if switching from Cesium camera.
-- **Risks:** Conflicts with Cesium's own camera system. Don't mix.
-- **Decision:** evaluate-in-lab
-- **Lab branch:** (TBD — UI specialist)
+- **Why best-in-class:** Sub-frame interpolation, proven in production globes
+- **Integration plan:** Replace current AtlasGlobe camera controller
+- **Risks:** 12kb bundle, last commit 6mo ago
+- **Lab branch:** lab/claude/01
+- **Decision:** 🟡 PENDING
 - **Date:** 2026-03-17
-- **Agent:** Claude (proposed), UI specialist (validates)
-
----
-
-## Rejected
-
-(none yet)
+-->
