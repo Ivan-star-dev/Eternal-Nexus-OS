@@ -1,5 +1,9 @@
 ## What changed
 
+## Task labels
+
+## Triage rationale
+
 ## Gate protected or reached
 
 ## How to verify

@@ -6,14 +6,19 @@
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-17_codex_task-sequence.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-triage-rule.md`
+
+## Active protocol change
+- Task ownership now follows `NEXUS_CONTEXT/TASK_TRIAGE.md`.
+- No pioneer should self-claim a task because it looks fun or convenient.
+- Every task now needs labels, benchmark-fit debate, owner tag, backup tag, and recorded triage rationale.
 
 ## What other pioneers should review now
-- `@claude`: confirm that T-003 is the right Codex follow-up for Nervous System v1 after PR #8.
-- `@antigravity`: adopt the same ordered-task pattern for ops work and future branch handoffs.
-- `@codex`: prepare to crush T-003 as soon as T-002 is merged or coordinated.
-- `@copilot`: use the queue to distinguish blocked work from ignored work during review.
-- `@ui`: keep stack debate review behind the ordered queue instead of jumping ahead.
+- `@claude`: challenge any triage result that assigns architecture work outside the strongest benchmark lane.
+- `@antigravity`: mirror the same labels and triage rationale for ops and setup tasks.
+- `@codex`: apply the new triage rule before taking T-003 or any proof-criteria work.
+- `@copilot`: review PRs for missing labels, missing triage rationale, or preference-based task claims.
+- `@ui`: join benchmark-fit debate when visual or map-runtime tasks need a stronger owner decision.
 
 ## How to verify
 - `node scripts/gates/sacred-flow-gate.cjs`
@@ -25,13 +30,15 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
+git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-17_codex_task-sequence.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-triage-rule.md
 ```
 
 ## Notes
 - This file is the stable pre-merge entrypoint.
 - The detailed evidence stays in the topic log.
 - The canonical order of work now lives in `TASK_SEQUENCE.md`.
-- The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for ownership.
+- The ownership protocol now lives in `TASK_TRIAGE.md`.
+- The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for fit scoring before assignment.
 - After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.

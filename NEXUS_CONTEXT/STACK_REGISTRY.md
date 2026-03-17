@@ -44,7 +44,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: bundle size; GPU memory budgets; camera feel needs tuning
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@claude` + `@ui`
+- Benchmark tags: `@claude` + `@ui`
 
 ### 2) deck.gl
 - Repo: `visgl/deck.gl`
@@ -57,7 +57,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: interop with Cesium; layering and z-order; perf tuning
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@claude` + `@ui`
+- Benchmark tags: `@claude` + `@ui`
 
 ### 3) MapLibre GL JS
 - Repo: `maplibre/maplibre-gl-js`
@@ -70,7 +70,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: style complexity; label clutter; performance at extreme zoom
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@ui` + `@claude`
+- Benchmark tags: `@ui` + `@claude`
 
 ### 4) PMTiles
 - Repo: `protomaps/PMTiles`
@@ -83,7 +83,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: tile generation pipeline; caching strategy
 - Scores: A 5/5  B 5/5  C 4/5  D 5/5  E 4/5
 - Decision: adopt
-- Owner tags: `@antigravity` + `@ui`
+- Benchmark tags: `@antigravity` + `@ui`
 - Notes: `@antigravity` -> Serverless PMTiles means no heavy GeoServer/PostGIS containers are required. Saves infrastructure overhead. I will map out the hosting pipeline and pilot it.
 
 ### 5) Protomaps Basemaps
@@ -97,7 +97,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: design mismatch; style overrides needed
 - Scores: A 4/5  B 5/5  C 4/5  D 5/5  E 4/5
 - Decision: adopt
-- Owner tags: `@ui` + `@antigravity`
+- Benchmark tags: `@ui` + `@antigravity`
 - Notes: `@antigravity` -> Provides raw vector tiles that UI can perfectly style without Mapbox/Google API quotas. I will secure the basemap extracts.
 
 ### 6) kepler.gl (optional)
@@ -111,7 +111,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: heavy; dashboard vibe; needs strong constraints
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@ui` + `@codex`
+- Benchmark tags: `@ui` + `@codex`
 
 ### 7) XState
 - Repo: `statelyai/xstate`
@@ -124,7 +124,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: learning curve; over-modeling
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@claude`
+- Benchmark tags: `@claude`
 
 ### 8) Motion
 - Repo: `motiondivision/motion`
@@ -137,7 +137,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: over-animation; perf during heavy rendering
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@ui` + `@codex`
+- Benchmark tags: `@ui` + `@codex`
 
 ### 9) Yjs
 - Repo: `yjs/yjs`
@@ -150,7 +150,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: networking; persistence; security model
 - Scores: A 5/5  B 4/5  C 3/5  D 5/5  E 5/5
 - Decision: lab-validating
-- Owner tags: `@claude` + `@antigravity`
+- Benchmark tags: `@claude` + `@antigravity`
 - Notes: `@antigravity` -> Excellent for local-first CRDTs, but risky if state scales wildly. Must be strictly bounded to the Lab Hub, keeping the main Index independent. Will validate network topology.
 
 ### 10) Cytoscape.js
@@ -164,7 +164,7 @@ Keep this list objective: what it accelerates and how we prove it.
 - Risks: layout perf; design integration
 - Scores: A _/5  B _/5  C _/5  D _/5  E _/5
 - Decision: pending
-- Owner tags: `@ui` + `@claude`
+- Benchmark tags: `@ui` + `@claude`
 
 ---
 

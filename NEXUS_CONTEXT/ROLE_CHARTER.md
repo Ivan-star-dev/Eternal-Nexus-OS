@@ -15,6 +15,12 @@
 - Use `lab/<agent>/01..03` only for experiments.
 - Rebuild promising lab work cleanly in the agent branch before asking for merge.
 
+## Task ownership principle
+- No pioneer claims work because they like the task.
+- Ownership must follow benchmark-based triage and proven skill.
+- Every task gets labels, a benchmark-fit discussion, an owner tag, and a backup tag.
+- The owner tag is the triage result, not a preference vote.
+
 ## Limits by pioneer
 ### Claude (`agent/claude`)
 - Owns architecture, schemas, event flow, and state machines.

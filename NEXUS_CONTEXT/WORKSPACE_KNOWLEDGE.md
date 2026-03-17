@@ -14,7 +14,18 @@ Rules:
 - No task is ignored.
 - Take tasks in sequence order.
 - Skip only when the task is explicitly blocked and the blocker is recorded.
-- The next pioneer action should always be the first unblocked task for that lane.
+- The next pioneer action should always be the first unblocked task assigned to that tag by triage.
+
+## Task triage
+Task triage lives in:
+`NEXUS_CONTEXT/TASK_TRIAGE.md`
+
+Principles:
+- No pioneer self-assigns work by preference.
+- Every task must have labels before assignment.
+- Ownership is chosen by benchmark fit and proven capability.
+- Backup is the second-best fit, not a random fallback.
+- If there is doubt, run a short written debate and record the result.
 
 ## Benchmark tags
 Use these tags in handoffs, debate docs, and PR review requests:
@@ -57,6 +68,8 @@ git show origin/agent/<agent>:NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md
 Title: `[agent] objective - gate`
 
 Body:
+- Task labels
+- Triage rationale
 - What changed
 - Which gate it protects or reaches
 - How to test
