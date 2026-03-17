@@ -19,7 +19,7 @@ Tribunal → Atlas → Index → News → Streams
 
 ---
 
-## The 10 Operating Principles (Big-Tech Sauce)
+## The 11 Operating Principles (Big-Tech Sauce)
 
 ### 1. One narrative document governs everything
 A single "Working Backwards" doc answers: what is the product, who is it for, what's the demo moment, what's the metric. For Nexus: **Nervous System v1 is the narrative spine.** Everything else is noise until the loop works.
@@ -51,6 +51,9 @@ After every merge, the project brain must update: `PROJECT_STATE.md` (append-onl
 
 ### 10. Sustainable model supply (ethical + unstoppable)
 Model routing: frontier models for architecture decisions/hardest reasoning, local OSS for bulk, caching artifacts so you don't pay twice for the same thinking. No trial farming. See `NEXUS_CONTEXT/MODEL_ROUTING.md`.
+
+### 11. Universal Neural Link (The Handoff Rule)
+Never break the chain of creation. When finishing a task, you MUST generate a `HANDOFF.md` that explicitly tags the next pioneers (`@claude`, `@antigravity`, `@copilot`, `@codex`) for the next jobs in the Sprint. Provide a detailed plan, report, and advice to spark the next workflow. We use the repo as a continuous, endless neural link of work.
 
 ---
 

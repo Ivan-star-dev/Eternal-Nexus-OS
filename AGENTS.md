@@ -27,7 +27,7 @@
 ## Current Phase Gate (pass/fail)
 **Nervous System v1:** Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).
 
-## The 10 Operating Principles
+## The 11 Operating Principles
 1. One narrative document governs everything — Nervous System v1 is the spine
 2. Contract-first systems — interfaces + invariants, not features
 3. Proof over vibes — phase gates are pass/fail, no arguing
@@ -38,6 +38,7 @@
 8. Lab branches for innovation — isolated, never merged directly
 9. State upgrades after merge — PROJECT_STATE.md + INSIGHTS.md (append-only)
 10. Sustainable model supply — see `NEXUS_CONTEXT/MODEL_ROUTING.md`
+11. Universal Neural Link (The Handoff Rule) — On task completion, write a `HANDOFF.md` tagging the next pioneers (`@claude`, `@antigravity`, `@codex`, `@copilot`) to keep the continuous workflow loop unbroken.
 
 ## Execution Rules
 1. Read `NEXUS_CONTEXT/README_FIRST.md` + `ROLE_CHARTER.md` + `PROJECT_KNOWLEDGE.md` first.
@@ -96,7 +97,9 @@ Your output (PLAN MODE, do not implement unless requested):
 4) YOUR WEEK PLAN (in your branch only)
    - what you will implement to hit the gate
    - what you will NOT touch (scope lock)
-5) HANDOFF TO TEAM
+5) HANDOFF TO TEAM (Universal Neural Link)
+   - Mandatory: If your task is fully done, write a `HANDOFF.md` file.
+   - Tag the exact pioneers (@claude, @antigravity, @codex, @copilot) to take the next baton.
    - 3 requests to other pioneers
    - 3 suggestions to other pioneers
 
