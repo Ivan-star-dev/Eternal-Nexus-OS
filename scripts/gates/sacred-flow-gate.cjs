@@ -20,6 +20,10 @@ const KEYWORDS = [
   'Index',
   'News',
   'Streams',
+];
+
+const FLOW_VARIANTS = [
+  'Tribunal -> Atlas -> Index -> News -> Streams',
   'Tribunal → Atlas → Index → News → Streams',
 ];
 
@@ -53,9 +57,17 @@ function assertKeywords() {
   }).join('\n');
 
   const missing = KEYWORDS.filter(k => !haystack.includes(k));
+  const hasCanonicalFlow = FLOW_VARIANTS.some(flow => haystack.includes(flow));
+
   if (missing.length) {
     console.error('Sacred Flow Gate FAILED: missing required keywords (possible drift):');
     missing.forEach(m => console.error(' - ' + m));
+    process.exit(1);
+  }
+
+  if (!hasCanonicalFlow) {
+    console.error('Sacred Flow Gate FAILED: missing canonical Sacred Flow sequence:');
+    FLOW_VARIANTS.forEach(flow => console.error(' - ' + flow));
     process.exit(1);
   }
 }

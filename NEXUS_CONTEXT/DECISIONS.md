@@ -1,9 +1,9 @@
-﻿# Eternal Nexus â€” DECISIONS (append-only)
+# Eternal Nexus - DECISIONS
 
-> Regra: decisÃµes aqui sÃ£o **imutÃ¡veis** (append-only). Se mudar algo, adicione uma nova entrada explicando o motivo.
+This file is append-only. If a rule changes, add a new entry that explains why.
 
-## 2026-03-17 â€” Bootstrap do â€œEcosystem OSâ€
-- Decidido: **GitHub repo Ã© a fonte da verdade**, e a memÃ³ria vive em NEXUS_CONTEXT/.
-- Decidido: **branches long-lived**: main, gent/claude, gent/codex, gent/antigravity.
-- Decidido: **worktrees** como espelho por espelho no desktop (_worktrees/<agent>).
-- Decidido: **Core Laws** do produto (Ã³rgÃ£os fixos + sacred flow + cascata hereditÃ¡ria + no dashboards).
+## 2026-03-17 - Ecosystem bootstrap
+- GitHub is the source of truth and long-term memory lives in `NEXUS_CONTEXT/`.
+- Long-lived branches are `main`, `agent/claude`, `agent/codex`, and `agent/antigravity`.
+- Desktop mirrors use worktrees in `./_worktrees/<agent>`.
+- The core laws stay fixed: organs, Sacred Flow, cascading inheritance, and no dashboards.

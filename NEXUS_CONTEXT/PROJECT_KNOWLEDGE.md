@@ -1,27 +1,27 @@
-﻿# Eternal Nexus â€” PROJECT_KNOWLEDGE (visÃ£o + fases + gates)
+# Eternal Nexus - PROJECT_KNOWLEDGE
 
 ## North Star
-Um ecossistema vivo que simula um mundo paralelo governado por EIs (desde 2026), alimentado por dados reais, produzindo decisÃµes, consequÃªncias, memÃ³ria e relatos.
+Build a living ecosystem that simulates a parallel world governed by EIs, fed by real data, and producing decisions, consequences, memory, and broadcast.
 
-## Ã“rgÃ£os (fixos)
-- Tribunal (decisÃ£o)
-- Atlas (percepÃ§Ã£o geoespacial)
-- Index (memÃ³ria/estrutura)
-- News (voz/broadcast)
-- Nexus (core shell + integraÃ§Ã£o)
+## Fixed organs
+- Tribunal (decision)
+- Atlas (geospatial perception)
+- Index (memory and structure)
+- News (voice and broadcast)
+- Nexus (core shell and integration)
 
-## Sacred Flow (fixo)
-Tribunal â†’ Atlas â†’ Index â†’ News â†’ Streams
+## Sacred Flow
+`Tribunal -> Atlas -> Index -> News -> Streams`
 
-## Fases (alto nÃ­vel)
-- Fase A: Atlas premium (globo vivo)
-- Fase B: Nervous System (Tribunalâ†’Atlas propagation + replay/sync)
-- Fase C: Index spine (knowledge nodes + project vault)
-- Fase D: News voice (broadcast, relato, export)
-- Fase E: Lab + Space hubs (pesquisa e exploraÃ§Ã£o)
-- Fase F: Awards polish (polimento global e consistÃªncia)
+## High-level phases
+- Phase A: premium Atlas
+- Phase B: Nervous System propagation, replay, and sync
+- Phase C: Index spine with knowledge nodes and project vault
+- Phase D: News voice, broadcast, and export
+- Phase E: Lab and Space hubs
+- Phase F: global polish and consistency
 
-## Quality Gates (exemplos)
-- Gate Nervous System: 2 clientes veem o mesmo evento (id/geo/time) propagando e renderizando igual.
-- Gate Cascata: cada clique aprofunda e mantÃ©m heranÃ§a visual (sem ruptura de estilo).
-- Gate Performance: movimento estÃ¡vel (target por device tier), sem stutter perceptÃ­vel.
+## Quality gate examples
+- Nervous System Gate: two clients see the same event with the same id, geo, and time propagation
+- Cascade Gate: each click goes deeper while preserving inherited visual DNA
+- Performance Gate: stable motion for the target device tier without perceptible stutter
