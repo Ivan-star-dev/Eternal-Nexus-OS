@@ -36,3 +36,7 @@ export interface IndexStats {
   avgSeverity: number;
   topSources: string[];
 }
+
+export const createEmptyIndexCategoryCount = (): Record<IndexCategory, number> => (
+  Object.fromEntries(INDEX_CATEGORIES.map((category) => [category, 0])) as Record<IndexCategory, number>
+);

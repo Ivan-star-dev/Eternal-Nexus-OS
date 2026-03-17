@@ -21,11 +21,16 @@ const stringSimilarity = (a: string, b: string): number => {
 };
 
 const mapDataCategory = (dp: RealtimeDataPoint): IndexCategory => {
-  if (dp.co2 !== undefined || dp.temperature !== undefined || dp.source === 'climate') return 'climate';
-  if (dp.source === 'economy') return 'economy';
-  if (dp.source === 'geopolitics') return 'security';
-  if (dp.source === 'energy') return 'infra';
-  if (dp.source === 'migration') return 'health';
+  const source = dp.source.toLowerCase();
+  const category = dp.category?.toLowerCase();
+
+  if (dp.co2 !== undefined || dp.temperature !== undefined || source === 'climate' || category === 'climate') {
+    return 'climate';
+  }
+  if (source === 'economy' || category === 'economy' || source.includes('econ')) return 'economy';
+  if (source === 'geopolitics' || category === 'security' || source.includes('sec')) return 'security';
+  if (source === 'energy' || category === 'infra' || source.includes('infra')) return 'infra';
+  if (source === 'migration' || category === 'health' || source.includes('health')) return 'health';
   return 'climate';
 };
 
