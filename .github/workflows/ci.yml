@@ -12,6 +12,7 @@ on:
       - 'vite.config.ts'
       - 'vitest.config.ts'
       - 'eslint.config.js'
+      - '.github/pull_request_template.md'
       - '.github/workflows/ci.yml'
   push:
     branches:
@@ -27,6 +28,7 @@ on:
       - 'vite.config.ts'
       - 'vitest.config.ts'
       - 'eslint.config.js'
+      - '.github/pull_request_template.md'
       - '.github/workflows/ci.yml'
 
 concurrency:
@@ -41,6 +43,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -53,6 +57,12 @@ jobs:
 
       - name: Sacred Flow Gate
         run: node scripts/gates/sacred-flow-gate.cjs
+
+      - name: Report Presence Gate
+        env:
+          GATE_EVENT_NAME: ${{ github.event_name }}
+          GATE_BASE_REF: ${{ github.base_ref || 'main' }}
+        run: node scripts/gates/report-presence-gate.cjs
 
       - name: Typecheck
         run: npm run typecheck --if-present

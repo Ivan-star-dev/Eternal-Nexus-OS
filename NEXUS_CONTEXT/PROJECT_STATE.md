@@ -11,9 +11,12 @@ This file is the current-state snapshot for the project. After each merge, appen
 
 ## Known current state
 - Sacred Flow Gate exists and is wired into CI.
+- Report Presence Gate now exists to enforce `HANDOFF.md` plus a topic log before merge.
 - Session logs live in `NEXUS_CONTEXT/LOGS/`.
+- Stable pre-merge branch broadcast now lives in `NEXUS_CONTEXT/HANDOFF.md`.
 - Cross-pioneer handoffs are now expected through logs, PRs, `PROJECT_STATE.md`, and `INSIGHTS.md`.
 - Full green CI still depends on fixing the existing `typecheck` and `lint` baseline in the app.
 
 ## State bump log
 - 2026-03-17: collaboration OS bootstrapped on `agent/codex` pending merge to `main`.
+- 2026-03-17: pre-merge handoff layer added with `HANDOFF.md`, PR template, and Report Presence Gate.

@@ -33,7 +33,10 @@ Every meaningful change must ship as:
 2. Test or evidence where possible
 3. A strong report committed with it
 
-The report path is:
+The stable pre-merge broadcast file is:
+`NEXUS_CONTEXT/HANDOFF.md`
+
+The detailed report path is:
 `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
 
 ## 3) Neural Link
@@ -42,6 +45,7 @@ Every pioneer starts by reading:
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/PROJECT_STATE.md`
+- `NEXUS_CONTEXT/HANDOFF.md`
 - `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/STACK_REGISTRY.md`
 - `NEXUS_CONTEXT/VISUAL_DNA.md`
@@ -55,8 +59,9 @@ At the start of the session:
 
 At the end of the session:
 1. Commit code plus evidence plus report.
-2. Open or update a PR to `main`.
-3. If the work is merged later, append the state bump and handoff notes.
+2. Update `NEXUS_CONTEXT/HANDOFF.md` so other pioneers can fetch one stable entrypoint before merge.
+3. Open or update a PR to `main`.
+4. If the work is merged later, append the state bump and handoff notes.
 
 ## 5) Design order
 Design polish is always considered, but it is executed last.
