@@ -1,28 +1,43 @@
-# Copilot Instructions — Eternal Nexus (Fase 3)
+# Copilot Instructions — Eternal Nexus
 
-## Objetivo
-Executar somente o que está definido em `docs/DOC_FASE3.md`, sem ampliar escopo.
+## Retention Lock
+> Read NEXUS_CONTEXT first. Work only in your branch. PR to main only.
+> Every commit includes LOG + evidence.
+> Ask: "Does this strengthen Sacred Flow and the current phase gate?"
+> If not, stop and propose a smaller aligned alternative.
 
-## Fonte de verdade
-- Repositório atual é a única fonte válida.
-- Não inventar requisitos, APIs ou comportamento.
-- Quando algo não estiver explícito, sinalizar como não especificado.
+## Source of Truth
+- Repository is the only valid source. Read `NEXUS_CONTEXT/README_FIRST.md` + `PROJECT_KNOWLEDGE.md` first.
+- For Phase 3 scope: `docs/DOC_FASE3.md`.
+- If specification is missing, do NOT infer. Register as limitation.
 
-## Invariantes obrigatórias
-- Preservar identidade e nomenclaturas do projeto.
-- Preservar fluxo sagrado: **Tribunal → Atlas → Index → News**.
-- Não simplificar ou substituir estruturas nucleares.
+## Immutable DNA
+- Preserve Sacred Flow: **Tribunal → Atlas → Index → News**.
+- Never simplify, rename, or restructure core organs.
+- Never introduce scope beyond what is requested.
 
-## Escopo de alteração (Fase 3)
-- Apenas governança operacional: documento formal, instruções persistentes, CI de app e README operacional.
-- Evitar tocar arquivos fora do escopo imediato da tarefa.
+## Current Phase Gate (pass/fail)
+Nervous System v1: Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).
 
-## Regras de implementação
-- Preferir mudanças mínimas, auditáveis e reversíveis.
-- Usar scripts reais de `package.json`.
-- Não criar comandos fictícios.
-- Não remover ou quebrar workflows existentes (incluindo banco).
+## The 10 Operating Principles
+1. One narrative document governs everything
+2. Contract-first systems — interfaces + invariants, not features
+3. Proof over vibes — phase gates are pass/fail
+4. Repo-enforced collaboration — the machine enforces, not memory
+5. Commit-as-Report — PR + tests + log + evidence
+6. Design considered always, executed last
+7. Performance budgets are non-negotiable
+8. Lab branches for innovation — never merged directly
+9. State upgrades after merge — PROJECT_STATE.md + INSIGHTS.md
+10. Sustainable model supply — see MODEL_ROUTING.md
 
-## Regra de conflito
-Se o pedido exigir quebrar invariantes, responder exatamente:
+## Execution Rules
+- Change only files necessary for the current requirement.
+- Use real scripts from `package.json`.
+- Do NOT create commands that don't exist.
+- Do NOT remove or break existing workflows.
+- Every meaningful commit includes: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`.
+
+## Drift Rule
+If a request conflicts with the invariants above, respond exactly:
 **"Isso quebra o organismo vivo. Quer manter?"**

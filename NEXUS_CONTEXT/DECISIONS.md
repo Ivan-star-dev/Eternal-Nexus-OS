@@ -15,3 +15,11 @@
 - Decidido: **STACK_REGISTRY.md** — all external tech must be registered before adoption (registry → lab → clean PR).
 - Decidido: **Design polish is considered always, executed last** — spine first, aesthetics after gates pass.
 - Decidido: New NEXUS_CONTEXT files: `PROJECT_STATE.md`, `STACK_REGISTRY.md`, `INSIGHTS.md`.
+
+## 2026-03-17 — 10 Operating Principles + War Room Prompt
+- Decidido: **10 Operating Principles** codified in `PROJECT_KNOWLEDGE.md` (contract-first, proof-over-vibes, repo-enforced collaboration, performance budgets, etc.).
+- Decidido: **Nervous System v1 phase gate** is pass/fail: deterministic + idempotent + replayable + logged + narratable.
+- Decidido: **War Room Prompt** codified in `AGENTS.md` — universal instruction for all pioneers.
+- Decidido: **Model Routing policy** in `NEXUS_CONTEXT/MODEL_ROUTING.md` — 4-tier routing (frontier → mid → local → cached), no trial farming.
+- Decidido: **PR template** (`.github/pull_request_template.md`) enforces gate alignment, session log, post-merge checklist, and pioneer suggestions.
+- Decidido: Copilot instructions (`.github/copilot-instructions.md`) updated with retention lock + 10 principles + phase gate.
