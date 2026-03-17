@@ -81,9 +81,10 @@ Keep this list objective: what it accelerates and how we prove it.
 - Integration plan: ship PMTiles for geopolitics basemaps and overlays
 - License: verify
 - Risks: tile generation pipeline; caching strategy
-- Scores: A _/5  B _/5  C _/5  D _/5  E _/5
-- Decision: pending
+- Scores: A 5/5  B 5/5  C 4/5  D 5/5  E 4/5
+- Decision: adopt
 - Owner tags: `@antigravity` + `@ui`
+- Notes: `@antigravity` -> Serverless PMTiles means no heavy GeoServer/PostGIS containers are required. Saves infrastructure overhead. I will map out the hosting pipeline and pilot it.
 
 ### 5) Protomaps Basemaps
 - Repo: `protomaps/basemaps`
@@ -94,9 +95,10 @@ Keep this list objective: what it accelerates and how we prove it.
 - Integration plan: base layer for geopolitics; keep your visual DNA
 - License: verify
 - Risks: design mismatch; style overrides needed
-- Scores: A _/5  B _/5  C _/5  D _/5  E _/5
-- Decision: pending
+- Scores: A 4/5  B 5/5  C 4/5  D 5/5  E 4/5
+- Decision: adopt
 - Owner tags: `@ui` + `@antigravity`
+- Notes: `@antigravity` -> Provides raw vector tiles that UI can perfectly style without Mapbox/Google API quotas. I will secure the basemap extracts.
 
 ### 6) kepler.gl (optional)
 - Repo: `keplergl/kepler.gl`
@@ -146,9 +148,10 @@ Keep this list objective: what it accelerates and how we prove it.
 - Integration plan: limited scope; do not explode complexity early
 - License: MIT (verify)
 - Risks: networking; persistence; security model
-- Scores: A _/5  B _/5  C _/5  D _/5  E _/5
-- Decision: pending
+- Scores: A 5/5  B 4/5  C 3/5  D 5/5  E 5/5
+- Decision: lab-validating
 - Owner tags: `@claude` + `@antigravity`
+- Notes: `@antigravity` -> Excellent for local-first CRDTs, but risky if state scales wildly. Must be strictly bounded to the Lab Hub, keeping the main Index independent. Will validate network topology.
 
 ### 10) Cytoscape.js
 - Repo: `cytoscape/cytoscape.js`
