@@ -12,6 +12,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
+import { useOrganismFlow } from "@/hooks/useOrganismFlow";
+import type { TribunalVerdict } from "@/types/index";
 
 // ═══ Judge definitions ═══
 interface Judge {
@@ -193,6 +195,7 @@ export default function GeopoliticsNarrative() {
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [muted, setMuted] = useState(false);
+  const { pushVerdict } = useOrganismFlow();
 
   // Cycle through judges animation
   useEffect(() => {
@@ -233,6 +236,27 @@ export default function GeopoliticsNarrative() {
       });
       if (data?.synthesis?.response) {
         setAiAnalysis(data.synthesis.response);
+
+        const tribunalVerdict: TribunalVerdict = {
+          id: `${ev.id}-${Date.now()}`,
+          topic: ev.title,
+          judges: ['zeta-9', 'kronos', 'nanobanana'],
+          verdict: ev.truthScore >= 70 ? 'approved' : ev.truthScore <= 30 ? 'rejected' : 'needs-review',
+          confidence: Math.min(1, Math.max(0, ev.truthScore / 100)),
+          reasoning: data.synthesis.response,
+          timestamp: Date.now(),
+          flowTarget: 'atlas',
+        };
+
+        pushVerdict({
+          ...tribunalVerdict,
+          createdAt: Date.now(),
+          source: 'tribunal',
+          summary: ev.narrativeB,
+          status: 'new',
+          region: ev.region,
+          evidenceReference: ev.sources[0],
+        });
       }
     } catch (err) {
       console.warn("Judge analysis failed:", err);
@@ -240,7 +264,7 @@ export default function GeopoliticsNarrative() {
     } finally {
       setAnalysisLoading(false);
     }
-  }, [user]);
+  }, [pushVerdict, user]);
 
   const filteredEvents = searchQuery
     ? events.filter((e) =>

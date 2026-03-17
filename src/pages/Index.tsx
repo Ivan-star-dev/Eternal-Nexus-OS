@@ -9,6 +9,7 @@ import DossierCard from "@/components/home/DossierCard";
 import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import { homeProjects } from "@/data/homeProjects";
+import { useIndexOrgan } from "@/hooks/useIndexOrgan";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -20,6 +21,9 @@ const Index = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  // keep Index as aggregation organ in session flow
+  useIndexOrgan();
 
   return (
     <Layout>
