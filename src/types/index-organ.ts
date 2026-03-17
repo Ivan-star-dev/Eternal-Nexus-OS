@@ -2,6 +2,15 @@ import type { OrganType } from '@/types/index';
 
 export type IndexCategory = 'verdict' | 'climate' | 'economy' | 'security' | 'health' | 'infra';
 
+export const INDEX_CATEGORIES: IndexCategory[] = [
+  'verdict',
+  'climate',
+  'economy',
+  'security',
+  'health',
+  'infra',
+];
+
 export interface IndexSourceRef {
   organ: OrganType;
   dataId: string;

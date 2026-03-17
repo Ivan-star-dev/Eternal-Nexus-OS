@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { RealtimeDataPoint, TribunalVerdict } from '@/types/index';
-import type { IndexEntry, IndexStats } from '@/types/index-organ';
+import { INDEX_CATEGORIES, type IndexEntry, type IndexStats } from '@/types/index-organ';
 import { aggregateOrganism } from '@/lib/index-organ/aggregator';
 import { useRealtimeData } from '@/hooks/useRealtimeData';
 import { useOrganismFlow } from '@/hooks/useOrganismFlow';
@@ -44,14 +44,9 @@ export const useIndexOrgan = (verdicts?: TribunalVerdict[]): UseIndexOrganResult
   }, [inputVerdicts, safeRealtimeData, isLoading, setIndexEntries]);
 
   const stats: IndexStats = useMemo(() => {
-    const byCategory: IndexStats['byCategory'] = {
-      verdict: 0,
-      climate: 0,
-      economy: 0,
-      security: 0,
-      health: 0,
-      infra: 0,
-    };
+    const byCategory = Object.fromEntries(
+      INDEX_CATEGORIES.map((category) => [category, 0]),
+    ) as IndexStats['byCategory'];
 
     let severityTotal = 0;
     const sourceCount: Record<string, number> = {};
