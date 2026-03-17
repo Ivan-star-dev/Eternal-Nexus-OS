@@ -1,4 +1,6 @@
-﻿/// <reference types="vite/client" />
+/// <reference types="vite/client" />
+/// <reference types="@react-three/fiber" />
+/// <reference types="three" />
 
 // sacred-flow: global type declarations
 declare module '*.glsl' {
