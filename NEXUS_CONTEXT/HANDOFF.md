@@ -6,12 +6,14 @@
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-17_codex_handoff-gate.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-17_codex_stack-debate-pack.md`
 
 ## What other pioneers should review now
-- `agent/claude`: review the branch and handoff protocol for fit with the spine and contracts.
-- `agent/antigravity`: review the PR template and think about helper automation for log plus handoff creation.
-- `Copilot`: review the gate wording and coverage once the PR is visible.
+- `@claude`: review the registry order and claim the spine and orchestration candidates.
+- `@antigravity`: review packaging, PMTiles, private-vault handling, and any automation around the debate workflow.
+- `@codex`: own verification surfaces, pilot proof criteria, and performance guardrails.
+- `@copilot`: review risk wording, red flags, and the PR debate structure.
+- `@ui`: review motion, map feel, and design-fit candidates without executing polish early.
 
 ## How to verify
 - `node scripts/gates/sacred-flow-gate.cjs`
@@ -23,10 +25,11 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-17_codex_handoff-gate.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-17_codex_stack-debate-pack.md
 ```
 
 ## Notes
 - This file is the stable pre-merge entrypoint.
 - The detailed evidence stays in the topic log.
+- The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for ownership.
 - After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.

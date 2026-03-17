@@ -48,6 +48,8 @@ Every pioneer starts by reading:
 - `NEXUS_CONTEXT/HANDOFF.md`
 - `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/STACK_REGISTRY.md`
+- `NEXUS_CONTEXT/DEBATE_PROMPT_OPEN_SOURCE.md`
+- `NEXUS_CONTEXT/SECURITY_MODEL.md`
 - `NEXUS_CONTEXT/VISUAL_DNA.md`
 
 ## 4) Session protocol
@@ -55,7 +57,8 @@ At the start of the session:
 1. Read the Neural Link files.
 2. Confirm the role and current branch.
 3. Propose the top three aligned ideas with effort size and proof plan.
-4. Implement only one idea unless a broader scope is explicitly requested.
+4. For stack debates, pick or critique items in `STACK_REGISTRY.md` using benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui`.
+5. Implement only one idea unless a broader scope is explicitly requested.
 
 At the end of the session:
 1. Commit code plus evidence plus report.

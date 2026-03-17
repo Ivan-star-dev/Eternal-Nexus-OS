@@ -6,6 +6,14 @@
 - `agent/codex`: `./_worktrees/codex`
 - `agent/antigravity`: `./_worktrees/antigravity`
 
+## Benchmark tags
+Use these tags in handoffs, debate docs, and PR review requests:
+- `@claude`
+- `@codex`
+- `@antigravity`
+- `@copilot`
+- `@ui`
+
 ## Commit-as-Report requirements
 Every meaningful commit must carry:
 - a topic log in `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
@@ -57,3 +65,5 @@ Any external repo or library must go through:
 1. `NEXUS_CONTEXT/STACK_REGISTRY.md`
 2. lab branch validation
 3. clean agent-branch implementation for PR
+
+For open-source debates, use `NEXUS_CONTEXT/DEBATE_PROMPT_OPEN_SOURCE.md` and assign candidates by benchmark tag.

@@ -17,6 +17,8 @@
 - Path: `NEXUS_CONTEXT/HANDOFF.md`
 
 ## Pioneer review requests
-- `agent/claude`:
-- `agent/antigravity`:
-- `Copilot`:
+- `@claude`:
+- `@antigravity`:
+- `@codex`:
+- `@copilot`:
+- `@ui`:
