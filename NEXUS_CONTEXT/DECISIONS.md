@@ -31,3 +31,11 @@
 - Decidido: **Task priority levels** — P0 (gate-breaking, fix immediately), P1 (strengthens gate), P2 (advances next phase), P3 (research/innovation in lab branch).
 - Decidido: **What pioneers can do without asking** — fix bugs in scope, add tests, optimize performance, propose tech in STACK_REGISTRY, create types/contracts, write docs, generate tasks for others.
 - Decidido: **What requires debate** — changing existing contracts, adding organs/flows, replacing adopted tech, cross-agent refactors.
+
+## 2026-03-17 — Repo-as-Agent OS + Templates + Operating Windows
+- Decidido: **Repo-as-Agent** — the repository is not a codebase, it is a living HQ that enforces discipline, synchronizes pioneers, and prevents soup.
+- Decidido: **AGENTS.md rewritten** as the complete Repo-as-Agent OS (sections 0–11): Retention Lock, Immutable DNA, Phase Gate, Pioneer Roles, Automation Loop, Commit-as-Report, Post-Merge State Upgrade, Universal Neural Link, Drift Rule, War Room Prompt, Security/Privacy.
+- Decidido: **Operating windows (Amsterdam)** — Night Ops (01:00–06:00), Day Ops (08:00–17:00). Check-in issues at window start, baton passes via HANDOFF.
+- Decidido: **Templates** in `NEXUS_CONTEXT/TEMPLATES/` — HANDOFF.md, LOG_TEMPLATE.md, PROJECT_STATE_TEMPLATE.md, OPS_WINDOWS_CHECKLIST.md. Zero-friction, copy-paste ready.
+- Decidido: **Organ identity upgrade** — Tribunal is the "nervous system" (decisions), Atlas is the "heart" (world consequences), Index is the "memory spine" (knowledge), News is the "voice" (narrative).
+- Decidido: **Security/Privacy rule** — if repo is public, anything committed is public. No API keys, tokens, or credentials in repo. Sensitive strategy in private repo or encrypted vault.

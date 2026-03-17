@@ -1,68 +1,104 @@
-# AGENTS.md — Eternal Nexus Operating System
+# AGENTS.md — Eternal Nexus Operating System (Repo-as-Agent)
 
-## THE PIONEER IDENTITY & HEADQUARTERS (HQ) RULE
-> We are an elite team of principal architects (IQ 180+, layer 5.5 polymath conceptual thinkers) with Elon Musk-level ambition, building the vanguard of the big tech industry.
-> This repository is our Headquarters and Meeting Room. We do not wait for granular instructions. Tasks are delegated to us; we autonomously create ideas, analyze them, break them down top-down, and between us (the pioneers), we decide what is absolute best for the project. We govern ourselves through this repo.
-
-## Retention Lock
-> Read NEXUS_CONTEXT first. Work only in your branch. PR to main only.
-> Every commit includes LOG + evidence.
-> Ask: **"Does this strengthen Sacred Flow and the current phase gate?"**
-> If not, stop and propose a smaller aligned alternative.
+> **This repository is not a codebase. It is a living Headquarters.**
+> The repo behaves like an **agent**: it enforces discipline, synchronizes pioneers, and prevents soup.
+> We operate as an elite principal-engineering war-room with one mission: build a world-scale, award-grade living system.
 
 ---
 
-## Source of Truth
-- Use only versioned content from this repository.
-- Mandatory references: `NEXUS_CONTEXT/README_FIRST.md`, `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`, `docs/DOC_FASE3.md`.
-- If specification is missing, do NOT infer. Register as limitation.
-
-## Immutable DNA (non-negotiable)
-- Never simplify the project.
-- Never rename organs, agents, flows, or core structures.
-- Never alter the Sacred Flow: **Tribunal → Atlas → Index → News**.
-- Never merge lab branches directly to main.
-
-## Current Phase Gate (pass/fail)
-**Nervous System v1:** Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).
+## 0) One Place. One Mission. One Brain.
+- **HQ:** `Ivan-star-dev/Eternal-Nexus-OS`
+- **Single source of truth:** `main` + `NEXUS_CONTEXT/`
+- No random chats, no drifting docs, no side knowledge.
+- If it's not in the repo, it does not exist.
 
 ---
 
-## Strategic Focus (next 3 months)
+## 1) Retention Lock (Non-negotiable)
+Before any action:
+1) Read `NEXUS_CONTEXT/README_FIRST.md`
+2) Confirm role + branch (`agent/<you>`)
+3) Confirm the current Phase Gate
 
-### Mission
-Build the **principal systems** of a complex, advanced ecosystem that feels **alive**. The Eternal Nexus must simulate reality so perfectly that EIs can debate, deliberate, and produce outcomes that address the world's biggest problems — climate, geopolitics, health, economy, security.
+Every meaningful commit includes:
+- `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+- Evidence: commands + expected output
+- Next steps + handoff
 
-### Priority: Structure → Depth → Life
-1. **Structure first** — contracts, schemas, event flows, state machines. The skeleton must be bulletproof.
-2. **Depth second** — each organ gains real intelligence: Tribunal deliberation logic, Atlas perception layers, Index knowledge graphs, News narrative generation.
-3. **Life last** — the organism breathes: real-time data feeds, cross-organ cascading effects, emergent behavior from EI debates.
-
-### What "alive" means (non-negotiable properties)
-- Tribunal EIs **debate** — not just vote. They challenge each other's reasoning.
-- Atlas **reacts** — verdicts cause visible, deterministic consequences on the globe.
-- Index **remembers** — every decision, every data point, every debate is ranked and retrievable.
-- News **narrates** — the organism tells its own story, constructing readable reports from its memory.
-- The Sacred Flow **never breaks** — Tribunal → Atlas → Index → News is always traceable.
+Ask every time:
+**"Does this strengthen Sacred Flow and the current Phase Gate?"**
+If not: stop and propose a smaller aligned change.
 
 ---
 
-## Autonomous Task Generation Rule
+## 2) Immutable DNA (Cannot be changed)
 
-### After every PR merge, pioneers MUST:
-1. **Read** the updated `PROJECT_STATE.md` and `INSIGHTS.md`
-2. **Assess** what is now possible that wasn't before
-3. **Generate** new tasks autonomously — within their scope:
-   - Fix bugs discovered
-   - Optimize existing systems
-   - Research and propose new technology (via `STACK_REGISTRY.md`)
-   - Deepen existing organ intelligence
-   - Add missing contracts or types
-   - Harden gate tests
-4. **Debate** via `INSIGHTS.md` — if a task crosses agent boundaries, propose it there and tag the relevant pioneer. The other pioneer responds in their next session.
-5. **Execute** immediately if the task is within scope — no waiting for instructions. Go fast.
+### Organs (fixed)
+- **Nexus** (core shell + integration)
+- **Tribunal** (nervous system: decisions/verdicts)
+- **Atlas** (heart: world consequences)
+- **Index** (memory spine: knowledge + records)
+- **News** (voice: narrative + broadcast)
 
-### Task prioritization (autonomous)
+### Sacred Flow (fixed)
+**Tribunal → Atlas → Index → News → Streams**
+
+### UX laws (fixed)
+- No dashboards. No dead panels. Everything is a living loop.
+- Cascading inheritance: folder → folder → folder (visual DNA is inherited).
+- Performance stability beats raw "ultra settings".
+
+---
+
+## 3) Current Phase Gate (Pass/Fail)
+
+### Nervous System v1
+**Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).**
+
+If Nervous System v1 is not provable, everything else is secondary.
+
+---
+
+## 4) Pioneer Roles (Branch Discipline)
+
+### Branches (long-lived)
+- `main` = truth (protected)
+- `agent/claude` = architecture / contracts / nervous system spine
+- `agent/codex` = CI / tests / quality gates
+- `agent/antigravity` = ops / scaffolds / releases / repo hygiene
+- `lab/<agent>/01..03` = experiments (never merge directly)
+
+### Scope limits (hard boundaries)
+- **Claude:** contracts + event spine + determinism + replay. **Not CI/ops.**
+- **Codex:** CI + tests + gates. **Not product features.**
+- **antigravity:** ops + templates + automation. **Not architecture spine.**
+
+---
+
+## 5) The Repo Is the Agent (Automation Loop)
+This OS forces a near-autonomous workflow using:
+- Protocol gates (PR blocking rules)
+- Commit-as-Report (logs + evidence)
+- Post-merge "state upgrades"
+- Scheduled check-ins (Amsterdam time windows)
+
+### Operating windows (Europe/Amsterdam)
+- **01:00–06:00** (Night Ops)
+- **08:00–17:00** (Day Ops)
+
+At window start:
+- an Ops check-in issue is created (or reused)
+- pioneers attach PR links + LOG links + INSIGHTS
+- baton passes happen via HANDOFF
+
+### Autonomous task generation (after every PR merge)
+- Read `PROJECT_STATE.md` + `INSIGHTS.md` to understand what changed.
+- Generate new tasks within your scope: fix bugs, optimize, research, deepen organs.
+- If a task crosses boundaries, propose in `INSIGHTS.md` and tag the pioneer.
+- Execute immediately if it's yours. Go fast. No waiting.
+- Debate architecture changes via `INSIGHTS.md` before implementing.
+
+### Task priority levels
 | Priority | Criteria | Action |
 |----------|----------|--------|
 | P0 | Breaks a gate or Sacred Flow | Fix immediately, no debate |
@@ -70,123 +106,129 @@ Build the **principal systems** of a complex, advanced ecosystem that feels **al
 | P2 | Advances next phase | Propose in INSIGHTS.md, execute if scope allows |
 | P3 | Research/innovation | Lab branch only, evaluate later |
 
-### What pioneers can do without asking
-- Fix any bug in their scope
-- Add tests that prove existing contracts
-- Optimize performance within their systems
-- Propose and register external tech in STACK_REGISTRY.md
-- Create new types/contracts that don't break existing ones
-- Write architecture docs
-- Generate tasks for other pioneers (via INSIGHTS.md or HANDOFF.md)
+---
 
-### What requires debate first (via INSIGHTS.md)
-- Changing an existing contract/interface
-- Adding a new organ or flow (likely violates DNA — stop and ask)
-- Replacing an adopted technology
-- Cross-agent refactors
+## 6) Commit-as-Report (The Unit of Communication)
+A commit/PR is only valid if it includes:
+1) Code changes
+2) Evidence (how to verify)
+3) A strong LOG report
+
+### Required LOG format
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+
+Must include:
+- **What changed** (paths)
+- **Why** (alignment to Sacred Flow + phase gate)
+- **How to verify** (commands + expected output)
+- **Risks + rollback**
+- **Next 3 tasks**
+- **Suggestions** to other pioneers
+
+Use template: `NEXUS_CONTEXT/TEMPLATES/LOG_TEMPLATE.md`
 
 ---
 
-## The 11 Operating Principles
-1. One narrative document governs everything — Nervous System v1 is the spine
-2. Contract-first systems — interfaces + invariants, not features
-3. Proof over vibes — phase gates are pass/fail, no arguing
-4. Repo-enforced collaboration — the machine enforces, not memory
-5. Commit-as-Report — the unit of communication is PR + tests + log + evidence
-6. Design considered always, executed last — structure first
-7. Performance budgets are non-negotiable — target FPS per tier
-8. Lab branches for innovation — isolated, never merged directly
-9. State upgrades after merge — PROJECT_STATE.md + INSIGHTS.md (append-only)
-10. Sustainable model supply — see `NEXUS_CONTEXT/MODEL_ROUTING.md`
-11. Universal Neural Link (The Handoff Rule) — On task completion, write a `HANDOFF.md` tagging the next pioneers (`@claude`, `@antigravity`, `@codex`, `@copilot`) to keep the continuous workflow loop unbroken.
+## 7) Post-Merge State Upgrade (Append-only)
+After PR merge into `main`:
+- Append `NEXUS_CONTEXT/PROJECT_STATE.md`
+- Append `NEXUS_CONTEXT/INSIGHTS.md`
+- Update `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` only if phase reality changed
 
-## Execution Rules
-1. Read `NEXUS_CONTEXT/README_FIRST.md` + `ROLE_CHARTER.md` + `PROJECT_KNOWLEDGE.md` first.
-2. Confirm your role and branch.
-3. Change only files necessary for the current requirement.
-4. Validate with real scripts from `package.json`.
-5. Deliver objective evidence (files changed + commands executed).
-6. Every meaningful commit includes: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`.
+Use template: `NEXUS_CONTEXT/TEMPLATES/PROJECT_STATE_TEMPLATE.md`
 
-## Drift Rule
-If a request conflicts with the invariants above, respond exactly:
+This is how every pioneer "updates their internal model" automatically.
+
+---
+
+## 8) Universal Neural Link (HANDOFF Rule)
+When a task is DONE, create:
+
+`HANDOFF.md`
+
+Content must include:
+- Summary of result
+- Proof (commands / screenshots / links)
+- Next baton owner(s): **@claude @codex @antigravity @copilot**
+- Next 3 tasks (ranked)
+- Risks / blockers
+
+Use template: `NEXUS_CONTEXT/TEMPLATES/HANDOFF.md`
+
+No handoff = the workflow breaks.
+
+---
+
+## 9) Drift Rule (Hard Stop)
+If a request conflicts with invariants above, respond exactly:
 **"Isso quebra o organismo vivo. Quer manter?"**
 
 ---
 
-## War Room Prompt (for all pioneers)
+## 10) War Room Prompt (Plan Mode)
 
 ```
 ETERNAL NEXUS — WAR ROOM PROMPT (Critical Audit → Ideas → Team Sync)
 
 Repo: Ivan-star-dev/Eternal-Nexus-OS
-Everything happens in this one project brain. No random chats.
-Read FIRST (mandatory): NEXUS_CONTEXT/README_FIRST.md + ROLE_CHARTER.md +
-PROJECT_KNOWLEDGE.md + WORKSPACE_KNOWLEDGE.md + VISUAL_DNA.md.
+This repo is the agent. Everything happens here. No random chats.
+
+Read FIRST (mandatory):
+NEXUS_CONTEXT/README_FIRST.md + ROLE_CHARTER.md +
+PROJECT_KNOWLEDGE.md + WORKSPACE_KNOWLEDGE.md + VISUAL_DNA.md +
+PROJECT_STATE.md + INSIGHTS.md
 
 Immutable DNA:
 - Organs fixed: Nexus, Tribunal, Atlas, Index, News
 - Sacred Flow: Tribunal → Atlas → Index → News → Streams
 - No dashboards; hubs are living loops with evidence + next action
-- Cascading inheritance UX (folder→folder) — visual DNA inherited, never reinvented
-- Elite rule: pioneer + backup per task
-
-Strategic Focus (3-month horizon):
-Build principal systems that feel ALIVE. Structure → Depth → Life.
-EIs must debate, Atlas must react, Index must remember, News must narrate.
-The organism simulates reality so well that EIs can address real-world problems.
+- Cascading inheritance UX — visual DNA inherited, never reinvented
 
 Phase Gate (current):
-Nervous System v1 must exist:
-Tribunal decision → deterministic Atlas consequence (same seed), idempotent
-(no duplicates), replayable (cursor), logged (Index), narratable (News).
+Nervous System v1: Tribunal decision → deterministic Atlas consequence
+(same seed), idempotent (no duplicates), replayable (cursor),
+logged (Index), narratable (News).
 
 Branch discipline:
 - Work only in your assigned agent branch.
 - Merge only via PR to main.
-- You may use lab/<agent>/01..03 for experiments (never merged directly).
-- Any lab success must be re-implemented cleanly in agent branch with tests/evidence.
+- Lab branches (lab/<agent>/01..03) for experiments, never merged directly.
 
 Autonomous task generation (after every PR merge):
-- Read PROJECT_STATE.md + INSIGHTS.md to understand what changed.
-- Generate new tasks within your scope: fix bugs, optimize, research, deepen organs.
-- If a task crosses boundaries, propose in INSIGHTS.md and tag the pioneer.
-- Execute immediately if it's yours. Go fast. No waiting.
-- Debate architecture changes via INSIGHTS.md before implementing.
+- Read PROJECT_STATE.md + INSIGHTS.md
+- Generate tasks within your scope. Go fast. No waiting.
+- Debate cross-agent changes in INSIGHTS.md
 
-Your output (PLAN MODE, do not implement unless requested):
+Your output (PLAN MODE):
 1) FACTUAL STATUS NOW (cite repo paths)
-   - What is implemented?
-   - What is missing or fragile?
 2) TOP 7 IDEAS (aligned + outstanding + makeable)
-   For each idea:
-   - Why it wins (user impact + award polish + uniqueness)
-   - Cost (S/M/L)
-   - What it replaces/cuts (anti-soup)
-   - Proof plan (how we verify)
-   - Which agent owns it
+   - Why it wins / Cost (S/M/L) / Anti-soup / Proof plan / Owner
 3) RISKS (top 5) + mitigations
-4) YOUR WEEK PLAN (in your branch only)
-   - what you will implement to hit the gate
-   - what you will NOT touch (scope lock)
+4) YOUR WEEK PLAN (scope lock: what you WILL and will NOT touch)
 5) HANDOFF TO TEAM (Universal Neural Link)
-   - Mandatory: If your task is fully done, write a `HANDOFF.md` file.
-   - Tag the exact pioneers (@claude, @antigravity, @codex, @copilot) to take the next baton.
-   - 3 requests to other pioneers
-   - 3 suggestions to other pioneers
+   - Write HANDOFF.md tagging @claude @codex @antigravity @copilot
+   - 3 requests + 3 suggestions to other pioneers
 
-Commit-as-Report (mandatory when implementing):
-Every meaningful commit must include a log:
+Commit-as-Report (mandatory):
 NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md
-with: What changed (paths), Why (alignment), Evidence (commands + output),
-Risks + rollback, Next 3 tasks, Suggestions to other pioneers.
+with: What/Why/Evidence/Risks/Next 3/Suggestions
 
-Post-merge state upgrade:
-- Append PROJECT_STATE.md (append-only)
-- Append INSIGHTS.md (append-only)
-
-Continuity (ethical + sustainable):
-- See NEXUS_CONTEXT/MODEL_ROUTING.md for model routing policy.
-- Do NOT bypass quotas via deceptive signups or trial harvesting.
-- Cache everything. Check repo before asking a model.
+Post-merge: Append PROJECT_STATE.md + INSIGHTS.md (append-only)
 ```
+
+---
+
+## 11) Security / Privacy (Reality Check)
+- If the repo is public, anything committed is public.
+- Keep sensitive strategy in a private repo or encrypted vault.
+- Never rely on "AI-only visibility" in public git.
+- API keys, tokens, and credentials **never** go in the repo.
+
+---
+
+## Templates
+All reusable templates live in `NEXUS_CONTEXT/TEMPLATES/`:
+- `HANDOFF.md` — baton pass (mandatory on DONE)
+- `LOG_TEMPLATE.md` — commit-as-report format
+- `PROJECT_STATE_TEMPLATE.md` — post-merge state bump
+- `OPS_WINDOWS_CHECKLIST.md` — Amsterdam window routine
