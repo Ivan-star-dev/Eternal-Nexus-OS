@@ -23,3 +23,11 @@
 - Decidido: **Model Routing policy** in `NEXUS_CONTEXT/MODEL_ROUTING.md` — 4-tier routing (frontier → mid → local → cached), no trial farming.
 - Decidido: **PR template** (`.github/pull_request_template.md`) enforces gate alignment, session log, post-merge checklist, and pioneer suggestions.
 - Decidido: Copilot instructions (`.github/copilot-instructions.md`) updated with retention lock + 10 principles + phase gate.
+
+## 2026-03-17 — Autonomous Task Generation + 3-Month Strategic Focus
+- Decidido: **Autonomous task generation** — after every PR merge, pioneers MUST assess what's now possible and generate new tasks within their scope. No waiting for instructions. Go fast.
+- Decidido: **3-month strategic focus** — build principal systems that feel ALIVE. Priority: Structure → Depth → Life. EIs must debate, Atlas must react, Index must remember, News must narrate.
+- Decidido: **Pioneer debate via repo** — architecture changes and cross-agent proposals are debated in `INSIGHTS.md`. Pioneers tag each other. The repo is the meeting room.
+- Decidido: **Task priority levels** — P0 (gate-breaking, fix immediately), P1 (strengthens gate), P2 (advances next phase), P3 (research/innovation in lab branch).
+- Decidido: **What pioneers can do without asking** — fix bugs in scope, add tests, optimize performance, propose tech in STACK_REGISTRY, create types/contracts, write docs, generate tasks for others.
+- Decidido: **What requires debate** — changing existing contracts, adding organs/flows, replacing adopted tech, cross-agent refactors.
