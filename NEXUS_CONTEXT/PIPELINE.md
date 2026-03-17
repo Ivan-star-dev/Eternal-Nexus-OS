@@ -5,7 +5,7 @@
 ## Status: ACTIVE
 
 ### 🧱 CORE ARCHITECTURE (The Spine)
-- [ ] **Task C1:** Wire Nervous System v2 (`bus.ts`) into `useNexusState.ts`. Must hit the pass/fail gate (Deterministic, Idempotent, Replayable). (Owner tags: `@claude`)
+- [x] **Task C1:** ~~Wire Nervous System v2 (`bus.ts`) into `useNexusState.ts`. Must hit the pass/fail gate (Deterministic, Idempotent, Replayable).~~ ✅ DONE — Bridge pattern in `useNexusState.ts`, 23/23 gate tests pass (Deterministic, Idempotent, Replayable, Logged, Narratable). (Owner: `@claude`, PR #8)
 - [ ] **Task C2:** Implement the `GeopoliticsMap.tsx` MapLibre shell using the new serverless `pmtiles://` registrar. Tie into the Tribunal data layer. (Owner tags: `@claude` + `@copilot`)
 
 ### 🎨 DESIGN & INTERFACE (The Flesh)
