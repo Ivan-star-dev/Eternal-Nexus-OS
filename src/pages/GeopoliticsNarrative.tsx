@@ -245,7 +245,7 @@ export default function GeopoliticsNarrative() {
           confidence: Math.min(1, Math.max(0, ev.truthScore / 100)),
           reasoning: data.synthesis.response,
           timestamp: Date.now(),
-          flowTarget: 'atlas',
+          flowTarget: 'index',
         };
 
         pushVerdict({

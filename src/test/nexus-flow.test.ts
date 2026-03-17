@@ -21,7 +21,7 @@ const buildVerdict = (): OrganismVerdict => ({
   confidence: 0.74,
   reasoning: 'Needs coordinated response',
   timestamp: Date.now(),
-  flowTarget: 'atlas',
+  flowTarget: 'index',
   region: 'África',
   evidenceReference: 'ACLED',
 });
