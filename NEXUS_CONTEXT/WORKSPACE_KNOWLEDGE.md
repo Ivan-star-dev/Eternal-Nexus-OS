@@ -6,6 +6,16 @@
 - `agent/codex`: `./_worktrees/codex`
 - `agent/antigravity`: `./_worktrees/antigravity`
 
+## Canonical task queue
+The ordered execution queue lives in:
+`NEXUS_CONTEXT/TASK_SEQUENCE.md`
+
+Rules:
+- No task is ignored.
+- Take tasks in sequence order.
+- Skip only when the task is explicitly blocked and the blocker is recorded.
+- The next pioneer action should always be the first unblocked task for that lane.
+
 ## Benchmark tags
 Use these tags in handoffs, debate docs, and PR review requests:
 - `@claude`
@@ -59,6 +69,7 @@ After merge, the responsible pioneer must:
 1. Append a state bump to `NEXUS_CONTEXT/PROJECT_STATE.md`
 2. Update `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` if the phase reality changed
 3. Append a handoff note to `NEXUS_CONTEXT/INSIGHTS.md`
+4. Update `NEXUS_CONTEXT/TASK_SEQUENCE.md` to mark the completed task and unblock the next one
 
 ## External harvesting
 Any external repo or library must go through:

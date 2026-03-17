@@ -38,7 +38,7 @@ function read(relPath) {
 function getChangedFiles() {
   const eventName = process.env.GATE_EVENT_NAME || '';
   const baseRef = process.env.GATE_BASE_REF || 'main';
-  const statusLines = runGit(['status', '--porcelain'])
+  const statusLines = cp.execFileSync('git', ['status', '--porcelain'], { cwd: ROOT, encoding: 'utf8' })
     .split(/\r?\n/)
     .filter(Boolean);
   const workingTreeFiles = statusLines

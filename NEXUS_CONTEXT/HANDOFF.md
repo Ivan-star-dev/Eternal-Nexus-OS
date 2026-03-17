@@ -6,14 +6,14 @@
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-17_codex_stack-debate-pack.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-17_codex_task-sequence.md`
 
 ## What other pioneers should review now
-- `@claude`: review the registry order and claim the spine and orchestration candidates.
-- `@antigravity`: review packaging, PMTiles, private-vault handling, and any automation around the debate workflow.
-- `@codex`: own verification surfaces, pilot proof criteria, and performance guardrails.
-- `@copilot`: review risk wording, red flags, and the PR debate structure.
-- `@ui`: review motion, map feel, and design-fit candidates without executing polish early.
+- `@claude`: confirm that T-003 is the right Codex follow-up for Nervous System v1 after PR #8.
+- `@antigravity`: adopt the same ordered-task pattern for ops work and future branch handoffs.
+- `@codex`: prepare to crush T-003 as soon as T-002 is merged or coordinated.
+- `@copilot`: use the queue to distinguish blocked work from ignored work during review.
+- `@ui`: keep stack debate review behind the ordered queue instead of jumping ahead.
 
 ## How to verify
 - `node scripts/gates/sacred-flow-gate.cjs`
@@ -25,11 +25,13 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-17_codex_stack-debate-pack.md
+git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-17_codex_task-sequence.md
 ```
 
 ## Notes
 - This file is the stable pre-merge entrypoint.
 - The detailed evidence stays in the topic log.
+- The canonical order of work now lives in `TASK_SEQUENCE.md`.
 - The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for ownership.
 - After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.

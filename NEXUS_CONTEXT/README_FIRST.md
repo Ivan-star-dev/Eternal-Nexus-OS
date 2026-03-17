@@ -45,6 +45,7 @@ Every pioneer starts by reading:
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/PROJECT_STATE.md`
+- `NEXUS_CONTEXT/TASK_SEQUENCE.md`
 - `NEXUS_CONTEXT/HANDOFF.md`
 - `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/STACK_REGISTRY.md`
@@ -56,9 +57,10 @@ Every pioneer starts by reading:
 At the start of the session:
 1. Read the Neural Link files.
 2. Confirm the role and current branch.
-3. Propose the top three aligned ideas with effort size and proof plan.
-4. For stack debates, pick or critique items in `STACK_REGISTRY.md` using benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui`.
-5. Implement only one idea unless a broader scope is explicitly requested.
+3. Read `TASK_SEQUENCE.md` and take the first unblocked task in your lane.
+4. Propose the top three aligned ideas with effort size and proof plan when the queue does not already define the next step.
+5. For stack debates, pick or critique items in `STACK_REGISTRY.md` using benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui`.
+6. Implement only one idea unless a broader scope is explicitly requested.
 
 At the end of the session:
 1. Commit code plus evidence plus report.
