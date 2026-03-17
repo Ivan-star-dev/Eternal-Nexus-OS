@@ -22,3 +22,5 @@ Anyone with the key can read it, human or AI.
 - Add `NEXUS_CONTEXT/_private/` to `.gitignore`
 - Keep sensitive debate outputs local or in a private repo
 - Keep only public-safe artifacts in `NEXUS_CONTEXT/`
+- Keep the tracked template at `NEXUS_CONTEXT/FOUNDER_PROFILE.template.md`
+- Keep the real founder memory at `NEXUS_CONTEXT/_private/FOUNDER_PROFILE.md`

@@ -45,6 +45,9 @@ Every pioneer starts by reading:
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/PROJECT_STATE.md`
+- `NEXUS_CONTEXT/AUTONOMY_MODEL.md`
+- `NEXUS_CONTEXT/LEARNING_LOOP.md`
+- `NEXUS_CONTEXT/MODEL_STRATEGY.md`
 - `NEXUS_CONTEXT/TASK_TRIAGE.md`
 - `NEXUS_CONTEXT/TASK_SEQUENCE.md`
 - `NEXUS_CONTEXT/HANDOFF.md`
@@ -52,23 +55,27 @@ Every pioneer starts by reading:
 - `NEXUS_CONTEXT/STACK_REGISTRY.md`
 - `NEXUS_CONTEXT/DEBATE_PROMPT_OPEN_SOURCE.md`
 - `NEXUS_CONTEXT/SECURITY_MODEL.md`
+- `NEXUS_CONTEXT/FOUNDER_PROFILE.template.md`
 - `NEXUS_CONTEXT/VISUAL_DNA.md`
 
 ## 4) Session protocol
 At the start of the session:
 1. Read the Neural Link files.
 2. Confirm the role and current branch.
-3. Read `TASK_TRIAGE.md` and `TASK_SEQUENCE.md`.
-4. Take only the first unblocked task that was assigned to your tag through triage.
-5. When the queue does not already define the next step, propose aligned ideas with effort size and proof plan, then triage them before assigning ownership.
-6. For stack debates, use benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui` to score fit, not to self-claim by preference.
-7. Implement only one idea unless a broader scope is explicitly requested.
+3. Read `AUTONOMY_MODEL.md` and `LEARNING_LOOP.md` so each session stays inside the closed loop.
+4. Read `TASK_TRIAGE.md` and `TASK_SEQUENCE.md`.
+5. If it exists locally, use `NEXUS_CONTEXT/_private/FOUNDER_PROFILE.md` to adapt tone and tradeoffs without leaking it into public-safe files.
+6. Take only the first unblocked task that was assigned to your tag through triage.
+7. When the queue does not already define the next step, propose aligned ideas with effort size and proof plan, then triage them before assigning ownership.
+8. For stack debates, use benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui` to score fit, not to self-claim by preference.
+9. Implement only one idea unless a broader scope is explicitly requested.
 
 At the end of the session:
 1. Commit code plus evidence plus report.
 2. Update `NEXUS_CONTEXT/HANDOFF.md` so other pioneers can fetch one stable entrypoint before merge.
-3. Open or update a PR to `main`.
-4. If the work is merged later, append the state bump and handoff notes.
+3. If founder preferences became clearer, update the private founder profile without committing sensitive data.
+4. Open or update a PR to `main`.
+5. If the work is merged later, append the state bump and handoff notes.
 
 ## 5) Design order
 Design polish is always considered, but it is executed last.

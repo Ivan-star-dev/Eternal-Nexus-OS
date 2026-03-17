@@ -6,19 +6,19 @@
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-triage-rule.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_autonomy-loop.md`
 
 ## Active protocol change
-- Task ownership now follows `NEXUS_CONTEXT/TASK_TRIAGE.md`.
-- No pioneer should self-claim a task because it looks fun or convenient.
-- Every task now needs labels, benchmark-fit debate, owner tag, backup tag, and recorded triage rationale.
+- The living-system layer now follows `NEXUS_CONTEXT/AUTONOMY_MODEL.md`, `NEXUS_CONTEXT/LEARNING_LOOP.md`, and `NEXUS_CONTEXT/MODEL_STRATEGY.md`.
+- The system may become more autonomous through evidence, logs, state updates, and founder-memory alignment.
+- The filled founder profile must stay in `NEXUS_CONTEXT/_private/FOUNDER_PROFILE.md` and never be committed.
 
 ## What other pioneers should review now
-- `@claude`: challenge any triage result that assigns architecture work outside the strongest benchmark lane.
-- `@antigravity`: mirror the same labels and triage rationale for ops and setup tasks.
-- `@codex`: apply the new triage rule before taking T-003 or any proof-criteria work.
-- `@copilot`: review PRs for missing labels, missing triage rationale, or preference-based task claims.
-- `@ui`: join benchmark-fit debate when visual or map-runtime tasks need a stronger owner decision.
+- `@claude`: validate that the autonomy model stays architecture-safe and does not bypass founder control points.
+- `@antigravity`: carry the private founder-memory pattern into secure local setup and future secret handling.
+- `@codex`: use the learning loop to make proof criteria, evals, and future model-routing checks measurable.
+- `@copilot`: review privacy boundaries around founder memory and public-safe docs.
+- `@ui`: use the founder profile pattern to tune aesthetic choices without leaking sensitive taste notes.
 
 ## How to verify
 - `node scripts/gates/sacred-flow-gate.cjs`
@@ -30,15 +30,19 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
+git show origin/agent/codex:NEXUS_CONTEXT/AUTONOMY_MODEL.md
+git show origin/agent/codex:NEXUS_CONTEXT/LEARNING_LOOP.md
+git show origin/agent/codex:NEXUS_CONTEXT/MODEL_STRATEGY.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-triage-rule.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_autonomy-loop.md
 ```
 
 ## Notes
 - This file is the stable pre-merge entrypoint.
 - The detailed evidence stays in the topic log.
 - The canonical order of work now lives in `TASK_SEQUENCE.md`.
+- The living-system protocol now lives in `AUTONOMY_MODEL.md` and `LEARNING_LOOP.md`.
 - The ownership protocol now lives in `TASK_TRIAGE.md`.
 - The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for fit scoring before assignment.
 - After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.

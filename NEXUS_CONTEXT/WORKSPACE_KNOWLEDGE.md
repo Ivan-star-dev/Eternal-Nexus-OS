@@ -27,6 +27,19 @@ Principles:
 - Backup is the second-best fit, not a random fallback.
 - If there is doubt, run a short written debate and record the result.
 
+## Autonomy and learning
+The autonomy model lives in:
+`NEXUS_CONTEXT/AUTONOMY_MODEL.md`
+
+The continuous learning loop lives in:
+`NEXUS_CONTEXT/LEARNING_LOOP.md`
+
+Rules:
+- Learn through repo artifacts, not hidden assumptions.
+- Adapt to the founder through `NEXUS_CONTEXT/_private/FOUNDER_PROFILE.md` when available.
+- Never commit the filled private founder profile.
+- Update shared state only when there is evidence.
+
 ## Benchmark tags
 Use these tags in handoffs, debate docs, and PR review requests:
 - `@claude`
@@ -91,3 +104,10 @@ Any external repo or library must go through:
 3. clean agent-branch implementation for PR
 
 For open-source debates, use `NEXUS_CONTEXT/DEBATE_PROMPT_OPEN_SOURCE.md` and assign candidates by benchmark tag.
+
+## AI ownership path
+The model ownership path lives in:
+`NEXUS_CONTEXT/MODEL_STRATEGY.md`
+
+Rule:
+- own the system, memory, routing, and evals before trying to train a large model from scratch
