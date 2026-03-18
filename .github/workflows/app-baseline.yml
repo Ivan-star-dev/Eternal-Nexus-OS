@@ -1,4 +1,4 @@
-name: App Quality
+name: App Baseline (Typecheck + Lint)
 
 on:
   pull_request:
@@ -7,10 +7,8 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig*.json'
-      - 'vite.config.ts'
-      - 'vitest.config.ts'
       - 'eslint.config.js'
-      - '.github/workflows/app-quality.yml'
+      - '.github/workflows/app-baseline.yml'
   push:
     branches: [main]
     paths:
@@ -18,17 +16,15 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'tsconfig*.json'
-      - 'vite.config.ts'
-      - 'vitest.config.ts'
       - 'eslint.config.js'
-      - '.github/workflows/app-quality.yml'
+      - '.github/workflows/app-baseline.yml'
 
 concurrency:
-  group: app-quality-${{ github.ref }}
+  group: app-baseline-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  validate-app:
+  typecheck-lint:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -50,9 +46,3 @@ jobs:
 
       - name: Lint
         run: npm run lint
-
-      - name: Tests
-        run: npm run test
-
-      - name: Build
-        run: npm run build

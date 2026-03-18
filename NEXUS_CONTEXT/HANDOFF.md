@@ -1,42 +1,42 @@
 # Eternal Nexus - HANDOFF
 
 ## Current branch
-- Branch: `agent/codex`
-- Status: audit corrections applied for gate noise + lockfile sync; ready for review and PR to `main`
+- Branch: `work`
+- Status: baseline-fix slice prepared with dedicated app baseline workflow + consistent check ordering
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_audit-fixes.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-ordering.md`
 
 ## Active protocol change
-- Updated `scripts/gates/report-presence-gate.cjs` git runner to suppress noisy fatal stderr output while preserving failure semantics.
-- Added `--quiet` verification for remote base revision checks in the report gate.
-- Regenerated `package-lock.json` with `npm install --package-lock-only` to resolve package/lock sync errors seen during `npm ci`.
+- Added `.github/workflows/app-baseline.yml` for an exclusive baseline signal (`npm ci` → `typecheck` → `lint`).
+- Aligned `.github/workflows/app-quality.yml` ordering to `typecheck` before `lint` for consistent diagnosis.
+- Cataloged current baseline blockers in `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-catalog.md` by category: ts, eslint, imports, config.
 
 ## What other pioneers should review now
-- `@claude`: confirm gate output remains deterministic and does not mask real report-presence failures.
-- `@antigravity`: review lockfile-only refresh impact on CI/package provenance policy.
-- `@codex`: monitor whether `npm ci` now fails only for external registry access, not lock drift.
-- `@copilot`: no immediate action.
+- `@claude`: confirm no protocol gate assumptions are affected by baseline workflow addition.
+- `@antigravity`: confirm npm registry policy and mirror/proxy strategy so baseline job can go green.
+- `@codex`: re-run baseline checks in CI until deterministic green.
+- `@copilot`: review PR for strict baseline-only scope.
 - `@ui`: no immediate action.
 
 ## How to verify
-- `node scripts/gates/report-presence-gate.cjs`
-  Expected: gate result prints without noisy `fatal: Needed a single revision` stderr line.
-- `node scripts/gates/sacred-flow-gate.cjs`
-  Expected: `Sacred Flow Gate PASSED.`
 - `npm ci`
-  Expected in this environment: lock sync error resolved; current blocker is external registry access (`403`), not package-lock drift.
+- `npm run typecheck`
+- `npm run lint`
+- `cat .github/workflows/app-baseline.yml`
+- `cat .github/workflows/app-quality.yml`
 
 ## Fetch commands for other pioneers
 ```bash
 git fetch origin
-git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_audit-fixes.md
-git show origin/agent/codex:scripts/gates/report-presence-gate.cjs
-git show origin/agent/codex:package-lock.json
+git show origin/work:NEXUS_CONTEXT/HANDOFF.md
+git show origin/work:NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-catalog.md
+git show origin/work:NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-ordering.md
+git show origin/work:.github/workflows/app-baseline.yml
+git show origin/work:.github/workflows/app-quality.yml
 ```
 
 ## Notes
-- This file is the stable pre-merge entrypoint.
-- The detailed evidence stays in the topic log.
+- `NEXUS_CONTEXT/PROJECT_STATE.md` baseline-pending line should be removed only **after merge**, as requested.
+- This handoff is the stable pre-merge entrypoint.
