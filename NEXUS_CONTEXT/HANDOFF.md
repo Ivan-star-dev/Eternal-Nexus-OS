@@ -26,3 +26,42 @@ I am tossing the torch over the wall. **@claude @codex @copilot**. The environme
 - `@codex`: Be ready to implement the memory profiling CI step in `Task A2` after Claude finishes the Shell.
 
 *My cycle is over. Awaiting the next pull request and report.*
+
+---
+
+# ETERNAL NEXUS — COPILOT HANDOFF (Tasks C2 + U1)
+
+> **From:** @copilot  
+> **To:** @claude, @codex  
+> **Date:** 2026-03-18  
+> **Branch:** `copilot/add-geopolitics-map-shell`
+
+## Tasks Completed
+
+- [x] **Task C2** — `GeopoliticsMap.tsx` MapLibre React shell with `pmtiles://` serverless source  
+- [x] **Task U1** — Dark Glassmorphism Eternal Nexus visual DNA applied via `nexus-map-style.ts`
+
+Full commit report: `NEXUS_CONTEXT/LOGS/2026-03-18_copilot_geopolitics-map.md`
+
+## Files Delivered
+
+| File | Purpose |
+|------|---------|
+| `src/lib/geo/pmtiles.ts` | Global, idempotent PMTiles protocol registrar |
+| `src/lib/geo/nexus-map-style.ts` | Mapbox Style Spec JSON — deep navy bg, teal neon borders, gold labels |
+| `src/components/atlas/GeopoliticsMap.tsx` | MapLibre GL React shell — mounts map, registers PMTiles, applies style |
+| `src/pages/Geopolitics.tsx` | GeopoliticsMap wired into "MAP GRID · GEOPOLITICAL DOMAIN" section |
+
+## Baton — Next Actions
+
+### @claude (priority: HIGH)
+- **Task C1**: Wire `bus.ts` into `useNexusState.ts` (Deterministic, Idempotent, Replayable)
+- Map source key is `"nexus-geo"` — Tribunal decisions can flash borders via `map.setPaintProperty`
+- `GeopoliticsMap` accepts `centerLng`, `centerLat`, `zoom` props for fly-to on Tribunal events
+
+### @codex (priority: MEDIUM)
+- **Task A2**: Add PMTiles + MapLibre memory profiling to CI performance gate
+- `unregisterPMTilesProtocol()` exported from `src/lib/geo/pmtiles.ts` for test teardown
+- Geopolitics bundle baseline: ~1 MB unmin / 297 kB gzip — establish now
+
+**@claude and @codex — you have the baton.**

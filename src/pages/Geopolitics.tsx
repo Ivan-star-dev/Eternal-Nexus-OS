@@ -4,6 +4,7 @@ import { ArrowLeft, Globe, Shield, Zap, Cpu, RotateCcw, ChevronRight } from "luc
 import Layout from "@/components/Layout";
 import geopoliticsMap from "@/assets/geopolitics-map.jpg";
 import geopoliticsOverview from "@/assets/geopolitics-overview.jpg";
+import GeopoliticsMap from "@/components/atlas/GeopoliticsMap";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -116,6 +117,18 @@ const Geopolitics = () => {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }} className="font-serif text-base sm:text-lg font-light italic text-muted-foreground max-w-2xl leading-relaxed">
             Quem Financia. Quem Lidera. O Papel do Brasil.
           </motion.p>
+        </div>
+      </section>
+
+      {/* Live Map Grid — MapLibre GL + PMTiles (Task C2 + U1) */}
+      <section className="border-t border-border py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-20">
+        <div className="max-w-[1200px] mx-auto">
+          <span className="section-label">MAP GRID · GEOPOLITICAL DOMAIN</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+            Teatro <span className="text-teal font-light italic">Estratégico</span>
+          </h2>
+          <div className="gold-rule mb-6" />
+          <GeopoliticsMap className="w-full h-[360px] sm:h-[480px]" />
         </div>
       </section>
 
