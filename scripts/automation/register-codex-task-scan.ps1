@@ -2,7 +2,7 @@
 param(
     [string]$TaskName = "EternalNexus_CodexTaskScan",
     [string]$OwnerTag = "@codex",
-    [int]$IntervalMinutes = 5
+    [int]$IntervalMinutes = 2
 )
 
 $ErrorActionPreference = "Stop"

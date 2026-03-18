@@ -24,7 +24,14 @@ const REQUIRED_LOG_SECTIONS = [
 ];
 
 function runGit(args) {
-  return cp.execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
+  const result = cp.spawnSync('git', args, { cwd: ROOT, encoding: 'utf8' });
+
+  if (result.status !== 0) {
+    const message = (result.stderr || result.stdout || `git ${args.join(' ')} failed`).trim();
+    throw new Error(message);
+  }
+
+  return (result.stdout || '').trim();
 }
 
 function exists(relPath) {
@@ -63,7 +70,7 @@ function getChangedFiles() {
 
   const remoteBase = `origin/${baseRef}`;
   try {
-    runGit(['rev-parse', '--verify', remoteBase]);
+    runGit(['rev-parse', '--verify', '--quiet', remoteBase]);
     return runGit(['diff', '--name-only', '--diff-filter=ACMR', `${remoteBase}...HEAD`])
       .split(/\r?\n/)
       .filter(Boolean);

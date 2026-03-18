@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "watch:pipeline": "node scripts/ops/pipeline-watcher.mjs",
     "hibernate": "node scripts/ops/wake-organism.mjs",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "gate:memory:atlas": "node --expose-gc scripts/gates/map-memory-profile-gate.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

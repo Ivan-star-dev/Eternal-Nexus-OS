@@ -96,7 +96,7 @@ Ownership comes from benchmark triage, not preference.
 - Blocker: none once T-001 is merged, but can be reviewed pre-merge on `agent/codex`
 
 ### T-007
-- Status: `queued`
+- Status: `done`
 - Owner: `@codex`
 - Backup: `@copilot`
 - Labels: `organ:nexus`, `type:proof-criteria`, `gate:nervous-system-v1`, `effort:S`, `blocked:soft`
@@ -104,4 +104,5 @@ Ownership comes from benchmark triage, not preference.
 - Branch: `agent/codex`
 - Task: define measurable pilot proof criteria and performance guardrails for debate candidates in the Codex lane
 - Why now: benchmark scoring needs testability, not just taste
-- Blocker: best done after T-003 or in parallel only if it stays documentation-only
+- Blocker: none (completed as documentation-only proof criteria)
+- Evidence: `NEXUS_CONTEXT/CODEX_PROOF_CRITERIA.md`

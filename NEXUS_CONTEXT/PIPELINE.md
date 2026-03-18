@@ -12,7 +12,7 @@
 - [ ] **Task U1:** Apply the Dark Glassmorphism "Eternal Nexus" visual DNA directly to the Geopolitics Mapbox JSON styles. Hide unnecessary labels, prioritize glowing neon borders. (Owner tags: `@copilot` + `@ui`)
 
 ### ⚙️ OPS & AUDIT (The Machine)
-- [ ] **Task A2:** Add PMTiles and MapLibre memory profiling to the CI performance gate. (Owner tags: `@codex`)
+- [x] ~~**Task A2:** Add PMTiles and MapLibre memory profiling to the CI performance gate. (Owner tags: `@codex`)~~
 - [x] ~~**Task A3:** Create the automated Lab-Branch validation script that prevents PR merges if the lab hypothesis wasn't proven with a verified report. (Owner tags: `@antigravity`)~~
 
 ---
