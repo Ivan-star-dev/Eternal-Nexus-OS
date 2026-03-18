@@ -41,7 +41,7 @@ Rules:
 - Update shared state only when there is evidence.
 
 ## Local task watcher
-Codex has a local 5-minute task watcher:
+Codex has a local 2-minute task watcher:
 - `scripts/automation/check-codex-task.ps1`
 - `scripts/automation/register-codex-task-scan.ps1`
 - `scripts/automation/unregister-codex-task-scan.ps1`
