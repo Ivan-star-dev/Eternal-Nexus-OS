@@ -678,4 +678,36 @@
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
   }
+
+  /* ═══ GEOPOLITICS MAP — Nexus popup + scan-line overlay ═══ */
+  .nexus-popup .maplibregl-popup-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0 0 24px rgba(200, 168, 78, 0.3);
+  }
+  .nexus-popup .maplibregl-popup-tip {
+    border-top-color: rgba(200, 168, 78, 0.6);
+  }
+  .nexus-map-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.04) 2px,
+      rgba(0, 0, 0, 0.04) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes nexusNeonPulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(200, 168, 78, 0.15), inset 0 0 40px rgba(10, 10, 15, 0.6); }
+    50% { box-shadow: 0 0 0 1px rgba(200, 168, 78, 0.4), inset 0 0 40px rgba(10, 10, 15, 0.6); }
+  }
+  .nexus-map-frame {
+    animation: nexusNeonPulse 4s ease-in-out infinite;
+  }
 }
