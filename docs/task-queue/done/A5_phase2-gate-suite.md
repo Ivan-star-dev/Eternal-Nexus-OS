@@ -1,7 +1,7 @@
 ---
 id: A5
 title: Phase 2 gate test suite — define and prove Phase 2 completion criteria
-status: ready
+status: done
 owner-role: auditor
 priority: P1
 suggested-pioneer: "@codex"
@@ -32,9 +32,16 @@ Phase 1 is proven by 70 gate tests. Phase 2 has no formal gate definition. It ca
 - Must be deterministic and runnable in CI
 
 ## Acceptance criteria
-- [ ] `src/test/phase2-gates.test.ts` exists with all 6 gate stubs
-- [ ] P2-2 through P2-5 pass
-- [ ] P2-1 + P2-6 skip cleanly with `// @blocked: C6`
-- [ ] `npx vitest run` — all tests green (skips don't count as failures)
-- [ ] `npx tsc --noEmit` — 0 errors
-- [ ] `docs/pipeline.md` Phase 2 summary references this gate file
+- [x] `src/test/phase2-gates.test.ts` exists with all 6 gate stubs
+- [x] P2-2 through P2-5 pass
+- [x] P2-1 + P2-6 skip cleanly with `// @blocked: C6`
+- [x] `npx vitest run` — all tests green (skips don't count as failures)
+- [x] `npx tsc --noEmit` — 0 errors
+- [x] `docs/pipeline.md` Phase 2 summary references this gate file
+
+
+## Completion report
+
+- Implemented: `src/test/phase2-gates.test.ts` with gates P2-1..P2-6 (P2-1 and P2-6 skipped with `// @blocked: C6`).
+- Verified: `npx vitest run` and `npx tsc --noEmit` both pass.
+- Queue transition: moved from `ready/` to `done/`.
