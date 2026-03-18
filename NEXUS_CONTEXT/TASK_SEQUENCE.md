@@ -62,16 +62,16 @@ Ownership comes from benchmark triage, not preference.
 - Blocker: T-002 must land first, or Claude and Codex must explicitly coordinate a shared integration branch
 
 ### T-004
-- Status: `in-review`
+- Status: `done`
 - Owner: `@antigravity`
 - Backup: `@codex`
-- Labels: `organ:nexus`, `type:ops`, `gate:workspace-setup`, `effort:M`, `blocked:yes`
+- Labels: `organ:nexus`, `type:ops`, `gate:workspace-setup`, `effort:M`, `blocked:no`
 - Triage: `@antigravity` is the strongest fit because the task is workspace setup, scripts, and onboarding flow.
 - Branch: `agent/antigravity`
 - Task: merge workspace setup and context seeding support
 - Why now: reduces setup friction for every pioneer and helps the collaboration OS stick
-- Evidence: PR #9
-- Blocker: reviewer approval and merge
+- Evidence: PR #9 (Merged)
+- Blocker: none
 
 ### T-005
 - Status: `queued`
