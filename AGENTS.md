@@ -60,7 +60,7 @@ When resolving merge conflicts, you MUST strictly adhere to the following:
 ## Refactor Protocol (non-negotiable)
 When performing ANY refactor, proceed in small, coherent steps. After EACH step:
 1. **Keep scope narrow** — one concern changed per step.
-2. **Run `./.ai/run-checks.sh`** — lint + typecheck + unit tests must all pass before committing.
+2. **Run `./.ops/check.sh`** — lint + typecheck + unit tests must all pass before committing.
 3. **Avoid unrelated cleanup** — do not touch code outside the refactor boundary.
 4. **Preserve current UX and public APIs** unless the task explicitly requires changes.
 
