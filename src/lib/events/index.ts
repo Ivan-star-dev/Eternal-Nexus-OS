@@ -30,3 +30,15 @@ export { makeEventId, seedFromId, fnv1a32 } from './id';
 
 // Validation
 export { validateEvent, isNexusEvent } from './validation';
+
+// Observability ledger (dev-only)
+export {
+  createEventLedger,
+  attachLedger,
+  initDevLedger,
+  getDevLedger,
+  type EventLedger,
+  type LedgerEntry,
+  type LedgerFilter,
+  type LedgerStats,
+} from './ledger';
