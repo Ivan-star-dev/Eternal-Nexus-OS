@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Globe, Shield, Zap, Cpu, RotateCcw, ChevronRight } from "lucide-react";
+import { ArrowLeft, Globe, Shield, Zap, Cpu, RotateCcw, ChevronRight, Map } from "lucide-react";
+import { lazy, Suspense, useState } from "react";
 import Layout from "@/components/Layout";
 import geopoliticsMap from "@/assets/geopolitics-map.jpg";
 import geopoliticsOverview from "@/assets/geopolitics-overview.jpg";
+
+// Lazy-load MapLibre shell (heavy: ~200KB)
+const GeopoliticsMap = lazy(() => import("@/components/geopolitics/GeopoliticsMap"));
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -79,6 +83,8 @@ const risks = [
 ];
 
 const Geopolitics = () => {
+  const [mapExpanded, setMapExpanded] = useState(false);
+
   return (
     <Layout>
       {/* Breadcrumb */}
@@ -116,6 +122,36 @@ const Geopolitics = () => {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }} className="font-serif text-base sm:text-lg font-light italic text-muted-foreground max-w-2xl leading-relaxed">
             Quem Financia. Quem Lidera. O Papel do Brasil.
           </motion.p>
+        </div>
+      </section>
+
+      {/* Interactive Geopolitics Map — Sacred Flow: Tribunal → Atlas visualization */}
+      <section className="border-t border-border bg-[#0a0a0f]">
+        <div className="px-4 sm:px-6 md:px-16 lg:px-20 py-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <span className="font-mono text-[0.48rem] tracking-[0.2em] text-primary uppercase block mb-1">LIVE INTELLIGENCE MAP</span>
+              <h3 className="font-serif text-lg font-bold text-foreground flex items-center gap-2">
+                <Map className="w-4 h-4 text-primary" />
+                Geopolitical <span className="text-muted-foreground font-light italic">Overlay</span>
+              </h3>
+            </div>
+            <button
+              onClick={() => setMapExpanded(!mapExpanded)}
+              className="font-mono text-[0.55rem] tracking-[0.1em] text-primary border border-primary/30 px-3 py-1.5 hover:bg-primary/10 transition-colors"
+            >
+              {mapExpanded ? "COLLAPSE" : "EXPAND"}
+            </button>
+          </div>
+        </div>
+        <div style={{ height: mapExpanded ? '70vh' : '400px', transition: 'height 0.4s ease' }}>
+          <Suspense fallback={
+            <div className="w-full h-full flex items-center justify-center bg-[#0a0a0f]">
+              <span className="font-mono text-[0.6rem] text-primary/60 tracking-[0.2em] animate-pulse">LOADING MAP ENGINE...</span>
+            </div>
+          }>
+            <GeopoliticsMap showVerdicts={true} />
+          </Suspense>
         </div>
       </section>
 

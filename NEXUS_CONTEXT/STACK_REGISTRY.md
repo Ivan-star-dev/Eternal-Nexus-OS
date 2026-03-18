@@ -50,6 +50,14 @@
 - **In use:** Supabase (edge functions + DB)
 - **Status:** ✅ Established
 
+### 2D Map Engine
+- **In use:** MapLibre GL JS v5 (`maplibre-gl@5.20.2`)
+- **Status:** ✅ Adopted (2026-03-18, Task C2)
+
+### Serverless Vector Tiles
+- **In use:** PMTiles v4 (`pmtiles@4.4.0`)
+- **Status:** ✅ Adopted (2026-03-18, Task C2)
+
 ---
 
 ## Candidates (pending evaluation)
@@ -57,14 +65,22 @@
 > Add entries here as pioneers discover best-in-class options.
 > No entry = no adoption. Period.
 
-<!-- Example entry:
-### Camera inertia (Atlas globe)
-- **Candidate:** https://github.com/example/smooth-camera
-- **License:** MIT
-- **Why best-in-class:** Sub-frame interpolation, proven in production globes
-- **Integration plan:** Replace current AtlasGlobe camera controller
-- **Risks:** 12kb bundle, last commit 6mo ago
-- **Lab branch:** lab/claude/01
-- **Decision:** 🟡 PENDING
-- **Date:** 2026-03-17
--->
+### 2D Map Engine (Atlas / Geopolitics)
+- **Candidate:** `maplibre-gl` (https://maplibre.org)
+- **License:** BSD-3-Clause (fork of Mapbox GL JS v1, fully open)
+- **Why best-in-class:** Only production-grade open-source WebGL map renderer. No API key required. Active community (2k+ contributors). WebGPU roadmap. Complements Cesium (3D globe) with 2D geopolitics view.
+- **Integration plan:** PMTiles protocol for serverless tiles → GeopoliticsMap component → event bus bridge (tribunal verdicts as live GeoJSON markers) → Sacred Flow Atlas organ
+- **Risks:** ~200KB bundle (lazy-loaded), WebGL context conflicts with Cesium (mitigated: separate page/route)
+- **Lab branch:** Direct adoption (proven stable, no lab needed)
+- **Decision:** ✅ ADOPT
+- **Date:** 2026-03-18
+
+### Serverless Vector Tiles
+- **Candidate:** `pmtiles` (https://github.com/protomaps/PMTiles)
+- **License:** BSD-3-Clause
+- **Why best-in-class:** Single-file tile archive, zero tile server, HTTP range requests only. Perfect for serverless deployment (S3/R2/GCS). Protomaps ecosystem is the standard for serverless mapping.
+- **Integration plan:** Custom `pmtiles://` protocol registered with MapLibre. Tiles served from any static file host. Cached per-archive for performance.
+- **Risks:** ~15KB bundle (negligible). Requires CORS-enabled hosting for remote PMTiles files.
+- **Lab branch:** Direct adoption (mature, production-proven)
+- **Decision:** ✅ ADOPT
+- **Date:** 2026-03-18
