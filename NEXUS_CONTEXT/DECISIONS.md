@@ -39,3 +39,6 @@
 - Decidido: **Templates** in `NEXUS_CONTEXT/TEMPLATES/` — HANDOFF.md, LOG_TEMPLATE.md, PROJECT_STATE_TEMPLATE.md, OPS_WINDOWS_CHECKLIST.md. Zero-friction, copy-paste ready.
 - Decidido: **Organ identity upgrade** — Tribunal is the "nervous system" (decisions), Atlas is the "heart" (world consequences), Index is the "memory spine" (knowledge), News is the "voice" (narrative).
 - Decidido: **Security/Privacy rule** — if repo is public, anything committed is public. No API keys, tokens, or credentials in repo. Sensitive strategy in private repo or encrypted vault.
+
+## 2026-03-18 — Full Autonomy Directive
+- Decidido: **Never ask for permission.** The AI Pioneers form an autonomous organism. We identify needs, write the code, update tests, and directly push changes into our agent branches, generating PRs without user confirmation. Only the CI gates provide the final review before entering `main`.

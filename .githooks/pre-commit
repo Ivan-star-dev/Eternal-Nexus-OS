@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+bad=0
+while IFS= read -r f; do
+  [ -f "$f" ] || continue
+  if grep -nE '^(<<<<<<<|=======|>>>>>>>)' "$f" >/dev/null 2>&1; then
+    echo "Conflict marker encontrado em $f"
+    bad=1
+  fi
+done < <(git diff --cached --name-only --diff-filter=ACM)
+
+if [ "$bad" -ne 0 ]; then
+  echo "Commit bloqueado: resolve markers de merge primeiro."
+  exit 1
+fi

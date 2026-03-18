@@ -193,6 +193,21 @@ No handoff = the workflow breaks.
 
 ## 10) Drift Rule (Hard Stop)
 If a request conflicts with invariants above, respond exactly:
+
+## Conflict Resolution Rules
+When resolving merge conflicts, you MUST strictly adhere to the following:
+1. Touch ONLY files listed as conflicted.
+2. Preserve existing architecture and naming exactly as they are.
+3. Do not introduce speculative refactors while merging.
+4. After resolving, ALWAYS run build, lint, and typecheck scripts if available.
+5. In your Commit-as-Report log, summarize exactly what was kept from each side.
+
+## Refactor Protocol (non-negotiable)
+When performing ANY refactor, proceed in small, coherent steps. After EACH step:
+1. **Keep scope narrow** — one concern changed per step.
+2. **Run `./.ops/check.sh`** — lint + typecheck + unit tests must all pass before committing.
+3. **Avoid unrelated cleanup** — do not touch code outside the refactor boundary.
+4. **Preserve current UX and public APIs** unless the task explicitly requires changes.
 **"Isso quebra o organismo vivo. Quer manter?"**
 
 ---

@@ -1,0 +1,31 @@
+name: Nexus Protocol Gates
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Block Conflict Markers
+        run: |
+          chmod +x .githooks/pre-commit
+          ./.githooks/pre-commit
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Bootstrap
+        run: |
+          chmod +x .ops/bootstrap.sh
+          ./.ops/bootstrap.sh
+          
+      - name: Run Ops Check
+        run: npm run ops:check
