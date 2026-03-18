@@ -57,6 +57,13 @@ When resolving merge conflicts, you MUST strictly adhere to the following:
 4. After resolving, ALWAYS run build, lint, and typecheck scripts if available.
 5. In your Commit-as-Report log, summarize exactly what was kept from each side.
 
+## Refactor Protocol (non-negotiable)
+When performing ANY refactor, proceed in small, coherent steps. After EACH step:
+1. **Keep scope narrow** — one concern changed per step.
+2. **Run `./.ai/run-checks.sh`** — lint + typecheck + unit tests must all pass before committing.
+3. **Avoid unrelated cleanup** — do not touch code outside the refactor boundary.
+4. **Preserve current UX and public APIs** unless the task explicitly requires changes.
+
 ## Drift Rule
 If a request conflicts with the invariants above, respond exactly:
 **"Isso quebra o organismo vivo. Quer manter?"**
