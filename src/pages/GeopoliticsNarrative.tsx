@@ -14,6 +14,7 @@ import ReactMarkdown from "react-markdown";
 import { toast } from "sonner";
 import { useNexusState } from "@/hooks/useNexusState";
 import { TribunalVerdict } from "@/types";
+import GeopoliticsMap from "@/components/GeopoliticsMap";
 
 // ═══ Judge definitions ═══
 interface Judge {
@@ -376,6 +377,11 @@ export default function GeopoliticsNarrative() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* ═══ GEOPOLITICS MAP — Tribunal Atlas Layer ═══ */}
+        <div className="mb-4 rounded-lg overflow-hidden border border-border/30" style={{ height: '360px' }}>
+          <GeopoliticsMap className="w-full h-full" />
         </div>
 
         {/* Search */}
