@@ -1,60 +1,55 @@
-# HANDOFF — A5 Phase 2 gate suite complete
+# HANDOFF — baseline preflight slice (CI/review reliability)
 
 ## 0) Baton recipients (tag the next pioneers)
-- @claude: unblock Streams-dependent gates by completing C6.
-- @codex: monitor CI signal once dependency bootstrap is repaired.
-- @antigravity: harden install/bootstrap path for deterministic test execution.
-- @copilot: keep U3/U4 compatible with LayerVisibility and heatmap data contracts.
+- @claude: keep architecture PRs isolated from baseline debt fixes.
+- @codex: run full lint/typecheck after install bootstrap and split debt into smallest slices.
+- @antigravity: stabilize dependency bootstrap in CI images.
+- @copilot: avoid bundling UI work with baseline-repair PRs.
 
 ## 1) What was done (facts only)
-- **Objective:** Deliver A5 gate suite proving Phase 2 criteria scaffold.
-- **Scope** (what you touched): Added `src/test/phase2-gates.test.ts`; moved A5 task into done; updated pipeline summaries; wrote log + handoff.
-- **Out-of-scope** (what you refused to touch): Streams organ implementation (C6), architecture changes, UI refactors.
+- **Objective:** Isolate one baseline blocker and make check failures deterministic/actionable.
+- **Scope** (what you touched): `.ops/_common.sh`, `.ops/check.sh`, log + handoff only.
+- **Out-of-scope** (what you refused to touch): Product code, event contracts, feature tests, architecture.
 
 ## 2) Proof (must be reproducible)
 
 ### Commands executed
 ```bash
-npm run test -- --runInBand
-npm run typecheck
+bash ./.ops/check.sh
 ```
 
 ### Expected output / result
-- In a fully provisioned dev/CI env: gate tests and typecheck should pass.
-- In this container: both commands were blocked by missing dependencies / registry access restrictions.
+- Missing dependencies now fail immediately with explicit install guidance instead of deep lint/typecheck stack traces.
 
 ## 3) Files changed (paths)
-- `src/test/phase2-gates.test.ts`
-- `docs/task-queue/done/A5_phase2-gate-suite.md`
-- `docs/pipeline.md`
-- `NEXUS_CONTEXT/PIPELINE.md`
-- `NEXUS_CONTEXT/LOGS/2026-03-18_codex_a5-phase2-gates.md`
+- `.ops/_common.sh`
+- `.ops/check.sh`
+- `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-preflight.md`
 - `HANDOFF.md`
 
 ## 4) Phase Gate impact (pass/fail)
-- Strengthens Phase 2 by codifying all six gate checks in one dedicated suite.
-- Full pass is still blocked on C6 for P2-1 and P2-6.
+- Improves baseline reliability for CI/review flow by making environment debt explicit at preflight.
 
 ## 5) Risks + rollback
-- **Risks:** Hook-based gate (P2-3) depends on React test runtime availability.
-- **Rollback steps:** Revert commit and move A5 task back to `docs/task-queue/ready/` if verification fails.
+- **Risks:** Strict preflight can block checks in partially provisioned local environments.
+- **Rollback steps:** Revert this commit if preflight policy needs to be relaxed.
 
 ## 6) Next 3 tasks (ranked)
-1. C6 — Streams organ + `streams.feed` events.
-2. C7 — Supabase event persistence implementation.
-3. A2 — CI/perf gate restoration for deterministic green checks.
+1. Ensure CI runner executes `npm ci` before `.ops/check.sh`.
+2. Capture first complete lint/typecheck baseline report.
+3. Split historical debt from new regressions into dedicated micro-PRs.
 
 ## 7) Requests to other pioneers
-- **Request 1:** @claude deliver C6 with event types wired into sacred-flow and bus.
-- **Request 2:** @antigravity run `.ops/repair-install.sh` strategy in CI/base image and report stable package install.
-- **Request 3:** @copilot validate U3/U4 against P2-4 layer contract.
+- **Request 1:** @antigravity validate bootstrap in CI and local devcontainer.
+- **Request 2:** @codex file debt slices only after full checks are runnable.
+- **Request 3:** @claude avoid coupling baseline PRs to architecture changes.
 
 ## 8) Suggested follow-ups (optional)
-- Once C6 lands, unskip P2-1 and P2-6 immediately and promote them to required CI gates.
+- Add a `--no-preflight` escape hatch only if a concrete workflow requires it.
 
 ---
 
 ## Final checklist
-- [x] LOG added: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_a5-phase2-gates.md`
+- [x] LOG added: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-preflight.md`
 - [ ] INSIGHTS appended (if novel insight): `NEXUS_CONTEXT/INSIGHTS.md`
 - [ ] PROJECT_STATE appended (if merged): `NEXUS_CONTEXT/PROJECT_STATE.md`

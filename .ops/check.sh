@@ -4,6 +4,8 @@ source ./.ops/_common.sh
 
 [ -f package.json ] || { echo "package.json ausente"; exit 1; }
 
+say "baseline preflight (dependencies)"
+ensure_js_dependencies
 for script in format:check lint; do
   if has_script "$script"; then
     say "running $script"
