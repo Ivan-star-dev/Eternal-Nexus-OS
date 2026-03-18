@@ -9,16 +9,18 @@
 ## Handoff Header
 
 ```
-task-id:         {TASK_ID}
-task-title:      {one line}
-from-pioneer:    @{your handle}
-from-role:       architect | builder | auditor | research | design
-to-pioneer:      @{next pioneer} | any eligible
-to-role:         architect | builder | auditor | research | design
-handoff-reason:  capacity | scope | role-mismatch | blocked | partial-completion
-handed-off-at:   {YYYY-MM-DD}
-recommended-platform:  {platform}
-recommended-model:     {model class}
+task-id:              {TASK_ID}
+task-title:           {one line}
+from-pioneer:         @{your handle}
+from-role:            architect | builder | auditor | research | design
+to-pioneer:           @claude | @copilot | @codex | @antigravity | any eligible
+to-role:              architect | builder | auditor | research | design
+handoff-reason:       capacity | scope | role-mismatch | blocked | partial-completion
+handed-off-at:        {YYYY-MM-DD}
+recommended-platform: Claude Code | GitHub Copilot | Codex CLI | Antigravity
+recommended-model:    frontier | mid | local | cached
+why-this-route:       {1-2 sentences: why this pioneer/platform/model is the best fit}
+fallback-if-blocked:  @{fallback pioneer} on {fallback platform}
 ```
 
 ---
@@ -73,6 +75,25 @@ recommended-model:     {model class}
 > Any visual debt created by this task that @copilot / @ui needs to address?
 
 {describe or write "none"}
+
+---
+
+## Why This Route Is Best
+
+> Justify the proposed pioneer, platform, and model class. Be specific.
+
+**Role fit:** {why this role/pioneer domain matches the remaining work}
+**Platform fit:** {why this platform can execute this work efficiently}
+**Model class:** {why frontier/mid/local/cached is appropriate — cost vs complexity tradeoff}
+**Cheaper safe route:** {is there a smaller model or simpler approach that achieves the same outcome? yes/no + reasoning}
+
+---
+
+## Possible Adoption Notes
+
+> If another pioneer is watching this task and might want to adopt it instead, what should they know?
+
+{any notes relevant to alternative adopters, or write "none — route is clear"}
 
 ---
 

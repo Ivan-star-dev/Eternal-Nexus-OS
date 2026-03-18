@@ -15,9 +15,10 @@
 
 | File | Purpose |
 |------|---------|
-| `docs/loop-protocol.md` | The 6-phase operating cycle: Intake → Routing → Lease → Execute → Verify → Handoff |
-| `docs/pipeline.md` | Current task state: ready / in-progress / blocked / done |
+| `docs/loop-protocol.md` | The 6-phase operating cycle: Intake → Routing → Lease → Execute → Verify → Handoff. Includes capacity fallback chain + continuous flow rules. |
+| `docs/pipeline.md` | Current task state: ready / in-progress / blocked / done. Includes queue philosophy, foundation-first policy, continuous flow rule. |
 | `docs/capacity-routing.md` | How to choose the right model/platform. Fallback chain. |
+| `docs/handoffs/README.md` | Handoff rules, allowed pioneer tags, route justification requirements. |
 
 ## 3. Task Queue (live board)
 

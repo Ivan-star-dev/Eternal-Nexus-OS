@@ -86,17 +86,46 @@ Before closing:
 **If work is complete:**
 1. Move task file to `docs/task-queue/done/`
 2. Remove lease from `docs/task-leases/`
-3. Write session LOG in `NEXUS_CONTEXT/LOGS/`
-4. Append to `NEXUS_CONTEXT/PROJECT_STATE.md`
-5. Append insights to `NEXUS_CONTEXT/INSIGHTS.md`
-6. If design debt was created: add entry to design backlog
-7. Commit: `done: close {TASK_ID} — {title}`
+3. **Write execution report** — what changed, what files were touched, evidence of correctness
+4. Write session LOG in `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_{pioneer}_{topic}.md`
+5. Append to `NEXUS_CONTEXT/PROJECT_STATE.md` (append-only)
+6. Append insights to `NEXUS_CONTEXT/INSIGHTS.md` (append-only)
+7. If design debt was created: add entry to design backlog with tag `[DESIGN-BACKLOG]`
+8. **Scan the queue**: if fewer than 3 tasks in `ready/`, inject at least 2 new tasks before stopping
+9. Commit: `done: close {TASK_ID} — {title}`
 
 **If work is partial:**
 1. Keep task in `in-progress/` with updated progress notes
 2. Write handoff file: `docs/handoffs/to-{role}/{TASK_ID}_handoff.md`
 3. The handoff must include the exact start prompt for the next pioneer
 4. Commit: `handoff: {TASK_ID} to {role} — {reason}`
+
+---
+
+## Capacity / Model Fallback Chain
+
+If a pioneer's credits run out, the model is unavailable, or the platform cannot run the task:
+
+1. **Update the lease**: set `status: blocked`, document the blocker in `blocked-reason:`
+2. **Move task to `docs/task-queue/blocked/`**
+3. **Write a handoff** to the next eligible pioneer (see `docs/capacity-routing.md` for fallback order)
+4. **Fallback order** (default):
+   - frontier blocked → try mid-tier model on same platform
+   - platform blocked → try different platform with same pioneer handle
+   - pioneer blocked entirely → write handoff to next eligible pioneer in the routing chain
+5. **Never leave a task silently stalled.** Blocked is a valid state. Invisible is not.
+
+---
+
+## Continuous Flow
+
+The loop never stops. When a pioneer finishes or is blocked:
+
+- If `docs/task-queue/ready/` has tasks → claim the next eligible one
+- If the queue is empty → generate new tasks (scope: current phase gate, your role domain)
+- If you cannot generate tasks → write a handoff to `@claude` (architect) to break down the next phase gate
+
+**No pioneer exits the loop without leaving the queue in a better state than they found it.**
 
 ---
 

@@ -2,6 +2,16 @@
 
 > The repository is the transmission channel. Every task flows through this pipeline. No exceptions.
 
+## Queue Philosophy
+
+The pipeline is never idle. When all tasks are done, pioneers generate new ones — they do not wait.
+
+- **Foundation-first**: Architectural correctness (Sacred Flow, event contracts, gate proofs) takes absolute priority over UI/UX polish. No UI task can block a foundation task.
+- **Continuous flow**: A pioneer finishing a task immediately scans the queue for the next. If the queue has fewer than 3 ready tasks, the pioneer must inject at least 2 new ones before stopping.
+- **Task discovery from repo**: Pioneers discover work by reading this file + `docs/task-queue/ready/`. No direct instructions required — the repo is self-describing.
+- **Ideation and optimization tasks are valid**: A task that improves performance, reduces tech debt, adds observability, or researches a future phase belongs in the queue with a P2 or P3 priority. They are not "lesser" — they are how the organism improves itself.
+- **Temporary UI/UX coverage**: UI tasks are allowed when they unblock a foundation deliverable (e.g., a test harness needs a visible output) or prevent a delivery bottleneck (e.g., a missing map shell blocks atlas integration). They must be scoped to the minimum needed and marked `temporary-ui: true` in the task file.
+
 ## Task States
 
 ```
