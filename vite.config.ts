@@ -60,6 +60,6 @@ export default defineConfig(({ mode }) => ({
       provider: 'playwright',
       name: 'chromium',
     },
-    setupFiles: ['./src/setupTests.ts'],
+    setupFiles: ['./src/test/setup.ts'],
   },
 }));

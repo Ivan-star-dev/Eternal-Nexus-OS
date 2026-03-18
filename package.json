@@ -97,8 +97,9 @@
     "@eslint/js": "^9.32.0",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.2",
     "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.14",
@@ -120,5 +121,10 @@
     "typescript-eslint": "^8.38.0",
     "vite": "^8.0.0",
     "vitest": "^4.1.0"
+  },
+  "overrides": {
+    "lovable-tagger": {
+      "vite": "^8.0.0"
+    }
   }
 }
