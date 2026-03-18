@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 interface SearchResult {
   label: string;
   path: string;
-  icon: React.ElementType;
+  icon: React.FC<{ className?: string; style?: React.CSSProperties }>;
   organ: string;
   organColor: string;
   keywords: string[];

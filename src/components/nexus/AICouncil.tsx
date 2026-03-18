@@ -197,9 +197,7 @@ function ConnectionLines({ speakingAgent }: { speakingAgent: string | null }) {
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
-              count={2}
-              array={new Float32Array([0, 0, 0, agent.orbitRadius, 0, 0])}
-              itemSize={3}
+              args={[new Float32Array([0, 0, 0, agent.orbitRadius, 0, 0]), 3]}
             />
           </bufferGeometry>
           <lineBasicMaterial

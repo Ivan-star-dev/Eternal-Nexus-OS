@@ -198,7 +198,8 @@ function ConnectionArc({
   to: [number, number, number];
   color: string;
 }) {
-  const lineRef = useRef<THREE.Line>(null!);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const lineRef = useRef<any>(null);
   const particlesRef = useRef<THREE.Points>(null!);
   const particleCount = 24;
 
@@ -241,16 +242,16 @@ function ConnectionArc({
     }
   });
 
+  // Build a THREE.Line imperatively to avoid SVGLineElement JSX conflict
+  const lineObj = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.25, blending: THREE.AdditiveBlending });
+    const l = new THREE.Line(lineGeom, mat);
+    return l;
+  }, [lineGeom, color]);
+
   return (
     <group>
-      <line ref={lineRef} geometry={lineGeom}>
-        <lineBasicMaterial
-          color={color}
-          transparent
-          opacity={0.25}
-          blending={THREE.AdditiveBlending}
-        />
-      </line>
+      <primitive ref={lineRef} object={lineObj} />
       <points ref={particlesRef} geometry={particleGeom}>
         <pointsMaterial
           size={0.04}
