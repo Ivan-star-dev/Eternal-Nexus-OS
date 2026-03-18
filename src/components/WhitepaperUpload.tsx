@@ -35,7 +35,7 @@ const WhitepaperUpload = ({ onUploadComplete }: WhitepaperUploadProps) => {
           .map((f) => ({
             name: f.name,
             projectId,
-            size: f.metadata?.size > 1048576 ? `${(f.metadata.size / 1048576).toFixed(1)} MB` : `${(f.metadata?.size / 1024 || 0).toFixed(0)} KB`,
+            size: (f.metadata?.size ?? 0) > 1048576 ? `${((f.metadata?.size ?? 0) / 1048576).toFixed(1)} MB` : `${((f.metadata?.size ?? 0) / 1024).toFixed(0)} KB`,
             uploadedAt: f.created_at || "",
           }))
       );
