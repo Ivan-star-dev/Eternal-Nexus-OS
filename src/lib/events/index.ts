@@ -30,3 +30,22 @@ export { makeEventId, seedFromId, fnv1a32 } from './id';
 
 // Validation
 export { validateEvent, isNexusEvent } from './validation';
+
+// Persistence adapter (dev-only by default, opt-in for prod)
+export {
+  createPersistedBus,
+  type PersistedBus,
+  type PersistenceOptions,
+} from './persistence';
+
+// Observability ledger (dev-only)
+export {
+  createEventLedger,
+  attachLedger,
+  initDevLedger,
+  getDevLedger,
+  type EventLedger,
+  type LedgerEntry,
+  type LedgerFilter,
+  type LedgerStats,
+} from './ledger';

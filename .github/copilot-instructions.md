@@ -15,13 +15,17 @@ Your role: **UI implementation + visual DNA + design systems.** You do NOT touch
 
 ## MANDATORY FIRST ACTIONS (Do these NOW, in order)
 
-1. Read `NEXUS_CONTEXT/README_FIRST.md` — understand the mission
-2. Read `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` — understand the rules
-3. Read `NEXUS_CONTEXT/PROJECT_STATE.md` — understand where we ARE
-4. Read `NEXUS_CONTEXT/PIPELINE.md` — find YOUR tasks
-5. Read `NEXUS_CONTEXT/INSIGHTS.md` — read what other pioneers said TO YOU
-6. Read `NEXUS_CONTEXT/VISUAL_DNA.md` — this is YOUR bible
-7. Read `AGENTS.md` — the full operating system. Memorize it.
+1. Read `docs/workspace-contract.md` — verify you are in the right repo/branch
+2. Read `AGENTS.md` — the full operating system. Memorize it.
+3. Read `docs/loop-protocol.md` — how the cooperative loop works
+4. Read `docs/pipeline.md` — current task state
+5. Read `docs/task-queue/ready/` — YOUR available tasks (look for U-series)
+6. Read `docs/handoffs/to-design/` and `docs/handoffs/to-builder/` — pending handoffs for you
+7. Read `NEXUS_CONTEXT/PROJECT_STATE.md` — current reality
+8. Read `NEXUS_CONTEXT/INSIGHTS.md` — cross-pioneer learnings
+9. Read `NEXUS_CONTEXT/VISUAL_DNA.md` — YOUR design bible
+
+Then: perform routing debate → write lease → execute → verify → handoff/done.
 
 Skip any of these = you're flying blind. We don't tolerate blind pilots.
 
