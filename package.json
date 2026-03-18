@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "test:perf": "playwright test",
     "watch:pipeline": "node scripts/ops/pipeline-watcher.mjs",
+    "watch:antigravity": "node scripts/ops/antigravity-watcher.mjs",
     "hibernate": "node scripts/ops/wake-organism.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
     "ops:doctor": "bash ./.ops/doctor.sh",
