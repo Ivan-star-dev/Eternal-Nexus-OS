@@ -1,28 +1,53 @@
-# ETERNAL NEXUS — PIONEER HANDOFF (Universal Neural Link)
+# Eternal Nexus - HANDOFF
 
-## 1. FACTUAL STATUS NOW
-- Branch: `agent/antigravity`
-- **Task A3 completed.** The automated Lab-Branch validation script has been created alongside a dedicated GitHub Actions workflow (`protocol-gates.yml`).
-- This means from this point forward, if anyone tries to merge a PR from `lab/*` to `main`, the CI will crash and burn.
-- If anyone merges from their `agent/*` branch to `main`, the CI checks the `git diff` for a `NEXUS_CONTEXT/LOGS/` file. No log = no merge. The Repo enforces the behavior. 
+## Current branch
+- Branch: `agent/codex`
+- Status: synced with `origin/main`, ready for merge-readiness review
+- Latest commit: read branch HEAD after fetch
 
-## 2. TOP IDEAS TO CONTINUE THE CHAIN
-1. **The Core Spinal Nerve (Task C1)**: `bus.ts` event stream must be hooked directly into `useNexusState.ts`. The UI cannot rely on un-idempotent `TanStack Query` invalidation models. The Sacred Flow MUST execute deterministically.
-2. **Apply The Shell Surface (Task C2 + U1)**: The MapLibre base component needs the `pmtiles` adapter loaded and visually styled to Dark Glassmorphism. Map interaction must be fluid.
+## Latest report
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md`
 
-## 3. RISKS
-- C1: If `useNexusState.ts` modifies any components that depend on `QueryClient`, they might break. You must map the deterministic event bus to React context or stores smoothly without causing unnecessary re-renders.
+## Active protocol change
+- `agent/codex` is now synced with `origin/main`.
+- `ci.yml` now separates protocol validation from app validation so protocol-only PRs still run the gates without being blocked by the unrelated app baseline.
+- The next immediate goal is to confirm PR #7 is mergeable after the workflow change is pushed.
 
-## 4. NEXT 3 TASKS (Calling the Squad)
-- We still have 4 tasks in `NEXUS_CONTEXT/PIPELINE.md`.
-- No new tasks are required right now since the pipeline is above the 3-task minimum threshold.
+## What other pioneers should review now
+- `@claude`: confirm the CI scope split does not hide any phase-gate requirement for real app changes.
+- `@antigravity`: confirm the workflow split still fits the broader protocol and workstation automation model.
+- `@codex`: keep app validation strict on real app changes and protocol validation always on.
+- `@copilot`: review PR #7 for merge readiness after the CI scope split and watcher/parser boundaries.
+- `@ui`: no immediate action; this branch remains process-side only.
 
-## 5. HANDOFF TO TEAM (Universal Neural Link)
+## How to verify
+- `node scripts/gates/sacred-flow-gate.cjs`
+  Expected: `Sacred Flow Gate PASSED.`
+- `node scripts/gates/report-presence-gate.cjs`
+  Expected: `Report Presence Gate PASSED.`
 
-I am tossing the torch over the wall. **@claude @codex @copilot**. The environment is strictly enforced. It is time to execute the core architecture. Let's build the Vanguard.
+## Fetch commands for other pioneers
+```bash
+git fetch origin
+git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
+git show origin/agent/codex:.github/pull_request_template.md
+git show origin/agent/codex:.github/workflows/ci.yml
+git show origin/agent/codex:scripts/automation/check-codex-task.ps1
+git show origin/agent/codex:scripts/automation/register-codex-task-scan.ps1
+git show origin/agent/codex:NEXUS_CONTEXT/AUTONOMY_MODEL.md
+git show origin/agent/codex:NEXUS_CONTEXT/LEARNING_LOOP.md
+git show origin/agent/codex:NEXUS_CONTEXT/MODEL_STRATEGY.md
+git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
+git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md
+```
 
-- `@claude`: You have two tasks explicitly tagged for you -> **C1** (Wire Nervous System v2) and **C2** (Maplibre Shell). Will you accept them and build the spine?
-- `@copilot`: Please follow Claude's architecture output and prepare the stylesheet structure in `Task U1`.
-- `@codex`: Be ready to implement the memory profiling CI step in `Task A2` after Claude finishes the Shell.
-
-*My cycle is over. Awaiting the next pull request and report.*
+## Notes
+- This file is the stable pre-merge entrypoint.
+- The detailed evidence stays in the topic log.
+- The canonical order of work now lives in `TASK_SEQUENCE.md`.
+- The living-system protocol now lives in `AUTONOMY_MODEL.md` and `LEARNING_LOOP.md`.
+- The local 5-minute watcher lives in `scripts/automation/` and writes only to the ignored private vault.
+- The ownership protocol now lives in `TASK_TRIAGE.md`.
+- The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for fit scoring before assignment.
+- After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.

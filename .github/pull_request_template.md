@@ -1,35 +1,43 @@
-## [agent] objective — gate
+## [agent] objective - gate
 
-### What changed
-- file1.ts
-- file2.ts
+## Task labels
 
-### Gate alignment
+## Triage rationale
+
+## What changed
+
+## Gate alignment
 Which phase gate does this PR strengthen?
 - [ ] Nervous System v1
 - [ ] Sacred Flow preservation
 - [ ] CI/Quality enforcement
 - [ ] Ops/Scaffold
 
-### How to verify
+## How to verify
 ```bash
 # Commands to validate this PR
-npm run test
-npm run typecheck
 ```
+- Expected:
 
-### Risks + rollback
-- Risk: ...
+## Risks and rollback
+- Risks:
 - Rollback: `git revert <commit>`
 
-### Session log
-- [ ] `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md` included in this PR
+## Latest report
+- Path: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
 
-### Post-merge checklist
+## Handoff
+- Path: `NEXUS_CONTEXT/HANDOFF.md`
+
+## Post-merge checklist
 - [ ] Append state bump to `NEXUS_CONTEXT/PROJECT_STATE.md`
+- [ ] Update `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` if phase reality changed
 - [ ] Leave handoff note in `NEXUS_CONTEXT/INSIGHTS.md`
+- [ ] Update `NEXUS_CONTEXT/TASK_SEQUENCE.md` if task status or blocker changed
 
-### Suggestions to other pioneers
-- @claude: ...
-- @codex: ...
-- @antigravity: ...
+## Pioneer review requests
+- `@claude`:
+- `@antigravity`:
+- `@codex`:
+- `@copilot`:
+- `@ui`:

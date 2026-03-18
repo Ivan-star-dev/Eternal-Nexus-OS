@@ -1,0 +1,138 @@
+name: CI
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/gates/**'
+      - 'NEXUS_CONTEXT/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig*.json'
+      - 'vite.config.ts'
+      - 'vitest.config.ts'
+      - 'eslint.config.js'
+      - '.github/pull_request_template.md'
+      - '.github/workflows/ci.yml'
+  push:
+    branches:
+      - main
+      - agent/codex
+    paths:
+      - 'src/**'
+      - 'scripts/gates/**'
+      - 'NEXUS_CONTEXT/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig*.json'
+      - 'vite.config.ts'
+      - 'vitest.config.ts'
+      - 'eslint.config.js'
+      - '.github/pull_request_template.md'
+      - '.github/workflows/ci.yml'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+
+    outputs:
+      app: ${{ steps.filter.outputs.app }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changed files
+        id: filter
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git fetch origin "${{ github.base_ref }}" --depth=1
+            changed_files="$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD)"
+          elif [[ -n "${{ github.event.before }}" && "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]]; then
+            changed_files="$(git diff --name-only "${{ github.event.before }}" "$GITHUB_SHA")"
+          else
+            changed_files="$(git diff --name-only HEAD^ HEAD)"
+          fi
+
+          printf '%s\n' "$changed_files" > changed-files.txt
+
+          if grep -Eq '^(src/|package\.json$|package-lock\.json$|tsconfig.*\.json$|vite\.config\.ts$|vitest\.config\.ts$|eslint\.config\.js$)' changed-files.txt; then
+            echo "app=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "app=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  validate-protocol:
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sacred Flow Gate
+        run: node scripts/gates/sacred-flow-gate.cjs
+
+      - name: Report Presence Gate
+        env:
+          GATE_EVENT_NAME: ${{ github.event_name }}
+          GATE_BASE_REF: ${{ github.base_ref || 'main' }}
+        run: node scripts/gates/report-presence-gate.cjs
+
+  validate-app:
+    needs: detect-changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Skip when no app-facing files changed
+        if: needs.detect-changes.outputs.app != 'true'
+        run: echo "No app-facing changes detected; skipping install/lint/typecheck/test/build."
+
+      - name: Checkout
+        if: needs.detect-changes.outputs.app == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        if: needs.detect-changes.outputs.app == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm ci
+
+      - name: Typecheck
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm run typecheck --if-present
+
+      - name: Lint
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm run lint --if-present
+
+      - name: Test
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm run test --if-present
+
+      - name: Build
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm run build
