@@ -30,6 +30,16 @@ Decision states: `pending | lab-validating | adopt | reject`
 
 ---
 
+## Current stack already in use
+- React 18 + Vite + TypeScript
+- TanStack Query
+- Cesium + React Three Fiber
+- Tailwind CSS + shadcn/ui
+- Vitest
+- Supabase
+
+---
+
 ## Candidate list (top 10)
 Keep this list objective: what it accelerates and how we prove it.
 

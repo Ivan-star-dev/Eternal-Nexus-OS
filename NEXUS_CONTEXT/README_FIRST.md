@@ -27,7 +27,16 @@ Each pioneer may also use up to three lab branches:
 Lab branches are for experiments only. They never merge directly to `main`.
 If a lab idea becomes real, it must be re-implemented cleanly in the agent branch with evidence and a report.
 
-## 2) Commit-as-Report OS
+Merge to `main` only via PR.
+
+## 2) Workspaces
+Expected desktop mirrors:
+- `./` = `main`
+- `./_worktrees/claude`
+- `./_worktrees/codex`
+- `./_worktrees/antigravity`
+
+## 3) Commit-as-Report OS
 Every meaningful change must ship as:
 1. Code change
 2. Test or evidence where possible
@@ -39,12 +48,14 @@ The stable pre-merge broadcast file is:
 The detailed report path is:
 `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
 
-## 3) Neural Link
+## 4) Neural Link
 Every pioneer starts by reading:
 - `NEXUS_CONTEXT/README_FIRST.md`
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
+- `NEXUS_CONTEXT/DECISIONS.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/PROJECT_STATE.md`
+- `NEXUS_CONTEXT/INSIGHTS.md`
 - `NEXUS_CONTEXT/AUTONOMY_MODEL.md`
 - `NEXUS_CONTEXT/LEARNING_LOOP.md`
 - `NEXUS_CONTEXT/MODEL_STRATEGY.md`
@@ -77,10 +88,19 @@ At the end of the session:
 4. Open or update a PR to `main`.
 5. If the work is merged later, append the state bump and handoff notes.
 
-## 5) Design order
+## 5) Innovation harvesting
+- Any external repo or library must be logged in `NEXUS_CONTEXT/STACK_REGISTRY.md` first.
+- Validate in a lab branch.
+- Re-implement cleanly in the agent branch before asking for merge.
+
+## 6) Design order
 Design polish is always considered, but it is executed last.
 The order is:
 1. spine and contracts
 2. gates and evidence
 3. ops and automation
 4. polish and motion
+
+## 7) Retention lock
+Read `NEXUS_CONTEXT` first. Work only in your branch. Every meaningful commit includes a log report.
+Ask: "Does this strengthen Sacred Flow and the current phase gate without soup?" If not, stop.

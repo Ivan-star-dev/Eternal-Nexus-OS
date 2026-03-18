@@ -18,3 +18,7 @@ Never invent an unrelated style deep in the stack.
 ## Breadcrumbs
 Always show a folder-like path:
 `NEXUS / <TAB> / ... / <HUB>`
+
+## Design execution timing
+Design polish is considered always, but executed last, after the spine is bulletproof.
+UI work happens only after architecture and gates are validated.

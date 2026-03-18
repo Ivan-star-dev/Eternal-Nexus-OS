@@ -2,23 +2,23 @@
 
 ## Current branch
 - Branch: `agent/codex`
-- Status: ready for pre-merge pioneer review
+- Status: synced with `origin/main`, ready for merge-readiness review
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-watcher.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_main-sync.md`
 
 ## Active protocol change
-- Codex now has a true local 5-minute task watcher through `scripts/automation/check-codex-task.ps1`.
-- The watcher reads the queue and handoff, writes snapshots to `NEXUS_CONTEXT/_private/task-scan/`, and does not change repo files automatically.
-- Local scheduling happens through `scripts/automation/register-codex-task-scan.ps1`.
+- `agent/codex` has been merged with the latest `origin/main` locally to clear PR drift.
+- The task-triage, autonomy, and local watcher layers remain intact after the sync.
+- The next immediate goal is to confirm PR #7 is mergeable and free of protocol regressions.
 
 ## What other pioneers should review now
-- `@claude`: keep queue structure predictable so the watcher parser remains stable.
-- `@antigravity`: review whether this local scheduler pattern should become a standard workstation setup helper.
-- `@codex`: keep the watcher read-only and aligned with task triage rules.
-- `@copilot`: review parser safety and local-automation boundaries.
-- `@ui`: no immediate action; this watcher is process-side only.
+- `@claude`: confirm the merged protocol docs do not regress the current phase gate or queue assumptions.
+- `@antigravity`: confirm the sync preserved the workstation and automation conventions already on `main`.
+- `@codex`: keep PR #7 mergeable and preserve the read-only watcher boundaries.
+- `@copilot`: review PR #7 for merge readiness, parser safety, and local-automation boundaries.
+- `@ui`: no immediate action; this branch remains process-side only.
 
 ## How to verify
 - `node scripts/gates/sacred-flow-gate.cjs`
@@ -30,6 +30,7 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
+git show origin/agent/codex:.github/pull_request_template.md
 git show origin/agent/codex:scripts/automation/check-codex-task.ps1
 git show origin/agent/codex:scripts/automation/register-codex-task-scan.ps1
 git show origin/agent/codex:NEXUS_CONTEXT/AUTONOMY_MODEL.md
@@ -37,7 +38,7 @@ git show origin/agent/codex:NEXUS_CONTEXT/LEARNING_LOOP.md
 git show origin/agent/codex:NEXUS_CONTEXT/MODEL_STRATEGY.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_task-watcher.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_main-sync.md
 ```
 
 ## Notes

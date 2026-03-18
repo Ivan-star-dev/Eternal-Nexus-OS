@@ -122,3 +122,9 @@ The model ownership path lives in:
 
 Rule:
 - own the system, memory, routing, and evals before trying to train a large model from scratch
+
+## Releases
+Artifacts such as ZIPs, PDFs, and posters should live in GitHub Releases.
+```bash
+gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
+```

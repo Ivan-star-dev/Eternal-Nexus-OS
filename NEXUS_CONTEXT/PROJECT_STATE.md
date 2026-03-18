@@ -3,6 +3,7 @@
 This file is the current-state snapshot for the project. After each merge, append a state bump instead of rewriting history.
 
 ## Current snapshot
+- Current phase: Phase 3 - Internal Flow / Nervous System v1
 - Source of truth: `main` plus `NEXUS_CONTEXT/`
 - Collaboration OS: commit = report = sync
 - Permanent branches: `main`, `agent/claude`, `agent/codex`, `agent/antigravity`
@@ -21,6 +22,7 @@ This file is the current-state snapshot for the project. After each merge, appen
 - `MODEL_STRATEGY.md` now defines the path to a product-owned AI system before any from-scratch model ambition.
 - `FOUNDER_PROFILE.template.md` now provides the safe template for a private founder-memory layer.
 - Codex now has repo-owned local watcher scripts for a 5-minute task scan that write only into `NEXUS_CONTEXT/_private/task-scan/`.
+- The app-quality and phase-3 governance surfaces already exist on `main`; PR #7 is reconciling the newer protocol layer with them.
 - `STACK_REGISTRY.md` is now seeded with concrete candidates and benchmark tags for pioneer debate.
 - `DEBATE_PROMPT_OPEN_SOURCE.md` and `SECURITY_MODEL.md` now define how to debate external adoption and what must stay private.
 - Cross-pioneer handoffs are now expected through logs, PRs, `PROJECT_STATE.md`, and `INSIGHTS.md`.

@@ -8,6 +8,7 @@
 | Ops, scaffold, releases, setup, templates | antigravity | Codex | Keeps desktop mirrors, automation, and releases aligned |
 | Review, security, lint | Copilot | - | Works in PR review without a dedicated branch |
 | Premium UI, motion, shader polish | Cursor (if used) | Claude Code | Executes polish last, after the spine is proven |
+| Atlas, Cesium, tiles strategy (if used) | Gemini (if used) | Claude Code | Supports map runtime and tiles work without taking over the protocol layer |
 
 ## Branch discipline
 - Work only in the assigned agent branch for real work.
@@ -20,6 +21,19 @@
 - Ownership must follow benchmark-based triage and proven skill.
 - Every task gets labels, a benchmark-fit discussion, an owner tag, and a backup tag.
 - The owner tag is the triage result, not a preference vote.
+
+## Commit-as-Report obligation
+Every meaningful commit must create or update:
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+
+The report must contain:
+1. What changed
+2. Why
+3. How to verify
+4. Risks and rollback
+5. Next 3 tasks
+6. Suggestions for other pioneers
+7. Optional external references with license and adoption notes
 
 ## Limits by pioneer
 ### Claude (`agent/claude`)
