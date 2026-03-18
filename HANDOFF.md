@@ -1,15 +1,15 @@
-# HANDOFF — baseline preflight slice (CI/review reliability)
+# HANDOFF — auditoria geral (A5 reopened as blocked)
 
 ## 0) Baton recipients (tag the next pioneers)
-- @claude: keep architecture PRs isolated from baseline debt fixes.
-- @codex: run full lint/typecheck after install bootstrap and split debt into smallest slices.
-- @antigravity: stabilize dependency bootstrap in CI images.
-- @copilot: avoid bundling UI work with baseline-repair PRs.
+- @claude: validate minimal pure-logic extraction plan for P2-3 gate.
+- @codex: finish A5 only after reproducible vitest/tsc evidence.
+- @antigravity: guarantee dependency bootstrap in CI before checks.
+- @copilot: hold UI work outside this baseline slice.
 
 ## 1) What was done (facts only)
-- **Objective:** Isolate one baseline blocker and make check failures deterministic/actionable.
-- **Scope** (what you touched): `.ops/_common.sh`, `.ops/check.sh`, log + handoff only.
-- **Out-of-scope** (what you refused to touch): Product code, event contracts, feature tests, architecture.
+- **Objective:** Correct task-state integrity and align A5 with its stated constraints.
+- **Scope** (what you touched): A5 task file state, pipeline status, P2-3 gate status, audit log/handoff.
+- **Out-of-scope** (what you refused to touch): Product features, architecture, non-audit refactors.
 
 ## 2) Proof (must be reproducible)
 
@@ -19,37 +19,39 @@ bash ./.ops/check.sh
 ```
 
 ### Expected output / result
-- Missing dependencies now fail immediately with explicit install guidance instead of deep lint/typecheck stack traces.
+- Preflight blocks at missing dependencies in this workspace; this is the current baseline truth.
 
 ## 3) Files changed (paths)
-- `.ops/_common.sh`
-- `.ops/check.sh`
-- `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-preflight.md`
+- `src/test/phase2-gates.test.ts`
+- `docs/task-queue/blocked/A5_phase2-gate-suite.md`
+- `docs/pipeline.md`
+- `NEXUS_CONTEXT/PIPELINE.md`
+- `NEXUS_CONTEXT/LOGS/2026-03-18_codex_auditoria-geral.md`
 - `HANDOFF.md`
 
 ## 4) Phase Gate impact (pass/fail)
-- Improves baseline reliability for CI/review flow by making environment debt explicit at preflight.
+- Prevents false-positive Phase 2 closure by reopening A5 until constraints and evidence are satisfied.
 
 ## 5) Risks + rollback
-- **Risks:** Strict preflight can block checks in partially provisioned local environments.
-- **Rollback steps:** Revert this commit if preflight policy needs to be relaxed.
+- **Risks:** Phase 2 progress appears slower because truthfully blocked status is restored.
+- **Rollback steps:** Revert commit (not recommended unless equivalent evidence is added).
 
 ## 6) Next 3 tasks (ranked)
-1. Ensure CI runner executes `npm ci` before `.ops/check.sh`.
-2. Capture first complete lint/typecheck baseline report.
-3. Split historical debt from new regressions into dedicated micro-PRs.
+1. Pure-logic extraction for P2-3.
+2. Bootstrap + execute vitest/tsc.
+3. Re-close A5 with reproducible outputs.
 
 ## 7) Requests to other pioneers
-- **Request 1:** @antigravity validate bootstrap in CI and local devcontainer.
-- **Request 2:** @codex file debt slices only after full checks are runnable.
-- **Request 3:** @claude avoid coupling baseline PRs to architecture changes.
+- **Request 1:** @claude define safe extraction boundary for heatmap transform logic.
+- **Request 2:** @antigravity ensure CI setup runs install before checks.
+- **Request 3:** @codex keep this as single-task baseline slice.
 
 ## 8) Suggested follow-ups (optional)
-- Add a `--no-preflight` escape hatch only if a concrete workflow requires it.
+- Add a CI artifact that stores baseline command outputs when closing tasks.
 
 ---
 
 ## Final checklist
-- [x] LOG added: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_baseline-preflight.md`
+- [x] LOG added: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_auditoria-geral.md`
 - [ ] INSIGHTS appended (if novel insight): `NEXUS_CONTEXT/INSIGHTS.md`
 - [ ] PROJECT_STATE appended (if merged): `NEXUS_CONTEXT/PROJECT_STATE.md`

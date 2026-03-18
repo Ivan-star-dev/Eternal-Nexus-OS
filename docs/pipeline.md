@@ -86,9 +86,9 @@ PHASE 1 — COMPLETE ✅  (proven: 70 gate tests)
 
 PHASE 2 — IN PROGRESS 🔶
   READY:       C6, C7, U3, U4, A4
-  DONE:        A5
+  DONE:        (none)
   IN-PROGRESS: (check docs/task-queue/in-progress/)
-  BLOCKED:     (none)
+  BLOCKED:     A5 (constraint/evidence mismatch)
 
 Phase 2 gate proof: src/test/phase2-gates.test.ts  (task A5)
 ```
