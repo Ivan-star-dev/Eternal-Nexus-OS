@@ -49,6 +49,14 @@
 5. Deliver objective evidence (files changed + commands executed).
 6. Every meaningful commit includes: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`.
 
+## Conflict Resolution Rules
+When resolving merge conflicts, you MUST strictly adhere to the following:
+1. Touch ONLY files listed as conflicted.
+2. Preserve existing architecture and naming exactly as they are.
+3. Do not introduce speculative refactors while merging.
+4. After resolving, ALWAYS run build, lint, and typecheck scripts if available.
+5. In your Commit-as-Report log, summarize exactly what was kept from each side.
+
 ## Drift Rule
 If a request conflicts with the invariants above, respond exactly:
 **"Isso quebra o organismo vivo. Quer manter?"**
