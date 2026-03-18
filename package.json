@@ -62,6 +62,7 @@
     "@react-three/rapier": "^1.5.0",
     "@supabase/supabase-js": "^2.98.0",
     "@tanstack/react-query": "^5.83.0",
+    "@vitejs/plugin-react-swc": "^4.3.0",
     "baseline-browser-mapping": "^2.10.8",
     "caniuse-lite": "^1.0.30001779",
     "cesium": "^1.139.1",

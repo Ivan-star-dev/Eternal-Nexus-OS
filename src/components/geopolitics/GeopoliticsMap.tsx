@@ -21,6 +21,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { registerPMTilesProtocol, deregisterPMTilesProtocol } from '@/lib/map/pmtiles-protocol';
 import { createDarkStyle, NEXUS_MAP_COLORS } from '@/lib/map/dark-style';
 import { useGeopoliticsMap, type VerdictGeoJSON } from '@/hooks/useGeopoliticsMap';
+import MapLayerPanel from './MapLayerPanel';
 
 interface GeopoliticsMapProps {
   /** PMTiles URL or vector tile template. Falls back to free OpenFreeMap tiles. */
@@ -267,10 +268,18 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
 
   return (
     <div
-      ref={containerRef}
-      className={`w-full h-full ${className}`}
+      className="relative w-full h-full"
       style={{ minHeight: '400px', background: NEXUS_MAP_COLORS.background }}
-    />
+    >
+      <div
+        ref={containerRef}
+        className={`w-full h-full ${className}`}
+      />
+      {/* Layer toggle panel — top-left overlay */}
+      <div className="absolute top-3 left-3 z-10">
+        <MapLayerPanel mapRef={mapRef} showVerdicts={showVerdicts} />
+      </div>
+    </div>
   );
 });
 
