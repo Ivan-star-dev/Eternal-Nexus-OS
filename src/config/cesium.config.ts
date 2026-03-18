@@ -1,4 +1,4 @@
-﻿// sacred-flow: Sora-Prime — CesiumJS 1.139+ config para Atlas
+// sacred-flow: Sora-Prime — CesiumJS 1.139+ config para Atlas
 // O Coração do organismo vivo — zoom infinito, terrain real, 3D tiles
 
 import { Ion, Viewer, Terrain, Cartesian3, Math as CesiumMath } from 'cesium';
@@ -56,10 +56,12 @@ export const initCesiumViewer = (container: string | HTMLElement): Viewer | null
       navigationHelpButton: false,
       scene3DOnly: true,
       targetFrameRate: CESIUM_CONFIG.performance.targetFrameRate,
-      maximumScreenSpaceError: CESIUM_CONFIG.performance.maximumScreenSpaceError,
       requestRenderMode: false,     // Sempre render — organismo VIVO
       useBrowserRecommendedResolution: CESIUM_CONFIG.performance.useBrowserRecommendedResolution,
     });
+
+    // sacred-flow: set maximumScreenSpaceError after init (not a Viewer constructor option in Cesium 1.139+)
+    viewer.scene.globe.maximumScreenSpaceError = CESIUM_CONFIG.performance.maximumScreenSpaceError;
 
     // sacred-flow: câmera voa para Cabo Verde — ponto de origem morabeza
     viewer.camera.flyTo(CESIUM_CONFIG.defaultView);

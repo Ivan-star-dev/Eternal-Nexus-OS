@@ -82,7 +82,7 @@ function HolographicTable() {
   });
 
   const gridLines = useMemo(() => {
-    const lines: JSX.Element[] = [];
+    const lines: React.JSX.Element[] = [];
     const count = 20;
     const size = 5;
     for (let i = 0; i <= count; i++) {

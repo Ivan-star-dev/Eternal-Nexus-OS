@@ -91,7 +91,7 @@ const TUTORS: AITutor[] = [
 interface Stat {
   label: string;
   value: string;
-  icon: React.ElementType;
+  icon: React.FC<{ className?: string }>;
 }
 
 const STATS: Stat[] = [

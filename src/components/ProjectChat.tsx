@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, type ReactElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, MessageSquare, Bot, User, Loader2, Sparkles, AlertCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -477,7 +477,7 @@ function AIMarkdown({ content }: { content: string }) {
   if (!content) return null;
 
   const lines = content.split("\n");
-  const elements: JSX.Element[] = [];
+  const elements: ReactElement[] = [];
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -532,7 +532,7 @@ function AIMarkdown({ content }: { content: string }) {
   return <>{elements}</>;
 }
 
-function formatInlineMarkdown(text: string): string | JSX.Element[] {
+function formatInlineMarkdown(text: string): string | ReactElement[] {
   // Bold + code inline (simplified)
   const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
   if (parts.length <= 1) return text;
@@ -549,7 +549,7 @@ function formatInlineMarkdown(text: string): string | JSX.Element[] {
       );
     }
     return <span key={i}>{part}</span>;
-  }) as unknown as JSX.Element[];
+  }) as unknown as ReactElement[];
 }
 
 export default ProjectChat;

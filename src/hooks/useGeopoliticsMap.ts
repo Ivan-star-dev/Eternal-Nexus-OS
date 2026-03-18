@@ -128,7 +128,7 @@ export function useGeopoliticsMap() {
 
   // Replay existing verdicts on mount (cursor-based replay)
   useEffect(() => {
-    const existing = bus.replay({ types: ['tribunal.verdict'] });
+    const existing = bus.replay({});
     if (existing.length === 0) return;
 
     const features: VerdictFeature[] = existing.map((event) => {
@@ -156,15 +156,18 @@ export function useGeopoliticsMap() {
   /**
    * Publish an atlas.marker event when the user interacts with the map.
    * Sacred Flow: Atlas → Index → News
+   *
+   * Note: AtlasMarkerPayload uses dataSource/value/unit to encode geo data
+   * since lat/lng are not in the canonical payload type.
    */
   const publishAtlasMarker = useCallback(
     (lat: number, lng: number, label: string, category: string) => {
       const payload: AtlasMarkerPayload = {
-        lat,
-        lng,
         label,
         category,
-        intensity: 0.7,
+        dataSource: `user-click:${lat.toFixed(4)},${lng.toFixed(4)}`,
+        value: parseFloat(lat.toFixed(4)),
+        unit: 'geo-marker',
       };
 
       const createdAt = new Date().toISOString();

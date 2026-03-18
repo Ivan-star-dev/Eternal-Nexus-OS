@@ -136,21 +136,15 @@ function NeuralParticles({ params }: { params: NexusParameters }) {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={params.particleCount}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
         <bufferAttribute
           attach="attributes-color"
-          count={params.particleCount}
-          array={colors}
-          itemSize={3}
+          args={[colors, 3]}
         />
         <bufferAttribute
           attach="attributes-size"
-          count={params.particleCount}
-          array={sizes}
-          itemSize={1}
+          args={[sizes, 1]}
         />
       </bufferGeometry>
       <pointsMaterial
@@ -281,9 +275,7 @@ function EINode({
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={30}
-            array={trailPositions.current}
-            itemSize={3}
+            args={[trailPositions.current, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
