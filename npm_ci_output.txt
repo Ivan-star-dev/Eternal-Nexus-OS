@@ -1,0 +1,55 @@
+﻿node.exe : npm warn 
+deprecated 
+whatwg-encoding@2.0.0: Use 
+@exodus/bytes instead for a 
+more spec-conformant and 
+faster implementation
+No linha:1 caractere:1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Us
+ers\Claudia\AppData\Roamin 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (npm war  
+  n deprec... implementati   
+ on:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+npm warn deprecated 
+abab@2.0.6: Use your 
+platform's native atob() and 
+btoa() methods instead
+npm warn deprecated 
+sourcemap-codec@1.4.8: 
+Please use 
+@jridgewell/sourcemap-codec 
+instead
+npm warn deprecated 
+domexception@4.0.0: Use your 
+platform's native 
+DOMException instead
+npm warn deprecated 
+three-mesh-bvh@0.7.8: 
+Deprecated due to three.js 
+version incompatibility. 
+Please use v0.8.0, instead.
+
+added 744 packages, and audited 745 packages in 2m
+
+175 packages are looking for funding
+  run `npm fund` for details
+
+15 vulnerabilities (3 low, 5 moderate, 7 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
