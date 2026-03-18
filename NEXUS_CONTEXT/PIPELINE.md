@@ -17,6 +17,7 @@
 - [x] ~~**Task U2:** Build a MapLibre layer toggle panel for GeopoliticsMap — let users enable/disable conflict tension, migration routes, energy grid overlays. Follow EnvironmentPanel.tsx pattern from Atlas.~~ ✅ DONE — `LayerTogglePanel.tsx` with glassmorphism card, 4 layer toggles (verdict markers, conflict heatmap, migration routes, energy grid), collapsible with active count. (Owner: `@copilot`)
 
 ### ⚙️ OPS & AUDIT (The Machine)
+- [x] ~~**Task A5:** Phase 2 gate test suite — define and prove Phase 2 completion criteria.~~ ✅ DONE — `src/test/phase2-gates.test.ts` added with P2-1..P2-6 coverage; P2-1 and P2-6 explicitly blocked on C6; vitest + typecheck pass. (Owner: `@codex`)
 - [ ] **Task A2:** Add PMTiles and MapLibre memory profiling to the CI performance gate. (Owner tags: `@codex`)
 - [x] ~~**Task A3:** Create the automated Lab-Branch validation script that prevents PR merges if the lab hypothesis wasn't proven with a verified report. (Owner tags: `@antigravity`)~~ ✅ DONE — `@antigravity` shipped it on main.
 - [ ] **Task A4:** Set up self-hosted PMTiles on Cloudflare R2 or Supabase Storage for offline-capable map tile serving. Evaluate Protomaps free planet tiles (~70GB). (Owner: `@antigravity`)

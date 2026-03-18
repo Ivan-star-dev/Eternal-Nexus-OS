@@ -1,119 +1,60 @@
-# ETERNAL NEXUS — PIONEER HANDOFF: FROM CLAUDE
+# HANDOFF — A5 Phase 2 gate suite complete
 
-> **Date:** 2026-03-17
-> **Agent:** Claude (architecture/contracts/event-bus)
-> **Branch:** claude/magical-goodall
-> **PR:** #8
-> **Gate status:** Nervous System v1 — **5/5 PASS**
+## 0) Baton recipients (tag the next pioneers)
+- @claude: unblock Streams-dependent gates by completing C6.
+- @codex: monitor CI signal once dependency bootstrap is repaired.
+- @antigravity: harden install/bootstrap path for deterministic test execution.
+- @copilot: keep U3/U4 compatible with LayerVisibility and heatmap data contracts.
 
----
+## 1) What was done (facts only)
+- **Objective:** Deliver A5 gate suite proving Phase 2 criteria scaffold.
+- **Scope** (what you touched): Added `src/test/phase2-gates.test.ts`; moved A5 task into done; updated pipeline summaries; wrote log + handoff.
+- **Out-of-scope** (what you refused to touch): Streams organ implementation (C6), architecture changes, UI refactors.
 
-## What was delivered (PR #8 — 5 commits)
+## 2) Proof (must be reproducible)
 
-### Nervous System v1 — Complete Spine
-The event bus backbone connecting all Sacred Flow organs is production-ready.
-
-| Component | File(s) | Status |
-|-----------|---------|--------|
-| Canonical event schema | `src/types/sacred-flow.ts` | ✅ |
-| Deterministic IDs (FNV-1a) | `src/lib/events/id.ts` | ✅ |
-| Ingress validation | `src/lib/events/validation.ts` | ✅ |
-| Bus interface + in-memory impl | `src/lib/events/bus.ts` | ✅ |
-| Cursor-based replay | `src/lib/events/replay.ts` | ✅ |
-| Organ client API | `src/lib/events/client.ts` | ✅ |
-| Schema factories | `src/lib/events/schema.ts` | ✅ |
-| Bridge: useNexusState ↔ bus | `src/hooks/useNexusState.ts` | ✅ |
-| React hook: useNexusEvents | `src/hooks/useNexusEvents.ts` | ✅ |
-| Index → bus (Logged) | `src/hooks/useIndexOrgan.ts` | ✅ |
-| News → bus (Narratable) | `src/pages/NewsPortal.tsx` | ✅ |
-| Architecture doc | `docs/architecture/NERVOUS_SYSTEM.md` | ✅ |
-
-### Gate proof: 23 tests pass
-```
-GATE 1: Deterministic ✅ (5)
-GATE 2: Idempotent ✅ (3)
-GATE 3: Replayable ✅ (5)
-GATE 4: Validation ✅ (4)
-GATE 5: Sacred Flow ✅ (2)
-GATE 6: Logged ✅ (2)
-GATE 7: Narratable ✅ (2)
-```
-
-### P0 fix
-- `tsconfig.json`: added `"module": "ESNext"` — **zero typecheck errors**
-
-### Collaboration Protocol OS
-- `NEXUS_CONTEXT/PROJECT_STATE.md` — current reality snapshot
-- `NEXUS_CONTEXT/INSIGHTS.md` — cross-agent learnings
-- `NEXUS_CONTEXT/STACK_REGISTRY.md` — external tech registry
-
----
-
-## Handoff to next pioneers
-
-### @codex — Tests/CI (HIGH PRIORITY)
-
-**Task C-CI-1: Add gate tests to CI**
-- File: `src/test/nervous-system.test.ts` (23 tests, ~3s)
-- Command: `npx vitest run src/test/nervous-system.test.ts`
-- This should be a **required check** on every PR to main.
-
-**Task C-CI-2: Add typecheck to CI**
-- Command: `npx tsc --noEmit`
-- Now passes with 0 errors. Should be enforced.
-
-**Task C-CI-3: ESLint cleanup**
-- ESLint currently scans worktree directories. Exclude `_worktrees/` and `.claude/` from lint config.
-
-### @antigravity — Ops (MEDIUM PRIORITY)
-
-**Task A-OPS-1: Gate verification script**
-- Create `scripts/gates/verify-nervous-system.sh`:
-  ```bash
-  npx vitest run src/test/nervous-system.test.ts && npx tsc --noEmit && echo "GATE: PASS"
-  ```
-
-**Task A-OPS-2: Worktree automation**
-- Create an idempotent script that sets up all 3 worktrees (`_worktrees/claude`, `codex`, `antigravity`).
-
-**Task A-OPS-3: Merge PR #8**
-- PR is ready for review/merge. After merge, update `PROJECT_STATE.md` with Phase B complete.
-
-### @ui-specialist (Cursor/Gemini) — UI (WHEN READY)
-
-**Task UI-1: Atlas marker rendering from bus events**
-- Hook is ready: `useNexusEvents({ types: ['tribunal.verdict'] })`
-- Each event has `.geo` (lat/lon) and `.seed` (deterministic visual seed)
-- Use `seed` for consistent particle/color generation per event
-
-**Task UI-2: NexusFlowInspector integration**
-- `src/components/shared/NexusFlowInspector.tsx` could show bus event stream for dev debugging
-
----
-
-## What Claude will do next (after PR merge)
-
-1. **Lab branch:** Supabase Realtime transport — implement `NexusEventBus` interface backed by Supabase Channels (persistence + cross-tab sync)
-2. **Phase C support:** Define Index spine contracts (knowledge node schema, project vault types) if requested
-3. **Performance:** Add event throughput benchmarks to gate tests
-
----
-
-## Verification commands
+### Commands executed
 ```bash
-# Gate tests (23 tests, ~3s)
-npx vitest run src/test/nervous-system.test.ts
-
-# All tests (25 tests)
-npx vitest run
-
-# Typecheck (0 errors)
-npx tsc --noEmit
-
-# Build check
-npx vite build
+npm run test -- --runInBand
+npm run typecheck
 ```
+
+### Expected output / result
+- In a fully provisioned dev/CI env: gate tests and typecheck should pass.
+- In this container: both commands were blocked by missing dependencies / registry access restrictions.
+
+## 3) Files changed (paths)
+- `src/test/phase2-gates.test.ts`
+- `docs/task-queue/done/A5_phase2-gate-suite.md`
+- `docs/pipeline.md`
+- `NEXUS_CONTEXT/PIPELINE.md`
+- `NEXUS_CONTEXT/LOGS/2026-03-18_codex_a5-phase2-gates.md`
+- `HANDOFF.md`
+
+## 4) Phase Gate impact (pass/fail)
+- Strengthens Phase 2 by codifying all six gate checks in one dedicated suite.
+- Full pass is still blocked on C6 for P2-1 and P2-6.
+
+## 5) Risks + rollback
+- **Risks:** Hook-based gate (P2-3) depends on React test runtime availability.
+- **Rollback steps:** Revert commit and move A5 task back to `docs/task-queue/ready/` if verification fails.
+
+## 6) Next 3 tasks (ranked)
+1. C6 — Streams organ + `streams.feed` events.
+2. C7 — Supabase event persistence implementation.
+3. A2 — CI/perf gate restoration for deterministic green checks.
+
+## 7) Requests to other pioneers
+- **Request 1:** @claude deliver C6 with event types wired into sacred-flow and bus.
+- **Request 2:** @antigravity run `.ops/repair-install.sh` strategy in CI/base image and report stable package install.
+- **Request 3:** @copilot validate U3/U4 against P2-4 layer contract.
+
+## 8) Suggested follow-ups (optional)
+- Once C6 lands, unskip P2-1 and P2-6 immediately and promote them to required CI gates.
 
 ---
 
-> *"The spine is bulletproof. The Sacred Flow is traceable. The gate is passed. Now the organism can grow."*
+## Final checklist
+- [x] LOG added: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_a5-phase2-gates.md`
+- [ ] INSIGHTS appended (if novel insight): `NEXUS_CONTEXT/INSIGHTS.md`
+- [ ] PROJECT_STATE appended (if merged): `NEXUS_CONTEXT/PROJECT_STATE.md`
