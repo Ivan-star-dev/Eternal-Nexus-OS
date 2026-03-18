@@ -149,8 +149,22 @@ export function createInMemoryBus(): NexusEventBus {
         }
       }
 
+      let slice = log.slice(startIdx);
+
+      // Filter by event types if specified
+      if (cursor.types && cursor.types.length > 0) {
+        const typeSet = new Set(cursor.types);
+        slice = slice.filter(e => typeSet.has(e.type));
+      }
+
+      // Filter by source organs if specified
+      if (cursor.sources && cursor.sources.length > 0) {
+        const sourceSet = new Set(cursor.sources);
+        slice = slice.filter(e => sourceSet.has(e.source));
+      }
+
       const limit = cursor.limit ?? 100;
-      return log.slice(startIdx, startIdx + limit);
+      return slice.slice(0, limit);
     },
 
     getById(id: string): NexusEvent | undefined {

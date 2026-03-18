@@ -143,6 +143,10 @@ export interface ReplayCursor {
   since?: string;
   /** Max events to fetch */
   limit?: number;
+  /** Filter replay to specific event types only */
+  types?: NexusEventType[];
+  /** Filter replay to specific source organs only */
+  sources?: Organ[];
 }
 
 // ---------------------------------------------------------------------------

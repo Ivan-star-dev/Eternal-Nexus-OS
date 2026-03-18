@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { renderHook, act, waitFor } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import { useNexusState } from '../hooks/useNexusState';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
@@ -41,6 +41,14 @@ describe('Nexus Propagation Flow', () => {
     });
 
     // Wait for the mutation Success and cache update
+    const waitFor = async (fn: () => void, ms = 1000) => {
+      const start = Date.now();
+      while (Date.now() - start < ms) {
+        try { fn(); return; } catch {}
+        await new Promise((r) => setTimeout(r, 50));
+      }
+      fn(); // final attempt — throws if still failing
+    };
     await waitFor(() => {
       expect(result.current.verdicts).toContainEqual(mockVerdict);
     });

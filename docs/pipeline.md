@@ -81,10 +81,15 @@ Use template: `docs/templates/task.md`
 ## Pipeline Summary (Current)
 
 ```
-READY:       C4b, C5, U1, U2, A2, A4
-IN-PROGRESS: (check docs/task-queue/in-progress/)
-BLOCKED:     (check docs/task-queue/blocked/)
-DONE:        C1, C2, C3, C4, A3
+PHASE 1 — COMPLETE ✅  (proven: 70 gate tests)
+  DONE: C1, C2, C3, C4, C4b, C5, U1, U2, A2, A3
+
+PHASE 2 — IN PROGRESS 🔶
+  READY:       C6, C7, U3, U4, A4, A5
+  IN-PROGRESS: (check docs/task-queue/in-progress/)
+  BLOCKED:     (none)
+
+Phase 2 gate proof: src/test/phase2-gates.test.ts  (task A5)
 ```
 
 ## Injecting a New Task
