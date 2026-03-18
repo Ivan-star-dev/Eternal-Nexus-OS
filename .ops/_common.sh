@@ -43,3 +43,41 @@ run_exec() {
 say() {
   printf '\n==> %s\n' "$1"
 }
+
+
+ensure_js_dependencies() {
+  [ -f package.json ] || return 0
+
+  if [ ! -d node_modules ]; then
+    echo "[baseline] missing node_modules. Run one of:" >&2
+    echo "  npm ci" >&2
+    echo "  pnpm install --frozen-lockfile" >&2
+    echo "  yarn install --frozen-lockfile" >&2
+    return 1
+  fi
+
+  local missing=()
+  local deps=(
+    "node_modules/.bin/eslint"
+    "node_modules/.bin/tsc"
+    "node_modules/.bin/vitest"
+  )
+
+  for dep in "${deps[@]}"; do
+    if [ ! -e "$dep" ]; then
+      missing+=("$dep")
+    fi
+  done
+
+  if [ ${#missing[@]} -gt 0 ]; then
+    echo "[baseline] dependency install is incomplete. Missing:" >&2
+    for item in "${missing[@]}"; do
+      echo "  - ${item}" >&2
+    done
+    echo "[baseline] run dependency bootstrap before check:" >&2
+    echo "  npm ci" >&2
+    return 1
+  fi
+
+  return 0
+}
