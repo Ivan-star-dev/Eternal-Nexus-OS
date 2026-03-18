@@ -7,8 +7,9 @@
 ### 🧱 CORE ARCHITECTURE (The Spine)
 - [x] **Task C1:** ~~Wire Nervous System v2 (`bus.ts`) into `useNexusState.ts`. Must hit the pass/fail gate (Deterministic, Idempotent, Replayable).~~ ✅ DONE — Bridge pattern in `useNexusState.ts`, 23/23 gate tests pass (Deterministic, Idempotent, Replayable, Logged, Narratable). (Owner: `@claude`, PR #8)
 - [x] **Task C2:** ~~Implement the `GeopoliticsMap.tsx` MapLibre shell using the new serverless `pmtiles://` registrar. Tie into the Tribunal data layer.~~ ✅ DONE — MapLibre GL v5 + PMTiles v4, dark style, useGeopoliticsMap hook bridges event bus → GeoJSON, verdict markers with glow/popup, lazy-loaded into Geopolitics page. 25/25 tests pass. (Owner: `@claude`, PR #8)
-- [ ] **Task C3:** Wire Atlas sensor data (climate, earthquake, pollution) through event bus — currently only flows through TanStack. All `RealtimeDataPoint` sources must publish `atlas.marker` events for downstream consumption by Index + News. (Owner: `@claude`)
-- [ ] **Task C4:** Add geopolitics conflict tension heatmap layer to GeopoliticsMap — consume `RealtimeDataPoint` with `source: 'geopolitics'` and `conflictLevel` field, render as color-gradient fill layer (teal→orange→red). (Owner: `@claude` + `@copilot`)
+- [x] **Task C3:** ~~Wire Atlas sensor data (climate, earthquake, pollution) through event bus.~~ ✅ DONE — `useRealtimeData` publishes `atlas.marker` events, `useNexusState.addAtlasData()` bridge. Gate 5b: 5 new tests. (Owner: `@claude`, PR #8)
+- [x] **Task C4:** ~~Nervous System observability layer — bounded event ledger + dev inspector + deterministic replay.~~ ✅ DONE — `ledger.ts` ring buffer, `useEventLedger` hook, `EventInspector` dev overlay, 24 gate tests. Also fixed Tailwind v4 + tsconfig issues. (Owner: `@claude`, PR #26)
+- [ ] **Task C4b:** Add geopolitics conflict tension heatmap layer to GeopoliticsMap — consume `RealtimeDataPoint` with `source: 'geopolitics'` and `conflictLevel` field, render as color-gradient fill layer (teal→orange→red). (Owner: `@claude` + `@copilot`)
 - [ ] **Task C5:** Implement event bus persistence layer — localStorage or IndexedDB adapter so replay survives page refresh. Currently in-memory only. Must maintain deterministic ID + idempotency guarantees. (Owner: `@claude`)
 
 ### 🎨 DESIGN & INTERFACE (The Flesh)
