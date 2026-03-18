@@ -19,6 +19,7 @@ import { validateEvent } from '../lib/events/validation';
 import type {
   NexusEvent,
   TribunalVerdictPayload,
+  AtlasMarkerPayload,
   IndexEntryPayload,
   NewsBroadcastPayload,
 } from '../types/sacred-flow';
@@ -381,6 +382,158 @@ describe('Nervous System v1 — Phase Gate', () => {
 
       bus.publish(newsEvent);
       expect(received).toHaveLength(0);
+    });
+  });
+
+  // ════════════════════════════════════════════════════
+  // GATE 5b: SACRED FLOW (Atlas → Index)
+  // ════════════════════════════════════════════════════
+
+  describe('GATE 5b: Sacred Flow — Atlas → Index', () => {
+    it('Index subscriber receives atlas.marker events and publishes index.entry', () => {
+      const atlas = createNexusClient({ organ: 'atlas', bus });
+      const index = createNexusClient({
+        organ: 'index',
+        types: ['atlas.marker'],
+        bus,
+      });
+
+      const markersSeen: NexusEvent[] = [];
+      index.subscribe((e) => {
+        markersSeen.push(e);
+
+        // Index processes the atlas marker into an index entry
+        const ap = e.payload as AtlasMarkerPayload;
+        index.emit<IndexEntryPayload>('index.entry', {
+          title: `${ap.label} [${ap.dataSource}]`,
+          category: ap.category,
+          rank: e.severity * e.confidence,
+        }, {
+          geo: e.geo,
+          severity: e.severity,
+          confidence: e.confidence,
+        });
+      });
+
+      // Atlas publishes a sensor reading
+      const emitted = atlas.emit<AtlasMarkerPayload>(
+        'atlas.marker',
+        {
+          label: 'Temperature anomaly',
+          category: 'climate',
+          dataSource: 'climate',
+          value: 32.5,
+          unit: '°C',
+        },
+        {
+          geo: { lat: 14.93, lon: -23.51 },
+          severity: 0.8,
+          confidence: 0.9,
+        },
+      );
+
+      // Verify: Index received the atlas marker
+      expect(markersSeen).toHaveLength(1);
+      expect(markersSeen[0].id).toBe(emitted!.id);
+      expect(markersSeen[0].geo).toEqual({ lat: 14.93, lon: -23.51 });
+
+      // Verify: Index published an index.entry to the bus
+      const allEvents = bus.replay({ limit: 100 });
+      const indexEntries = allEvents.filter((e) => e.type === 'index.entry');
+      expect(indexEntries).toHaveLength(1);
+      expect((indexEntries[0].payload as IndexEntryPayload).title).toContain('Temperature anomaly');
+      expect((indexEntries[0].payload as IndexEntryPayload).category).toBe('climate');
+    });
+
+    it('Atlas markers are deterministic and idempotent', () => {
+      const atlas = createNexusClient({ organ: 'atlas', bus });
+
+      const payload: AtlasMarkerPayload = {
+        label: 'CO2 reading',
+        category: 'climate',
+        dataSource: 'climate',
+        value: 421.5,
+        unit: 'ppm',
+      };
+
+      const first = atlas.emit('atlas.marker', payload, { severity: 0.6, confidence: 0.95 });
+      const duplicate = atlas.emit('atlas.marker', payload, { severity: 0.6, confidence: 0.95 });
+
+      expect(first).not.toBeNull();
+      expect(duplicate).toBeNull(); // rejected as duplicate
+    });
+
+    it('Full Atlas Sacred Flow: Atlas → Index → News', () => {
+      const atlas = createNexusClient({ organ: 'atlas', bus });
+      const index = createNexusClient({
+        organ: 'index',
+        types: ['atlas.marker'],
+        bus,
+      });
+      const news = createNexusClient({
+        organ: 'news',
+        types: ['index.entry'],
+        bus,
+      });
+
+      // Index processes atlas markers
+      index.subscribe((e) => {
+        const ap = e.payload as AtlasMarkerPayload;
+        index.emit<IndexEntryPayload>('index.entry', {
+          title: ap.label,
+          category: ap.category,
+          rank: e.severity * e.confidence,
+        }, {
+          geo: e.geo,
+          severity: e.severity,
+          confidence: e.confidence,
+        });
+      });
+
+      // News narrates index entries
+      news.subscribe((e) => {
+        const ip = e.payload as IndexEntryPayload;
+        news.emit<NewsBroadcastPayload>('news.broadcast', {
+          title: `ALERT: ${ip.title}`,
+          content: `Atlas sensor data: ${ip.title} — severity ${e.severity.toFixed(1)}`,
+          live: true,
+        }, {
+          severity: e.severity,
+          confidence: e.confidence,
+        });
+      });
+
+      // Atlas emits a sensor event
+      atlas.emit<AtlasMarkerPayload>(
+        'atlas.marker',
+        {
+          label: 'Earthquake detected',
+          category: 'security',
+          dataSource: 'geopolitics',
+          value: 6.2,
+          unit: 'magnitude',
+        },
+        {
+          geo: { lat: 35.68, lon: 139.69 },
+          severity: 0.9,
+          confidence: 0.85,
+        },
+      );
+
+      // Verify full flow on the bus
+      const allEvents = bus.replay({ limit: 100 });
+      expect(allEvents).toHaveLength(3);
+
+      expect(allEvents[0].type).toBe('atlas.marker');
+      expect(allEvents[0].source).toBe('atlas');
+      expect(allEvents[0].geo).toEqual({ lat: 35.68, lon: 139.69 });
+
+      expect(allEvents[1].type).toBe('index.entry');
+      expect(allEvents[1].source).toBe('index');
+
+      expect(allEvents[2].type).toBe('news.broadcast');
+      expect(allEvents[2].source).toBe('news');
+      expect((allEvents[2].payload as NewsBroadcastPayload).title).toContain('Earthquake detected');
     });
   });
 

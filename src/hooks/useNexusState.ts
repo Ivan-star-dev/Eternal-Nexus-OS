@@ -2,7 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { TribunalVerdict, RealtimeDataPoint } from '../types';
 import { getDefaultBus } from '@/lib/events/bus';
 import { makeEventId, seedFromId } from '@/lib/events/id';
-import type { NexusEvent, TribunalVerdictPayload } from '@/types/sacred-flow';
+import type { NexusEvent, TribunalVerdictPayload, AtlasMarkerPayload } from '@/types/sacred-flow';
 
 /**
  * Shared Nervous System for the Eternal Nexus.
@@ -70,16 +70,58 @@ export const useNexusState = () => {
     },
   });
 
-  // ── Atlas Sensor Data ──
+  // ── Atlas Sensor Data (React view cache) ──
   const { data: atlasData = [] } = useQuery<RealtimeDataPoint[]>({
     queryKey: ['atlasData'],
     initialData: [],
+  });
+
+  // ── Bridge mutation: Atlas data → TanStack + Event Bus ──
+  const addAtlasData = useMutation({
+    mutationFn: async (points: RealtimeDataPoint[]) => {
+      for (const point of points) {
+        const payload: AtlasMarkerPayload = {
+          label: point.label ?? `${point.source} reading`,
+          category: point.category ?? point.source,
+          dataSource: point.source,
+          value: point.value,
+          unit: point.unit,
+        };
+
+        const createdAt = new Date(point.timestamp).toISOString();
+        const eventId = makeEventId('atlas.marker', 'atlas', createdAt, payload);
+
+        const event: NexusEvent<AtlasMarkerPayload> = {
+          id: eventId,
+          type: 'atlas.marker',
+          createdAt,
+          source: 'atlas',
+          geo: { lat: point.lat, lon: point.lng },
+          severity: point.severity,
+          payload,
+          confidence: 1 - (point.severity * 0.3), // higher severity → slightly lower confidence
+          seed: seedFromId(eventId),
+          version: 1,
+        };
+
+        bus.publish(event as NexusEvent);
+      }
+      return points;
+    },
+    onSuccess: (newPoints) => {
+      queryClient.setQueryData<RealtimeDataPoint[]>(['atlasData'], (old = []) => {
+        const existingTimestamps = new Set(old.map(p => `${p.source}:${p.timestamp}`));
+        const unique = newPoints.filter(p => !existingTimestamps.has(`${p.source}:${p.timestamp}`));
+        return [...unique, ...old].slice(0, 1000); // cap at 1000
+      });
+    },
   });
 
   return {
     verdicts,
     addVerdict: addVerdict.mutate,
     atlasData,
+    addAtlasData: addAtlasData.mutate,
     /** Direct bus access for advanced consumers (replay, subscribe) */
     bus,
   };
