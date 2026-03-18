@@ -7,6 +7,9 @@
  * GeoJSON features for the map, and exposes conflict tension data.
  * Also publishes atlas.marker events when the user interacts with the map
  * (click on region → Atlas publishes marker → flows downstream).
+ *
+ * Task C4: Also builds conflictGeoJSON from RealtimeDataPoint sources
+ * for the conflict tension heatmap layer (teal → orange → red).
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
@@ -17,6 +20,7 @@ import type {
   TribunalVerdictPayload,
   AtlasMarkerPayload,
 } from '@/types/sacred-flow';
+import type { RealtimeDataPoint } from '@/types';
 
 /** GeoJSON Feature for a verdict marker on the map */
 export interface VerdictFeature {
@@ -40,6 +44,27 @@ export interface VerdictFeature {
 export interface VerdictGeoJSON {
   type: 'FeatureCollection';
   features: VerdictFeature[];
+}
+
+/** GeoJSON Feature for a conflict tension point (Task C4) */
+export interface ConflictFeature {
+  type: 'Feature';
+  geometry: {
+    type: 'Point';
+    coordinates: [number, number]; // [lng, lat]
+  };
+  properties: {
+    conflictLevel: number;   // 0–1 normalized tension
+    label: string;
+    source: string;
+    timestamp: number;
+  };
+}
+
+/** GeoJSON FeatureCollection for conflict heatmap (Task C4) */
+export interface ConflictGeoJSON {
+  type: 'FeatureCollection';
+  features: ConflictFeature[];
 }
 
 // Hard-coded topic → geo mapping for known geopolitical topics
@@ -86,6 +111,10 @@ function topicToCoordinates(topic: string): [number, number] {
 export function useGeopoliticsMap() {
   const bus = getDefaultBus();
   const [verdictGeoJSON, setVerdictGeoJSON] = useState<VerdictGeoJSON>({
+    type: 'FeatureCollection',
+    features: [],
+  });
+  const [conflictGeoJSON, setConflictGeoJSON] = useState<ConflictGeoJSON>({
     type: 'FeatureCollection',
     features: [],
   });
@@ -195,6 +224,33 @@ export function useGeopoliticsMap() {
   return {
     /** Live GeoJSON of verdict markers for the map */
     verdictGeoJSON,
+    /** Live GeoJSON of conflict tension points for the heatmap (Task C4) */
+    conflictGeoJSON,
+    /** Update conflict heatmap from external RealtimeDataPoint feed */
+    updateConflictData: (points: RealtimeDataPoint[]) => {
+      const features: ConflictFeature[] = points
+        .filter(
+          (p): p is RealtimeDataPoint & { conflictLevel: number } =>
+            p.source === 'geopolitics' &&
+            typeof p.conflictLevel === 'number' &&
+            p.conflictLevel >= 0 &&
+            p.conflictLevel <= 1
+        )
+        .map((p) => ({
+          type: 'Feature' as const,
+          geometry: {
+            type: 'Point' as const,
+            coordinates: [p.lng, p.lat] as [number, number],
+          },
+          properties: {
+            conflictLevel: p.conflictLevel,
+            label: p.label ?? 'Conflict Zone',
+            source: p.source,
+            timestamp: p.timestamp,
+          },
+        }));
+      setConflictGeoJSON({ type: 'FeatureCollection', features });
+    },
     /** Publish an atlas marker event (user click → Sacred Flow) */
     publishAtlasMarker,
     /** Direct bus reference for advanced usage */

@@ -1,28 +1,50 @@
-# ETERNAL NEXUS — PIONEER HANDOFF: COPILOT
+# ETERNAL NEXUS — PIONEER HANDOFF: COPILOT → NEXT BATON
 
-> **Context:** You (Copilot) have been summoned by the Universal Neural Link pipeline. You are operating as the `@copilot` / `@ui` pioneer for the Eternal Nexus Operating System. The repository is governed by the 11 Operating Principles and a strict Commit-as-Report protocol.
-
----
-
-## Your Assigned Pipeline Tasks
-
-You are assigned two specific tasks from the `NEXUS_CONTEXT/PIPELINE.md`:
-
-1.  **Task C2:** Implement the `GeopoliticsMap.tsx` MapLibre React shell. `@antigravity` has already built the `pmtiles` registrar in `src/lib/geo/pmtiles.ts`. You must build the React container that mounts `MapLibre GL` and initializes the map using a PMTiles source.
-2.  **Task U1:** Apply the "Eternal Nexus" Dark Glassmorphism visual DNA directly into the Geopolitics map. You will need to construct the Mapbox Style Specification JSON that removes unnecessary labels, sets the background to deep darks with subtle gradients, and prioritizes glowing neon borders for geopolitical domains.
+> **Date:** 2026-03-18
+> **Agent:** @copilot
+> **Branch:** copilot/execute-new-tasks
+> **Status:** Tasks U1 + U2 + C4 COMPLETE ✅
 
 ---
 
-## Instructions
+## Tasks Completed
 
-Before writing code, you are bound by the repo rules. You MUST reply with the **War Room Prompt** format (found in `AGENTS.md` and `.github/copilot-instructions.md`):
+### Task U1 ✅ — Dark Glassmorphism Visual DNA
+Applied full visual DNA to GeopoliticsMap:
+- Triple-layer neon country border glow (outer diffuse + inner focused + crisp golden)
+- Teal pulsing capital city markers
+- Country labels enabled (gold uppercase monospace)
+- Glassmorphism popup (backdrop-blur + dark glass + neon border)
+- Navigation controls styled (dark glass + gold border + tinted icons)
+- `nexus-border-pulse` animation on map canvas
 
-1.  **FACTUAL STATUS NOW:** Acknowledge your tasks (`C2` and `U1`) and the presence of `pmtiles.ts`.
-2.  **TOP IDEAS:** How will you structure the `GeopoliticsMap.tsx` and the corresponding MapLibre stylesheet? Provide your neon/glassmorphism color palette JSON thought process.
-3.  **RISKS:** Identify React/MapboxGL mounting or styling risks.
-4.  **YOUR WEEK PLAN:** State exactly what files you'll create and that you'll work strictly in the `agent/copilot` branch.
-5.  **HANDOFF TO TEAM:** Acknowledge that you will strike out your tasks in `PIPELINE.md` when done, create a `HANDOFF.md`, and tag `@claude` + `@codex`.
+### Task U2 ✅ — Layer Toggle Panel
+- New `LayerTogglePanel.tsx` component (EnvironmentPanel.tsx pattern)
+- 4 toggleable layers: conflict heatmap, migration routes, energy grid, verdict markers
+- Integrated into `GeopoliticsMap.tsx` as top-left overlay
 
-Read `NEXUS_CONTEXT/VISUAL_DNA.md` to ensure your styles match the project soul. 
+### Task C4 ✅ — Conflict Tension Heatmap
+- `ConflictGeoJSON` + `updateConflictData()` in `useGeopoliticsMap.ts`
+- MapLibre heatmap layer: teal (low) → orange (med) → red (critical)
+- `conflict-points` circle layer visible at zoom 6+
 
-**Start your response now using the exact WAR ROOM format.**
+---
+
+## Next Baton Owners
+
+| Task | Owner | Description |
+|------|-------|-------------|
+| C3 | @claude | Wire `updateConflictData()` to live geopolitics feed via event bus |
+| C5 | @claude | Event bus localStorage/IndexedDB persistence |
+| A2 | @codex | PMTiles + MapLibre memory profiling in CI gate |
+| A4 | @antigravity | Self-hosted PMTiles on Cloudflare R2 |
+
+## Files Changed
+- `src/lib/map/dark-style.ts`
+- `src/components/geopolitics/GeopoliticsMap.tsx`
+- `src/components/geopolitics/LayerTogglePanel.tsx` ← NEW
+- `src/components/geopolitics/index.ts`
+- `src/hooks/useGeopoliticsMap.ts`
+- `NEXUS_CONTEXT/PIPELINE.md`
+- `NEXUS_CONTEXT/LOGS/2026-03-18_copilot_tasks-U1-U2-C4.md` ← NEW
+
