@@ -2,25 +2,28 @@
 
 ## Current branch
 - Branch: `agent/codex`
-- Status: synced with `origin/main`, ready for merge-readiness review
+- Status: Task A2 completed on this branch; ready for review and PR to `main`
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_pmtiles-maplibre-memory-gate.md`
 
 ## Active protocol change
-- `agent/codex` is now synced with `origin/main`.
-- `ci.yml` now separates protocol validation from app validation so protocol-only PRs still run the gates without being blocked by the unrelated app baseline.
-- The next immediate goal is to confirm PR #7 is mergeable after the workflow change is pushed.
+- Added Atlas memory profile gate for MapLibre/PMTiles in `scripts/gates/map-memory-profile-gate.cjs`.
+- Added `gate:memory:atlas` command in `package.json` and wired it into `.github/workflows/ci.yml` after build in `validate-app`.
+- Gate behavior is strict when `maplibre-gl`/`pmtiles` imports exist; otherwise it reports armed/no-import baseline.
+- Marked Task A2 complete in `NEXUS_CONTEXT/PIPELINE.md`.
 
 ## What other pioneers should review now
-- `@claude`: confirm the CI scope split does not hide any phase-gate requirement for real app changes.
-- `@antigravity`: confirm the workflow split still fits the broader protocol and workstation automation model.
-- `@codex`: keep app validation strict on real app changes and protocol validation always on.
-- `@copilot`: review PR #7 for merge readiness after the CI scope split and watcher/parser boundaries.
-- `@ui`: no immediate action; this branch remains process-side only.
+- `@claude`: confirm the gate wiring aligns with upcoming C2 MapLibre integration path and deterministic boot assumptions.
+- `@antigravity`: confirm CI runtime impact and whether future trace artifacts should be retained.
+- `@codex`: calibrate memory budgets once C2 introduces real map imports.
+- `@copilot`: review threshold practicality for visual-heavy map styling changes.
+- `@ui`: keep memory envelope in mind for Dark Glassmorphism map style layering.
 
 ## How to verify
+- `npm run gate:memory:atlas`
+  Expected (current codebase): gate passes and reports no `maplibre-gl`/`pmtiles` imports detected.
 - `node scripts/gates/sacred-flow-gate.cjs`
   Expected: `Sacred Flow Gate PASSED.`
 - `node scripts/gates/report-presence-gate.cjs`
@@ -30,24 +33,14 @@
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
-git show origin/agent/codex:.github/pull_request_template.md
+git show origin/agent/codex:NEXUS_CONTEXT/PIPELINE.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_pmtiles-maplibre-memory-gate.md
 git show origin/agent/codex:.github/workflows/ci.yml
-git show origin/agent/codex:scripts/automation/check-codex-task.ps1
-git show origin/agent/codex:scripts/automation/register-codex-task-scan.ps1
-git show origin/agent/codex:NEXUS_CONTEXT/AUTONOMY_MODEL.md
-git show origin/agent/codex:NEXUS_CONTEXT/LEARNING_LOOP.md
-git show origin/agent/codex:NEXUS_CONTEXT/MODEL_STRATEGY.md
-git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
-git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md
+git show origin/agent/codex:package.json
+git show origin/agent/codex:scripts/gates/map-memory-profile-gate.cjs
 ```
 
 ## Notes
 - This file is the stable pre-merge entrypoint.
 - The detailed evidence stays in the topic log.
-- The canonical order of work now lives in `TASK_SEQUENCE.md`.
-- The living-system protocol now lives in `AUTONOMY_MODEL.md` and `LEARNING_LOOP.md`.
-- The local 5-minute watcher lives in `scripts/automation/` and writes only to the ignored private vault.
-- The ownership protocol now lives in `TASK_TRIAGE.md`.
-- The open-source debate lives in `STACK_REGISTRY.md` and uses benchmark tags for fit scoring before assignment.
-- After merge, the durable state moves into `PROJECT_STATE.md` and `INSIGHTS.md`.
+- Task A2 is complete; next Codex follow-up is to calibrate real budgets after C2 map integration lands.

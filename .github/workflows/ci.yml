@@ -136,3 +136,7 @@ jobs:
       - name: Build
         if: needs.detect-changes.outputs.app == 'true'
         run: npm run build
+
+      - name: Atlas memory profile gate (MapLibre/PMTiles)
+        if: needs.detect-changes.outputs.app == 'true'
+        run: npm run gate:memory:atlas
