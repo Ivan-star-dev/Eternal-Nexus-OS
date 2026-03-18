@@ -1,19 +1,31 @@
-name: Protocol Gates
+name: Nexus Protocol Gates
+
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  validate-branches-and-reports:
+  validate-protocol:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Needed for deep git logs
+        
+      - name: Block Conflict Markers
+        run: |
+          chmod +x .githooks/pre-commit
+          ./.githooks/pre-commit
+          
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Run Lab Validation Gate
-        run: node scripts/gates/lab-branch-validation-gate.mjs
+          
+      - name: Bootstrap
+        run: |
+          chmod +x .ops/bootstrap.sh
+          ./.ops/bootstrap.sh
+          
+      - name: Run Ops Check
+        run: npm run ops:check
