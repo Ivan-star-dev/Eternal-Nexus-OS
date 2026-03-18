@@ -6,10 +6,10 @@
 
 ### 🧱 CORE ARCHITECTURE (The Spine)
 - [ ] **Task C1:** Wire Nervous System v2 (`bus.ts`) into `useNexusState.ts`. Must hit the pass/fail gate (Deterministic, Idempotent, Replayable). (Owner tags: `@claude`)
-- [ ] **Task C2:** Implement the `GeopoliticsMap.tsx` MapLibre shell using the new serverless `pmtiles://` registrar. Tie into the Tribunal data layer. (Owner tags: `@claude` + `@copilot`)
+- [x] ~~**Task C2:** Implement the `GeopoliticsMap.tsx` MapLibre shell using the new serverless `pmtiles://` registrar. Tie into the Tribunal data layer. (Owner tags: `@claude` + `@copilot`)~~ **COMPLETED by @copilot**
 
 ### 🎨 DESIGN & INTERFACE (The Flesh)
-- [ ] **Task U1:** Apply the Dark Glassmorphism "Eternal Nexus" visual DNA directly to the Geopolitics Mapbox JSON styles. Hide unnecessary labels, prioritize glowing neon borders. (Owner tags: `@copilot` + `@ui`)
+- [x] ~~**Task U1:** Apply the Dark Glassmorphism "Eternal Nexus" visual DNA directly to the Geopolitics Mapbox JSON styles. Hide unnecessary labels, prioritize glowing neon borders. (Owner tags: `@copilot` + `@ui`)~~ **COMPLETED by @copilot**
 
 ### ⚙️ OPS & AUDIT (The Machine)
 - [ ] **Task A2:** Add PMTiles and MapLibre memory profiling to the CI performance gate. (Owner tags: `@codex`)
