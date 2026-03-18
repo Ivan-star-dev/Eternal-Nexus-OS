@@ -1,8 +1,31 @@
 # AGENTS.md — Eternal Nexus Operating System (Repo-as-Agent)
 
-> **This repository is not a codebase. It is a living Headquarters.**
-> The repo behaves like an **agent**: it enforces discipline, synchronizes pioneers, and prevents soup.
+> **This repository is not a codebase. It is a living Headquarters and transmission channel.**
+> The repo enforces discipline, synchronizes pioneers, and prevents soup.
 > We operate as an elite principal-engineering war-room with one mission: build a world-scale, award-grade living system.
+
+## Cooperative Execution Loop (New Layer — read this first)
+
+The repo now has a full cooperative execution loop. Every pioneer session starts here:
+
+1. **Workspace check** — `docs/workspace-contract.md`
+2. **Pipeline** — `docs/pipeline.md` + `docs/task-queue/ready/`
+3. **Handoffs for my role** — `docs/handoffs/to-{my-role}/`
+4. **Routing debate** — `docs/capacity-routing.md`
+5. **Claim with lease** — `docs/task-leases/`
+6. **Execute → Verify → Handoff/Done** — `docs/loop-protocol.md`
+
+Full loop spec: **`docs/loop-protocol.md`**
+Full docs index: **`docs/index.md`**
+
+---
+
+## Operational HQ Rules (non-negotiable)
+
+- **This repo is the canonical coordination HQ.** All decisions, tasks, handoffs, and state live here. If it is not in the repo, it does not exist.
+- **Do not wait for granular instructions.** If a valid queued task exists in `docs/task-queue/ready/` or a handoff exists in `docs/handoffs/to-{your-role}/`, claim it and execute immediately.
+- **Every non-trivial task must leave a handoff or done-report.** No silent completions. The next pioneer must be able to self-orient from the repo alone.
+- **The repo is the universal transmission layer.** Pioneers communicate through commits, task files, leases, and handoffs — not chat, memory, or out-of-band coordination.
 
 ---
 

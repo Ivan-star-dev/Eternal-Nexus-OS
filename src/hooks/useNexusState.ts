@@ -23,6 +23,7 @@ export const useNexusState = () => {
   // ── Tribunal Verdicts (React view cache) ──
   const { data: verdicts = [] } = useQuery<TribunalVerdict[]>({
     queryKey: ['verdicts'],
+    queryFn: () => [] as TribunalVerdict[],
     initialData: [],
     staleTime: Infinity,
   });
@@ -73,7 +74,9 @@ export const useNexusState = () => {
   // ── Atlas Sensor Data (React view cache) ──
   const { data: atlasData = [] } = useQuery<RealtimeDataPoint[]>({
     queryKey: ['atlasData'],
+    queryFn: () => [] as RealtimeDataPoint[],
     initialData: [],
+    staleTime: Infinity,
   });
 
   // ── Bridge mutation: Atlas data → TanStack + Event Bus ──
