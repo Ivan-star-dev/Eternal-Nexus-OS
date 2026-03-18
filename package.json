@@ -14,7 +14,18 @@
     "test:perf": "playwright test",
     "watch:pipeline": "node scripts/ops/pipeline-watcher.mjs",
     "hibernate": "node scripts/ops/wake-organism.mjs",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "ops:doctor": "bash ./.ops/doctor.sh",
+    "ops:bootstrap": "bash ./.ops/bootstrap.sh",
+    "ops:check": "bash ./.ops/check.sh",
+    "ops:snapshot": "bash ./.ops/snapshot.sh quick",
+    "ops:merge": "bash ./.ops/merge-safe.sh origin/main",
+    "ops:review": "bash ./.ops/review.sh",
+    "ops:rollback": "bash ./.ops/rollback.sh HEAD~1",
+    "ops:repair": "bash ./.ops/repair-install.sh",
+    "ops:cache": "bash ./.ops/repair-cache.sh",
+    "ops:conflicts": "bash ./.ops/find-conflicts.sh",
+    "ops:guard": "bash ./.ops/guard.sh guarded-change"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
