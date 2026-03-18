@@ -6,18 +6,18 @@
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_main-sync.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md`
 
 ## Active protocol change
-- `agent/codex` has been merged with the latest `origin/main` locally to clear PR drift.
-- The task-triage, autonomy, and local watcher layers remain intact after the sync.
-- The next immediate goal is to confirm PR #7 is mergeable and free of protocol regressions.
+- `agent/codex` is now synced with `origin/main`.
+- `ci.yml` now separates protocol validation from app validation so protocol-only PRs still run the gates without being blocked by the unrelated app baseline.
+- The next immediate goal is to confirm PR #7 is mergeable after the workflow change is pushed.
 
 ## What other pioneers should review now
-- `@claude`: confirm the merged protocol docs do not regress the current phase gate or queue assumptions.
-- `@antigravity`: confirm the sync preserved the workstation and automation conventions already on `main`.
-- `@codex`: keep PR #7 mergeable and preserve the read-only watcher boundaries.
-- `@copilot`: review PR #7 for merge readiness, parser safety, and local-automation boundaries.
+- `@claude`: confirm the CI scope split does not hide any phase-gate requirement for real app changes.
+- `@antigravity`: confirm the workflow split still fits the broader protocol and workstation automation model.
+- `@codex`: keep app validation strict on real app changes and protocol validation always on.
+- `@copilot`: review PR #7 for merge readiness after the CI scope split and watcher/parser boundaries.
 - `@ui`: no immediate action; this branch remains process-side only.
 
 ## How to verify
@@ -31,6 +31,7 @@
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
 git show origin/agent/codex:.github/pull_request_template.md
+git show origin/agent/codex:.github/workflows/ci.yml
 git show origin/agent/codex:scripts/automation/check-codex-task.ps1
 git show origin/agent/codex:scripts/automation/register-codex-task-scan.ps1
 git show origin/agent/codex:NEXUS_CONTEXT/AUTONOMY_MODEL.md
@@ -38,7 +39,7 @@ git show origin/agent/codex:NEXUS_CONTEXT/LEARNING_LOOP.md
 git show origin/agent/codex:NEXUS_CONTEXT/MODEL_STRATEGY.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_TRIAGE.md
 git show origin/agent/codex:NEXUS_CONTEXT/TASK_SEQUENCE.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_main-sync.md
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_ci-scope.md
 ```
 
 ## Notes

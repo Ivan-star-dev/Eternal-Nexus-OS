@@ -36,3 +36,8 @@ This file is append-only. Add a new entry when a rule or operating model changes
 ## 2026-03-18 - Local task watcher
 - Codex may use a local five-minute watcher to read the queue and handoff and write snapshots into `NEXUS_CONTEXT/_private/task-scan/`.
 - Local automation must stay read-only against the repo and cannot self-assign or mutate task state.
+
+## 2026-03-18 - CI scope clarification
+- Protocol changes must still run Sacred Flow and Report Presence validation.
+- Install, lint, typecheck, test, and build should run only when app-facing files changed, so protocol-only PRs are not blocked by the unrelated app baseline.
+- The app baseline remains real and should still fail on app changes until it is fixed at the source.

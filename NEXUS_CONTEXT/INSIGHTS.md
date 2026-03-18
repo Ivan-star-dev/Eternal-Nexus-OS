@@ -10,6 +10,7 @@ This file is append-only. Use it for merged learnings, handoff notes, and direct
 - 2026-03-18: Task ownership no longer comes from preference; pioneers should use `TASK_TRIAGE.md`, label the task, run a short benchmark-fit debate when needed, and then record owner plus backup in `TASK_SEQUENCE.md`.
 - 2026-03-18: The system now has a documented autonomy and learning layer; pioneers should adapt through evidence, logs, and the private founder profile instead of guessing or overfitting to one session.
 - 2026-03-18: Local automation should stay read-only against the repo; Codex's 5-minute watcher writes snapshots to `NEXUS_CONTEXT/_private/task-scan/` and still obeys `TASK_SEQUENCE.md` plus `TASK_TRIAGE.md`.
+- 2026-03-18: CI scope is now split so protocol-only PRs still run Sacred Flow and report gates, while install/lint/typecheck/test/build stay reserved for real app changes.
 
 ## Imported history from `main`
 
