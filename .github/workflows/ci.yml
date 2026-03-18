@@ -38,6 +38,8 @@ concurrency:
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     outputs:
       app: ${{ steps.filter.outputs.app }}
@@ -72,6 +74,8 @@ jobs:
   validate-protocol:
     needs: detect-changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     timeout-minutes: 15
 
     steps:
@@ -97,6 +101,8 @@ jobs:
   validate-app:
     needs: detect-changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     timeout-minutes: 15
 
     steps:
