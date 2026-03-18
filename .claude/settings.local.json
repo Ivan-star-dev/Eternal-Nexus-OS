@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(npx tsc:*)",
+      "Bash(npx -p typescript tsc --noEmit --pretty)",
+      "Bash(npx vitest:*)",
+      "Bash(xargs cat:*)",
+      "Bash(find /c/Users/Claudia/Desktop/Eternal-Nexus-OS/.claude/worktrees/magical-goodall/src -type f \\\\\\(-name *atlas* -o -name *geopolitics* -o -name *map* -o -name *geo* \\\\\\))",
+      "Bash(grep -r \"maplibre\\\\|mapbox\\\\|MapLibre\\\\|Mapbox\" /c/Users/Claudia/Desktop/Eternal-Nexus-OS/.claude/worktrees/magical-goodall/src --include=*.ts*)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(npx -p typescript tsc --noEmit)",
+      "Bash(where npm:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(findstr :8080)",
+      "Bash(taskkill /PID 35584 /F)",
+      "Bash(cmd /c \"taskkill /PID 35584 /F\")",
+      "Bash(cmd //c \"taskkill /PID 35584 /T /F\")",
+      "Bash(gh issue:*)",
+      "Bash(gh label:*)",
+      "Bash(grep -E \"\\\\.tsx?$\")",
+      "Bash(gh pr:*)"
+    ]
+  }
+}
