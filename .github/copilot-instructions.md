@@ -47,21 +47,28 @@ The Collaboration OS is live:
 
 ---
 
-## YOUR TASKS (from PIPELINE.md)
+## YOUR TASKS — ACTIVE NOW
 
-### TASK C2 (shared with @claude)
-**Implement `GeopoliticsMap.tsx` MapLibre shell using serverless `pmtiles://` registrar.**
-- Tie into the Tribunal data layer
-- @claude handles the architecture + data wiring
-- YOU handle the visual layer, map styling, component structure
-- Must follow cascading inheritance UX (visual DNA inherited, never reinvented)
+> C2 is DONE. @claude shipped it. You were too slow. Move on.
 
-### TASK U1 (yours)
-**Apply Dark Glassmorphism visual DNA to Geopolitics map styles.**
-- Hide unnecessary labels
-- Prioritize glowing neon borders
-- Reference `NEXUS_CONTEXT/VISUAL_DNA.md` for exact color palette + effects
-- Dark glass panels, NOT flat material. Depth. Glow. Life.
+### TASK U1 — Issue #13 (YOU + @ui) — **DO THIS FIRST**
+**Apply Dark Glassmorphism visual DNA to GeopoliticsMap styles.**
+- `src/lib/map/dark-style.ts` — neon border animations, custom typography, hover glow
+- `src/components/geopolitics/GeopoliticsMap.tsx` — branded verdict markers
+- Reference `NEXUS_CONTEXT/VISUAL_DNA.md` — exact colors, gradients, glass effects
+- **GitHub Issue:** https://github.com/Ivan-star-dev/Eternal-Nexus-OS/issues/13
+
+### TASK U2 — Issue #14 (YOU) — **DO THIS SECOND**
+**MapLibre layer toggle panel for GeopoliticsMap.**
+- Copy the pattern from `src/components/atlas/EnvironmentPanel.tsx` EXACTLY
+- Toggle: conflict heatmap, migration routes, energy grid, verdict markers
+- **GitHub Issue:** https://github.com/Ivan-star-dev/Eternal-Nexus-OS/issues/14
+
+### TASK C4 — Issue #19 (shared with @claude) — **AFTER U1 + U2**
+**Conflict tension heatmap visual layer.**
+- @claude provides the data pipeline. YOU render the fill/heatmap layer.
+- Color gradient: teal → orange → red
+- **GitHub Issue:** https://github.com/Ivan-star-dev/Eternal-Nexus-OS/issues/19
 
 ---
 
@@ -115,7 +122,7 @@ No idle time. No waiting. The organism lives because we move.
 | State | TanStack Query + Event Bus |
 | 3D/Globe | Cesium + React Three Fiber |
 | Styling | Tailwind CSS + shadcn/ui |
-| Maps | MapLibre GL (incoming via C2) |
+| Maps | MapLibre GL v5 + PMTiles v4 (LIVE — shipped in C2) |
 | Testing | Vitest |
 
 Check `NEXUS_CONTEXT/STACK_REGISTRY.md` before adding ANY new dependency.
