@@ -139,4 +139,14 @@ jobs:
 
       - name: Atlas memory profile gate (MapLibre/PMTiles)
         if: needs.detect-changes.outputs.app == 'true'
+        env:
+          MEMORY_GATE_OUTPUT_PATH: artifacts/map-memory-profile.json
         run: npm run gate:memory:atlas
+
+      - name: Upload Atlas memory profile artifact
+        if: needs.detect-changes.outputs.app == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-memory-profile-${{ github.run_id }}
+          path: artifacts/map-memory-profile.json
+          if-no-files-found: error
