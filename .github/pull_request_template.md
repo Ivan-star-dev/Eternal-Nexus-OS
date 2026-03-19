@@ -1,8 +1,12 @@
 ## [agent] objective — gate
 
+### Objective
+- Task/Issue: <!-- e.g., A2_ci-perf-gate -->
+- Goal: <!-- one sentence on why this PR exists -->
+
 ### What changed
-- file1.ts
-- file2.ts
+- <!-- file/path + concise change -->
+- <!-- file/path + concise change -->
 
 ### Gate alignment
 Which phase gate does this PR strengthen?
@@ -11,15 +15,24 @@ Which phase gate does this PR strengthen?
 - [ ] CI/Quality enforcement
 - [ ] Ops/Scaffold
 
+### Acceptance criteria (binary)
+- [ ] PASS — all task acceptance criteria met
+- [ ] FAIL — criteria not met (explain in Risks + rollback)
+
 ### How to verify
 ```bash
-# Commands to validate this PR
+# Replace with exact commands executed for this PR
+npm run lint
 npm run test
 npm run typecheck
 ```
 
+### Evidence
+- Command output summary: <!-- include key pass/fail notes -->
+- Artifacts/links: <!-- optional -->
+
 ### Risks + rollback
-- Risk: ...
+- Risk: <!-- concrete risk, or "none identified" -->
 - Rollback: `git revert <commit>`
 
 ### Session log
@@ -30,6 +43,6 @@ npm run typecheck
 - [ ] Leave handoff note in `NEXUS_CONTEXT/INSIGHTS.md`
 
 ### Suggestions to other pioneers
-- @claude: ...
-- @codex: ...
-- @antigravity: ...
+- @claude: <!-- architecture/contracts follow-up -->
+- @codex: <!-- CI/tests/gates follow-up -->
+- @antigravity: <!-- ops/release follow-up -->
