@@ -1,7 +1,7 @@
 /**
  * id.ts — Deterministic event ID generation
  *
- * IDs are content-addressable: same (type + source + createdAt + payloadHash)
+ * IDs are content-addressable: same (type + source + payloadHash)
  * always yields the same ID → natural idempotency key.
  */
 
@@ -42,8 +42,9 @@ function stableStringify(obj: unknown): string {
  *
  * Format: `nxe_{type}_{fnv1a(composite)}`
  *
- * The composite key includes type + source + timestamp + payload hash,
- * making each event naturally idempotent.
+ * The composite key includes type + source + payload hash.
+ * createdAt is intentionally excluded so identical events collapse to the same
+ * idempotency key and bus-level dedup rejects duplicates.
  */
 export function makeEventId(
   type: string,
@@ -52,7 +53,8 @@ export function makeEventId(
   payload: unknown,
 ): string {
   const payloadHash = fnv1a32(stableStringify(payload));
-  const composite = `${type}|${source}|${createdAt}|${payloadHash}`;
+  void createdAt; // timestamp is metadata, not part of idempotency key
+  const composite = `${type}|${source}|${payloadHash}`;
   const hash = fnv1a32(composite);
   return `nxe_${type}_${hash.toString(36)}`;
 }

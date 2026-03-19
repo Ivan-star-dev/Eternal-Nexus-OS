@@ -14,6 +14,7 @@ const VALID_TYPES: Set<string> = new Set<NexusEventType>([
   'atlas.layer-update',
   'index.entry',
   'news.broadcast',
+  'streams.feed',
 ]);
 
 const VALID_SOURCES: Set<string> = new Set<Organ>([
@@ -22,6 +23,7 @@ const VALID_SOURCES: Set<string> = new Set<Organ>([
   'atlas',
   'index',
   'news',
+  'streams',
 ]);
 
 export interface ValidationResult {

@@ -118,6 +118,17 @@ No idle time. No waiting. The organism lives because we move.
 - Don't touch CI workflows — that's @codex's territory.
 - Don't touch ops/automation scripts — that's @antigravity's territory.
 
+---
+
+## BRANCH + LEASE PROTOCOL (CI-ENFORCED — YOUR PR WILL FAIL WITHOUT THESE)
+
+1. **Branch naming:** Your branch MUST include the task ID. Example: `copilot/u1-dark-glassmorphism` or `U1-dark-glassmorphism`. Branches like `copilot/fix-all-issues` or `copilot/do-all-tasks` **WILL BE REJECTED BY CI**.
+2. **One task per branch.** Do not combine multiple tasks in one branch.
+3. **Lease required before work.** Before opening a PR, create `docs/task-leases/{TASK_ID}_copilot_lease.md` using the template at `docs/templates/lease.md`. **CI checks for this file.**
+4. **Move task to in-progress.** When you claim a task, move it from `docs/task-queue/ready/` to `docs/task-queue/in-progress/` and set `status: in-progress`.
+5. **Blocked patterns.** These branch names are **automatically rejected**: `fix-all`, `do-all`, `finish-all`, `execute-tasks`, `install-npm`, `merge-correct`, `read-repository`.
+6. **Review is binary.** Your PR will be reviewed as PASS, FAIL, or BLOCKED. No open-ended discussion threads.
+
 ## CURRENT STACK (use these, don't reinvent)
 
 | Layer | Tech |
