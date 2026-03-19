@@ -1,6 +1,6 @@
 // Sala Holográfica 3D do Nexus — Wikipedia-style knowledge nodes + cúpula holográfica
 import { useRef, useMemo, Suspense, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, type ThreeEvent } from "@react-three/fiber";
 import { Float, Html } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -134,7 +134,7 @@ function KnowledgeNode({ data, index, total, onSelect }: {
   return (
     <mesh
       ref={meshRef}
-      onClick={(e) => { e.stopPropagation(); onSelect(data.label); }}
+      onClick={(e: ThreeEvent<MouseEvent>) => { e.stopPropagation(); onSelect(data.label); }}
       onPointerOver={() => { setHovered(true); document.body.style.cursor = "pointer"; }}
       onPointerOut={() => { setHovered(false); document.body.style.cursor = "auto"; }}
     >

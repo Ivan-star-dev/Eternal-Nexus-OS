@@ -1,5 +1,5 @@
 import { useRef, useState, useMemo, useCallback, Suspense } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useSoundManager } from "@/hooks/useSoundManager";
@@ -262,7 +262,7 @@ function ProjectIsland({ project, onSelect }: { project: GeoProject; onSelect: (
     <group position={pos}>
       <mesh
         ref={meshRef}
-        onClick={(e) => { e.stopPropagation(); sound.playNavigate(); onSelect(project); }}
+        onClick={(e: ThreeEvent<MouseEvent>) => { e.stopPropagation(); sound.playNavigate(); onSelect(project); }}
         onPointerOver={() => { sound.playHover(); document.body.style.cursor = "pointer"; }}
         onPointerOut={() => { document.body.style.cursor = "auto"; }}
       >

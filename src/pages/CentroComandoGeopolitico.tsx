@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import React, { useState, useRef, useMemo, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, Float, Text, MeshDistortMaterial, Line } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,7 +82,7 @@ function HolographicTable() {
   });
 
   const gridLines = useMemo(() => {
-    const lines: JSX.Element[] = [];
+    const lines: React.JSX.Element[] = [];
     const count = 20;
     const size = 5;
     for (let i = 0; i <= count; i++) {

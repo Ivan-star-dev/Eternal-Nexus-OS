@@ -6,6 +6,7 @@ import {
   Float,
   MeshDistortMaterial,
   Text,
+  Line,
 } from "@react-three/drei";
 import * as THREE from "three";
 import {

@@ -359,7 +359,7 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
       minZoom: 1.5,
       maxZoom: 16,
       attributionControl: false,
-      antialias: true,
+      canvasContextAttributes: { antialias: true },
       fadeDuration: 0,
     });
 

@@ -44,8 +44,14 @@ afterEach(() => {
 // Helper: make a valid event
 // ---------------------------------------------------------------------------
 
-function makeEvent(label = 'Test verdict') {
-  return createTribunalVerdict({ label, category: 'test', confidence: 0.9 });
+function makeEvent(topic = 'Test verdict') {
+  return createTribunalVerdict({
+    topic,
+    judges: ['judge-1'],
+    verdict: 'approved',
+    reasoning: 'Test reasoning',
+    flowTarget: 'atlas',
+  });
 }
 
 // ---------------------------------------------------------------------------

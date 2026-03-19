@@ -16,6 +16,7 @@ import type {
   NexusEvent,
   TribunalVerdictPayload,
   AtlasMarkerPayload,
+  GeoPayload,
 } from '@/types/sacred-flow';
 
 /** GeoJSON Feature for a verdict marker on the map */
@@ -128,7 +129,7 @@ export function useGeopoliticsMap() {
 
   // Replay existing verdicts on mount (cursor-based replay)
   useEffect(() => {
-    const existing = bus.replay({ types: ['tribunal.verdict'] });
+    const existing = bus.replay({}).filter((e) => e.type === 'tribunal.verdict');
     if (existing.length === 0) return;
 
     const features: VerdictFeature[] = existing.map((event) => {
@@ -160,12 +161,12 @@ export function useGeopoliticsMap() {
   const publishAtlasMarker = useCallback(
     (lat: number, lng: number, label: string, category: string) => {
       const payload: AtlasMarkerPayload = {
-        lat,
-        lng,
         label,
         category,
-        intensity: 0.7,
+        dataSource: 'user-interaction',
+        value: 1.0,
       };
+      const geo: GeoPayload = { lat, lon: lng };
 
       const createdAt = new Date().toISOString();
       const eventId = makeEventId('atlas.marker', 'atlas', createdAt, payload);
@@ -179,6 +180,7 @@ export function useGeopoliticsMap() {
         createdAt,
         source: 'atlas',
         severity: 0.5,
+        geo,
         payload,
         confidence: 0.8,
         seed: seedFromId(eventId),

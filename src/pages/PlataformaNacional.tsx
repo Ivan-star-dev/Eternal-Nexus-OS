@@ -1,7 +1,7 @@
 import React, { useRef, useMemo, useState, useCallback } from "react";
 import { Canvas, useFrame, type ThreeElements } from "@react-three/fiber";
 import { OrbitControls, Float, Sparkles } from "@react-three/drei";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import * as THREE from "three";
 import {
   ArrowRight,
@@ -243,7 +243,7 @@ function ConnectionArc({
 
   return (
     <group>
-      <line ref={lineRef} geometry={lineGeom}>
+      <line geometry={lineGeom}>
         <lineBasicMaterial
           color={color}
           transparent
@@ -478,7 +478,7 @@ function TribunalPanel() {
 
 /* ───────────────────────── Main Page ───────────────────────── */
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -486,12 +486,12 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 

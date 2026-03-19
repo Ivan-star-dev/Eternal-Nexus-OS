@@ -1,5 +1,5 @@
 import { useRef, useMemo, useState } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
@@ -93,7 +93,7 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
     <group position={pos}>
       <mesh
         ref={meshRef}
-        onClick={(e) => { e.stopPropagation(); onClick(id); }}
+        onClick={(e: ThreeEvent<MouseEvent>) => { e.stopPropagation(); onClick(id); }}
         onPointerOver={() => { setHovered(true); document.body.style.cursor = "pointer"; }}
         onPointerOut={() => { setHovered(false); document.body.style.cursor = ""; }}
       >

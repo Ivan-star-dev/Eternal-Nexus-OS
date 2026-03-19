@@ -56,13 +56,15 @@ export const initCesiumViewer = (container: string | HTMLElement): Viewer | null
       navigationHelpButton: false,
       scene3DOnly: true,
       targetFrameRate: CESIUM_CONFIG.performance.targetFrameRate,
-      maximumScreenSpaceError: CESIUM_CONFIG.performance.maximumScreenSpaceError,
       requestRenderMode: false,     // Sempre render — organismo VIVO
       useBrowserRecommendedResolution: CESIUM_CONFIG.performance.useBrowserRecommendedResolution,
     });
 
     // sacred-flow: câmera voa para Cabo Verde — ponto de origem morabeza
     viewer.camera.flyTo(CESIUM_CONFIG.defaultView);
+
+    // Apply globe quality settings post-init
+    viewer.scene.globe.maximumScreenSpaceError = CESIUM_CONFIG.performance.maximumScreenSpaceError;
 
     return viewer;
   } catch (error) {

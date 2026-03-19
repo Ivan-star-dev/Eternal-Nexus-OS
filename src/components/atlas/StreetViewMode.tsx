@@ -145,7 +145,7 @@ export default function StreetViewMode() {
       {/* Holographic displays */}
       {holoPositions.map((pos, idx) => (
         <group key={`holo-${idx}`} position={pos}>
-          <mesh ref={(el) => { if (el) holoRefs.current[idx] = el; }}>
+          <mesh ref={(el: THREE.Mesh | null) => { if (el) holoRefs.current[idx] = el; }}>
             <octahedronGeometry args={[0.5 + idx * 0.15, 2]} />
             <meshBasicMaterial
               color={idx === 0 ? "#ffd700" : idx === 1 ? "#4a90e2" : "#c026d3"}

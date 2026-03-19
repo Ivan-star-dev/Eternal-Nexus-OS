@@ -375,7 +375,7 @@ export class ResilientBridge {
           resolve(true);
           return;
         }
-        originalHandler?.call(this.worker, event);
+        originalHandler?.call(this.worker!, event);
       };
 
       this.worker!.postMessage({

@@ -24,7 +24,7 @@
     "forceConsistentCasingInFileNames": true,
 
     /* Types — resolve vitest/globals */
-    "types": ["vite/client", "@react-three/fiber", "three"],
+    "types": ["vite/client"],
 
     /* Paths */
     "baseUrl": ".",

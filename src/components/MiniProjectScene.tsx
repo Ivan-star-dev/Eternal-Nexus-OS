@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, Torus, Box } from "@react-three/drei";
 import * as THREE from "three";
@@ -19,7 +19,7 @@ function RotatingShape({ projectId, color }: { projectId: string; color: string 
 
   const mat = <meshStandardMaterial color={color} transparent opacity={0.85} wireframe />;
 
-  const shapes: Record<string, JSX.Element> = {
+  const shapes: Record<string, React.JSX.Element> = {
     "deltaspine-nl": (
       <Torus ref={meshRef} args={[1, 0.35, 16, 48]}>{mat}</Torus>
     ),
