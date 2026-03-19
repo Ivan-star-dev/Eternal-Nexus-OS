@@ -1,7 +1,7 @@
 ---
 id: C6
 title: Streams — 5th Sacred Organ (broadcast layer)
-status: ready
+status: in-progress
 owner-role: architect
 priority: P1
 suggested-pioneer: "@claude"
