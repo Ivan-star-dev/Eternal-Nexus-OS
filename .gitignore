@@ -23,3 +23,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Worktrees (local workspace, not tracked)
+_worktrees/
