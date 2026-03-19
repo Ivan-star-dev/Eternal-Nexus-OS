@@ -6,26 +6,66 @@ on:
       - main
 
 jobs:
-  validate-protocol:
+  validate-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        
+        with:
+          fetch-depth: 0
+
+      - name: Validate Branch Name + Lease
+        run: |
+          chmod +x .ops/validate-branch.sh
+          ./.ops/validate-branch.sh
+
+  validate-done-state:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Done Evidence
+        run: |
+          chmod +x .ops/validate-done.sh
+          ./.ops/validate-done.sh
+
+  validate-queue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Queue Coherence
+        run: |
+          chmod +x .ops/validate-queue.sh
+          ./.ops/validate-queue.sh
+
+  validate-protocol:
+    runs-on: ubuntu-latest
+    needs: [validate-branch, validate-done-state, validate-queue]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
       - name: Block Conflict Markers
         run: |
           chmod +x .githooks/pre-commit
           ./.githooks/pre-commit
-          
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
       - name: Bootstrap
         run: |
           chmod +x .ops/bootstrap.sh
           ./.ops/bootstrap.sh
-          
+
       - name: Run Ops Check
         run: npm run ops:check
