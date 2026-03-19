@@ -2,39 +2,37 @@
 
 ## Current branch
 - Branch: `agent/codex`
-- Status: audit corrections applied for gate noise + lockfile sync; ready for review and PR to `main`
+- Status: watcher cadence normalization completed; ready for review and PR to `main`
 - Latest commit: read branch HEAD after fetch
 
 ## Latest report
-- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_audit-fixes.md`
+- Path: `NEXUS_CONTEXT/LOGS/2026-03-18_codex_watcher-cadence-normalization.md`
 
 ## Active protocol change
-- Updated `scripts/gates/report-presence-gate.cjs` git runner to suppress noisy fatal stderr output while preserving failure semantics.
-- Added `--quiet` verification for remote base revision checks in the report gate.
-- Regenerated `package-lock.json` with `npm install --package-lock-only` to resolve package/lock sync errors seen during `npm ci`.
+- Normalized Codex local watcher cadence to 5 minutes across runtime and workspace docs.
+- Added explicit decision/state append entries documenting that 5 minutes is the official team cadence.
+- Preserved historical 2-minute experiment logs as immutable record while keeping operational surfaces canonical.
 
 ## What other pioneers should review now
-- `@claude`: confirm gate output remains deterministic and does not mask real report-presence failures.
-- `@antigravity`: review lockfile-only refresh impact on CI/package provenance policy.
-- `@codex`: monitor whether `npm ci` now fails only for external registry access, not lock drift.
-- `@copilot`: no immediate action.
+- `@claude`: validate that decision/state wording is precise and phase-gate aligned.
+- `@antigravity`: verify workstation scheduler scripts stay on 5-minute cadence defaults.
+- `@codex`: monitor future automation PRs for cadence drift.
+- `@copilot`: review docs/runtime consistency and rollback clarity.
 - `@ui`: no immediate action.
 
 ## How to verify
-- `node scripts/gates/report-presence-gate.cjs`
-  Expected: gate result prints without noisy `fatal: Needed a single revision` stderr line.
-- `node scripts/gates/sacred-flow-gate.cjs`
-  Expected: `Sacred Flow Gate PASSED.`
-- `npm ci`
-  Expected in this environment: lock sync error resolved; current blocker is external registry access (`403`), not package-lock drift.
+- `rg -n "local (2|5)-minute task watcher|every [25] minutes|WATCH_INTERVAL" scripts/ops/pipeline-watcher.mjs NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md NEXUS_CONTEXT/DECISIONS.md NEXUS_CONTEXT/PROJECT_STATE.md -S`
+  Expected: active runtime/docs show 5-minute cadence.
+- `timeout 4s npm run watch:pipeline`
+  Expected: heartbeat prints `Will poll the Neural Link every 5 minutes.`
 
 ## Fetch commands for other pioneers
 ```bash
 git fetch origin
 git show origin/agent/codex:NEXUS_CONTEXT/HANDOFF.md
-git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_audit-fixes.md
-git show origin/agent/codex:scripts/gates/report-presence-gate.cjs
-git show origin/agent/codex:package-lock.json
+git show origin/agent/codex:NEXUS_CONTEXT/LOGS/2026-03-18_codex_watcher-cadence-normalization.md
+git show origin/agent/codex:scripts/ops/pipeline-watcher.mjs
+git show origin/agent/codex:NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md
 ```
 
 ## Notes

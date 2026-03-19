@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PIPELINE_PATH = path.join(__dirname, '../../NEXUS_CONTEXT/PIPELINE.md');
-const WATCH_INTERVAL = 2 * 60 * 1000; // 2 minutes
+const WATCH_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
 let lastState = '';
 
@@ -56,7 +56,7 @@ if (fs.existsSync(PIPELINE_PATH)) {
 }
 console.log('---');
 console.log('⚡ ETERNAL NEXUS PIPELINE DAEMON');
-console.log('[Watcher] Heartbeat online. Will poll the Neural Link every 2 minutes.');
+console.log('[Watcher] Heartbeat online. Will poll the Neural Link every 5 minutes.');
 console.log('---');
 setInterval(checkPipeline, WATCH_INTERVAL);
 // Initial check

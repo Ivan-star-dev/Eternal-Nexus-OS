@@ -38,3 +38,4 @@ This file is the current-state snapshot for the project. After each merge, appen
 - 2026-03-18: autonomy, learning-loop, founder-memory template, and model-ownership strategy added as the living-system layer.
 - 2026-03-18: local 5-minute Codex task watcher added as repo-owned automation with private snapshots.
 - 2026-03-18: CI scope clarified so protocol-only changes run gates without inheriting the app baseline failures.
+- 2026-03-18: watcher cadence normalized by team decision to 5 minutes; script/runtime docs are now aligned to the 5-minute canonical baseline.

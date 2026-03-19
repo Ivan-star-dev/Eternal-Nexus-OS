@@ -41,3 +41,8 @@ This file is append-only. Add a new entry when a rule or operating model changes
 - Protocol changes must still run Sacred Flow and Report Presence validation.
 - Install, lint, typecheck, test, and build should run only when app-facing files changed, so protocol-only PRs are not blocked by the unrelated app baseline.
 - The app baseline remains real and should still fail on app changes until it is fixed at the source.
+
+## 2026-03-18 - Watcher cadence normalization
+- Team decision for Codex local task watcher cadence is **5 minutes**.
+- `scripts/ops/pipeline-watcher.mjs` and `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md` must stay aligned with this 5-minute baseline.
+- Historical logs may mention temporary 2-minute experiments, but operational docs/scripts remain 5-minute canonical.
