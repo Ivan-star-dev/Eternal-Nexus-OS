@@ -57,6 +57,9 @@ If the answer is **yes**: proceed to lease.
 
 **No task begins without a lease.** If a lease already exists for a task, you do not claim it. Read the lease to find the current owner and either wait or write a sidecar note.
 
+### One-builder-per-task rule
+Only one pioneer may execute a task at any time. The lease enforces `collision-policy: exclusive` by default. If a second pioneer wants the same task, they must wait for the lease to expire or be released. No exceptions. Pick a different task.
+
 ---
 
 ## Phase 4: EXECUTE
@@ -78,6 +81,12 @@ Before closing:
 3. Run Reality Pass if the scope changed during execution
 4. Write execution report (what changed, what files, evidence)
 5. Write verification report (commands + output)
+
+### Binary review rule
+Every PR gets exactly one review verdict: **PASS** or **FAIL**.
+- PASS: all acceptance criteria in the task file are met. Merge.
+- FAIL: state the specific criterion that was not met. No discussion threads. Fix and re-submit.
+- No "looks good but maybe..." — the task file defines done, not the reviewer's taste.
 
 ---
 
@@ -154,5 +163,5 @@ This is the maximum safe semi-automation. It is enough.
 
 If a task creates visible UI/UX that deviates from Visual DNA, the pioneer must:
 1. Complete the task
-2. Append to `NEXUS_CONTEXT/INSIGHTS.md` with tag `[DESIGN-BACKLOG]`
+2. Add an entry to `docs/design-backlog.md` (not INSIGHTS.md — that's for cross-pioneer learnings)
 3. This becomes a future U-series task for `@copilot` + `@ui`

@@ -65,6 +65,42 @@
 > Add entries here as pioneers discover best-in-class options.
 > No entry = no adoption. Period.
 
+### PMTiles
+- **Candidate:** `protomaps/PMTiles`
+- **License:** BSD-3-Clause
+- **Why best-in-class:** Serverless tiles in one file reduces infra complexity drastically. No heavy GeoServer/PostGIS containers are required.
+- **Integration plan:** Ship PMTiles for geopolitics basemaps and overlays natively inside the Vite/MapLibre pipeline.
+- **Risks:** Tile generation pipeline complexity; static caching strategy footprint.
+- **Lab branch:** `lab/antigravity/01-pmtiles`
+- **Decision:** ✅ ADOPT
+- **Date:** 2026-03-18
+- **Scores:** A: 5/5 | B: 5/5 | C: 4/5 | D: 5/5 | E: 4/5
+- **Benchmark tags:** `@antigravity` + `@ui`
+
+### Protomaps Basemaps
+- **Candidate:** `protomaps/basemaps`
+- **License:** ODbL
+- **Why best-in-class:** Fast path to quality vector basemaps containing pure geopolitical boundary data without Mapbox/Google API styling bloat.
+- **Integration plan:** Provide raw vector tiles that UI can perfectly style via Dark Glassmorphism.
+- **Risks:** Missing granular local street-level details (acceptable for a global OS layer).
+- **Lab branch:** `lab/antigravity/01-pmtiles`
+- **Decision:** ✅ ADOPT
+- **Date:** 2026-03-18
+- **Scores:** A: 4/5 | B: 5/5 | C: 4/5 | D: 5/5 | E: 4/5
+- **Benchmark tags:** `@ui` + `@antigravity`
+
+### Yjs
+- **Candidate:** `yjs/yjs`
+- **License:** MIT
+- **Why best-in-class:** CRDT patterns for local-first peer-to-peer shared state and workspace presence without centralized chokepoints.
+- **Integration plan:** Strictly bound to the Lab Hub for live document interaction. Must keep the central event Index independent for now.
+- **Risks:** Networking topology stability; persistence layers synchronization.
+- **Lab branch:** `lab/claude/02-yjs`
+- **Decision:** 🟡 LAB-VALIDATING
+- **Date:** 2026-03-18
+- **Scores:** A: 5/5 | B: 4/5 | C: 3/5 | D: 5/5 | E: 5/5
+- **Benchmark tags:** `@claude` + `@antigravity`
+
 ### 2D Map Engine (Atlas / Geopolitics)
 - **Candidate:** `maplibre-gl` (https://maplibre.org)
 - **License:** BSD-3-Clause (fork of Mapbox GL JS v1, fully open)
