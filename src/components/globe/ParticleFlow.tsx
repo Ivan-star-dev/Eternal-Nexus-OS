@@ -58,9 +58,9 @@ export default function ParticleFlow({
 
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
-      let x = arr[i3] + velocities[i3] + Math.sin(t * 0.5 + i * 0.01) * 0.001;
-      let y = arr[i3 + 1] + velocities[i3 + 1] + Math.cos(t * 0.3 + i * 0.02) * 0.001;
-      let z = arr[i3 + 2] + velocities[i3 + 2] + Math.sin(t * 0.4 + i * 0.015) * 0.001;
+      const x = arr[i3] + velocities[i3] + Math.sin(t * 0.5 + i * 0.01) * 0.001;
+      const y = arr[i3 + 1] + velocities[i3 + 1] + Math.cos(t * 0.3 + i * 0.02) * 0.001;
+      const z = arr[i3 + 2] + velocities[i3 + 2] + Math.sin(t * 0.4 + i * 0.015) * 0.001;
 
       const dist = Math.sqrt(x * x + y * y + z * z);
       const targetR = radius + Math.sin(t * 0.8 + i * 0.05) * 1.2;
