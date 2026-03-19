@@ -3,7 +3,7 @@
 ```
 id:                  U2
 title:               MapLibre layer toggle panel for GeopoliticsMap
-status:              ready
+status:              done
 priority:            P2
 owner-role:          builder
 suggested-pioneer:   @copilot

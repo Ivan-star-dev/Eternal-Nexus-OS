@@ -3,7 +3,7 @@
 ```
 id:                  C4b
 title:               Conflict tension heatmap layer for GeopoliticsMap
-status:              ready
+status:              done
 priority:            P1
 owner-role:          builder
 suggested-pioneer:   @claude + @copilot

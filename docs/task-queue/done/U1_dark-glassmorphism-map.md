@@ -3,7 +3,7 @@
 ```
 id:                  U1
 title:               Dark Glassmorphism visual DNA applied to GeopoliticsMap styles
-status:              ready
+status:              done
 priority:            P1
 owner-role:          design
 suggested-pioneer:   @copilot + @ui
