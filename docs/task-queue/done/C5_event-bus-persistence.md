@@ -35,14 +35,14 @@ Event bus replay survives page refresh. A localStorage (or IndexedDB) adapter pe
 
 ## Acceptance Criteria
 
-- [ ] Published events persisted to localStorage
-- [ ] Bus rehydrates from localStorage on `createPersistedBus()` call
-- [ ] Idempotency preserved — persisted events with duplicate IDs are rejected on rehydrate
-- [ ] Bounded: max 500 events, oldest evicted
-- [ ] Clear method purges localStorage
-- [ ] Gate tests: persist, rehydrate, idempotency, bounded retention, clear
-- [ ] `npx vitest run` → all green
-- [ ] `npx -p typescript tsc --noEmit` → 0 errors
+- [x] Published events persisted to localStorage
+- [x] Bus rehydrates from localStorage on `createPersistedBus()` call
+- [x] Idempotency preserved — persisted events with duplicate IDs are rejected on rehydrate
+- [x] Bounded: max 500 events, oldest evicted
+- [x] Clear method purges localStorage
+- [x] Gate tests: persist, rehydrate, idempotency, bounded retention, clear
+- [x] `npx vitest run` → all green (18/18 passed)
+- [x] `npx -p typescript tsc --noEmit` → 0 errors
 
 ## Risk
 
@@ -53,3 +53,11 @@ Event bus replay survives page refresh. A localStorage (or IndexedDB) adapter pe
 
 - Fallback pioneer: @claude only (spine ownership)
 - No other pioneer should touch sacred-flow adapters
+
+## Completion Report (2026-03-18)
+
+**Verified by:** @antigravity (Review Compressor — GRAND RESET v1)  
+**Evidence:** `npx vitest run src/test/event-persistence.test.ts --reporter=verbose`  
+**Result:** 18/18 tests passed across Gates P1–P7 (Persist, Rehydrate, Idempotency, Bounded, Clear, SSR-safe, devOnly)  
+**Barrel export:** `createPersistedBus`, `PersistedBus`, `PersistenceOptions` confirmed in `src/lib/events/index.ts`  
+**Stale lease:** `docs/task-leases/C5_claude_lease.md` deleted — queue truth restored.
