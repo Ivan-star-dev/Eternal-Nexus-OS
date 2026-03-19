@@ -3,7 +3,7 @@ id: C5_claude_lease
 task: C5
 pioneer: @claude
 platform: Claude Code
-status: active
+status: expired (C5 completed on fix/replay-cursor-types-and-C5-close branch)
 claimed-at: 2026-03-18
 expires-at: 2026-03-18T+4h
 ---

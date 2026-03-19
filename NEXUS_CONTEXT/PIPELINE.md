@@ -1,5 +1,7 @@
 # ETERNAL NEXUS — THE PIONEER PIPELINE (Task Accumulator)
 
+> **ARCHIVED** — Live task state is now in `docs/pipeline.md` + `docs/task-queue/`. This file is kept as historical record. Do not update task status here.
+
 > **Rule:** Let tasks accumulate. If the pipeline runs low (under 3 tasks), the pioneer finishing their job MUST break down the current phase gate and generate new tasks. We do not wait for the user to assign work. **This is an autonomous loop of self-planning and execution.**
 
 ## Status: ACTIVE

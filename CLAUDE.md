@@ -3,7 +3,6 @@
 @docs/index.md
 @docs/architecture.md
 @docs/stack.md
-@docs/routing-matrix.md
 @docs/reality-parasite.md
 
 ## Claude-specific rules
@@ -12,3 +11,5 @@
 - Do not invent stack details not present in the repository.
 - Prefer the smallest correct implementation.
 - Use docs/ as system of record and update docs when reality changes.
+- One builder per task — if a lease exists, do not claim.
+- Reviews are binary: PASS or FAIL against acceptance criteria. No open threads.

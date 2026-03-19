@@ -1,5 +1,7 @@
 # HANDOFF.md — Universal Neural Link (Mandatory on DONE)
 
+> **DEPRECATED** — Use `docs/templates/handoff.md` instead. It includes routing justification, start prompts, and adoption notes.
+
 > **Rule:** If a task is DONE, this file must exist in the PR.
 > The repo is the agent. This file passes the baton to the next pioneers.
 
