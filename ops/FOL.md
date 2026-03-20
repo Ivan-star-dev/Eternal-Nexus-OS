@@ -469,6 +469,42 @@ ALTERACAO_REAL         │ sim | não
 
 ---
 
+---
+
+## 15. BASTION — CORAÇÃO CANÔNICO DE EXECUÇÃO
+
+**Registrado em:** OPS-BASTION-001 | 2026-03-20
+
+O **BASTION** é a fonte única de execução elegível do Eternal Nexus OS.
+Pioneiro que não encontra task elegível no BASTION não executa.
+
+**Hierarquia operacional:**
+
+| Elemento | Papel |
+|---|---|
+| **BASTION** | Coração — matriz viva de tasks elegíveis |
+| **Codex** | Cérebro-orquestrador — lê, distribui, consolida |
+| **Claude** | Arquiteto-executor — abre frentes, actualiza BASTION com owner |
+| **Demais pioneiros** | Executores conforme matriz e worktree |
+| **Owner** | Soberano — único que abre gates e aprova fases |
+
+**Loop do pioneiro:**
+```
+1. Ler BASTION → task elegível com NEXT_ACTOR: eu?
+2. Verificar DEPENDENCIA_STATUS → livre?
+3. Verificar PODE_ENTRAR_SOZINHO → sim?
+4. Executar dentro do worktree e pilar declarados
+5. Handoff: HANDOFF_TABLE + EVIDENCE_BLOCK + CANALIZACAO_TABLE
+6. Voltar ao BASTION
+```
+
+**Regra-mãe:** deriva começa onde o BASTION termina.
+Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
+
+**Referência completa:** `ops/BASTION.md`
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
@@ -476,3 +512,4 @@ ALTERACAO_REAL         │ sim | não
 *FOL v1.4 — seção 12 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001*
 *FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
 *FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
+*FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*

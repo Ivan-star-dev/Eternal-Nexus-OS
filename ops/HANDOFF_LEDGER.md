@@ -33,6 +33,71 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/BASTION.md criado (v1): 9 secções — identidade e hierarquia,
+            │ territórios, regra de execução, estrutura da matriz (15 campos),
+            │ matriz viva com tasks concluídas / elegíveis / planejadas /
+            │ bloqueadas, protocolo de actualização, Codex como orquestrador,
+            │ semáforo BASTION, localização canônica.
+            │ ops/FOL.md → v1.7: seção 15 adicionada (hierarquia, loop do
+            │ pioneiro, regra-mãe, referência a BASTION.md).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (BASTION: ACTIVO), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-BASTION-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md (criado) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto (protocolo operacional central — muda o fluxo de todos os
+            │ pioneiros; agora executam só o que o BASTION permite)
+PROX_PASSO  │ @copilot lê BASTION → entra em BULK-02.2 (elegível); @cursor lê
+            │ BASTION → entra em BULK-01.3-a (elegível); owner abre PLv6.2-b
+            │ ou FVL-IMPL-001 quando pronto; Codex usa BASTION ao consolidar
+SUGESTOES   │ 1) Todos os pioneiros: primeira acção após BASTION activo é ler
+            │ BASTION.md seção 5 antes de qualquer execução; 2) Codex: incluir
+            │ tabela BASTION no relatório-mãe (task_id | executor | elegível?);
+            │ 3) owner: quando quiser abrir nova fase, basta marcar task de
+            │ aguarda-gate → elegível em BASTION.md seção 5.3
+DECISAO_REC │ BASTION activo sem gate adicional; pioneiros adoptam o loop
+            │ imediatamente; deriva = execução fora do BASTION; owner é soberano
+            │ único de gates e prioridade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION.md) + edit (restantes)
+PROVA_MINIMA           │ ops/BASTION.md criado do zero (v1, 9 secções, matriz viva completa)
+                       │ ops/FOL.md seção 15 adicionada (linha *FOL v1.7* no rodapé)
+                       │ ops/LIVE_STATE.md semáforo: BASTION: ACTIVO v1
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / coração operacional / bastion
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION v1 activo: pioneiros só executam tasks elegíveis na
+            │ matriz; loop: ler BASTION → executar → handoff → voltar;
+            │ @copilot BULK-02.2 elegível; @cursor BULK-01.3-a elegível;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; EVIDENCE_BLOCK
+            │ obrigatório em todos os handoffs
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-EVIDENCE-BLOCK-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/OUTPUT_STANDARD.md → v1.1: seção 8 EVIDENCE_BLOCK adicionada
