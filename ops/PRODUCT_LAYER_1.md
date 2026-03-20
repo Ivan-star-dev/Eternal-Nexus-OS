@@ -387,3 +387,56 @@ FORA (Layer 3):
 ```
 
 *PLv5.1 adicionada em 2026-03-20 | claude-sonnet-4-6 | PLv5.1*
+
+---
+
+## PLv6.1 — Projects Table Layer (Supabase Layer 2)
+
+**Data:** 2026-03-20
+**Executor:** @claude | claude-sonnet-4-6
+
+### Decisão pragmática
+
+`globe_projects` já existe no schema Supabase com tipos canónicos em `types.ts`.
+AtlasPage já faz fetch com chave anon — leitura pública confirmada.
+**Não criar nova tabela. Usar o que existe.**
+
+### O que entrou
+
+| Artefacto | Tipo | O que faz |
+|---|---|---|
+| `src/lib/projectsData.ts` | NOVO | `fetchProjectsSummary()` — fetcha `globe_projects` via Supabase anon; retorna `{ total, active, recent[], isLive }` |
+| `src/hooks/useOrganLiveStatus.ts` | ATUALIZADO | INVESTOR: métrica primária = projectos activos (Supabase); status = GDP NL (World Bank) como contexto macro; NEXUS status: incorpora contagem de projectos activos |
+
+### Schema usado (existente no Supabase)
+
+```
+globe_projects: id, name, description, lat, lon, color, status, user_id, created_at
+```
+
+### Semântica dos órgãos pós-PLv6.1
+
+| Órgão | Métrica | Fonte | Layer |
+|---|---|---|---|
+| INVESTOR | N projectos activos | Supabase globe_projects | Layer 2 |
+| INVESTOR (status) | GDP NL + total de projectos | World Bank + Supabase | Layer 1 + 2 |
+| NEXUS (status) | session timer + ops pipeline + projectos activos | computed + Supabase | Layer 1 + 2 |
+
+### Fronteira
+
+**Entra em PLv6.1:**
+- `projectsData.ts` — fetcher canónico mínimo
+- INVESTOR wired a project count real
+- NEXUS status incorpora project count
+
+**Fica fora (PLv6.2+):**
+- Gallery/home UI mostrando lista de projectos
+- `project_metrics` (métricas detalhadas por projecto)
+- Filtros, ordenação, autenticação por user_id
+- Ligação INVESTOR → projectos individuais com valores
+
+**Fica fora (owner gate / PLv7+):**
+- `project_progress` table com dados owner proprietários
+- Owner pipeline B-001 (dados sensíveis)
+- Valores financeiros reais por projecto
+

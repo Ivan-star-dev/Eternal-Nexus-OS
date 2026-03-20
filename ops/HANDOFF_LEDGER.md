@@ -231,3 +231,39 @@ TRAVA DE CONTINUAÇÃO:
 ```
 
 ---
+
+## PLv6.1 — Projects Table Layer / Supabase Layer 2 activa
+
+**Data:** 2026-03-20
+**Executor:** @claude | claude-sonnet-4-6
+**Task:** PLv6.1 — Abrir Projects Table Layer mínima e canónica
+
+```
+HANDOFF FINAL
+@claude | MODELO:claude-sonnet-4-6 | TASK:PLv6.1 | STATUS:done
+FEITO: projectsData.ts canónico (fetchProjectsSummary — fetcha globe_projects via Supabase anon, retorna total/active/recent/isLive); useOrganLiveStatus atualizado (INVESTOR: métrica primária = projectos activos Supabase; status = GDP NL World Bank como contexto macro; NEXUS status: incorpora contagem de projectos se disponível); PRODUCT_LAYER_1 + LIVE_STATE + HANDOFF_LEDGER atualizados
+NAO_FEITO: gallery/home UI mostrando lista de projectos; project_metrics (métricas detalhadas por projecto); filtros/autenticação por user_id; owner data B-001; project_progress; valores financeiros por projecto; NewsAPI
+BLOQUEIOS: nenhum — globe_projects é pública com chave anon; cliente Supabase já presente; tipos já gerados
+ADAPTACOES: fetch paralelo (Promise.all) — projectsData + worldBankData em simultâneo; INVESTOR: projectos activos como métrica primária (mais accionável que GDP); GDP NL passa a contexto no status; NEXUS status enriquecido com contagem de projectos quando disponível
+ARQUIVOS: src/lib/projectsData.ts (NOVO) | src/hooks/useOrganLiveStatus.ts (atualizado: PLv5.1→PLv6.1; INVESTOR wired a globe_projects; NEXUS status enriquecido) | ops/PRODUCT_LAYER_1.md (append PLv6.1) | ops/LIVE_STATE.md (atualizado) | ops/HANDOFF_LEDGER.md (este entry)
+IMPACTO: alto — INVESTOR deixa de mostrar apenas macro GDP e passa a mostrar dado real do portfólio (globe_projects Supabase); Layer 2 activa
+PROXIMO_PASSO: owner decide PLv6.2 — gallery UI (lista de projectos), project_metrics, ou NewsAPI para órgão NEWS
+SUGESTOES: 1) PLv6.2-a: gallery/home page mostrando lista de projectos com nome/status/descrição (componente simples, alto impacto visual, baixo esforço); 2) PLv6.2-b: NewsAPI free key para NEWS ter manchetes reais — desacopla NEWS do Index e dá dado externo real; 3) PLv6.2-c: project_metrics para INVESTOR mostrar também KPIs por projecto (mais complexo — aguarda owner confirmar quais métricas são reais)
+DECISAO_RECOMENDADA: @copilot entra agora (BULK-02.2 — suavização de ops/); PLv6.2 aguarda gate owner; Codex continua fora até alinhar branch
+
+REGISTRO DE CANALIZAÇÃO:
+[🟢] CHAT: mesmo
+[🟢] BRANCH: claude/expose-workspace-config-yt4Km
+[🟢] WORKTREE: wt-estrutura-nucleo-vivo
+NATUREZA: produto / PLv6 — Projects Table Layer
+EXECUTOR: @claude
+ESTADO FINAL: done
+CANALIZAÇÃO ATIVA: PLv6.1 concluída — Projects Table Layer activa (globe_projects Supabase → INVESTOR + NEXUS); Layer 1 (Open Data) + Layer 2 (Supabase) ambas activas; @copilot gate aberto; PLv6.2 aguarda gate owner
+
+TRAVA DE CONTINUAÇÃO:
+- não abrir PLv7
+- Copilot entra agora (BULK-02.2)
+- Codex continua fora até alinhar branch
+```
+
+---

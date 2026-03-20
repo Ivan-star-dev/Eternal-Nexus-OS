@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | PLv5.1
+**Atualizado por:** @claude | claude-sonnet-4-6 | PLv6.1
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (PLv5.1 handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv5.1 — DATA_LAYER_1 completa / 7/7 órgãos vivos |
-| **Estado geral** | PLv5.1 concluída; 7/7 órgãos com Layer 1 activa (NEXUS: session timer; INVESTOR: World Bank NL GDP); DATA_LAYER_STRATEGY.md criado; Layer 2 (NewsAPI, Supabase projects) aguarda gate owner |
+| **Camada atual** | PLv6.1 — Projects Table Layer / Supabase Layer 2 activa |
+| **Estado geral** | PLv6.1 concluída; INVESTOR wired a globe_projects (Supabase anon, Layer 2); NEXUS status incorpora contagem de projectos; projectsData.ts canónico criado; Layer 2 Supabase activa via tabela existente |
 
 ---
 
@@ -37,7 +37,8 @@
 | BULK-04.1 | PLv3 — Live Organ Status Layer | CONCLUÍDA | handoff emitido |
 | SUPER-BULK-A | PLv4 — Live Organ Status: escala total (5/7 órgãos vivos) | CONCLUÍDA | handoff emitido |
 | PLv5.1 | DATA_LAYER_1 completa — 7/7 órgãos vivos (NEXUS + INVESTOR) | CONCLUÍDA | handoff emitido |
-| PLv6.1 | Próxima camada | AGUARDA GATE | owner: Layer 2 (NewsAPI? projects table?) ou Layer 3 (owner data)? |
+| PLv6.1 | Projects Table Layer — Supabase globe_projects → INVESTOR + NEXUS status | CONCLUÍDA | handoff emitido |
+| PLv6.2 | Próxima camada | AGUARDA GATE | owner: gallery UI? project_metrics? NewsAPI? |
 
 ### @codex (Refinador Técnico)
 
@@ -78,10 +79,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / PLv5.1 — DATA_LAYER_1 completa / 7/7 órgãos vivos
-EXECUTOR: @claude (PLv5.1 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1)
-CANALIZAÇÃO ATIVA: PLv5.1 concluída; 7/7 órgãos vivos — ATLAS (Open-Meteo), TRIBUNAL (TanStack), INDEX (useIndexOrgan), NEWS (derivado do Index), GEOPOLITICS (USGS), NEXUS (session timer), INVESTOR (World Bank NL GDP); DATA_LAYER_1 completa; Layer 2 aguarda gate owner
+NATUREZA: produto / PLv6.1 — Projects Table Layer (Supabase Layer 2)
+EXECUTOR: @claude (PLv6.1 done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1)
+CANALIZAÇÃO ATIVA: PLv6.1 concluída; INVESTOR wired a globe_projects (Supabase, Layer 2 activa); NEXUS status incorpora projectos; projectsData.ts canónico; Layer 1 (Open Data) + Layer 2 (Supabase) activas
 ```
 
 ---
@@ -93,12 +94,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  PLv5.1 — HANDOFF EMITIDO (DATA_LAYER_1 completa: 7/7 órgãos vivos; NEXUS+INVESTOR conectados)
-Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5 para limpar)
+Claude:  PLv6.1 — HANDOFF EMITIDO (Projects Table Layer: globe_projects → INVESTOR + NEXUS status; projectsData.ts canónico)
+Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda
 Codex:   F6 — EM ANDAMENTO (frente independente) | branch desalinhado
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoff PLv5.1 → decide Layer 2 (NewsAPI? projects table?) ou Layer 3 (owner data)
+PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.1 → decide PLv6.2 (gallery UI? project_metrics? NewsAPI?) ou PLv7 (owner data)
 ```
 
 ---
@@ -115,8 +116,8 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff PLv5.1 → decide Layer 2 (NewsAPI? proj
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff PLv5.1** → confirma DATA_LAYER_1 aceite → decide PLv6: Layer 2 (NewsAPI? projects table?) ou Layer 3 (owner proprietary data)?
-2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5 em ops/ e hooks imediatamente
+1. **Owner lê handoff PLv6.1** → confirma Projects Table Layer aceite → decide PLv6.2: gallery UI? project_metrics? NewsAPI? ou PLv7 (owner data)?
+2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ e hooks imediatamente
 3. **@codex avança F6** — frente independente, não bloqueia onda atual
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 5. **Owner responde B-002** — confirmar npm como PM canônico

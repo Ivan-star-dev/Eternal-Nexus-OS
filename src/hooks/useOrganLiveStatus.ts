@@ -1,27 +1,28 @@
 /**
- * useOrganLiveStatus — Live Organ Status Layer (PLv5.1)
+ * useOrganLiveStatus — Live Organ Status Layer (PLv6.1)
  *
  * Retorna o estado vivo de cada órgão do organismo.
  * Distingue explicitamente dados vivos de placeholders.
  *
- * Fontes ativas nesta camada (PLv5.1 — Layer 1 completa, 7/7 órgãos):
+ * Fontes ativas nesta camada (PLv6.1 — Layer 1 + Layer 2 Supabase):
  *   ATLAS       → temperatura Mindelo via realtimeData de useIndexOrgan (Open-Meteo)
  *   TRIBUNAL    → TanStack Query (useNexusState) — contagem de veredictos da sessão
  *   INDEX       → contagem de entradas via useIndexOrgan (agregação real do fluxo)
  *   NEWS        → entradas da última 1h derivadas do Index (fluxo Índice → Notícias)
  *   GEOPOLITICS → contagem de sismos M4.5+ (24h) via USGS Earthquake API (pública, sem auth)
  *   NEXUS       → duração da sessão activa do sistema (runtime, computed em tempo real)
- *   INVESTOR    → GDP dos Países Baixos via World Bank Open Data (pública, sem auth)
+ *   INVESTOR    → contagem de projectos activos via Supabase globe_projects (Layer 2)
+ *                 + GDP NL via World Bank Open Data (Layer 1 — contexto macro no status)
  *
  * Regras:
  *   - Não criar novos backends ou autenticação
- *   - Usar apenas infraestrutura já presente no codebase + DATA_LAYER_1
+ *   - Usar apenas infraestrutura já presente no codebase + DATA_LAYER_1 + DATA_LAYER_2
  *   - Fallback gracioso sempre — nunca quebrar o grid
  *   - isLive: false = placeholder estático, não dado vivo
  *   - useIndexOrgan é a fonte única de realtimeData (evita instâncias duplicadas)
- *   - Layer 2/3 (Supabase auth, dados owner) ficam em PLv6+
+ *   - Layer 3 (dados owner proprietários) fica em PLv7+
  *
- * sacred-flow: SUPER-BULK-A + PLv5.1 | DATA_LAYER_1 | 2026-03-20
+ * sacred-flow: SUPER-BULK-A + PLv5.1 + PLv6.1 | DATA_LAYER_1 + DATA_LAYER_2 | 2026-03-20
  */
 
 import { useState, useEffect, useRef } from 'react';
@@ -29,6 +30,7 @@ import { useNexusState } from '@/hooks/useNexusState';
 import { useIndexOrgan } from '@/hooks/useIndexOrgan';
 import { fetchRecentEarthquakes } from '@/lib/earthquakeData';
 import { fetchWorldBankIndicator, formatUSD } from '@/lib/worldBankData';
+import { fetchProjectsSummary } from '@/lib/projectsData';
 
 export interface OrganLiveData {
   metric: string;
@@ -115,24 +117,30 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
 
   const pipelineOps = verdicts.length + entries.length;
 
-  // ── INVESTOR: GDP dos Países Baixos via World Bank Open Data ─────────────
-  // Indicador: NY.GDP.MKTP.CD — GDP current USD
-  // País: NL (Países Baixos — DeltaSpine NL context)
-  // Fetch único no mount; GDP é anual, não precisa de polling por sessão
+  // ── INVESTOR: projectos activos via Supabase (Layer 2) ───────────────────
+  // Métrica primária: contagem de projectos activos em globe_projects
+  // Contexto macro: GDP NL via World Bank (Layer 1) — aparece no status
+  const [projectsSummary, setProjectsSummary] = useState<{
+    active: number; total: number; isLive: boolean;
+  } | null>(null);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+
   const [investorGdp, setInvestorGdp] = useState<{ formatted: string; date: string } | null>(null);
-  const [investorLoading, setInvestorLoading] = useState(true);
-  const [investorIsLive, setInvestorIsLive] = useState(false);
 
   useEffect(() => {
     let mounted = true;
-    fetchWorldBankIndicator('nl', 'NY.GDP.MKTP.CD').then(data => {
+
+    // Fetch paralelo: Supabase projects + World Bank GDP
+    Promise.all([
+      fetchProjectsSummary(),
+      fetchWorldBankIndicator('nl', 'NY.GDP.MKTP.CD'),
+    ]).then(([projects, gdp]) => {
       if (!mounted) return;
-      setInvestorLoading(false);
-      if (data?.value) {
-        setInvestorGdp({ formatted: formatUSD(data.value), date: data.date });
-        setInvestorIsLive(true);
-      }
+      setProjectsLoading(false);
+      setProjectsSummary({ active: projects.active, total: projects.total, isLive: projects.isLive });
+      if (gdp?.value) setInvestorGdp({ formatted: formatUSD(gdp.value), date: gdp.date });
     });
+
     return () => { mounted = false; };
   }, []);
 
@@ -187,26 +195,37 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
 
     nexus: {
       // Session timer: duração real desta sessão no sistema
-      // Complementado com actividade do pipeline (verdicts + entries = "operações")
+      // Status complementa com ops do pipeline + projectos activos se disponível
       metric: formatSession(sessionMs),
       metricLabel: 'sessão',
-      status: pipelineOps > 0
-        ? `Pipeline activo — ${pipelineOps} op${pipelineOps > 1 ? 's' : ''}`
-        : 'Sistema Nexus activo',
+      status: (() => {
+        const projectsStr = projectsSummary?.isLive && projectsSummary.active > 0
+          ? ` | ${projectsSummary.active} projecto${projectsSummary.active !== 1 ? 's' : ''}`
+          : '';
+        return pipelineOps > 0
+          ? `Pipeline activo — ${pipelineOps} op${pipelineOps > 1 ? 's' : ''}${projectsStr}`
+          : `Sistema Nexus activo${projectsStr}`;
+      })(),
       isLive: true,
     },
 
     investor: {
-      // World Bank NL GDP — macro context para DeltaSpine NL
-      // Fallback honesto se API indisponível: mostra '—' com isLive: false
-      metric: investorLoading ? '…' : investorGdp?.formatted ?? '—',
-      metricLabel: investorGdp ? `PIB NL ${investorGdp.date}` : 'PIB NL',
-      status: investorLoading
-        ? 'Lendo World Bank…'
-        : investorGdp
-          ? 'Países Baixos — contexto macro'
-          : 'World Bank indisponível',
-      isLive: investorIsLive,
+      // Métrica primária: projectos activos em globe_projects (Layer 2 — Supabase real)
+      // Contexto macro: GDP NL World Bank (Layer 1) no status
+      metric: projectsLoading
+        ? '…'
+        : projectsSummary?.isLive
+          ? projectsSummary.active.toString()
+          : '—',
+      metricLabel: projectsSummary?.isLive ? 'projectos activos' : 'projectos',
+      status: projectsLoading
+        ? 'Lendo projectos…'
+        : projectsSummary?.isLive
+          ? investorGdp
+            ? `${projectsSummary.total} total · PIB NL ${investorGdp.formatted} (${investorGdp.date})`
+            : `${projectsSummary.total} projectos registados`
+          : 'Portfólio indisponível',
+      isLive: projectsSummary?.isLive ?? false,
     },
   };
 }
