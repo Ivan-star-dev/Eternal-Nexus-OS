@@ -33,6 +33,61 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@copilot │ MODELO:github-copilot │ TASK:BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/FOL.md: duplos separadores `---` removidos entre secções
+            │ 9/10, 10/11 e 11/12 (ruído editorial de adições incrementais
+            │ — leitura limpa, estrutura preservada).
+            │ ops/LIVE_STATE.md: cabeçalho, secção 1 (estado/executor/
+            │ frente/camada/estado geral), fila @copilot (BULK-02.2 →
+            │ CONCLUÍDA), semáforo seção 3, linha temporal seção 3.1,
+            │ próximos passos seção 5 — todos atualizados.
+            │ ops/HANDOFF_LEDGER.md: esta entrada adicionada no topo.
+NAO_FEITO   │ docs/DOC_VISUAL_SPINE_001.md, docs/DOC_VISUAL_SPINE_002A.md,
+            │ ops/VISUAL_TEMPLATE_PACK_002A.md — referenciados no prompt mas
+            │ não existem no repo; fora do escopo de "sem abrir nova camada"
+BLOQUEIOS   │ —
+ADAPTACOES  │ Lapidação restrita a ruído editorial real encontrado (duplos
+            │ separadores FOL + LIVE_STATE desatualizado); arquivos visuais
+            │ ausentes não criados — escopo preservado
+ARQUIVOS    │ ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (editorial — zero toque em produto)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot BULK-01.2/L-001 (higiene .gitignore — gaps E4) +
+            │ L-002 (rm --cached timestamp file) — gates abertos, pode
+            │ entrar agora; owner decide PLv6.2-b + FVL-IMPL-001
+SUGESTOES   │ 1) BULK-01.2/L-001+L-002 são mecânicos e seguros — @copilot
+            │ pode entrar sem gate adicional; 2) Codex pode consolidar onda
+            │ atual (OPS-HANDOFF-001 ativo) para dar visão unificada ao
+            │ owner antes de PLv6.2-b; 3) owner responde B-002 (PM canônico)
+            │ para destravar backlog mecânico do @cursor
+DECISAO_REC │ rastro limpo; sistema mais pronto para próxima camada; @copilot
+            │ segue para BULK-01.2/L-001+L-002 via loop IGNITION; owner
+            │ decide PLv6.2-b quando pronto
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-copilot-funcionalidade
+NATUREZA    │ lapidação / suavização operacional
+EXECUTOR    │ @copilot
+ESTADO      │ done
+ATIVA       │ BULK-02.2 done; FOL sem ruído editorial; LIVE_STATE atualizado;
+            │ sistema mais limpo para próxima camada; @copilot próximo:
+            │ BULK-01.2/L-001+L-002 (gates abertos); PLv6.2-b aguarda owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-IGNITION-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/IGNITION.md (NOVO): blueprint canônico do modo de ignição

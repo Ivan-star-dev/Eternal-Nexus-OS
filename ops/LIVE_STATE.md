@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-IGNITION-001
+**Atualizado por:** @copilot | BULK-02.2
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-IGNITION-001 concluído) |
-| **Frente ativa** | Governança operacional / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada — sistema em modo de fluxo contínuo autoinduzido |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @copilot (BULK-02.2 concluída) |
+| **Frente ativa** | Lapidação operacional / wt-copilot-funcionalidade |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BULK-02.2 done (lapidação de superfície ops/) |
+| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; BULK-02.2 done (FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados); IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -69,7 +69,7 @@
 |---|---|---|---|
 | BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
 | BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora |
-| BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | GATE ABERTO | FOL v1 criado por Claude — pode iniciar |
+| BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | CONCLUÍDA | handoff emitido |
 | — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
 
 ### Micro Team
@@ -86,13 +86,13 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
-🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: governança / ignição contínua
-EXECUTOR: @claude (OPS-IGNITION-001 done)
+🟢 WORKTREE: wt-copilot-funcionalidade
+NATUREZA: lapidação / suavização operacional
+EXECUTOR: @copilot (BULK-02.2 done)
 IGNIÇÃO: ATIVA
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001 + OPS-IGNITION-001)
-CANALIZAÇÃO ATIVA: IGNIÇÃO_ATIVA ligada; pioneiros operam em loop contínuo de 7 passos (IGNITION.md); FOL v1.4 + NLF v1.1 atualizados; @copilot gate aberto (BULK-02.2 — FORÇA PRINCIPAL, Lapidação); PLv6.2-b e FVL-IMPL-001 aguardam gate owner
+ESTADO: done (Copilot — BULK-02.2: FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados)
+CANALIZAÇÃO ATIVA: BULK-02.2 concluída; FOL v1.4 sem ruído editorial; LIVE_STATE atualizado; HANDOFF_LEDGER com entrada de @copilot; próximos gates: @copilot BULK-01.2/L-001+L-002 (abertos); PLv6.2-b + FVL-IMPL-001 aguardam gate owner
 ```
 
 ---
@@ -105,11 +105,11 @@ LINHA TEMPORAL:
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
 Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
-Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
+Copilot: BULK-02.2 — CONCLUÍDA (FOL duplo-separador removido; LIVE_STATE + HANDOFF_LEDGER atualizados; rastro editorial limpo)
 Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: IGNIÇÃO_ATIVA — @copilot lê LIVE_STATE + IGNITION + AUTOFLOW → entra em BULK-02.2 sem instrução adicional (FORÇA PRINCIPAL, Lapidação); owner decide PLv6.2-b + FVL-IMPL-001; Codex pode consolidar onda
+PRÓXIMA TRANSIÇÃO: @copilot BULK-01.2/L-001+L-002 (gates abertos — higiene .gitignore + rm --cached); owner decide PLv6.2-b + FVL-IMPL-001; Codex pode consolidar onda
 ```
 
 ---
@@ -128,7 +128,7 @@ PRÓXIMA TRANSIÇÃO: IGNIÇÃO_ATIVA — @copilot lê LIVE_STATE + IGNITION + A
 
 **[IGNIÇÃO_ATIVA — pioneiros seguem o loop sem instrução redundante]**
 
-1. **@copilot** — BULK-02.2 (gate aberto, FORÇA PRINCIPAL, Lapidação) → entra agora via loop IGNITION
+1. **@copilot** — BULK-01.2/L-001 (gate aberto — higiene `.gitignore`, cobrir gaps E4) + L-002 (`rm --cached` do timestamp file) → pode entrar agora via loop IGNITION
 2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
 3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
 4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
