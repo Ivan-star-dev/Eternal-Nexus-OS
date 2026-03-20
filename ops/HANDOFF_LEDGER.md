@@ -267,3 +267,39 @@ TRAVA DE CONTINUAÇÃO:
 ```
 
 ---
+
+## PLv6.2-a — Projects Gallery Layer / Layer 2 visível na home
+
+**Data:** 2026-03-20
+**Executor:** @claude | claude-sonnet-4-6
+**Task:** PLv6.2-a — Projects Gallery Layer mínima e canónica
+
+```
+HANDOFF FINAL
+@claude | MODELO:claude-sonnet-4-6 | TASK:PLv6.2-a | STATUS:done
+FEITO: ProjectsLiveSection.tsx criado (componente canónico mínimo — lista até 5 globe_projects Supabase; skeleton loading; empty state + link /atlas; badge com cor do projecto; coordenadas lat/lon; grid responsivo 1→2→3 cols; "N mais no Atlas" se total > 5; secção não renderiza se Layer 2 indisponível + sem projectos); Index.tsx atualizado (import + inserção entre DOSSIÊS e OrganStatusGrid)
+NAO_FEITO: NewsAPI, project_metrics, filtros/auth user_id, página dedicada de portfólio, owner data, redesign
+BLOQUEIOS: nenhum — fetchProjectsSummary() já funcional de PLv6.1; supabase client configurado; homeProjects e globe_projects são entidades distintas (editorial vs dinâmico) — sem conflito
+ADAPTACOES: secção auto-oculta se Layer 2 indisponível E sem projectos (null return) — nunca quebra a home; distinção editorial clara entre homeProjects (flagship estáticos) e globe_projects (portfólio Atlas dinâmico)
+ARQUIVOS: src/components/home/ProjectsLiveSection.tsx (NOVO) | src/pages/Index.tsx (inserção) | ops/PRODUCT_LAYER_1.md (append PLv6.2-a) | ops/LIVE_STATE.md (atualizado) | ops/HANDOFF_LEDGER.md (este entry)
+IMPACTO: alto — Layer 2 Supabase deixa de ser só infra e passa a ser visível no produto (home page)
+PROXIMO_PASSO: owner decide PLv6.2-b — NewsAPI para NEWS? project_metrics para INVESTOR? página dedicada de portfólio? ou PLv7?
+SUGESTOES: 1) PLv6.2-b: NewsAPI free key → NEWS órgão com manchetes reais (NewsAPI.org tem free tier — fetcher canónico análogo a worldBankData.ts); 2) PLv6.2-c: ProjectsPortfolio page dedicada com lista completa de globe_projects + filtro por status (página /projects/); 3) PLv6.2-d: project_metrics enriquece INVESTOR card com KPIs reais por projecto (aguarda owner confirmar quais métricas são reais)
+DECISAO_RECOMENDADA: @copilot entra agora (BULK-02.2); PLv6.2-b aguarda gate owner; Codex fora até alinhar branch
+
+REGISTRO DE CANALIZAÇÃO:
+[🟢] CHAT: mesmo
+[🟢] BRANCH: claude/expose-workspace-config-yt4Km
+[🟢] WORKTREE: wt-estrutura-nucleo-vivo
+NATUREZA: produto / PLv6.2-a — Projects Gallery Layer
+EXECUTOR: @claude
+ESTADO FINAL: done
+CANALIZAÇÃO ATIVA: PLv6.2-a concluída — Layer 2 visível na home; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner; Codex fora
+
+TRAVA DE CONTINUAÇÃO:
+- não abrir PLv6.2-b nem PLv7
+- Copilot não redefine a camada
+- Codex continua fora até alinhar branch
+```
+
+---

@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import DossierCard from "@/components/home/DossierCard";
 import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
+import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
@@ -178,6 +179,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* ═══ PORTFÓLIO ATLAS — Layer 2 Supabase ═══ */}
+        <ProjectsLiveSection />
 
         {/* ═══ ÓRGÃOS DO ORGANISMO ═══ */}
         <OrganStatusGrid />

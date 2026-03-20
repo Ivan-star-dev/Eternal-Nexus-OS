@@ -440,3 +440,56 @@ globe_projects: id, name, description, lat, lon, color, status, user_id, created
 - Owner pipeline B-001 (dados sensíveis)
 - Valores financeiros reais por projecto
 
+
+---
+
+## PLv6.2-a — Projects Gallery Layer (home page — Layer 2 visível)
+
+**Data:** 2026-03-20
+**Executor:** @claude | claude-sonnet-4-6
+
+### Decisão pragmática
+
+Layer 2 (globe_projects Supabase) existia apenas como infra desde PLv6.1.
+Ponto de consumo mínimo: nova secção `ProjectsLiveSection` inserida na home page (`Index.tsx`)
+entre DOSSIÊS (flagship estáticos) e OrganStatusGrid.
+Não criar nova página. Consumir `fetchProjectsSummary()` já existente.
+
+### Distinção editorial importante
+
+| Origem | Conteúdo | Natureza |
+|---|---|---|
+| `homeProjects.ts` + DossierCard | DeltaSpine, GeoCore, Terra Lenta… | Editorial estático — flagship megaprojects |
+| `globe_projects` Supabase | Projectos adicionados pelo utilizador no Atlas | Dinâmico — portfólio Atlas Layer 2 |
+
+### O que entrou
+
+| Artefacto | Tipo | O que faz |
+|---|---|---|
+| `src/components/home/ProjectsLiveSection.tsx` | NOVO | Secção compacta — lista até 5 projectos de `globe_projects` (Supabase Layer 2); skeleton loading; empty state com link para Atlas; badge cor do projecto; coordenadas |
+| `src/pages/Index.tsx` | ATUALIZADO | Import + inserção de `<ProjectsLiveSection />` entre DOSSIÊS e OrganStatusGrid |
+
+### Comportamento
+
+- Loading: 3 skeleton cards animados
+- Com dados: grid 1→2→3 cols, cards com nome + status badge + descrição + coordenadas + cor do projecto
+- Se total > 5: link "N mais no Atlas"
+- Se Layer 2 indisponível (isLive: false) e sem projectos: secção não renderiza (null)
+- Empty state (Layer 2 viva mas sem projectos): mensagem + link para adicionar no Atlas
+
+### Fronteira
+
+**Entra em PLv6.2-a:**
+- `ProjectsLiveSection.tsx` — componente canónico mínimo
+- Inserção na home page (Index.tsx)
+
+**Fica fora (PLv6.2-b+):**
+- NewsAPI para órgão NEWS
+- project_metrics com KPIs detalhados
+- Filtros / ordenação / auth user_id
+- Página dedicada de portfólio
+
+**Fica fora (owner gate / PLv7+):**
+- Dados proprietários por projecto
+- Owner pipeline B-001
+

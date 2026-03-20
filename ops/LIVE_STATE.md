@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | PLv6.1
+**Atualizado por:** @claude | claude-sonnet-4-6 | PLv6.2-a
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (PLv5.1 handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.1 — Projects Table Layer / Supabase Layer 2 activa |
-| **Estado geral** | PLv6.1 concluída; INVESTOR wired a globe_projects (Supabase anon, Layer 2); NEXUS status incorpora contagem de projectos; projectsData.ts canónico criado; Layer 2 Supabase activa via tabela existente |
+| **Camada atual** | PLv6.2-a — Projects Gallery Layer / Layer 2 visível na home |
+| **Estado geral** | PLv6.2-a concluída; ProjectsLiveSection inserida em Index.tsx (entre DOSSIÊS e OrganStatusGrid); Layer 2 Supabase visível no produto; skeleton + empty state + link para Atlas; PLv6.1 + PLv6.2-a completos |
 
 ---
 
@@ -38,7 +38,8 @@
 | SUPER-BULK-A | PLv4 — Live Organ Status: escala total (5/7 órgãos vivos) | CONCLUÍDA | handoff emitido |
 | PLv5.1 | DATA_LAYER_1 completa — 7/7 órgãos vivos (NEXUS + INVESTOR) | CONCLUÍDA | handoff emitido |
 | PLv6.1 | Projects Table Layer — Supabase globe_projects → INVESTOR + NEXUS status | CONCLUÍDA | handoff emitido |
-| PLv6.2 | Próxima camada | AGUARDA GATE | owner: gallery UI? project_metrics? NewsAPI? |
+| PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
+| PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 
 ### @codex (Refinador Técnico)
 
@@ -79,10 +80,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / PLv6.1 — Projects Table Layer (Supabase Layer 2)
-EXECUTOR: @claude (PLv6.1 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1)
-CANALIZAÇÃO ATIVA: PLv6.1 concluída; INVESTOR wired a globe_projects (Supabase, Layer 2 activa); NEXUS status incorpora projectos; projectsData.ts canónico; Layer 1 (Open Data) + Layer 2 (Supabase) activas
+NATUREZA: produto / PLv6.2-a — Projects Gallery Layer (Layer 2 visível na home)
+EXECUTOR: @claude (PLv6.2-a done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a)
+CANALIZAÇÃO ATIVA: PLv6.2-a concluída; ProjectsLiveSection na home (globe_projects Supabase visíveis no produto); Layer 2 deixa de ser só infra; @copilot gate aberto; PLv6.2-b aguarda gate owner
 ```
 
 ---
@@ -94,12 +95,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  PLv6.1 — HANDOFF EMITIDO (Projects Table Layer: globe_projects → INVESTOR + NEXUS status; projectsData.ts canónico)
+Claude:  PLv6.2-a — HANDOFF EMITIDO (Projects Gallery Layer: ProjectsLiveSection na home; globe_projects Supabase visíveis no produto)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda
 Codex:   F6 — EM ANDAMENTO (frente independente) | branch desalinhado
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.1 → decide PLv6.2 (gallery UI? project_metrics? NewsAPI?) ou PLv7 (owner data)
+PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.2-a → decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data)
 ```
 
 ---
@@ -116,7 +117,7 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.1 → decide PLv6.2 (gallery UI? pr
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff PLv6.1** → confirma Projects Table Layer aceite → decide PLv6.2: gallery UI? project_metrics? NewsAPI? ou PLv7 (owner data)?
+1. **Owner lê handoff PLv6.2-a** → confirma Projects Gallery Layer aceite → decide PLv6.2-b: NewsAPI? project_metrics? página dedicada de portfólio? ou PLv7 (owner data)?
 2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ e hooks imediatamente
 3. **@codex avança F6** — frente independente, não bloqueia onda atual
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
