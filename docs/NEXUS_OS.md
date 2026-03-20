@@ -429,6 +429,8 @@ O sistema tem 9 blueprints canônicos. Todos os agentes devem conhecê-los:
 | **Bulk Blueprint** | Execução de múltiplas ações com travão | Este documento, seção 11 |
 | **Report Blueprint** | Estrutura de relatório de auditoria/higiene | `docs/DOC_TRIBUNAL_E4.md` como referência |
 | **Control Blueprint** | Regras de bloqueio automático e owner gate | Este documento, seções 14, 16 |
+| **Execution Map Blueprint** | Bloco obrigatório de topo de prompt de bulk — posição, executor, allowed/blocked | `docs/DOC_BULK_PROTOCOL.md` seção 2 |
+| **Preflight Gate Blueprint** | Verificação pré-escrita — repo, branch, natureza, escopo | `docs/DOC_BULK_PROTOCOL.md` seção 3 |
 
 ---
 
@@ -499,6 +501,7 @@ Quando o fio se perde, nenhuma velocidade resolve.
 | `ops/NLF.md` | Nexus Live Fabric — definição canônica, soberania, regras de transição |
 | `ops/LIVE_STATE.md` | Estado vivo atual, fila por executor, canalização ativa |
 | `ops/HANDOFF_LEDGER.md` | Ledger cronológico append-only de todos os handoffs emitidos |
+| `docs/DOC_BULK_PROTOCOL.md` | Protocolo operacional de bulk: execution map, preflight gate, canalization guard, linha temporal |
 
 ---
 

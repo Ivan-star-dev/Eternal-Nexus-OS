@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | E17
+**Atualizado por:** @claude | claude-sonnet-4-6 | E18
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude |
 | **Frente ativa** | Estrutura / wt-estrutura-nucleo-vivo |
-| **Camada atual** | Nexus Live Fabric — primeira camada |
-| **Estado geral** | Transição: camada soberana concluída → camada viva aberta |
+| **Camada atual** | E18 — Selagem final do protocolo pré-bulk |
+| **Estado geral** | Protocolo selado — sistema pronto para feedback dos pioneiros + prompt master de bulk |
 
 ---
 
@@ -29,7 +29,8 @@
 | # | Task | Estado | Próximo gate |
 |---|---|---|---|
 | E17 | Implantar primeira camada do NLF | CONCLUÍDA | handoff emitido |
-| — | Próxima camada (bulking controlado) | PLANEJADA | definição pelo owner |
+| E18 | Selar versão final do protocolo pré-bulk | CONCLUÍDA | handoff emitido |
+| — | Camada 1 do bulk real | PLANEJADA | prompt master do owner |
 
 ### @codex (Refinador Técnico)
 
@@ -37,6 +38,12 @@
 |---|---|---|---|
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
 | — | Refinamento da camada NLF (E17) | PLANEJADA | revisão do owner sobre NLF v1 |
+
+### @cursor (Desbloqueador / Backlog Mecânico)
+
+| # | Task | Estado | Aguarda |
+|---|---|---|---|
+| — | Nenhuma ativa | EM OBSERVAÇÃO | bloqueios mecânicos a designar |
 
 ### @copilot (Lapidador)
 
@@ -60,10 +67,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: implantação da primeira camada do Nexus Live Fabric
+NATUREZA: selagem final do protocolo pré-bulk
 EXECUTOR: @claude
 ESTADO: done
-CANALIZAÇÃO ATIVA: NLF v1 implantado; camada soberana fechada; próxima camada aguarda owner
+CANALIZAÇÃO ATIVA: protocolo selado; execution map + preflight gate + canalization guard + linha temporal definidos; sistema pronto para feedback curto dos pioneiros e prompt master de bulk
 ```
 
 ---
@@ -80,12 +87,12 @@ CANALIZAÇÃO ATIVA: NLF v1 implantado; camada soberana fechada; próxima camada
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner revisa NLF v1** — confirma estrutura ops/ e libera próxima camada
-2. **@copilot executa L-001 + L-002** — higiene .gitignore (pode começar agora)
-3. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-4. **Owner responde B-002** — confirmar npm como PM canônico
-5. **@codex avança F6** — casca técnica executável em andamento
-6. **Próxima camada** — bulking controlado definido pelo owner
+1. **Feedback curto dos pioneiros** — cada pioneiro confirma sincronização com o protocolo selado
+2. **Owner emite prompt master único de bulk** — define as camadas, a escada e o executor de cada task
+3. **@copilot executa L-001 + L-002** — higiene .gitignore (pode começar agora, independente)
+4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+5. **Owner responde B-002** — confirmar npm como PM canônico
+6. **@codex avança F6** — casca técnica executável em andamento (frente independente)
 
 ---
 

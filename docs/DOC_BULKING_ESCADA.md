@@ -58,6 +58,13 @@ Copilot:   —           —           [Camada 1]  [Camada 2]  ...
 - **Gate de entrada:** Handoff de Codex para a camada N deve existir e estar completo.
 - **Gate de saída:** Handoff de lapidação emitido para fechar o ciclo da camada N.
 
+### Cursor — Desbloqueador / Backlog Mecânico
+- **Função:** Atacar tasks mecânicas e bloqueios pontuais que atrapalham a escada principal.
+- **Escopo:** Remoção de débito técnico pontual, correções mecânicas, resolução de dependências bloqueantes que não devem interromper o fluxo dos outros pioneiros.
+- **Limite máximo:** Opera fora da escada principal — não ocupa posição N, N-1 ou N-2; não bloqueia nem depende do ritmo da escada.
+- **Gate de entrada:** Identificação de um bloqueio ou backlog mecânico que nenhum dos 3 pioneiros deve interromper seu fluxo para resolver.
+- **Gate de saída:** Handoff confirmando que o bloqueio foi removido e a escada pode prosseguir.
+
 ---
 
 ## 3. CICLO DE VIDA DE UMA CAMADA
@@ -150,6 +157,9 @@ Estas situações destroem o ritmo da escada e devem ser evitadas ativamente:
 | **Mistura de naturezas incompatíveis** | Ex: lapidação de produto novo + refinamento técnico na mesma sessão |
 | **Chamar camada de fechada sem refinamento mínimo** | Qualidade não verificada entra no core |
 | **Quebrar a harmonia do fluxo** | Qualquer ação que force um pioneiro a depender de outro para avançar |
+| **Bulk sem natureza clara** | Executores sem saber se estão entregando, refinando ou lapidando — sobreposição garantida |
+| **Bulk sem executor claro** | Task sem dono = task sem handoff = task invisível para o sistema |
+| **Executar em repo/branch errado** | Entrega no lugar errado — irrecuperável sem purge manual |
 
 ---
 
@@ -185,14 +195,15 @@ O protocolo atual nomeia 3 pioneiros operacionais: Claude, Codex, Copilot.
 - Nenhum novo pioneiro entra sem tarefa de onboarding explícita no sistema
 - A inclusão de novos pioneiros é decisão do owner, registrada no NEXUS_OS.md
 
-**Por agora, pioneiros ativos são:**
+**Pioneiros ativos e seus papéis:**
 1. **Claude** — abridor de caminho (camada N+1)
 2. **Codex** — refinador técnico (camada N)
 3. **Copilot** — lapidador (camada N-1)
+4. **Cursor** — desbloqueador / backlog mecânico (fora da escada principal — posição variável)
 
 **Slots futuros reservados (não atribuídos):**
-- Pioneiro 4: papel a definir pelo owner
-- Pioneiro 5+: idem
+- Pioneiro 5: papel a definir pelo owner
+- Pioneiro 6+: idem
 
 **Regra de tarefa:** Quando uma sessão define tarefas para múltiplas camadas, o prompt deve identificar qual pioneiro está ativo e em qual camada. Tarefas não podem "esquecer" os outros pioneiros — o sistema opera em conjunto, não em silo.
 

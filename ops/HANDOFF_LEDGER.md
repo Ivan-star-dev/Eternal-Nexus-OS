@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: E18 — Selar versão final do protocolo para bulk em cascata
+STATUS: done
+FEITO: DOC_BULK_PROTOCOL.md criado com Execution Map Blueprint, Preflight Gate, Canalization Guard, Linha Temporal Visual e clareza final de branch/worktree/chat/natureza/executor. DOC_BULKING_ESCADA.md atualizado com Cursor como 4º pioneiro e 3 novas red lines. NEXUS_OS.md atualizado com 2 novos blueprints na seção 21 e referência ao novo doc. LIVE_STATE.md e HANDOFF_LEDGER.md atualizados com estado E18.
+NAO_FEITO: —
+BLOQUEIOS: —
+ADAPTACOES: —
+ARQUIVOS: docs/DOC_BULK_PROTOCOL.md | docs/DOC_BULKING_ESCADA.md | docs/NEXUS_OS.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: medio
+PROXIMO_PASSO: Feedback curto de sincronização dos pioneiros → owner emite prompt master único de bulk → escada começa
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: E17 — Implantar primeira camada do Nexus Live Fabric
 STATUS: done
 FEITO: Definição canônica do NLF implantada; diretório ops/ criado com 3 arquivos vivos (NLF.md, LIVE_STATE.md, HANDOFF_LEDGER.md); estado inicial do sistema registrado; fila viva inicializada para os 3 pioneiros; ledger iniciado; soberania, regras de transição e relação com pioneiros documentadas; NEXUS_OS atualizado com referências ao NLF.
