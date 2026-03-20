@@ -33,6 +33,65 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-VISION-LAYER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ docs/FOUNDER_VISION_LAYER.md (NOVO): blueprint canônico da
+            │ Founder Vision Layer (FVL) — separação tripla cofre/vitrine/site
+            │ fixada; 6 secções com estrutura, conteúdo, fontes e tom:
+            │ The Architect / What Is Being Built / The Thesis /
+            │ The Ecosystem Blueprint / The Method / The Vision + Call;
+            │ tom global (precision, authorship, ambition, sobriety, weight);
+            │ lista do que não entra (agents, models, protocol ops, cofre);
+            │ relação com FOUNDER_LETTER + GENESIS_BLUEPRINT + NEXUS_OS;
+            │ critérios de sucesso; FVL-IMPL-001 como task separada.
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md atualizados.
+NAO_FEITO   │ Implementação da página (FVL-IMPL-001) — blueprint define,
+            │ implementação é task de produto separada
+BLOQUEIOS   │ —
+ADAPTACOES  │ docs/NEXUS_PROVENANCE.md mencionado no prompt não existe —
+            │ referenciado no blueprint como "se criado no futuro, alimenta
+            │ The Ecosystem Blueprint"; não bloqueou nada
+ARQUIVOS    │ docs/FOUNDER_VISION_LAYER.md (NOVO) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (blueprint documental — zero toque em produto)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ owner decide se FVL-IMPL-001 corre em paralelo ou sequência
+            │ com PLv6.2-b; blueprint pronto para qualquer executor; owner
+            │ pode validar as 6 secções antes da implementação
+SUGESTOES   │ 1) FVL-IMPL-001: implementar como rota /founder primeiro —
+            │ mais impacto, mais iterável que secção embebida; 2) testar o
+            │ tom da secção "The Architect" com 2-3 variantes antes de
+            │ implementar — é a âncora da identidade pública; 3) timing
+            │ ideal de lançamento é após PLv6.2-b done — produto terá
+            │ substância suficiente para a tese da FVL ser demonstrável
+DECISAO_REC │ owner valida as 6 secções; decide timing FVL-IMPL-001 vs
+            │ PLv6.2-b; vitrine pública do founder agora tem blueprint
+            │ separado do cofre — sistema sabe apresentar o arquiteto
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ blueprint público / founder vision layer
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ FVL blueprint (docs/FOUNDER_VISION_LAYER.md) criado; 6
+            │ secções com fontes, tom, limites; separação cofre/vitrine/site
+            │ fixada; FVL-IMPL-001 aguarda gate owner; @copilot BULK-02.2
+            │ gate aberto
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-AUTOFLOW-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/AUTOFLOW.md (NOVO): documento canônico da regra de fluxo
