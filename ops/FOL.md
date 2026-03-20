@@ -314,6 +314,49 @@ Ver `ops/OUTPUT_STANDARD.md` — templates, campos obrigatórios, regras de pree
 
 ---
 
+---
+
+## 11. FLUXO AUTÔNOMO DOS PIONEIROS — AUTOFLOW
+
+**Registrado em:** OPS-AUTOFLOW-001 | 2026-03-20
+
+O AUTOFLOW sela a regra de comportamento autônomo dos pioneiros.
+Ao terminar uma task, o pioneiro não entra em vazio — ele lê o estado e identifica a próxima peça elegível.
+
+### Matrix de Pilar Dominante (resumo)
+
+| Pioneiro | Pilar Dominante | Papel fora do pilar |
+|---|---|---|
+| **@claude** | Estrutura + Produto | Apoio/cooperativo (competência secundária) |
+| **@codex** | Qualidade | Apoio/cooperativo (competência secundária) |
+| **@copilot** | Lapidação | Apoio/cooperativo (competência secundária) |
+| **@cursor** | Mecânico (transversal) | Desbloqueio em qualquer pilar |
+
+### Loop AUTOFLOW (resumo dos 6 passos)
+
+```
+1. Lê LIVE_STATE (estado + sua fila + semáforo + bloqueios)
+2. Lê HANDOFF_LEDGER (últimas 2 entradas)
+3. Identifica task elegível no pilar dominante
+4. Decide papel: FORÇA PRINCIPAL (pilar próprio) ou APOIO (pilar alheio)
+5. Executa dentro da competência
+6. Emite HANDOFF + Atualiza LIVE_STATE + Commit + Push → desbloqueia corrente
+```
+
+### Regra de competência (explícita)
+
+> No pilar dominante → FORÇA PRINCIPAL → lidera o núcleo
+> Fora do pilar → APOIO/COOPERATIVO → preenche lacuna sem deslocar líder
+> A diferença não é de qualidade — é de liderança do núcleo.
+
+### Referência completa
+
+Ver `ops/AUTOFLOW.md` — documento canônico com loop completo, matrix, apoio cruzado,
+motor de indução e o que o sistema torna desnecessário.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
+*FOL v1.3 — seção 11 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-AUTOFLOW-001*

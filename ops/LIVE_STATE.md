@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | GENESIS-FOUNDER-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-AUTOFLOW-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (GENESIS-FOUNDER-001 concluído) |
-| **Frente ativa** | Documental / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; memória do arquiteto + carta pública do founder registradas |
-| **Estado geral** | PLv6.2-a done (Supabase Layer 2); CODEX_CONSOLIDATOR + OUTPUT_STANDARD selados; GENESIS_BLUEPRINT.md (privado) + FOUNDER_LETTER.md (público) criados; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @claude (OPS-AUTOFLOW-001 concluído) |
+| **Frente ativa** | Governança operacional / wt-estrutura-nucleo-vivo |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; AUTOFLOW v1 implantado — pioneiros com loop autônomo e matrix de competência activos |
+| **Estado geral** | PLv6.2-a done; CODEX_CONSOLIDATOR + OUTPUT_STANDARD + GENESIS_BLUEPRINT + FOUNDER_LETTER selados; AUTOFLOW v1 (ops/AUTOFLOW.md) + FOL v1.3 (seção 11) — sistema agora induz próxima ação sem briefing manual; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -41,6 +41,7 @@
 | PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
 | OPS-OUTPUT-001 | Padrão canônico de output copiável — HANDOFF_TABLE + CANALIZACAO_TABLE | CONCLUÍDA | handoff emitido |
 | GENESIS-FOUNDER-001 | Blueprint privado do arquiteto + carta pública do founder | CONCLUÍDA | handoff emitido |
+| OPS-AUTOFLOW-001 | Selar regra de fluxo autônomo dos pioneiros — AUTOFLOW v1 | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
@@ -83,10 +84,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: documental estratégica / GENESIS-FOUNDER-001 — memória do arquiteto + carta pública do founder
-EXECUTOR: @claude (GENESIS-FOUNDER-001 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001)
-CANALIZAÇÃO ATIVA: GENESIS_BLUEPRINT.md (privado — cofre do arquiteto) + FOUNDER_LETTER.md (público — vitrine founder) criados; repo guarda memória interna + apresentação externa; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+NATUREZA: governança / OPS-AUTOFLOW-001 — fluxo autônomo dos pioneiros selado
+EXECUTOR: @claude (OPS-AUTOFLOW-001 done)
+ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001)
+CANALIZAÇÃO ATIVA: AUTOFLOW v1 (ops/AUTOFLOW.md) implantado; FOL v1.3 com seção 11 (matrix de pilar + loop 6 passos); pioneiros sabem quando lideram e quando apoiam sem briefing manual; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
 ```
 
 ---
@@ -98,12 +99,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  OPS-OUTPUT-001 — HANDOFF EMITIDO (OUTPUT_STANDARD.md selado; HANDOFF_TABLE + CANALIZACAO_TABLE canônicos; FOL seção 10)
+Claude:  OPS-AUTOFLOW-001 — HANDOFF EMITIDO (AUTOFLOW v1 selado; matrix de pilar dominante; loop 6 passos; FOL v1.3 seção 11)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex emite relatório-mãe (RELATORIO_MAE_TABLE) → owner decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7
+PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex lê LIVE_STATE + HANDOFF_LEDGER → emite RELATORIO_MAE_TABLE → owner decide PLv6.2-b ou PLv7 com base no relatório; pioneiros lêem AUTOFLOW e agem autônomamente nos seus pilares
 ```
 
 ---
@@ -120,13 +121,13 @@ PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex e
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex emite RELATORIO_MAE_TABLE (formato canônico em `ops/OUTPUT_STANDARD.md`) → owner decide com base no relatório-mãe
-2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ imediatamente
-3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data) — gate após relatório-mãe
-4. **@codex avança F6** — frente independente, não bloqueia onda atual
+1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex lê LIVE_STATE + HANDOFF_LEDGER + AUTOFLOW → emite RELATORIO_MAE_TABLE → owner decide com base no relatório-mãe
+2. **@copilot executa BULK-02.2** — gate aberto; pilar dominante: Lapidação; loop AUTOFLOW: lê LIVE_STATE → identifica gate → executa como FORÇA PRINCIPAL no pilar
+3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 — gate após relatório-mãe do Codex
+4. **@codex avança F6** — frente independente; pilar dominante: Qualidade; loop AUTOFLOW ativo
 5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 6. **Owner responde B-002** — confirmar npm como PM canônico
-7. **@codex alinha branch** — condição para entrar na escada principal (execução de produto)
+7. **@codex alinha branch** — condição para entrar na escada principal como FORÇA PRINCIPAL em Qualidade
 
 ---
 

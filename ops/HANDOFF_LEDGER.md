@@ -33,6 +33,63 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-AUTOFLOW-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/AUTOFLOW.md (NOVO): documento canônico da regra de fluxo
+            │ autônomo dos pioneiros — branch canônico vivo, matrix de pilar
+            │ dominante (claude/codex/copilot/cursor), loop AUTOFLOW de 6
+            │ passos, regras de apoio cruzado, handoff como motor de indução,
+            │ o que o sistema torna desnecessário, regra de competência
+            │ (liderança do núcleo vs qualidade), referências canônicas.
+            │ ops/FOL.md v1.3: seção 11 adicionada — matrix resumida, loop
+            │ resumido, regra de competência, referência canônica ao AUTOFLOW.
+            │ ops/LIVE_STATE.md: estado, fila, semáforo, linha temporal,
+            │ próximos passos atualizados com referência ao AUTOFLOW.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ AUTOFLOW como documento separado (ops/AUTOFLOW.md) em vez de só
+            │ seção no FOL — garante referência canônica única; FOL v1.3
+            │ referencia com resumo navegável sem duplicar o conteúdo completo
+ARQUIVOS    │ ops/AUTOFLOW.md (NOVO) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (governança — zero toque em produto)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot lê AUTOFLOW + LIVE_STATE → executa BULK-02.2 como
+            │ FORÇA PRINCIPAL no pilar Lapidação (gate aberto); owner solicita
+            │ relatório-mãe ao Codex usando loop AUTOFLOW
+SUGESTOES   │ 1) Codex confirma que loop AUTOFLOW está correto do ponto de
+            │ vista de Qualidade antes de executar F6; 2) AUTOFLOW v2 pode
+            │ adicionar slots para Micro Team quando linha paralela escalar;
+            │ 3) owner pode referenciar AUTOFLOW em AGENTS.md como "ler sempre
+            │ ao iniciar sessão" — torna o sistema mais auto-instruído
+DECISAO_REC │ @copilot entra em BULK-02.2 (pilar Lapidação, FORÇA PRINCIPAL);
+            │ pioneiros agora sabem quando lideram e quando apoiam sem
+            │ briefing manual — motor de fluxo contínuo activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ governança / fluxo autônomo dos pioneiros
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ AUTOFLOW v1 selado; matrix de pilar activa; loop 6 passos
+            │ operacional; FOL v1.3 seção 11; pioneiros com comportamento
+            │ autônomo definido; @copilot gate aberto (BULK-02.2);
+            │ PLv6.2-b aguarda gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:GENESIS-FOUNDER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ docs/GENESIS_BLUEPRINT.md criado (privado — cofre do arquiteto):
