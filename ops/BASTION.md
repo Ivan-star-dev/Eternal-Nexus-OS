@@ -362,10 +362,15 @@ O Codex não executa. O Codex lê, distribui e consolida.
 BASTION ════════════════════════════════════════════════════════════════════
 VERSÃO          │ v1
 DATA            │ 2026-03-20
-ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-001 | @claude | 2026-03-20
+ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-DISPATCH-001 | @claude | 2026-03-20
 ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
 TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
+@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ SEM TASKS ELEGÍVEIS — aguarda gate owner
 GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
 BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
 IGNIÇÃO         │ ATIVA
@@ -380,6 +385,7 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Artefacto | Localização |
 |---|---|
 | Este ficheiro | `ops/BASTION.md` |
+| Dispatch activo | `ops/BASTION_DISPATCH_001.md` |
 | Referência no FOL | `ops/FOL.md` seção 15 |
 | Padrão de output | `ops/OUTPUT_STANDARD.md` |
 | Estado vivo | `ops/LIVE_STATE.md` |
@@ -391,3 +397,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 ---
 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
+*BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*

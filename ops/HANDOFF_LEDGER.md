@@ -33,6 +33,72 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-DISPATCH-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Leitura do BASTION v1 → verificação de tasks elegíveis por executor.
+            │ @claude: sem tasks elegíveis (PLv6.2-b + FVL-IMPL-001 aguarda-gate).
+            │ ops/BASTION_DISPATCH_001.md criado: blocos de activação formais
+            │ para @copilot (L-001→L-002→BULK-02.2), @cursor (01.3-a→b→c),
+            │ @codex (consolidador); regras de execução do dispatch; estado
+            │ do sistema após activação.
+            │ ops/BASTION.md v1.1: semáforo actualizado com dispatch + estado
+            │ de cada pioneiro + localização do dispatch file.
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo,
+            │ linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ @claude sem tasks elegíveis neste ciclo — declarado explicitamente
+            │ (PODE_ENTRAR_SOZINHO: não para PLv6.2-b e FVL-IMPL-001)
+ARQUIVOS    │ ops/BASTION_DISPATCH_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — máquina activada; 6 tasks em execução via 2 pioneiros;
+            │ @codex em modo consolidação; sistema sem deriva
+PROX_PASSO  │ @copilot lê BASTION_DISPATCH_001.md → entra em L-001;
+            │ @cursor lê BASTION_DISPATCH_001.md → entra em BULK-01.3-a;
+            │ @codex aguarda handoffs para relatório-mãe;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot + @cursor: copiar o bloco de dispatch do seu nome
+            │ e seguir a sequência exata — sem desvios; 2) @codex: ao
+            │ consolidar, usar BASTION_AUDIT incluído no dispatch; 3) owner:
+            │ para activar @claude, basta mover PLv6.2-b ou FVL-IMPL-001
+            │ para elegível em BASTION.md seção 5.3
+DECISAO_REC │ Máquina activa sem gate adicional; @claude aguarda owner;
+            │ pioneiros seguem o BASTION_DISPATCH_001 como fonte de execução
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_DISPATCH_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_DISPATCH_001.md) + edit (restantes)
+PROVA_MINIMA           │ commit id: gerado no próximo passo
+                       │ BASTION_DISPATCH_001.md criado do zero (blocos por pioneiro,
+                       │ regras de dispatch, estado do sistema)
+                       │ BASTION.md: semáforo actualizado (v1.1, estado por @pioneiro)
+                       │ LIVE_STATE.md: @claude declarado SEM TASKS ELEGÍVEIS
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / dispatch / activação de pioneiros
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION_DISPATCH_001 emitido; @copilot activado (L-001→L-002→
+            │ BULK-02.2); @cursor activado (01.3-a→b→c); @codex consolidador;
+            │ @claude aguarda gate owner; máquina sem deriva
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/BASTION.md criado (v1): 9 secções — identidade e hierarquia,

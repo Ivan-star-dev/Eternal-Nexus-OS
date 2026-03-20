@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-BASTION-001 concluído) |
+| **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BASTION v1 activo — coração canônico de execução elegível |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + WORKTREE_ALIASES + OUTPUT_STANDARD v1.1 + FOL v1.7 + BASTION v1 selados; IGNIÇÃO_ATIVA: pioneiros em loop BASTION; EVIDENCE_BLOCK vigente; PLv6.2-b aguarda gate owner |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1 activo; BASTION_DISPATCH_001 emitido — @copilot e @cursor activados nas suas tasks elegíveis |
+| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; BASTION_DISPATCH_001 emitido; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -47,6 +47,7 @@
 | OPS-WORKTREE-ALIAS-001 | Registrar aliases operacionais WorkStructure/WorkFunction/WorkVisual | CONCLUÍDA | handoff emitido |
 | OPS-EVIDENCE-BLOCK-001 | Selar bloco obrigatório de evidência real em toda task — EVIDENCE_BLOCK | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-001 | Criar o BASTION — coração canônico de execução dos pioneiros | CONCLUÍDA | handoff emitido |
+| OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -90,14 +91,18 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
-NATUREZA: governança / coração operacional / bastion
-EXECUTOR: @claude (OPS-BASTION-001 done)
+NATUREZA: governança / dispatch / activação de pioneiros
+EXECUTOR: @claude (OPS-BASTION-DISPATCH-001 done)
 IGNIÇÃO: ATIVA
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-BASTION: ACTIVO v1 — fonte única de execução elegível; deriva impermitida
-EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs (OUTPUT_STANDARD v1.1 + FOL v1.7)
-ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001 + OPS-IGNITION-001 + OPS-WORKTREE-ALIAS-001 + OPS-EVIDENCE-BLOCK-001 + OPS-BASTION-001)
-CANALIZAÇÃO ATIVA: IGNIÇÃO_ATIVA + BASTION v1 ligados; pioneiros entram no loop BASTION; @copilot BULK-02.2 elegível; @cursor BULK-01.3-a/b/c elegível; PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+BASTION: ACTIVO v1.1 — BASTION_DISPATCH_001 emitido; pioneiros activados
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
+@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
+@codex: CONSOLIDADOR ATIVO → aguarda handoffs
+@claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001)
+CANALIZAÇÃO ATIVA: BASTION_DISPATCH_001 emitido; máquina em execução; @claude aguarda gate owner para próxima frente de produto
 ```
 
 ---
@@ -109,6 +114,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
 Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado: matriz viva, regra-mãe, 9 secções, semáforo, loop do pioneiro; FOL v1.7 seção 15; LIVE_STATE atualizado; BASTION ACTIVO)
 Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1: seção 8 EVIDENCE_BLOCK + nova ordem de emissão; FOL v1.6 seção 14; LIVE_STATE atualizado; EVIDENCE_BLOCK vigente imediatamente)
 Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado; WorkStructure/WorkFunction/WorkVisual registados; FOL v1.5; LIVE_STATE atualizado com aliases no semáforo)
@@ -117,7 +123,7 @@ Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
 Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: BASTION + IGNIÇÃO_ATIVA — pioneiros lêem BASTION → identificam tasks elegíveis → executam → handoff com EVIDENCE_BLOCK → voltam ao BASTION; owner decide PLv6.2-b + FVL-IMPL-001; Codex pode consolidar onda
+PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
 ```
 
 ---
