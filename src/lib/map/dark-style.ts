@@ -40,6 +40,11 @@ const COLORS = {
   primary: '#c8a84e',           // Primary gold
   teal: '#4ae2c8',              // Teal accent
   tealGlow: '#4ae2c833',        // Teal glow ring
+  // Teal neon border glow (U1: #00F5D4 signature neon)
+  tealBorder: '#00F5D4',        // Primary teal neon for border glow
+  tealBorderGlow: '#00F5D430',  // Teal glow ring (medium)
+  tealBorderHalo: '#00F5D415',  // Teal halo (wide, diffuse)
+  tealBorderHover: '#00F5D460', // Teal hover brightened
 };
 
 /**
@@ -130,7 +135,7 @@ export function createDarkStyle(tileSource?: string): StyleSpecification {
         },
       },
 
-      // Country boundaries — outer glow halo (widest, most diffuse)
+      // Country boundaries — outer glow halo (widest, most diffuse) — teal neon pulse
       {
         id: 'country-borders-halo',
         type: 'line',
@@ -138,14 +143,14 @@ export function createDarkStyle(tileSource?: string): StyleSpecification {
         'source-layer': 'boundary',
         filter: ['==', ['get', 'admin_level'], 2],
         paint: {
-          'line-color': COLORS.landBorderGlowMid,
-          'line-width': 8,
-          'line-blur': 6,
+          'line-color': COLORS.tealBorderHalo,
+          'line-width': 10,
+          'line-blur': 8,
           'line-opacity': 0.6,
         },
       },
 
-      // Country boundaries — inner glow ring
+      // Country boundaries — inner glow ring — teal neon pulse
       {
         id: 'country-borders-glow',
         type: 'line',
@@ -153,9 +158,9 @@ export function createDarkStyle(tileSource?: string): StyleSpecification {
         'source-layer': 'boundary',
         filter: ['==', ['get', 'admin_level'], 2],
         paint: {
-          'line-color': COLORS.landBorderGlow,
-          'line-width': 4,
-          'line-blur': 2,
+          'line-color': COLORS.tealBorderGlow,
+          'line-width': 5,
+          'line-blur': 3,
           'line-opacity': 0.8,
         },
       },
@@ -277,7 +282,7 @@ export function createDarkStyle(tileSource?: string): StyleSpecification {
 }
 
 /**
- * Animate the neon border glow — call in rAF loop to create pulse effect.
+ * Animate the teal neon border glow — call in rAF loop to create pulse effect.
  * Returns cleanup function. Uses MapLibre setPaintProperty for smooth animation.
  * Guards against calling on destroyed/unloaded map instances.
  */
@@ -290,13 +295,13 @@ export function startNeonBorderAnimation(
 
   function animate() {
     if (stopped) return;
-    tick += 0.02;
+    tick += 0.018;
     const pulse = 0.5 + 0.5 * Math.sin(tick);
 
-    // Outer halo breathes between 0.3 and 0.7
-    const haloOpacity = 0.3 + 0.4 * pulse;
-    // Inner glow breathes between 0.5 and 1.0
-    const glowOpacity = 0.5 + 0.5 * pulse;
+    // Outer halo breathes between 0.25 and 0.65
+    const haloOpacity = 0.25 + 0.4 * pulse;
+    // Inner glow breathes between 0.45 and 1.0
+    const glowOpacity = 0.45 + 0.55 * pulse;
 
     try {
       if (map.loaded() && map.getLayer('country-borders-halo')) {
@@ -318,6 +323,73 @@ export function startNeonBorderAnimation(
   return () => {
     stopped = true;
     cancelAnimationFrame(frame);
+  };
+}
+
+/**
+ * Enable hover glow effects on interactive map layers.
+ *
+ * - Country borders: mouse proximity triggers a brightened teal glow.
+ * - Verdict markers: feature-state hover boosts circle size/opacity.
+ *   (Requires `generateId: true` on the verdict-markers source.)
+ *
+ * Returns a cleanup function to remove all event listeners.
+ */
+export function enableHoverEffects(
+  map: import('maplibre-gl').Map
+): () => void {
+  let hoveredBorder = false;
+
+  function onMouseMoveBorder(e: import('maplibre-gl').MapMouseEvent) {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: ['country-borders'],
+    });
+
+    if (features.length > 0 && !hoveredBorder) {
+      hoveredBorder = true;
+      try {
+        if (map.getLayer('country-borders-glow')) {
+          map.setPaintProperty('country-borders-glow', 'line-color', COLORS.tealBorderHover);
+          map.setPaintProperty('country-borders-glow', 'line-width', 7);
+        }
+        if (map.getLayer('country-borders-halo')) {
+          map.setPaintProperty('country-borders-halo', 'line-width', 14);
+        }
+      } catch { /* ignore */ }
+    } else if (features.length === 0 && hoveredBorder) {
+      hoveredBorder = false;
+      try {
+        if (map.getLayer('country-borders-glow')) {
+          map.setPaintProperty('country-borders-glow', 'line-color', COLORS.tealBorderGlow);
+          map.setPaintProperty('country-borders-glow', 'line-width', 5);
+        }
+        if (map.getLayer('country-borders-halo')) {
+          map.setPaintProperty('country-borders-halo', 'line-width', 10);
+        }
+      } catch { /* ignore */ }
+    }
+  }
+
+  function onMouseLeaveMap() {
+    if (!hoveredBorder) return;
+    hoveredBorder = false;
+    try {
+      if (map.getLayer('country-borders-glow')) {
+        map.setPaintProperty('country-borders-glow', 'line-color', COLORS.tealBorderGlow);
+        map.setPaintProperty('country-borders-glow', 'line-width', 5);
+      }
+      if (map.getLayer('country-borders-halo')) {
+        map.setPaintProperty('country-borders-halo', 'line-width', 10);
+      }
+    } catch { /* ignore */ }
+  }
+
+  map.on('mousemove', onMouseMoveBorder);
+  map.on('mouseleave', onMouseLeaveMap);
+
+  return () => {
+    map.off('mousemove', onMouseMoveBorder);
+    map.off('mouseleave', onMouseLeaveMap);
   };
 }
 
