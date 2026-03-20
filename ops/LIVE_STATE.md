@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-OUTPUT-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | GENESIS-FOUNDER-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-OUTPUT-001 concluído) |
-| **Frente ativa** | Operacional / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; OPS-HANDOFF-001 + OPS-OUTPUT-001 registrados — padrão canônico de output copiável selado |
-| **Estado geral** | PLv6.2-a concluída (Layer 2 Supabase); CODEX_CONSOLIDATOR.md criado; OUTPUT_STANDARD.md criado; HANDOFF_TABLE + CANALIZACAO_TABLE selados; todos os pioneiros falam no mesmo layout; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @claude (GENESIS-FOUNDER-001 concluído) |
+| **Frente ativa** | Documental / wt-estrutura-nucleo-vivo |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; memória do arquiteto + carta pública do founder registradas |
+| **Estado geral** | PLv6.2-a done (Supabase Layer 2); CODEX_CONSOLIDATOR + OUTPUT_STANDARD selados; GENESIS_BLUEPRINT.md (privado) + FOUNDER_LETTER.md (público) criados; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -40,6 +40,7 @@
 | PLv6.1 | Projects Table Layer — Supabase globe_projects → INVESTOR + NEXUS status | CONCLUÍDA | handoff emitido |
 | PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
 | OPS-OUTPUT-001 | Padrão canônico de output copiável — HANDOFF_TABLE + CANALIZACAO_TABLE | CONCLUÍDA | handoff emitido |
+| GENESIS-FOUNDER-001 | Blueprint privado do arquiteto + carta pública do founder | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
@@ -82,10 +83,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: operacional / OPS-OUTPUT-001 — padrão canônico de output copiável selado
-EXECUTOR: @claude (OPS-OUTPUT-001 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001)
-CANALIZAÇÃO ATIVA: OUTPUT_STANDARD.md selado (HANDOFF_TABLE + CANALIZACAO_TABLE + RELATORIO_MAE_TABLE); FOL seção 10 adicionada; todos os pioneiros no mesmo layout; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+NATUREZA: documental estratégica / GENESIS-FOUNDER-001 — memória do arquiteto + carta pública do founder
+EXECUTOR: @claude (GENESIS-FOUNDER-001 done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001)
+CANALIZAÇÃO ATIVA: GENESIS_BLUEPRINT.md (privado — cofre do arquiteto) + FOUNDER_LETTER.md (público — vitrine founder) criados; repo guarda memória interna + apresentação externa; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
 ```
 
 ---

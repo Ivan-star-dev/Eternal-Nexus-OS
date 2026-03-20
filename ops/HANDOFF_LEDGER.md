@@ -33,6 +33,57 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:GENESIS-FOUNDER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ docs/GENESIS_BLUEPRINT.md criado (privado — cofre do arquiteto):
+            │ origem da visão, viradas, princípios arquiteturais, mapa do
+            │ sistema, o que foi aprendido, guia de reconstrução do zero, e
+            │ estado futuro visado. docs/FOUNDER_LETTER.md criado (público —
+            │ vitrine do founder): quem é, o que constrói, por que importa,
+            │ o que torna diferente, estado atual, visão futura — linguagem
+            │ forte, autoral, premium, sem expor mecanismos internos.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ GENESIS_BLUEPRINT inclui guia de reconstrução do zero (não
+            │ pedido explicitamente, mas necessário para o propósito de
+            │ "memória do arquiteto"); FOUNDER_LETTER omite deliberadamente
+            │ nomes internos (fluxo sagrado, 10 Leis, escada) — expõe
+            │ filosofia sem abrir cofre
+ARQUIVOS    │ docs/GENESIS_BLUEPRINT.md (NOVO) | docs/FOUNDER_LETTER.md (NOVO) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo
+PROX_PASSO  │ owner lê ambos e valida tom; FOUNDER_LETTER pode ser exposta
+            │ publicamente; GENESIS_BLUEPRINT fica no cofre da repo
+SUGESTOES   │ 1) FOUNDER_LETTER pode ser linkada no README.md como
+            │ "sobre o projeto" — 1 linha de referência, sem redundância;
+            │ 2) GENESIS_BLUEPRINT pode ter versão futura (v2) com decisões
+            │ de produto acumuladas a cada fase fechada; 3) considerar manter
+            │ FOUNDER_LETTER atualizada a cada fase fechada (3-4 linhas de
+            │ update na seção "Estado atual")
+DECISAO_REC │ @copilot executa BULK-02.2 (gate aberto); owner decide PLv6.2-b
+            │ após relatório-mãe do Codex; repo agora tem memória interna +
+            │ apresentação externa completas
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ documental estratégica — memória privada + vitrine pública
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ GENESIS_BLUEPRINT.md (cofre) + FOUNDER_LETTER.md (vitrine)
+            │ criados; repo guarda memória interna e apresentação externa;
+            │ @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-OUTPUT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/OUTPUT_STANDARD.md criado — HANDOFF_TABLE + CANALIZACAO_TABLE +
