@@ -1,8 +1,12 @@
-## [agent] objective — gate
+## [TASK_ID] title — [agent]
+
+### Task
+- Task ID: <!-- e.g. C6, U1, A2 -->
+- Lease: <!-- path to lease file, e.g. docs/task-leases/C6_claude_lease.md -->
+- Branch: <!-- must match task ID pattern -->
 
 ### What changed
-- file1.ts
-- file2.ts
+- <!-- list files -->
 
 ### Gate alignment
 Which phase gate does this PR strengthen?
@@ -13,23 +17,29 @@ Which phase gate does this PR strengthen?
 
 ### How to verify
 ```bash
-# Commands to validate this PR
 npm run test
 npm run typecheck
+npm run lint
 ```
+
+### Acceptance criteria
+<!-- Copy from task file. All must be checked for merge. -->
+- [ ] criterion 1
+- [ ] criterion 2
+
+### Review decision
+<!-- BINARY ONLY — pick exactly one -->
+- [ ] **PASS** — all acceptance criteria met, CI green, no scope drift
+- [ ] **FAIL** — reason: <!-- one line -->
+- [ ] **BLOCKED** — reason: <!-- one line -->
 
 ### Risks + rollback
 - Risk: ...
 - Rollback: `git revert <commit>`
 
-### Session log
-- [ ] `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md` included in this PR
-
 ### Post-merge checklist
-- [ ] Append state bump to `NEXUS_CONTEXT/PROJECT_STATE.md`
-- [ ] Leave handoff note in `NEXUS_CONTEXT/INSIGHTS.md`
-
-### Suggestions to other pioneers
-- @claude: ...
-- @codex: ...
-- @antigravity: ...
+- [ ] Move task file to `docs/task-queue/done/`
+- [ ] Mark all acceptance criteria `[x]` in task file
+- [ ] Update or release lease in `docs/task-leases/`
+- [ ] Delete task branch (or let auto-delete handle it)
+- [ ] Append state bump to `NEXUS_CONTEXT/PROJECT_STATE.md` (if significant)

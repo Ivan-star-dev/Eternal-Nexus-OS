@@ -215,7 +215,7 @@ export async function lttbChunkedWithRetry<T>(
   // Split source into chunks
   const numChunks = Math.ceil(source.length / chunkSize);
   const pointsPerChunk = Math.max(3, Math.ceil(targetSize / numChunks));
-  let intermediate: T[] = [];
+  const intermediate: T[] = [];
 
   for (let i = 0; i < numChunks; i++) {
     const chunk = source.slice(i * chunkSize, (i + 1) * chunkSize);

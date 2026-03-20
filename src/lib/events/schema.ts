@@ -15,6 +15,7 @@ import type {
   AtlasLayerUpdatePayload,
   IndexEntryPayload,
   NewsBroadcastPayload,
+  StreamsFeedPayload,
 } from '@/types/sacred-flow';
 import { makeEventId, seedFromId } from './id';
 
@@ -97,4 +98,11 @@ export function createNewsBroadcast(
   options?: { geo?: GeoPayload; severity?: number; confidence?: number },
 ): NexusEvent<NewsBroadcastPayload> {
   return createEvent('news.broadcast', 'news', payload, options);
+}
+
+export function createStreamsFeed(
+  payload: StreamsFeedPayload,
+  options?: { geo?: GeoPayload; severity?: number; confidence?: number },
+): NexusEvent<StreamsFeedPayload> {
+  return createEvent('streams.feed', 'streams', payload, options);
 }

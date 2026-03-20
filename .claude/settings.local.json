@@ -23,7 +23,10 @@
       "Bash(gh issue:*)",
       "Bash(gh label:*)",
       "Bash(grep -E \"\\\\.tsx?$\")",
-      "Bash(gh pr:*)"
+      "Bash(gh pr:*)",
+      "Bash(dir \"C:\\\\Users\\\\Claudia\\\\Desktop\"\" /b)",
+      "Read(//mnt/c/Users/Claudia/**)",
+      "Read(//c/Users/Claudia/Desktop/**)"
     ]
   }
 }
