@@ -10,7 +10,7 @@
  * - Só o owner / Tribunal autorizam mudanças estruturais aqui
  * - Fluxo sagrado: Tribunal → Atlas → Index → News (imutável nesta fase)
  *
- * sacred-flow: BULK-03.1 | PLv1 | 2026-03-20
+ * sacred-flow: BULK-03.2 | PLv2 | 2026-03-20
  */
 
 // ─── Fluxo sagrado ────────────────────────────────────────────────────────────
@@ -27,6 +27,8 @@ export interface OrganConfig {
   path: string;
   /** Label exibido na UI */
   label: string;
+  /** Nome humano do órgão em português (papel no organismo) */
+  organName: string;
   /** Cor primária do órgão (hex) */
   color: string;
   /**
@@ -40,15 +42,15 @@ export interface OrganConfig {
 
 export const ORGANS: readonly OrganConfig[] = [
   // Fluxo sagrado — ordem imutável
-  { id: 'tribunal', path: '/tribunal',          label: 'TRIBUNAL',    color: '#cc44ff', sacredFlowStep: 1 },
-  { id: 'atlas',    path: '/atlas',             label: 'ATLAS',       color: '#4a90e2', sacredFlowStep: 2 },
-  { id: 'index',    path: '/organism-index',    label: 'INDEX',       color: '#22ffaa', sacredFlowStep: 3 },
-  { id: 'news',     path: '/news',              label: 'NEWS',        color: '#ff4444', sacredFlowStep: 4 },
+  { id: 'tribunal', path: '/tribunal',       label: 'TRIBUNAL', organName: 'Nervos',  color: '#cc44ff', sacredFlowStep: 1 },
+  { id: 'atlas',    path: '/atlas',          label: 'ATLAS',    organName: 'Coração', color: '#4a90e2', sacredFlowStep: 2 },
+  { id: 'index',    path: '/organism-index', label: 'INDEX',    organName: 'Índice',  color: '#22ffaa', sacredFlowStep: 3 },
+  { id: 'news',     path: '/news',           label: 'NEWS',     organName: 'Boca',    color: '#ff4444', sacredFlowStep: 4 },
 
   // Órgãos extendidos — fora do fluxo sagrado, parte do organismo
-  { id: 'nexus',       path: '/nexus',                     label: 'NEXUS',       color: '#22ffaa', sacredFlowStep: null },
-  { id: 'geopolitics', path: '/geopolitics',               label: 'GEOPOLITICS', color: '#e24a6f', sacredFlowStep: null },
-  { id: 'investor',    path: '/investor/deltaspine-nl',    label: 'INVESTOR',    color: '#ffaa22', sacredFlowStep: null },
+  { id: 'nexus',       path: '/nexus',                  label: 'NEXUS',       organName: 'Cérebro', color: '#22ffaa', sacredFlowStep: null },
+  { id: 'geopolitics', path: '/geopolitics',            label: 'GEOPOLITICS', organName: 'Olhos',   color: '#e24a6f', sacredFlowStep: null },
+  { id: 'investor',    path: '/investor/deltaspine-nl', label: 'INVESTOR',    organName: 'Sangue',  color: '#ffaa22', sacredFlowStep: null },
 ] as const;
 
 // ─── Utilitários de acesso ────────────────────────────────────────────────────
@@ -71,7 +73,7 @@ export function getOrgan(id: string): OrganConfig | undefined {
 
 export const WORKSPACE = {
   name: 'Eternal Nexus',
-  productLayer: 'PLv1',
+  productLayer: 'PLv2',
   phase: 'Fase 3 — Governança e Auditabilidade',
   sacredFlow: SACRED_FLOW,
   canonicalBranch: 'claude/expose-workspace-config-yt4Km',

@@ -1,52 +1,38 @@
 // Grid de status dos órgãos — mostra atividade em tempo real de cada parte do organismo
+// PLv2: id, path, label, organName, color vêm de workspace.ts (getOrgan)
+// icon, status, metric, metricLabel são dados de display local (ainda não vivos)
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Brain, Globe, Scale, Radio, Newspaper, Activity } from "lucide-react";
+import { getOrgan } from "@/config/workspace";
 
-interface OrganStatus {
-  id: string;
-  path: string;
-  label: string;
-  organ: string;
+interface OrganDisplay {
   icon: React.ReactNode;
-  color: string;
   status: string;
   metric: string;
   metricLabel: string;
 }
 
-const organs: OrganStatus[] = [
-  {
-    id: "nexus", path: "/nexus", label: "NEXUS", organ: "Cérebro",
-    icon: <Brain className="h-5 w-5" />, color: "#22ffaa",
-    status: "3 EIs debatendo", metric: "847", metricLabel: "simulações",
-  },
-  {
-    id: "atlas", path: "/atlas", label: "ATLAS", organ: "Coração",
-    icon: <Globe className="h-5 w-5" />, color: "#4a90e2",
-    status: "12 projetos ativos", metric: "60fps", metricLabel: "rendering",
-  },
-  {
-    id: "tribunal", path: "/tribunal", label: "TRIBUNAL", organ: "Nervos",
-    icon: <Scale className="h-5 w-5" />, color: "#cc44ff",
-    status: "5 juízes online", metric: "24", metricLabel: "narrativas",
-  },
-  {
-    id: "news", path: "/news", label: "NEWS", organ: "Boca",
-    icon: <Radio className="h-5 w-5" />, color: "#ff4444",
-    status: "Echo-Vox ativo", metric: "6", metricLabel: "alertas hoje",
-  },
-  {
-    id: "investor", path: "/investor/deltaspine-nl", label: "INVESTOR", organ: "Sangue",
-    icon: <Newspaper className="h-5 w-5" />, color: "#ffaa22",
-    status: "DeltaSpine NL", metric: "$2.8B", metricLabel: "pipeline",
-  },
-  {
-    id: "geopolitics", path: "/geopolitics", label: "GEOPOLITICS", organ: "Olhos",
-    icon: <Activity className="h-5 w-5" />, color: "#e24a6f",
-    status: "Mapa vivo", metric: "147", metricLabel: "países",
-  },
-];
+// Dados de display local — icon + status/metric são placeholders até integração viva (PLv3+)
+const ORGAN_DISPLAY: Record<string, OrganDisplay> = {
+  nexus:       { icon: <Brain className="h-5 w-5" />,    status: "3 EIs debatendo",   metric: "847",   metricLabel: "simulações" },
+  atlas:       { icon: <Globe className="h-5 w-5" />,    status: "12 projetos ativos", metric: "60fps", metricLabel: "rendering" },
+  tribunal:    { icon: <Scale className="h-5 w-5" />,    status: "5 juízes online",    metric: "24",    metricLabel: "narrativas" },
+  news:        { icon: <Radio className="h-5 w-5" />,    status: "Echo-Vox ativo",     metric: "6",     metricLabel: "alertas hoje" },
+  investor:    { icon: <Newspaper className="h-5 w-5" />, status: "DeltaSpine NL",    metric: "$2.8B", metricLabel: "pipeline" },
+  geopolitics: { icon: <Activity className="h-5 w-5" />, status: "Mapa vivo",          metric: "147",   metricLabel: "países" },
+};
+
+// Ordem de exibição no grid — subset dos órgãos do workspace (sem index)
+const GRID_ORGAN_IDS = ['nexus', 'atlas', 'tribunal', 'news', 'investor', 'geopolitics'] as const;
+
+// Combina config canônica (workspace) com dados de display local
+const organs = GRID_ORGAN_IDS.flatMap(id => {
+  const config = getOrgan(id);
+  const display = ORGAN_DISPLAY[id];
+  if (!config || !display) return [];
+  return [{ ...config, ...display }];
+});
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -105,7 +91,7 @@ export default function OrganStatusGrid() {
                           {organ.label}
                         </span>
                         <span className="font-mono text-[0.4rem] text-muted-foreground">
-                          {organ.organ}
+                          {organ.organName}
                         </span>
                       </div>
                     </div>

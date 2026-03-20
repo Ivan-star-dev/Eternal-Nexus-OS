@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: BULK-03.2 — PLv2 — OrganStatusGrid conectada à config canônica
+STATUS: done
+FEITO: workspace.ts atualizado — campo organName adicionado a OrganConfig (metadata estrutural do órgão: 'Nervos', 'Coração', 'Índice', 'Boca', 'Cérebro', 'Olhos', 'Sangue'), todos os 7 órgãos atualizados, WORKSPACE.productLayer avançado para PLv2. OrganStatusGrid.tsx refatorado — id/path/label/organName/color agora vêm de getOrgan() do workspace.ts; ORGAN_DISPLAY local retém apenas icon/status/metric/metricLabel (placeholders para PLv3+); GRID_ORGAN_IDS define subset exibido sem index; duplicação de config estrutural eliminada. PRODUCT_LAYER_1.md atualizado com secção PLv2. LIVE_STATE e HANDOFF_LEDGER atualizados.
+NAO_FEITO: dados de status/metric em tempo real (PLv3+); outros componentes conectados à config; alterações de layout; novas páginas.
+BLOQUEIOS: B-001/B-002/B-003 continuam aguardando owner. Codex sem branch alinhado.
+ADAPTACOES: nenhuma — implementação seguiu o plano mínimo definido antes de agir.
+ARQUIVOS: src/config/workspace.ts | src/components/home/OrganStatusGrid.tsx | ops/PRODUCT_LAYER_1.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: medio
+PROXIMO_PASSO: owner lê handoffs BULK-03.1 + BULK-03.2 → confirma PLv1+PLv2 aceites → decide abertura de BULK-04
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: BULK-03.1 — PLv1 — Workspace Config Layer
 STATUS: done
 FEITO: src/config/workspace.ts criado — fonte canônica tipada dos órgãos do organismo (TRIBUNAL, ATLAS, INDEX, NEWS + 3 órgãos extendidos), fluxo sagrado declarado em código (SACRED_FLOW as const), tipos OrganConfig/SacredFlowStep, utilitários getSacredFlowOrgans() e getOrgan(), WORKSPACE metadata com productLayer PLv1. NexusFlowInspector.tsx atualizado — importa getSacredFlowOrgans e WORKSPACE de workspace.ts; exibe seção WORKSPACE CONFIG com fluxo sagrado colorido por órgão e product layer no inspector de dev. ops/PRODUCT_LAYER_1.md criado — declara fronteira, escopo, o que entrou/saiu, conexão com NLF/FOL/LIVE_STATE, guia para próximos pioneiros. LIVE_STATE e HANDOFF_LEDGER atualizados.

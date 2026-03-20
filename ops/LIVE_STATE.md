@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-03.1
+**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-03.2
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (BULK-03.1 handoff emitido) |
+| **Executor ativo** | @claude (BULK-03.2 handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
 | **Camada atual** | BULK-03 — Primeira entrada controlada em produto |
-| **Estado geral** | PLv1 (Workspace Config Layer) aberta; src/config/workspace.ts criado; NexusFlowInspector consome config; BULK-02.2 (Copilot) ainda com gate aberto; BULK-04 bloqueado até leitura deste handoff |
+| **Estado geral** | PLv2 concluída; OrganStatusGrid alimentada por workspace.ts; 2 consumidores ativos da config canônica (NexusFlowInspector + OrganStatusGrid); BULK-04 bloqueado até leitura do owner |
 
 ---
 
@@ -33,7 +33,8 @@
 | BULK-01.1 | Abertura oficial do bulk em escada — camada 1 | CONCLUÍDA | handoff emitido |
 | BULK-02.1 | FOL v1 — Factory Operating Layer | CONCLUÍDA | handoff emitido |
 | BULK-03.1 | PLv1 — Workspace Config Layer | CONCLUÍDA | handoff emitido |
-| BULK-04.1 | Camada 4 — próxima abertura | BLOQUEADA | só abre após leitura do handoff BULK-03.1 pelo owner |
+| BULK-03.2 | PLv2 — OrganStatusGrid conectada à config canônica | CONCLUÍDA | handoff emitido |
+| BULK-04.1 | Camada 4 — próxima abertura | BLOQUEADA | só abre após leitura dos handoffs BULK-03.1 + BULK-03.2 pelo owner |
 
 ### @codex (Refinador Técnico)
 
@@ -74,10 +75,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / primeira camada de produto controlada (PLv1)
-EXECUTOR: @claude (BULK-03.1 done) | @copilot (BULK-02.2 ainda com gate aberto)
-ESTADO: done (Claude — PLv1) | Copilot aguarda decisão do owner se BULK-02.2 ainda é relevante ou se a onda 2 já é superada
-CANALIZAÇÃO ATIVA: PLv1 aberta; src/config/workspace.ts é o primeiro artefato de produto real; NexusFlowInspector expõe workspace config; BULK-04 travado até leitura deste handoff pelo owner
+NATUREZA: produto / PLv2 — config canônica alimentando produto real
+EXECUTOR: @claude (BULK-03.2 done)
+ESTADO: done (Claude — PLv1 + PLv2)
+CANALIZAÇÃO ATIVA: PLv2 concluída; OrganStatusGrid alimentada pela config canônica; 2 consumidores ativos de workspace.ts; BULK-04 travado até leitura do owner
 ```
 
 ---
@@ -89,12 +90,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  BULK-03.1 — HANDOFF EMITIDO (PLv1 aberta: src/config/workspace.ts + NexusFlowInspector atualizado)
-Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ — ainda válido, owner decide se continua)
+Claude:  BULK-03.2 — HANDOFF EMITIDO (PLv2 concluída: OrganStatusGrid alimentada por workspace.ts)
+Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ — decidir com owner se ainda prioridade)
 Cursor:  timeout auxiliar — fora da trava desta onda
 Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-03-Codex BLOQUEADO (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoff BULK-03.1 → decide próxima camada de produto (PLv2) ou consolida onda atual
+PRÓXIMA TRANSIÇÃO: owner lê handoffs BULK-03.1 + BULK-03.2 → decide abertura de BULK-04
 ```
 
 ---
@@ -111,8 +112,8 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff BULK-03.1 → decide próxima camada de 
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff BULK-03.1** → confirma PLv1 aceite → decide se abre PLv2 ou consolida
-2. **@copilot executa BULK-02.2** — suavização de ops/ — gate ainda aberto (opcional: owner decide prioridade)
+1. **Owner lê handoffs BULK-03.1 + BULK-03.2** → confirma PLv1+PLv2 aceites → decide abertura de BULK-04
+2. **@copilot executa BULK-02.2** — suavização de ops/ — gate ainda aberto (decidir prioridade com owner)
 3. **@codex avança F6** — frente independente, não bloqueia onda 3
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 5. **Owner responde B-002** — confirmar npm como PM canônico

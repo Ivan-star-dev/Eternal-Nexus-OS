@@ -148,3 +148,50 @@ PLv2 só abre após owner gate lendo este handoff
 ---
 
 *PLv1 aberta em 2026-03-20 | claude-sonnet-4-6 | BULK-03.1*
+
+---
+
+## PLv2 — Continuação controlada (BULK-03.2)
+
+**Task:** BULK-03.2
+**Data:** 2026-03-20
+
+### O que PLv2 agregou
+
+| Artefato | O que mudou | Porquê |
+|---|---|---|
+| `src/config/workspace.ts` | Campo `organName` adicionado a `OrganConfig`; todos os 7 órgãos têm `organName` (ex: 'Nervos', 'Coração', 'Cérebro'); `WORKSPACE.productLayer` avançado para `PLv2`; tag de versão atualizada | `organName` é metadata estrutural do órgão (papel no organismo), não dado vivo — pertence à config canônica |
+| `src/components/home/OrganStatusGrid.tsx` | Eliminada duplicação de `id`, `path`, `label`, `organName`, `color`; componente importa `getOrgan()` de `workspace.ts`; `GRID_ORGAN_IDS` define subset exibido; `ORGAN_DISPLAY` local retém apenas `icon`, `status`, `metric`, `metricLabel` (ainda placeholders até PLv3+) | Primeiro componente de produto real alimentado pela config canônica |
+
+### O que PLv2 **não** fez
+
+| Item | Por que ficou fora |
+|---|---|
+| Substituir `status`/`metric`/`metricLabel` por dados reais | Requer integração viva (Supabase/API) — PLv3+ |
+| Alterar a UI/layout do grid | Escopo de lapidação, não de PLv2 |
+| Conectar outros componentes à config | Mínima mudança — 1 componente é suficiente para validar a PLv2 |
+
+### Fronteira PLv2
+
+```
+DENTRO DA PLv2:
+✅ organName em workspace.ts (metadata estrutural)
+✅ OrganStatusGrid consome getOrgan() para id/path/label/organName/color
+✅ Eliminação de duplicação de config estrutural em OrganStatusGrid
+
+FORA DA PLv2:
+❌ Dados de status/metric em tempo real
+❌ Outros componentes conectados à config (próximas ondas)
+❌ Alterações de layout ou design
+❌ Novas páginas ou rotas
+```
+
+### Estado dos consumidores de workspace.ts
+
+| Componente | Consome workspace.ts | Desde |
+|---|---|---|
+| `NexusFlowInspector` | ✅ `getSacredFlowOrgans()` + `WORKSPACE` | PLv1 |
+| `OrganStatusGrid` | ✅ `getOrgan()` para config estrutural | PLv2 |
+| Outros componentes | — | PLv3+ (a decidir pelo owner) |
+
+*PLv2 adicionada em 2026-03-20 | claude-sonnet-4-6 | BULK-03.2*
