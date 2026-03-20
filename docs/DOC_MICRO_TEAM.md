@@ -4,6 +4,7 @@
 **Fase:** Fase 3 — Governança e Auditabilidade
 **Branch:** `claude/expose-workspace-config-yt4Km`
 **Fonte de verdade:** repositório + `docs/DOC_FASE3.md`
+**Revisão:** v2 — expansão com critério de sucesso, regra de não-colisão, hierarquia explícita e handoff estendido
 
 ---
 
@@ -14,6 +15,9 @@ A Micro Team Paralela de Refinamento é uma linha operacional secundária que ac
 
 ### Para que existe
 Para garantir que o projeto não apenas avance funcionalmente, mas avance com qualidade crescente — código mais limpo, design mais fluido, sistema mais robusto, testes mais precisos — sem que esse processo de refinamento trave ou desvie o core.
+
+### Que valor adiciona
+A linha principal avança rápido e foca em entregar. A micro team olha para o que foi entregue e pergunta: *pode ser melhor sem mudar o que funciona?* Esse gap — entre funcionar e funcionar bem — é o território da micro team. Sem ela, o acúmulo técnico e estético cresce silencioso. Com ela, cada fase entregue vai sendo lapidada antes de virar legado.
 
 ### O que faz
 - Observa o trabalho da linha principal em andamento
@@ -61,6 +65,9 @@ Nenhuma melhoria entra no core sem passar pelo Tribunal. A micro team produz o i
 - Nunca faz push direto para `main` ou para a branch da linha principal
 - Toda mudança fica em branch `mt-*` até aprovação
 - Toda sugestão que afete arquivos protegidos requer handoff explícito ao owner antes de qualquer ação
+
+### Como opera sem travar o fluxo
+A micro team tem escopo **sempre menor que uma feature**. Nenhuma proposta dela exige bloqueio de merge na linha principal. Se uma melhoria criar dependência de espera sobre o core, ela é automaticamente reclassificada como `ADIADA` — não como bloqueio. O fluxo principal nunca para por causa da micro team.
 
 ---
 
@@ -142,6 +149,8 @@ A micro team opera **dentro da fase atual** (Fase 3). Nenhuma proposta de Fase 4
 
 7. **Não quebrar CI.** Toda proposta da micro team que envolva código deve passar localmente pelos scripts de validação (`lint`, `typecheck`, `test`, `build`) antes de ser apresentada ao Tribunal.
 
+8. **Não tocar no mesmo miolo que outro agente esteja consolidando.** Se a linha principal ou outro agente estiver em fase ativa de trabalho sobre um arquivo ou módulo, a micro team não entra nessa área até o handoff de conclusão ser emitido. Colisão de escopo = congestionamento = regressão.
+
 ---
 
 ## 6. ESTADOS OFICIAIS DA MICRO TEAM
@@ -182,9 +191,36 @@ Cada agente novo que opera no projeto encontra `AGENTS.md` na raiz. A seção "M
 ### Como a linha temporal principal continua soberana
 A linha principal nunca depende da micro team para avançar. O roadmap principal não bloqueia em outputs da micro team. A micro team é um serviço que alimenta a linha principal — nunca uma dependência dela. Se a micro team parar, o projeto continua.
 
+### Como isso aparece no protocolo sem ambiguidade
+A hierarquia é explícita e permanente:
+
+```
+LINHA PRINCIPAL (soberana)
+    └── alimentada por → LINHA PARALELA OFICIAL
+                              └── alimentada por → MICRO TEAM DE REFINAMENTO
+```
+
+A micro team nunca sobe dois níveis. Ela não fala diretamente com a linha principal. Toda comunicação passa pela linha paralela ou pelo Tribunal. Agentes que não encontrarem esse diagrama aqui devem procurá-lo — e se não encontrarem, assumir que a linha principal é soberana e parar até confirmar.
+
 ---
 
-## 8. HANDOFF FINAL
+## 8. CRITÉRIO DE SUCESSO
+
+A tarefa de registrar a micro team é considerada **concluída e bem-sucedida** quando todas as condições abaixo forem verificáveis por inspeção direta:
+
+| Critério | Evidência verificável |
+|---|---|
+| Protocolo canônico existe | `docs/DOC_MICRO_TEAM.md` presente e completo |
+| Protocolo central reconhece a micro team | `docs/DOC_FASE3.md` seção 11 presente |
+| Regra operacional acessível a agentes | `AGENTS.md` seção "Micro Team" presente |
+| Linha principal continua soberana | Nenhum arquivo de app foi alterado por esta tarefa |
+| Linha paralela tem clareza | Diagrama de hierarquia registrado na seção 7 |
+| Agentes sabem operar | Estados, regras e ciclo de vida definidos nas seções 5 e 6 |
+| Sistema mais completo sem virar caos | Zero features novas, zero alteração de sacred flow, zero toque em arquivos protegidos |
+
+---
+
+## 9. HANDOFF FINAL
 
 **MODELO USADO:**
 claude-sonnet-4-6
@@ -199,12 +235,13 @@ nenhum
 nenhum
 
 **PRÓXIMO PASSO OFICIAL:**
-Atualizar `AGENTS.md` com seção "Micro Team" referenciando este protocolo, e adicionar seção 11 em `docs/DOC_FASE3.md` registrando a micro team como componente paralela da Fase 3.
+Executar L-001 + L-002 do parecer E4 (`.gitignore` hardening + remoção do arquivo timestamp do rastreamento) — ação segura imediata que fecha o primeiro gap de higiene sem tocar no app. Protocolo da micro team está registrado e não bloqueia esse passo.
 
 **SUGESTÕES PARALELAS DE REFINAMENTO:**
-1. [micro-tests] [EM OBSERVAÇÃO] [Fase 3] [sonnet-4-6] Implementar Tier 1 do plano de testes cirúrgicos: `aggregator.test.ts` + `atlas-utils.test.ts` com as invariantes do sacred flow (flowTarget, authority, ranking, dedup) — zero mocking, máximo valor imediato.
-2. [system-refinement] [EM RESEARCH] [Fase 3] [sonnet-4-6] Extrair `altitudeToLOD` de `AtlasPage.tsx` para `src/lib/atlas/lod.ts` como export nomeado — único refactor estrutural necessário para desbloquear cobertura de testes do Atlas.
-3. [backup-paths] [EM OBSERVAÇÃO] [Fase 3] [sonnet-4-6] Mapear quais testes do Tier 2-3 precisam de mock de Supabase e criar `src/test/mocks/supabase.ts` centralizado — evita repetição de boilerplate em cada arquivo de teste.
+1. [micro-tests] [EM OBSERVAÇÃO] [Fase 3] [sonnet-4-6] Implementar Tier 1 do plano de testes cirúrgicos: `aggregator.test.ts` + `atlas-utils.test.ts` com as invariantes do sacred flow — dependência: nenhuma, congestionamento: zero (arquivos de teste isolados, sem toque no app).
+2. [system-refinement] [EM RESEARCH] [Fase 3] [sonnet-4-6] Extrair `altitudeToLOD` de `AtlasPage.tsx` para `src/lib/atlas/lod.ts` — dependência: Tier 1 de testes concluído, congestionamento: baixo (toca `AtlasPage.tsx`, aguardar linha principal não estar ativa nesse arquivo).
+3. [backup-paths] [EM OBSERVAÇÃO] [Fase 3] [sonnet-4-6] Criar `src/test/mocks/supabase.ts` centralizado para Tier 2-3 — dependência: Tier 1 concluído, congestionamento: zero (arquivo novo, sem colisão com nenhum agente ativo).
 
 **PARECER DO TRIBUNAL:**
 - alinhada e útil
+- pronta para entrar no roadmap
