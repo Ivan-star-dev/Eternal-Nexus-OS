@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: BULK-02.1 — FOL v1 — Factory Operating Layer
+STATUS: done
+FEITO: ops/FOL.md criado com 8 seções: como cada executor consome o estado vivo; como cada executor escreve de volta; como a fila avança de onda para onda; como timeouts auxiliares não travam a escada principal; como owner gates continuam soberanos; mapa de conexão dos artefatos vivos; checklist rápido de sessão; o que fica para a próxima camada. LIVE_STATE.md atualizado: fila de Claude e Copilot, semáforo, linha temporal, próximos passos. Gate aberto para Copilot (BULK-02.2).
+NAO_FEITO: Feature work de produto (fora do escopo desta camada). Integração de Codex na escada (aguarda branch). Refinamento técnico do FOL (papel de Codex).
+BLOQUEIOS: B-001/B-002/B-003 continuam aguardando owner. Codex fora da onda por branch desalinhado.
+ADAPTACOES: FOL nomeado com 8 seções em vez de apenas as 5 obrigatórias — as 3 adicionais (mapa de artefatos, checklist, o que fica) tornam o uso prático direto sem expandir escopo soberano.
+ARQUIVOS: ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: medio
+PROXIMO_PASSO: Copilot executa BULK-02.2 (suavização de ops/) | owner lê handoffs BULK-02.1 + BULK-02.2 → abre gate para BULK-03
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: BULK-01.1 — Abertura oficial do bulk em escada — camada 1
 STATUS: done
 FEITO: BULK-01 aberto canonicamente com Preflight Gate executado e Execution Map declarado. LIVE_STATE.md atualizado: fase transitada para Bulking Controlado, fila de todos os pioneiros atualizada, Linha Temporal publicada (seção 3.1), Próximos Passos revisados. Gates liberados: Copilot (BULK-01.2 — L-001+L-002) e Cursor (BULK-01.3 — 3 itens mecânicos designados). Trava de continuação declarada: BULK-02 só abre após leitura dos 3 handoffs desta onda.

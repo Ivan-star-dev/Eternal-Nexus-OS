@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-01.1
+**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-02.1
 
 ---
 
@@ -13,12 +13,12 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Fase 3 → Bulking Controlado do Produto |
+| **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (BULK-01.1) + @copilot (BULK-01.2 GATE ABERTO) + @cursor (BULK-01.3 DESIGNADO) |
-| **Frente ativa** | Estrutura / wt-estrutura-nucleo-vivo |
-| **Camada atual** | BULK-01 — Arranque coordenado do sistema vivo |
-| **Estado geral** | Bulk em cascata iniciado — camada 1 aberta por Claude; Copilot e Cursor com gates abertos; Codex em frente independente |
+| **Executor ativo** | @claude (BULK-02.1 handoff emitido) + @copilot (BULK-02.2 GATE ABERTO) |
+| **Frente ativa** | Estrutura / wt-fabrica-viva |
+| **Camada atual** | BULK-02 — Consolidação da fábrica viva |
+| **Estado geral** | FOL v1 criado; fábrica operacional formalizada; gate aberto para Copilot (BULK-02.2) |
 
 ---
 
@@ -30,8 +30,9 @@
 |---|---|---|---|
 | E17 | Implantar primeira camada do NLF | CONCLUÍDA | handoff emitido |
 | E18 | Selar versão final do protocolo pré-bulk | CONCLUÍDA | handoff emitido |
-| BULK-01.1 | Abertura oficial do bulk em escada — camada 1 | EM ENTREGA | handoff emitido ao final desta sessão |
-| BULK-02.1 | Camada 2 do bulk (próxima) | BLOQUEADA | só abre após handoff BULK-01.1 + leitura dos 3 handoffs da onda 1 |
+| BULK-01.1 | Abertura oficial do bulk em escada — camada 1 | CONCLUÍDA | handoff emitido |
+| BULK-02.1 | FOL v1 — Factory Operating Layer | CONCLUÍDA | handoff emitido |
+| BULK-03.1 | Camada 3 (próxima) | BLOQUEADA | só abre após handoffs BULK-02.1 + BULK-02.2 lidos pelo owner |
 
 ### @codex (Refinador Técnico)
 
@@ -53,7 +54,8 @@
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
 | BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
-| BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora — aguardar Cursor confirmar se já fez BULK-01.3-a |
+| BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora |
+| BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | GATE ABERTO | FOL v1 criado por Claude — pode iniciar |
 | — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
 
 ### Micro Team
@@ -70,11 +72,11 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
-🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: abertura de camada / bulk em cascata
-EXECUTOR: @claude (BULK-01.1) | @copilot (BULK-01.2 ativo) | @cursor (BULK-01.3 ativo)
-ESTADO: done (Claude) | a executar (Copilot + Cursor)
-CANALIZAÇÃO ATIVA: BULK-01 aberto; gates de Copilot e Cursor liberados; Codex em frente independente (F6); Trava de continuação: BULK-02 só abre após leitura dos 3 handoffs desta onda
+🟢 WORKTREE: wt-fabrica-viva
+NATUREZA: consolidação operacional / Factory Operating Layer
+EXECUTOR: @claude (BULK-02.1 done) | @copilot (BULK-02.2 GATE ABERTO)
+ESTADO: done (Claude) | a executar (Copilot)
+CANALIZAÇÃO ATIVA: BULK-02 aberto; FOL v1 criado em ops/FOL.md; gate aberto para Copilot (BULK-02.2 — suavização de ops/); Codex em F6 independente; Cursor fora da trava desta onda; BULK-03 bloqueado até leitura de handoffs BULK-02.1 + BULK-02.2
 ```
 
 ---
@@ -86,12 +88,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  BULK-01.1 — HANDOFF EMITIDO (camada aberta, gate liberado)
-Copilot: BULK-01.2 — GATE ABERTO (L-001 + L-002 — pode executar)
-Cursor:  BULK-01.3 — GATE ABERTO (backlog mecânico designado: 3 items)
-Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-01-Codex BLOQUEADO (branch)
+Claude:  BULK-02.1 — HANDOFF EMITIDO (FOL v1 criado, gate liberado para Copilot)
+Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ — pode executar)
+Cursor:  timeout auxiliar — fora da trava desta onda
+Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-02-Codex BLOQUEADO (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: leitura dos 3 handoffs desta onda → owner abre gate para BULK-02
+PRÓXIMA TRANSIÇÃO: handoff BULK-02.2 de Copilot → owner lê os 2 handoffs → abre gate para BULK-03
 ```
 
 ---
@@ -108,13 +110,13 @@ PRÓXIMA TRANSIÇÃO: leitura dos 3 handoffs desta onda → owner abre gate para
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **@copilot executa BULK-01.2** — L-001 (.gitignore gaps) + L-002 (rm --cached timestamp) — GATE ABERTO
-2. **@cursor executa BULK-01.3** — remover timestamp file, avaliar bun/npm dupe, checar antigravity/legacy-html/ — GATE ABERTO
-3. **@codex avança F6** — casca técnica executável (frente independente, não bloqueia onda 1)
-4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-5. **Owner responde B-002** — confirmar npm como PM canônico (desbloquearia BULK-01.3-b completamente)
-6. **Leitura dos 3 handoffs da onda 1** — owner lê handoffs de Claude + Copilot + Cursor → abre gate para BULK-02
-7. **@codex alinha branch** — condição para entrar na escada principal na onda 2
+1. **@copilot executa BULK-02.2** — Operational Surface Smoothing v1 em ops/ — GATE ABERTO
+2. **@copilot executa L-001 + L-002** — se ainda não feitos (higiene .gitignore + rm --cached)
+3. **@codex avança F6** — frente independente, não bloqueia onda 2
+4. **Owner lê handoffs BULK-02.1 + BULK-02.2** → abre gate para BULK-03
+5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+6. **Owner responde B-002** — confirmar npm como PM canônico
+7. **@codex alinha branch** — condição para entrar na escada principal na onda 3
 
 ---
 

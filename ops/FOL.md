@@ -1,0 +1,248 @@
+# FOL — Factory Operating Layer v1
+
+**Pilar:** Estrutura
+**Camada:** BULK-02 — Consolidação da fábrica viva
+**Task:** BULK-02.1
+**Branch:** `claude/expose-workspace-config-yt4Km`
+**Modelo:** claude-sonnet-4-6
+**Data:** 2026-03-20
+
+> Este documento formaliza como o NLF v1 é consumido e escrito por cada executor.
+> Conecta LIVE_STATE, HANDOFF_LEDGER, Execution Map, fila por executor e papel da escada
+> num fluxo operacional direto e verificável.
+> Não substitui docs soberanos. É a camada de uso prático sobre eles.
+
+---
+
+## 1. COMO CADA EXECUTOR CONSOME O ESTADO VIVO
+
+Todo executor, ao iniciar uma sessão, lê nesta ordem:
+
+```
+1. ops/LIVE_STATE.md  →  seção 1 (estado atual) + seção 2 (sua fila)
+2. ops/LIVE_STATE.md  →  seção 3 (semáforo/canalização) + seção 3.1 (linha temporal)
+3. ops/LIVE_STATE.md  →  seção 4 (bloqueios ativos)
+4. ops/HANDOFF_LEDGER.md  →  últimas 2 entradas (handoffs recentes)
+```
+
+### O que cada executor busca ao ler
+
+| Executor | O que lê primeiro | O que valida |
+|---|---|---|
+| **Claude** | Fila própria na seção 2 | Existe gate aberto para a próxima camada? Handoff da camada anterior emitido? |
+| **Copilot** | Fila própria na seção 2 | Gate de Claude para a camada atual foi emitido? |
+| **Cursor** | Seção 4 (bloqueios) + fila própria | Existe item mecânico designado sem depender de decisão soberana? |
+| **Codex** | Fila própria + seção 1 (branch) | Branch alinhado ao canônico? Gate de Claude para refinamento disponível? |
+
+### Regra de leitura
+
+> Se o LIVE_STATE não encontrar gate aberto para o executor → **não executa**.
+> Emite alerta no handoff e aguarda abertura do gate.
+
+---
+
+## 2. COMO CADA EXECUTOR ESCREVE DE VOLTA NO SISTEMA
+
+Ao final de cada sessão, todo executor escreve em dois lugares e apenas nesses dois:
+
+### Escrita obrigatória
+
+```
+ops/LIVE_STATE.md      →  atualiza SOMENTE:
+                           - cabeçalho (data + executor + task)
+                           - seção 1 (estado atual)
+                           - SUA fila na seção 2
+                           - seção 3 (semáforo/canalização)
+                           - seção 3.1 (linha temporal)
+                           - seção 4 se bloqueio novo ou resolvido
+                           - seção 5 (próximos passos) se mudou
+
+ops/HANDOFF_LEDGER.md  →  adiciona entrada no topo (formato canônico)
+                           NUNCA edita entradas existentes
+```
+
+### Escrita proibida
+
+```
+❌ Editar fila de outro executor sem handoff desse executor
+❌ Marcar task de outro executor como CONCLUÍDA
+❌ Alterar bloqueios sem nova evidência
+❌ Tocar em docs/NEXUS_OS.md sem razão explícita aprovada
+❌ Tocar em qualquer arquivo de produto nesta camada
+```
+
+### Protocolo de escrita mínima
+
+> Escrever o mínimo necessário para o sistema saber o que aconteceu.
+> Se não mudou, não escreve. Sem padding, sem expansão de escopo.
+
+---
+
+## 3. COMO A FILA AVANÇA DE ONDA PARA ONDA
+
+Uma onda = um conjunto de tasks executadas em paralelo pelos pioneiros ativos,
+dentro de uma camada-mãe, com seus gates próprios.
+
+### Ciclo de uma onda
+
+```
+[OWNER emite prompt master da onda]
+        ↓
+[Claude lê, executa BULK-N.1, emite handoff]
+        ↓
+[Copilot lê handoff de Claude, executa BULK-N.2, emite handoff]
+        ↓
+[Cursor executa BULK-N.3 (mecânico, em paralelo), emite handoff]
+        ↓
+[Owner lê os 3 handoffs]
+        ↓
+[Owner decide: abre gate para BULK-(N+1) ou bloqueia]
+```
+
+### Regra de avanço
+
+| Condição | Resultado |
+|---|---|
+| Owner leu os 3 handoffs e aprova | Gate para BULK-(N+1) aberto |
+| Algum handoff está partial/blocked | Owner decide se avança ou resolve antes |
+| Handoff ausente de qualquer executor | BULK-(N+1) não abre — trava de continuação ativa |
+
+### Como ler a fila no LIVE_STATE
+
+```
+Estado           Significado operacional
+───────────────────────────────────────────────
+PLANEJADA        Existe, mas sem gate aberto — aguarda onda anterior
+GATE ABERTO      Executor pode iniciar imediatamente
+EM ENTREGA       Executor ativo nesta task agora
+EM ANDAMENTO     Frente independente — não bloqueada pela escada
+BLOQUEADA        Aguarda decisão (owner ou alinhamento de branch)
+CONCLUÍDA        Handoff emitido — tarefa fechada nesta fila
+```
+
+---
+
+## 4. COMO TIMEOUTS AUXILIARES NÃO TRAVAM A ESCADA PRINCIPAL
+
+Um executor auxiliar (Cursor ou Codex em frente independente) pode entrar em
+timeout — sessão encerrada, tarefa incompleta, gate não emitido.
+
+### Regra de não-bloqueio
+
+> Timeout de executor auxiliar **não trava** a escada principal (Claude → Copilot).
+> A escada principal só para se Claude ou Copilot entrarem em timeout dentro de sua task de onda.
+
+### Como tratar timeout auxiliar
+
+```
+1. Executor em timeout → registrar no LIVE_STATE seção 4 como bloqueio auxiliar (B-AUX-N)
+2. Owner decide: redesignar a task, esperar o executor ou mover para próxima onda
+3. Enquanto isso, Claude e Copilot avançam normalmente
+4. Handoff da onda não precisa incluir o executor em timeout para ser válido
+   → owner decide com os handoffs disponíveis
+```
+
+### Formato de bloqueio auxiliar
+
+```
+| B-AUX-N | Executor X — timeout em TASK Y | Owner: redesignar ou aguardar? | EM OBSERVAÇÃO |
+```
+
+### O que NÃO fazer
+
+```
+❌ Esperar timeout do auxiliar para emitir handoff da onda
+❌ Marcar onda como blocked por timeout auxiliar
+❌ Deixar o sistema parado aguardando executor não-essencial
+```
+
+---
+
+## 5. COMO OWNER GATES CONTINUAM SOBERANOS
+
+O owner é o árbitro final de qualquer ambiguidade. Nenhum executor substitui essa função.
+
+### Situações de owner gate obrigatório
+
+| Situação | O que acontece |
+|---|---|
+| Bloqueio crítico (B-001, B-002, B-003) | Executor registra, não age — aguarda owner |
+| Merge na linha principal | Sempre requer owner ou Tribunal |
+| Decisão arquitetural nova | Sempre requer owner — executor não inventa |
+| Abertura de camada nova (BULK-N+1) | Requer leitura e aprovação do owner |
+| Expansão de escopo não prevista no prompt master | Requer owner — executor para e reporta |
+
+### Formato de solicitação de owner gate
+
+```
+OWNER GATE SOLICITADO:
+ITEM:    [descrição do que precisa de decisão]
+CONTEXTO:[por que o executor parou aqui]
+OPÇÕES:  [A) ... | B) ... | C) ...]
+IMPACTO: [o que muda dependendo da escolha]
+AGUARDA: owner
+```
+
+### Regra de soberania do owner gate
+
+> Enquanto owner gate estiver pendente, o executor continua no resto do escopo se possível.
+> Se o gate bloqueia 100% do escopo → handoff partial emitido, executor aguarda.
+> Nunca improvisar para contornar um owner gate pendente.
+
+---
+
+## 6. MAPA DE CONEXÃO — ARTEFATOS VIVOS
+
+```
+ARTEFATO                    NATUREZA        QUEM LÊ          QUEM ESCREVE
+────────────────────────────────────────────────────────────────────────────
+ops/LIVE_STATE.md           vivo/sessão     todos             executor ativo
+ops/HANDOFF_LEDGER.md       vivo/imutável   todos             executor que fecha sessão
+ops/FOL.md (este)           referência      todos             Claude (abertura de camada)
+ops/NLF.md                  soberania ops   todos             Claude (mudanças aprovadas)
+docs/NEXUS_OS.md            soberania docs  todos             Claude (razão explícita)
+docs/DOC_BULK_PROTOCOL.md   protocolo       todos             selado — não altera
+docs/DOC_BULKING_ESCADA.md  protocolo       todos             selado — não altera
+```
+
+---
+
+## 7. CHECKLIST RÁPIDO DE SESSÃO
+
+### Ao iniciar
+```
+[ ] Ler LIVE_STATE seção 1 → estado atual
+[ ] Verificar minha fila na seção 2 → gate aberto?
+[ ] Ler semáforo na seção 3 → natureza e executor corretos?
+[ ] Ler bloqueios na seção 4 → algum me afeta?
+[ ] Ler últimas 2 entradas do HANDOFF_LEDGER → contexto recente?
+[ ] Confirmar Execution Map da task → ação válida agora?
+```
+
+### Ao encerrar
+```
+[ ] Atualizei cabeçalho do LIVE_STATE?
+[ ] Atualizei seção 1 (estado atual)?
+[ ] Atualizei MINHA fila na seção 2?
+[ ] Atualizei semáforo e linha temporal?
+[ ] Adicionei/removi bloqueios se necessário?
+[ ] Adicionei entrada no topo do HANDOFF_LEDGER?
+[ ] Emiti handoff no formato canônico?
+[ ] Fiz commit + push?
+```
+
+---
+
+## 8. O QUE FICA PARA A PRÓXIMA CAMADA
+
+| Item | Por que fica | Quem decide |
+|---|---|---|
+| Feature work de produto | Fora do escopo desta camada | Owner (abertura de BULK-03+) |
+| Integração Codex na escada | Aguarda alinhamento de branch | Codex + owner |
+| Resolução de B-001/B-002/B-003 | Decisões soberanas do owner | Owner |
+| Refinamento técnico do FOL | Papel de Codex após branch alinhado | Codex |
+| Lapidação de superfície do FOL | Papel de Copilot na BULK-02.2 | Copilot |
+
+---
+
+*FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
