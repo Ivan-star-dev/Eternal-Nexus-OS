@@ -188,7 +188,7 @@ Single React 18 + TypeScript SPA built with Vite 8, Tailwind CSS 4, shadcn/ui, C
 
 ### Quality gate commands
 See `package.json` scripts and `.ops/check.sh` (runs lint → typecheck → test → build in sequence).
-- `npm run lint` — ESLint. The codebase currently has ~131 pre-existing errors (mostly `no-explicit-any`).
+- `npm run lint` — ESLint. The codebase currently has pre-existing lint errors (mostly `no-explicit-any`).
 - `npm run typecheck` — `tsc --noEmit` against both `tsconfig.app.json` and `tsconfig.node.json`. Pre-existing type errors exist in the current codebase.
 - `npm run test` — Vitest (jsdom env). Runs 5 test files / 70 tests. Uses `vitest.config.ts` (separate from `vite.config.ts`).
 - `npm run build` — Production build. Succeeds with chunk-size warnings only.
