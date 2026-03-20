@@ -31,6 +31,53 @@ PROXIMO_PASSO: [resumo curto]
 
 ---
 
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-OUTPUT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/OUTPUT_STANDARD.md criado — HANDOFF_TABLE + CANALIZACAO_TABLE +
+            │ RELATORIO_MAE_TABLE selados; campos obrigatórios, regras de
+            │ preenchimento, identidade operacional e ordem de output definidos;
+            │ ops/FOL.md seção 10 adicionada (resumo + referência); LIVE_STATE +
+            │ HANDOFF_LEDGER atualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ RELATORIO_MAE_TABLE incluída no standard (além dos 2 pedidos) —
+            │ complementa CODEX_CONSOLIDATOR.md com cabeçalho copiável para o Codex
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md (NOVO) | ops/FOL.md (seção 10) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo
+PROX_PASSO  │ owner solicita "Codex, consolida a onda atual" — Codex usa
+            │ RELATORIO_MAE_TABLE; todos os pioneiros adotam HANDOFF_TABLE a
+            │ partir desta sessão
+SUGESTOES   │ 1) primeiros 3 pioneiros a emitir handoff pós-OPS-OUTPUT-001 validam
+            │ o padrão — se houver desvio, owner aponta e pioneiro corrige no
+            │ próximo handoff; 2) CANALIZACAO_TABLE pode ser colorida com emojis
+            │ adicionais (beleza varia) sem quebrar a estrutura base; 3) considerar
+            │ futuramente um OUTPUT_STANDARD v2 com campo TRAVA_CONTINUACAO se o
+            │ uso mostrar necessidade
+DECISAO_REC │ @copilot entra agora (BULK-02.2 — gate aberto); @codex usa
+            │ RELATORIO_MAE_TABLE na próxima consolidação; PLv6.2-b aguarda gate
+            │ owner pós-relatório-mãe
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ operacional — padronização de output copiável
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ OUTPUT_STANDARD.md selado; HANDOFF_TABLE + CANALIZACAO_TABLE +
+            │ RELATORIO_MAE_TABLE canônicos; FOL seção 10 ativa; @copilot gate
+            │ aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6

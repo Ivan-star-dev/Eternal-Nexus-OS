@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-HANDOFF-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-OUTPUT-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-HANDOFF-001 concluído) |
+| **Executor ativo** | @claude (OPS-OUTPUT-001 concluído) |
 | **Frente ativa** | Operacional / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; OPS-HANDOFF-001 registrado — Codex promovido a Consolidador Oficial de Fase/Onda |
-| **Estado geral** | PLv6.2-a concluída (Layer 2 Supabase visível na home); CODEX_CONSOLIDATOR.md criado; FOL.md seção 9 adicionada; Codex pode consolidar sem branch alinhado; PLv6.2-b aguarda gate owner |
+| **Camada atual** | PLv6.2-a concluída; OPS-HANDOFF-001 + OPS-OUTPUT-001 registrados — padrão canônico de output copiável selado |
+| **Estado geral** | PLv6.2-a concluída (Layer 2 Supabase); CODEX_CONSOLIDATOR.md criado; OUTPUT_STANDARD.md criado; HANDOFF_TABLE + CANALIZACAO_TABLE selados; todos os pioneiros falam no mesmo layout; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -39,6 +39,7 @@
 | PLv5.1 | DATA_LAYER_1 completa — 7/7 órgãos vivos (NEXUS + INVESTOR) | CONCLUÍDA | handoff emitido |
 | PLv6.1 | Projects Table Layer — Supabase globe_projects → INVESTOR + NEXUS status | CONCLUÍDA | handoff emitido |
 | PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
+| OPS-OUTPUT-001 | Padrão canônico de output copiável — HANDOFF_TABLE + CANALIZACAO_TABLE | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
@@ -81,10 +82,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: operacional / OPS-HANDOFF-001 — Codex registrado como Consolidador de Fase/Onda
-EXECUTOR: @claude (OPS-HANDOFF-001 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001)
-CANALIZAÇÃO ATIVA: Codex promovido a Consolidador Oficial (CODEX_CONSOLIDATOR.md + FOL seção 9); pode consolidar sem branch alinhado; owner passa a usar só o relatório-mãe como input de decisão; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+NATUREZA: operacional / OPS-OUTPUT-001 — padrão canônico de output copiável selado
+EXECUTOR: @claude (OPS-OUTPUT-001 done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001)
+CANALIZAÇÃO ATIVA: OUTPUT_STANDARD.md selado (HANDOFF_TABLE + CANALIZACAO_TABLE + RELATORIO_MAE_TABLE); FOL seção 10 adicionada; todos os pioneiros no mesmo layout; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
 ```
 
 ---
@@ -96,12 +97,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  OPS-HANDOFF-001 — HANDOFF EMITIDO (CODEX_CONSOLIDATOR.md + FOL seção 9; Codex registrado como Consolidador Oficial de Fase/Onda)
+Claude:  OPS-OUTPUT-001 — HANDOFF EMITIDO (OUTPUT_STANDARD.md selado; HANDOFF_TABLE + CANALIZACAO_TABLE canônicos; FOL seção 10)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex emite relatório-mãe → owner decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7
+PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex emite relatório-mãe (RELATORIO_MAE_TABLE) → owner decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7
 ```
 
 ---
@@ -118,7 +119,7 @@ PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex e
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex lê HANDOFF_LEDGER + LIVE_STATE → emite relatório-mãe → owner decide com base no relatório-mãe
+1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex emite RELATORIO_MAE_TABLE (formato canônico em `ops/OUTPUT_STANDARD.md`) → owner decide com base no relatório-mãe
 2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ imediatamente
 3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data) — gate após relatório-mãe
 4. **@codex avança F6** — frente independente, não bloqueia onda atual

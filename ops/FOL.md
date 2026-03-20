@@ -285,5 +285,35 @@ Ver `ops/CODEX_CONSOLIDATOR.md` — blueprint canônico completo com formato do 
 
 ---
 
+---
+
+## 10. PADRÃO DE OUTPUT COPIÁVEL
+
+**Registrado em:** OPS-OUTPUT-001 | 2026-03-20
+
+Todo executor emite handoff em bloco copiável único — nunca em parágrafo solto.
+Layout fixo, consistente e idêntico para todos os pioneiros.
+
+### Dois blocos obrigatórios ao encerrar sessão
+
+```
+1. HANDOFF_TABLE     — campos: executor/modelo/task/status/feito/nao_feito/
+                               bloqueios/adaptacoes/arquivos/impacto/
+                               prox_passo/sugestoes/decisao_rec
+2. CANALIZACAO_TABLE — campos: chat/branch/worktree/natureza/executor/estado/ativa
+```
+
+### Regra base
+
+> Estrutura imutável. Beleza pode variar. Layout base não.
+> Sempre em bloco de código — nunca em parágrafo solto.
+
+### Referência completa
+
+Ver `ops/OUTPUT_STANDARD.md` — templates, campos obrigatórios, regras de preenchimento e identidade operacional.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
+*FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
