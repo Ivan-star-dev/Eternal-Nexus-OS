@@ -187,7 +187,7 @@ Single React 18 + TypeScript SPA built with Vite 8, Tailwind CSS 4, shadcn/ui, C
 - The app connects to a remote Supabase instance; no local DB or Docker is needed for frontend development.
 
 ### Quality gate commands
-See `package.json` scripts and `.ops/check.sh` (runs lint → typecheck → test → build in sequence).
+See `package.json` scripts and `.ops/check.sh` (runs `format:check` if present → lint → typecheck or `tsc --noEmit` fallback → test → build in sequence).
 - `npm run lint` — ESLint. The codebase currently has pre-existing lint errors (mostly `no-explicit-any`).
 - `npm run typecheck` — `tsc --noEmit` against both `tsconfig.app.json` and `tsconfig.node.json`. Pre-existing type errors exist in the current codebase.
 - `npm run test` — Vitest (jsdom env). Runs 5 test files / 70 tests. Uses `vitest.config.ts` (separate from `vite.config.ts`).
