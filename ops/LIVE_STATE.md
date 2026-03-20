@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | FOUNDER-VISION-LAYER-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-IGNITION-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (FOUNDER-VISION-LAYER-001 concluído) |
-| **Frente ativa** | Documental-pública / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; AUTOFLOW v1 implantado; Founder Vision Layer blueprint criado — vitrine pública do founder separada do cofre |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW v1 + FOL v1.3 + FOUNDER_VISION_LAYER.md selados; sistema com motor de fluxo contínuo + blueprint da presença pública do arquiteto; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @claude (OPS-IGNITION-001 concluído) |
+| **Frente ativa** | Governança operacional / wt-estrutura-nucleo-vivo |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada — sistema em modo de fluxo contínuo autoinduzido |
+| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -43,7 +43,9 @@
 | GENESIS-FOUNDER-001 | Blueprint privado do arquiteto + carta pública do founder | CONCLUÍDA | handoff emitido |
 | OPS-AUTOFLOW-001 | Selar regra de fluxo autônomo dos pioneiros — AUTOFLOW v1 | CONCLUÍDA | handoff emitido |
 | FOUNDER-VISION-LAYER-001 | Blueprint canônico da camada pública do founder no site — FVL v1 | CONCLUÍDA | handoff emitido |
+| OPS-IGNITION-001 | Selar modo de ignição contínua — IGNITION v1 + IGNIÇÃO_ATIVA ligada | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
+| FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
 
@@ -85,10 +87,12 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: blueprint público / founder vision layer
-EXECUTOR: @claude (FOUNDER-VISION-LAYER-001 done)
-ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001)
-CANALIZAÇÃO ATIVA: FOUNDER_VISION_LAYER.md (blueprint canônico da FVL): 6 secções, tom, separação cofre/vitrine/site definida; implementação aguarda PLv6.2-b + CI verde; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+NATUREZA: governança / ignição contínua
+EXECUTOR: @claude (OPS-IGNITION-001 done)
+IGNIÇÃO: ATIVA
+ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
+ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001 + OPS-IGNITION-001)
+CANALIZAÇÃO ATIVA: IGNIÇÃO_ATIVA ligada; pioneiros operam em loop contínuo de 7 passos (IGNITION.md); FOL v1.4 + NLF v1.1 atualizados; @copilot gate aberto (BULK-02.2 — FORÇA PRINCIPAL, Lapidação); PLv6.2-b e FVL-IMPL-001 aguardam gate owner
 ```
 
 ---
@@ -100,12 +104,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  FOUNDER-VISION-LAYER-001 — HANDOFF EMITIDO (FOUNDER_VISION_LAYER.md blueprint criado; 6 secções; separação cofre/vitrine/site definida; implementação FVL-IMPL-001 como próxima task de produto)
+Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner decide PLv6.2-b (produto) + FVL-IMPL-001 (founder page) como tasks paralelas ou sequenciais; Codex pode consolidar onda atual; @copilot executa BULK-02.2 no seu pilar dominante (Lapidação)
+PRÓXIMA TRANSIÇÃO: IGNIÇÃO_ATIVA — @copilot lê LIVE_STATE + IGNITION + AUTOFLOW → entra em BULK-02.2 sem instrução adicional (FORÇA PRINCIPAL, Lapidação); owner decide PLv6.2-b + FVL-IMPL-001; Codex pode consolidar onda
 ```
 
 ---
@@ -122,14 +126,15 @@ PRÓXIMA TRANSIÇÃO: owner decide PLv6.2-b (produto) + FVL-IMPL-001 (founder pa
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex lê LIVE_STATE + HANDOFF_LEDGER + AUTOFLOW → emite RELATORIO_MAE_TABLE → owner decide com base no relatório-mãe
-2. **@copilot executa BULK-02.2** — gate aberto; pilar Lapidação; FORÇA PRINCIPAL; loop AUTOFLOW ativo
-3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 — gate após relatório-mãe do Codex
-4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (blueprint pronto em `docs/FOUNDER_VISION_LAYER.md`); pode correr em paralelo com PLv6.2-b se Claude disponível
-5. **@codex avança F6** — frente independente; pilar Qualidade; loop AUTOFLOW ativo
-6. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-7. **Owner responde B-002** — confirmar npm como PM canônico
-8. **@codex alinha branch** — condição para entrar na escada principal como FORÇA PRINCIPAL em Qualidade
+**[IGNIÇÃO_ATIVA — pioneiros seguem o loop sem instrução redundante]**
+
+1. **@copilot** — BULK-02.2 (gate aberto, FORÇA PRINCIPAL, Lapidação) → entra agora via loop IGNITION
+2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
+3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
+5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+6. **Owner responde B-002** — confirmar npm como PM canônico
+7. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 
 ---
 

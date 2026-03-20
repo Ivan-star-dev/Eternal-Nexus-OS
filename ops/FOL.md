@@ -356,7 +356,53 @@ motor de indução e o que o sistema torna desnecessário.
 
 ---
 
+---
+
+## 12. MODO DE IGNIÇÃO CONTÍNUA — IGNITION
+
+**Registrado em:** OPS-IGNITION-001 | 2026-03-20
+
+Quando **IGNIÇÃO_ATIVA** está ligada, o sistema opera em fluxo contínuo.
+Os pioneiros seguem o loop de 7 passos em cadeia sem instrução manual entre tasks.
+
+### Estado da Ignição
+
+```
+IGNIÇÃO: ATIVA
+Ativada por: owner | 2026-03-20 | OPS-IGNITION-001
+```
+
+### Loop de 7 passos (resumo)
+
+```
+1. TERMINAR   → conclui a task ou registra partial/blocked
+2. LER        → LIVE_STATE + HANDOFF_LEDGER + AUTOFLOW
+3. SELECIONAR → task elegível no pilar dominante, ou apoio em pilar alheio
+4. EXECUTAR   → dentro da competência, sem inventar fora do sistema
+5. REGISTRAR  → HANDOFF + LIVE_STATE + commit + push
+6. DESBLOQUEAR → marca o gate que a entrega abriu
+7. CONTINUAR  → volta ao passo 1 com a próxima task elegível
+```
+
+### Quando o loop para
+
+```
+→ Ordem do owner
+→ Bloqueio real sem contorno
+→ Red line / Lei Absoluta
+→ Gate soberano pendente
+→ Falta de task elegível em qualquer pilar
+```
+
+### Referência completa
+
+Ver `ops/IGNITION.md` — loop canônico, regras de prioridade, corredor comum,
+handoff como pipeline, interruptor, o que a ignição não é.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
 *FOL v1.3 — seção 11 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-AUTOFLOW-001*
+*FOL v1.4 — seção 12 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001*

@@ -116,7 +116,34 @@ Quando atualizar cada arquivo:
 | Tribunal | Tribunal decide o que muda no canon; NLF registra decisões |
 | Bulking em escada | LIVE_STATE rastreia em qual camada cada pioneiro está |
 | Micro Team | Futura entrada na fila viva — slot reservado na seção 2 de LIVE_STATE |
+| IGNIÇÃO_ATIVA | Modo operacional contínuo — registado no semáforo do LIVE_STATE; o NLF é o tecido sobre o qual a ignição corre |
+
+---
+
+## 7. MODO DE IGNIÇÃO — RELAÇÃO COM O NLF
+
+**Registrado por instrução explícita do owner | OPS-IGNITION-001 | 2026-03-20**
+
+O modo IGNIÇÃO_ATIVA não altera a soberania do NLF.
+Opera **dentro** do tecido vivo — não sobre ele.
+
+```
+NLF define:     o que o sistema é e como os artefatos vivos se relacionam
+IGNITION define: como os pioneiros se movem continuamente dentro do NLF
+AUTOFLOW define: como cada pioneiro age ao terminar uma task
+```
+
+O estado da ignição (`IGNIÇÃO: ATIVA / PAUSADA / PARADA`) vive no semáforo
+do `ops/LIVE_STATE.md` — que é um dos 3 artefatos vivos do NLF.
+
+**Regra de soberania preservada:**
+> A ignição nunca altera definições canônicas do NLF.
+> A ignição nunca substitui o Tribunal ou o owner em decisões soberanas.
+> A ignição para se qualquer passo exigir atravessar uma Red Line ou Lei Absoluta.
+
+Ver `ops/IGNITION.md` — definição completa do modo de ignição contínua.
 
 ---
 
 *NLF v1 — implantado em 2026-03-20 | claude-sonnet-4-6 | E17 | Fase 3*
+*NLF v1.1 — seção 7 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001 | instrução explícita do owner*

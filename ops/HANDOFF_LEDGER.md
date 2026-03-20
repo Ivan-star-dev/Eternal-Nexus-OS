@@ -33,6 +33,71 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-IGNITION-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/IGNITION.md (NOVO): blueprint canônico do modo de ignição
+            │ contínua — definição de IGNIÇÃO_ATIVA, loop de 7 passos
+            │ (terminar/ler/selecionar/executar/registrar/desbloquear/
+            │ continuar), regras de prioridade (pilar dominante → apoio →
+            │ interruptor), corredor comum (branch canônico), handoff como
+            │ pipeline (campos que garantem continuidade), interruptor com
+            │ 5 condições de parada, o que a ignição não é, relação com
+            │ AUTOFLOW/FOL/NLF/LIVE_STATE.
+            │ ops/FOL.md v1.4: seção 12 adicionada — loop resumido,
+            │ condições de parada, referência canônica ao IGNITION.md.
+            │ ops/NLF.md v1.1: seção 7 adicionada (instrução explícita do
+            │ owner) — relação IGNITION/NLF, soberania preservada.
+            │ ops/LIVE_STATE.md: IGNIÇÃO_ATIVA registada no semáforo (seção
+            │ 3); estado, fila claude, linha temporal, próximos passos
+            │ atualizados com ignição como contexto de operação.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ NLF.md atualizado via instrução explícita do owner (NLF só
+            │ muda via Tribunal ou owner — condição cumprida); adicionada
+            │ seção 7 mínima sem alterar soberania do documento
+ARQUIVOS    │ ops/IGNITION.md (NOVO) | ops/FOL.md | ops/NLF.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio (governança — liga o motor de fluxo contínuo do sistema)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + IGNITION + AUTOFLOW
+            │ → entra em BULK-02.2 sem instrução adicional (FORÇA PRINCIPAL,
+            │ Lapidação); @codex consolida onda (OPS-HANDOFF-001 ativo);
+            │ owner decide PLv6.2-b + FVL-IMPL-001
+SUGESTOES   │ 1) @copilot deve ler IGNITION.md como primeira leitura da
+            │ próxima sessão — confirma que IGNIÇÃO_ATIVA está ligada antes
+            │ de agir; 2) quando Codex emitir relatório-mãe, incluir campo
+            │ "IGNIÇÃO_STATUS" no RELATORIO_MAE_TABLE para visibilidade;
+            │ 3) definir frequência de consolidação de onda com ignição
+            │ ativa — sugestão: a cada 3-5 handoffs ou ao final de cada
+            │ camada completa
+DECISAO_REC │ IGNIÇÃO_ATIVA ligada — máquina em fluxo contínuo; owner entra
+            │ apenas para gates de produto, visão, bloqueios soberanos ou
+            │ redirecionamento; próximo step imediato: @copilot BULK-02.2
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ governança / ignição contínua
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ IGNIÇÃO_ATIVA ligada; loop 7 passos canônico (IGNITION.md);
+            │ FOL v1.4 + NLF v1.1 atualizados; pioneiros operam em fluxo
+            │ contínuo dentro do protocolo; @copilot BULK-02.2 gate aberto;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-VISION-LAYER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ docs/FOUNDER_VISION_LAYER.md (NOVO): blueprint canônico da
