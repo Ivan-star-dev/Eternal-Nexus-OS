@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | PLv6.2-a
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-HANDOFF-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (PLv5.1 handoff emitido) |
-| **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a — Projects Gallery Layer / Layer 2 visível na home |
-| **Estado geral** | PLv6.2-a concluída; ProjectsLiveSection inserida em Index.tsx (entre DOSSIÊS e OrganStatusGrid); Layer 2 Supabase visível no produto; skeleton + empty state + link para Atlas; PLv6.1 + PLv6.2-a completos |
+| **Executor ativo** | @claude (OPS-HANDOFF-001 concluído) |
+| **Frente ativa** | Operacional / wt-estrutura-nucleo-vivo |
+| **Camada atual** | PLv6.2-a concluída; OPS-HANDOFF-001 registrado — Codex promovido a Consolidador Oficial de Fase/Onda |
+| **Estado geral** | PLv6.2-a concluída (Layer 2 Supabase visível na home); CODEX_CONSOLIDATOR.md criado; FOL.md seção 9 adicionada; Codex pode consolidar sem branch alinhado; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -41,12 +41,13 @@
 | PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 
-### @codex (Refinador Técnico)
+### @codex (Consolidador de Fase/Onda + Refinador Técnico)
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
+| OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | owner solicita relatório-mãe — não requer branch alinhado |
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
-| BULK-01-Codex | Refinamento da camada BULK-01 | BLOQUEADA | branch não alinhado ao canônico — entra na próxima onda após alinhamento |
+| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | BLOQUEADA | branch não alinhado ao canônico — entra na próxima onda após alinhamento |
 
 ### @cursor (Desbloqueador / Backlog Mecânico)
 
@@ -80,10 +81,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / PLv6.2-a — Projects Gallery Layer (Layer 2 visível na home)
-EXECUTOR: @claude (PLv6.2-a done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a)
-CANALIZAÇÃO ATIVA: PLv6.2-a concluída; ProjectsLiveSection na home (globe_projects Supabase visíveis no produto); Layer 2 deixa de ser só infra; @copilot gate aberto; PLv6.2-b aguarda gate owner
+NATUREZA: operacional / OPS-HANDOFF-001 — Codex registrado como Consolidador de Fase/Onda
+EXECUTOR: @claude (OPS-HANDOFF-001 done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001)
+CANALIZAÇÃO ATIVA: Codex promovido a Consolidador Oficial (CODEX_CONSOLIDATOR.md + FOL seção 9); pode consolidar sem branch alinhado; owner passa a usar só o relatório-mãe como input de decisão; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
 ```
 
 ---
@@ -95,12 +96,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  PLv6.2-a — HANDOFF EMITIDO (Projects Gallery Layer: ProjectsLiveSection na home; globe_projects Supabase visíveis no produto)
+Claude:  OPS-HANDOFF-001 — HANDOFF EMITIDO (CODEX_CONSOLIDATOR.md + FOL seção 9; Codex registrado como Consolidador Oficial de Fase/Onda)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
-Cursor:  timeout auxiliar — fora da trava desta onda
-Codex:   F6 — EM ANDAMENTO (frente independente) | branch desalinhado
+Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
+Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.2-a → decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data)
+PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex emite relatório-mãe → owner decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7
 ```
 
 ---
@@ -117,13 +118,13 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.2-a → decide PLv6.2-b (NewsAPI? p
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff PLv6.2-a** → confirma Projects Gallery Layer aceite → decide PLv6.2-b: NewsAPI? project_metrics? página dedicada de portfólio? ou PLv7 (owner data)?
-2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ e hooks imediatamente
-3. **@codex avança F6** — frente independente, não bloqueia onda atual
-4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-5. **Owner responde B-002** — confirmar npm como PM canônico
-6. **@codex alinha branch** — condição para entrar na escada principal na onda 5
-7. **@codex alinha branch** — condição para entrar na escada principal na onda 3
+1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex lê HANDOFF_LEDGER + LIVE_STATE → emite relatório-mãe → owner decide com base no relatório-mãe
+2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ imediatamente
+3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data) — gate após relatório-mãe
+4. **@codex avança F6** — frente independente, não bloqueia onda atual
+5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+6. **Owner responde B-002** — confirmar npm como PM canônico
+7. **@codex alinha branch** — condição para entrar na escada principal (execução de produto)
 
 ---
 

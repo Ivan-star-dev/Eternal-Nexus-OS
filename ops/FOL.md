@@ -238,11 +238,52 @@ docs/DOC_BULKING_ESCADA.md  protocolo       todos             selado — não al
 | Item | Por que fica | Quem decide |
 |---|---|---|
 | Feature work de produto | Fora do escopo desta camada | Owner (abertura de BULK-03+) |
-| Integração Codex na escada | Aguarda alinhamento de branch | Codex + owner |
+| Integração Codex na escada (execução) | Aguarda alinhamento de branch | Codex + owner |
 | Resolução de B-001/B-002/B-003 | Decisões soberanas do owner | Owner |
 | Refinamento técnico do FOL | Papel de Codex após branch alinhado | Codex |
 | Lapidação de superfície do FOL | Papel de Copilot na BULK-02.2 | Copilot |
 
 ---
 
+## 9. PROTOCOLO DE CONSOLIDAÇÃO — CODEX CONSOLIDATOR
+
+**Registrado em:** OPS-HANDOFF-001 | 2026-03-20
+
+O Codex atua como **consolidador oficial de fase/onda**, mesmo sem branch alinhado.
+Não executa produto. Não precisa de push. Opera sobre leitura de artefatos reais.
+
+### Resumo do fluxo atualizado
+
+```
+[Pioneiros emitem handoffs no HANDOFF_LEDGER — como sempre]
+        ↓
+[Owner solicita: "Codex, consolida a onda N"]
+        ↓
+[Codex lê HANDOFF_LEDGER + LIVE_STATE → emite relatório-mãe]
+        ↓
+[Owner lê só o relatório-mãe → decide → próximo comando]
+```
+
+### O que o Codex consolida
+
+| Papel | Descrição |
+|---|---|
+| Leitor de handoffs | Lê HANDOFF_LEDGER da fase/onda |
+| Consolidador | Agrupa tarefas por estado (done/partial/blocked) |
+| Auditor de coerência | Detecta conflitos entre handoffs |
+| Sintetizador de bloqueios | Lista todos os bloqueios ativos |
+| Organizador de próximo passo | Propõe próximos passos com base em evidência real |
+
+### Regra de evidência
+
+> Codex só consolida com base em: handoffs reais + logs reais + ledger real + LIVE_STATE real.
+> Qualquer inferência sem evidência direta deve ser marcada com `⚠️ INFERÊNCIA:`.
+
+### Referência completa
+
+Ver `ops/CODEX_CONSOLIDATOR.md` — blueprint canônico completo com formato do relatório-mãe.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
+*FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*

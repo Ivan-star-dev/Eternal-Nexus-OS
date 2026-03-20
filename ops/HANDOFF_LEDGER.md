@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: OPS-HANDOFF-001 — Registrar Codex como Consolidador Oficial de Fase/Onda
+STATUS: done
+FEITO: ops/CODEX_CONSOLIDATOR.md criado (protocolo canônico completo: regra operacional, papel do Codex no fluxo, blueprint do relatório-mãe, regra de evidência, objetivo de volume, localização canônica, integração com fluxo existente); ops/FOL.md atualizado com seção 9 (resumo do protocolo + referência ao CODEX_CONSOLIDATOR.md); ops/LIVE_STATE.md atualizado (cabeçalho, estado atual, fila do Codex com papel de Consolidador, semáforo, linha temporal, próximos passos); ops/HANDOFF_LEDGER.md este entry
+NAO_FEITO: não foi alterado nenhum doc soberano (NEXUS_OS, NLF, DOC_BULK_PROTOCOL) — escopo mínimo respeitado; relatório-mãe é efêmero (canal do owner) e não foi criado agora
+BLOQUEIOS: nenhum
+ADAPTACOES: CODEX_CONSOLIDATOR.md criado como novo arquivo em ops/ em vez de modificar NLF.md (NLF é soberano — não altera por task operacional); FOL.md recebeu seção 9 como extensão natural do fluxo operacional
+ARQUIVOS: ops/CODEX_CONSOLIDATOR.md (NOVO) | ops/FOL.md (seção 9 adicionada) | ops/LIVE_STATE.md (atualizado) | ops/HANDOFF_LEDGER.md (este entry)
+IMPACTO: baixo
+PROXIMO_PASSO: owner solicita a @codex "consolida a onda atual" → Codex lê HANDOFF_LEDGER + LIVE_STATE → emite relatório-mãe → owner decide PLv6.2-b ou PLv7 com base no relatório
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: SUPER-BULK-A — PLv4 — Live Organ Status: escala total (SBA-01+02+03)
 STATUS: done
 FEITO: SBA-01 — useIndexOrgan.ts expõe realtimeData no return (elimina instância duplicada de useRealtimeData). SBA-02 — useOrganLiveStatus.ts reescrito: INDEX live via useIndexOrgan().entries (contagem real de entradas agregadas); NEWS live via entries filtradas por última hora (derivado canónico do fluxo Index→News); ATLAS consolidado via useIndexOrgan.realtimeData (sem segundo useRealtimeData); useRealtimeData redundante removido do hook. SBA-03 — GEOPOLITICS live via fetchRecentEarthquakes() (USGS M4.5+/24h, API pública sem auth, fetch único no mount). workspace.ts: productLayer PLv4. PRODUCT_LAYER_1.md: secção PLv4 com tabela de fontes, fronteira e estado dos consumidores. LIVE_STATE e HANDOFF_LEDGER atualizados. Resultado: 5/7 órgãos com isLive:true (ATLAS + TRIBUNAL + INDEX + NEWS + GEOPOLITICS).
