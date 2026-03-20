@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | E18
+**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-01.1
 
 ---
 
@@ -13,12 +13,12 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Fase 3 — Governança e Auditabilidade |
+| **Fase ativa** | Fase 3 → Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude |
+| **Executor ativo** | @claude (BULK-01.1) + @copilot (BULK-01.2 GATE ABERTO) + @cursor (BULK-01.3 DESIGNADO) |
 | **Frente ativa** | Estrutura / wt-estrutura-nucleo-vivo |
-| **Camada atual** | E18 — Selagem final do protocolo pré-bulk |
-| **Estado geral** | Protocolo selado — sistema pronto para feedback dos pioneiros + prompt master de bulk |
+| **Camada atual** | BULK-01 — Arranque coordenado do sistema vivo |
+| **Estado geral** | Bulk em cascata iniciado — camada 1 aberta por Claude; Copilot e Cursor com gates abertos; Codex em frente independente |
 
 ---
 
@@ -30,27 +30,31 @@
 |---|---|---|---|
 | E17 | Implantar primeira camada do NLF | CONCLUÍDA | handoff emitido |
 | E18 | Selar versão final do protocolo pré-bulk | CONCLUÍDA | handoff emitido |
-| — | Camada 1 do bulk real | PLANEJADA | prompt master do owner |
+| BULK-01.1 | Abertura oficial do bulk em escada — camada 1 | EM ENTREGA | handoff emitido ao final desta sessão |
+| BULK-02.1 | Camada 2 do bulk (próxima) | BLOQUEADA | só abre após handoff BULK-01.1 + leitura dos 3 handoffs da onda 1 |
 
 ### @codex (Refinador Técnico)
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
-| — | Refinamento da camada NLF (E17) | PLANEJADA | revisão do owner sobre NLF v1 |
+| BULK-01-Codex | Refinamento da camada BULK-01 | BLOQUEADA | branch não alinhado ao canônico — entra na próxima onda após alinhamento |
 
 ### @cursor (Desbloqueador / Backlog Mecânico)
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
-| — | Nenhuma ativa | EM OBSERVAÇÃO | bloqueios mecânicos a designar |
+| BULK-01.3-a | Remover `vite.config.ts.timestamp-*` (arquivo gerado, não versionável) | GATE ABERTO | pode executar agora — mecânico, seguro, não-soberano |
+| BULK-01.3-b | Avaliar duplicação `bun.lock` + `package-lock.json` — ambos no repo | GATE ABERTO | confirmar PM canônico (B-002) ou limpar se for residual óbvio |
+| BULK-01.3-c | Verificar `antigravity/legacy-html/` — se é lixo mecânico sem decisão soberana | GATE ABERTO | checar se é apenas conteúdo obsoleto removível sem impacto |
 
 ### @copilot (Lapidador)
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
-| L-001+L-002 | Higiene .gitignore + rm --cached timestamp | PLANEJADA | pode iniciar |
-| — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17 |
+| BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
+| BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora — aguardar Cursor confirmar se já fez BULK-01.3-a |
+| — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
 
 ### Micro Team
 
@@ -67,10 +71,27 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: selagem final do protocolo pré-bulk
-EXECUTOR: @claude
-ESTADO: done
-CANALIZAÇÃO ATIVA: protocolo selado; execution map + preflight gate + canalization guard + linha temporal definidos; sistema pronto para feedback curto dos pioneiros e prompt master de bulk
+NATUREZA: abertura de camada / bulk em cascata
+EXECUTOR: @claude (BULK-01.1) | @copilot (BULK-01.2 ativo) | @cursor (BULK-01.3 ativo)
+ESTADO: done (Claude) | a executar (Copilot + Cursor)
+CANALIZAÇÃO ATIVA: BULK-01 aberto; gates de Copilot e Cursor liberados; Codex em frente independente (F6); Trava de continuação: BULK-02 só abre após leitura dos 3 handoffs desta onda
+```
+
+---
+
+## 3.1 LINHA TEMPORAL
+
+```
+LINHA TEMPORAL:
+─────────────────────────────────────────────
+MACROFASE: Fase 3 → Bulking Controlado do Produto
+─────────────────────────────────────────────
+Claude:  BULK-01.1 — HANDOFF EMITIDO (camada aberta, gate liberado)
+Copilot: BULK-01.2 — GATE ABERTO (L-001 + L-002 — pode executar)
+Cursor:  BULK-01.3 — GATE ABERTO (backlog mecânico designado: 3 items)
+Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-01-Codex BLOQUEADO (branch)
+─────────────────────────────────────────────
+PRÓXIMA TRANSIÇÃO: leitura dos 3 handoffs desta onda → owner abre gate para BULK-02
 ```
 
 ---
@@ -87,12 +108,13 @@ CANALIZAÇÃO ATIVA: protocolo selado; execution map + preflight gate + canaliza
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Feedback curto dos pioneiros** — cada pioneiro confirma sincronização com o protocolo selado
-2. **Owner emite prompt master único de bulk** — define as camadas, a escada e o executor de cada task
-3. **@copilot executa L-001 + L-002** — higiene .gitignore (pode começar agora, independente)
+1. **@copilot executa BULK-01.2** — L-001 (.gitignore gaps) + L-002 (rm --cached timestamp) — GATE ABERTO
+2. **@cursor executa BULK-01.3** — remover timestamp file, avaliar bun/npm dupe, checar antigravity/legacy-html/ — GATE ABERTO
+3. **@codex avança F6** — casca técnica executável (frente independente, não bloqueia onda 1)
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-5. **Owner responde B-002** — confirmar npm como PM canônico
-6. **@codex avança F6** — casca técnica executável em andamento (frente independente)
+5. **Owner responde B-002** — confirmar npm como PM canônico (desbloquearia BULK-01.3-b completamente)
+6. **Leitura dos 3 handoffs da onda 1** — owner lê handoffs de Claude + Copilot + Cursor → abre gate para BULK-02
+7. **@codex alinha branch** — condição para entrar na escada principal na onda 2
 
 ---
 
