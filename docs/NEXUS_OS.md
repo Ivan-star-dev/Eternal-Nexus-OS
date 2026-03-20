@@ -202,6 +202,36 @@ O Tribunal é a única porta de entrada para o core. Nenhuma mudança estrutural
 - 1 próximo passo oficial
 - até 3 sugestões paralelas de refinamento (não obrigatórias, não bloqueantes)
 
+### Registro Visual de Canalização
+
+Todo pioneiro, ao concluir qualquer task ou resposta operacional final, entrega **dois blocos obrigatórios de fechamento em sequência**:
+
+1. O handoff linear (formato acima)
+2. O registro visual de canalização (formato abaixo)
+
+**Formato canônico:**
+```
+REGISTRO DE CANALIZAÇÃO:
+[🟢|🔴] CHAT: [nome do chat ou "mesmo"]
+[🟢|🔴] BRANCH: [nome do branch ou "mesmo"]
+[🟢|🔴] WORKTREE: [nome wt-* ou "mesmo"]
+NATUREZA: [natureza específica da tarefa]
+EXECUTOR: [@pioneiro]
+ESTADO FINAL: [done|partial|blocked]
+CANALIZAÇÃO ATIVA: [descrição curta da frente ativa]
+```
+
+**Leitura dos sinais:**
+- 🟢 = contexto preservado em relação ao prompt de entrada
+- 🔴 = contexto mudou nessa dimensão
+- Tudo verde → continuação normal — próximo pioneiro entra daqui
+- Misto verde/vermelho → mudança parcial — atenção ao reposicionamento antes de agir
+- Tudo vermelho → mudança total — parar, reler contexto completo, reposicionar
+
+**Aplicação universal:** Claude, Codex, Copilot, Micro Team, Segunda Mão, Research, Hardening e qualquer equipe auxiliar futura.
+
+**Regra:** O registro de canalização não substitui o handoff. Os dois são obrigatórios. Handoff sem canalização = fechamento incompleto.
+
 ---
 
 ## 11. BULK COM TRAVÃO
@@ -385,12 +415,13 @@ Sem essa identidade, o agente está operando sem coordenada. Sem coordenada, nã
 
 ## 21. BLUEPRINTS OBRIGATÓRIOS
 
-O sistema tem 8 blueprints canônicos. Todos os agentes devem conhecê-los:
+O sistema tem 9 blueprints canônicos. Todos os agentes devem conhecê-los:
 
 | Blueprint | Propósito | Localização |
 |---|---|---|
 | **Prompt Blueprint** | Estrutura mínima de um prompt de tarefa | Este documento, seção 20 |
 | **Handoff Blueprint** | Formato de entrega ao fim de cada sessão | Este documento, seção 10 |
+| **Canalização Blueprint** | Registro visual de estado do sistema ao fim de cada resposta | Este documento, seção 10 |
 | **Semáforo Blueprint** | Formato e leitura do semáforo de contexto | Este documento, seção 6 |
 | **Fallback Blueprint** | Protocolo de troca de modelo | Este documento, seção 13 |
 | **Tribunal Blueprint** | Processo de julgamento para entrada no core | `docs/DOC_TRIBUNAL_E4.md` |

@@ -56,6 +56,13 @@ Regras obrigatórias ao encontrar um identificador `wt-*`:
 
 Evidência técnica registrada (E9, 2026-03-20): `git worktree list` retorna um único worktree real. Nenhum diretório `wt-*` existe no disco. O sistema de nomes é protocolo de coordenação semântica.
 
+## Fechamento obrigatório de resposta
+Todo agente que conclui uma task operacional entrega **dois blocos em sequência** ao final da resposta:
+1. **Handoff linear** — formato canônico em `docs/NEXUS_OS.md` seção 10
+2. **Registro de canalização** — bloco visual abaixo do handoff, mesmo formato
+
+Sem os dois blocos, o fechamento está incompleto e a sessão não existe para o sistema.
+
 ## Regra de drift
 - Se uma solicitação conflitar com as invariantes acima, responder exatamente:
   **"Isso quebra o organismo vivo. Quer manter?"**
