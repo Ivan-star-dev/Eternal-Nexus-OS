@@ -195,3 +195,39 @@ IMPACTO: alto
 PROXIMO_PASSO: Camadas subsequentes da governança — micro team, tribunal, bulking escada, NLF
 
 ---
+
+## PLv5.1 — DATA_LAYER_1 completa / 7/7 órgãos vivos
+
+**Data:** 2026-03-20
+**Executor:** @claude | claude-sonnet-4-6
+**Task:** PLv5.1 — Definir Data Layer Strategy e implementar a Layer 1
+
+```
+HANDOFF FINAL
+@claude | MODELO:claude-sonnet-4-6 | TASK:PLv5.1 | STATUS:done
+FEITO: DATA_LAYER_STRATEGY.md canónico (3 layers, critérios, fronteiras, composição); worldBankData.ts (fetcher World Bank Open Data — sem auth, Layer 1); useOrganLiveStatus NEXUS vivo (session timer, pipelineOps); INVESTOR vivo (World Bank NL GDP NY.GDP.MKTP.CD, degradação honesta); 7/7 órgãos com isLive:true; workspace PLv5; todos docs actualizados
+NAO_FEITO: NewsAPI.org (gate owner: chave), Supabase projects table (gate owner: migração), owner proprietary data B-001, EI agent real-time state, Alpha Vantage, financial firehose
+BLOQUEIOS: nenhum — Layer 1 completa sem gates; Layer 2 e 3 aguardam decisão do owner
+ADAPTACOES: INVESTOR mostra PIB NL (World Bank macro context) em vez de "$2.8B" hardcoded; NEXUS mostra session timer em vez de EI agent state (Layer 3 — PLv6+); fallback honesto se World Bank indisponível: metric '—', isLive:false
+ARQUIVOS: ops/DATA_LAYER_STRATEGY.md (NOVO) | src/lib/worldBankData.ts (NOVO) | src/hooks/useOrganLiveStatus.ts (atualizado: NEXUS + INVESTOR vivos) | src/config/workspace.ts (PLv5) | ops/PRODUCT_LAYER_1.md (append PLv5.1) | ops/LIVE_STATE.md (atualizado) | ops/HANDOFF_LEDGER.md (este entry)
+IMPACTO: alto — 7/7 órgãos com Layer 1 real; base sólida para Layer 2 e 3
+PROXIMO_PASSO: owner decide o que entra em PLv6 — Layer 2 (NewsAPI? projects table? Alpha Vantage?) ou Layer 3 (owner data B-001)
+SUGESTOES: 1) NewsAPI free key para NEWS ter manchetes reais — baixo esforço, alto impacto visual; 2) Supabase projects table para HOME gallery + INVESTOR mostrar projectos reais; 3) Triangulação: cruzar World Bank GDP + USGS sismos + Open-Meteo → indicador de instabilidade regional para ATLAS/GEOPOLITICS
+DECISAO_RECOMENDADA: @copilot entra agora (BULK-02.2 — gate aberto, suavizar PLv4+PLv5 em ops/); Codex espera branch; PLv6 abre após leitura do owner
+
+REGISTRO DE CANALIZAÇÃO:
+[🟢] CHAT: mesmo
+[🟢] BRANCH: claude/expose-workspace-config-yt4Km
+[🟢] WORKTREE: wt-estrutura-nucleo-vivo
+NATUREZA: produto / PLv5 — Data Layer Strategy
+EXECUTOR: @claude
+ESTADO FINAL: done
+CANALIZAÇÃO ATIVA: PLv5.1 concluída — DATA_LAYER_1 completa; 7/7 órgãos vivos; Layer 2 e 3 documentadas e fronteirizadas; @copilot gate aberto; PLv6 aguarda gate owner
+
+TRAVA DE CONTINUAÇÃO:
+- não abrir PLv6 sem gate owner
+- Copilot entra agora (BULK-02.2 — suavização)
+- Codex continua fora até alinhar branch
+```
+
+---

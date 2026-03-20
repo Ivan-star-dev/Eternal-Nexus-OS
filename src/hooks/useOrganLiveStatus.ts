@@ -1,33 +1,34 @@
 /**
- * useOrganLiveStatus — Live Organ Status Layer (PLv4)
+ * useOrganLiveStatus — Live Organ Status Layer (PLv5.1)
  *
  * Retorna o estado vivo de cada órgão do organismo.
  * Distingue explicitamente dados vivos de placeholders.
  *
- * Fontes ativas nesta camada (PLv4):
+ * Fontes ativas nesta camada (PLv5.1 — Layer 1 completa, 7/7 órgãos):
  *   ATLAS       → temperatura Mindelo via realtimeData de useIndexOrgan (Open-Meteo)
  *   TRIBUNAL    → TanStack Query (useNexusState) — contagem de veredictos da sessão
  *   INDEX       → contagem de entradas via useIndexOrgan (agregação real do fluxo)
  *   NEWS        → entradas da última 1h derivadas do Index (fluxo Índice → Notícias)
  *   GEOPOLITICS → contagem de sismos M4.5+ (24h) via USGS Earthquake API (pública, sem auth)
- *
- * Fontes pendentes (PLv5+):
- *   nexus, investor → placeholder explícito (B-001 / nova infra / dados owner)
+ *   NEXUS       → duração da sessão activa do sistema (runtime, computed em tempo real)
+ *   INVESTOR    → GDP dos Países Baixos via World Bank Open Data (pública, sem auth)
  *
  * Regras:
  *   - Não criar novos backends ou autenticação
- *   - Usar apenas infraestrutura já presente no codebase
+ *   - Usar apenas infraestrutura já presente no codebase + DATA_LAYER_1
  *   - Fallback gracioso sempre — nunca quebrar o grid
- *   - isLive: false = placeholder honesto, não dado vivo
+ *   - isLive: false = placeholder estático, não dado vivo
  *   - useIndexOrgan é a fonte única de realtimeData (evita instâncias duplicadas)
+ *   - Layer 2/3 (Supabase auth, dados owner) ficam em PLv6+
  *
- * sacred-flow: BULK-SBA-02+03 | PLv4 | 2026-03-20
+ * sacred-flow: SUPER-BULK-A + PLv5.1 | DATA_LAYER_1 | 2026-03-20
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNexusState } from '@/hooks/useNexusState';
 import { useIndexOrgan } from '@/hooks/useIndexOrgan';
 import { fetchRecentEarthquakes } from '@/lib/earthquakeData';
+import { fetchWorldBankIndicator, formatUSD } from '@/lib/worldBankData';
 
 export interface OrganLiveData {
   metric: string;
@@ -35,12 +36,14 @@ export interface OrganLiveData {
   status: string;
   /**
    * true  = valor calculado em tempo real nesta sessão (API ou estado derivado)
-   * false = placeholder estático (fonte real a integrar em PLv5+)
+   * false = placeholder estático (fonte real a integrar em PLv6+)
    */
   isLive: boolean;
 }
 
-// Intervalo de temperatura de Mindelo → string de status legível
+// ── Utilitários internos ────────────────────────────────────────────────────
+
+/** Temperatura de Mindelo → string de status legível */
 function climateStatus(tempC: number): string {
   if (tempC >= 30) return `${tempC.toFixed(1)}°C — calor intenso`;
   if (tempC >= 24) return `${tempC.toFixed(1)}°C — temperatura tropical`;
@@ -48,13 +51,28 @@ function climateStatus(tempC: number): string {
   return `${tempC.toFixed(1)}°C — fresco`;
 }
 
+/**
+ * Formata duração em ms para string legível.
+ * < 1m → "Xs" | < 1h → "Xm Ys" | >= 1h → "Xh Ym"
+ */
+function formatSession(ms: number): string {
+  const totalS = Math.floor(ms / 1000);
+  const h = Math.floor(totalS / 3600);
+  const m = Math.floor((totalS % 3600) / 60);
+  const s = totalS % 60;
+  if (h > 0) return `${h}h ${m}m`;
+  if (m > 0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
+
+// ── Hook principal ──────────────────────────────────────────────────────────
+
 export function useOrganLiveStatus(): Record<string, OrganLiveData> {
   // ── TRIBUNAL: veredictos da sessão ──────────────────────────────────────
   const { verdicts } = useNexusState();
 
   // ── INDEX + ATLAS + NEWS: useIndexOrgan é a fonte única de realtimeData ─
-  // useIndexOrgan agrega tribunal + realtimeData (Open-Meteo + fallback simulado)
-  // realtimeData exposto em SBA-01 para eliminar instância duplicada de useRealtimeData
+  // Expõe realtimeData desde SBA-01 — elimina instância duplicada de useRealtimeData
   const { entries, isProcessing, realtimeData } = useIndexOrgan();
 
   // ATLAS: temperatura de Mindelo a partir do ponto clima no realtimeData
@@ -62,13 +80,10 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
   const tempC = tempPoint?.temperature ?? tempPoint?.value ?? null;
 
   // NEWS: entradas geradas na última hora (fluxo Index → News)
-  // Todas as IndexEntry têm flowTarget: 'news' — o subset recente é a "notícia viva"
   const ONE_HOUR_MS = 3_600_000;
   const recentCount = entries.filter(e => e.timestamp > Date.now() - ONE_HOUR_MS).length;
 
   // ── GEOPOLITICS: sismos M4.5+ nas últimas 24h via USGS ──────────────────
-  // API pública, sem auth, sem nova infra. Fetch único no mount; não precisa de polling
-  // para o nível de informação exibido no grid (sísmos diários, não mudam a cada minuto)
   const [quakeCount, setQuakeCount] = useState<number | null>(null);
   const [quakeLoading, setQuakeLoading] = useState(true);
 
@@ -79,6 +94,43 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
       if (mounted) {
         setQuakeCount(quakes.length);
         setQuakeLoading(false);
+      }
+    });
+    return () => { mounted = false; };
+  }, []);
+
+  // ── NEXUS: duração da sessão activa ─────────────────────────────────────
+  // Session timer — o tempo desde que o sistema foi montado nesta sessão.
+  // "Runtime do sistema" é o sinal mais honesto para NEXUS como orquestrador:
+  //   - sempre vivo (nunca null, nunca falha)
+  //   - reflecte actividade real desta janela de trabalho
+  //   - o status complementa com actividade do pipeline (verdicts + entries)
+  const sessionStart = useRef(Date.now());
+  const [sessionMs, setSessionMs] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setSessionMs(Date.now() - sessionStart.current), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  const pipelineOps = verdicts.length + entries.length;
+
+  // ── INVESTOR: GDP dos Países Baixos via World Bank Open Data ─────────────
+  // Indicador: NY.GDP.MKTP.CD — GDP current USD
+  // País: NL (Países Baixos — DeltaSpine NL context)
+  // Fetch único no mount; GDP é anual, não precisa de polling por sessão
+  const [investorGdp, setInvestorGdp] = useState<{ formatted: string; date: string } | null>(null);
+  const [investorLoading, setInvestorLoading] = useState(true);
+  const [investorIsLive, setInvestorIsLive] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    fetchWorldBankIndicator('nl', 'NY.GDP.MKTP.CD').then(data => {
+      if (!mounted) return;
+      setInvestorLoading(false);
+      if (data?.value) {
+        setInvestorGdp({ formatted: formatUSD(data.value), date: data.date });
+        setInvestorIsLive(true);
       }
     });
     return () => { mounted = false; };
@@ -96,7 +148,6 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
     },
 
     atlas: {
-      // Temperatura real de Mindelo, Cabo Verde — ponto de origem do sacred-flow
       metric: isProcessing ? '…' : tempC !== null ? `${Math.round(tempC)}°C` : '—',
       metricLabel: 'Mindelo',
       status: isProcessing ? 'Lendo clima…' : tempC !== null ? climateStatus(tempC) : 'Clima indisponível',
@@ -104,7 +155,6 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
     },
 
     index: {
-      // Entradas reais agregadas: tribunal verdicts + dados climáticos do fluxo
       metric: isProcessing ? '…' : entries.length.toString(),
       metricLabel: 'entradas',
       status: isProcessing
@@ -116,7 +166,6 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
     },
 
     news: {
-      // Derivado do Index: entradas recentes (última 1h) = "notícias vivas"
       metric: recentCount.toString(),
       metricLabel: 'última hora',
       status: recentCount > 0
@@ -126,7 +175,6 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
     },
 
     geopolitics: {
-      // USGS Earthquake Feed — M4.5+ nas últimas 24h — API pública real
       metric: quakeLoading ? '…' : quakeCount !== null ? quakeCount.toString() : '—',
       metricLabel: 'M4.5+ / 24h',
       status: quakeLoading
@@ -137,21 +185,28 @@ export function useOrganLiveStatus(): Record<string, OrganLiveData> {
       isLive: true,
     },
 
-    // ── Placeholders honestos — PLv5+ ─────────────────────────────────────
     nexus: {
-      // 3 EIs definidos no sistema (AgentId: zeta-9, kronos, nanobanana)
-      // isLive: false — valor estático da config, não dinâmico em runtime
-      metric: '3',
-      metricLabel: 'EIs',
-      status: 'Sistema Nexus',
-      isLive: false,
+      // Session timer: duração real desta sessão no sistema
+      // Complementado com actividade do pipeline (verdicts + entries = "operações")
+      metric: formatSession(sessionMs),
+      metricLabel: 'sessão',
+      status: pipelineOps > 0
+        ? `Pipeline activo — ${pipelineOps} op${pipelineOps > 1 ? 's' : ''}`
+        : 'Sistema Nexus activo',
+      isLive: true,
     },
+
     investor: {
-      // Placeholder — depende de dados do owner (B-001) ou Supabase auth
-      metric: '$2.8B',
-      metricLabel: 'pipeline',
-      status: 'DeltaSpine NL',
-      isLive: false,
+      // World Bank NL GDP — macro context para DeltaSpine NL
+      // Fallback honesto se API indisponível: mostra '—' com isLive: false
+      metric: investorLoading ? '…' : investorGdp?.formatted ?? '—',
+      metricLabel: investorGdp ? `PIB NL ${investorGdp.date}` : 'PIB NL',
+      status: investorLoading
+        ? 'Lendo World Bank…'
+        : investorGdp
+          ? 'Países Baixos — contexto macro'
+          : 'World Bank indisponível',
+      isLive: investorIsLive,
     },
   };
 }

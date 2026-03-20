@@ -312,3 +312,78 @@ FORA DA PLv4:
 | `OrganStatusGrid` | ✅ | ✅ | ATLAS + TRIBUNAL + INDEX + NEWS + GEOPOLITICS | PLv2 → PLv4 |
 
 *PLv4 adicionada em 2026-03-20 | claude-sonnet-4-6 | SUPER-BULK-A*
+
+---
+
+## PLv5 — Data Layer Strategy + 7/7 Órgãos Vivos (PLv5.1)
+
+**Task:** PLv5.1
+**Data:** 2026-03-20
+
+### O que PLv5.1 agregou
+
+| Artefato | O que mudou | Porquê |
+|---|---|---|
+| `src/lib/worldBankData.ts` | NOVO — fetcher canónico World Bank Open Data; `fetchWorldBankIndicator(iso2, indicator)` + `formatUSD(value)`; Layer 1: sem auth, CORS, alta confiabilidade | Fonte limpa e isolada — Layer 1 completamente separada de auth |
+| `src/hooks/useOrganLiveStatus.ts` | NEXUS live (session timer: `formatSession(ms)` via `useRef + setInterval`); INVESTOR live (World Bank NL GDP: `NY.GDP.MKTP.CD`); `investorIsLive` honesto — false se World Bank indisponível | 7/7 órgãos com `isLive: true` — milestone DATA_LAYER_1 completa |
+| `src/config/workspace.ts` | `productLayer` → `PLv5`; tag atualizada | Registo canónico |
+| `ops/DATA_LAYER_STRATEGY.md` | NOVO — documento canónico da estratégia de camadas de dados: Layer 1 (open, no-auth), Layer 2 (Supabase + auth controlada), Layer 3 (proprietário / experimental); princípios de composição; fronteira PLv5.1 | Arquitectura documentada para crescimento sem colapso |
+
+### Fontes Layer 1 activas após PLv5.1
+
+| Órgão | Fonte | Dado | isLive |
+|---|---|---|---|
+| **TRIBUNAL** | TanStack Query (useNexusState) | Veredictos da sessão | ✅ true |
+| **ATLAS** | Open-Meteo via useIndexOrgan.realtimeData | Temperatura Mindelo, Cabo Verde | ✅ true |
+| **INDEX** | useIndexOrgan().entries | Entradas agregadas do fluxo (verdicts + clima) | ✅ true |
+| **NEWS** | Derivado de INDEX (última hora) | Eventos recentes | ✅ true |
+| **GEOPOLITICS** | USGS Earthquake Feed M4.5+/24h | Sismos detectados (USGS API pública) | ✅ true |
+| **NEXUS** | Session timer (browser runtime) | Duração da sessão + ops do pipeline | ✅ true |
+| **INVESTOR** | World Bank Open Data (NL GDP) | PIB Países Baixos, ano mais recente | ✅ true (se API responde) |
+
+**Milestone:** 7/7 órgãos com Layer 1 activa. DATA_LAYER_1 completa.
+
+### Design de NEXUS (session timer)
+- `useRef(Date.now())` como âncora de início de sessão (imutável após mount)
+- `setInterval(1s)` actualiza `sessionMs`
+- `formatSession(ms)`: "Xs" → "Xm Ys" → "Xh Ym"
+- `status`: "Pipeline activo — N ops" se verdicts+entries > 0; senão "Sistema Nexus activo"
+- Honesto: reflecte tempo real desta janela de trabalho
+
+### Design de INVESTOR (World Bank NL GDP)
+- `fetchWorldBankIndicator('nl', 'NY.GDP.MKTP.CD')` — fetch único no mount (GDP é anual)
+- `investorIsLive: true` apenas se World Bank responde com valor — nunca mente
+- Se World Bank falha → `metric: '—'`, `isLive: false` (degradação honesta)
+- `formatUSD(value)`: "$990B" / "$1.1T" — escala adaptativa
+- País Baixos (NL) como contexto macro para DeltaSpine NL
+
+### O que PLv5.1 **não** fez
+
+| Item | Por que ficou fora |
+|---|---|
+| NewsAPI.org para NEWS real | Chave gratuita mas gate owner |
+| Supabase projects table | Nova migração — gate owner |
+| Owner proprietary pipeline ($2.8B real) | B-001 owner gate — Layer 3 |
+| EI agent dynamic state para NEXUS | Nova infra PLv6+ — Layer 3 |
+| Alpha Vantage / FX rates | API key + rate limits — Layer 2/3 |
+
+### Fronteira PLv5.1
+
+```
+DENTRO:
+✅ World Bank NL GDP → INVESTOR (Layer 1)
+✅ Session timer → NEXUS (Layer 1)
+✅ DATA_LAYER_STRATEGY.md — arquitectura canónica
+✅ 7/7 órgãos com Layer 1 activa
+
+FORA (Layer 2 — próxima onda):
+❌ NewsAPI.org (gate owner: chave de API gratuita)
+❌ Supabase projects table (gate owner: nova migração)
+
+FORA (Layer 3):
+❌ Owner proprietary data (B-001)
+❌ EI real-time state
+❌ Financial market feeds
+```
+
+*PLv5.1 adicionada em 2026-03-20 | claude-sonnet-4-6 | PLv5.1*
