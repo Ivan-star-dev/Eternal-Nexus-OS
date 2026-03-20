@@ -375,6 +375,7 @@ O sistema é observável quando qualquer agente novo consegue responder, lendo a
 - Semáforo declarado no início de cada prompt
 - Referência de pilar/fase/modelo em cada tarefa
 - Documentos canônicos versionados no repositório
+- **Nexus Live Fabric (NLF):** camada operacional viva em `ops/` — estado, fila, ledger e canalização em tempo real
 
 ---
 
@@ -495,6 +496,9 @@ Quando o fio se perde, nenhuma velocidade resolve.
 | `docs/DOC_BULKING_ESCADA.md` | Protocolo de bulking em escada entre pioneiros (Claude, Codex, Copilot) |
 | `AGENTS.md` | Regras operacionais para agentes — invariantes e anti-drift |
 | `README.md` | Entrada operacional do repositório |
+| `ops/NLF.md` | Nexus Live Fabric — definição canônica, soberania, regras de transição |
+| `ops/LIVE_STATE.md` | Estado vivo atual, fila por executor, canalização ativa |
+| `ops/HANDOFF_LEDGER.md` | Ledger cronológico append-only de todos os handoffs emitidos |
 
 ---
 
