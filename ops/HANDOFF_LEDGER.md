@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: BULK-03.1 — PLv1 — Workspace Config Layer
+STATUS: done
+FEITO: src/config/workspace.ts criado — fonte canônica tipada dos órgãos do organismo (TRIBUNAL, ATLAS, INDEX, NEWS + 3 órgãos extendidos), fluxo sagrado declarado em código (SACRED_FLOW as const), tipos OrganConfig/SacredFlowStep, utilitários getSacredFlowOrgans() e getOrgan(), WORKSPACE metadata com productLayer PLv1. NexusFlowInspector.tsx atualizado — importa getSacredFlowOrgans e WORKSPACE de workspace.ts; exibe seção WORKSPACE CONFIG com fluxo sagrado colorido por órgão e product layer no inspector de dev. ops/PRODUCT_LAYER_1.md criado — declara fronteira, escopo, o que entrou/saiu, conexão com NLF/FOL/LIVE_STATE, guia para próximos pioneiros. LIVE_STATE e HANDOFF_LEDGER atualizados.
+NAO_FEITO: dados de status em tempo real dos órgãos (PLv2+); substituição do mock em OrganStatusGrid por dados reais (Fase 4); feature nova de produto; migração de homeProjects.ts para fonte dinâmica.
+BLOQUEIOS: B-001/B-002/B-003 continuam aguardando owner. Codex fora da onda por branch desalinhado. Cursor ainda em timeout auxiliar.
+ADAPTACOES: NexusFlowInspector escolhido como primeiro consumidor da config (já existia, não é nova página, é dev-only — impacto zero em produção, valida a config em runtime).
+ARQUIVOS: src/config/workspace.ts | src/components/shared/NexusFlowInspector.tsx | ops/PRODUCT_LAYER_1.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: medio
+PROXIMO_PASSO: owner lê este handoff → confirma PLv1 → decide se abre PLv2 (próximo bloco de produto) ou consolida onda 3 primeiro
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: BULK-02.1 — FOL v1 — Factory Operating Layer
 STATUS: done
 FEITO: ops/FOL.md criado com 8 seções: como cada executor consome o estado vivo; como cada executor escreve de volta; como a fila avança de onda para onda; como timeouts auxiliares não travam a escada principal; como owner gates continuam soberanos; mapa de conexão dos artefatos vivos; checklist rápido de sessão; o que fica para a próxima camada. LIVE_STATE.md atualizado: fila de Claude e Copilot, semáforo, linha temporal, próximos passos. Gate aberto para Copilot (BULK-02.2).
