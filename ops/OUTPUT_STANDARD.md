@@ -1,6 +1,6 @@
 # OUTPUT STANDARD — Padrão Canônico de Output Copiável
 
-**Versão:** v1
+**Versão:** v1.1
 **Data:** 2026-03-20
 **Task:** OPS-OUTPUT-001
 **Branch:** `claude/expose-workspace-config-yt4Km`
@@ -175,7 +175,35 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 | Este padrão | `ops/OUTPUT_STANDARD.md` |
 | Referência no FOL | `ops/FOL.md` seção 10 |
 | Blueprint do relatório-mãe | `ops/CODEX_CONSOLIDATOR.md` |
+| Template pack visual vivo | `ops/VISUAL_TEMPLATE_PACK_002A.md` |
 
 ---
 
-*OUTPUT_STANDARD.md v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
+## 8. CAMADA VIVA (VISUAL-SPINE-002A)
+
+Esta seção ativa presença visual sem alterar o schema fixo.
+
+### O que permanece imutável
+- Nomes de blocos (`HANDOFF_TABLE`, `CANALIZACAO_TABLE`)
+- Ordem dos campos obrigatórios
+- Regra de bloco copiável único
+
+### O que pode variar
+- Linha curta de atmosfera antes do handoff
+- Assinatura textual do pioneiro (ex.: `AURA_CURSOR:`)
+- Separadores premium/clean sem quebrar legibilidade
+
+### Princípio de aplicação
+
+> Conteúdo manda. Visual acelera leitura.
+> Se houver conflito entre estética e rastreabilidade, vence rastreabilidade.
+
+### Referências desta camada
+- `docs/DOC_VISUAL_SPINE_001.md`
+- `docs/DOC_VISUAL_SPINE_002A.md`
+- `ops/VISUAL_TEMPLATE_PACK_002A.md`
+
+---
+
+*OUTPUT_STANDARD.md v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*  
+*OUTPUT_STANDARD.md v1.1 — camada viva registrada em 2026-03-20 | gpt-5.3-codex-high | VISUAL-SPINE-002A*
