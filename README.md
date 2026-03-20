@@ -67,6 +67,7 @@ A fonte de verdade da Fase 3 neste repositório é:
 Documentos de suporte:
 - `docs/DOC_MICRO_TEAM.md` — protocolo da Micro Team Paralela de Refinamento
 - `docs/DOC_TRIBUNAL_E4.md` — parecer de higiene e ordem de merge
+- `docs/DOC_VISUAL_SPINE_001.md` — blueprint da identidade visual-mãe do ecossistema
 
 Esses documentos definem:
 - escopo e não-escopo
