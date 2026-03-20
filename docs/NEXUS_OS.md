@@ -217,6 +217,17 @@ Se qualquer resposta for não → **parar, registrar no handoff, aguardar**.
 
 **O bulk não tem licença para atropelar o protocolo.** Velocidade dentro do travão, não apesar dele.
 
+### Bulk em Escada entre Pioneiros
+
+Quando o bulk envolve múltiplos pioneiros (Claude, Codex, Copilot), aplica-se a lógica de escada com gap inteligente:
+- Claude avança 1 camada à frente de Codex
+- Codex refina a camada que Claude entregou
+- Copilot lapida a camada que Codex refinou
+- Cada transição requer handoff completo do pioneiro anterior (o gate)
+- Bulk sem gate é proibido
+
+**Protocolo completo:** `docs/DOC_BULKING_ESCADA.md`
+
 ---
 
 ## 12. ESTADOS DE TAREFA
@@ -450,6 +461,7 @@ Quando o fio se perde, nenhuma velocidade resolve.
 | `docs/DOC_FASE3.md` | Escopo, requisitos e critérios da Fase 3 |
 | `docs/DOC_MICRO_TEAM.md` | Protocolo completo da Micro Team de Refinamento |
 | `docs/DOC_TRIBUNAL_E4.md` | Parecer de higiene e ordem de merge |
+| `docs/DOC_BULKING_ESCADA.md` | Protocolo de bulking em escada entre pioneiros (Claude, Codex, Copilot) |
 | `AGENTS.md` | Regras operacionais para agentes — invariantes e anti-drift |
 | `README.md` | Entrada operacional do repositório |
 
