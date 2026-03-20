@@ -61,5 +61,5 @@ export const useIndexOrgan = () => {
     };
   }, [entries]);
 
-  return { entries, isProcessing, lastUpdate, stats };
+  return { entries, isProcessing, lastUpdate, stats, realtimeData };
 };

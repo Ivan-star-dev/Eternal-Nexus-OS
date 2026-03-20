@@ -252,3 +252,63 @@ FORA DA PLv3:
 ```
 
 *PLv3 adicionada em 2026-03-20 | claude-sonnet-4-6 | BULK-04.1*
+
+---
+
+## PLv4 — Live Organ Status Layer: escala total (SUPER-BULK-A)
+
+**Task:** SUPER-BULK-A (SBA-01 + SBA-02 + SBA-03)
+**Data:** 2026-03-20
+
+### O que PLv4 agregou
+
+| Artefato | O que mudou | Porquê |
+|---|---|---|
+| `src/hooks/useIndexOrgan.ts` | `realtimeData` exposto no return (SBA-01) | Eliminar segunda instância de `useRealtimeData`; polling único para todo o status grid |
+| `src/hooks/useOrganLiveStatus.ts` | Reescrito — INDEX live (useIndexOrgan.entries) + NEWS live (entries última 1h) + ATLAS consolidado (useIndexOrgan.realtimeData) + GEOPOLITICS live (USGS M4.5+/24h); `useRealtimeData` redundante removido; 5/7 órgãos com `isLive: true` | PLv4 = 5 órgãos vivos vs 2 em PLv3 |
+| `src/config/workspace.ts` | `productLayer` → `PLv4`; tag atualizada | Registo canónico de avanço |
+
+### Fontes vivas ativas em PLv4
+
+| Órgão | Fonte | Dado real | Fallback |
+|---|---|---|---|
+| **ATLAS** | Open-Meteo via useIndexOrgan.realtimeData | Temperatura °C — Mindelo, Cabo Verde | Dado simulado (useRealtimeData fallback) |
+| **TRIBUNAL** | TanStack Query — useNexusState().verdicts | Contagem de veredictos da sessão | 0 (sessão nova) |
+| **INDEX** | useIndexOrgan().entries | Entradas agregadas (verdicts + clima real) | 0 (sem fluxo ativo) |
+| **NEWS** | Derivado de INDEX (entries última 1h) | Eventos recentes do fluxo sagrado | 0 (sessão nova) |
+| **GEOPOLITICS** | USGS Earthquake Feed M4.5+ / 24h | Sismos detectados no planeta | — (sem rede) |
+
+### O que PLv4 **não** fez
+
+| Item | Por que ficou fora |
+|---|---|
+| NEXUS — fonte dinâmica de actividade EI | Requer estado runtime dos EI agents (PLv5+) |
+| INVESTOR — pipeline real | Depende de dados do owner (B-001) ou Supabase auth |
+| useRealtimeData → TanStack Query | Refactoring amplo; instância única via useIndexOrgan é suficiente agora |
+| Nova página, redesign, refactoring global | Red lines |
+
+### Fronteira PLv4
+
+```
+DENTRO DA PLv4:
+✅ useIndexOrgan.realtimeData exposto (SBA-01)
+✅ INDEX live: contagem real de entradas agregadas (SBA-02)
+✅ NEWS live: eventos da última hora derivados do INDEX (SBA-02)
+✅ ATLAS consolidado: sem instância duplicada de polling (SBA-02)
+✅ GEOPOLITICS live: USGS M4.5+ / 24h — API pública real, sem auth (SBA-03)
+
+FORA DA PLv4:
+❌ NEXUS dinâmico (PLv5+ — nova infra de EI state)
+❌ INVESTOR real (B-001 — dados do owner)
+❌ Supabase auth para system health
+❌ homeProjects migrado para Supabase (sem projects table)
+```
+
+### Estado dos consumidores em PLv4
+
+| Componente | Config (workspace.ts) | Status vivo | isLive por órgão | Desde |
+|---|---|---|---|---|
+| `NexusFlowInspector` | ✅ | ✅ | tribunal + index vivos | PLv1 |
+| `OrganStatusGrid` | ✅ | ✅ | ATLAS + TRIBUNAL + INDEX + NEWS + GEOPOLITICS | PLv2 → PLv4 |
+
+*PLv4 adicionada em 2026-03-20 | claude-sonnet-4-6 | SUPER-BULK-A*

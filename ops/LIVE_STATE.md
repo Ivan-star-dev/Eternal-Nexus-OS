@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-04.1
+**Atualizado por:** @claude | claude-sonnet-4-6 | SUPER-BULK-A
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (BULK-04.1 handoff emitido) |
+| **Executor ativo** | @claude (SUPER-BULK-A handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
-| **Camada atual** | BULK-04 — PLv3 / Live Organ Status Layer |
-| **Estado geral** | PLv3 concluída; ATLAS e TRIBUNAL com fontes reais em runtime; indicador LIVE visível no grid; hook useOrganLiveStatus.ts como pattern para PLv4+; BULK-05 bloqueado até leitura do owner |
+| **Camada atual** | SUPER-BULK-A — PLv4 / Live Organ Status: escala total |
+| **Estado geral** | PLv4 concluída; 5/7 órgãos com fonte real (ATLAS + TRIBUNAL + INDEX + NEWS + GEOPOLITICS); NEXUS + INVESTOR como placeholders honestos; BULK-05 bloqueado até leitura do owner |
 
 ---
 
@@ -35,7 +35,8 @@
 | BULK-03.1 | PLv1 — Workspace Config Layer | CONCLUÍDA | handoff emitido |
 | BULK-03.2 | PLv2 — OrganStatusGrid conectada à config canônica | CONCLUÍDA | handoff emitido |
 | BULK-04.1 | PLv3 — Live Organ Status Layer | CONCLUÍDA | handoff emitido |
-| BULK-05.1 | Próxima camada | BLOQUEADA | só abre após leitura do handoff BULK-04.1 pelo owner |
+| SUPER-BULK-A | PLv4 — Live Organ Status: escala total (5/7 órgãos vivos) | CONCLUÍDA | handoff emitido |
+| BULK-05.1 | Próxima camada | BLOQUEADA | só abre após leitura do handoff SUPER-BULK-A pelo owner |
 
 ### @codex (Refinador Técnico)
 
@@ -76,10 +77,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / PLv3 — estado vivo real dos órgãos
-EXECUTOR: @claude (BULK-04.1 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3)
-CANALIZAÇÃO ATIVA: PLv3 concluída; ATLAS (Open-Meteo Mindelo) e TRIBUNAL (TanStack Query) com dados reais; hook useOrganLiveStatus.ts como pattern canônico; BULK-05 travado até leitura do owner
+NATUREZA: produto / PLv4 — Live Organ Status: escala total
+EXECUTOR: @claude (SUPER-BULK-A done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4)
+CANALIZAÇÃO ATIVA: PLv4 concluída; 5/7 órgãos vivos — ATLAS (Open-Meteo), TRIBUNAL (TanStack), INDEX (useIndexOrgan), NEWS (derivado do Index), GEOPOLITICS (USGS); NEXUS + INVESTOR placeholders honestos; BULK-05 travado até leitura do owner
 ```
 
 ---
@@ -91,12 +92,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  BULK-04.1 — HANDOFF EMITIDO (PLv3: useOrganLiveStatus.ts + ATLAS/TRIBUNAL com dados reais)
-Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ — decidir com owner se ainda prioridade)
+Claude:  SUPER-BULK-A — HANDOFF EMITIDO (PLv4: 5/7 órgãos vivos; INDEX+NEWS+GEOPOLITICS conectados)
+Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda
-Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-04-Codex BLOQUEADO (branch)
+Codex:   F6 — EM ANDAMENTO (frente independente) | branch desalinhado
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoff BULK-04.1 → decide abertura de BULK-05
+PRÓXIMA TRANSIÇÃO: owner lê handoff SUPER-BULK-A → decide abertura de BULK-05
 ```
 
 ---
@@ -113,8 +114,8 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff BULK-04.1 → decide abertura de BULK-05
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff BULK-04.1** → confirma PLv3 aceite → decide abertura de BULK-05
-2. **@copilot executa BULK-02.2** — suavização de ops/ — gate ainda aberto (decidir prioridade com owner)
+1. **Owner lê handoff SUPER-BULK-A** → confirma PLv4 aceite → decide abertura de BULK-05 (PLv5: NEXUS/INVESTOR vivos, ou nova frente)
+2. **@copilot executa BULK-02.2** — gate aberto; Copilot pode suavizar rastos de PLv4 (comentários, legibilidade de ops/) imediatamente
 3. **@codex avança F6** — frente independente, não bloqueia onda atual
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 5. **Owner responde B-002** — confirmar npm como PM canônico

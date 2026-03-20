@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: SUPER-BULK-A — PLv4 — Live Organ Status: escala total (SBA-01+02+03)
+STATUS: done
+FEITO: SBA-01 — useIndexOrgan.ts expõe realtimeData no return (elimina instância duplicada de useRealtimeData). SBA-02 — useOrganLiveStatus.ts reescrito: INDEX live via useIndexOrgan().entries (contagem real de entradas agregadas); NEWS live via entries filtradas por última hora (derivado canónico do fluxo Index→News); ATLAS consolidado via useIndexOrgan.realtimeData (sem segundo useRealtimeData); useRealtimeData redundante removido do hook. SBA-03 — GEOPOLITICS live via fetchRecentEarthquakes() (USGS M4.5+/24h, API pública sem auth, fetch único no mount). workspace.ts: productLayer PLv4. PRODUCT_LAYER_1.md: secção PLv4 com tabela de fontes, fronteira e estado dos consumidores. LIVE_STATE e HANDOFF_LEDGER atualizados. Resultado: 5/7 órgãos com isLive:true (ATLAS + TRIBUNAL + INDEX + NEWS + GEOPOLITICS).
+NAO_FEITO: NEXUS dinâmico (PLv5+ — requer state de EI agents em runtime); INVESTOR real (B-001 — dados do owner ou Supabase auth); homeProjects migrado para Supabase (sem projects table). Copilot não acionado nesta execução.
+BLOQUEIOS: B-001 (segredos .env), B-002 (PM canônico), B-003 (antigravity/) continuam aguardando owner. Codex sem branch alinhado.
+ADAPTACOES: useIndexOrgan escolhido como fonte única de realtimeData (em vez de chamar useRealtimeData separadamente no useOrganLiveStatus) — consolidação limpa sem novo fetch; fetchRecentEarthquakes já existia em lib/earthquakeData.ts, reutilizado sem modificação.
+ARQUIVOS: src/hooks/useIndexOrgan.ts | src/hooks/useOrganLiveStatus.ts | src/config/workspace.ts | ops/PRODUCT_LAYER_1.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: alto
+PROXIMO_PASSO: owner lê handoff SUPER-BULK-A → confirma PLv4 aceite → decide o que é PLv5 (NEXUS/INVESTOR vivos? nova frente de produto? integração Supabase projects table?)
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: BULK-04.1 — PLv3 — Live Organ Status Layer
 STATUS: done
 FEITO: useOrganLiveStatus.ts criado — hook canônico de status vivo, retorna OrganLiveData (metric/metricLabel/status/isLive) por órgão; ATLAS usa Open-Meteo API (lat 14.93 lng -23.51 Mindelo — fonte real pública, sem auth, fallback embutido em useRealtimeData); TRIBUNAL usa useNexusState().verdicts (TanStack Query, cache compartilhado, sem nova chamada de rede). OrganStatusGrid.tsx atualizado — consome useOrganLiveStatus(); ORGAN_ICONS retém ícones; indicador visual 'live' em verde nos cartões com isLive:true; pulse opacity reduzida para placeholders. workspace.ts: productLayer PLv3, tag de versão atualizada. PRODUCT_LAYER_1.md: secção PLv3 com tabela de fontes vivas, fronteira e estado dos consumidores. LIVE_STATE e HANDOFF_LEDGER atualizados.
