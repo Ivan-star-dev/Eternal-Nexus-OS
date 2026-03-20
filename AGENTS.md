@@ -174,3 +174,28 @@ If a request conflicts with invariants above, respond exactly:
 - Keep sensitive strategy in a private repo or encrypted vault.
 - Never rely on "AI-only visibility" in public git.
 - API keys, tokens, and credentials **never** go in the repo.
+
+---
+
+## Cursor Cloud specific instructions
+
+### Stack overview
+Single React 18 + TypeScript SPA built with Vite 8, Tailwind CSS 4, shadcn/ui, CesiumJS, Three.js/R3F, MapLibre, and Recharts. Backend is a hosted Supabase instance (auth, PostgreSQL, edge functions) — no local backend to start. Environment variables are in `.env` (Supabase URL/key, Cesium Ion token).
+
+### Running the app
+- `npm run dev` — Vite dev server on port **8080** (not 5173).
+- The app connects to a remote Supabase instance; no local DB or Docker is needed for frontend development.
+
+### Quality gate commands
+See `package.json` scripts and `.ops/check.sh` (runs lint → typecheck → test → build in sequence).
+- `npm run lint` — ESLint. The codebase currently has ~131 pre-existing errors (mostly `no-explicit-any`).
+- `npm run typecheck` — `tsc --noEmit` against both `tsconfig.app.json` and `tsconfig.node.json`. Pre-existing type errors exist in the current codebase.
+- `npm run test` — Vitest (jsdom env). Runs 5 test files / 70 tests. Uses `vitest.config.ts` (separate from `vite.config.ts`).
+- `npm run build` — Production build. Succeeds with chunk-size warnings only.
+
+### Gotchas
+- `vite.config.ts` imports from `vitest/config` and configures browser-based tests via Playwright, but the actual unit tests use `vitest.config.ts` with jsdom. When running `npm run test`, Vitest picks up `vitest.config.ts` automatically.
+- The `.ops/check.sh` script is the canonical pre-commit quality gate referenced in `AGENTS.md` section 6 (Refactor Protocol). It sources `.ops/_common.sh` for package-manager detection.
+- Git hooks live in `.githooks/` (not `.husky/`). The pre-commit hook only checks for conflict markers.
+- Performance tests (`npm run test:perf`) require Playwright Chromium (`npx playwright install chromium`) and are optional for normal development.
+- `.env` is already committed in the repo with Supabase and Cesium tokens — no secrets setup needed for basic frontend dev.
