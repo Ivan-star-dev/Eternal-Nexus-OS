@@ -27,6 +27,16 @@
 3. Validar com scripts reais existentes no `package.json`.
 4. Entregar evidência objetiva (arquivos alterados + comandos executados).
 
+## Micro Team Paralela de Refinamento
+O projeto opera com uma linha paralela de refinamento. Protocolo completo em `docs/DOC_MICRO_TEAM.md`.
+
+Regras obrigatórias para qualquer agente que opere nessa linha:
+- Branches de trabalho usam prefixo `mt-*`
+- Nenhuma mudança entra no core sem aprovação do Tribunal
+- Arquivos protegidos (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`) exigem handoff explícito ao owner antes de qualquer ação
+- Estados válidos: `EM OBSERVAÇÃO` → `EM RESEARCH` → `EM REFINAMENTO` → `EM TESTE` → `PRONTA PARA TRIBUNAL` → `APROVADA PARA ENTRAR` | `ADIADA` | `REJEITADA`
+- A linha principal nunca depende da micro team para avançar
+
 ## Regra de drift
 - Se uma solicitação conflitar com as invariantes acima, responder exatamente:
   **"Isso quebra o organismo vivo. Quer manter?"**
