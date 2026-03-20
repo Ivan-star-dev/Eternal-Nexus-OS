@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-03.2
+**Atualizado por:** @claude | claude-sonnet-4-6 | BULK-04.1
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (BULK-03.2 handoff emitido) |
+| **Executor ativo** | @claude (BULK-04.1 handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
-| **Camada atual** | BULK-03 — Primeira entrada controlada em produto |
-| **Estado geral** | PLv2 concluída; OrganStatusGrid alimentada por workspace.ts; 2 consumidores ativos da config canônica (NexusFlowInspector + OrganStatusGrid); BULK-04 bloqueado até leitura do owner |
+| **Camada atual** | BULK-04 — PLv3 / Live Organ Status Layer |
+| **Estado geral** | PLv3 concluída; ATLAS e TRIBUNAL com fontes reais em runtime; indicador LIVE visível no grid; hook useOrganLiveStatus.ts como pattern para PLv4+; BULK-05 bloqueado até leitura do owner |
 
 ---
 
@@ -34,7 +34,8 @@
 | BULK-02.1 | FOL v1 — Factory Operating Layer | CONCLUÍDA | handoff emitido |
 | BULK-03.1 | PLv1 — Workspace Config Layer | CONCLUÍDA | handoff emitido |
 | BULK-03.2 | PLv2 — OrganStatusGrid conectada à config canônica | CONCLUÍDA | handoff emitido |
-| BULK-04.1 | Camada 4 — próxima abertura | BLOQUEADA | só abre após leitura dos handoffs BULK-03.1 + BULK-03.2 pelo owner |
+| BULK-04.1 | PLv3 — Live Organ Status Layer | CONCLUÍDA | handoff emitido |
+| BULK-05.1 | Próxima camada | BLOQUEADA | só abre após leitura do handoff BULK-04.1 pelo owner |
 
 ### @codex (Refinador Técnico)
 
@@ -75,10 +76,10 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: produto / PLv2 — config canônica alimentando produto real
-EXECUTOR: @claude (BULK-03.2 done)
-ESTADO: done (Claude — PLv1 + PLv2)
-CANALIZAÇÃO ATIVA: PLv2 concluída; OrganStatusGrid alimentada pela config canônica; 2 consumidores ativos de workspace.ts; BULK-04 travado até leitura do owner
+NATUREZA: produto / PLv3 — estado vivo real dos órgãos
+EXECUTOR: @claude (BULK-04.1 done)
+ESTADO: done (Claude — PLv1 + PLv2 + PLv3)
+CANALIZAÇÃO ATIVA: PLv3 concluída; ATLAS (Open-Meteo Mindelo) e TRIBUNAL (TanStack Query) com dados reais; hook useOrganLiveStatus.ts como pattern canônico; BULK-05 travado até leitura do owner
 ```
 
 ---
@@ -90,12 +91,12 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  BULK-03.2 — HANDOFF EMITIDO (PLv2 concluída: OrganStatusGrid alimentada por workspace.ts)
+Claude:  BULK-04.1 — HANDOFF EMITIDO (PLv3: useOrganLiveStatus.ts + ATLAS/TRIBUNAL com dados reais)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ — decidir com owner se ainda prioridade)
 Cursor:  timeout auxiliar — fora da trava desta onda
-Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-03-Codex BLOQUEADO (branch)
+Codex:   F6 — EM ANDAMENTO (frente independente) | BULK-04-Codex BLOQUEADO (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner lê handoffs BULK-03.1 + BULK-03.2 → decide abertura de BULK-04
+PRÓXIMA TRANSIÇÃO: owner lê handoff BULK-04.1 → decide abertura de BULK-05
 ```
 
 ---
@@ -112,12 +113,12 @@ PRÓXIMA TRANSIÇÃO: owner lê handoffs BULK-03.1 + BULK-03.2 → decide abertu
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoffs BULK-03.1 + BULK-03.2** → confirma PLv1+PLv2 aceites → decide abertura de BULK-04
+1. **Owner lê handoff BULK-04.1** → confirma PLv3 aceite → decide abertura de BULK-05
 2. **@copilot executa BULK-02.2** — suavização de ops/ — gate ainda aberto (decidir prioridade com owner)
-3. **@codex avança F6** — frente independente, não bloqueia onda 3
+3. **@codex avança F6** — frente independente, não bloqueia onda atual
 4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 5. **Owner responde B-002** — confirmar npm como PM canônico
-6. **@codex alinha branch** — condição para entrar na escada principal na onda 4
+6. **@codex alinha branch** — condição para entrar na escada principal na onda 5
 7. **@codex alinha branch** — condição para entrar na escada principal na onda 3
 
 ---

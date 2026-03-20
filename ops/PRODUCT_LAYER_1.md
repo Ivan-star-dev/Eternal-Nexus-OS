@@ -195,3 +195,60 @@ FORA DA PLv2:
 | Outros componentes | — | PLv3+ (a decidir pelo owner) |
 
 *PLv2 adicionada em 2026-03-20 | claude-sonnet-4-6 | BULK-03.2*
+
+---
+
+## PLv3 — Live Organ Status Layer (BULK-04.1)
+
+**Task:** BULK-04.1
+**Data:** 2026-03-20
+
+### O que PLv3 agregou
+
+| Artefato | O que mudou | Porquê |
+|---|---|---|
+| `src/hooks/useOrganLiveStatus.ts` | Hook criado — encapsula fontes de status vivo por órgão; retorna `OrganLiveData` com `metric`, `metricLabel`, `status`, `isLive`; fontes ativas: ATLAS (Open-Meteo Mindelo) + TRIBUNAL (TanStack Query verdicts); outros 5 órgãos com placeholder explícito `isLive: false` | Pattern canônico para PLv4+ preencher os órgãos restantes |
+| `src/components/home/OrganStatusGrid.tsx` | Consome `useOrganLiveStatus()`; `ORGAN_ICONS` retém ícones (puramente visual); `metric`/`metricLabel`/`status` vêm do hook; indicador `live` visível nos cartões com `isLive: true`; pulse opacity reduzida para `isLive: false` | Produto exibe real vs placeholder de forma auditável |
+| `src/config/workspace.ts` | `WORKSPACE.productLayer` avançado para `PLv3`; tag de versão atualizada | Registo de avanço da camada |
+
+### Fontes vivas ativas em PLv3
+
+| Órgão | Fonte | Dado real | Fallback |
+|---|---|---|---|
+| **ATLAS** | Open-Meteo API (lat 14.93, lng -23.51 — Mindelo) | Temperatura em °C | Dado simulado pelo `useRealtimeData` |
+| **TRIBUNAL** | TanStack Query — `useNexusState().verdicts` | Contagem de veredictos da sessão | 0 (sessão nova) |
+
+### O que PLv3 **não** fez
+
+| Item | Por que ficou fora |
+|---|---|
+| NEXUS, INDEX, NEWS, INVESTOR, GEOPOLITICS — fontes reais | Cada um requer sua própria integração; placeholder explícito com `isLive: false` |
+| Nova UI/layout | Escopo de lapidação |
+| Integração com Supabase para status dos órgãos | Requer autenticação (B-001 pendente) |
+
+### Estado dos consumidores da cadeia canônica
+
+| Componente | Config (workspace.ts) | Status vivo (useOrganLiveStatus) | Desde |
+|---|---|---|---|
+| `NexusFlowInspector` | ✅ `getSacredFlowOrgans()` + `WORKSPACE` | — (dev inspector) | PLv1 |
+| `OrganStatusGrid` | ✅ `getOrgan()` | ✅ `useOrganLiveStatus()` | PLv2 + PLv3 |
+| Outros componentes | — | — | PLv4+ |
+
+### Fronteira PLv3
+
+```
+DENTRO DA PLv3:
+✅ useOrganLiveStatus.ts — hook de status vivo com separação isLive clara
+✅ ATLAS: temperatura real Mindelo via Open-Meteo (infra já existente no codebase)
+✅ TRIBUNAL: contagem de veredictos de sessão via TanStack Query
+✅ OrganStatusGrid: indicador visual LIVE vs placeholder
+✅ Fallback gracioso em todos os órgãos
+
+FORA DA PLv3:
+❌ Fontes reais para nexus, index, news, investor, geopolitics (PLv4+)
+❌ Integração Supabase para status (aguarda B-001)
+❌ Redesign ou layout novo
+❌ Nova página ou rota
+```
+
+*PLv3 adicionada em 2026-03-20 | claude-sonnet-4-6 | BULK-04.1*

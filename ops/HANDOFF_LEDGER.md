@@ -34,6 +34,21 @@ PROXIMO_PASSO: [resumo curto]
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6
+TASK: BULK-04.1 — PLv3 — Live Organ Status Layer
+STATUS: done
+FEITO: useOrganLiveStatus.ts criado — hook canônico de status vivo, retorna OrganLiveData (metric/metricLabel/status/isLive) por órgão; ATLAS usa Open-Meteo API (lat 14.93 lng -23.51 Mindelo — fonte real pública, sem auth, fallback embutido em useRealtimeData); TRIBUNAL usa useNexusState().verdicts (TanStack Query, cache compartilhado, sem nova chamada de rede). OrganStatusGrid.tsx atualizado — consome useOrganLiveStatus(); ORGAN_ICONS retém ícones; indicador visual 'live' em verde nos cartões com isLive:true; pulse opacity reduzida para placeholders. workspace.ts: productLayer PLv3, tag de versão atualizada. PRODUCT_LAYER_1.md: secção PLv3 com tabela de fontes vivas, fronteira e estado dos consumidores. LIVE_STATE e HANDOFF_LEDGER atualizados.
+NAO_FEITO: fontes reais para nexus, index, news, investor, geopolitics (PLv4+); integração Supabase para status (B-001 pendente); redesign ou nova página.
+BLOQUEIOS: B-001/B-002/B-003 continuam aguardando owner. Codex sem branch alinhado.
+ADAPTACOES: useRealtimeData({ sources: ['climate'] }) reutilizado em vez de novo fetch direto — mantém fallback embutido e intervalo de polling sem duplicar lógica.
+ARQUIVOS: src/hooks/useOrganLiveStatus.ts | src/components/home/OrganStatusGrid.tsx | src/config/workspace.ts | ops/PRODUCT_LAYER_1.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: medio
+PROXIMO_PASSO: owner lê handoff BULK-04.1 → confirma PLv3 aceite → decide abertura de BULK-05 (fontes reais para órgãos restantes ou outra frente)
+
+---
+
+DATA: 2026-03-20
+EXECUTOR: @claude
+MODELO: claude-sonnet-4-6
 TASK: BULK-03.2 — PLv2 — OrganStatusGrid conectada à config canônica
 STATUS: done
 FEITO: workspace.ts atualizado — campo organName adicionado a OrganConfig (metadata estrutural do órgão: 'Nervos', 'Coração', 'Índice', 'Boca', 'Cérebro', 'Olhos', 'Sangue'), todos os 7 órgãos atualizados, WORKSPACE.productLayer avançado para PLv2. OrganStatusGrid.tsx refatorado — id/path/label/organName/color agora vêm de getOrgan() do workspace.ts; ORGAN_DISPLAY local retém apenas icon/status/metric/metricLabel (placeholders para PLv3+); GRID_ORGAN_IDS define subset exibido sem index; duplicação de config estrutural eliminada. PRODUCT_LAYER_1.md atualizado com secção PLv2. LIVE_STATE e HANDOFF_LEDGER atualizados.

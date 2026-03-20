@@ -1,42 +1,39 @@
 // Grid de status dos órgãos — mostra atividade em tempo real de cada parte do organismo
 // PLv2: id, path, label, organName, color vêm de workspace.ts (getOrgan)
-// icon, status, metric, metricLabel são dados de display local (ainda não vivos)
+// PLv3: metric/status vêm de useOrganLiveStatus — ATLAS e TRIBUNAL são fontes reais
+//       isLive: true → dado vivo | isLive: false → placeholder (PLv4+)
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Brain, Globe, Scale, Radio, Newspaper, Activity } from "lucide-react";
 import { getOrgan } from "@/config/workspace";
+import { useOrganLiveStatus } from "@/hooks/useOrganLiveStatus";
 
-interface OrganDisplay {
-  icon: React.ReactNode;
-  status: string;
-  metric: string;
-  metricLabel: string;
-}
-
-// Dados de display local — icon + status/metric são placeholders até integração viva (PLv3+)
-const ORGAN_DISPLAY: Record<string, OrganDisplay> = {
-  nexus:       { icon: <Brain className="h-5 w-5" />,    status: "3 EIs debatendo",   metric: "847",   metricLabel: "simulações" },
-  atlas:       { icon: <Globe className="h-5 w-5" />,    status: "12 projetos ativos", metric: "60fps", metricLabel: "rendering" },
-  tribunal:    { icon: <Scale className="h-5 w-5" />,    status: "5 juízes online",    metric: "24",    metricLabel: "narrativas" },
-  news:        { icon: <Radio className="h-5 w-5" />,    status: "Echo-Vox ativo",     metric: "6",     metricLabel: "alertas hoje" },
-  investor:    { icon: <Newspaper className="h-5 w-5" />, status: "DeltaSpine NL",    metric: "$2.8B", metricLabel: "pipeline" },
-  geopolitics: { icon: <Activity className="h-5 w-5" />, status: "Mapa vivo",          metric: "147",   metricLabel: "países" },
+// Ícones por órgão — puramente visual, não é dado
+const ORGAN_ICONS: Record<string, React.ReactNode> = {
+  nexus:       <Brain className="h-5 w-5" />,
+  atlas:       <Globe className="h-5 w-5" />,
+  tribunal:    <Scale className="h-5 w-5" />,
+  news:        <Radio className="h-5 w-5" />,
+  investor:    <Newspaper className="h-5 w-5" />,
+  geopolitics: <Activity className="h-5 w-5" />,
 };
 
 // Ordem de exibição no grid — subset dos órgãos do workspace (sem index)
 const GRID_ORGAN_IDS = ['nexus', 'atlas', 'tribunal', 'news', 'investor', 'geopolitics'] as const;
 
-// Combina config canônica (workspace) com dados de display local
-const organs = GRID_ORGAN_IDS.flatMap(id => {
-  const config = getOrgan(id);
-  const display = ORGAN_DISPLAY[id];
-  if (!config || !display) return [];
-  return [{ ...config, ...display }];
-});
-
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function OrganStatusGrid() {
+  const liveStatus = useOrganLiveStatus();
+
+  const organs = GRID_ORGAN_IDS.flatMap(id => {
+    const config = getOrgan(id);
+    const icon = ORGAN_ICONS[id];
+    const live = liveStatus[id];
+    if (!config || !live) return [];
+    return [{ ...config, icon, ...live }];
+  });
+
   return (
     <section className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Status dos órgãos do organismo digital">
       <div className="max-w-[1200px] mx-auto">
@@ -80,16 +77,24 @@ export default function OrganStatusGrid() {
                         style={{ backgroundColor: `${organ.color}12` }}
                       >
                         <span style={{ color: organ.color }}>{organ.icon}</span>
-                        {/* Pulse */}
+                        {/* Pulse — mais vivo quando isLive */}
                         <span
                           className="absolute w-2 h-2 rounded-full top-0 right-0 animate-pulse"
-                          style={{ backgroundColor: organ.color }}
+                          style={{ backgroundColor: organ.color, opacity: organ.isLive ? 1 : 0.4 }}
                         />
                       </div>
                       <div>
-                        <span className="font-mono text-[0.55rem] tracking-[0.15em] text-foreground font-bold block">
-                          {organ.label}
-                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-mono text-[0.55rem] tracking-[0.15em] text-foreground font-bold block">
+                            {organ.label}
+                          </span>
+                          {/* Indicador LIVE — só para órgãos com fonte real */}
+                          {organ.isLive && (
+                            <span className="font-mono text-[0.4rem] tracking-[0.1em] text-green-500/80 uppercase">
+                              live
+                            </span>
+                          )}
+                        </div>
                         <span className="font-mono text-[0.4rem] text-muted-foreground">
                           {organ.organName}
                         </span>

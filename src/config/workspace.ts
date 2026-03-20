@@ -10,7 +10,7 @@
  * - Só o owner / Tribunal autorizam mudanças estruturais aqui
  * - Fluxo sagrado: Tribunal → Atlas → Index → News (imutável nesta fase)
  *
- * sacred-flow: BULK-03.2 | PLv2 | 2026-03-20
+ * sacred-flow: BULK-04.1 | PLv3 | 2026-03-20
  */
 
 // ─── Fluxo sagrado ────────────────────────────────────────────────────────────
@@ -73,7 +73,7 @@ export function getOrgan(id: string): OrganConfig | undefined {
 
 export const WORKSPACE = {
   name: 'Eternal Nexus',
-  productLayer: 'PLv2',
+  productLayer: 'PLv3',
   phase: 'Fase 3 — Governança e Auditabilidade',
   sacredFlow: SACRED_FLOW,
   canonicalBranch: 'claude/expose-workspace-config-yt4Km',
