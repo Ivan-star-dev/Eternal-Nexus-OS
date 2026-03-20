@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-IGNITION-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-IGNITION-001 concluído) |
-| **Frente ativa** | Governança operacional / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada — sistema em modo de fluxo contínuo autoinduzido |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @claude (OPS-WORKTREE-ALIAS-001 concluído) |
+| **Frente ativa** | Governança operacional / WorkStructure |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; aliases operacionais de território registados (WorkStructure / WorkFunction / WorkVisual) |
+| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + WORKTREE_ALIASES + FOL v1.5 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; IGNIÇÃO_ATIVA: pioneiros em loop contínuo; aliases operacionais em uso; PLv6.2-b aguarda gate owner |
 
 ---
 
@@ -44,6 +44,7 @@
 | OPS-AUTOFLOW-001 | Selar regra de fluxo autônomo dos pioneiros — AUTOFLOW v1 | CONCLUÍDA | handoff emitido |
 | FOUNDER-VISION-LAYER-001 | Blueprint canônico da camada pública do founder no site — FVL v1 | CONCLUÍDA | handoff emitido |
 | OPS-IGNITION-001 | Selar modo de ignição contínua — IGNITION v1 + IGNIÇÃO_ATIVA ligada | CONCLUÍDA | handoff emitido |
+| OPS-WORKTREE-ALIAS-001 | Registrar aliases operacionais WorkStructure/WorkFunction/WorkVisual | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -86,13 +87,14 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
-🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: governança / ignição contínua
-EXECUTOR: @claude (OPS-IGNITION-001 done)
+🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA: governança / aliases operacionais de território
+EXECUTOR: @claude (OPS-WORKTREE-ALIAS-001 done)
 IGNIÇÃO: ATIVA
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001 + OPS-IGNITION-001)
-CANALIZAÇÃO ATIVA: IGNIÇÃO_ATIVA ligada; pioneiros operam em loop contínuo de 7 passos (IGNITION.md); FOL v1.4 + NLF v1.1 atualizados; @copilot gate aberto (BULK-02.2 — FORÇA PRINCIPAL, Lapidação); PLv6.2-b e FVL-IMPL-001 aguardam gate owner
+ALIASES: WorkStructure | WorkFunction | WorkVisual (registados em OPS-WORKTREE-ALIAS-001)
+ESTADO: done (Claude — PLv1…PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001 + GENESIS-FOUNDER-001 + OPS-AUTOFLOW-001 + FOUNDER-VISION-LAYER-001 + OPS-IGNITION-001 + OPS-WORKTREE-ALIAS-001)
+CANALIZAÇÃO ATIVA: IGNIÇÃO_ATIVA ligada; aliases operacionais de território selados (WorkStructure/WorkFunction/WorkVisual); FOL v1.5; @copilot gate aberto (BULK-02.2 — WorkStructure, Lapidação); PLv6.2-b e FVL-IMPL-001 aguardam gate owner
 ```
 
 ---
@@ -104,6 +106,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado; WorkStructure/WorkFunction/WorkVisual registados; FOL v1.5; LIVE_STATE atualizado com aliases no semáforo)
 Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
 Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
 Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)

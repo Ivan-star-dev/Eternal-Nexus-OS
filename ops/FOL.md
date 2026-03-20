@@ -401,8 +401,38 @@ handoff como pipeline, interruptor, o que a ignição não é.
 
 ---
 
+## 13. ALIASES OPERACIONAIS DOS TERRITÓRIOS — WORKTREE ALIASES
+
+**Registrado em:** OPS-WORKTREE-ALIAS-001 | 2026-03-20
+
+Três aliases operacionais para uso diário em prompts, handoffs e protocolo:
+
+| Alias | Território |
+|---|---|
+| **WorkStructure** | Estrutura, base, governança, sustentação |
+| **WorkFunction** | Funcionalidade, integração, comportamento, produto vivo |
+| **WorkVisual** | Design, UI, UX, identidade, apresentação |
+
+**Glossário rápido:**
+```
+WorkStructure = o que sustenta    → base, protocolo, docs canônicas, infra
+WorkFunction  = o que funciona    → produto, features, integrações, fluxos
+WorkVisual    = o que aparece     → UI, UX, design, identidade, apresentação
+```
+
+**Regras:**
+- Aliases válidos em qualquer campo de território, frente ou área dos docs ops/
+- Nomes técnicos legados continuam como referência interna quando necessário
+- Aliases são ortogonais à matrix de pilar dominante dos pioneiros (AUTOFLOW)
+- Nenhuma referência técnica existente foi removida ou renomeada no Git
+
+**Referência completa:** `ops/WORKTREE_ALIASES.md`
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
 *FOL v1.3 — seção 11 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-AUTOFLOW-001*
 *FOL v1.4 — seção 12 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001*
+*FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*

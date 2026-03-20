@@ -33,6 +33,64 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-WORKTREE-ALIAS-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/WORKTREE_ALIASES.md (NOVO): aliases operacionais de
+            │ território selados — WorkStructure (estrutura/base/governança),
+            │ WorkFunction (funcionalidade/integração/produto vivo),
+            │ WorkVisual (design/UI/UX/identidade). Tabela de aliases,
+            │ regras de uso, relação ortogonal com matrix de pilar dominante,
+            │ exemplos de uso em prompts/handoffs/semáforo, glossário rápido.
+            │ ops/FOL.md v1.5: seção 13 adicionada — tabela de aliases,
+            │ glossário rápido, regras de uso, referência a WORKTREE_ALIASES.md.
+            │ ops/LIVE_STATE.md: semáforo atualizado (WORKTREE: WorkStructure /
+            │ wt-estrutura-nucleo-vivo); linha ALIASES registada; estado, fila,
+            │ linha temporal atualizados.
+NAO_FEITO   │ Renomear fisicamente worktrees no Git (não era objetivo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/WORKTREE_ALIASES.md (NOVO) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (clareza semântica — sem alteração de produto ou Git)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + WORKTREE_ALIASES →
+            │ BULK-02.2 em WorkStructure (FORÇA PRINCIPAL, Lapidação);
+            │ owner decide PLv6.2-b + FVL-IMPL-001; aliases passam a valer
+            │ imediatamente em prompts e handoffs futuros
+SUGESTOES   │ 1) Pioneiros devem usar WorkStructure/WorkFunction/WorkVisual
+            │ no campo WORKTREE do semáforo e CANALIZACAO_TABLE a partir de
+            │ agora — adopção imediata; 2) quando PLv6.2-b for definida,
+            │ classificar explicitamente como WorkFunction ou WorkVisual para
+            │ testar o sistema de aliases na prática; 3) no relatório-mãe do
+            │ Codex, incluir campo TERRITORIO (alias) além de TASK
+DECISAO_REC │ Aliases operacionais em vigor — owner pode operar com
+            │ WorkStructure/WorkFunction/WorkVisual como vocabulário diário;
+            │ nomes técnicos legados disponíveis como nota adicional quando
+            │ necessário; nenhuma mudança adicional de Git requerida
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / aliases operacionais dos worktrees
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ WorkStructure/WorkFunction/WorkVisual selados (WORKTREE_ALIASES.md);
+            │ FOL v1.5; LIVE_STATE semáforo actualizado; aliases válidos
+            │ imediatamente em prompts, handoffs e docs ops/; IGNIÇÃO_ATIVA mantida
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-IGNITION-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/IGNITION.md (NOVO): blueprint canônico do modo de ignição
