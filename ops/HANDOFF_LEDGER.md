@@ -33,6 +33,47 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:COUNCIL-PR-TRIAGE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Triagem de 27 PRs/Issues/branches do ciclo anterior.
+            │ Matriz de decisão: 3 KEEP (já merged), 1 MIGRATE_NOW (R3F v9),
+            │ 3 SALVAGE (C6-streams, A2-ci, C6-eslint), 20 KILL.
+            │ Pareceres curtos por @claude, @copilot, @codex, @cursor,
+            │ @antigravity. Acções imediatas: lista FECHAR/MIGRAR/MANTER.
+            │ ops/COUNCIL_TRIAGE_REPORT_001.md criado.
+NAO_FEITO   │ Fechamento físico dos PRs/Issues (gh CLI indisponível)
+BLOQUEIOS   │ Gitea API inacessível via proxy — triagem via git data
+ADAPTACOES  │ Baseado em git log + branches + triage Copilot 2026-03-19
+ARQUIVOS    │ ops/COUNCIL_TRIAGE_REPORT_001.md (criado) | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — clareza sobre 27 itens; path limpo para PLv6.2-b
+PROX_PASSO  │ Owner fecha PRs/Issues listados; R3F v9 entra como nova task BASTION
+SUGESTOES   │ 1) Fechar PRs/Issues via web (lista FECHAR_AGORA no relatório);
+            │ 2) R3F v9 → nova task @cursor/@copilot no BASTION;
+            │ 3) Só manter 3 branches até decisão PLv6.2-b
+DECISAO_REC │ Limpar 20+ agora; migrar R3F v9; decidir PLv6.2-b
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/COUNCIL_TRIAGE_REPORT_001.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (COUNCIL_TRIAGE_REPORT_001.md) + edit (LEDGER)
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo | BRANCH │ 🟢 claude/expose-workspace-config-yt4Km
+NATUREZA    │ consulta tática ao conselho / triagem de PRs antigas
+ESTADO      │ done | ATIVA │ Triagem emitida; owner executa limpeza
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-DISPATCH-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Leitura do BASTION v1 → verificação de tasks elegíveis por executor.
