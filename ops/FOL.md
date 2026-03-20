@@ -430,9 +430,49 @@ WorkVisual    = o que aparece     → UI, UX, design, identidade, apresentação
 
 ---
 
+## 14. EVIDENCE_BLOCK — BLOCO OBRIGATÓRIO DE EVIDÊNCIA REAL
+
+**Registrado em:** OPS-EVIDENCE-BLOCK-001 | 2026-03-20
+
+Todo handoff formal inclui agora um terceiro bloco obrigatório: **EVIDENCE_BLOCK**.
+
+**Propósito:** distinguir imediatamente se uma task foi executada, analisada, sugerida ou entregue sem prova suficiente.
+
+**Ordem de emissão por sessão:**
+```
+1. HANDOFF_TABLE
+2. EVIDENCE_BLOCK   ← novo, obrigatório
+3. CANALIZACAO_TABLE
+```
+
+**Template rápido:**
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ file1 | file2 — ou: nenhum
+TIPO_DE_ACAO           │ create | edit | review | analyze | no-change
+PROVA_MINIMA           │ commit id | seção alterada | arquivo criado | analysis-only
+ALTERACAO_REAL         │ sim | não
+═══════════════════════════════════════════════════════════════════════════
+```
+
+**Leitura rápida:**
+
+| ALTERACAO_REAL | Leitura |
+|---|---|
+| sim + create/edit | artefacto entrou ou mudou no sistema |
+| não + review/analyze | task executada como análise — sem mudança |
+| não + no-change | task concluída sem alteração — ou bloqueada |
+
+**Regra:** handoff sem EVIDENCE_BLOCK deixa de ser prova forte.
+
+**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 8
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
 *FOL v1.3 — seção 11 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-AUTOFLOW-001*
 *FOL v1.4 — seção 12 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001*
 *FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
+*FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*

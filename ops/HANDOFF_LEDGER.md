@@ -33,6 +33,67 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-EVIDENCE-BLOCK-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/OUTPUT_STANDARD.md → v1.1: seção 8 EVIDENCE_BLOCK adicionada
+            │ (template canônico, campos obrigatórios, regras de preenchimento
+            │ por TIPO_DE_ACAO, tabela de leitura rápida); seção 5 (ordem de
+            │ emissão) atualizada: 1.HANDOFF_TABLE 2.EVIDENCE_BLOCK 3.CANALIZACAO_TABLE.
+            │ ops/FOL.md → v1.6: seção 14 adicionada (template rápido, tabela de
+            │ leitura, regra, referência a OUTPUT_STANDARD.md seção 8).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (EVIDENCE_BLOCK: VIGENTE), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-EVIDENCE-BLOCK-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (protocolo operacional — sem mudança de produto nem Git)
+PROX_PASSO  │ Todos os pioneiros adoptam EVIDENCE_BLOCK imediatamente no próximo
+            │ handoff; @copilot BULK-02.2 em WorkStructure (primeiro handoff com
+            │ os 3 blocos: HANDOFF + EVIDENCE + CANALIZACAO); owner decide PLv6.2-b
+SUGESTOES   │ 1) Copilot: ao emitir BULK-02.2, usar os 3 blocos — é o primeiro
+            │ handoff com o padrão novo em produção; 2) Codex: incluir EVIDENCE_BLOCK
+            │ no relatório-mãe por pioneiro (campo ALTERACAO_REAL por task lida);
+            │ 3) owner: ao receber handoff sem EVIDENCE_BLOCK, pode solicitar
+            │ retroativamente — é sinal de output incompleto
+DECISAO_REC │ EVIDENCE_BLOCK em vigor imediatamente — sem gate adicional; pioneiros
+            │ adoptam no próximo handoff emitido; handoff sem evidence = prova incompleta
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ OUTPUT_STANDARD.md: seção 8 criada (EVIDENCE_BLOCK) + seção 5 (ordem de emissão) atualizada
+                       │ FOL.md: seção 14 adicionada (linha *FOL v1.6* no rodapé)
+                       │ LIVE_STATE.md: linha EVIDENCE_BLOCK adicionada ao semáforo; fila e timeline actualizados
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / evidência operacional obrigatória
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ EVIDENCE_BLOCK vigente: pioneiros emitem 3 blocos por sessão
+            │ (HANDOFF + EVIDENCE + CANALIZACAO); OUTPUT_STANDARD v1.1 + FOL v1.6
+            │ selados; IGNIÇÃO_ATIVA mantida; @copilot BULK-02.2 gate aberto;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-WORKTREE-ALIAS-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/WORKTREE_ALIASES.md (NOVO): aliases operacionais de
