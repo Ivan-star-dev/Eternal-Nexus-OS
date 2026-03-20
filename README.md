@@ -56,11 +56,19 @@ Definidos em `package.json`:
 - `typecheck`
 - `preview`
 
+## Arquitetura operacional do sistema
+A casca grossa canônica do Eternal Nexus OS — identidade, missão, leis, pilares, fases, semáforo, linhas, tribunal, handoff, blueprints e critério de sistema maduro — vive em:
+- `docs/NEXUS_OS.md` ← documento soberano
+
 ## Governança da Fase 3
 A fonte de verdade da Fase 3 neste repositório é:
 - `docs/DOC_FASE3.md`
 
-Esse documento define:
+Documentos de suporte:
+- `docs/DOC_MICRO_TEAM.md` — protocolo da Micro Team Paralela de Refinamento
+- `docs/DOC_TRIBUNAL_E4.md` — parecer de higiene e ordem de merge
+
+Esses documentos definem:
 - escopo e não-escopo
 - requisitos verificáveis
 - critérios de aceitação auditáveis

@@ -1,8 +1,13 @@
 # AGENTS.md — Regras operacionais para Fase 3
 
+## Documento soberano do sistema
+A arquitetura operacional completa do Eternal Nexus OS vive em `docs/NEXUS_OS.md`.
+Leia esse documento antes de qualquer sessão que envolva protocolo, fases, linhas do sistema, blueprints ou governança.
+
 ## Fonte de verdade obrigatória
 - Use apenas conteúdo versionado deste repositório.
 - Para Fase 3, a referência obrigatória é `docs/DOC_FASE3.md`.
+- Para o sistema completo (identidade, missão, leis, blueprints), a referência é `docs/NEXUS_OS.md`.
 - Se faltar especificação explícita, não inferir. Registrar limitação.
 
 ## Invariantes do projeto (não negociáveis)
