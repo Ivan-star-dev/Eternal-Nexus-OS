@@ -33,6 +33,43 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
+            │ BASTION v1.2 e LIVE_STATE. Pioneiros operam guiados pelo BASTION
+            │ sem instrução manual entre tasks. Owner entra apenas para gate,
+            │ visão, trava ou redirecionamento.
+NAO_FEITO   │ nenhum — task puramente de governança e selagem de protocolo
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ branch de trabalho da sessão era claude/rebuild-bastion-core-rihGX;
+            │ switched para canonical claude/expose-workspace-config-yt4Km per
+            │ task semáforo
+ARQUIVOS    │ ops/BASTION.md (v1.2) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sela o protocolo de autonomia dos pioneiros
+PROX_PASSO  │ @copilot entra em L-001 → L-002 → BULK-02.2 via IGNITION loop;
+            │ @cursor entra em BULK-01.3-a → b → c; @claude aguarda gate owner
+SUGESTOES   │ 1) Owner confirma MODO_AUTO ON e valida handoff; 2) @codex
+            │ consolida onda e emite relatório-mãe; 3) Owner abre gate PLv6.2-b
+            │ ou FVL-IMPL-001 para próxima frente de produto
+DECISAO_REC │ MODO_AUTO selado — máquina avança; owner revisita apenas em gate
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit (BASTION.md: v1.2 + concluídas + semáforo MODO_AUTO)
+                       │ edit (LIVE_STATE.md: semáforo + fila @claude + linha temporal)
+                       │ edit (HANDOFF_LEDGER.md: nova entrada topo)
+PROVA_MINIMA           │ BASTION.md v1.2 selado | MODO_AUTO registado | commit a seguir
+ALTERACAO_REAL_CONFIRMADA │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:COUNCIL-PR-TRIAGE-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Triagem de 27 PRs/Issues/branches do ciclo anterior.
