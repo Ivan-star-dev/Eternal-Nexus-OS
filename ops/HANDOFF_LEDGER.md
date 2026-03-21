@@ -47,7 +47,7 @@ NAO_FEITO   │ Nenhuma task de produto/visual executada nesta sessão; igniçã
 BLOQUEIOS   │ —
 ADAPTACOES  │ Sem mudança de escopo: apenas governança/ops para iniciar o ciclo
 ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
-IMPACTO     │ alto — máquina entra em fluxo coordenado com passagem de bastão
+IMPACTO     │ alto
 PROX_PASSO  │ @copilot entra na task elegível do BASTION no território dominante
             │ e segue loop contínuo até gate/bloqueio/red line
 SUGESTOES   │ 1) @codex consolidar estado do BASTION no próximo relatório-mãe;
