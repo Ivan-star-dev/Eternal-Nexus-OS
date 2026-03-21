@@ -127,7 +127,7 @@ Your last commit (`visual: dual-track closeout and terminal polish`, 2026-03-21)
 ### Tasks:
 
 **C2** — `queued` | GeopoliticsMap.tsx MapLibre shell
-- Branch: `copilot` (use `copilot/` prefix)
+- Branch: `agent/copilot`
 - Task: Implement `src/components/atlas/GeopoliticsMap.tsx` using MapLibre GL JS with the `pmtiles://` registrar.
   - Load the PMTiles protocol adapter
   - Wire into the Tribunal data layer (read events from Atlas bus)
@@ -141,6 +141,7 @@ Your last commit (`visual: dual-track closeout and terminal polish`, 2026-03-21)
 **NEW: T-011 — React 18 typing cleanup** (`queued`)
 - Labels: `organ:nexus`, `type:dx`, `effort:S`, `blocked:no`
 - Owner: `@copilot`
+- Branch: `agent/copilot`
 - Task: Resolve remaining React 18 JSX typing errors flagged in `C6-codex-eslint-audit`.
   - Run `npm run typecheck` — fix all errors in `src/`
   - Run `npm run lint` — fix all warnings in modified files only
@@ -194,8 +195,9 @@ git show origin/agent/antigravity:NEXUS_CONTEXT/HANDOFF.md
 git fetch origin cursor/espinha-visual-do-ecossistema-6ecf
 git show origin/cursor/espinha-visual-do-ecossistema-6ecf:docs/VISUAL_MOTHER.md
 
-# Copilot
+# Copilot (canonical dev branch)
 git fetch origin agent/copilot
+# Note: copilot/apply-dark-glassmorphism-style has prior U1 dark glassmorphism work — read it before starting U1
 
 # This dispatch (source of truth)
 git fetch origin claude/rebuild-bastion-core-rihGX
