@@ -138,6 +138,7 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION 2.0 ciclo activado por ordem owner |
 | DNA-PROTOCOL-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — DNA_PROTOCOL.md v1 criado |
+| NEXUS-PIONEER-ROLE-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — PIONEER_MATRIX.md v1 criado; papéis cravados; 3 chats selados |
 
 ---
 
@@ -364,9 +365,9 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.4
+VERSÃO          │ v1.5
 DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ DNA-PROTOCOL-MOTHER-001 | @claude | 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ NEXUS-PIONEER-ROLE-MOTHER-001 | @claude | 2026-03-21
 ESTADO          │ BASTION 2.0 ACTIVO — ciclo contínuo activado por ordem do owner
 CICLO_2.0       │ ATIVO — todos os pioneiros em fluxo contínuo no território dominante
 DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
@@ -401,6 +402,7 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Histórico de handoffs | `ops/HANDOFF_LEDGER.md` |
 | Orquestração do Codex | `ops/CODEX_CONSOLIDATOR.md` |
 | Protocolo-mãe | `ops/DNA_PROTOCOL.md` |
+| Papéis dos pioneiros | `ops/PIONEER_MATRIX.md` |
 | Modo de ignição | `ops/IGNITION.md` |
 | Fluxo autônomo | `ops/AUTOFLOW.md` |
 
@@ -411,3 +413,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.4 — DNA-PROTOCOL-MOTHER-001 concluída; DNA_PROTOCOL.md v1 adicionado ao histórico e localização canônica — 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
+*BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*

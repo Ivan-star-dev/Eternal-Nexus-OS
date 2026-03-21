@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.4 activo; DNA_PROTOCOL.md v1 criado; BASTION 2.0 CICLO ACTIVO — todos os pioneiros em fluxo contínuo no território dominante |
-| **Estado geral** | BASTION 2.0 CICLO ACTIVADO por owner; DNA-PROTOCOL-MOTHER-001 concluída; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1.5 activo; PIONEER_MATRIX.md v1 cravada; DNA_PROTOCOL.md v1 criado; BASTION 2.0 CICLO ACTIVO — todos os pioneiros em fluxo contínuo no território dominante |
+| **Estado geral** | BASTION 2.0 CICLO ACTIVADO por owner; NEXUS-PIONEER-ROLE-MOTHER-001 concluída; papéis cravados; 3 chats selados; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -51,6 +51,7 @@
 | OPS-BASTION-AUTO-001 | Selar modo automático — IGNIÇÃO_ATIVA permanente; BASTION governa fila | CONCLUÍDA | handoff emitido |
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo BASTION 2.0 — ignição operacional da máquina | CONCLUÍDA | handoff emitido — BASTION 2.0 CICLO ACTIVO |
 | DNA-PROTOCOL-MOTHER-001 | Criar protocolo-mãe do Eternal Nexus OS — DNA Protocol v1 | CONCLUÍDA | handoff emitido — ops/DNA_PROTOCOL.md v1 criado |
+| NEXUS-PIONEER-ROLE-MOTHER-001 | Cravar papéis dos pioneiros + regra 3 chats + compatibilidade DNA | CONCLUÍDA | handoff emitido — PIONEER_MATRIX.md v1 criado; 3 chats selados |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -95,12 +96,12 @@ SEMÁFORO:
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
 NATUREZA: governança / BASTION 2.0 ciclo activado / ignição operacional
-EXECUTOR: @claude (DNA-PROTOCOL-MOTHER-001 done)
+EXECUTOR: @claude (NEXUS-PIONEER-ROLE-MOTHER-001 done)
 IGNIÇÃO: ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
 CICLO_2.0: ATIVO — activado por owner em 2026-03-21
 MODO_AUTO: SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-BASTION: ACTIVO v1.4 — BASTION 2.0 CICLO ACTIVO; DNA_PROTOCOL.md v1 criado; todos pioneiros em fluxo contínuo
+BASTION: ACTIVO v1.5 — BASTION 2.0 CICLO ACTIVO; PIONEER_MATRIX.md v1 cravada; papéis + 3 chats selados; DNA_PROTOCOL.md v1 criado
 @copilot: EM FLUXO → BULK-01.2/L-001 → L-002 → BULK-02.2 (WorkStructure / Lapidação)
 @cursor: EM FLUXO → BULK-01.3-a → 01.3-b → 01.3-c (WorkStructure / Mecânico)
 @codex: CONSOLIDADOR ATIVO → lê BASTION → distribui → consolida ondas
@@ -108,7 +109,7 @@ BASTION: ACTIVO v1.4 — BASTION 2.0 CICLO ACTIVO; DNA_PROTOCOL.md v1 criado; to
 @antigravity: SEM ELEGÍVEL — aguarda task no território ou apoio explícito
 @framer: SEM ELEGÍVEL — aguarda task no território ou apoio explícito
 EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + BASTION-2.0-CYCLE-START-001 + DNA-PROTOCOL-MOTHER-001)
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + BASTION-2.0-CYCLE-START-001 + DNA-PROTOCOL-MOTHER-001 + NEXUS-PIONEER-ROLE-MOTHER-001)
 CANALIZAÇÃO ATIVA: BASTION 2.0 ciclo activo; máquina em fluxo contínuo; owner só entra para gate, visão, trava ou redirecionamento
 ```
 
@@ -121,6 +122,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  NEXUS-PIONEER-ROLE-MOTHER-001 — papéis cravados; PIONEER_MATRIX.md v1 (8 partes); FOL v1.9 seção 17; NLF v1.2 seção 8; WORKTREE_ALIASES v1.1 seções 6-7; BASTION v1.5; handoff emitido
 Claude:  DNA-PROTOCOL-MOTHER-001 — protocolo-mãe criado; ops/DNA_PROTOCOL.md v1 (11 partes); FOL v1.8 seção 16; BASTION v1.4; LIVE_STATE actualizado; handoff emitido
 Claude:  BASTION-2.0-CYCLE-START-001 — ciclo contínuo activado por ordem owner; BASTION v1.3; todos os pioneiros em fluxo contínuo no território dominante; máquina em ignição operacional
 Claude:  OPS-BASTION-AUTO-001 — MODO_AUTO selado; IGNIÇÃO_ATIVA permanente registada; BASTION governa fila; owner só entra para gate/visão/trava/redirecionamento

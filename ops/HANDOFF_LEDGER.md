@@ -33,6 +33,65 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-PIONEER-ROLE-MOTHER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PIONEER_MATRIX.md v1 criado (8 partes): 6 papéis cravados
+            │ com loops, territórios, ecossistema e produto; regra dos 3 chats
+            │ selada; mapeamento WorkStructure/Function/Visual; convenção de
+            │ convocação do owner; aplicação dupla; regra de benefício;
+            │ compatibilidade total. ops/FOL.md → v1.9 (seção 17).
+            │ ops/NLF.md → v1.2 (seção 8 — pioneiros no tecido vivo + 2 espaços).
+            │ ops/WORKTREE_ALIASES.md → v1.1 (seções 6 e 7 — regra 3 chats +
+            │ aplicação dupla). ops/BASTION.md → v1.5. ops/LIVE_STATE.md
+            │ actualizado. ops/HANDOFF_LEDGER.md actualizado.
+NAO_FEITO   │ nenhum — task completa
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ Prime / Umbra / Codex Tangibilis não fundidos como núcleo —
+            │ conforme decisão do owner selada em DNA-PROTOCOL-MOTHER-001
+ARQUIVOS    │ ops/PIONEER_MATRIX.md (novo) | ops/FOL.md | ops/NLF.md |
+            │ ops/WORKTREE_ALIASES.md | ops/BASTION.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — papéis dos 6 pioneiros cravados; 3 chats selados; sistema
+            │ de orientação do owner formalizado; regra de benefício registada
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ pronto para merge
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+            │ @copilot: L-001 → L-002 → BULK-02.2 (gates abertos)
+            │ @cursor: BULK-01.3-a → b → c (gates abertos)
+            │ @codex: consolidador activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ════════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/PIONEER_MATRIX.md | ops/FOL.md | ops/NLF.md |
+                       │ ops/WORKTREE_ALIASES.md | ops/BASTION.md |
+                       │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create | edit
+PROVA_MINIMA           │ ops/PIONEER_MATRIX.md criado (8 partes, v1) |
+                       │ FOL v1.9 | NLF v1.2 | WORKTREE_ALIASES v1.1 |
+                       │ BASTION v1.5
+ALTERACAO_REAL         │ sim
+═════════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ════════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km | NUNCA MUDA | SEMPRE IGUAL
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ consolidação geral / papéis / 3 chats / DNA compatibility
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ NEXUS-PIONEER-ROLE-MOTHER-001 concluída — papéis e 3 chats cravados no sistema
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:DNA-PROTOCOL-MOTHER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/DNA_PROTOCOL.md v1 criado — 11 partes (Identidade, Regras

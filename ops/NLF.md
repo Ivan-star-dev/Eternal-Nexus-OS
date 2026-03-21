@@ -145,5 +145,50 @@ Ver `ops/IGNITION.md` — definição completa do modo de ignição contínua.
 
 ---
 
+---
+
+## 8. PIONEER MATRIX — PAPÉIS NO TECIDO VIVO
+
+**Registrado por instrução explícita do owner | NEXUS-PIONEER-ROLE-MOTHER-001 | 2026-03-21**
+
+O NLF é alimentado e consumido por 6 pioneiros. Cada um tem papel distinto no tecido vivo.
+
+### Como cada pioneiro alimenta o NLF
+
+| Pioneiro | Alimenta | Consome |
+|---|---|---|
+| **@claude** | LIVE_STATE (estado atual, fila, semáforo) + HANDOFF_LEDGER | LIVE_STATE (sua fila) + BASTION + HANDOFF_LEDGER (últimas 2) |
+| **@copilot** | LIVE_STATE (sua fila) + HANDOFF_LEDGER | LIVE_STATE (sua fila) + HANDOFF_LEDGER (último handoff de @claude) |
+| **@codex** | LIVE_STATE (sua fila + consolidação de onda) + HANDOFF_LEDGER | LIVE_STATE (seção 1 + todas as filas) + BASTION (visão geral) |
+| **@cursor** | LIVE_STATE (sua fila + bloqueios resolvidos) + HANDOFF_LEDGER | LIVE_STATE (seção 4 — bloqueios) + sua fila |
+| **@framer** | LIVE_STATE (sua fila) + HANDOFF_LEDGER | LIVE_STATE (sua fila WorkVisual) |
+| **@antigravity** | LIVE_STATE (sua fila) + HANDOFF_LEDGER | LIVE_STATE (sua fila WorkVisual) |
+
+### Os dois espaços que governam o NLF
+
+```
+CREATOR SPACE  → owner orienta, abre gates, define visão
+               → pioneiro fala com o criador; não está a executar BASTION task
+               → NLF regista gates abertos pelo owner
+
+BASTION SPACE  → pioneiro executa task elegível no BASTION
+               → NLF regista o estado de execução
+               → LIVE_STATE é atualizado ao encerrar
+
+Só existem estes dois espaços.
+Quando um pioneiro não está no Bastion Space, está no Creator Space.
+```
+
+### Regra de soberania expandida
+
+> O NLF nunca decide qual espaço um pioneiro ocupa.
+> O owner abre o gate — o BASTION regista — o pioneiro entra.
+> Sem gate, o pioneiro está no Creator Space — não no Bastion Space.
+
+**Referência completa:** `ops/PIONEER_MATRIX.md`
+
+---
+
 *NLF v1 — implantado em 2026-03-20 | claude-sonnet-4-6 | E17 | Fase 3*
 *NLF v1.1 — seção 7 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001 | instrução explícita do owner*
+*NLF v1.2 — seção 8 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001 | instrução explícita do owner*

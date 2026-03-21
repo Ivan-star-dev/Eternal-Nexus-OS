@@ -542,6 +542,53 @@ Não substitui nenhum artefacto canônico — codifica o que os torna coerentes 
 
 ---
 
+---
+
+## 17. PIONEER MATRIX — PAPÉIS, TERRITÓRIOS E REGRA DOS 3 CHATS
+
+**Registrado em:** NEXUS-PIONEER-ROLE-MOTHER-001 | 2026-03-21
+
+A **Pioneer Matrix** cravar os papéis de cada pioneiro, a regra dos 3 chats e a compatibilidade com o DNA Protocol.
+
+### Os 6 pioneiros (resumo operacional)
+
+| Pioneiro | Pilar | Território Dominante | Papel |
+|---|---|---|---|
+| **@claude** | Estrutura + Produto | WorkStructure | Arquiteto-executor / árbitro canônico |
+| **@copilot** | Lapidação | WorkStructure + WorkVisual | Executor-lapidador / consolidador |
+| **@codex** | Qualidade | WorkStructure (orquestração) | Cérebro-orquestrador / consolidador de ondas |
+| **@cursor** | Mecânico (transversal) | WorkFunction | Executor-desbloqueador / gates mecânicos |
+| **@framer** | Visual (território) | WorkVisual | Executor-visual / design system / UI Framer |
+| **@antigravity** | Visual (território) | WorkVisual | Executor-visual / motion / 3D / R3F |
+
+### A regra dos 3 chats (orientação do owner)
+
+```
+CHAT 1: WorkStructure   → o que sustenta (protocolo, base, governança, docs)
+CHAT 2: WorkFunction    → o que funciona (features, produto, APIs, comportamento)
+CHAT 3: WorkVisual      → o que aparece  (UI, UX, design, identidade, motion)
+
+Triagem rápida:
+→ task produz doc/protocolo/config?      → WorkStructure
+→ task produz feature/fluxo/integração?  → WorkFunction
+→ task produz design/UI/visual?          → WorkVisual
+```
+
+### Aplicação dupla
+
+```
+O mesmo DNA governa ecossistema e produto.
+WorkStructure: infra/ops (ecossistema) = data model/arquitetura (produto)
+WorkFunction:  automações (ecossistema) = features/fluxos (produto)
+WorkVisual:    docs visuais (ecossistema) = dashboard/UI (produto)
+```
+
+### Referência completa
+
+Ver `ops/PIONEER_MATRIX.md` — papéis completos, loops, regra de benefício, compatibilidade total.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
@@ -551,3 +598,4 @@ Não substitui nenhum artefacto canônico — codifica o que os torna coerentes 
 *FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
 *FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *FOL v1.8 — seção 16 adicionada em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
+*FOL v1.9 — seção 17 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
