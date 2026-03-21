@@ -158,6 +158,24 @@ O Codex **só consolida** com base em:
 | Logs reais de commit/push | Se disponíveis e verificáveis |
 | Diff real de arquivos | Se solicitado para auditoria técnica |
 
+### Taxonomia canônica de evidência (labels fixas)
+
+Toda consolidação do Codex deve classificar claims, status e blocos de relatório usando **somente** as labels abaixo:
+
+| Label | Uso canônico | Regra operacional |
+|---|---|---|
+| `DOCUMENTOS_DE_SUPORTE` | Documentos de escopo, não-escopo, critérios e rastreabilidade | Serve para orientar leitura e governança; **não** fecha capacidade por si só |
+| `EVIDENCIA_FECHADA` | Capacidade comprovada por código, documentação versionada e/ou validação executável no repositório | Pode ser tratada como capacidade real do sistema |
+| `EM_CONSTRUCAO` | Frente já iniciada no repositório, porém sem fechamento técnico verificável | Não pode ser promovida para capacidade fechada |
+| `NAO_AFIRMADO` | Claim sem evidência técnica fechada no repositório | Deve ser explicitamente marcado como não comprovado |
+
+### Regras de interpretação obrigatórias
+
+- **Visão não é evidência.**
+- **Direção não é capacidade fechada.**
+- Só conta como capacidade real o que estiver **codificado, documentado ou validado** no repositório.
+- Se não houver prova técnica explícita, classificar como `NAO_AFIRMADO` (nunca inferir fechamento).
+
 **Proibido:**
 - Inferir o estado de uma task sem handoff emitido
 - Marcar task como concluída sem entrada no ledger
@@ -167,6 +185,13 @@ O Codex **só consolida** com base em:
 **Regra de marcação de inferência:**
 
 > Qualquer avaliação sem evidência direta deve ser prefixada com `⚠️ INFERÊNCIA:` e colocada na seção **INFERÊNCIAS MARCADAS** do relatório-mãe.
+
+### Uso obrigatório no relatório-mãe e checkpoints
+
+- No relatório-mãe, incluir uma seção de classificação de claims com as 4 labels fixas.
+- Em handoffs de fase/onda, marcar claims sensíveis com a label correspondente.
+- Em checkpoints do Tribunal técnico, aceitar claim como capacidade apenas quando estiver em `EVIDENCIA_FECHADA`.
+- Em leitura de claims de produto, tudo que não fechar evidência entra como `EM_CONSTRUCAO` ou `NAO_AFIRMADO`.
 
 ---
 
