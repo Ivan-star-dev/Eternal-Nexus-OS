@@ -86,7 +86,7 @@ ESTADO      │ done
 ATIVA       │ BASTION 2.0 ciclo contínuo activo; pioneiros em fluxo coordenado;
             │ @copilot L-001→L-002→BULK-02.2; @cursor 01.3-a→b→c;
             │ @codex consolidador; @claude arbiter sem task elegível (aguarda gate);
-            │ owner livre de microgestão — entra para gate/visão/trava/redireccionamento
+            │ owner livre de microgestão — entra para gate/visão/trava/redirecionamento
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
