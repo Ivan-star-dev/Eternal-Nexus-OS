@@ -93,7 +93,7 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
-NATUREZA: governança / ignição do BASTION 2.0
+NATUREZA: governança
 EXECUTOR: @claude (BASTION-2.0-CYCLE-START-001 done)
 IGNIÇÃO: ATIVA
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
