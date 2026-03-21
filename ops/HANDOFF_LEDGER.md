@@ -63,7 +63,7 @@ ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDG
 TIPO_DE_ACAO           │ edit
 PROVA_MINIMA           │ BASTION v1.3 com semáforo atualizado para BASTION-2.0-CYCLE-START-001
                        │ LIVE_STATE atualizado com executor/timeline/estado de continuidade
-                       │ commit id: N/A (não registrado nesta sessão)
+                       │ commit id: 296fad2
 ALTERACAO_REAL         │ sim
 ═══════════════════════════════════════════════════════════════════════════
 ```
