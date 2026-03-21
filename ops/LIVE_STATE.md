@@ -94,9 +94,9 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: WorkStructure
-NATUREZA: governança / ignição do BASTION 2.0 — ciclo contínuo
+NATUREZA: governança
 EXECUTOR: @claude (BASTION-2.0-CYCLE-START-001 done)
-IGNIÇÃO: ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
+IGNIÇÃO: ATIVA — ignição do BASTION 2.0 — ciclo contínuo iniciado por ordem do owner 2026-03-21
 ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
 BASTION: ACTIVO v2.0 — CICLO CONTÍNUO — pioneiros em fluxo coordenado sem microgestão
 @copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
