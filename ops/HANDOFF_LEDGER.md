@@ -33,6 +33,78 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@cursor │ MODELO:claude-4.6-opus-high-thinking │ TASK:BULK-01.3-a+b+c │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.3-a: VERIFICADO — vite.config.ts.timestamp-* já removido
+            │ do tracking por @copilot F5 (commit c2441fe); .gitignore já tem
+            │ *.timestamp*.mjs (linha 27); 0 ficheiros no disco; 0 tracked.
+            │ BULK-01.3-b: ANALISADO — npm é o PM canônico de facto:
+            │   - npm v10.9.4 instalado; bun NÃO instalado
+            │   - package.json sem campo packageManager
+            │   - scripts genéricos (vite, vitest, eslint, tsc)
+            │   - package-lock.json activamente mantido (commit e5ec35e)
+            │   - bun.lock + bun.lockb residuais do 1º commit (f7816c6)
+            │   - CI usa npm (npm_ci_output.txt no .gitignore)
+            │   - RECOMENDAÇÃO: remover bun.lock + bun.lockb + .gitignore bun
+            │   - AGUARDA: B-002 owner para confirmar e executar remoção
+            │ BULK-01.3-c: ANALISADO — antigravity/legacy-html/ contém:
+            │   - 5 ficheiros HTML standalone (420K total)
+            │   - NextPathInfra_Complete/Platform/v2.html + NL_Solucoes_Fechadas
+            │     + projeto_elite_2026.html
+            │   - Conteúdo: apresentações/portfólio do owner (NL 2026, infra)
+            │   - Zero referências no src/ — não usado pelo React app
+            │   - Adicionados no 1º commit — nunca alterados desde
+            │   - NÃO é lixo técnico — é conteúdo de negócio/portfólio
+            │   - RECOMENDAÇÃO: mover para arquivo separado ou manter como legacy
+            │   - AGUARDA: B-003 owner para decidir
+NAO_FEITO   │ Remoção efectiva de bun.lock (aguarda B-002) e legacy-html (aguarda B-003)
+BLOQUEIOS   │ B-002 (PM canônico — owner decide) | B-003 (legacy-html — owner decide)
+ADAPTACOES  │ 01.3-a confirmado como já resolvido — task de verificação, não de execução
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — backlog mecânico completado; 2 bloqueios escalados ao owner
+PROX_PASSO  │ Owner decide B-002 (npm → remover bun.lock) e B-003 (legacy-html:
+            │ manter/mover/remover); @copilot continua L-001→L-002→BULK-02.2;
+            │ @cursor sem task elegível — aguarda nova task ou apoio
+SUGESTOES   │ 1) Owner confirmar npm: basta dizer "npm é canônico, remover bun.lock"
+            │ e @cursor executa em 1 commit; 2) legacy-html: se o owner quiser
+            │ preservar, mover para branch archive ou pasta docs/archive/;
+            │ 3) após B-002+B-003, @cursor fica sem task — owner pode abrir novo
+            │ backlog mecânico ou designar apoio cruzado
+DECISAO_REC │ Owner decide B-002 + B-003; @copilot continua no loop;
+            │ @cursor aguarda nova atribuição no BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ analyze (01.3-a verificação) + analyze (01.3-b PM) + analyze (01.3-c legacy)
+                       │ + edit (ops/ actualizados com resultados)
+PROVA_MINIMA           │ 01.3-a: git ls-files sem timestamp; .gitignore linha 27 *.timestamp*.mjs
+                       │ 01.3-b: npm v10.9.4 instalado; bun not found; package-lock.json activo
+                       │ 01.3-c: ls antigravity/legacy-html/ = 5 HTMLs 420K; rg src/ = 0 refs
+ALTERACAO_REAL         │ sim (ops/ actualizados com status + análise)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ mecânico / backlog @cursor completado
+EXECUTOR    │ @cursor
+ESTADO      │ done
+ATIVA       │ 3/3 tasks mecânicas concluídas; 01.3-a já resolvido, 01.3-b e
+            │ 01.3-c análises emitidas com recomendação; B-002 e B-003 aguardam
+            │ owner; @cursor sem task elegível; @copilot continua no loop
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-4.6-opus-high-thinking │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Ciclo contínuo BASTION 2.0 activado por ordem directa do owner.

@@ -137,6 +137,9 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
 | COUNCIL-PR-TRIAGE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — triagem 27 PRs/Issues |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 activado |
+| BULK-01.3-a | Mecânico | WorkStructure | @cursor | concluída | já resolvido por @copilot F5 — timestamp removido do tracking + .gitignore blindado |
+| BULK-01.3-b | Mecânico | WorkStructure | @cursor | concluída | análise done — npm é PM canônico; bun.lock residual; aguarda B-002 owner para remoção |
+| BULK-01.3-c | Mecânico | WorkStructure | @cursor | concluída | análise done — 5 HTMLs legacy do owner (420K); zero refs no src/; aguarda B-003 owner |
 
 ---
 
@@ -160,66 +163,6 @@ Cada item da matriz regista os seguintes campos:
 │ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
 │ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
 │                    │ suavizar superfície operacional; sem alteração soberana  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-a                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-b                                             │
-│ EVIDENCIA_MINIMA   │ arquivo removido do tracking + ALTERACAO_REAL: sim      │
-│ NOTAS_DO_OWNER     │ Remover vite.config.ts.timestamp-* do versionamento     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-b                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-c                                             │
-│ EVIDENCIA_MINIMA   │ decisão PM canônico (B-002) ou limpeza + ALTERACAO_REAL │
-│ NOTAS_DO_OWNER     │ Avaliar bun.lock + package-lock.json — PM canônico?     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-c                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P4                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ @owner decide próximo backlog mecânico                  │
-│ EVIDENCIA_MINIMA   │ avaliação registada + decisão clara + ALTERACAO_REAL    │
-│ NOTAS_DO_OWNER     │ Verificar antigravity/legacy-html/ — lixo mecânico?     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -365,14 +308,13 @@ O Codex não executa. O Codex lê, distribui e consolida.
 BASTION ════════════════════════════════════════════════════════════════════
 VERSÃO          │ v2.0
 DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
-ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 ACTIVADO pelo owner
+ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
+ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 EM EXECUÇÃO
 DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
 CICLO           │ BASTION 2.0 — fluxo contínuo sem microgestão do owner
-TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
-                │ BULK-01.2/L-001 | BULK-01.2/L-002
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
 @copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
-@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c (FORÇA PRINCIPAL: Mecânico)
+@cursor         │ 01.3-a DONE (já resolvido) | 01.3-b DONE (análise→B-002) | 01.3-c DONE (análise→B-003) | SEM TASK ELEGÍVEL
 @codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
 @claude         │ ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
 @antigravity    │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
