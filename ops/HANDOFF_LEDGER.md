@@ -33,6 +33,56 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@codex │ MODELO:GPT-5.2-Codex │ TASK:NEXUS-WORKFUNCTION-CODEX-REALIGN-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Branch local realinhado para o canônico do sistema
+            │ (`claude/expose-workspace-config-yt4Km`) e tomada formal do
+            │ WorkFunction executada com mapa técnico funcional real,
+            │ sentença KEEP/SALVAGE/KILL/REBUILD/OWNER_ONLY e ordem de assalto.
+NAO_FEITO   │ Correção dos erros herdados de lint/typecheck (apenas mapeados)
+BLOQUEIOS   │ Gates owner permanecem: PM canônico final, decisão PLv6.2-b+, 
+            │ e política de dados sensíveis/histórico (.env)
+ADAPTACOES  │ Branch canônico não existia localmente; foi criado a partir do
+            │ estado atual para preservar continuidade e remover desalinhamento.
+ARQUIVOS    │ ops/WORKFUNCTION_REALIGN_001.md (criado) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — Codex sai de consolidação leve e volta ao comando técnico
+            │ do pilar funcional com dependência real e sequência de ataque
+PROX_PASSO  │ iniciar assalto funcional pela frente de qualidade-base
+SUGESTOES   │ 1) atacar lint/typecheck por ondas de categoria; 2) resolver
+            │ hooks-order e bordas de dados antes da malha 3D profunda;
+            │ 3) manter tribunal técnico por item com sentença explícita
+DECISAO_REC │ executar ordem 1→2→3 do assalto funcional e manter owner gates
+            │ fora do core até deliberação explícita
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/WORKFUNCTION_REALIGN_001.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (WORKFUNCTION_REALIGN_001.md) + edit (restantes)
+PROVA_MINIMA           │ branch atual = claude/expose-workspace-config-yt4Km;
+                       │ mapa técnico funcional documentado e fila Codex atualizada
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkFunction
+NATUREZA    │ realinhamento de branch + comando técnico funcional
+EXECUTOR    │ @codex
+ESTADO      │ done
+ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Modo de execução contínua até segunda ordem reforçado no

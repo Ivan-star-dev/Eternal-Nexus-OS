@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001
+**Atualizado por:** @codex | GPT-5.2-Codex | NEXUS-WORKFUNCTION-CODEX-REALIGN-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-FULL-AUTO-UNTIL-STOP-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
+| **Executor ativo** | @codex (NEXUS-WORKFUNCTION-CODEX-REALIGN-001 concluído) |
+| **Frente ativa** | Pilar funcional / WorkFunction |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; execução contínua até segunda ordem reforçada (OPS-FULL-AUTO-UNTIL-STOP-001) |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; ciclo full-auto vigente (ler BASTION → executar elegível → registrar → passar bastão → voltar ao BASTION); @copilot ativo em L-001→L-002→BULK-02.2; @cursor ativo em 01.3-a→b→c; @codex consolidador/tribunal ativo; @claude mantém topo e arbitragem canônica contínua |
+| **Estado geral** | Branch canônico realinhado para o executor Codex; tomada formal do WorkFunction concluída com mapa técnico funcional emitido; governança e linhas paralelas mantidas sem alteração estrutural. |
 
 ---
 
@@ -57,9 +57,10 @@
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
-| OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | owner solicita relatório-mãe — não requer branch alinhado |
+| OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | consolidação contínua por handoffs recebidos |
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
-| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | BLOQUEADA | branch não alinhado ao canônico — entra na próxima onda após alinhamento |
+| NEXUS-WORKFUNCTION-CODEX-REALIGN-001 | Realinhamento de branch + tomada WorkFunction | CONCLUÍDA | branch canônico vivo + mapa funcional emitido |
+| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | ELEGÍVEL | bloqueio de branch removido nesta sessão |
 
 ### @cursor (Desbloqueador / Backlog Mecânico)
 
@@ -100,7 +101,7 @@ ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
 BASTION: ACTIVO v1.3 — modo full-auto reforçado; pioneiros seguem loop contínuo
 @copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
 @cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
-@codex: CONSOLIDADOR ATIVO → aguarda handoffs
+@codex: WORKFUNCTION ACTIVO → branch canônico alinhado + tribunal técnico funcional emitido
 @claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
 ATIVAÇÃO_AUTOMÁTICA: NEXT_ACTOR=ele + ACTIVATION_MODE=imediato + ACTIVATION_CONDITION=nenhuma
 FULL_AUTO: ACTIVO até segunda ordem do owner ou condição real de parada
@@ -127,7 +128,7 @@ Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado;
 Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
 Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
 Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
-Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
+Codex:   WORKFUNCTION ACTIVO (branch canônico alinhado) | F6 EM ANDAMENTO | BULK-01-Codex desbloqueado
 ─────────────────────────────────────────────
 PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
 ```
@@ -154,7 +155,7 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência
 4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
 5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 6. **Owner responde B-002** — confirmar npm como PM canônico
-7. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
+7. **@codex** — iniciar assalto funcional em qualidade (lint/typecheck) com sentença KEEP/SALVAGE/REBUILD já emitida
 
 ---
 
