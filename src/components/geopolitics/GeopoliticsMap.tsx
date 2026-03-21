@@ -22,7 +22,7 @@ import { useEffect, useRef, useCallback, useState, memo } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { registerPMTilesProtocol } from '@/lib/map/pmtiles-protocol';
-import { createDarkStyle, NEXUS_MAP_COLORS, startNeonBorderAnimation } from '@/lib/map/dark-style';
+import { createDarkStyle, NEXUS_MAP_COLORS, startNeonBorderAnimation, enableHoverEffects } from '@/lib/map/dark-style';
 import { useGeopoliticsMap, type VerdictGeoJSON } from '@/hooks/useGeopoliticsMap';
 import { useConflictHeatmap, type HeatmapGeoJSON } from '@/hooks/useConflictHeatmap';
 import LayerTogglePanel, { DEFAULT_VISIBILITY, type LayerVisibility, type LayerId } from './LayerTogglePanel';
@@ -55,6 +55,7 @@ function addVerdictLayer(map: maplibregl.Map): void {
   map.addSource('verdict-markers', {
     type: 'geojson',
     data: { type: 'FeatureCollection', features: [] },
+    generateId: true,
   });
 
   // Outer glow ring (halo)
@@ -99,15 +100,47 @@ function addVerdictLayer(map: maplibregl.Map): void {
     },
   });
 
-  // Core dot
+  // Branded Nexus marker — outer reticle ring (stroke-only circle, no fill)
+  map.addLayer({
+    id: 'verdict-ring',
+    type: 'circle',
+    source: 'verdict-markers',
+    paint: {
+      'circle-radius': [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        ['interpolate', ['linear'], ['get', 'confidence'], 0, 13, 1, 22],
+        ['interpolate', ['linear'], ['get', 'confidence'], 0, 10, 1, 18],
+      ],
+      'circle-color': 'transparent',
+      'circle-opacity': 1,
+      'circle-stroke-width': [
+        'case', ['boolean', ['feature-state', 'hover'], false], 2.5, 1.5,
+      ],
+      'circle-stroke-color': [
+        'match', ['get', 'verdict'],
+        'approved', NEXUS_MAP_COLORS.teal,
+        'rejected', NEXUS_MAP_COLORS.conflictHigh,
+        NEXUS_MAP_COLORS.primary,
+      ],
+      'circle-stroke-opacity': [
+        'case', ['boolean', ['feature-state', 'hover'], false], 1, 0.75,
+      ],
+      'circle-blur': 0,
+    },
+  });
+
+  // Core dot — brightens on hover
   map.addLayer({
     id: 'verdict-core',
     type: 'circle',
     source: 'verdict-markers',
     paint: {
       'circle-radius': [
-        'interpolate', ['linear'], ['get', 'confidence'],
-        0, 4, 1, 8,
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        ['interpolate', ['linear'], ['get', 'confidence'], 0, 6, 1, 10],
+        ['interpolate', ['linear'], ['get', 'confidence'], 0, 4, 1, 8],
       ],
       'circle-color': [
         'match', ['get', 'verdict'],
@@ -115,7 +148,9 @@ function addVerdictLayer(map: maplibregl.Map): void {
         'rejected', NEXUS_MAP_COLORS.conflictHigh,
         NEXUS_MAP_COLORS.primary,
       ],
-      'circle-opacity': 0.95,
+      'circle-opacity': [
+        'case', ['boolean', ['feature-state', 'hover'], false], 1, 0.95,
+      ],
       'circle-stroke-width': 1.5,
       'circle-stroke-color': NEXUS_MAP_COLORS.background,
     },
@@ -320,7 +355,7 @@ function updateHeatmapData(map: maplibregl.Map, geojson: HeatmapGeoJSON): void {
 
 /** Map layer IDs controlled by each toggle */
 const LAYER_MAP_IDS: Record<LayerId, string[]> = {
-  'verdict-markers': ['verdict-halo', 'verdict-glow', 'verdict-core', 'verdict-labels'],
+  'verdict-markers': ['verdict-halo', 'verdict-glow', 'verdict-ring', 'verdict-core', 'verdict-labels'],
   'conflict-heatmap': ['conflict-heatmap-layer', 'conflict-circles'],
   'migration-routes': ['migration-route-lines', 'migration-route-glow'],
   'energy-grid': ['energy-grid-glow', 'energy-grid-core'],
@@ -337,6 +372,8 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const mapLoaded = useRef(false);
   const stopAnimationRef = useRef<(() => void) | null>(null);
+  const stopHoverRef = useRef<(() => void) | null>(null);
+  const hoveredVerdictId = useRef<string | number | null>(null);
 
   // Layer visibility state (U2)
   const [layerVisibility, setLayerVisibility] = useState<LayerVisibility>(DEFAULT_VISIBILITY);
@@ -387,6 +424,9 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
 
       // Start neon border animation (U1) — stored in ref for safe cleanup
       stopAnimationRef.current = startNeonBorderAnimation(map);
+
+      // Enable hover effects (U1) — country border + verdict marker glows
+      stopHoverRef.current = enableHoverEffects(map);
     });
 
     // Click handler → popup for verdicts, publish atlas.marker for empty areas
@@ -427,8 +467,26 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
       }
     });
 
-    map.on('mouseenter', 'verdict-core', () => { map.getCanvas().style.cursor = 'pointer'; });
-    map.on('mouseleave', 'verdict-core', () => { map.getCanvas().style.cursor = ''; });
+    map.on('mouseenter', 'verdict-core', (e) => {
+      map.getCanvas().style.cursor = 'pointer';
+      if (e.features && e.features.length > 0) {
+        const id = e.features[0].id as string | number | undefined;
+        if (id != null) {
+          if (hoveredVerdictId.current != null) {
+            map.setFeatureState({ source: 'verdict-markers', id: hoveredVerdictId.current }, { hover: false });
+          }
+          hoveredVerdictId.current = id;
+          map.setFeatureState({ source: 'verdict-markers', id }, { hover: true });
+        }
+      }
+    });
+    map.on('mouseleave', 'verdict-core', () => {
+      map.getCanvas().style.cursor = '';
+      if (hoveredVerdictId.current != null) {
+        map.setFeatureState({ source: 'verdict-markers', id: hoveredVerdictId.current }, { hover: false });
+        hoveredVerdictId.current = null;
+      }
+    });
 
     mapRef.current = map;
 
@@ -437,6 +495,11 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
         stopAnimationRef.current();
         stopAnimationRef.current = null;
       }
+      if (stopHoverRef.current) {
+        stopHoverRef.current();
+        stopHoverRef.current = null;
+      }
+      hoveredVerdictId.current = null;
       mapLoaded.current = false;
       map.remove();
       mapRef.current = null;
