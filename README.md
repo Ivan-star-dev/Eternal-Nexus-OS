@@ -60,6 +60,11 @@ Definidos em `package.json`:
 A fonte de verdade da Fase 3 neste repositório é:
 - `docs/DOC_FASE3.md`
 
+Documentos de suporte:
+- `docs/DOC_VISUAL_SPINE_001.md` — blueprint da identidade visual-mãe do ecossistema
+- `docs/DOC_VISUAL_SPINE_002A.md` — ativação localizada da Visual Spine (presença e templates)
+- `ops/VISUAL_TEMPLATE_PACK_002A.md` — pack de templates vivos (handoffs, reports, letters, outputs)
+
 Esse documento define:
 - escopo e não-escopo
 - requisitos verificáveis

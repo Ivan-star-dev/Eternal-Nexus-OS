@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
+# .githooks/pre-commit
+# Two guards run on every commit:
+#   1. Merge conflict marker check (original)
+#   2. Branch discipline guard (GRAND RESET v1)
+#
+# Install once per clone:  pwsh .ops/install-hooks.ps1
+# Skip in emergencies:     SKIP_BRANCH_GUARD=1 git commit ...
+
 set -euo pipefail
 
+# ─────────────────────────────────────────────────────────────
+# GUARD 1 — Conflict marker check (original)
+# ─────────────────────────────────────────────────────────────
 bad=0
 while IFS= read -r f; do
   [ -f "$f" ] || continue
@@ -14,3 +25,83 @@ if [ "$bad" -ne 0 ]; then
   echo "Commit bloqueado: resolve markers de merge primeiro."
   exit 1
 fi
+
+# ─────────────────────────────────────────────────────────────
+# GUARD 2 — Branch discipline (GRAND RESET v1)
+# ─────────────────────────────────────────────────────────────
+if [ "${SKIP_BRANCH_GUARD:-0}" = "1" ]; then
+  echo "[branch-guard] SKIP_BRANCH_GUARD=1 — bypassing branch check."
+  exit 0
+fi
+
+BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+
+# Detached HEAD — allow (rebase/bisect scenarios)
+if [ -z "$BRANCH" ]; then
+  echo "[branch-guard] Detached HEAD — skipping branch check."
+  exit 0
+fi
+
+# ── Block functions ──────────────────────────────────────────
+block() {
+  local reason="$1"
+  local fix="$2"
+  echo ""
+  echo "┌─────────────────────────────────────────────────────┐"
+  echo "│  BRANCH GUARD — COMMIT BLOCKED                      │"
+  echo "├─────────────────────────────────────────────────────┤"
+  printf "│  Branch : %-42s│\n" "$BRANCH"
+  printf "│  Reason : %-42s│\n" "$reason"
+  printf "│  Fix    : %-42s│\n" "$fix"
+  echo "└─────────────────────────────────────────────────────┘"
+  echo ""
+  echo "  Bypass (emergency only): SKIP_BRANCH_GUARD=1 git commit ..."
+  echo ""
+  exit 1
+}
+
+# ── Rule 1: main is protected ────────────────────────────────
+if [ "$BRANCH" = "main" ]; then
+  block \
+    "Direct commits to main are forbidden." \
+    "git checkout -b C<N>-<literal-task-name>"
+fi
+
+# ── Rule 2: agent/* are parking branches ─────────────────────
+if echo "$BRANCH" | grep -qE '^agent/'; then
+  block \
+    "agent/* branches are parking — no implementation commits." \
+    "git checkout -b C<N>-<literal-task-name>"
+fi
+
+# ── Rule 3: Random platform branches are forbidden ───────────
+# Blocks: claude/cranky-ride, copilot/do-all, codex/random-audit-name
+# Does NOT block: lab/claude/topic (slash-slash pattern is allowed)
+if echo "$BRANCH" | grep -qE '^(claude|copilot|codex|antigravity|cursor|framer)/[^/]+$'; then
+  block \
+    "Random-name platform branches are forbidden." \
+    "Use lab/<platform>/<topic> or <TASKID>-<name> instead."
+fi
+
+# ── Rule 4: Validate branch class ────────────────────────────
+# Allowed classes:
+#   lab/<platform>/<topic>            → research/scratch
+#   feat/<name>                       → feature work
+#   fix/<name>                        → bug fix
+#   ops/<name>                        → ops/infra
+#   docs/<name>                       → documentation
+#   chore/<name>                      → maintenance
+#   <TASKID>-<name>                   → literal task branch (C6-*, A2-*, U1-*)
+#   hotfix/<name>                     → emergency hotfix
+VALID=0
+echo "$BRANCH" | grep -qE '^lab/[a-z][a-z0-9-]*/[a-z0-9].+'      && VALID=1
+echo "$BRANCH" | grep -qE '^(feat|fix|ops|docs|chore|hotfix)/.+'  && VALID=1
+echo "$BRANCH" | grep -qE '^[A-Za-z]+[0-9]+[a-z]?-.+'            && VALID=1
+
+if [ "$VALID" = "0" ]; then
+  block \
+    "Branch '$BRANCH' is not a valid branch class." \
+    "Use: <TASKID>-name | feat/* | fix/* | ops/* | lab/*/* "
+fi
+
+echo "[branch-guard] ✓ Branch '$BRANCH' — OK."

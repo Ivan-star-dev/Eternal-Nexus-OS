@@ -22,7 +22,9 @@ import type {
   AtlasMarkerPayload,
   IndexEntryPayload,
   NewsBroadcastPayload,
+  StreamsFeedPayload,
 } from '../types/sacred-flow';
+import { createStreamsOrgan } from '../lib/events/streams';
 
 // ── Helpers ──
 
@@ -748,6 +750,176 @@ describe('Nervous System v1 — Phase Gate', () => {
       // The full flow is traceable: Tribunal → Index → News
       // All events share the same verdict lineage
       expect((allEvents[2].payload as NewsBroadcastPayload).linkedVerdictId).toBe(verdict!.id);
+    });
+  });
+
+  // ════════════════════════════════════════════════════
+  // GATE 8: STREAMS (5th organ — broadcast exit point)
+  // ════════════════════════════════════════════════════
+
+  describe('GATE 8: Streams — broadcast exit point', () => {
+    it('StreamsOrgan receives news.broadcast and emits streams.feed', () => {
+      const streams = createStreamsOrgan(bus);
+      streams.start();
+
+      // News publishes a broadcast
+      const news = createNexusClient({ organ: 'news', bus });
+      news.emit<NewsBroadcastPayload>('news.broadcast', {
+        title: 'Climate Alert Issued',
+        content: 'Global alert on rising sea levels',
+        live: true,
+      }, { severity: 0.8, confidence: 0.9 });
+
+      // Verify: Streams emitted a feed event
+      const allEvents = bus.replay({ limit: 100 });
+      const feeds = allEvents.filter((e) => e.type === 'streams.feed');
+      expect(feeds).toHaveLength(1);
+
+      const feedPayload = feeds[0].payload as StreamsFeedPayload;
+      expect(feedPayload.channel).toBe('main');
+      expect(feedPayload.summary).toBe('Climate Alert Issued');
+      expect(feedPayload.sourceBroadcastId).toBe(allEvents[0].id);
+      expect(feeds[0].source).toBe('streams');
+
+      expect(streams.active).toBe(true);
+      expect(streams.emittedCount).toBe(1);
+
+      streams.stop();
+      expect(streams.active).toBe(false);
+    });
+
+    it('StreamsOrgan ignores non-news events', () => {
+      const streams = createStreamsOrgan(bus);
+      streams.start();
+
+      // Publish a tribunal verdict (not news.broadcast)
+      const tribunal = createNexusClient({ organ: 'tribunal', bus });
+      tribunal.emit<TribunalVerdictPayload>('tribunal.verdict', {
+        topic: 'Test Topic',
+        judges: ['judge-1'],
+        verdict: 'approved',
+        reasoning: 'Approved',
+        flowTarget: 'atlas',
+      }, { severity: 0.5, confidence: 0.8 });
+
+      expect(streams.emittedCount).toBe(0);
+
+      const allEvents = bus.replay({ limit: 100 });
+      const feeds = allEvents.filter((e) => e.type === 'streams.feed');
+      expect(feeds).toHaveLength(0);
+
+      streams.stop();
+    });
+
+    it('Full Sacred Flow end-to-end: Tribunal → Atlas → Index → News → Streams', () => {
+      // Wire up all five organs
+      const tribunal = createNexusClient({ organ: 'tribunal', bus });
+      const atlas = createNexusClient({
+        organ: 'atlas',
+        types: ['tribunal.verdict'],
+        bus,
+      });
+      const index = createNexusClient({
+        organ: 'index',
+        types: ['atlas.marker'],
+        bus,
+      });
+      const news = createNexusClient({
+        organ: 'news',
+        types: ['index.entry'],
+        bus,
+      });
+      const streams = createStreamsOrgan(bus);
+      streams.start();
+
+      // Atlas processes verdicts → publishes atlas.marker
+      atlas.subscribe((verdictEvent) => {
+        const vp = verdictEvent.payload as TribunalVerdictPayload;
+        atlas.emit<AtlasMarkerPayload>('atlas.marker', {
+          label: vp.topic,
+          category: 'verdict-consequence',
+          dataSource: 'tribunal',
+          value: verdictEvent.severity,
+        }, {
+          geo: verdictEvent.geo,
+          severity: verdictEvent.severity,
+          confidence: verdictEvent.confidence,
+        });
+      });
+
+      // Index processes atlas markers → publishes index.entry
+      index.subscribe((markerEvent) => {
+        const ap = markerEvent.payload as AtlasMarkerPayload;
+        index.emit<IndexEntryPayload>('index.entry', {
+          title: ap.label,
+          category: ap.category,
+          rank: markerEvent.severity * markerEvent.confidence,
+        }, {
+          severity: markerEvent.severity,
+          confidence: markerEvent.confidence,
+        });
+      });
+
+      // News narrates index entries → publishes news.broadcast
+      news.subscribe((indexEvent) => {
+        const ip = indexEvent.payload as IndexEntryPayload;
+        news.emit<NewsBroadcastPayload>('news.broadcast', {
+          title: `ALERT: ${ip.title}`,
+          content: `Index ranked "${ip.title}" at ${ip.rank.toFixed(2)}`,
+          live: true,
+        }, {
+          severity: indexEvent.severity,
+          confidence: indexEvent.confidence,
+        });
+      });
+
+      // Streams is already wired (subscribes to news.broadcast automatically)
+
+      // Tribunal emits the initial verdict
+      tribunal.emit<TribunalVerdictPayload>(
+        'tribunal.verdict',
+        {
+          topic: 'Arctic Ice Collapse',
+          judges: ['zeta-9', 'kronos'],
+          verdict: 'approved',
+          reasoning: 'Satellite imagery confirms accelerated melt',
+          flowTarget: 'atlas',
+        },
+        {
+          geo: { lat: 71.0, lon: -8.0 },
+          severity: 0.95,
+          confidence: 0.92,
+        },
+      );
+
+      // Verify the COMPLETE Sacred Flow: 5 events on the bus
+      const allEvents = bus.replay({ limit: 100 });
+      expect(allEvents).toHaveLength(5);
+
+      expect(allEvents[0].type).toBe('tribunal.verdict');
+      expect(allEvents[0].source).toBe('tribunal');
+
+      expect(allEvents[1].type).toBe('atlas.marker');
+      expect(allEvents[1].source).toBe('atlas');
+
+      expect(allEvents[2].type).toBe('index.entry');
+      expect(allEvents[2].source).toBe('index');
+
+      expect(allEvents[3].type).toBe('news.broadcast');
+      expect(allEvents[3].source).toBe('news');
+
+      expect(allEvents[4].type).toBe('streams.feed');
+      expect(allEvents[4].source).toBe('streams');
+
+      // Verify Streams payload links back to the news broadcast
+      const feedPayload = allEvents[4].payload as StreamsFeedPayload;
+      expect(feedPayload.sourceBroadcastId).toBe(allEvents[3].id);
+      expect(feedPayload.summary).toContain('Arctic Ice Collapse');
+
+      // Verify organ count
+      expect(streams.emittedCount).toBe(1);
+
+      streams.stop();
     });
   });
 });
