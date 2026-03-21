@@ -67,6 +67,9 @@ A fonte de verdade da Fase 3 neste repositório é:
 Documentos de suporte:
 - `docs/DOC_MICRO_TEAM.md` — protocolo da Micro Team Paralela de Refinamento
 - `docs/DOC_TRIBUNAL_E4.md` — parecer de higiene e ordem de merge
+- `docs/DOC_VISUAL_SPINE_001.md` — blueprint da identidade visual-mãe do ecossistema
+- `docs/DOC_VISUAL_SPINE_002A.md` — ativação localizada da Visual Spine (presença e templates)
+- `ops/VISUAL_TEMPLATE_PACK_002A.md` — pacote de formatos vivos para outputs e documentos
 
 Esses documentos definem:
 - escopo e não-escopo
