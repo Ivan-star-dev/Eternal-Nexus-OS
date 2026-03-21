@@ -18,6 +18,7 @@ import AlertMonitor from "@/components/nexus/AlertMonitor";
 import AICouncil from "@/components/nexus/AICouncil";
 import GuardiansDashboard from "@/components/nexus/GuardiansDashboard";
 import CrisisMode from "@/components/nexus/CrisisMode";
+import { WORKSPACE } from "@/config/workspace";
 import { useVoiceInput } from "@/hooks/useVoiceInput";
 import { fetchGlobalPollution, type PollutionPoint } from "@/lib/dataSources";
 import { fetchRecentEarthquakes, type EarthquakePoint } from "@/lib/earthquakeData";
@@ -357,9 +358,21 @@ export default function NexusPage() {
               <span className="font-mono text-[0.56rem] tracking-[0.22em] text-[#5f5549] uppercase">Context Semaforo</span>
             </div>
             <div className="space-y-2 font-mono text-[0.55rem]">
-              <div className="flex items-center justify-between"><span className="text-[#6f685d]">CHAT</span><span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">OK</span></div>
-              <div className="flex items-center justify-between"><span className="text-[#6f685d]">BRANCH</span><span className="rounded border border-[#d8c3a1] bg-[#faf2e4] px-2 py-0.5 text-[#b8802f]">ALINHAR</span></div>
-              <div className="flex items-center justify-between"><span className="text-[#6f685d]">WORKTREE</span><span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">WORKVISUAL</span></div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[#6f685d]">CHAT</span>
+                <span className="text-[0.5rem] text-[#4f483f]">front-end</span>
+                <span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">OK</span>
+              </div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[#6f685d]">BRANCH</span>
+                <span className="max-w-[7.5rem] truncate text-[0.5rem] text-[#4f483f]">{WORKSPACE.canonicalBranch}</span>
+                <span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">CANON</span>
+              </div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[#6f685d]">WORKTREE</span>
+                <span className="text-[0.5rem] text-[#4f483f]">WorkVisual</span>
+                <span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">LIVE</span>
+              </div>
             </div>
           </div>
 
@@ -636,6 +649,16 @@ export default function NexusPage() {
               <div className="mb-4 flex items-center justify-between border-b border-[#ddd2c1] pb-2">
                 <span className="font-mono text-[0.52rem] tracking-[0.18em] text-[#5f5549] uppercase">Document Block</span>
                 <span className="rounded border border-[#d8c3a1] bg-[#faf2e4] px-2 py-0.5 font-mono text-[0.45rem] tracking-wider text-[#b8802f]">READY</span>
+              </div>
+              <div className="mb-3 grid gap-2 sm:grid-cols-2">
+                <div className="rounded-lg border border-[#d9cdb9] bg-[#f7f1e6] px-2.5 py-2">
+                  <p className="font-mono text-[0.45rem] tracking-[0.18em] text-[#7f7668] uppercase">HANDOFF_TABLE</p>
+                  <p className="mt-1 font-mono text-[0.55rem] text-[#4f483f]">estrutura pronta para continuidade do elo</p>
+                </div>
+                <div className="rounded-lg border border-[#d9cdb9] bg-[#f7f1e6] px-2.5 py-2">
+                  <p className="font-mono text-[0.45rem] tracking-[0.18em] text-[#7f7668] uppercase">EVIDENCE_BLOCK</p>
+                  <p className="mt-1 font-mono text-[0.55rem] text-[#4f483f]">prova objetiva de alteração e execução</p>
+                </div>
               </div>
               <p className="font-mono text-[0.68rem] leading-relaxed text-[#6e665a]">
                 Handoff/document stream pronto para leitura longa. Execute um prompt para materializar synthesis, evidência e trilha operacional.

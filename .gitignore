@@ -26,6 +26,10 @@ dist-ssr
 # Vite dev server temp files
 *.timestamp*.mjs
 
+# Canonical package manager is npm
+bun.lock
+bun.lockb
+
 # CI/typecheck local output artifacts
 npm_ci_output.txt
 typecheck_filtered.txt

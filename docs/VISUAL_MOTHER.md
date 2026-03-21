@@ -140,3 +140,34 @@ Uma implementação está correta quando o leitor consegue, em sequência:
 
 **AETHER-CANON-TERMINAL-001 define a interface-mãe oficial do sistema.**  
 A partir deste documento, toda camada visual nova deve provar aderência ao Aether Canon Terminal.
+
+---
+
+## 9) Formatos concretos da corporação (base nobre)
+
+| Formato | Estado base entregue | Próximo nível |
+|---|---|---|
+| Top bar institucional | identidade + navegação + estado vivo | refinamento motion de entrada |
+| Context/Semáforo block | leitura de contexto em 1 olhar | microanimações de transição |
+| Queue/Assigned block | execução visível por agente | densidade adaptativa por volume |
+| Document/Handoff block | leitura longa + continuidade operacional | storytelling de prioridade |
+| Prompt/Input cockpit | foco de comando e baixa fricção | guidance contextual inteligente |
+
+---
+
+## 10) Regra de passagem para Framer (camada premium)
+
+### O que já está sólido (não refazer)
+- Hierarquia estrutural de terminal-canônico
+- Temperatura cromática quente (ivory/warm mist)
+- Semântica operacional base (verde/âmbar/vermelho)
+- Blocos nucleares: Context, Queue, Metrics, Prompt, Document
+
+### Onde o Framer deve elevar
+- Cadência de motion e transições de estado
+- Narrativa visual de foco (entrada, pico de ação, fecho)
+- Microinterações de superfície premium (sem ruído e sem exagero)
+
+### Limite para evitar substituição
+- Framer entra como elevação da camada sensorial, não como troca de arquitetura
+- Qualquer mudança estrutural exige gate explícito de blueprint
