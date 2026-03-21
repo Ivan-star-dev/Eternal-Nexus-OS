@@ -505,6 +505,43 @@ Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
 
 ---
 
+---
+
+---
+
+## 16. DNA PROTOCOL — PROTOCOLO-MÃE DO SISTEMA
+
+**Registrado em:** DNA-PROTOCOL-MOTHER-001 | 2026-03-21
+
+O **DNA Protocol** é o protocolo-mãe do Eternal Nexus OS.
+Não substitui nenhum artefacto canônico — codifica o que os torna coerentes entre si.
+É o ponto de entrada fractal: quem o lê, entende o sistema.
+
+**O que o DNA Protocol formaliza:**
+
+| Parte | Conteúdo |
+|---|---|
+| **Identidade** | O que é o Eternal Nexus OS — natureza fractal, missão, estado atual |
+| **Regras Primitivas** | As 8 leis absolutas do sistema — sem exceção, sem workaround |
+| **Sistemas Vivos** | Os 8 sistemas interdependentes e como se encadeiam |
+| **Territórios** | WorkStructure / WorkFunction / WorkVisual — regras de competência |
+| **Pioneiros** | Matrix completa — pilar, papel, loop, competência fora do pilar |
+| **Operações** | Protocolo de sessão canônico (iniciar + encerrar) |
+| **Moléculas** | Átomos operacionais — HANDOFF_TABLE, EVIDENCE_BLOCK, gate, commit |
+| **Creator / Bastion** | Espaço soberano do owner + BASTION como extensão |
+| **Mantra** | Os 7 mantras vivos do sistema |
+| **Mapa Canônico** | Navegação rápida por todos os artefactos |
+| **Changelog** | Histórico de versões |
+
+**Regra base:**
+
+> DNA Protocol é leitura obrigatória ao entrar no sistema pela primeira vez.
+> Leitura de manutenção: ao retomar após pausa longa ou ao integrar novo pioneiro.
+
+**Referência completa:** `ops/DNA_PROTOCOL.md`
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
@@ -513,3 +550,4 @@ Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
 *FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
 *FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
 *FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
+*FOL v1.8 — seção 16 adicionada em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*

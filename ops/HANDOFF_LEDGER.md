@@ -33,6 +33,59 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:DNA-PROTOCOL-MOTHER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/DNA_PROTOCOL.md v1 criado — 11 partes (Identidade, Regras
+            │ Primitivas, Sistemas Vivos, Territórios, Pioneiros, Operações,
+            │ Moléculas, Creator/Bastion Space, Mantra, Mapa Canônico,
+            │ Changelog). ops/BASTION.md → v1.4 (task no histórico, DNA no
+            │ mapa canônico). ops/FOL.md → v1.8 (seção 16 adicionada).
+            │ ops/LIVE_STATE.md actualizado (cabeçalho, fila @claude, semáforo,
+            │ linha temporal). ops/HANDOFF_LEDGER.md actualizado.
+NAO_FEITO   │ nenhum — task completa
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ Prime / Umbra / Codex Tangibilis não fundidos no núcleo desta
+            │ fase — citados como referência cruzada potencial apenas
+ARQUIVOS    │ ops/DNA_PROTOCOL.md (novo) | ops/BASTION.md | ops/FOL.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — protocolo-mãe do sistema estabelecido
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ pronto para merge
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+            │ @copilot: L-001 → L-002 → BULK-02.2 (gates abertos)
+            │ @cursor: BULK-01.3-a → b → c (gates abertos)
+            │ @codex: consolidador activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ════════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/DNA_PROTOCOL.md | ops/BASTION.md | ops/FOL.md |
+                       │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create | edit
+PROVA_MINIMA           │ ops/DNA_PROTOCOL.md criado (11 partes, v1) |
+                       │ BASTION v1.4 | FOL v1.8 seção 16
+ALTERACAO_REAL         │ sim
+═════════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ════════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ protocolo-mãe / DNA Protocol / governança estrutural / evolução aditiva
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ DNA-PROTOCOL-MOTHER-001 concluída — protocolo-mãe do sistema estabelecido
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ BASTION 2.0 ciclo activado por ordem do owner. BASTION.md
