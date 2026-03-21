@@ -10,6 +10,7 @@ import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
+import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -28,9 +29,13 @@ const Index = () => {
         {/* ═══ HERO — Clean, Apple-level ═══ */}
         <section ref={heroRef} className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden" aria-label="Eternal Nexus — Visão estratégica global" role="banner">
           {/* 3D Globe background */}
-          <Suspense fallback={null}>
-            <InteractiveGlobe onHotspotClick={(id) => console.log("hotspot", id)} />
-          </Suspense>
+          <OrganErrorBoundary organName="Globe" silent>
+            <Suspense fallback={
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
+            }>
+              <InteractiveGlobe onHotspotClick={(id) => console.log("hotspot", id)} />
+            </Suspense>
+          </OrganErrorBoundary>
 
           {/* Radial overlay for text readability */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--background)/0.4)_0%,hsl(var(--background)/0.85)_60%,hsl(var(--background))_100%)] z-[1]" aria-hidden="true" />

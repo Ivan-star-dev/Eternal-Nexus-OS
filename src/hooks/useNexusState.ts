@@ -13,6 +13,7 @@ export const useNexusState = () => {
     queryKey: ['verdicts'],
     initialData: [],
     staleTime: Infinity, // Keep in memory during session
+    enabled: false, // In-memory only — populated via addVerdict mutation
   });
 
   const addVerdict = useMutation({
@@ -29,6 +30,7 @@ export const useNexusState = () => {
   const { data: atlasData = [] } = useQuery<RealtimeDataPoint[]>({
     queryKey: ['atlasData'],
     initialData: [],
+    enabled: false, // In-memory only — populated via Atlas organ
   });
 
   return {
