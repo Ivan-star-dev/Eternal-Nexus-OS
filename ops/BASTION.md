@@ -1,7 +1,7 @@
 # BASTION — Coração Canônico de Execução dos Pioneiros
 
-**Versão:** v1
-**Data:** 2026-03-20
+**Versão:** v1.3
+**Data:** 2026-03-21
 **Task:** OPS-BASTION-001
 **Branch:** `claude/expose-workspace-config-yt4Km`
 **Modelo:** claude-sonnet-4-6
@@ -135,6 +135,7 @@ Cada item da matriz regista os seguintes campos:
 | OPS-EVIDENCE-BLOCK-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1.1 + FOL v1.6 |
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 iniciado |
 
 ---
 
@@ -363,15 +364,15 @@ O Codex não executa. O Codex lê, distribui e consolida.
 BASTION ════════════════════════════════════════════════════════════════════
 VERSÃO          │ v1.2
 DATA            │ 2026-03-20
-ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
 ESTADO          │ ACTIVO — fonte única de execução elegível
-DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
 TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
-@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
-@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude         │ SEM TASKS ELEGÍVEIS — aguarda gate owner
+@copilot        │ ACTIVADO → lê BASTION → executa elegível WorkStructure (L-001/L-002/BULK-02.2)
+@cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
+@codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
+@claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
 AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
                 │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
 GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
@@ -402,3 +403,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*

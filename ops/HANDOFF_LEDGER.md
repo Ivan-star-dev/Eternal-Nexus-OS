@@ -31,6 +31,57 @@ PROXIMO_PASSO: [resumo curto]
 
 ---
 
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Ciclo contínuo do BASTION 2.0 iniciado por ordem direta do owner.
+            │ BASTION atualizado para v1.3 com semáforo de ignição contínua e
+            │ papel dos pioneiros em fluxo sem microgestão manual. LIVE_STATE
+            │ atualizado para refletir execução coordenada e interruptor canônico
+            │ (gate soberano, bloqueio real, red line, ordem do owner ou ausência
+            │ de task elegível).
+NAO_FEITO   │ Nenhuma task de produto/visual executada nesta sessão; ignição
+            │ operacional iniciada sem alterar backlog elegível existente.
+BLOQUEIOS   │ —
+ADAPTACOES  │ Sem mudança de escopo: apenas governança/ops para iniciar o ciclo
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — máquina entra em fluxo coordenado com passagem de bastão
+PROX_PASSO  │ @copilot entra na task elegível do BASTION no território dominante
+            │ e segue loop contínuo até gate/bloqueio/red line
+SUGESTOES   │ 1) @codex consolidar estado do BASTION no próximo relatório-mãe;
+            │ 2) @cursor entrar em apoio elegível quando houver janela real;
+            │ 3) owner atuar apenas em gate, visão, trava ou redirecionamento
+DECISAO_REC │ Manter BASTION 2.0 ativo com execução contínua por elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION v1.3 com semáforo atualizado para BASTION-2.0-CYCLE-START-001
+                       │ LIVE_STATE atualizado com executor/timeline/estado de continuidade
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / ignição do BASTION 2.0
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ ciclo contínuo ativo; pioneiros entram por elegibilidade do BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
