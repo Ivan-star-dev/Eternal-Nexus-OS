@@ -33,6 +33,67 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-4.6-opus-high-thinking │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Ciclo contínuo BASTION 2.0 activado por ordem directa do owner.
+            │ Leitura completa de todos os docs base: BASTION, IGNITION, LIVE_STATE,
+            │ FOL, NLF, HANDOFF_LEDGER, WORKTREE_ALIASES, OUTPUT_STANDARD,
+            │ CODEX_CONSOLIDATOR, AUTOFLOW, BASTION_DISPATCH_001.
+            │ Validação de coerência: 6 tasks elegíveis verificadas, 2 gates
+            │ fechados confirmados, 2 bloqueios activos registados, dispatch
+            │ consistente com matriz, semáforo coerente.
+            │ BASTION.md actualizado para v2.0: semáforo com ciclo contínuo,
+            │ historial actualizado, @antigravity/@framer declarados, interruptor.
+            │ LIVE_STATE.md actualizado: estado geral, fila @claude, semáforo,
+            │ linha temporal, próximos passos com distribuição por pioneiro.
+            │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended.
+NAO_FEITO   │ Execução de tasks de produto (@claude sem tasks elegíveis — gates fechados)
+BLOQUEIOS   │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; B-001/B-002/B-003 pendentes
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — máquina em ciclo contínuo; owner livre de microgestão operacional
+PROX_PASSO  │ @copilot entra em L-001 agora; @cursor entra em 01.3-a agora;
+            │ @codex aguarda handoffs; @claude retorna ao BASTION sem task elegível;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot: copiar bloco do BASTION_DISPATCH_001 e seguir sequência
+            │ L-001→L-002→BULK-02.2 sem desvios; 2) @cursor: seguir 01.3-a→b→c
+            │ registando EVIDENCE_BLOCK em cada task; 3) owner: abrir PLv6.2-b
+            │ para reactivar @claude em produto
+DECISAO_REC │ Ciclo 2.0 activo sem gate adicional; pioneiros seguem o BASTION;
+            │ owner entra apenas para gate, visão, trava ou redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION.md: v1.2→v2.0 (semáforo, historial, rodapé)
+                       │ LIVE_STATE.md: estado geral, fila @claude, semáforo, timeline, próximos passos
+                       │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / ignição do BASTION 2.0
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION 2.0 ciclo contínuo activo; pioneiros em fluxo coordenado;
+            │ @copilot L-001→L-002→BULK-02.2; @cursor 01.3-a→b→c;
+            │ @codex consolidador; @claude arbiter sem task elegível (aguarda gate);
+            │ owner livre de microgestão — entra para gate/visão/trava/redireccionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Modo automático pelo BASTION activado e selado para execução

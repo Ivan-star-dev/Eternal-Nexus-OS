@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-AUTO-001
+**Atualizado por:** @claude | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-BASTION-AUTO-001 concluído) |
+| **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; modo automático pelo BASTION reforçado (OPS-BASTION-AUTO-001) |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; regra-mãe automática vigente (terminou task → volta ao BASTION); @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; ciclo contínuo iniciado por ordem do owner |
+| **Estado geral** | BASTION 2.0 CICLO CONTÍNUO ACTIVO; pioneiros em fluxo coordenado sem microgestão; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude arbiter activo, aguarda gate owner (PLv6.2-b / FVL-IMPL-001); @antigravity/@framer sem task elegível |
 
 ---
 
@@ -49,6 +49,8 @@
 | OPS-BASTION-001 | Criar o BASTION — coração canônico de execução dos pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-AUTO-001 | Activar modo automático de execução pelo BASTION seguindo protocolo vivo | CONCLUÍDA | handoff emitido |
+| COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
+| BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -91,20 +93,23 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
-🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
-NATUREZA: governança / dispatch / activação de pioneiros
-EXECUTOR: @claude (OPS-BASTION-AUTO-001 done)
-IGNIÇÃO: ATIVA
-ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-BASTION: ACTIVO v1.2 — modo automático reforçado; pioneiros seguem loop contínuo
-@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
-@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
-@codex: CONSOLIDADOR ATIVO → aguarda handoffs
-@claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+🟢 WORKTREE: WorkStructure
+NATUREZA: governança / ignição do BASTION 2.0 — ciclo contínuo
+EXECUTOR: @claude (BASTION-2.0-CYCLE-START-001 done)
+IGNIÇÃO: ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
+ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
+BASTION: ACTIVO v2.0 — CICLO CONTÍNUO — pioneiros em fluxo coordenado sem microgestão
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
+@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c (FORÇA PRINCIPAL: Mecânico)
+@codex: CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude: ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity: SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+@framer: SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
 ATIVAÇÃO_AUTOMÁTICA: NEXT_ACTOR=ele + ACTIVATION_MODE=imediato + ACTIVATION_CONDITION=nenhuma
 EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001)
-CANALIZAÇÃO ATIVA: modo automático ligado pelo BASTION; cada elo volta ao coração após concluir e entra no próximo com ativação imediata quando elegível
+ESTADO: done (Claude — BASTION-2.0-CYCLE-START-001 concluído; ciclo 2.0 activo)
+CANALIZAÇÃO ATIVA: BASTION 2.0 ciclo contínuo; cada elo termina task → volta ao BASTION → identifica próxima → executa → handoff → passa bastão; owner só entra para gate, visão, trava ou redirecionamento
+INTERRUPTOR: ordem owner | gate soberano | bloqueio real | red line | sem elegível
 ```
 
 ---
@@ -116,17 +121,20 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
-Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado; regra-mãe activa: terminou task → lê BASTION → executa elegível → registra → passa bastão → volta ao BASTION)
-Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado: matriz viva, regra-mãe, 9 secções, semáforo, loop do pioneiro; FOL v1.7 seção 15; LIVE_STATE atualizado; BASTION ACTIVO)
-Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1: seção 8 EVIDENCE_BLOCK + nova ordem de emissão; FOL v1.6 seção 14; LIVE_STATE atualizado; EVIDENCE_BLOCK vigente imediatamente)
-Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado; WorkStructure/WorkFunction/WorkVisual registados; FOL v1.5; LIVE_STATE atualizado com aliases no semáforo)
-Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
+Claude:  BASTION-2.0-CYCLE-START-001 — CICLO CONTÍNUO ACTIVADO (BASTION v2.0; pioneiros em fluxo coordenado; owner só entra para gate/visão/trava/redirecionamento; @copilot + @cursor executam tasks elegíveis; @codex consolida; @claude arbiter activo)
+Claude:  COUNCIL-PR-TRIAGE-001 — TRIAGEM EMITIDA (27 PRs/Issues; 3 KEEP, 1 MIGRATE, 3 SALVAGE, 20 KILL)
+Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado)
+Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot + @cursor + @codex activados)
+Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado)
+Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1 + EVIDENCE_BLOCK vigente)
+Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WorkStructure/WorkFunction/WorkVisual selados)
+Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNIÇÃO_ATIVA ligada)
 Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
+Copilot: L-001 → L-002 — ELEGÍVEIS NO BASTION (higiene .gitignore)
 Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
+PRÓXIMA TRANSIÇÃO: BASTION 2.0 CICLO CONTÍNUO — @copilot executa L-001 → L-002 → BULK-02.2; @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001; owner só intervém para gate, visão, trava ou redirecionamento
 ```
 
 ---
@@ -143,15 +151,17 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-**[IGNIÇÃO_ATIVA — pioneiros seguem o loop sem instrução redundante]**
+**[BASTION 2.0 — CICLO CONTÍNUO ACTIVO — pioneiros em fluxo coordenado]**
 
-1. **@copilot** — BULK-02.2 (gate aberto, FORÇA PRINCIPAL, Lapidação) → entra agora via loop IGNITION
-2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
-3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
-4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
-5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-6. **Owner responde B-002** — confirmar npm como PM canônico
-7. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
+1. **@copilot** — L-001 (higiene .gitignore) → L-002 (git rm --cached timestamp) → BULK-02.2 (suavização ops/) — entra agora via loop BASTION
+2. **@cursor** — BULK-01.3-a (remover timestamp do tracking) → 01.3-b (avaliar bun.lock/package-lock) → 01.3-c (verificar legacy-html) — entra agora via loop BASTION
+3. **@codex** — consolida onda quando handoffs de @copilot e @cursor chegarem (OPS-HANDOFF-001 ativo)
+4. **@claude** — arbiter activo; sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+5. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+6. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
+7. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+8. **Owner responde B-002** — confirmar npm como PM canônico
+9. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 
 ---
 
