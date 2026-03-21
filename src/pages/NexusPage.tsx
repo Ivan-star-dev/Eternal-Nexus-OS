@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect, useRef, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -269,43 +269,78 @@ export default function NexusPage() {
   };
 
   const content = getAgentContent();
+  const hasOutput = Boolean(result || streamingMeta);
   const latency = getAgentLatency();
   const healthSources = dataOcean?.health ?? {};
   const healthCount = Object.values(healthSources).filter(Boolean).length;
+  const terminalSurface =
+    "rounded-xl border border-[#d8cfbe]/90 bg-[#fbf7ef]/95 shadow-[0_1px_0_rgba(255,255,255,0.85)_inset,0_18px_40px_-28px_rgba(89,78,66,0.45)]";
+
+  const runtimeQueue = useMemo(() => {
+    const getState = (id: "climate" | "economy" | "health" | "meta") => {
+      if (loading) return agentStatuses[id] ?? "pending";
+      if (!result && !streamingMeta) return "idle";
+      if (id === "meta") return result?.synthesis?.status === "ok" ? "done" : "active";
+      const agentState = result?.agents?.[id]?.status;
+      if (agentState === "ok") return "done";
+      if (agentState === "error") return "error";
+      return "active";
+    };
+
+    return [
+      { id: "climate", label: "CLIMATE", state: getState("climate") },
+      { id: "economy", label: "ECONOMY", state: getState("economy") },
+      { id: "health", label: "HEALTH", state: getState("health") },
+      { id: "meta", label: "META", state: getState("meta") },
+    ];
+  }, [agentStatuses, loading, result, streamingMeta]);
+
+  const statusTone = (state: string) => {
+    if (state === "done") return "text-[#2f8f5b] bg-[#e9f6ee] border-[#9ecdb1]";
+    if (state === "error") return "text-[#b4534f] bg-[#faecea] border-[#d7aca8]";
+    if (state === "active") return "text-[#b8802f] bg-[#faf2e4] border-[#dfc299]";
+    if (state === "pending") return "text-[#907a54] bg-[#f8f0e2] border-[#d8c3a1]";
+    return "text-[#6b655c] bg-[#f4eee4] border-[#d3c9ba]";
+  };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen bg-[linear-gradient(160deg,#f6f1e7_0%,#f2ecdf_48%,#efe8da_100%)] text-[#2f2b26]">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.045] [background-image:radial-gradient(#8b7f6e_0.55px,transparent_0.55px)] [background-size:4px_4px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-[radial-gradient(120%_85%_at_50%_0%,rgba(255,255,255,0.84),rgba(255,255,255,0)_72%)]" />
       {/* ═══ TOP BAR ═══ */}
-      <div className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div className="sticky top-0 z-50 border-b border-[#d9cfbf] bg-[#f7f1e4]/92 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-5 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2">
-              <Radio className="h-4 w-4 text-primary animate-pulse" />
-              <span className="font-mono text-[0.6rem] tracking-[0.3em] text-primary uppercase font-bold">
+              <Radio className="h-4 w-4 text-[#2f8f5b] animate-pulse" />
+              <span className="font-mono text-[0.6rem] tracking-[0.3em] text-[#2f8f5b] uppercase font-bold">
                 ETERNAL NEXUS
               </span>
             </Link>
-            <div className="w-px h-4 bg-border/50" />
-            <span className="font-mono text-[0.45rem] text-muted-foreground tracking-wider">WAR ROOM</span>
+            <div className="w-px h-4 bg-[#d7cebf]" />
+            <span className="font-mono text-[0.45rem] text-[#6d665b] tracking-wider">AETHER CANON TERMINAL</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <Link to="/atlas">
-              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
+              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono text-[#4f483f] hover:bg-[#efe7d8] hover:text-[#2f2b26]">
                 <Globe className="h-3 w-3" /> ATLAS
               </Button>
             </Link>
             <Link to="/news">
-              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
+              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono text-[#4f483f] hover:bg-[#efe7d8] hover:text-[#2f2b26]">
                 <Activity className="h-3 w-3" /> NEWS
               </Button>
             </Link>
             <Link to="/tribunal">
-              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
+              <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono text-[#4f483f] hover:bg-[#efe7d8] hover:text-[#2f2b26]">
                 <Shield className="h-3 w-3" /> TRIBUNAL
               </Button>
             </Link>
+            <span className="rounded border border-[#d8c9ad] bg-[#f8efde] px-2 py-0.5 font-mono text-[0.42rem] tracking-[0.14em] text-[#9b7640] uppercase">
+              WorkVisual
+            </span>
             {user && (
-              <span className="font-mono text-[0.4rem] text-muted-foreground">
+              <span className="font-mono text-[0.45rem] text-[#7a7367]">
                 {user.email?.split("@")[0]}
               </span>
             )}
@@ -313,23 +348,75 @@ export default function NexusPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-5 py-7">
+        {/* ═══ CONTEXT / SEMAFORO / QUEUE ═══ */}
+        <div className="mb-6 grid gap-3 lg:grid-cols-3">
+          <div className={`${terminalSurface} p-4`}>
+            <div className="mb-3 flex items-center gap-2">
+              <Shield className="h-3.5 w-3.5 text-[#2f8f5b]" />
+              <span className="font-mono text-[0.56rem] tracking-[0.22em] text-[#5f5549] uppercase">Context Semaforo</span>
+            </div>
+            <div className="space-y-2 font-mono text-[0.55rem]">
+              <div className="flex items-center justify-between"><span className="text-[#6f685d]">CHAT</span><span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">OK</span></div>
+              <div className="flex items-center justify-between"><span className="text-[#6f685d]">BRANCH</span><span className="rounded border border-[#d8c3a1] bg-[#faf2e4] px-2 py-0.5 text-[#b8802f]">ALINHAR</span></div>
+              <div className="flex items-center justify-between"><span className="text-[#6f685d]">WORKTREE</span><span className="rounded border border-[#9ecdb1] bg-[#ebf6ee] px-2 py-0.5 text-[#2f8f5b]">WORKVISUAL</span></div>
+            </div>
+          </div>
+
+          <div className={`${terminalSurface} p-4`}>
+            <div className="mb-3 flex items-center gap-2">
+              <Terminal className="h-3.5 w-3.5 text-[#2f8f5b]" />
+              <span className="font-mono text-[0.56rem] tracking-[0.22em] text-[#5f5549] uppercase">Assigned Queue</span>
+            </div>
+            <div className="space-y-1.5">
+              {runtimeQueue.map((item) => (
+                <div key={item.id} className="flex items-center justify-between rounded-lg border border-[#ddd2c1] bg-[#f7f2e8] px-2.5 py-1.5">
+                  <span className="font-mono text-[0.53rem] tracking-[0.14em] text-[#4f483f]">{item.label}</span>
+                  <span className={`rounded border px-1.5 py-0.5 font-mono text-[0.5rem] uppercase tracking-wider ${statusTone(item.state)}`}>
+                    {item.state}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={`${terminalSurface} p-4`}>
+            <div className="mb-3 flex items-center gap-2">
+              <Activity className="h-3.5 w-3.5 text-[#2f8f5b]" />
+              <span className="font-mono text-[0.56rem] tracking-[0.22em] text-[#5f5549] uppercase">Metrics</span>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <div className="rounded-lg border border-[#ddd2c1] bg-[#f7f2e8] p-2 text-center">
+                <div className="font-mono text-[0.45rem] tracking-wider text-[#756d62]">SOURCES</div>
+                <div className="font-mono text-[0.75rem] font-semibold text-[#2f2b26]">{healthCount}/4</div>
+              </div>
+              <div className="rounded-lg border border-[#ddd2c1] bg-[#f7f2e8] p-2 text-center">
+                <div className="font-mono text-[0.45rem] tracking-wider text-[#756d62]">HISTORY</div>
+                <div className="font-mono text-[0.75rem] font-semibold text-[#2f2b26]">{history.length}</div>
+              </div>
+              <div className="rounded-lg border border-[#ddd2c1] bg-[#f7f2e8] p-2 text-center">
+                <div className="font-mono text-[0.45rem] tracking-wider text-[#756d62]">LATENCY</div>
+                <div className="font-mono text-[0.75rem] font-semibold text-[#2f2b26]">{latency ?? "—"}</div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* ═══ DATA OCEAN STATUS ═══ */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <Database className="h-4 w-4 text-primary" />
-              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-primary uppercase">Data Ocean</span>
-              <span className="font-mono text-[0.45rem] text-muted-foreground">
+              <Database className="h-4 w-4 text-[#2f8f5b]" />
+              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-[#5f5549] uppercase">Data Ocean</span>
+              <span className="font-mono text-[0.47rem] text-[#756d62]">
                 {healthCount}/4 sources online
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" className="h-6 gap-1 text-[0.5rem] font-mono" onClick={() => setShowData(!showData)}>
+              <Button variant="ghost" size="sm" className="h-6 gap-1 border border-[#ded3c2] bg-[#f7f2e8] text-[0.5rem] font-mono text-[#5b5348] hover:bg-[#efe6d6]" onClick={() => setShowData(!showData)}>
                 <ChevronDown className={`h-3 w-3 transition-transform ${showData ? "rotate-180" : ""}`} />
                 {showData ? "HIDE" : "SHOW"} RAW
               </Button>
-              <Button variant="ghost" size="sm" className="h-6 gap-1 text-[0.5rem] font-mono" onClick={fetchDataOcean} disabled={dataLoading}>
+              <Button variant="ghost" size="sm" className="h-6 gap-1 border border-[#ded3c2] bg-[#f7f2e8] text-[0.5rem] font-mono text-[#5b5348] hover:bg-[#efe6d6]" onClick={fetchDataOcean} disabled={dataLoading}>
                 <RefreshCw className={`h-3 w-3 ${dataLoading ? "animate-spin" : ""}`} />
                 REFRESH
               </Button>
@@ -344,13 +431,13 @@ export default function NexusPage() {
               { key: "nasa", label: "NASA DONKI", icon: <Zap className="h-3 w-3" /> },
             ].map((src) => (
               <div key={src.key}
-                className={`bg-card border rounded-lg px-3 py-2 flex items-center gap-2 ${
-                  healthSources[src.key] ? "border-accent/30" : "border-destructive/30"
+                className={`rounded-xl border px-3 py-2.5 flex items-center gap-2.5 bg-[#fbf7ef]/95 ${
+                  healthSources[src.key] ? "border-[#9ecdb1]" : "border-[#d7aca8]"
                 }`}>
                 {src.icon}
                 <div>
-                  <span className="font-mono text-[0.5rem] text-foreground block">{src.label}</span>
-                  <span className={`font-mono text-[0.4rem] ${healthSources[src.key] ? "text-accent-foreground" : "text-destructive"}`}>
+                  <span className="font-mono text-[0.5rem] text-[#403a32] block">{src.label}</span>
+                  <span className={`font-mono text-[0.42rem] ${healthSources[src.key] ? "text-[#2f8f5b]" : "text-[#b4534f]"}`}>
                     {healthSources[src.key] ? "● ONLINE" : "● OFFLINE"}
                   </span>
                 </div>
@@ -359,12 +446,12 @@ export default function NexusPage() {
           </div>
 
           {showData && dataOcean && (
-            <div className="mt-3 bg-card/80 border border-border/30 rounded-lg p-4 max-h-64 overflow-y-auto">
+            <div className={`${terminalSurface} mt-3 max-h-64 overflow-y-auto p-4`}>
               <div className="flex items-center gap-2 mb-2">
-                <Terminal className="h-3 w-3 text-primary" />
-                <span className="font-mono text-[0.5rem] text-primary tracking-wider">RAW DATA FEED</span>
+                <Terminal className="h-3 w-3 text-[#2f8f5b]" />
+                <span className="font-mono text-[0.5rem] text-[#5f5549] tracking-wider">RAW DATA FEED</span>
               </div>
-              <pre className="font-mono text-[0.5rem] text-muted-foreground whitespace-pre-wrap break-all">
+              <pre className="font-mono text-[0.53rem] leading-relaxed text-[#6e665a] whitespace-pre-wrap break-all">
                 {JSON.stringify(dataOcean.sources, null, 2).slice(0, 4000)}
               </pre>
             </div>
@@ -416,10 +503,10 @@ export default function NexusPage() {
         <GuardiansDashboard />
 
         {/* ═══ PROMPT INPUT ═══ */}
-        <div className="mb-6 bg-card border border-border/30 rounded-lg p-4">
+        <div className={`${terminalSurface} mb-6 p-5`}>
           <div className="flex items-center gap-2 mb-3">
-            <Brain className="h-4 w-4 text-primary" />
-            <span className="font-mono text-[0.6rem] tracking-[0.2em] text-primary uppercase">Prompt Master</span>
+            <Brain className="h-4 w-4 text-[#2f8f5b]" />
+            <span className="font-mono text-[0.6rem] tracking-[0.2em] text-[#5f5549] uppercase">Prompt Master</span>
           </div>
 
           {!user ? (
@@ -438,7 +525,7 @@ export default function NexusPage() {
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !loading && runSwarmStreaming()}
                 placeholder="Simule crise hídrica global, 100 anos, otimize com tech atual + inovações..."
-                className="font-mono text-sm bg-background/50 border-border/30"
+                className="font-mono text-sm bg-[#f8f3ea] border-[#d5cab7] text-[#2f2b26] placeholder:text-[#8a8175] focus-visible:ring-[#b9a88e]/40"
                 disabled={loading}
               />
               {voiceSupported && (
@@ -455,7 +542,7 @@ export default function NexusPage() {
               <Button
                 onClick={runSwarmStreaming}
                 disabled={loading || !prompt.trim()}
-                className="gap-2 font-mono text-xs tracking-wider px-6"
+                className="gap-2 border border-[#2a7f52] bg-[#2f8f5b] font-mono text-xs tracking-wider text-[#f5f2ea] px-6 hover:bg-[#27794d]"
               >
                 {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 {loading ? "STREAMING" : "DEPLOY SWARM"}
@@ -466,8 +553,8 @@ export default function NexusPage() {
           {/* Voice indicator */}
           {listening && (
             <div className="mt-2 flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-destructive animate-pulse" />
-              <span className="font-mono text-[0.5rem] text-destructive">ESCUTANDO... fale seu prompt</span>
+              <span className="h-2 w-2 rounded-full bg-[#b4534f] animate-pulse" />
+              <span className="font-mono text-[0.5rem] text-[#b4534f]">ESCUTANDO... fale seu prompt</span>
             </div>
           )}
 
@@ -477,19 +564,19 @@ export default function NexusPage() {
               {(["climate", "economy", "health", "meta"] as const).map((a) => {
                 const status = agentStatuses[a];
                 return (
-                  <span key={a} className="inline-flex items-center gap-1 px-2 py-1 rounded bg-muted border border-border/30">
+                  <span key={a} className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-[#f6f0e4] border border-[#d8cebd]">
                     {status === "done" ? (
-                      <CheckCircle2 className="h-2.5 w-2.5 text-accent-foreground" />
+                      <CheckCircle2 className="h-2.5 w-2.5 text-[#2f8f5b]" />
                     ) : status === "error" ? (
-                      <Activity className="h-2.5 w-2.5 text-destructive" />
+                      <Activity className="h-2.5 w-2.5 text-[#b4534f]" />
                     ) : (
-                      <Loader2 className="h-2.5 w-2.5 animate-spin text-primary" />
+                      <Loader2 className="h-2.5 w-2.5 animate-spin text-[#b8802f]" />
                     )}
-                    <span className="font-mono text-[0.45rem] text-muted-foreground uppercase">{a}</span>
+                    <span className="font-mono text-[0.45rem] text-[#6d665a] uppercase">{a}</span>
                   </span>
                 );
               })}
-              <span className="font-mono text-[0.4rem] text-muted-foreground animate-pulse">
+              <span className="font-mono text-[0.42rem] text-[#756d62] animate-pulse">
                 {streamingMeta ? "Meta-agent streaming..." : "Agents analyzing..."}
               </span>
             </div>
@@ -497,8 +584,9 @@ export default function NexusPage() {
         </div>
 
         {/* ═══ RESULTS ═══ */}
-        {(result || streamingMeta) && (
-          <div className="mb-6">
+        <div className="mb-6">
+          {hasOutput ? (
+            <>
             <div className="flex items-center gap-1 mb-3 flex-wrap">
               {agentTabs.map((tab) => (
                 <button
@@ -506,8 +594,8 @@ export default function NexusPage() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-mono text-[0.55rem] tracking-wider transition-colors ${
                     activeTab === tab.id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border/30 text-muted-foreground hover:text-foreground"
+                      ? "bg-[#2f8f5b] text-[#f4f1ea] border border-[#2a7f52]"
+                      : "bg-[#f8f2e8] border border-[#d8cebe] text-[#6a6358] hover:text-[#2f2b26] hover:bg-[#efe6d8]"
                   }`}
                 >
                   {tab.icon}
@@ -519,9 +607,9 @@ export default function NexusPage() {
               ))}
 
               {result?.integrityHash && result.integrityHash !== "computing..." && (
-                <div className="ml-auto flex items-center gap-1.5 px-2 py-1 rounded bg-accent/10 border border-accent/20">
-                  <ShieldCheck className="h-3 w-3 text-accent-foreground" />
-                  <span className="font-mono text-[0.4rem] text-accent-foreground">
+                <div className="ml-auto flex items-center gap-1.5 px-2 py-1 rounded-lg bg-[#eaf6ee] border border-[#9ecdb1]">
+                  <ShieldCheck className="h-3 w-3 text-[#2f8f5b]" />
+                  <span className="font-mono text-[0.42rem] text-[#2f8f5b]">
                     SHA-256: {result.integrityHash.slice(0, 16)}...
                   </span>
                 </div>
@@ -529,34 +617,49 @@ export default function NexusPage() {
             </div>
 
             {content && (
-              <div className="bg-card border border-border/30 rounded-lg p-6">
-                <div className="prose prose-sm prose-invert max-w-none font-mono text-sm leading-relaxed">
+              <div className={`${terminalSurface} p-6`}>
+                <div className="mb-4 flex items-center justify-between border-b border-[#ddd2c1] pb-2">
+                  <span className="font-mono text-[0.52rem] tracking-[0.18em] text-[#5f5549] uppercase">Document Block</span>
+                  <span className="rounded border border-[#d8c3a1] bg-[#faf2e4] px-2 py-0.5 font-mono text-[0.45rem] tracking-wider text-[#b8802f]">LONG-READ</span>
+                </div>
+                <div className="prose prose-sm max-w-none text-[#2f2b26] prose-p:leading-7 prose-p:text-[#3f392f] prose-headings:text-[#2b261f] prose-strong:text-[#2f2b26] prose-code:text-[#2f8f5b] font-mono text-sm leading-relaxed">
                   <ReactMarkdown>{content}</ReactMarkdown>
                   {loading && activeTab === "synthesis" && (
-                    <span className="inline-block w-2 h-4 bg-primary animate-pulse ml-1" />
+                    <span className="inline-block w-2 h-4 bg-[#2f8f5b] animate-pulse ml-1" />
                   )}
                 </div>
               </div>
             )}
-          </div>
-        )}
+            </>
+          ) : (
+            <div className={`${terminalSurface} p-6`}>
+              <div className="mb-4 flex items-center justify-between border-b border-[#ddd2c1] pb-2">
+                <span className="font-mono text-[0.52rem] tracking-[0.18em] text-[#5f5549] uppercase">Document Block</span>
+                <span className="rounded border border-[#d8c3a1] bg-[#faf2e4] px-2 py-0.5 font-mono text-[0.45rem] tracking-wider text-[#b8802f]">READY</span>
+              </div>
+              <p className="font-mono text-[0.68rem] leading-relaxed text-[#6e665a]">
+                Handoff/document stream pronto para leitura longa. Execute um prompt para materializar synthesis, evidência e trilha operacional.
+              </p>
+            </div>
+          )}
+        </div>
 
         {/* ═══ HISTORY ═══ */}
         {history.length > 0 && (
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
-              <Activity className="h-4 w-4 text-primary" />
-              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-primary uppercase">Simulation Log</span>
+              <Activity className="h-4 w-4 text-[#2f8f5b]" />
+              <span className="font-mono text-[0.6rem] tracking-[0.2em] text-[#5f5549] uppercase">Simulation Log</span>
             </div>
             <div className="space-y-1">
               {history.map((h, i) => (
-                <div key={i} className="flex items-center gap-3 px-3 py-2 bg-card/50 border border-border/20 rounded-lg">
-                  <span className="font-mono text-[0.5rem] text-muted-foreground shrink-0">
+                <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-[#ddd2c1] bg-[#fbf7ef]/95">
+                  <span className="font-mono text-[0.5rem] text-[#756d62] shrink-0">
                     {new Date(h.date).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
                   </span>
-                  <span className="font-mono text-xs text-foreground truncate flex-1">{h.prompt}</span>
+                  <span className="font-mono text-xs text-[#2f2b26] truncate flex-1">{h.prompt}</span>
                   {h.hash && (
-                    <span className="font-mono text-[0.4rem] text-accent-foreground shrink-0">
+                    <span className="font-mono text-[0.42rem] text-[#2f8f5b] shrink-0">
                       #{h.hash.slice(0, 8)}
                     </span>
                   )}
