@@ -33,6 +33,62 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático pelo BASTION activado e selado para execução
+            │ contínua: terminou task → lê BASTION → executa elegível →
+            │ registra → passa bastão → volta ao BASTION.
+            │ ops/BASTION_AUTO_001.md criado com estado final da activação.
+            │ ops/BASTION.md atualizado (histórico + semáforo v1.2 com
+            │ AUTOMÁTICO: ON e critério de entrada imediata).
+            │ ops/LIVE_STATE.md atualizado (executor, estado geral, semáforo,
+            │ fila @claude e linha temporal com OPS-BASTION-AUTO-001).
+            │ ops/HANDOFF_LEDGER.md: entrada prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Branch local detectada como `work`; sem mudança de branch nesta task
+ARQUIVOS    │ ops/BASTION_AUTO_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — governança operacional reforçada sem alterar produto
+PROX_PASSO  │ @copilot e @cursor seguem tasks elegíveis já abertas; @claude
+            │ retorna ao BASTION e aguarda gate owner para PLv6.2-b/FVL-IMPL-001
+SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atual;
+            │ 2) Próximo executor validar NEXT_ACTOR/ACTIVATION_MODE/CONDITION
+            │ antes de entrar; 3) Codex refletir estado automático no próximo
+            │ relatório-mãe consolidado
+DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
+            │ elegíveis no BASTION com ativação imediata quando aplicável
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_AUTO_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_AUTO_001.md) + edit (restantes)
+PROVA_MINIMA           │ seção 5.1 e seção 8 do BASTION atualizadas para registrar OPS-BASTION-AUTO-001
+                       │ LIVE_STATE atualizado para "Última atualização: 2026-03-21" e estado automático
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🔴 work (diverge do canônico informado no semáforo de entrada)
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / modo automático pelo BASTION
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ modo automático ligado; corrente segue por elegibilidade BASTION
+            │ + ACTIVATION_MODE imediato + ACTIVATION_CONDITION nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:COUNCIL-PR-TRIAGE-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Triagem de 27 PRs/Issues/branches do ciclo anterior.
