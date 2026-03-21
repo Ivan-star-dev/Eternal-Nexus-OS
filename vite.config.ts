@@ -1,7 +1,8 @@
-import { defineConfig, type Plugin } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import { defineConfig, type Plugin } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
+
 import cesium from "vite-plugin-cesium";
 
 // Cross-Origin Isolation plugin for SharedArrayBuffer support in dev
@@ -36,10 +37,10 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    tailwindcss(),
     cesium(),
     crossOriginIsolationPlugin(),
-    mode === "development" && componentTagger(),
-  ].filter(Boolean),
+  ].filter(Boolean) as Plugin[],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -51,5 +52,13 @@ export default defineConfig(({ mode }) => ({
   },
   worker: {
     format: "es",
+  },
+  test: {
+    browser: {
+      enabled: true,
+      provider: 'playwright',
+      name: 'chromium',
+    },
+    setupFiles: ['./src/setupTests.ts'],
   },
 }));
