@@ -338,6 +338,7 @@ Navegação rápida por todos os artefactos do sistema:
 | `ops/OUTPUT_STANDARD.md` | padrão | Templates e regras de handoff |
 | `ops/WORKTREE_ALIASES.md` | territórios | Aliases operacionais WorkStructure/Function/Visual |
 | `ops/CODEX_CONSOLIDATOR.md` | consolidação | Blueprint do Codex como orquestrador |
+| `ops/CROSS_SUPPORT_PROTOCOL.md` | polivalência | Protocolo de apoio cruzado em hora morta — limites, casos de uso, retorno |
 
 ### Ops Vivos (atualização contínua)
 
@@ -363,6 +364,7 @@ Navegação rápida por todos os artefactos do sistema:
 DNA_PROTOCOL.md v1 — criado em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001
 Gate aberto por owner — 2026-03-21
 DNA_PROTOCOL.md v1.1 — WorkVisual corrigido (@framer/@antigravity/@copilot); REGRA-6 clarificada; ref OUTPUT_STANDARD seção 8→6 — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
+DNA_PROTOCOL.md v1.2 — CROSS_SUPPORT_PROTOCOL.md adicionado ao Mapa Canônico — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001
 ```
 
 ---

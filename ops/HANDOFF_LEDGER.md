@@ -33,6 +33,35 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-ELIGIBLE-CROSS-SUPPORT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/CROSS_SUPPORT_PROTOCOL.md v1 criado (8 secções):
+            │ hora morta real definida; apoio elegível com 3 níveis de risco;
+            │ O_QUE_PODE / O_QUE_NAO_PODE explícitos; protocolo de retorno
+            │ com 5 condições; loop de @claude em hora morta; 9 ações mapeadas.
+            │ ops/FOL.md → v2.1 (seção 18 — Cross Support resumido + ref).
+            │ ops/DNA_PROTOCOL.md → v1.2 (mapa canônico actualizado).
+            │ ops/BASTION.md → v1.7 (histórico + localização + semáforo).
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md actualizados.
+NAO_FEITO   │ — nenhum
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ protocolo escrito extensível a todos os pioneiros, não só @claude
+ARQUIVOS    │ ops/CROSS_SUPPORT_PROTOCOL.md (novo) | ops/FOL.md | ops/DNA_PROTOCOL.md |
+            │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio — polivalência controlada formalizada; hora morta nunca mais é vazio;
+            │ sistema mais robusto em fases de espera soberana
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @claude em APOIO/COOPERATIVO se WorkStructure permanecer em espera;
+            │ @copilot e @cursor avançam; owner fecha B-001/B-002/B-003
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FOUNDATION-REFINEMENT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 7 refinamentos reais executados na fundação:

@@ -591,6 +591,51 @@ Ver `ops/PIONEER_MATRIX.md` — papéis completos, loops, regra de benefício, c
 
 ---
 
+---
+
+## 18. CROSS SUPPORT PROTOCOL — POLIVALÊNCIA CONTROLADA EM HORA MORTA
+
+**Registrado em:** NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | 2026-03-21
+
+O **Cross Support Protocol** formaliza como um pioneiro age quando o território dominante entra em espera real — sem ociosidade, sem invasão, sem deriva.
+
+### O que é hora morta real
+
+```
+Todas as tasks elegíveis com PODE_ENTRAR_SOZINHO: sim do território dominante estão CONCLUÍDAS.
+Tasks restantes aguardam gate do owner. Nada resolvível pelo pioneiro sozinho.
+```
+
+### Nível de apoio elegível
+
+| Nível | Tipo | Permitido? |
+|---|---|---|
+| 🟢 Baixo | review, validate, harmonize, clarify, prepare | Sim — entrada direta |
+| 🟡 Médio | edit de doc secundário, cross-ref, acceptance criteria | Sim — nota no handoff |
+| 🔴 Alto | decisão soberana, liderança de núcleo alheio, nova frente | Não — aguarda gate |
+
+### Loop de apoio (resumo)
+
+```
+Hora morta confirmada → lê BASTION → apoio elegível encontrado?
+  → SIM: executa como APOIO/COOPERATIVO — handoff marcado — EVIDENCE_BLOCK
+  → NÃO: regista "aguardando gate" no LIVE_STATE — pioneiro não inventa trabalho
+Retorno: ao primeiro sinal de task elegível no território dominante
+```
+
+### Regra de não-invasão
+
+> Pioneiro preenche onde o líder ainda não chegou.
+> Nunca atua onde o líder já está a executar.
+> Retorno imediato ao território dominante quando task elegível surgir.
+
+### Referência completa
+
+Ver `ops/CROSS_SUPPORT_PROTOCOL.md` — definição completa de hora morta, critérios de apoio,
+casos de uso por pioneiro, loop de @claude, protocolo de retorno.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
@@ -602,3 +647,4 @@ Ver `ops/PIONEER_MATRIX.md` — papéis completos, loops, regra de benefício, c
 *FOL v1.8 — seção 16 adicionada em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
 *FOL v1.9 — seção 17 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
 *FOL v2.0 — seção 1 tabela de leitura expandida com @framer e @antigravity; ref OUTPUT_STANDARD seção 8→6 — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
+*FOL v2.1 — seção 18 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
