@@ -314,6 +314,202 @@ Ver `ops/OUTPUT_STANDARD.md` — templates, campos obrigatórios, regras de pree
 
 ---
 
+---
+
+## 11. FLUXO AUTÔNOMO DOS PIONEIROS — AUTOFLOW
+
+**Registrado em:** OPS-AUTOFLOW-001 | 2026-03-20
+
+O AUTOFLOW sela a regra de comportamento autônomo dos pioneiros.
+Ao terminar uma task, o pioneiro não entra em vazio — ele lê o estado e identifica a próxima peça elegível.
+
+### Matrix de Pilar Dominante (resumo)
+
+| Pioneiro | Pilar Dominante | Papel fora do pilar |
+|---|---|---|
+| **@claude** | Estrutura + Produto | Apoio/cooperativo (competência secundária) |
+| **@codex** | Qualidade | Apoio/cooperativo (competência secundária) |
+| **@copilot** | Lapidação | Apoio/cooperativo (competência secundária) |
+| **@cursor** | Mecânico (transversal) | Desbloqueio em qualquer pilar |
+
+### Loop AUTOFLOW (resumo dos 6 passos)
+
+```
+1. Lê LIVE_STATE (estado + sua fila + semáforo + bloqueios)
+2. Lê HANDOFF_LEDGER (últimas 2 entradas)
+3. Identifica task elegível no pilar dominante
+4. Decide papel: FORÇA PRINCIPAL (pilar próprio) ou APOIO (pilar alheio)
+5. Executa dentro da competência
+6. Emite HANDOFF + Atualiza LIVE_STATE + Commit + Push → desbloqueia corrente
+```
+
+### Regra de competência (explícita)
+
+> No pilar dominante → FORÇA PRINCIPAL → lidera o núcleo
+> Fora do pilar → APOIO/COOPERATIVO → preenche lacuna sem deslocar líder
+> A diferença não é de qualidade — é de liderança do núcleo.
+
+### Referência completa
+
+Ver `ops/AUTOFLOW.md` — documento canônico com loop completo, matrix, apoio cruzado,
+motor de indução e o que o sistema torna desnecessário.
+
+---
+
+---
+
+## 12. MODO DE IGNIÇÃO CONTÍNUA — IGNITION
+
+**Registrado em:** OPS-IGNITION-001 | 2026-03-20
+
+Quando **IGNIÇÃO_ATIVA** está ligada, o sistema opera em fluxo contínuo.
+Os pioneiros seguem o loop de 7 passos em cadeia sem instrução manual entre tasks.
+
+### Estado da Ignição
+
+```
+IGNIÇÃO: ATIVA
+Ativada por: owner | 2026-03-20 | OPS-IGNITION-001
+```
+
+### Loop de 7 passos (resumo)
+
+```
+1. TERMINAR   → conclui a task ou registra partial/blocked
+2. LER        → LIVE_STATE + HANDOFF_LEDGER + AUTOFLOW
+3. SELECIONAR → task elegível no pilar dominante, ou apoio em pilar alheio
+4. EXECUTAR   → dentro da competência, sem inventar fora do sistema
+5. REGISTRAR  → HANDOFF + LIVE_STATE + commit + push
+6. DESBLOQUEAR → marca o gate que a entrega abriu
+7. CONTINUAR  → volta ao passo 1 com a próxima task elegível
+```
+
+### Quando o loop para
+
+```
+→ Ordem do owner
+→ Bloqueio real sem contorno
+→ Red line / Lei Absoluta
+→ Gate soberano pendente
+→ Falta de task elegível em qualquer pilar
+```
+
+### Referência completa
+
+Ver `ops/IGNITION.md` — loop canônico, regras de prioridade, corredor comum,
+handoff como pipeline, interruptor, o que a ignição não é.
+
+---
+
+## 13. ALIASES OPERACIONAIS DOS TERRITÓRIOS — WORKTREE ALIASES
+
+**Registrado em:** OPS-WORKTREE-ALIAS-001 | 2026-03-20
+
+Três aliases operacionais para uso diário em prompts, handoffs e protocolo:
+
+| Alias | Território |
+|---|---|
+| **WorkStructure** | Estrutura, base, governança, sustentação |
+| **WorkFunction** | Funcionalidade, integração, comportamento, produto vivo |
+| **WorkVisual** | Design, UI, UX, identidade, apresentação |
+
+**Glossário rápido:**
+```
+WorkStructure = o que sustenta    → base, protocolo, docs canônicas, infra
+WorkFunction  = o que funciona    → produto, features, integrações, fluxos
+WorkVisual    = o que aparece     → UI, UX, design, identidade, apresentação
+```
+
+**Regras:**
+- Aliases válidos em qualquer campo de território, frente ou área dos docs ops/
+- Nomes técnicos legados continuam como referência interna quando necessário
+- Aliases são ortogonais à matrix de pilar dominante dos pioneiros (AUTOFLOW)
+- Nenhuma referência técnica existente foi removida ou renomeada no Git
+
+**Referência completa:** `ops/WORKTREE_ALIASES.md`
+
+---
+
+## 14. EVIDENCE_BLOCK — BLOCO OBRIGATÓRIO DE EVIDÊNCIA REAL
+
+**Registrado em:** OPS-EVIDENCE-BLOCK-001 | 2026-03-20
+
+Todo handoff formal inclui agora um terceiro bloco obrigatório: **EVIDENCE_BLOCK**.
+
+**Propósito:** distinguir imediatamente se uma task foi executada, analisada, sugerida ou entregue sem prova suficiente.
+
+**Ordem de emissão por sessão:**
+```
+1. HANDOFF_TABLE
+2. EVIDENCE_BLOCK   ← novo, obrigatório
+3. CANALIZACAO_TABLE
+```
+
+**Template rápido:**
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ file1 | file2 — ou: nenhum
+TIPO_DE_ACAO           │ create | edit | review | analyze | no-change
+PROVA_MINIMA           │ commit id | seção alterada | arquivo criado | analysis-only
+ALTERACAO_REAL         │ sim | não
+═══════════════════════════════════════════════════════════════════════════
+```
+
+**Leitura rápida:**
+
+| ALTERACAO_REAL | Leitura |
+|---|---|
+| sim + create/edit | artefacto entrou ou mudou no sistema |
+| não + review/analyze | task executada como análise — sem mudança |
+| não + no-change | task concluída sem alteração — ou bloqueada |
+
+**Regra:** handoff sem EVIDENCE_BLOCK deixa de ser prova forte.
+
+**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 8
+
+---
+
+---
+
+## 15. BASTION — CORAÇÃO CANÔNICO DE EXECUÇÃO
+
+**Registrado em:** OPS-BASTION-001 | 2026-03-20
+
+O **BASTION** é a fonte única de execução elegível do Eternal Nexus OS.
+Pioneiro que não encontra task elegível no BASTION não executa.
+
+**Hierarquia operacional:**
+
+| Elemento | Papel |
+|---|---|
+| **BASTION** | Coração — matriz viva de tasks elegíveis |
+| **Codex** | Cérebro-orquestrador — lê, distribui, consolida |
+| **Claude** | Arquiteto-executor — abre frentes, actualiza BASTION com owner |
+| **Demais pioneiros** | Executores conforme matriz e worktree |
+| **Owner** | Soberano — único que abre gates e aprova fases |
+
+**Loop do pioneiro:**
+```
+1. Ler BASTION → task elegível com NEXT_ACTOR: eu?
+2. Verificar DEPENDENCIA_STATUS → livre?
+3. Verificar PODE_ENTRAR_SOZINHO → sim?
+4. Executar dentro do worktree e pilar declarados
+5. Handoff: HANDOFF_TABLE + EVIDENCE_BLOCK + CANALIZACAO_TABLE
+6. Voltar ao BASTION
+```
+
+**Regra-mãe:** deriva começa onde o BASTION termina.
+Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
+
+**Referência completa:** `ops/BASTION.md`
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
+*FOL v1.3 — seção 11 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-AUTOFLOW-001*
+*FOL v1.4 — seção 12 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001*
+*FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
+*FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
+*FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*

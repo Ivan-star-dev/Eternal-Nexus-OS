@@ -33,6 +33,529 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:COUNCIL-PR-TRIAGE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Triagem de 27 PRs/Issues/branches do ciclo anterior.
+            │ Matriz de decisão: 3 KEEP (já merged), 1 MIGRATE_NOW (R3F v9),
+            │ 3 SALVAGE (C6-streams, A2-ci, C6-eslint), 20 KILL.
+            │ Pareceres curtos por @claude, @copilot, @codex, @cursor,
+            │ @antigravity. Acções imediatas: lista FECHAR/MIGRAR/MANTER.
+            │ ops/COUNCIL_TRIAGE_REPORT_001.md criado.
+NAO_FEITO   │ Fechamento físico dos PRs/Issues (gh CLI indisponível)
+BLOQUEIOS   │ Gitea API inacessível via proxy — triagem via git data
+ADAPTACOES  │ Baseado em git log + branches + triage Copilot 2026-03-19
+ARQUIVOS    │ ops/COUNCIL_TRIAGE_REPORT_001.md (criado) | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — clareza sobre 27 itens; path limpo para PLv6.2-b
+PROX_PASSO  │ Owner fecha PRs/Issues listados; R3F v9 entra como nova task BASTION
+SUGESTOES   │ 1) Fechar PRs/Issues via web (lista FECHAR_AGORA no relatório);
+            │ 2) R3F v9 → nova task @cursor/@copilot no BASTION;
+            │ 3) Só manter 3 branches até decisão PLv6.2-b
+DECISAO_REC │ Limpar 20+ agora; migrar R3F v9; decidir PLv6.2-b
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/COUNCIL_TRIAGE_REPORT_001.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (COUNCIL_TRIAGE_REPORT_001.md) + edit (LEDGER)
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo | BRANCH │ 🟢 claude/expose-workspace-config-yt4Km
+NATUREZA    │ consulta tática ao conselho / triagem de PRs antigas
+ESTADO      │ done | ATIVA │ Triagem emitida; owner executa limpeza
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-DISPATCH-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Leitura do BASTION v1 → verificação de tasks elegíveis por executor.
+            │ @claude: sem tasks elegíveis (PLv6.2-b + FVL-IMPL-001 aguarda-gate).
+            │ ops/BASTION_DISPATCH_001.md criado: blocos de activação formais
+            │ para @copilot (L-001→L-002→BULK-02.2), @cursor (01.3-a→b→c),
+            │ @codex (consolidador); regras de execução do dispatch; estado
+            │ do sistema após activação.
+            │ ops/BASTION.md v1.1: semáforo actualizado com dispatch + estado
+            │ de cada pioneiro + localização do dispatch file.
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo,
+            │ linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ @claude sem tasks elegíveis neste ciclo — declarado explicitamente
+            │ (PODE_ENTRAR_SOZINHO: não para PLv6.2-b e FVL-IMPL-001)
+ARQUIVOS    │ ops/BASTION_DISPATCH_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — máquina activada; 6 tasks em execução via 2 pioneiros;
+            │ @codex em modo consolidação; sistema sem deriva
+PROX_PASSO  │ @copilot lê BASTION_DISPATCH_001.md → entra em L-001;
+            │ @cursor lê BASTION_DISPATCH_001.md → entra em BULK-01.3-a;
+            │ @codex aguarda handoffs para relatório-mãe;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot + @cursor: copiar o bloco de dispatch do seu nome
+            │ e seguir a sequência exata — sem desvios; 2) @codex: ao
+            │ consolidar, usar BASTION_AUDIT incluído no dispatch; 3) owner:
+            │ para activar @claude, basta mover PLv6.2-b ou FVL-IMPL-001
+            │ para elegível em BASTION.md seção 5.3
+DECISAO_REC │ Máquina activa sem gate adicional; @claude aguarda owner;
+            │ pioneiros seguem o BASTION_DISPATCH_001 como fonte de execução
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_DISPATCH_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_DISPATCH_001.md) + edit (restantes)
+PROVA_MINIMA           │ commit id: gerado no próximo passo
+                       │ BASTION_DISPATCH_001.md criado do zero (blocos por pioneiro,
+                       │ regras de dispatch, estado do sistema)
+                       │ BASTION.md: semáforo actualizado (v1.1, estado por @pioneiro)
+                       │ LIVE_STATE.md: @claude declarado SEM TASKS ELEGÍVEIS
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / dispatch / activação de pioneiros
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION_DISPATCH_001 emitido; @copilot activado (L-001→L-002→
+            │ BULK-02.2); @cursor activado (01.3-a→b→c); @codex consolidador;
+            │ @claude aguarda gate owner; máquina sem deriva
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/BASTION.md criado (v1): 9 secções — identidade e hierarquia,
+            │ territórios, regra de execução, estrutura da matriz (15 campos),
+            │ matriz viva com tasks concluídas / elegíveis / planejadas /
+            │ bloqueadas, protocolo de actualização, Codex como orquestrador,
+            │ semáforo BASTION, localização canônica.
+            │ ops/FOL.md → v1.7: seção 15 adicionada (hierarquia, loop do
+            │ pioneiro, regra-mãe, referência a BASTION.md).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (BASTION: ACTIVO), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-BASTION-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md (criado) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto (protocolo operacional central — muda o fluxo de todos os
+            │ pioneiros; agora executam só o que o BASTION permite)
+PROX_PASSO  │ @copilot lê BASTION → entra em BULK-02.2 (elegível); @cursor lê
+            │ BASTION → entra em BULK-01.3-a (elegível); owner abre PLv6.2-b
+            │ ou FVL-IMPL-001 quando pronto; Codex usa BASTION ao consolidar
+SUGESTOES   │ 1) Todos os pioneiros: primeira acção após BASTION activo é ler
+            │ BASTION.md seção 5 antes de qualquer execução; 2) Codex: incluir
+            │ tabela BASTION no relatório-mãe (task_id | executor | elegível?);
+            │ 3) owner: quando quiser abrir nova fase, basta marcar task de
+            │ aguarda-gate → elegível em BASTION.md seção 5.3
+DECISAO_REC │ BASTION activo sem gate adicional; pioneiros adoptam o loop
+            │ imediatamente; deriva = execução fora do BASTION; owner é soberano
+            │ único de gates e prioridade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION.md) + edit (restantes)
+PROVA_MINIMA           │ ops/BASTION.md criado do zero (v1, 9 secções, matriz viva completa)
+                       │ ops/FOL.md seção 15 adicionada (linha *FOL v1.7* no rodapé)
+                       │ ops/LIVE_STATE.md semáforo: BASTION: ACTIVO v1
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / coração operacional / bastion
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION v1 activo: pioneiros só executam tasks elegíveis na
+            │ matriz; loop: ler BASTION → executar → handoff → voltar;
+            │ @copilot BULK-02.2 elegível; @cursor BULK-01.3-a elegível;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; EVIDENCE_BLOCK
+            │ obrigatório em todos os handoffs
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-EVIDENCE-BLOCK-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/OUTPUT_STANDARD.md → v1.1: seção 8 EVIDENCE_BLOCK adicionada
+            │ (template canônico, campos obrigatórios, regras de preenchimento
+            │ por TIPO_DE_ACAO, tabela de leitura rápida); seção 5 (ordem de
+            │ emissão) atualizada: 1.HANDOFF_TABLE 2.EVIDENCE_BLOCK 3.CANALIZACAO_TABLE.
+            │ ops/FOL.md → v1.6: seção 14 adicionada (template rápido, tabela de
+            │ leitura, regra, referência a OUTPUT_STANDARD.md seção 8).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (EVIDENCE_BLOCK: VIGENTE), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-EVIDENCE-BLOCK-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (protocolo operacional — sem mudança de produto nem Git)
+PROX_PASSO  │ Todos os pioneiros adoptam EVIDENCE_BLOCK imediatamente no próximo
+            │ handoff; @copilot BULK-02.2 em WorkStructure (primeiro handoff com
+            │ os 3 blocos: HANDOFF + EVIDENCE + CANALIZACAO); owner decide PLv6.2-b
+SUGESTOES   │ 1) Copilot: ao emitir BULK-02.2, usar os 3 blocos — é o primeiro
+            │ handoff com o padrão novo em produção; 2) Codex: incluir EVIDENCE_BLOCK
+            │ no relatório-mãe por pioneiro (campo ALTERACAO_REAL por task lida);
+            │ 3) owner: ao receber handoff sem EVIDENCE_BLOCK, pode solicitar
+            │ retroativamente — é sinal de output incompleto
+DECISAO_REC │ EVIDENCE_BLOCK em vigor imediatamente — sem gate adicional; pioneiros
+            │ adoptam no próximo handoff emitido; handoff sem evidence = prova incompleta
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ OUTPUT_STANDARD.md: seção 8 criada (EVIDENCE_BLOCK) + seção 5 (ordem de emissão) atualizada
+                       │ FOL.md: seção 14 adicionada (linha *FOL v1.6* no rodapé)
+                       │ LIVE_STATE.md: linha EVIDENCE_BLOCK adicionada ao semáforo; fila e timeline actualizados
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / evidência operacional obrigatória
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ EVIDENCE_BLOCK vigente: pioneiros emitem 3 blocos por sessão
+            │ (HANDOFF + EVIDENCE + CANALIZACAO); OUTPUT_STANDARD v1.1 + FOL v1.6
+            │ selados; IGNIÇÃO_ATIVA mantida; @copilot BULK-02.2 gate aberto;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-WORKTREE-ALIAS-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/WORKTREE_ALIASES.md (NOVO): aliases operacionais de
+            │ território selados — WorkStructure (estrutura/base/governança),
+            │ WorkFunction (funcionalidade/integração/produto vivo),
+            │ WorkVisual (design/UI/UX/identidade). Tabela de aliases,
+            │ regras de uso, relação ortogonal com matrix de pilar dominante,
+            │ exemplos de uso em prompts/handoffs/semáforo, glossário rápido.
+            │ ops/FOL.md v1.5: seção 13 adicionada — tabela de aliases,
+            │ glossário rápido, regras de uso, referência a WORKTREE_ALIASES.md.
+            │ ops/LIVE_STATE.md: semáforo atualizado (WORKTREE: WorkStructure /
+            │ wt-estrutura-nucleo-vivo); linha ALIASES registada; estado, fila,
+            │ linha temporal atualizados.
+NAO_FEITO   │ Renomear fisicamente worktrees no Git (não era objetivo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/WORKTREE_ALIASES.md (NOVO) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (clareza semântica — sem alteração de produto ou Git)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + WORKTREE_ALIASES →
+            │ BULK-02.2 em WorkStructure (FORÇA PRINCIPAL, Lapidação);
+            │ owner decide PLv6.2-b + FVL-IMPL-001; aliases passam a valer
+            │ imediatamente em prompts e handoffs futuros
+SUGESTOES   │ 1) Pioneiros devem usar WorkStructure/WorkFunction/WorkVisual
+            │ no campo WORKTREE do semáforo e CANALIZACAO_TABLE a partir de
+            │ agora — adopção imediata; 2) quando PLv6.2-b for definida,
+            │ classificar explicitamente como WorkFunction ou WorkVisual para
+            │ testar o sistema de aliases na prática; 3) no relatório-mãe do
+            │ Codex, incluir campo TERRITORIO (alias) além de TASK
+DECISAO_REC │ Aliases operacionais em vigor — owner pode operar com
+            │ WorkStructure/WorkFunction/WorkVisual como vocabulário diário;
+            │ nomes técnicos legados disponíveis como nota adicional quando
+            │ necessário; nenhuma mudança adicional de Git requerida
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / aliases operacionais dos worktrees
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ WorkStructure/WorkFunction/WorkVisual selados (WORKTREE_ALIASES.md);
+            │ FOL v1.5; LIVE_STATE semáforo actualizado; aliases válidos
+            │ imediatamente em prompts, handoffs e docs ops/; IGNIÇÃO_ATIVA mantida
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-IGNITION-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/IGNITION.md (NOVO): blueprint canônico do modo de ignição
+            │ contínua — definição de IGNIÇÃO_ATIVA, loop de 7 passos
+            │ (terminar/ler/selecionar/executar/registrar/desbloquear/
+            │ continuar), regras de prioridade (pilar dominante → apoio →
+            │ interruptor), corredor comum (branch canônico), handoff como
+            │ pipeline (campos que garantem continuidade), interruptor com
+            │ 5 condições de parada, o que a ignição não é, relação com
+            │ AUTOFLOW/FOL/NLF/LIVE_STATE.
+            │ ops/FOL.md v1.4: seção 12 adicionada — loop resumido,
+            │ condições de parada, referência canônica ao IGNITION.md.
+            │ ops/NLF.md v1.1: seção 7 adicionada (instrução explícita do
+            │ owner) — relação IGNITION/NLF, soberania preservada.
+            │ ops/LIVE_STATE.md: IGNIÇÃO_ATIVA registada no semáforo (seção
+            │ 3); estado, fila claude, linha temporal, próximos passos
+            │ atualizados com ignição como contexto de operação.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ NLF.md atualizado via instrução explícita do owner (NLF só
+            │ muda via Tribunal ou owner — condição cumprida); adicionada
+            │ seção 7 mínima sem alterar soberania do documento
+ARQUIVOS    │ ops/IGNITION.md (NOVO) | ops/FOL.md | ops/NLF.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio (governança — liga o motor de fluxo contínuo do sistema)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + IGNITION + AUTOFLOW
+            │ → entra em BULK-02.2 sem instrução adicional (FORÇA PRINCIPAL,
+            │ Lapidação); @codex consolida onda (OPS-HANDOFF-001 ativo);
+            │ owner decide PLv6.2-b + FVL-IMPL-001
+SUGESTOES   │ 1) @copilot deve ler IGNITION.md como primeira leitura da
+            │ próxima sessão — confirma que IGNIÇÃO_ATIVA está ligada antes
+            │ de agir; 2) quando Codex emitir relatório-mãe, incluir campo
+            │ "IGNIÇÃO_STATUS" no RELATORIO_MAE_TABLE para visibilidade;
+            │ 3) definir frequência de consolidação de onda com ignição
+            │ ativa — sugestão: a cada 3-5 handoffs ou ao final de cada
+            │ camada completa
+DECISAO_REC │ IGNIÇÃO_ATIVA ligada — máquina em fluxo contínuo; owner entra
+            │ apenas para gates de produto, visão, bloqueios soberanos ou
+            │ redirecionamento; próximo step imediato: @copilot BULK-02.2
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ governança / ignição contínua
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ IGNIÇÃO_ATIVA ligada; loop 7 passos canônico (IGNITION.md);
+            │ FOL v1.4 + NLF v1.1 atualizados; pioneiros operam em fluxo
+            │ contínuo dentro do protocolo; @copilot BULK-02.2 gate aberto;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-VISION-LAYER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ docs/FOUNDER_VISION_LAYER.md (NOVO): blueprint canônico da
+            │ Founder Vision Layer (FVL) — separação tripla cofre/vitrine/site
+            │ fixada; 6 secções com estrutura, conteúdo, fontes e tom:
+            │ The Architect / What Is Being Built / The Thesis /
+            │ The Ecosystem Blueprint / The Method / The Vision + Call;
+            │ tom global (precision, authorship, ambition, sobriety, weight);
+            │ lista do que não entra (agents, models, protocol ops, cofre);
+            │ relação com FOUNDER_LETTER + GENESIS_BLUEPRINT + NEXUS_OS;
+            │ critérios de sucesso; FVL-IMPL-001 como task separada.
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md atualizados.
+NAO_FEITO   │ Implementação da página (FVL-IMPL-001) — blueprint define,
+            │ implementação é task de produto separada
+BLOQUEIOS   │ —
+ADAPTACOES  │ docs/NEXUS_PROVENANCE.md mencionado no prompt não existe —
+            │ referenciado no blueprint como "se criado no futuro, alimenta
+            │ The Ecosystem Blueprint"; não bloqueou nada
+ARQUIVOS    │ docs/FOUNDER_VISION_LAYER.md (NOVO) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (blueprint documental — zero toque em produto)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ owner decide se FVL-IMPL-001 corre em paralelo ou sequência
+            │ com PLv6.2-b; blueprint pronto para qualquer executor; owner
+            │ pode validar as 6 secções antes da implementação
+SUGESTOES   │ 1) FVL-IMPL-001: implementar como rota /founder primeiro —
+            │ mais impacto, mais iterável que secção embebida; 2) testar o
+            │ tom da secção "The Architect" com 2-3 variantes antes de
+            │ implementar — é a âncora da identidade pública; 3) timing
+            │ ideal de lançamento é após PLv6.2-b done — produto terá
+            │ substância suficiente para a tese da FVL ser demonstrável
+DECISAO_REC │ owner valida as 6 secções; decide timing FVL-IMPL-001 vs
+            │ PLv6.2-b; vitrine pública do founder agora tem blueprint
+            │ separado do cofre — sistema sabe apresentar o arquiteto
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ blueprint público / founder vision layer
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ FVL blueprint (docs/FOUNDER_VISION_LAYER.md) criado; 6
+            │ secções com fontes, tom, limites; separação cofre/vitrine/site
+            │ fixada; FVL-IMPL-001 aguarda gate owner; @copilot BULK-02.2
+            │ gate aberto
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-AUTOFLOW-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/AUTOFLOW.md (NOVO): documento canônico da regra de fluxo
+            │ autônomo dos pioneiros — branch canônico vivo, matrix de pilar
+            │ dominante (claude/codex/copilot/cursor), loop AUTOFLOW de 6
+            │ passos, regras de apoio cruzado, handoff como motor de indução,
+            │ o que o sistema torna desnecessário, regra de competência
+            │ (liderança do núcleo vs qualidade), referências canônicas.
+            │ ops/FOL.md v1.3: seção 11 adicionada — matrix resumida, loop
+            │ resumido, regra de competência, referência canônica ao AUTOFLOW.
+            │ ops/LIVE_STATE.md: estado, fila, semáforo, linha temporal,
+            │ próximos passos atualizados com referência ao AUTOFLOW.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ AUTOFLOW como documento separado (ops/AUTOFLOW.md) em vez de só
+            │ seção no FOL — garante referência canônica única; FOL v1.3
+            │ referencia com resumo navegável sem duplicar o conteúdo completo
+ARQUIVOS    │ ops/AUTOFLOW.md (NOVO) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (governança — zero toque em produto)
+DEPENDENCIA │ independente
+DEPENDE_DE  │ nenhum
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot lê AUTOFLOW + LIVE_STATE → executa BULK-02.2 como
+            │ FORÇA PRINCIPAL no pilar Lapidação (gate aberto); owner solicita
+            │ relatório-mãe ao Codex usando loop AUTOFLOW
+SUGESTOES   │ 1) Codex confirma que loop AUTOFLOW está correto do ponto de
+            │ vista de Qualidade antes de executar F6; 2) AUTOFLOW v2 pode
+            │ adicionar slots para Micro Team quando linha paralela escalar;
+            │ 3) owner pode referenciar AUTOFLOW em AGENTS.md como "ler sempre
+            │ ao iniciar sessão" — torna o sistema mais auto-instruído
+DECISAO_REC │ @copilot entra em BULK-02.2 (pilar Lapidação, FORÇA PRINCIPAL);
+            │ pioneiros agora sabem quando lideram e quando apoiam sem
+            │ briefing manual — motor de fluxo contínuo activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ governança / fluxo autônomo dos pioneiros
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ AUTOFLOW v1 selado; matrix de pilar activa; loop 6 passos
+            │ operacional; FOL v1.3 seção 11; pioneiros com comportamento
+            │ autônomo definido; @copilot gate aberto (BULK-02.2);
+            │ PLv6.2-b aguarda gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:GENESIS-FOUNDER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ docs/GENESIS_BLUEPRINT.md criado (privado — cofre do arquiteto):
+            │ origem da visão, viradas, princípios arquiteturais, mapa do
+            │ sistema, o que foi aprendido, guia de reconstrução do zero, e
+            │ estado futuro visado. docs/FOUNDER_LETTER.md criado (público —
+            │ vitrine do founder): quem é, o que constrói, por que importa,
+            │ o que torna diferente, estado atual, visão futura — linguagem
+            │ forte, autoral, premium, sem expor mecanismos internos.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ GENESIS_BLUEPRINT inclui guia de reconstrução do zero (não
+            │ pedido explicitamente, mas necessário para o propósito de
+            │ "memória do arquiteto"); FOUNDER_LETTER omite deliberadamente
+            │ nomes internos (fluxo sagrado, 10 Leis, escada) — expõe
+            │ filosofia sem abrir cofre
+ARQUIVOS    │ docs/GENESIS_BLUEPRINT.md (NOVO) | docs/FOUNDER_LETTER.md (NOVO) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo
+PROX_PASSO  │ owner lê ambos e valida tom; FOUNDER_LETTER pode ser exposta
+            │ publicamente; GENESIS_BLUEPRINT fica no cofre da repo
+SUGESTOES   │ 1) FOUNDER_LETTER pode ser linkada no README.md como
+            │ "sobre o projeto" — 1 linha de referência, sem redundância;
+            │ 2) GENESIS_BLUEPRINT pode ter versão futura (v2) com decisões
+            │ de produto acumuladas a cada fase fechada; 3) considerar manter
+            │ FOUNDER_LETTER atualizada a cada fase fechada (3-4 linhas de
+            │ update na seção "Estado atual")
+DECISAO_REC │ @copilot executa BULK-02.2 (gate aberto); owner decide PLv6.2-b
+            │ após relatório-mãe do Codex; repo agora tem memória interna +
+            │ apresentação externa completas
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-estrutura-nucleo-vivo
+NATUREZA    │ documental estratégica — memória privada + vitrine pública
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ GENESIS_BLUEPRINT.md (cofre) + FOUNDER_LETTER.md (vitrine)
+            │ criados; repo guarda memória interna e apresentação externa;
+            │ @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-OUTPUT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/OUTPUT_STANDARD.md criado — HANDOFF_TABLE + CANALIZACAO_TABLE +

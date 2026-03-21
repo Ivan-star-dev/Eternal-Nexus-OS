@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-OUTPUT-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001
 
 ---
 
@@ -15,10 +15,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
-| **Executor ativo** | @claude (OPS-OUTPUT-001 concluído) |
-| **Frente ativa** | Operacional / wt-estrutura-nucleo-vivo |
-| **Camada atual** | PLv6.2-a concluída; OPS-HANDOFF-001 + OPS-OUTPUT-001 registrados — padrão canônico de output copiável selado |
-| **Estado geral** | PLv6.2-a concluída (Layer 2 Supabase); CODEX_CONSOLIDATOR.md criado; OUTPUT_STANDARD.md criado; HANDOFF_TABLE + CANALIZACAO_TABLE selados; todos os pioneiros falam no mesmo layout; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
+| **Frente ativa** | Governança operacional / WorkStructure |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1 activo; BASTION_DISPATCH_001 emitido — @copilot e @cursor activados nas suas tasks elegíveis |
+| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; BASTION_DISPATCH_001 emitido; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -40,7 +40,16 @@
 | PLv6.1 | Projects Table Layer — Supabase globe_projects → INVESTOR + NEXUS status | CONCLUÍDA | handoff emitido |
 | PLv6.2-a | Projects Gallery Layer — ProjectsLiveSection na home page (Layer 2 visível) | CONCLUÍDA | handoff emitido |
 | OPS-OUTPUT-001 | Padrão canônico de output copiável — HANDOFF_TABLE + CANALIZACAO_TABLE | CONCLUÍDA | handoff emitido |
+| GENESIS-FOUNDER-001 | Blueprint privado do arquiteto + carta pública do founder | CONCLUÍDA | handoff emitido |
+| OPS-AUTOFLOW-001 | Selar regra de fluxo autônomo dos pioneiros — AUTOFLOW v1 | CONCLUÍDA | handoff emitido |
+| FOUNDER-VISION-LAYER-001 | Blueprint canônico da camada pública do founder no site — FVL v1 | CONCLUÍDA | handoff emitido |
+| OPS-IGNITION-001 | Selar modo de ignição contínua — IGNITION v1 + IGNIÇÃO_ATIVA ligada | CONCLUÍDA | handoff emitido |
+| OPS-WORKTREE-ALIAS-001 | Registrar aliases operacionais WorkStructure/WorkFunction/WorkVisual | CONCLUÍDA | handoff emitido |
+| OPS-EVIDENCE-BLOCK-001 | Selar bloco obrigatório de evidência real em toda task — EVIDENCE_BLOCK | CONCLUÍDA | handoff emitido |
+| OPS-BASTION-001 | Criar o BASTION — coração canônico de execução dos pioneiros | CONCLUÍDA | handoff emitido |
+| OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
+| FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
 
@@ -81,11 +90,19 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
-🟢 WORKTREE: wt-estrutura-nucleo-vivo
-NATUREZA: operacional / OPS-OUTPUT-001 — padrão canônico de output copiável selado
-EXECUTOR: @claude (OPS-OUTPUT-001 done)
-ESTADO: done (Claude — PLv1 + PLv2 + PLv3 + PLv4 + PLv5.1 + PLv6.1 + PLv6.2-a + OPS-HANDOFF-001 + OPS-OUTPUT-001)
-CANALIZAÇÃO ATIVA: OUTPUT_STANDARD.md selado (HANDOFF_TABLE + CANALIZACAO_TABLE + RELATORIO_MAE_TABLE); FOL seção 10 adicionada; todos os pioneiros no mesmo layout; @copilot gate aberto (BULK-02.2); PLv6.2-b aguarda gate owner
+🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA: governança / dispatch / activação de pioneiros
+EXECUTOR: @claude (OPS-BASTION-DISPATCH-001 done)
+IGNIÇÃO: ATIVA
+ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
+BASTION: ACTIVO v1.1 — BASTION_DISPATCH_001 emitido; pioneiros activados
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
+@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
+@codex: CONSOLIDADOR ATIVO → aguarda handoffs
+@claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001)
+CANALIZAÇÃO ATIVA: BASTION_DISPATCH_001 emitido; máquina em execução; @claude aguarda gate owner para próxima frente de produto
 ```
 
 ---
@@ -97,12 +114,16 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
-Claude:  OPS-OUTPUT-001 — HANDOFF EMITIDO (OUTPUT_STANDARD.md selado; HANDOFF_TABLE + CANALIZACAO_TABLE canônicos; FOL seção 10)
-Copilot: BULK-02.2 — GATE ABERTO (suavização de ops/ + rastos de PLv4/PLv5/PLv6 para limpar)
-Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
+Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
+Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado: matriz viva, regra-mãe, 9 secções, semáforo, loop do pioneiro; FOL v1.7 seção 15; LIVE_STATE atualizado; BASTION ACTIVO)
+Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1: seção 8 EVIDENCE_BLOCK + nova ordem de emissão; FOL v1.6 seção 14; LIVE_STATE atualizado; EVIDENCE_BLOCK vigente imediatamente)
+Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado; WorkStructure/WorkFunction/WorkVisual registados; FOL v1.5; LIVE_STATE atualizado com aliases no semáforo)
+Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
+Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
+Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
 Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex emite relatório-mãe (RELATORIO_MAE_TABLE) → owner decide PLv6.2-b (NewsAPI? project_metrics? página dedicada?) ou PLv7
+PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
 ```
 
 ---
@@ -119,13 +140,15 @@ PRÓXIMA TRANSIÇÃO: owner solicita "Codex, consolida a onda atual" → Codex e
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner solicita a @codex: "Consolida a onda atual"** → Codex emite RELATORIO_MAE_TABLE (formato canônico em `ops/OUTPUT_STANDARD.md`) → owner decide com base no relatório-mãe
-2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ imediatamente
-3. **Owner decide PLv6.2-b** (NewsAPI? project_metrics? página dedicada?) ou PLv7 (owner data) — gate após relatório-mãe
-4. **@codex avança F6** — frente independente, não bloqueia onda atual
+**[IGNIÇÃO_ATIVA — pioneiros seguem o loop sem instrução redundante]**
+
+1. **@copilot** — BULK-02.2 (gate aberto, FORÇA PRINCIPAL, Lapidação) → entra agora via loop IGNITION
+2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
+3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
 5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 6. **Owner responde B-002** — confirmar npm como PM canônico
-7. **@codex alinha branch** — condição para entrar na escada principal (execução de produto)
+7. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 
 ---
 
