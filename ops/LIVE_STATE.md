@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.7 activo; PIONEER_MATRIX v1.1; DNA_PROTOCOL v1.2; FOL v2.1; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; CROSS_SUPPORT_PROTOCOL v1 criado; BASTION 2.0 CICLO ACTIVO |
-| **Estado geral** | BASTION 2.0 CICLO ACTIVADO; fundação lapidada + Cross Support Protocol formalizado; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1.8 activo; PIONEER_MATRIX v1.1; DNA_PROTOCOL v1.3; FOL v2.1; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; CROSS_SUPPORT_PROTOCOL v1; FLOWMESH v1.0 criado; NEXUS_NEURAL_MESH v1.0 criado; BASTION 2.0 CICLO ACTIVO |
+| **Estado geral** | BASTION 2.0 CICLO ACTIVADO; fundação lapidada + FLOWMESH + NEURAL_MESH criados; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -54,6 +54,8 @@
 | NEXUS-PIONEER-ROLE-MOTHER-001 | Cravar papéis dos pioneiros + regra 3 chats + compatibilidade DNA | CONCLUÍDA | handoff emitido — PIONEER_MATRIX.md v1 criado; 3 chats selados |
 | NEXUS-FOUNDATION-REFINEMENT-001 | Refinamento da fundação — 7 correções reais na espinha estrutural | CONCLUÍDA | handoff emitido — OUTPUT_STANDARD v2.1; DNA_PROTOCOL v1.1; BASTION v1.6; FOL v2.0; NEXUS_OS v1.1; PIONEER_MATRIX v1.1 |
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Cross Support Protocol — polivalência controlada formalizada | CONCLUÍDA | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1; FOL v2.1 seção 18; DNA v1.2; BASTION v1.7 |
+| NEXUS-FLOWMESH-001 | FLOWMESH v1.0 — roteamento adaptativo de modelos e tasks | CONCLUÍDA | handoff emitido — FLOWMESH.md v1.0 criado; 8 blocos; 12 departamentos; DNA v1.3; BASTION v1.8 |
+| NEXUS-NEURAL-MESH-001 | NEXUS_NEURAL_MESH v1.0 — camada de inteligência viva do sistema | CONCLUÍDA | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; 15 nós; BASTION v1.8 |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -103,7 +105,7 @@ IGNIÇÃO: ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio rea
 ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
 CICLO_2.0: ATIVO — activado por owner em 2026-03-21
 MODO_AUTO: SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-BASTION: ACTIVO v1.7 — CROSS_SUPPORT_PROTOCOL v1; fundação v2 (7 refinamentos); DNA v1.2; FOL v2.1
+BASTION: ACTIVO v1.8 — FLOWMESH v1.0; NEXUS_NEURAL_MESH v1.0; CROSS_SUPPORT_PROTOCOL v1; DNA v1.3; FOL v2.1
 @copilot: EM FLUXO → BULK-01.2/L-001 → L-002 → BULK-02.2 (WorkStructure / Lapidação)
 @cursor: EM FLUXO → BULK-01.3-a → 01.3-b → 01.3-c (WorkStructure / Mecânico)
 @codex: CONSOLIDADOR ATIVO → lê BASTION → distribui → consolida ondas
@@ -124,6 +126,8 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  NEXUS-NEURAL-MESH-001 — NEXUS_NEURAL_MESH.md v1.0 criado (10 partes; 15 nós; sinais; behavior protocol; asset registry; stages 5→10); DNA_PROTOCOL v1.3 mapa canônico; BASTION v1.8; LIVE_STATE actualizado; handoff emitido
+Claude:  NEXUS-FLOWMESH-001 — FLOWMESH.md v1.0 criado (8 blocos; roteamento adaptativo; 12 departamentos; modelos por classe A/B/C/D; 5 lanes paralelas; pioneer table); handoff emitido
 Claude:  NEXUS-ELIGIBLE-CROSS-SUPPORT-001 — Cross Support Protocol formalizado: CROSS_SUPPORT_PROTOCOL.md v1 (8 secções); FOL v2.1 seção 18; DNA_PROTOCOL v1.2 mapa canônico; BASTION v1.7; hora morta + apoio elegível + retorno + casos @claude; handoff emitido
 Claude:  NEXUS-FOUNDATION-REFINEMENT-001 — 7 refinamentos na fundação: OUTPUT_STANDARD v2.1 (secções reordenadas); DNA_PROTOCOL v1.1 (WorkVisual+REGRA-6+ref); BASTION v1.6 (WorkVisual+typo); FOL v2.0 (tabela+ref); NEXUS_OS v1.1 (blueprints 9→11); PIONEER_MATRIX v1.1 (gramática); handoff emitido
 Claude:  NEXUS-PIONEER-ROLE-MOTHER-001 — papéis cravados; PIONEER_MATRIX.md v1 (8 partes); FOL v1.9 seção 17; NLF v1.2 seção 8; WORKTREE_ALIASES v1.1 seções 6-7; BASTION v1.5; handoff emitido

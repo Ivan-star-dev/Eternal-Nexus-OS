@@ -33,6 +33,39 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-NEURAL-MESH-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/NEXUS_NEURAL_MESH.md v1.0 criado (10 partes):
+            │ NEURAL_CORE; NEURAL_NODE_MATRIX (15 nós); NEURAL_SIGNAL_SYSTEM
+            │ (10 sinais); NEURAL_MEMORY (8 camadas); TECHNOLOGY_REFINEMENT_MAP
+            │ (JA_MADURO/AINDA_GROSSO/PRECISA_REFINO/PRONTO_PARA_CONGELAR);
+            │ NEURAL_BEHAVIOR_PROTOCOL (5 estados); NEURAL_PRODUCT_LINK;
+            │ NEURAL_ASSET_REGISTRY; NEURAL_DIDACTIC_LAYER; VERSION_AND_FUTURE_LINK.
+            │ ops/FLOWMESH.md v1.0 criado (8 blocos):
+            │ VERSION_STATE; FLOWMESH_CORE; ADAPTIVE_MODEL_ROUTING (A/B/C/D);
+            │ DYNAMIC_GAP_FILLING; PARALLEL_LANES (5); DEPARTMENT_EXPANSION (D01-D12);
+            │ MATURITY_REGISTRY; FLOWMESH_OPERATOR_TABLE.
+            │ ops/BASTION.md → v1.8 (histórico + localização + semáforo).
+            │ ops/DNA_PROTOCOL.md → v1.3 (mapa canônico: FLOWMESH + NNM).
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md actualizados.
+NAO_FEITO   │ — nenhum
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ FLOWMESH e NEXUS_NEURAL_MESH criados em sequência na mesma sessão
+ARQUIVOS    │ ops/NEXUS_NEURAL_MESH.md (novo) | ops/FLOWMESH.md (novo) |
+            │ ops/BASTION.md | ops/DNA_PROTOCOL.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — camada de inteligência viva + roteamento adaptativo selados;
+            │ Stage 5 completo; fundação da mesh operacional criada
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001);
+            │ @copilot e @cursor avançam no BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-ELIGIBLE-CROSS-SUPPORT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/CROSS_SUPPORT_PROTOCOL.md v1 criado (8 secções):

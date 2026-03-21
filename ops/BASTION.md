@@ -141,6 +141,8 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-PIONEER-ROLE-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — PIONEER_MATRIX.md v1 criado; papéis cravados; 3 chats selados |
 | NEXUS-FOUNDATION-REFINEMENT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — 7 refinamentos estruturais; OUTPUT_STANDARD v2.1; DNA v1.1; BASTION v1.6; FOL v2.0; NEXUS_OS v1.1; PIONEER_MATRIX v1.1 |
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
+| NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
+| NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
 
 ---
 
@@ -367,9 +369,9 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.5
+VERSÃO          │ v1.8
 DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | @claude | 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ NEXUS-NEURAL-MESH-001 | @claude | 2026-03-21
 ESTADO          │ BASTION 2.0 ACTIVO — ciclo contínuo activado por ordem do owner
 CICLO_2.0       │ ATIVO — todos os pioneiros em fluxo contínuo no território dominante
 DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
@@ -408,6 +410,8 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Modo de ignição | `ops/IGNITION.md` |
 | Fluxo autônomo | `ops/AUTOFLOW.md` |
 | Polivalência controlada | `ops/CROSS_SUPPORT_PROTOCOL.md` |
+| Roteamento adaptativo | `ops/FLOWMESH.md` |
+| Camada de inteligência viva | `ops/NEXUS_NEURAL_MESH.md` |
 
 ---
 
@@ -419,3 +423,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
 *BASTION.md v1.6 — WorkVisual corrigido (@framer/@antigravity/@copilot); typo 'pioneer'→'pioneiro' — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
 *BASTION.md v1.7 — NEXUS-ELIGIBLE-CROSS-SUPPORT-001 + NEXUS-FOUNDATION-REFINEMENT-001 adicionados ao histórico; CROSS_SUPPORT_PROTOCOL.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
+*BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*

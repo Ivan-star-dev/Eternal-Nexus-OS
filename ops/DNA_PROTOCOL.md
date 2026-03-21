@@ -339,6 +339,8 @@ Navegação rápida por todos os artefactos do sistema:
 | `ops/WORKTREE_ALIASES.md` | territórios | Aliases operacionais WorkStructure/Function/Visual |
 | `ops/CODEX_CONSOLIDATOR.md` | consolidação | Blueprint do Codex como orquestrador |
 | `ops/CROSS_SUPPORT_PROTOCOL.md` | polivalência | Protocolo de apoio cruzado em hora morta — limites, casos de uso, retorno |
+| `ops/FLOWMESH.md` | roteamento | Roteamento adaptativo de modelos e tasks — modelo certo na task certa |
+| `ops/NEXUS_NEURAL_MESH.md` | inteligência | Camada de inteligência viva — conecta todos os nós do sistema |
 
 ### Ops Vivos (atualização contínua)
 
