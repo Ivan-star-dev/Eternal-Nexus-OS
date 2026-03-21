@@ -73,7 +73,7 @@ REGRA-5: Deriva começa onde o BASTION termina.
          Task inventada fora do BASTION é deriva. Deriva interrompe o sistema.
 
 REGRA-6: Gate não aberto = não executável.
-         Task com PODE_ENTRAR_SOZINHO: não aguarda gate do owner. Sem exceção.
+         Task com `PODE_ENTRAR_SOZINHO: não` — obrigatoriamente aguarda gate do owner. Sem exceção.
 
 REGRA-7: Artefacto canônico prevalece sobre inferência.
          Em caso de conflito: docs/NEXUS_OS.md > ops/NLF.md > ops/BASTION.md > tudo.
@@ -132,7 +132,7 @@ Não são silos — são zonas de competência máxima.
 |---|---|---|---|
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot | Arquiteto + Lapidador |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor | Arquiteto + Desbloqueador |
-| **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot | Lapidador |
+| **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot | Executor-visual + Lapidador |
 
 ### Regra de território
 
@@ -225,7 +225,7 @@ As moléculas são os átomos operacionais do sistema — as unidades mínimas d
 | Molécula | Definição | Referência |
 |---|---|---|
 | **HANDOFF_TABLE** | Bloco copiável com campos obrigatórios da sessão | `ops/OUTPUT_STANDARD.md` |
-| **EVIDENCE_BLOCK** | Prova mínima de alteração real — obrigatório em todo handoff | `ops/OUTPUT_STANDARD.md` seção 8 |
+| **EVIDENCE_BLOCK** | Prova mínima de alteração real — obrigatório em todo handoff | `ops/OUTPUT_STANDARD.md` seção 6 |
 | **CANALIZACAO_TABLE** | Estado de canalização atual (chat/branch/worktree/natureza) | `ops/OUTPUT_STANDARD.md` |
 | **Task elegível** | Unidade de trabalho com gate aberto no BASTION | `ops/BASTION.md` seção 4 |
 | **Gate** | Autorização soberana para entrada numa task | `ops/BASTION.md` seção 6 |
@@ -362,6 +362,7 @@ Navegação rápida por todos os artefactos do sistema:
 ```
 DNA_PROTOCOL.md v1 — criado em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001
 Gate aberto por owner — 2026-03-21
+DNA_PROTOCOL.md v1.1 — WorkVisual corrigido (@framer/@antigravity/@copilot); REGRA-6 clarificada; ref OUTPUT_STANDARD seção 8→6 — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
 ```
 
 ---

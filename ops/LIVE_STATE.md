@@ -5,7 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001
+**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
 
 ---
 
@@ -17,8 +17,8 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.5 activo; PIONEER_MATRIX.md v1 cravada; DNA_PROTOCOL.md v1 criado; BASTION 2.0 CICLO ACTIVO — todos os pioneiros em fluxo contínuo no território dominante |
-| **Estado geral** | BASTION 2.0 CICLO ACTIVADO por owner; NEXUS-PIONEER-ROLE-MOTHER-001 concluída; papéis cravados; 3 chats selados; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1.6 activo; PIONEER_MATRIX.md v1.1 refinada; DNA_PROTOCOL.md v1.1; FOL v2.0; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; BASTION 2.0 CICLO ACTIVO — fundação refinada em 7 pontos por NEXUS-FOUNDATION-REFINEMENT-001 |
+| **Estado geral** | BASTION 2.0 CICLO ACTIVADO por owner; fundação lapidada por @claude (7 refinamentos reais); @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -52,6 +52,7 @@
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo BASTION 2.0 — ignição operacional da máquina | CONCLUÍDA | handoff emitido — BASTION 2.0 CICLO ACTIVO |
 | DNA-PROTOCOL-MOTHER-001 | Criar protocolo-mãe do Eternal Nexus OS — DNA Protocol v1 | CONCLUÍDA | handoff emitido — ops/DNA_PROTOCOL.md v1 criado |
 | NEXUS-PIONEER-ROLE-MOTHER-001 | Cravar papéis dos pioneiros + regra 3 chats + compatibilidade DNA | CONCLUÍDA | handoff emitido — PIONEER_MATRIX.md v1 criado; 3 chats selados |
+| NEXUS-FOUNDATION-REFINEMENT-001 | Refinamento da fundação — 7 correções reais na espinha estrutural | CONCLUÍDA | handoff emitido — OUTPUT_STANDARD v2.1; DNA_PROTOCOL v1.1; BASTION v1.6; FOL v2.0; NEXUS_OS v1.1; PIONEER_MATRIX v1.1 |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -122,6 +123,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  NEXUS-FOUNDATION-REFINEMENT-001 — 7 refinamentos na fundação: OUTPUT_STANDARD v2.1 (secções reordenadas); DNA_PROTOCOL v1.1 (WorkVisual+REGRA-6+ref); BASTION v1.6 (WorkVisual+typo); FOL v2.0 (tabela+ref); NEXUS_OS v1.1 (blueprints 9→11); PIONEER_MATRIX v1.1 (gramática); handoff emitido
 Claude:  NEXUS-PIONEER-ROLE-MOTHER-001 — papéis cravados; PIONEER_MATRIX.md v1 (8 partes); FOL v1.9 seção 17; NLF v1.2 seção 8; WORKTREE_ALIASES v1.1 seções 6-7; BASTION v1.5; handoff emitido
 Claude:  DNA-PROTOCOL-MOTHER-001 — protocolo-mãe criado; ops/DNA_PROTOCOL.md v1 (11 partes); FOL v1.8 seção 16; BASTION v1.4; LIVE_STATE actualizado; handoff emitido
 Claude:  BASTION-2.0-CYCLE-START-001 — ciclo contínuo activado por ordem owner; BASTION v1.3; todos os pioneiros em fluxo contínuo no território dominante; máquina em ignição operacional

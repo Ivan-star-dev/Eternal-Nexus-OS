@@ -7,7 +7,7 @@
 **Modelo:** claude-sonnet-4-6
 **Aprovado por:** owner (gate aberto — 2026-03-21)
 
-> Este documento cravar no sistema o papel de cada pioneiro, a regra dos 3 chats,
+> Este documento crava no sistema o papel de cada pioneiro, a regra dos 3 chats,
 > o mapeamento dos 3 pilares e a compatibilidade total com o DNA Protocol.
 > É a espinha dorsal operacional dos executores do Eternal Nexus OS.
 > Quem entende esta matriz, sabe onde colocar qualquer task.
@@ -529,6 +529,7 @@ Esta task está concluída quando o owner conseguir dizer:
 PIONEER_MATRIX.md v1 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001
 Gate aberto por owner — 2026-03-21
 6 pioneiros cravados | regra dos 3 chats | 3 pilares | aplicação dupla | regra de benefício
+PIONEER_MATRIX.md v1.1 — erro gramatical 'cravar'→'crava' corrigido — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
 ```
 
 ---

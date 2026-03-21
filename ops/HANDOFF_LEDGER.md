@@ -33,6 +33,35 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FOUNDATION-REFINEMENT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 7 refinamentos reais executados na fundação:
+            │ 1. OUTPUT_STANDARD.md v2.1 — secções reordenadas (6=EVIDENCE, 7=IDENTIDADE, 8=LOCALIZAÇÃO)
+            │ 2. DNA_PROTOCOL.md v1.1 — WorkVisual corrigido; REGRA-6 clarificada; ref seção 8→6
+            │ 3. BASTION.md v1.6 — WorkVisual corrigido; typo 'pioneer'→'pioneiro'
+            │ 4. FOL.md v2.0 — tabela de leitura expandida (@framer/@antigravity); ref seção 8→6
+            │ 5. NEXUS_OS.md v1.1 — contagem blueprints corrigida (9→11)
+            │ 6. PIONEER_MATRIX.md v1.1 — gramática 'cravar'→'crava'
+            │ 7. LIVE_STATE + HANDOFF_LEDGER actualizados
+NAO_FEITO   │ nenhum — todos os refinamentos identificados foram aplicados
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ apenas refinamentos seguros; nenhuma soberania alterada; nenhuma lei movida
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md | ops/DNA_PROTOCOL.md | ops/BASTION.md |
+            │ ops/FOL.md | docs/NEXUS_OS.md | ops/PIONEER_MATRIX.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio — fundação mais coerente; 0 ambiguidades visuais ou de contagem;
+            │ WorkVisual corrigido em 2 artefactos; cross-refs actualizados
+DEPENDENCIA │ independente
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot e @cursor avançam com tasks elegíveis; owner fecha B-001/B-002/B-003
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-PIONEER-ROLE-MOTHER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/PIONEER_MATRIX.md v1 criado (8 partes): 6 papéis cravados

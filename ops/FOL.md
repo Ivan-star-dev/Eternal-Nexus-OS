@@ -33,6 +33,8 @@ Todo executor, ao iniciar uma sessão, lê nesta ordem:
 | **Copilot** | Fila própria na seção 2 | Gate de Claude para a camada atual foi emitido? |
 | **Cursor** | Seção 4 (bloqueios) + fila própria | Existe item mecânico designado sem depender de decisão soberana? |
 | **Codex** | Fila própria + seção 1 (branch) | Branch alinhado ao canônico? Gate de Claude para refinamento disponível? |
+| **Framer** | Fila própria na seção 2 (WorkVisual) | Existe task elegível no WorkVisual? Gate aberto? Visual Spine disponível? |
+| **Antigravity** | Fila própria na seção 2 (WorkVisual) | Existe task elegível no WorkVisual? Gate aberto? B-003 resolvido? |
 
 ### Regra de leitura
 
@@ -465,7 +467,7 @@ ALTERACAO_REAL         │ sim | não
 
 **Regra:** handoff sem EVIDENCE_BLOCK deixa de ser prova forte.
 
-**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 8
+**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 6
 
 ---
 
@@ -599,3 +601,4 @@ Ver `ops/PIONEER_MATRIX.md` — papéis completos, loops, regra de benefício, c
 *FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *FOL v1.8 — seção 16 adicionada em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
 *FOL v1.9 — seção 17 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
+*FOL v2.0 — seção 1 tabela de leitura expandida com @framer e @antigravity; ref OUTPUT_STANDARD seção 8→6 — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*

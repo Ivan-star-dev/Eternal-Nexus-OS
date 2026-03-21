@@ -41,7 +41,7 @@
 |---|---|---|
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor |
-| **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot |
+| **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot |
 
 **Regra de território:**
 - No próprio território: competência máxima — executa sem consulta adicional.
@@ -71,7 +71,7 @@ LOOP DO PIONEIRO:
 - Não actua fora do seu worktree sem aprovação explícita
 - Não assume que task PLANEJADA é elegível sem mudança de status
 
-**O pioneer SIM:**
+**O pioneiro SIM:**
 - Lê BASTION antes de cada sessão
 - Executa só o que estiver elegível
 - Fecha com EVIDENCE_BLOCK (ALTERACAO_REAL obrigatório)
@@ -414,3 +414,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.4 — DNA-PROTOCOL-MOTHER-001 concluída; DNA_PROTOCOL.md v1 adicionado ao histórico e localização canônica — 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
 *BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
+*BASTION.md v1.6 — WorkVisual corrigido (@framer/@antigravity/@copilot); typo 'pioneer'→'pioneiro' — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*

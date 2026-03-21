@@ -416,7 +416,7 @@ Sem essa identidade, o agente está operando sem coordenada. Sem coordenada, nã
 
 ## 21. BLUEPRINTS OBRIGATÓRIOS
 
-O sistema tem 9 blueprints canônicos. Todos os agentes devem conhecê-los:
+O sistema tem 11 blueprints canônicos. Todos os agentes devem conhecê-los:
 
 | Blueprint | Propósito | Localização |
 |---|---|---|
@@ -506,3 +506,4 @@ Quando o fio se perde, nenhuma velocidade resolve.
 ---
 
 *Eternal Nexus OS — casca grossa canônica implantada em 2026-03-20 | claude-sonnet-4-6 | Fase 3*
+*NEXUS_OS.md v1.1 — contagem de blueprints corrigida (9→11) em 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
