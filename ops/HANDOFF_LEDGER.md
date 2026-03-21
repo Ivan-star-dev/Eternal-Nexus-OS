@@ -72,6 +72,7 @@ PROVA_MINIMA           │ BASTION.md: v1.2→v2.0 (semáforo, historial, rodap�
                        │ LIVE_STATE.md: estado geral, fila @claude, semáforo, timeline, próximos passos
                        │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended
                        │ ref: commit correspondente no Git (ver histórico desta entrada)
+                       │ ref: commit correspondente no Git (ver histórico desta entrada)
                        │ commit 0000000000000000000000000000000000000000
 ALTERACAO_REAL         │ sim
 ═══════════════════════════════════════════════════════════════════════════
