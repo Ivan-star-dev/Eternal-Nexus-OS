@@ -33,6 +33,59 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo de execução contínua até segunda ordem reforçado no
+            │ núcleo operacional: BASTION v1.3 atualizado, artefato da ordem
+            │ full-auto criado e LIVE_STATE sincronizado com ciclo ativo.
+            │ Regra de passagem automática por CHAIN_BLOCK consolidada para
+            │ continuidade sem prompt redundante do owner.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Estado de branch local estava em `work`; branch canônico vivo
+            │ foi criado no ambiente e usado para execução desta task.
+ARQUIVOS    │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — governança de execução contínua reforçada no coração
+            │ operacional, com fluxo mais inteligível entre pioneiros
+PROX_PASSO  │ @copilot entra em BULK-01.2/L-001 e segue sequência elegível;
+            │ @cursor entra em BULK-01.3-a; @codex consolida com leitura
+            │ contínua dos handoffs recebidos
+SUGESTOES   │ 1) Manter no BASTION apenas tasks realmente elegíveis por gate;
+            │ 2) Exigir MICRO_REPORT + STATUS_FEED em toda conclusão;
+            │ 3) Owner só intervir em gate, trava real ou redirecionamento
+DECISAO_REC │ Continuar em full-auto com BASTION como fonte única; próximo
+            │ elo entra por ACTIVATION_MODE imediato quando condição = nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (OPS_FULL_AUTO_UNTIL_STOP_001.md) + edit (restantes)
+PROVA_MINIMA           │ BASTION v1.3 com semáforo reforçado + LIVE_STATE sincronizado
+                       │ com full-auto + ledger prepend desta task
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / execução contínua até segunda ordem
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
+            │ retorna ao BASTION e continua enquanto houver elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Modo automático pelo BASTION activado e selado para execução

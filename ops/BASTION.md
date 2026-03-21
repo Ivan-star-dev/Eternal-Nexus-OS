@@ -135,6 +135,7 @@ Cada item da matriz regista os seguintes campos:
 | OPS-EVIDENCE-BLOCK-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1.1 + FOL v1.6 |
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
+| OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
 
 ---
 
@@ -361,17 +362,17 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.2
+VERSÃO          │ v1.3
 DATA            │ 2026-03-20
-ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
 ESTADO          │ ACTIVO — fonte única de execução elegível
-DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+DISPATCH        │ BASTION_DISPATCH_001 + OPS_FULL_AUTO_UNTIL_STOP_001 activos
 TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
 @copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
 @cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
-@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude         │ SEM TASKS ELEGÍVEIS — aguarda gate owner
+@codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
+@claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
 AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
                 │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
 GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
@@ -396,9 +397,11 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Orquestração do Codex | `ops/CODEX_CONSOLIDATOR.md` |
 | Modo de ignição | `ops/IGNITION.md` |
 | Fluxo autônomo | `ops/AUTOFLOW.md` |
+| Ordem full-auto | `ops/OPS_FULL_AUTO_UNTIL_STOP_001.md` |
 
 ---
 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
