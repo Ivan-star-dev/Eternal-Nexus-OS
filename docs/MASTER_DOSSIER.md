@@ -256,6 +256,8 @@ O Eternal Nexus OS é o sistema operacional que roda por baixo do produto. Não 
 | **Framer** | Narrativa visual / Motion layer | Entrada posterior (acabamento premium) | `#FFFFFF` |
 | **Micro Team** | Observação + pesquisa | Linha paralela | — |
 
+*Nota: Framer é extensão da Visual Spine (`DOC_VISUAL_SPINE_001.md` §6.2), não listado no GENESIS_BLUEPRINT original. Os 5 pioneiros canônicos da escada são: Claude, Codex, Copilot, Cursor e Micro Team.*
+
 ### V.4 — Territórios (Worktree Aliases)
 
 | Alias | Território | Significado |
@@ -268,7 +270,7 @@ O Eternal Nexus OS é o sistema operacional que roda por baixo do produto. Não 
 
 O BASTION é a fonte única de execução elegível. Pioneiro que não encontra task elegível no BASTION não executa. Deriva começa onde o BASTION termina.
 
-**Loop do pioneiro:** Ler BASTION → verificar elegibilidade → executar → handoff → voltar ao BASTION.
+**Loop do pioneiro:** Ler BASTION → verificar elegibilidade → executar → emitir HANDOFF_TABLE + EVIDENCE_BLOCK + CANALIZACAO_TABLE → voltar ao BASTION.
 
 ### V.6 — IGNIÇÃO — Modo de fluxo contínuo
 
@@ -424,13 +426,13 @@ O sistema foi sendo construído de dentro para fora.
 |---|---|
 | 1 | Nunca simplificar o projeto |
 | 2 | Nunca renomear Tribunal, Atlas, Index, News ou qualquer órgão central |
-| 3 | Nunca alterar o fluxo sagrado: `Tribunal → Atlas → Index → News` |
+| 3 | Nunca alterar o sacred flow: `Tribunal → Atlas → Index → News` |
 | 4 | Nunca quebrar `vite.config.ts` |
 | 5 | Nunca tocar `src/types/index.ts` sem razão explícita aprovada |
 | 6 | Nunca tocar `data/projects.ts` sem instrução do owner |
 | 7 | Nunca tocar `tailwind.config.ts` cores/fontes |
-| 8 | Nunca operar fora da fase activa |
-| 9 | Nunca entregar sem handoff |
+| 8 | Nunca operar fora da fase activa. O que pertence à Fase 4 fica na Fase 4. |
+| 9 | Nunca entregar sem handoff. Sem handoff, a sessão não existe para o sistema. |
 | 10 | Nunca entrar no core sem julgamento do Tribunal |
 
 ---
@@ -480,7 +482,7 @@ Se o sistema precisar ser reconstruído do zero, este manual é o ponto de parti
 | 1 | Constituição | `docs/NEXUS_OS.md` | Missão, fluxo sagrado, 10 Leis, 4 pilares, fases |
 | 2 | Protocolo da escada | `docs/DOC_BULKING_ESCADA.md` | Diagrama, papéis, gap, ciclo de vida, red lines |
 | 3 | Protocolo de execução | `docs/DOC_BULK_PROTOCOL.md` | Execution map, preflight gate, canalization guard |
-| 4 | Camada viva | `ops/NLF.md` + `LIVE_STATE` + `LEDGER` + `FOL` | Tecido operacional observável |
+| 4 | Camada viva | `ops/NLF.md`, `ops/FOL.md`, `ops/LIVE_STATE.md`, `ops/HANDOFF_LEDGER.md` | Tecido operacional observável |
 | 5 | Consolidação | `ops/CODEX_CONSOLIDATOR.md` | Relatório-mãe, frequência, papel do Codex |
 | 6 | Padrão de output | `ops/OUTPUT_STANDARD.md` | HANDOFF_TABLE, EVIDENCE_BLOCK, CANALIZACAO_TABLE |
 | 7 | Instruções aos agentes | `AGENTS.md` | Anti-drift, referências, invariantes |

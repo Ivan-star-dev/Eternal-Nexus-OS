@@ -47,7 +47,7 @@ CODEX TANGIBILIS
 │       ├── Identidade
 │       ├── Departamentos
 │       ├── Segurança
-│       ├── Emails
+│       ├── Comunicações
 │       ├── Documentação do Projeto
 │       ├── Documentação do Ecossistema
 │       ├── Documentação do Founder
