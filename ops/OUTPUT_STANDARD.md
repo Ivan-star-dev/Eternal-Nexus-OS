@@ -23,90 +23,86 @@
 
 ---
 
-## 2. HANDOFF_TABLE
+## 2. BLOCO ÚNICO COPIÁVEL — HANDOFF COMPLETO
 
-Bloco copiável único de handoff. Sempre dentro de bloco de código para garantir 1 clique de cópia.
+**Regra:** todo handoff sai em **um único bloco de código**. Um clique copia tudo.
+Nunca separar em múltiplos blocos ou tabelas markdown.
 
 ### Template
 
 ```
-HANDOFF ═══════════════════════════════════════════════════════════════════
-@executor │ MODELO:xxx │ TASK:id-nome │ STATUS:done|partial|blocked
-───────────────────────────────────────────────────────────────────────────
+HANDOFF ════════════════════════════════════════════════════════════
+@executor │ MODELO:xxx │ TASK:id │ STATUS:done|partial|blocked
+────────────────────────────────────────────────────────────────────
 FEITO       │ resumo curto do que foi entregue
-NAO_FEITO   │ resumo curto do que ficou fora — ou: —
-BLOQUEIOS   │ resumo curto dos bloqueios ativos — ou: —
-ADAPTACOES  │ resumo curto dos desvios do plano — ou: —
-ARQUIVOS    │ file1 | file2 | file3 — ou: nenhum
+NAO_FEITO   │ resumo — ou: —
+BLOQUEIOS   │ resumo — ou: —
+ADAPTACOES  │ resumo — ou: —
+ARQUIVOS    │ file1 | file2 — ou: nenhum
 IMPACTO     │ baixo|medio|alto
-PROX_PASSO  │ resumo curto do próximo passo recomendado
+PROX_PASSO  │ resumo curto
 SUGESTOES   │ 1)... ; 2)... ; 3)...
-DECISAO_REC │ quem entra depois / quem espera
-═══════════════════════════════════════════════════════════════════════════
+DECISAO_REC │ quem entra / quem espera
+────────────────────────────────────────────────────────────────────
+EVIDENCE
+ARQUIVOS_TOCADOS │ file1 | file2 — ou: nenhum
+TIPO_DE_ACAO     │ create|edit|review|analyze|no-change
+PROVA_MINIMA     │ commit abc1234 | seção X.Y | arquivo Z criado
+ALTERACAO_REAL   │ sim|não
+────────────────────────────────────────────────────────────────────
+CHAIN
+NEXT_ACTOR  │ @executor
+NEXT_TASK   │ resumo curto
+ACTIVATION  │ imediato|apos_conclusao|aguarda_gate
+CONDITION   │ nenhuma|quando X fechar
+────────────────────────────────────────────────────────────────────
+CANALIZAÇÃO
+CHAT      │ 🟢 mesmo | 🔴 novo
+BRANCH    │ 🟢 nome-do-branch | 🔴 nome-do-branch
+WORKTREE  │ 🟢 nome-do-worktree | 🔴 nome-do-worktree
+NATUREZA  │ produto|governança|consolidação|operacional|mecânico
+EXECUTOR  │ @executor
+ESTADO    │ done|partial|blocked
+ATIVA     │ resumo do que ficou vivo/aberto pós-handoff
+════════════════════════════════════════════════════════════════════
 ```
 
 ### Campos obrigatórios
 
-| Campo | Obrigatório | Valor quando vazio |
+| Seção | Campo | Valor quando vazio |
 |---|---|---|
-| `@executor` | sim | — |
-| `MODELO` | sim | — |
-| `TASK` | sim | — |
-| `STATUS` | sim | `done` / `partial` / `blocked` |
-| `FEITO` | sim | mínimo 1 linha |
-| `NAO_FEITO` | sim | `—` se nada ficou fora |
-| `BLOQUEIOS` | sim | `—` se nenhum |
-| `ADAPTACOES` | sim | `—` se nenhum desvio |
-| `ARQUIVOS` | sim | `nenhum` se nada foi tocado |
-| `IMPACTO` | sim | `baixo` / `medio` / `alto` |
-| `PROX_PASSO` | sim | mínimo 1 linha |
-| `SUGESTOES` | sim | `—` se não houver |
-| `DECISAO_REC` | sim | mínimo 1 linha |
+| HANDOFF | `FEITO` | mínimo 1 linha |
+| HANDOFF | `NAO_FEITO` | `—` |
+| HANDOFF | `BLOQUEIOS` | `—` |
+| HANDOFF | `ADAPTACOES` | `—` |
+| HANDOFF | `ARQUIVOS` | `nenhum` |
+| HANDOFF | `IMPACTO` | `baixo` / `medio` / `alto` |
+| HANDOFF | `PROX_PASSO` | mínimo 1 linha |
+| HANDOFF | `SUGESTOES` | `—` |
+| HANDOFF | `DECISAO_REC` | mínimo 1 linha |
+| EVIDENCE | `ARQUIVOS_TOCADOS` | `nenhum` |
+| EVIDENCE | `TIPO_DE_ACAO` | obrigatório |
+| EVIDENCE | `PROVA_MINIMA` | obrigatório |
+| EVIDENCE | `ALTERACAO_REAL` | `sim` / `não` |
+| CHAIN | `NEXT_ACTOR` | obrigatório |
+| CHAIN | `NEXT_TASK` | mínimo 1 linha |
+| CHAIN | `ACTIVATION` | obrigatório |
+| CHAIN | `CONDITION` | `nenhuma` |
+| CANALIZAÇÃO | todos | obrigatórios |
 
 ### Regras de preenchimento
 
-- Valores curtos: 1 linha por campo preferencial
-- Se o conteúdo for longo: truncar com `[ver ledger]` e detalhar no HANDOFF_LEDGER
-- Nunca omitir um campo — usar `—` quando não aplicável
-- `STATUS:partial` exige `NAO_FEITO` preenchido
-- `STATUS:blocked` exige `BLOQUEIOS` preenchido
+- 1 linha por campo (preferencial) — se longo: truncar com `[ver ledger]`
+- Nunca omitir campo — usar `—` quando não aplicável
+- `STATUS:partial` → `NAO_FEITO` preenchido obrigatório
+- `STATUS:blocked` → `BLOQUEIOS` preenchido obrigatório
+- Semáforo CANALIZAÇÃO: 🟢 alinhado / 🔴 desvio ou atenção
 
 ---
 
-## 3. CANALIZACAO_TABLE
+## 3. CANALIZACAO_TABLE (compatibilidade)
 
-Bloco copiável único de estado de canalização. Sempre junto ao HANDOFF_TABLE.
-
-### Template
-
-```
-CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
-CHAT        │ 🟢|🔴 mesmo|novo
-BRANCH      │ 🟢|🔴 nome-do-branch
-WORKTREE    │ 🟢|🔴 nome-do-worktree
-NATUREZA    │ produto|governança|consolidação|operacional|mecânico
-EXECUTOR    │ @executor
-ESTADO      │ done|partial|blocked
-ATIVA       │ resumo do estado ativo pós-handoff — o que ficou vivo/aberto
-═══════════════════════════════════════════════════════════════════════════
-```
-
-### Campos obrigatórios
-
-| Campo | Obrigatório | Semáforo |
-|---|---|---|
-| `CHAT` | sim | 🟢 mesmo / 🔴 novo |
-| `BRANCH` | sim | 🟢 alinhado / 🔴 desalinhado |
-| `WORKTREE` | sim | 🟢 ativo / 🔴 encerrado |
-| `NATUREZA` | sim | categoria da task |
-| `EXECUTOR` | sim | @pioneiro ativo |
-| `ESTADO` | sim | `done` / `partial` / `blocked` |
-| `ATIVA` | sim | o que ficou aberto/ativo pós-handoff |
-
-### Regra do semáforo
-
-- 🟢 = estado esperado, alinhado, sem fricção
-- 🔴 = desvio, desalinhamento ou atenção necessária
+> Bloco legado mantido para referência. Usar o bloco único da seção 2.
 
 ---
 
@@ -145,75 +141,33 @@ INFERENCIAS      │ nenhuma — ou: ⚠️ lista de inferências marcadas
 Todo executor, ao encerrar uma sessão com handoff, emite **nesta ordem**:
 
 ```
-1. HANDOFF_TABLE     — bloco de código copiável
-2. EVIDENCE_BLOCK    — bloco de código copiável (obrigatório — ver seção 8)
-3. CANALIZACAO_TABLE — bloco de código copiável
+[contexto livre opcional — antes do bloco]
+
+1. BLOCO ÚNICO — seção 2 (HANDOFF + EVIDENCE + CHAIN + CANALIZAÇÃO em um código só)
 ```
 
-Opcionalmente, antes dos três blocos, pode vir texto livre de contexto.
-Nunca substituir os blocos por texto livre.
+Um bloco. Um clique. Tudo copiado.
+Nunca substituir o bloco por tabelas markdown ou texto solto.
 
 ---
 
-## 8. EVIDENCE_BLOCK — Bloco Obrigatório de Evidência Real
+## 8. EVIDENCE — Referência de Valores (integrado no bloco único)
 
-> Handoff sem evidence block não é prova forte.
-> O owner precisa distinguir imediatamente: task executada / analisada / sugerida / sem prova.
+> O EVIDENCE está embutido na seção 2 (bloco único). Esta seção é referência de valores válidos.
 
-### Template
+| Campo | Valores válidos |
+|---|---|
+| `TIPO_DE_ACAO` | `create` / `edit` / `review` / `analyze` / `no-change` |
+| `PROVA_MINIMA` | commit id / seção alterada / arquivo criado / `analysis-only` |
+| `ALTERACAO_REAL` | `sim` / `não` |
 
-```
-EVIDENCE ═══════════════════════════════════════════════════════════════════
-ARQUIVOS_TOCADOS_REAIS │ file1 | file2 | file3 — ou: nenhum
-TIPO_DE_ACAO           │ create | edit | review | analyze | no-change
-PROVA_MINIMA           │ commit abc1234 | seção X.Y alterada | arquivo Z criado
-                       │ diff: "texto antigo" → "texto novo" — ou: analysis-only
-ALTERACAO_REAL         │ sim | não
-═══════════════════════════════════════════════════════════════════════════
-```
-
-### Campos obrigatórios
-
-| Campo | Obrigatório | Valores válidos |
+| TIPO | PROVA exigida | ALTERACAO_REAL |
 |---|---|---|
-| `ARQUIVOS_TOCADOS_REAIS` | sim | lista de paths — `nenhum` se task só de análise |
-| `TIPO_DE_ACAO` | sim | `create` / `edit` / `review` / `analyze` / `no-change` |
-| `PROVA_MINIMA` | sim | commit id, seção alterada, arquivo criado, diff resumido, ou `analysis-only` |
-| `ALTERACAO_REAL` | sim | `sim` / `não` |
-
-### Regras de preenchimento
-
-```
-TIPO_DE_ACAO: create
-→ PROVA_MINIMA obrigatório: nome do arquivo criado + commit id
-→ ALTERACAO_REAL: sim
-
-TIPO_DE_ACAO: edit
-→ PROVA_MINIMA obrigatório: onde foi editado (seção | linha | campo) + commit id
-→ ALTERACAO_REAL: sim
-
-TIPO_DE_ACAO: review
-→ PROVA_MINIMA: o que foi revisto + conclusão da revisão
-→ ALTERACAO_REAL: não (a menos que a revisão gerou edição — nesse caso: edit)
-
-TIPO_DE_ACAO: analyze
-→ PROVA_MINIMA: "analysis-only — nenhum arquivo alterado"
-→ ALTERACAO_REAL: não
-
-TIPO_DE_ACAO: no-change
-→ PROVA_MINIMA: "task executada — nenhuma alteração necessária / task bloqueada"
-→ ALTERACAO_REAL: não
-```
-
-### O que o owner vê ao ler o EVIDENCE_BLOCK
-
-| ALTERACAO_REAL | TIPO_DE_ACAO | Leitura imediata |
-|---|---|---|
-| sim | create | arquivo novo entrou no sistema |
-| sim | edit | arquivo existente foi modificado |
-| não | review | task executada como análise — sem mudança de artefacto |
-| não | analyze | task executada como análise — sem mudança de artefacto |
-| não | no-change | task concluída sem alteração — ou bloqueada |
+| `create` | arquivo criado + commit id | `sim` |
+| `edit` | seção/linha/campo + commit id | `sim` |
+| `review` | o que foi revisto + conclusão | `não` |
+| `analyze` | `analysis-only` | `não` |
+| `no-change` | motivo (bloqueio / desnecessário) | `não` |
 
 ---
 
@@ -243,3 +197,4 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 
 *OUTPUT_STANDARD.md v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
 *OUTPUT_STANDARD.md v1.1 — seção 8 + ordem de output actualizada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
+*OUTPUT_STANDARD.md v2.0 — bloco único copiável (HANDOFF+EVIDENCE+CHAIN+CANALIZAÇÃO) em 2026-03-21 | claude-sonnet-4-6 | OPS-OUTPUT-HANDOFF-V2*
