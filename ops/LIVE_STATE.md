@@ -161,7 +161,8 @@ PRÓXIMA TRANSIÇÃO: BASTION 2.0 CICLO CONTÍNUO — @copilot executa L-001 →
 6. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
 7. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 8. **Owner responde B-002** — confirmar npm como PM canônico
-9. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
+9. **Owner responde B-003** — manter ou remover legacy-html?
+10. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 
 ---
 
