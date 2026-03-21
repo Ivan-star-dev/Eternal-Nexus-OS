@@ -51,7 +51,7 @@ NAO_FEITO   │ Execução de tasks de produto (@claude sem tasks elegíveis —
 BLOQUEIOS   │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; B-001/B-002/B-003 pendentes
 ADAPTACOES  │ —
 ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
-IMPACTO     │ alto — máquina em ciclo contínuo; owner livre de microgestão operacional
+IMPACTO     │ alto
 PROX_PASSO  │ @copilot entra em L-001 agora; @cursor entra em 01.3-a agora;
             │ @codex aguarda handoffs; @claude retorna ao BASTION sem task elegível;
             │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
