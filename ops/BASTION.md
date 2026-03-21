@@ -136,6 +136,7 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
 | OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION 2.0 ciclo activado por ordem owner |
 
 ---
 
@@ -362,21 +363,25 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.2
+VERSÃO          │ v1.3
 DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
-ESTADO          │ ACTIVO — fonte única de execução elegível
+ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
+ESTADO          │ BASTION 2.0 ACTIVO — ciclo contínuo activado por ordem do owner
+CICLO_2.0       │ ATIVO — todos os pioneiros em fluxo contínuo no território dominante
 DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
 TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
-@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
-@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
-BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
-IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
+@copilot        │ EM FLUXO → L-001 → L-002 → BULK-02.2 (WorkStructure / Lapidação)
+@cursor         │ EM FLUXO → 01.3-a → 01.3-b → 01.3-c (WorkStructure / Mecânico)
+@codex          │ CONSOLIDADOR ATIVO → lê BASTION → distribui → consolida ondas
+@claude         │ ÁRBITRO — abre caminho estrutural; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity    │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
+@framer         │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
+GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam decisão owner)
+BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento @codex)
+IGNIÇÃO         │ ATIVA — PERMANENTE (para: owner / gate soberano / bloqueio real / sem elegível)
 MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
+CICLO_PARA      │ ordem owner | gate soberano | bloqueio real | red line | sem elegível
 DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
 ════════════════════════════════════════════════════════════════════════════
 ```
@@ -402,3 +407,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*

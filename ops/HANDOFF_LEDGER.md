@@ -33,6 +33,41 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BASTION 2.0 ciclo activado por ordem do owner. BASTION.md
+            │ actualizado para v1.3 com semáforo CICLO_2.0 ATIVO. LIVE_STATE
+            │ actualizado com estado do ciclo, fila dos pioneiros e linha
+            │ temporal. Todos os pioneiros em fluxo contínuo no território
+            │ dominante: @copilot → L-001→L-002→BULK-02.2; @cursor →
+            │ 01.3-a→b→c; @codex consolidador activo; @claude árbitro.
+NAO_FEITO   │ nenhum — task de ignição estrutural pura
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ nenhum
+ARQUIVOS    │ ops/BASTION.md (v1.3) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — activa ciclo contínuo de todos os pioneiros
+PROX_PASSO  │ @codex lê BASTION → distribui tasks elegíveis → @copilot executa
+            │ L-001; @cursor executa 01.3-a; @claude aguarda gate owner
+SUGESTOES   │ 1) @codex emite relatório-mãe de distribuição do ciclo 2.0;
+            │ 2) Owner abre gate PLv6.2-b ou FVL-IMPL-001 quando pronto;
+            │ 3) Owner responde B-001/B-002 para desbloquear tracks mecânicos
+DECISAO_REC │ BASTION 2.0 em fluxo; owner revisita em gate, visão, trava ou redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO              │ edit
+PROVA_MINIMA              │ BASTION.md v1.3: semáforo CICLO_2.0 ATIVO; LIVE_STATE: BASTION 2.0 CICLO ACTIVO
+ALTERACAO_REAL_CONFIRMADA │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
