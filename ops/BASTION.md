@@ -134,6 +134,8 @@ Cada item da matriz regista os seguintes campos:
 | OPS-WORKTREE-ALIAS-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — WORKTREE_ALIASES v1 |
 | OPS-EVIDENCE-BLOCK-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1.1 + FOL v1.6 |
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
+| OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
+| OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
 
@@ -362,6 +364,9 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v1.2
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
 VERSÃO          │ v1.3
 DATA            │ 2026-03-20
 ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
@@ -371,13 +376,16 @@ TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
 @copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
 @cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
 @codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
 @claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
 AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
                 │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
 GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
 BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
-IGNIÇÃO         │ ATIVA
+IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
+MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
 DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
 ════════════════════════════════════════════════════════════════════════════
 ```
@@ -403,5 +411,6 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
+*BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*

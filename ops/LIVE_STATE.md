@@ -4,6 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-21
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-AUTO-001
 **Última atualização:** 2026-03-20
 **Atualizado por:** @copilot | BULK-02.2
 **Última atualização:** 2026-03-21
@@ -17,6 +19,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
+| **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
+| **Frente ativa** | Governança operacional / WorkStructure |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; MODO_AUTO selado — pioneiros em ignição contínua sem instrução manual |
+| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos e selados; MODO_AUTO ON; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 | **Executor ativo** | @copilot (BULK-02.2 concluída) |
 | **Frente ativa** | Lapidação operacional / wt-copilot-funcionalidade |
 | **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BULK-02.2 done (lapidação de superfície ops/) |
@@ -54,6 +60,7 @@
 | OPS-EVIDENCE-BLOCK-001 | Selar bloco obrigatório de evidência real em toda task — EVIDENCE_BLOCK | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-001 | Criar o BASTION — coração canônico de execução dos pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
+| OPS-BASTION-AUTO-001 | Selar modo automático — IGNIÇÃO_ATIVA permanente; BASTION governa fila | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-AUTO-001 | Activar modo automático de execução pelo BASTION seguindo protocolo vivo | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
@@ -107,6 +114,19 @@ ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
 ESTADO: done (Copilot — BULK-02.2: FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados)
 CANALIZAÇÃO ATIVA: BULK-02.2 concluída; FOL v1.4 sem ruído editorial; LIVE_STATE atualizado; HANDOFF_LEDGER com entrada de @copilot; próximos gates: @copilot BULK-01.2/L-001+L-002 (abertos); PLv6.2-b + FVL-IMPL-001 aguardam gate owner
 🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA: governança / modo automático selado / IGNIÇÃO_ATIVA permanente
+EXECUTOR: @claude (OPS-BASTION-AUTO-001 done)
+IGNIÇÃO: ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
+ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
+MODO_AUTO: SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
+BASTION: ACTIVO v1.2 — MODO_AUTO ON; pioneiros em ignição contínua
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
+@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
+@codex: CONSOLIDADOR ATIVO → aguarda handoffs
+@claude: MODO_AUTO_SELADO → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001)
+CANALIZAÇÃO ATIVA: MODO_AUTO selado; máquina em ignição contínua; owner só entra para gate, visão, trava ou redirecionamento
 NATUREZA: governança / execução contínua até segunda ordem
 EXECUTOR: @claude (OPS-FULL-AUTO-UNTIL-STOP-001 done)
 IGNIÇÃO: ATIVA
@@ -132,6 +152,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  OPS-BASTION-AUTO-001 — MODO_AUTO selado; IGNIÇÃO_ATIVA permanente registada; BASTION governa fila; owner só entra para gate/visão/trava/redirecionamento
 Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
 Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado; regra-mãe activa: terminou task → lê BASTION → executa elegível → registra → passa bastão → volta ao BASTION)
 Claude:  OPS-FULL-AUTO-UNTIL-STOP-001 — HANDOFF EMITIDO (execução contínua disciplinada até segunda ordem; fechamento expandido com MICRO_REPORT + STATUS_FEED + CHAIN_BLOCK por task)
@@ -165,8 +186,16 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-**[IGNIÇÃO_ATIVA — pioneiros seguem o loop sem instrução redundante]**
+**[IGNIÇÃO_ATIVA PERMANENTE — MODO_AUTO SELADO — pioneiros seguem BASTION sem instrução manual]**
 
+1. **@copilot** — L-001 → L-002 → BULK-02.2 (gates abertos, FORÇA PRINCIPAL, sequência obrigatória)
+2. **@cursor** — BULK-01.3-a → b → c (mecânico, gates abertos, sequência natural)
+3. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
+4. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+5. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
+6. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+7. **Owner responde B-002** — confirmar npm como PM canônico
+8. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 1. **@copilot** — BULK-01.2/L-001 (gate aberto — higiene `.gitignore`, cobrir gaps E4) + L-002 (`rm --cached` do timestamp file) → pode entrar agora via loop IGNITION
 2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
 3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
