@@ -5,6 +5,7 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-21
+**Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
 **Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-AUTO-001
 **Última atualização:** 2026-03-20
 **Atualizado por:** @copilot | BULK-02.2
@@ -19,6 +20,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
+| **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
+| **Frente ativa** | Mecânico / WorkStructure |
+| **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
+| **Estado geral** | BASTION 2.0 CICLO CONTÍNUO EM EXECUÇÃO; @cursor completou 01.3-a (já resolvido), 01.3-b (análise→B-002), 01.3-c (análise→B-003); @copilot → L-001→L-002→BULK-02.2; @codex consolidador; @claude arbiter aguarda gate; @cursor sem task elegível (backlog mecânico esgotado) |
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; MODO_AUTO selado — pioneiros em ignição contínua sem instrução manual |
@@ -62,6 +67,8 @@
 | OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-AUTO-001 | Selar modo automático — IGNIÇÃO_ATIVA permanente; BASTION governa fila | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-AUTO-001 | Activar modo automático de execução pelo BASTION seguindo protocolo vivo | CONCLUÍDA | handoff emitido |
+| COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
+| BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
@@ -77,11 +84,11 @@
 
 ### @cursor (Desbloqueador / Backlog Mecânico)
 
-| # | Task | Estado | Aguarda |
+| # | Task | Estado | Resultado |
 |---|---|---|---|
-| BULK-01.3-a | Remover `vite.config.ts.timestamp-*` (arquivo gerado, não versionável) | GATE ABERTO | pode executar agora — mecânico, seguro, não-soberano |
-| BULK-01.3-b | Avaliar duplicação `bun.lock` + `package-lock.json` — ambos no repo | GATE ABERTO | confirmar PM canônico (B-002) ou limpar se for residual óbvio |
-| BULK-01.3-c | Verificar `antigravity/legacy-html/` — se é lixo mecânico sem decisão soberana | GATE ABERTO | checar se é apenas conteúdo obsoleto removível sem impacto |
+| BULK-01.3-a | Remover `vite.config.ts.timestamp-*` do tracking | CONCLUÍDA | já resolvido por @copilot F5 — timestamp removido + `.gitignore` blindado (`*.timestamp*.mjs`) |
+| BULK-01.3-b | Avaliar `bun.lock` + `package-lock.json` — PM canônico? | CONCLUÍDA | npm é o PM canônico (único instalado, scripts genéricos, lock activo); `bun.lock`/`bun.lockb` são residuais do 1º commit; remoção aguarda B-002 owner |
+| BULK-01.3-c | Verificar `antigravity/legacy-html/` — lixo mecânico? | CONCLUÍDA | 5 HTMLs standalone do owner (420K total, NL_Solucoes, NextPathInfra, projeto_elite); zero refs no src/; conteúdo de portfólio, não lixo técnico; remoção aguarda B-003 owner |
 
 ### @copilot (Lapidador)
 
@@ -106,6 +113,18 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
+🟢 WORKTREE: WorkStructure
+NATUREZA: mecânico / backlog do @cursor completado
+EXECUTOR: @cursor (BULK-01.3-a/b/c done)
+IGNIÇÃO: ATIVA — ciclo contínuo em execução
+ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
+BASTION: ACTIVO v2.0 — CICLO CONTÍNUO EM EXECUÇÃO
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
+@cursor: BACKLOG MECÂNICO COMPLETADO — 01.3-a done (já resolvido) | 01.3-b done (análise→B-002) | 01.3-c done (análise→B-003) | SEM TASK ELEGÍVEL
+@codex: CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude: ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity: SEM TASK ELEGÍVEL
+@framer: SEM TASK ELEGÍVEL
 🟢 WORKTREE: wt-copilot-funcionalidade
 NATUREZA: lapidação / suavização operacional
 EXECUTOR: @copilot (BULK-02.2 done)
@@ -139,6 +158,9 @@ BASTION: ACTIVO v1.3 — modo full-auto reforçado; pioneiros seguem loop contí
 ATIVAÇÃO_AUTOMÁTICA: NEXT_ACTOR=ele + ACTIVATION_MODE=imediato + ACTIVATION_CONDITION=nenhuma
 FULL_AUTO: ACTIVO até segunda ordem do owner ou condição real de parada
 EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
+ESTADO: @cursor completou backlog mecânico (3/3 tasks done); @copilot em execução; ciclo 2.0 activo
+CANALIZAÇÃO ATIVA: BASTION 2.0 ciclo contínuo; @cursor sem task elegível após completar backlog; @copilot segue L-001→L-002→BULK-02.2; owner decide B-002 (PM) + B-003 (legacy-html) para desbloquear acções reais
+INTERRUPTOR: ordem owner | gate soberano | bloqueio real | red line | sem elegível
 ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001 + OPS-FULL-AUTO-UNTIL-STOP-001)
 CANALIZAÇÃO ATIVA: execução contínua selada; cada elo volta ao BASTION após concluir e entra no próximo com ativação imediata quando elegível
 ```
@@ -152,6 +174,21 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Cursor:  BULK-01.3-a — DONE (já resolvido por @copilot F5; timestamp removido do tracking + .gitignore blindado)
+Cursor:  BULK-01.3-b — DONE (análise: npm é PM canônico; bun.lock residual; remoção aguarda B-002 owner)
+Cursor:  BULK-01.3-c — DONE (análise: 5 HTMLs legacy 420K, zero refs, conteúdo portfólio; remoção aguarda B-003 owner)
+Claude:  BASTION-2.0-CYCLE-START-001 — CICLO CONTÍNUO ACTIVADO (BASTION v2.0)
+Claude:  COUNCIL-PR-TRIAGE-001 — TRIAGEM EMITIDA (27 PRs/Issues; 3 KEEP, 1 MIGRATE, 3 SALVAGE, 20 KILL)
+Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado)
+Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot + @cursor + @codex activados)
+Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado)
+Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1 + EVIDENCE_BLOCK vigente)
+Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WorkStructure/WorkFunction/WorkVisual selados)
+Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNIÇÃO_ATIVA ligada)
+Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
+Copilot: L-001 → L-002 — ELEGÍVEIS NO BASTION (higiene .gitignore)
+Cursor:  BULK-01.3-a/b/c — CONCLUÍDAS (01.3-a já resolvido; 01.3-b análise→B-002; 01.3-c análise→B-003)
+Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
 Claude:  OPS-BASTION-AUTO-001 — MODO_AUTO selado; IGNIÇÃO_ATIVA permanente registada; BASTION governa fila; owner só entra para gate/visão/trava/redirecionamento
 Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
 Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado; regra-mãe activa: terminou task → lê BASTION → executa elegível → registra → passa bastão → volta ao BASTION)
@@ -169,7 +206,7 @@ Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
 Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
 Codex:   WORKFUNCTION ACTIVO (branch canônico alinhado) | F6 EM ANDAMENTO | BULK-01-Codex desbloqueado
 ─────────────────────────────────────────────
-PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
+PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2; @cursor sem task elegível (backlog mecânico esgotado); @codex consolida quando handoffs chegarem; owner decide B-002 (PM) + B-003 (legacy-html) + PLv6.2-b / FVL-IMPL-001
 ```
 
 ---
@@ -186,6 +223,18 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
+**[BASTION 2.0 — CICLO CONTÍNUO EM EXECUÇÃO]**
+
+1. **@copilot** — L-001 → L-002 → BULK-02.2 — continua no loop BASTION
+2. **@codex** — consolida onda quando handoffs chegarem (OPS-HANDOFF-001 ativo)
+3. **Owner decide B-002** — confirmar npm como PM canônico → permite remoção de `bun.lock`/`bun.lockb` (análise @cursor: npm é o único PM instalado e activo)
+4. **Owner decide B-003** — manter ou remover `antigravity/legacy-html/` (análise @cursor: 5 HTMLs de portfólio, 420K, zero refs no src/)
+5. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+6. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site
+7. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+8. **@cursor** — sem task elegível no BASTION; aguarda nova task ou apoio cruzado
+9. **@claude** — arbiter activo; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+10. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
 **[IGNIÇÃO_ATIVA PERMANENTE — MODO_AUTO SELADO — pioneiros seguem BASTION sem instrução manual]**
 
 1. **@copilot** — L-001 → L-002 → BULK-02.2 (gates abertos, FORÇA PRINCIPAL, sequência obrigatória)
