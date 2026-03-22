@@ -145,6 +145,8 @@ Ver `ops/IGNITION.md` — definição completa do modo de ignição contínua.
 
 ---
 
+*NLF v1 — implantado em 2026-03-20 | claude-sonnet-4-6 | E17 | Fase 3*
+*NLF v1.1 — seção 7 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-IGNITION-001 | instrução explícita do owner*
 ---
 
 ## 8. PIONEER MATRIX — PAPÉIS NO TECIDO VIVO

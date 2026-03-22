@@ -281,6 +281,21 @@ Não executa produto. Não precisa de push. Opera sobre leitura de artefatos rea
 > Codex só consolida com base em: handoffs reais + logs reais + ledger real + LIVE_STATE real.
 > Qualquer inferência sem evidência direta deve ser marcada com `⚠️ INFERÊNCIA:`.
 
+### Taxonomia fixa de claims (obrigatória)
+
+Para relatório-mãe, handoff de fase/onda, checkpoint de Tribunal técnico e leitura de claims de produto, usar somente:
+
+- `DOCUMENTOS_DE_SUPORTE`
+- `EVIDENCIA_FECHADA`
+- `EM_CONSTRUCAO`
+- `NAO_AFIRMADO`
+
+Regras diretas:
+- Visão não é evidência.
+- Direção não é capacidade fechada.
+- Capacidade real só existe quando houver código/documentação/validação no repositório.
+- Claim sem fechamento técnico obrigatório entra como `NAO_AFIRMADO`.
+
 ### Referência completa
 
 Ver `ops/CODEX_CONSOLIDATOR.md` — blueprint canônico completo com formato do relatório-mãe.
@@ -467,6 +482,7 @@ ALTERACAO_REAL         │ sim | não
 
 **Regra:** handoff sem EVIDENCE_BLOCK deixa de ser prova forte.
 
+**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 8
 **Referência completa:** `ops/OUTPUT_STANDARD.md` seção 6
 
 ---
