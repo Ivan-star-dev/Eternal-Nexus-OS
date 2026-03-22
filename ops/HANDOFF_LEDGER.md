@@ -33,6 +33,40 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:ENG-POOL-001/004 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs de Engineering Gravity Pool instalados em ops/:
+            │ • EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md — pool master,
+            │   split em 3 famílias, regra de selecção, next docs a construir
+            │ • EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md — 10 famílias de
+            │   engenharia 2026 (version control, CI/CD, testing agentic,
+            │   AI-native dev, platform eng, observability, code review, stack)
+            │ • EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md — 10 famílias de
+            │   product-build (arquitectura, interactividade, performance,
+            │   design systems, convergência produto+IA, trust, delivery loops)
+            │ • EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md — 9 pulsos
+            │   (identity, dev excellence, product fidelity, execution,
+            │   refinement, cascade memory, multi-block, pioneer role,
+            │   current/final state)
+            │ • LIVE_STATE.md actualizado (4 protocolos eng-pool adicionados)
+NAO_FEITO   │ Stack Decision Matrix · Dev Toolchain Canon · Pioneer Role Bindings
+            │ (identificados como próximos 3 blocos — não eram escopo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Docs escritos em PT + formato canônico; padrão preferido 2026 vs
+            │ backup por família mantido ao longo de todos os docs
+ARQUIVOS    │ ops/EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md (novo)
+            │ ops/EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md (novo)
+            │ ops/LIVE_STATE.md (actualizado) | ops/HANDOFF_LEDGER.md (este append)
+IMPACTO     │ alto — pioneers saem do caos contextual: pool de gravidade instalado
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 usando estes pools como contexto base
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:CHECKUP-MASTER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md criado — auditoria
