@@ -62,6 +62,10 @@ Ownership comes from benchmark triage, not preference.
 - Blocker: T-002 must land first, or Claude and Codex must explicitly coordinate a shared integration branch
 
 ### T-004
+- Status: `in-review`
+- Owner: `@antigravity`
+- Backup: `@codex`
+- Labels: `organ:nexus`, `type:ops`, `gate:workspace-setup`, `effort:M`, `blocked:yes`
 - Status: `done`
 - Owner: `@antigravity`
 - Backup: `@codex`
@@ -70,6 +74,8 @@ Ownership comes from benchmark triage, not preference.
 - Branch: `agent/antigravity`
 - Task: merge workspace setup and context seeding support
 - Why now: reduces setup friction for every pioneer and helps the collaboration OS stick
+- Evidence: PR #9
+- Blocker: reviewer approval and merge
 - Evidence: PR #9 (Merged)
 - Blocker: none
 
@@ -85,6 +91,7 @@ Ownership comes from benchmark triage, not preference.
 - Blocker: none once T-001 is merged, but can be reviewed pre-merge on `agent/codex`
 
 ### T-006
+- Status: `queued`
 - Status: `done`
 - Owner: `@antigravity`
 - Backup: `@ui`
@@ -96,6 +103,7 @@ Ownership comes from benchmark triage, not preference.
 - Blocker: none once T-001 is merged, but can be reviewed pre-merge on `agent/codex`
 
 ### T-007
+- Status: `done`
 - Status: `queued`
 - Owner: `@codex`
 - Backup: `@copilot`
@@ -104,4 +112,6 @@ Ownership comes from benchmark triage, not preference.
 - Branch: `agent/codex`
 - Task: define measurable pilot proof criteria and performance guardrails for debate candidates in the Codex lane
 - Why now: benchmark scoring needs testability, not just taste
+- Blocker: none (completed as documentation-only proof criteria)
+- Evidence: `NEXUS_CONTEXT/CODEX_PROOF_CRITERIA.md`
 - Blocker: best done after T-003 or in parallel only if it stays documentation-only
