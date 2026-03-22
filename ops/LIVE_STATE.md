@@ -114,7 +114,7 @@ BASTION: ACTIVO v1.8 — FLOWMESH v1.0; NEXUS_NEURAL_MESH v1.0; CROSS_SUPPORT_PR
 @antigravity: SEM ELEGÍVEL — aguarda task no território ou apoio explícito
 @framer: SEM ELEGÍVEL — aguarda task no território ou apoio explícito
 EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + BASTION-2.0-CYCLE-START-001 + DNA-PROTOCOL-MOTHER-001 + NEXUS-PIONEER-ROLE-MOTHER-001)
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + BASTION-2.0-CYCLE-START-001 + DNA-PROTOCOL-MOTHER-001 + NEXUS-PIONEER-ROLE-MOTHER-001 + PILAR-2-STACK-REGISTRY-001)
 CANALIZAÇÃO ATIVA: BASTION 2.0 ciclo activo; máquina em fluxo contínuo; owner só entra para gate, visão, trava ou redirecionamento
 ```
 
@@ -127,6 +127,7 @@ LINHA TEMPORAL:
 ─────────────────────────────────────────────
 MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
+Claude:  PILAR-2-STACK-REGISTRY-001 — STACK_REGISTRY.md v1.0 criado (5 lanes; 18 candidatos; ADOPT/TRIAL/HOLD/REJECT por lane); LIVE_STATE actualizado; handoff emitido
 Claude:  NEXUS-NEURAL-MESH-001 — NEXUS_NEURAL_MESH.md v1.0 criado (10 partes; 15 nós; sinais; behavior protocol; asset registry; stages 5→10); DNA_PROTOCOL v1.3 mapa canônico; BASTION v1.8; LIVE_STATE actualizado; handoff emitido
 Claude:  NEXUS-FLOWMESH-001 — FLOWMESH.md v1.0 criado (8 blocos; roteamento adaptativo; 12 departamentos; modelos por classe A/B/C/D; 5 lanes paralelas; pioneer table); handoff emitido
 Claude:  NEXUS-ELIGIBLE-CROSS-SUPPORT-001 — Cross Support Protocol formalizado: CROSS_SUPPORT_PROTOCOL.md v1 (8 secções); FOL v2.1 seção 18; DNA_PROTOCOL v1.2 mapa canônico; BASTION v1.7; hora morta + apoio elegível + retorno + casos @claude; handoff emitido
