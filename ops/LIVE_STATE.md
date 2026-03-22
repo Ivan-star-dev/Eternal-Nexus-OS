@@ -9,30 +9,35 @@
 | Campo | Valor |
 |-------|-------|
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude |
-| **Fase ativa** | Bastião Zero — Pilar 4 concluído; documentação canônica criada |
-| **Camada atual** | Pilar 1 ✓ · Pilar 2 ✓ · Pilar 3 ✓ · Pilar 4 ✓ |
-| **Estado geral** | 4 Pilares completos · 5 documentos canônicos criados · Bastião Zero: ATIVO |
+| **Executor ativo** | TODOS OS PIONEERS — sprint final |
+| **Fase ativa** | FECHAMENTO DE CICLO — gates abertos pelo owner em 2026-03-22 |
+| **Camada atual** | Pilar 1 ✓ · Pilar 2 ✓ · Pilar 3 ✓ · Pilar 4 ✓ · Bastião Zero → em curso |
+| **Estado geral** | Sprint final ativo — todos os gates abertos — CYCLE-CLOSE-001 no horizonte |
 
 ### Resumo do progresso
 
-- **Pilar 1 — Function** ✓ — Stack, tribunal, estado base operacional
-- **Pilar 2 — Structure** ✓ — NexusPage 6-layer, STACK_REGISTRY, arquitetura canônica
-- **Pilar 3 — Motion + Polish** ✓ — Framer Motion, Atlas, /founder, TypeScript fixes
-- **Pilar 4 — Data + Production** ✓ — /projects, ProjectMetrics, lazy split, ErrorBoundary, cleanup, 5 docs canônicos
-- **Bastião Zero** — EM ANDAMENTO (bundle, lint, integrity, security)
+- **Pilar 1 — Function** ✓
+- **Pilar 2 — Structure** ✓
+- **Pilar 3 — Motion + Polish** ✓
+- **Pilar 4 — Data + Production** ✓
+- **Bastião Zero** — EM ANDAMENTO (mecânico: @copilot + @cursor)
+- **PLv6.2-b** — GATE ABERTO — @claude executa agora (P1)
+- **FVL-IMPL-001** — GATE ABERTO — @claude + @copilot + @antigravity (P1, paralelo)
+- **CYCLE-CLOSE-001** — aguarda handoffs → @codex consolida → PR para main
 
 ---
 
-## 2. Fila Viva — @claude
+## 2. Fila Viva — Sprint Final
 
-| ID | Tarefa | Estado |
-|----|--------|--------|
-| PLv6.2-b | `/projects` portfolio page | **CONCLUÍDA** — handoff emitido |
-| FVL-IMPL-001 | `/founder` page | **CONCLUÍDA** — handoff emitido |
-| PILAR-4-AGENTS-001 | Pilar 4 — 5 agentes — /projects, ProjectMetrics, lazy split, ErrorBoundary, cleanup | **CONCLUÍDA** |
-| CANON-DOCS-001 | 5 documentos canônicos — manifestos + architecture + protocols | **CONCLUÍDA** |
-| BASTION-ZERO-001 | Bastião Zero — limpeza estrutural total | **EM ANDAMENTO** |
+| ID | Tarefa | Pioneer | Estado |
+|----|--------|---------|--------|
+| PLv6.2-b | Próxima camada de produto | @claude | **ELEGÍVEL — P1** |
+| FVL-IMPL-001 | Founder Vision Layer polida | @claude + @copilot | **ELEGÍVEL — P1** |
+| BULK-02.2 | Lapidação ops/ | @copilot | **ELEGÍVEL — P3** |
+| BULK-01.2/L-001 | Higiene .gitignore | @copilot | **ELEGÍVEL — P3** |
+| BULK-01.2/L-002 | git rm --cached timestamp | @copilot | **ELEGÍVEL — P3** |
+| BULK-01.3-a/b/c | Backlog mecânico | @cursor | **EM ANDAMENTO** |
+| CYCLE-CLOSE-001 | Consolidação final + PR | @codex | **AGUARDA HANDOFFS** |
 
 ---
 
@@ -40,31 +45,35 @@
 
 ```
 BRANCH: claude/rebuild-bastion-core-rihGX
-ESTADO: Bastião Zero ativo — Pilar 4 concluído; documentação canônica na repo
+ESTADO: SPRINT FINAL — todos os gates abertos pelo owner — fechamento de ciclo ativo
 PILARES: 1✓ 2✓ 3✓ 4✓
+GATES: PLv6.2-b ABERTO | FVL-IMPL-001 ABERTO | CYCLE-CLOSE-001 ABERTO
+PIONEERS: @claude P1 | @copilot P1+P3 | @cursor mecânico | @codex consolidador | @antigravity WorkVisual
 ```
 
 ---
 
 ## 4. Bloqueadores Ativos
 
-> Nenhum bloqueador ativo. B-001, B-002 e B-003 foram resolvidos por AGENT-18 (Pilar 4).
+> Sem bloqueadores críticos. Owner abriu todos os gates.
 
 | ID | Descrição | Estado |
 |----|-----------|--------|
-| B-001 | `.gitignore` gaps — arquivos de build rastreados | **RESOLVIDO** — commit `c1d818d` |
-| B-002 | `bun.lock` comitado no repo | **RESOLVIDO** — commit `c1d818d` |
-| B-003 | HTML legado não removido | **RESOLVIDO** — commit `c1d818d` |
+| BULK-01-Codex | Branch @codex não alinhado | Não bloqueia sprint final |
+| F6 | Em andamento @codex | Paralelo — não bloqueia |
 
 ---
 
-## 5. Próximos Passos
+## 5. Próximos Passos — Ordem de Fechamento
 
-1. **Bastião Zero em curso** — bundle analysis, lint clean, integrity check, security audit
-2. **Próximo gate owner:** Blueprint Winner Refinement
-3. Consolidar resultados do Bastião Zero em PR para `main`
-4. Iniciar fase de Blueprint Winner após gate Bastião Zero passar
+1. **@claude** — executa PLv6.2-b + FVL-IMPL-001 em paralelo (P1)
+2. **@copilot** — BULK-01.2/L-001 → L-002 → BULK-02.2 → apoio FVL-IMPL-001 visual
+3. **@cursor** — fecha BULK-01.3 → suporte mecânico PLv6.2-b
+4. **@antigravity** — polimento WorkVisual em FVL-IMPL-001
+5. **@codex** — aguarda todos os handoffs → emite relatório-mãe → CYCLE-CLOSE-001
+6. **@claude** — abre PR para main após CYCLE-CLOSE-001
+7. **Owner** — aprova merge → ciclo fechado
 
 ---
 
-_Última atualização: 2026-03-22 — sessão Pilar 4 / @claude_
+_Última atualização: 2026-03-22 — CYCLE-CLOSE-DISPATCH / owner + @claude_

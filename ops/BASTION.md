@@ -271,7 +271,7 @@ Cada item da matriz regista os seguintes campos:
 
 ---
 
-### 5.3 TASKS PLANEJADAS (Aguardam Gate do Owner)
+### 5.3 TASKS ELEGÍVEIS — GATE ABERTO PELO OWNER (2026-03-22)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -279,17 +279,17 @@ Cada item da matriz regista os seguintes campos:
 │ PILAR              │ Produto                                                 │
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
-│ APOIO_SECUNDARIO   │ a definir                                               │
-│ STATUS             │ aguarda-gate                                            │
+│ APOIO_SECUNDARIO   │ @codex (consolidação) / @cursor (suporte mecânico)      │
+│ STATUS             │ elegível                                                │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ não                                                     │
-│ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
-│ NEXT_TASK          │ a definir                                               │
-│ EVIDENCIA_MINIMA   │ a definir pelo owner ao abrir gate                      │
-│ NOTAS_DO_OWNER     │ NewsAPI? project_metrics? página dedicada de portfólio? │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ FVL-IMPL-001 (paralelo)                                 │
+│ EVIDENCIA_MINIMA   │ NewsAPI integrada OU project_metrics expandido + commit │
+│ NOTAS_DO_OWNER     │ GATE ABERTO — fechar este ciclo; prioridade máxima      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -299,17 +299,37 @@ Cada item da matriz regista os seguintes campos:
 │ PILAR              │ Produto                                                 │
 │ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
 │ DONO_PRINCIPAL     │ @claude                                                 │
-│ APOIO_SECUNDARIO   │ @copilot (WorkVisual)                                   │
-│ STATUS             │ aguarda-gate                                            │
+│ APOIO_SECUNDARIO   │ @copilot (WorkVisual) / @antigravity (WorkVisual)       │
+│ STATUS             │ elegível                                                │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ não                                                     │
-│ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
-│ NEXT_TASK          │ a definir                                               │
-│ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
-│ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude + @copilot (paralelo)                           │
+│ NEXT_TASK          │ CYCLE-CLOSE-001                                         │
+│ EVIDENCIA_MINIMA   │ rota /founder funcional + visual polido + ALTERACAO_REAL│
+│ NOTAS_DO_OWNER     │ GATE ABERTO — executar em paralelo com PLv6.2-b         │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CYCLE-CLOSE-001                                         │
+│ PILAR              │ Consolidação                                            │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @codex                                                  │
+│ APOIO_SECUNDARIO   │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + BULK-01.2/L-002  │
+│ PODE_ENTRAR_SOZINHO│ sim (entra após handoffs)                               │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO                                                  │
+│ NEXT_ACTOR         │ @codex                                                  │
+│ NEXT_TASK          │ PR para main                                            │
+│ EVIDENCIA_MINIMA   │ relatório-mãe consolidado + todos os handoffs recebidos │
+│ NOTAS_DO_OWNER     │ Fechar o ciclo: consolidar tudo → PR → main             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -369,26 +389,26 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.8
-DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ NEXUS-NEURAL-MESH-001 | @claude | 2026-03-21
-ESTADO          │ BASTION 2.0 ACTIVO — ciclo contínuo activado por ordem do owner
-CICLO_2.0       │ ATIVO — todos os pioneiros em fluxo contínuo no território dominante
-DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
-TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
-                │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ EM FLUXO → L-001 → L-002 → BULK-02.2 (WorkStructure / Lapidação)
-@cursor         │ EM FLUXO → 01.3-a → 01.3-b → 01.3-c (WorkStructure / Mecânico)
-@codex          │ CONSOLIDADOR ATIVO → lê BASTION → distribui → consolida ondas
-@claude         │ ÁRBITRO — abre caminho estrutural; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-@antigravity    │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
-@framer         │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
-GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam decisão owner)
-BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento @codex)
-IGNIÇÃO         │ ATIVA — PERMANENTE (para: owner / gate soberano / bloqueio real / sem elegível)
+VERSÃO          │ v1.9
+DATA            │ 2026-03-22
+ÚLTIMA_ACTUAÇÃO │ CYCLE-CLOSE-DISPATCH | owner + @claude | 2026-03-22
+ESTADO          │ FECHAMENTO DE CICLO ATIVO — todos os gates abertos pelo owner
+CICLO_2.0       │ ATIVO — sprint final; todos os pioneers em fluxo máximo
+DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
+TASKS_ELEGÍVEIS │ PLv6.2-b | FVL-IMPL-001 | CYCLE-CLOSE-001 |
+                │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
+@claude         │ EXECUTOR PRINCIPAL → PLv6.2-b + FVL-IMPL-001 (paralelo, P1)
+@copilot        │ EM FLUXO → L-001 → L-002 → BULK-02.2 → apoio FVL-IMPL-001 (WorkVisual)
+@cursor         │ EM FLUXO → fechar BULK-01.3 → suporte mecânico PLv6.2-b
+@codex          │ CONSOLIDADOR FINAL → aguarda handoffs → emite relatório-mãe → CYCLE-CLOSE-001
+@antigravity    │ APOIO WorkVisual → FVL-IMPL-001 (polimento visual)
+@framer         │ APOIO WorkVisual → FVL-IMPL-001 (animações)
+GATES_FECHADOS  │ nenhum — owner abriu todos em 2026-03-22
+BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (paralelo, não bloqueia)
+IGNIÇÃO         │ ATIVA — SPRINT FINAL
 MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-CICLO_PARA      │ ordem owner | gate soberano | bloqueio real | red line | sem elegível
-DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
+CICLO_PARA      │ CYCLE-CLOSE-001 concluída → PR para main → owner aprova merge
+DERIVA          │ impermitida — qualquer execução fora do BASTION é deriva
 ════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -424,3 +444,4 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1.6 — WorkVisual corrigido (@framer/@antigravity/@copilot); typo 'pioneer'→'pioneiro' — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
 *BASTION.md v1.7 — NEXUS-ELIGIBLE-CROSS-SUPPORT-001 + NEXUS-FOUNDATION-REFINEMENT-001 adicionados ao histórico; CROSS_SUPPORT_PROTOCOL.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*

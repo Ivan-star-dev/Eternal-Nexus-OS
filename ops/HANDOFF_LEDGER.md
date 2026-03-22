@@ -33,6 +33,32 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@owner+claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-DISPATCH │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner.
+            │ CYCLE-CLOSE-001 criada no BASTION (P1, @codex).
+            │ BASTION_DISPATCH_002.md emitido — convocação de todos os pioneers.
+            │ BASTION.md → v1.9 (semáforo sprint final; gates abertos; todos em fluxo).
+            │ LIVE_STATE.md → sprint final ativo; ordem de fechamento definida.
+            │ HANDOFF_LEDGER.md → esta entrada.
+NAO_FEITO   │ — execução das tasks (pioneers entram agora)
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ PLv6.2-b e FVL-IMPL-001 promovidos de aguarda-gate → elegível P1
+ARQUIVOS    │ ops/BASTION.md (v1.9) | ops/BASTION_DISPATCH_002.md (novo) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sprint final iniciado; todos os gates abertos; ciclo em fechamento
+DEPENDENCIA │ standalone — instrução direta do owner
+PODE_ENTRAR │ sim — todos os pioneers entram imediatamente
+ORDEM_MERGE │ após CYCLE-CLOSE-001 → PR → owner aprova
+PROX_PASSO  │ @claude: PLv6.2-b + FVL-IMPL-001 | @copilot: L-001→L-002→BULK-02.2
+            │ @cursor: fechar BULK-01.3 | @codex: consolidar → CYCLE-CLOSE-001
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-NEURAL-MESH-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/NEXUS_NEURAL_MESH.md v1.0 criado (10 partes):
