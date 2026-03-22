@@ -31,6 +31,21 @@ PROXIMO_PASSO: [resumo curto]
 
 ---
 
+DATA: 2026-03-22
+EXECUTOR: @copilot
+MODELO: claude-sonnet-4-5
+TASK: PR-TRIAGE-001 — Diagnóstico de 17 PRs abertos no desktop
+STATUS: done
+FEITO: Inventário completo dos 17 PRs abertos. Identificados 3 grupos por causa raiz: PRs empilhados no branch canônico (não `main`), múltiplas tentativas da mesma correção por sessões repetidas de agentes (6 sub-PRs de BASTION 2.0), e PRs informativos nunca fechados. Triage completo criado em docs/PR_TRIAGE_2026-03-22.md com classificação FECHAR/MANTER e ordem de merge recomendada. LIVE_STATE atualizado com alerta B-004 e PR-TRIAGE-001 na fila do @copilot.
+NAO_FEITO: Fechar os 8 PRs supersedidos (requer ação do owner no GitHub). Mergear PRs de produto (#65, #74, #51).
+BLOQUEIOS: Fechamento dos PRs requer ação direta do owner no GitHub (não é possível via agente de código).
+ADAPTACOES: nenhuma — tarefa foi de diagnóstico e documentação, sem alteração de código.
+ARQUIVOS: docs/PR_TRIAGE_2026-03-22.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO: baixo
+PROXIMO_PASSO: owner lê docs/PR_TRIAGE_2026-03-22.md → fecha 8 PRs listados em "Fechar imediatamente" → revisa PRs de produto na ordem recomendada (#65 → #74 → #51)
+
+---
+
 DATA: 2026-03-20
 EXECUTOR: @claude
 MODELO: claude-sonnet-4-6

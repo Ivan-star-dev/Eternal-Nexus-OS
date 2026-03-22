@@ -4,8 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
-**Última atualização:** 2026-03-20
-**Atualizado por:** @claude | claude-sonnet-4-6 | PLv6.2-a
+**Última atualização:** 2026-03-22
+**Atualizado por:** @copilot | PR-TRIAGE-001
 
 ---
 
@@ -18,7 +18,7 @@
 | **Executor ativo** | @claude (PLv5.1 handoff emitido) |
 | **Frente ativa** | Produto / wt-estrutura-nucleo-vivo |
 | **Camada atual** | PLv6.2-a — Projects Gallery Layer / Layer 2 visível na home |
-| **Estado geral** | PLv6.2-a concluída; ProjectsLiveSection inserida em Index.tsx (entre DOSSIÊS e OrganStatusGrid); Layer 2 Supabase visível no produto; skeleton + empty state + link para Atlas; PLv6.1 + PLv6.2-a completos |
+| **Estado geral** | PLv6.2-a concluída; ProjectsLiveSection inserida em Index.tsx (entre DOSSIÊS e OrganStatusGrid); Layer 2 Supabase visível no produto; skeleton + empty state + link para Atlas; PLv6.1 + PLv6.2-a completos; **ALERTA: 17 PRs abertos (backlog crítico — ver docs/PR_TRIAGE_2026-03-22.md)** |
 
 ---
 
@@ -63,6 +63,7 @@
 | BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
 | BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora |
 | BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | GATE ABERTO | FOL v1 criado por Claude — pode iniciar |
+| PR-TRIAGE-001 | Triagem de 17 PRs abertos — diagnóstico + recomendações | CONCLUÍDA | ver docs/PR_TRIAGE_2026-03-22.md |
 | — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
 
 ### Micro Team
@@ -112,18 +113,20 @@ PRÓXIMA TRANSIÇÃO: owner lê handoff PLv6.2-a → decide PLv6.2-b (NewsAPI? p
 | B-001 | `.env` no histórico git | Owner: segredos reais ou placeholders? | BLOQUEADO — owner |
 | B-002 | PM canônico: npm vs bun | Owner: confirmar npm definitivo | BLOQUEADO — owner |
 | B-003 | `antigravity/legacy-html/` | Owner: manter ou remover? | BLOQUEADO — owner |
+| B-004 | 17 PRs abertos (backlog crítico) | Owner: fechar 8 PRs supersedidos conforme docs/PR_TRIAGE_2026-03-22.md | AGUARDA AÇÃO OWNER |
 
 ---
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-1. **Owner lê handoff PLv6.2-a** → confirma Projects Gallery Layer aceite → decide PLv6.2-b: NewsAPI? project_metrics? página dedicada de portfólio? ou PLv7 (owner data)?
-2. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ e hooks imediatamente
-3. **@codex avança F6** — frente independente, não bloqueia onda atual
-4. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-5. **Owner responde B-002** — confirmar npm como PM canônico
-6. **@codex alinha branch** — condição para entrar na escada principal na onda 5
-7. **@codex alinha branch** — condição para entrar na escada principal na onda 3
+1. **Owner fecha 8 PRs supersedidos** → ver lista em docs/PR_TRIAGE_2026-03-22.md (Grupo "Fechar imediatamente")
+2. **Owner lê handoff PLv6.2-a** → confirma Projects Gallery Layer aceite → decide PLv6.2-b: NewsAPI? project_metrics? página dedicada de portfólio? ou PLv7 (owner data)?
+3. **@copilot executa BULK-02.2** — gate aberto; suavizar rastos de PLv4+PLv5+PLv6 em ops/ e hooks imediatamente
+4. **@codex avança F6** — frente independente, não bloqueia onda atual
+5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+6. **Owner responde B-002** — confirmar npm como PM canônico
+7. **@codex alinha branch** — condição para entrar na escada principal na onda 5
+8. **@codex alinha branch** — condição para entrar na escada principal na onda 3
 
 ---
 
