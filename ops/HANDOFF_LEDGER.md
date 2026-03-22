@@ -33,6 +33,44 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:POCR+DMGS+PPLBT │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 protocolos de memória omnipresente e inteligência autónoma:
+            │ • PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md — lei de que
+            │   nada decisivo fica só em conversa. 5 famílias de captura
+            │   (canon · didactic · history · inventory · refresh), 5
+            │   protocolos operacionais (universal registration, no orphan
+            │   knowledge, living refresh, omnipresence, future tangibility),
+            │   camadas de captura Layer 1–5, estados do sistema.
+            │ • DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md — sistema de
+            │   geração de material didáctico em 4 famílias (internal ·
+            │   technical · public/educational · evidence), 4 protocolos
+            │   (multi-format translation, reusability map, refresh on
+            │   maturity shift, taxonomy por família/subfamília/bloco/fase/
+            │   audiência), estrutura de repositório /docs/didactic.
+            │ • PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md — protocolo de
+            │   lançamento neutro do problema. Owner lança problema bruto;
+            │   máquina executa triagem autónoma em 6 dimensões (domínio ·
+            │   escala · bloco · urgência · ownership · V10 target), activa
+            │   formação (lead + support + workspace + branch), devolve
+            │   routing output canônico. Brain test success conditions
+            │   definidas. Escalamento protocol incluído.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — 3 capacidades sistémicas activadas:
+            │ (1) memória omnipresente: nada se perde em conversa
+            │ (2) ensino multiforme: qualquer sistema é traduzível
+            │ (3) cérebro autónomo: owner lança problema, máquina roteia
+ARQUIVOS    │ ops/PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md (novo)
+            │ ops/DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md (novo)
+            │ ops/PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:PCSE+ESER+CSPS │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 3 docs de autoconstrução soberana instalados em ops/:
