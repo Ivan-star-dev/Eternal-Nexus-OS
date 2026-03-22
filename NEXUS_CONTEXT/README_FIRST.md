@@ -1,113 +1,106 @@
-# Eternal Nexus — README_FIRST (ler antes de qualquer ação)
+# Eternal Nexus - README_FIRST
 
-**Você está dentro do único projeto oficial. Nada acontece "fora".**
-Fonte da verdade: **GitHub repo** + pasta canônica `NEXUS_CONTEXT/`.
+You are inside the only official project. Nothing happens outside the repo.
+Source of truth: `main` plus `NEXUS_CONTEXT/`.
 
 Repo: `Ivan-star-dev/Eternal-Nexus-OS`
 
----
+## 0) Immutable DNA
+- Fixed organs: Nexus, Tribunal, Atlas, Index, News
+- Sacred Flow: `Tribunal -> Atlas -> Index -> News -> Streams`
+- No dashboards: every hub must be a living loop with evidence and a next action
+- Cascading inheritance: every deeper level inherits the parent visual DNA
+- Elite rule: one pioneer plus one backup per task
 
-## 0) DNA imutável (não discutir, só proteger)
-- **Órgãos fixos:** Nexus (core), Tribunal (decisão), Atlas (percepção), Index (memória), News (voz)
-- **Sacred Flow:** Tribunal → Atlas → Index → News → Streams
-- **Nada de dashboards:** todo hub tem **loop vivo + evidência + próxima ação**
-- **Cascata hereditária:** cada clique aprofunda (folder→folder) e **herda o DNA visual**
-- **Regra Elite:** para cada tarefa, **1 pioneiro + 1 backup** (benchmark) — se não encaixa, vira issue
+## 1) Branch topology
+- `main` = source of truth
+- `agent/claude` = architecture, spine, contracts
+- `agent/codex` = tests, CI, gates
+- `agent/antigravity` = ops, scaffold, releases, templates
+- optional `agent/ui` = polish only, after the spine is bulletproof
 
----
+Each pioneer may also use up to three lab branches:
+- `lab/<agent>/01`
+- `lab/<agent>/02`
+- `lab/<agent>/03`
 
-## 1) Regra operacional: 1 main + 3 branches + lab branches
+Lab branches are for experiments only. They never merge directly to `main`.
+If a lab idea becomes real, it must be re-implemented cleanly in the agent branch with evidence and a report.
 
-### Permanent branches
-- `main` = **fonte da verdade**
-- `agent/claude` = arquitetura/contratos/event-bus (sistemas)
-- `agent/codex` = testes/CI/quality gates
-- `agent/antigravity` = ops/scaffold/releases/setup
+Merge to `main` only via PR.
 
-### Lab branches (per pioneer, isolated)
-Each pioneer is allowed **up to 3 lab branches**:
-- `lab/<agent>/01`, `lab/<agent>/02`, `lab/<agent>/03`
-
-Rules:
-- Lab branches can be experimental/wild
-- Lab branches **never merge directly to main**
-- If a lab experiment becomes "real", re-implement cleanly in the agent branch with tests + report
-
-**Merge só via PR** para `main`.
-
----
-
-## 2) Workspaces (espelho por espelho no desktop)
-Estrutura esperada (worktrees):
-- `./` (este root) = **main**
+## 2) Workspaces
+Expected desktop mirrors:
+- `./` = `main`
 - `./_worktrees/claude`
 - `./_worktrees/codex`
 - `./_worktrees/antigravity`
 
-> Se worktrees não existirem, crie antes de continuar.
+## 3) Commit-as-Report OS
+Every meaningful change must ship as:
+1. Code change
+2. Test or evidence where possible
+3. A strong report committed with it
 
----
+The stable pre-merge broadcast file is:
+`NEXUS_CONTEXT/HANDOFF.md`
 
-## 3) "Neural Link": como todas as plataformas recebem contexto
-Todas as plataformas/agentes começam lendo:
-- `NEXUS_CONTEXT/README_FIRST.md` (este arquivo)
+The detailed report path is:
+`NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
+
+## 4) Neural Link
+Every pioneer starts by reading:
+- `NEXUS_CONTEXT/README_FIRST.md`
 - `NEXUS_CONTEXT/ROLE_CHARTER.md`
 - `NEXUS_CONTEXT/DECISIONS.md`
 - `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`
 - `NEXUS_CONTEXT/PROJECT_STATE.md`
+- `NEXUS_CONTEXT/INSIGHTS.md`
+- `NEXUS_CONTEXT/AUTONOMY_MODEL.md`
+- `NEXUS_CONTEXT/LEARNING_LOOP.md`
+- `NEXUS_CONTEXT/MODEL_STRATEGY.md`
+- `NEXUS_CONTEXT/TASK_TRIAGE.md`
+- `NEXUS_CONTEXT/TASK_SEQUENCE.md`
+- `NEXUS_CONTEXT/HANDOFF.md`
 - `NEXUS_CONTEXT/WORKSPACE_KNOWLEDGE.md`
+- `NEXUS_CONTEXT/STACK_REGISTRY.md`
+- `NEXUS_CONTEXT/DEBATE_PROMPT_OPEN_SOURCE.md`
+- `NEXUS_CONTEXT/SECURITY_MODEL.md`
+- `NEXUS_CONTEXT/FOUNDER_PROFILE.template.md`
 - `NEXUS_CONTEXT/VISUAL_DNA.md`
 
-Post-merge sync files:
-- `NEXUS_CONTEXT/INSIGHTS.md` (append-only, cross-agent learnings)
-- `NEXUS_CONTEXT/STACK_REGISTRY.md` (external tech candidates)
+## 4) Session protocol
+At the start of the session:
+1. Read the Neural Link files.
+2. Confirm the role and current branch.
+3. Read `AUTONOMY_MODEL.md` and `LEARNING_LOOP.md` so each session stays inside the closed loop.
+4. Read `TASK_TRIAGE.md` and `TASK_SEQUENCE.md`.
+5. If it exists locally, use `NEXUS_CONTEXT/_private/FOUNDER_PROFILE.md` to adapt tone and tradeoffs without leaking it into public-safe files.
+6. Take only the first unblocked task that was assigned to your tag through triage.
+7. When the queue does not already define the next step, propose aligned ideas with effort size and proof plan, then triage them before assigning ownership.
+8. For stack debates, use benchmark tags such as `@claude`, `@codex`, `@antigravity`, `@copilot`, and `@ui` to score fit, not to self-claim by preference.
+9. Implement only one idea unless a broader scope is explicitly requested.
 
-Nada de uploads caóticos: o repo carrega a memória.
+At the end of the session:
+1. Commit code plus evidence plus report.
+2. Update `NEXUS_CONTEXT/HANDOFF.md` so other pioneers can fetch one stable entrypoint before merge.
+3. If founder preferences became clearer, update the private founder profile without committing sensitive data.
+4. Open or update a PR to `main`.
+5. If the work is merged later, append the state bump and handoff notes.
 
----
+## 5) Innovation harvesting
+- Any external repo or library must be logged in `NEXUS_CONTEXT/STACK_REGISTRY.md` first.
+- Validate in a lab branch.
+- Re-implement cleanly in the agent branch before asking for merge.
 
-## 4) Protocolo de sessão — "Commit = Report = Sync"
-
-### Começo da sessão
-1) Ler `README_FIRST.md`
-2) Confirmar o **papel** (`ROLE_CHARTER.md`) e o **branch**
-3) Ler `PROJECT_STATE.md` + `INSIGHTS.md` para entender estado atual
-4) Propor top 3 ideias alinhadas à fase + gate
-
-### Durante a sessão
-Every meaningful commit must ship:
-1) **Code change**
-2) **Test/evidence** (where possible)
-3) **Strong report** in `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
-
-### Fim da sessão
-1) Escrever log: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`
-2) Atualizar `DECISIONS.md` se uma regra/arquitetura mudou (append-only)
-3) Abrir PR para `main` com título padrão: `[agent] objetivo — gate`
-
-### Post-merge (after PR is merged)
-1) Append a "state bump" to `NEXUS_CONTEXT/PROJECT_STATE.md`
-2) Update `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md` (only if it changes the phase reality)
-3) Leave a "handoff note" for other agents in `NEXUS_CONTEXT/INSIGHTS.md`
-
----
-
-## 5) Innovation harvesting (external tech)
-- Any external repo/library must be logged in `NEXUS_CONTEXT/STACK_REGISTRY.md` first
-- Validate in lab branch
-- Only then re-implement cleanly in agent branch for PR
-
----
-
-## 6) Releases (CLI)
-Artefatos (ZIP/PDF/posters) vivem em **GitHub Releases**.
-Download padrão:
-```
-gh release download <tag> --repo Ivan-star-dev/Eternal-Nexus-OS
-```
-
----
+## 6) Design order
+Design polish is always considered, but it is executed last.
+The order is:
+1. spine and contracts
+2. gates and evidence
+3. ops and automation
+4. polish and motion
 
 ## 7) Retention lock
-> Read NEXUS_CONTEXT first. Work only in your branch. Every commit includes a LOG report.
-> Ask: "Does this strengthen Sacred Flow and phase gate without soup?" If not, stop.
+Read `NEXUS_CONTEXT` first. Work only in your branch. Every meaningful commit includes a log report.
+Ask: "Does this strengthen Sacred Flow and the current phase gate without soup?" If not, stop.

@@ -6,6 +6,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 interface Props {
   organName: string;
   children: ReactNode;
+  silent?: boolean; // Render null instead of error card (for optional/decorative organs)
 }
 
 interface State {
@@ -37,6 +38,7 @@ export class OrganErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
+      if (this.props.silent) return null;
       return (
         <div
           style={{

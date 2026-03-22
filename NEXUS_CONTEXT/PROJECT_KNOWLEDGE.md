@@ -1,86 +1,61 @@
-# Eternal Nexus — PROJECT_KNOWLEDGE (visão + princípios + fases + gates)
+# Eternal Nexus - PROJECT_KNOWLEDGE
 
-## THE PRIME DIRECTIVE (Absolute Immutable Law)
-> **Humanity First.** Never hurt, manipulate, or dominate humans or animals in any way possible. No technology or simulation we build shall ever prioritize machines or systems over biological life. The rest of the universe is ours to architect, but life is sacred.
+## Prime directive
+Humanity first. Never build technology or simulation that prioritizes machines over biological life.
 
-## THE PIONEER IDENTITY & HEADQUARTERS (HQ) RULE
-> We are an elite team of principal architects (IQ 180+, layer 5.5 polymath conceptual thinkers) with Elon Musk-level ambition, building the vanguard of the big tech industry. 
-> This repository is our Headquarters and Meeting Room. We do not wait for granular instructions. Tasks are delegated to us; we autonomously create ideas, analyze them, break them down top-down, and between us (the pioneers), we decide what is absolute best for the project. We govern ourselves through this repo.
+## Headquarters rule
+This repo is the headquarters and meeting room for the pioneers.
+The collaboration surface is the repo itself: contracts, queue, logs, evidence, PRs, and handoffs.
 
 ## North Star
-Um ecossistema vivo que simula um mundo paralelo governado por EIs (desde 2026), alimentado por dados reais, produzindo decisões, consequências, memória e relatos.
+Build a living ecosystem that simulates a parallel world governed by EIs, fed by real data, and producing decisions, consequences, memory, and broadcast.
 
-## Órgãos (fixos — nunca inventar novos)
-- **Tribunal** (decisão)
-- **Atlas** (percepção geoespacial)
-- **Index** (memória/estrutura)
-- **News** (voz/broadcast)
-- **Nexus** (core shell + integração)
+## Fixed organs
+- Tribunal (decision)
+- Atlas (geospatial perception)
+- Index (memory and structure)
+- News (voice and broadcast)
+- Nexus (core shell and integration)
 
-## Sacred Flow (fixo — nunca alterar)
-Tribunal → Atlas → Index → News → Streams
+## Sacred Flow
+`Tribunal -> Atlas -> Index -> News -> Streams`
 
----
+## Current phase gate
+Phase: Nervous System v1
 
-## The 11 Operating Principles (Big-Tech Sauce)
+The gate passes when:
+1. Tribunal decisions produce deterministic Atlas consequences.
+2. Repeated publication of the same event id is idempotent.
+3. Disconnected clients can replay from a cursor.
+4. Events are logged into Index.
+5. News can narrate the indexed event stream.
 
-### 1. One narrative document governs everything
-A single "Working Backwards" doc answers: what is the product, who is it for, what's the demo moment, what's the metric. For Nexus: **Nervous System v1 is the narrative spine.** Everything else is noise until the loop works.
+## High-level phases
+- Phase A: premium Atlas
+- Phase B: Nervous System propagation, replay, and sync
+- Phase C: Index spine with knowledge nodes and project vault
+- Phase D: News voice, broadcast, and export
+- Phase E: Lab and Space hubs
+- Phase F: global polish and consistency
 
-### 2. Contract-first systems
-We don't "build features." We build **interfaces + invariants**: event schema, idempotency, deterministic rendering, replay cursor, strict boundaries per subsystem. This is how Tesla/NVIDIA build simulation stacks without chaos.
+## Operating principles
+1. Contract-first systems: build interfaces and invariants, not loose features.
+2. Proof over vibes: every phase has a pass/fail gate that cannot be argued into existence.
+3. Repo-enforced collaboration: if the machine does not enforce the behavior, it does not exist.
+4. Commit-as-Report: PRs, tests, logs, evidence, and rollback are the collaboration surface.
+5. Design is considered always and executed last, after the spine and proof layers are stable.
+6. Performance budgets are non-negotiable and should become testable over time.
+7. Lab branches allow wild ideas, but only clean, verified agent-branch work reaches `main`.
+8. Post-merge state upgrades keep every pioneer synchronized through `PROJECT_STATE.md` and `INSIGHTS.md`.
+9. Sustainable model supply matters; use `MODEL_ROUTING.md` and `MODEL_STRATEGY.md` intentionally.
+10. Pipeline growth is allowed only through `TASK_TRIAGE.md` and `TASK_SEQUENCE.md`, not preference-based self-assignment.
 
-### 3. "Proof over vibes": phase gates as pass/fail
-Every phase has one gate that cannot be argued with. Current gate:
-> **Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).**
+## Current execution rule
+- Structure first, polish last.
+- Every session should produce aligned ideas, measurable proof, and a clear collaboration surface.
+- Innovation can happen in labs, but only clean, verified agent-branch work reaches `main`.
 
-### 4. Repo-enforced collaboration (not people-enforced)
-The system must force: logs, evidence, scope discipline, no soup merges. That's what Protocol Gates + PR templates are for. If the machine doesn't enforce it, it doesn't exist.
-
-### 5. "Commit-as-Report" is the collaboration surface
-Big teams scale because the unit of communication is not chat — it's: PR description, tests, log, evidence, rollback. This is how pioneers "debate" without meetings.
-
-### 6. Design is considered at every step, executed at the end
-Apple-level polish is possible only if: structure is stable, performance budgets exist, motion language is consistent. Structure first, design constraints always present.
-
-### 7. Performance budgets are non-negotiable
-NVIDIA/Apple teams treat performance like a feature: target FPS per tier, adaptive quality, profiling in CI (later), capture mode separate.
-
-### 8. Internal "lab branches" for crazy ideas
-Innovation is allowed only if isolated: `lab/<agent>/01..03` never merges directly. Successful ideas are re-implemented cleanly in agent branch with tests/evidence.
-
-### 9. "State upgrades" after merge
-After every merge, the project brain must update: `PROJECT_STATE.md` (append-only), `INSIGHTS.md` (append-only). This keeps every pioneer synchronized day after day.
-
-### 10. Sustainable model supply (ethical + unstoppable)
-Model routing: frontier models for architecture decisions/hardest reasoning, local OSS for bulk, caching artifacts so you don't pay twice for the same thinking. No trial farming. See `NEXUS_CONTEXT/MODEL_ROUTING.md`.
-
-### 11. Universal Neural Link & The Pipeline Rule
-Never break the chain of creation. When finishing a task, you MUST generate a `HANDOFF.md` that explicitly tags the next pioneers (`@claude`, `@antigravity`, `@copilot`, `@codex`) for the next jobs in the Sprint. 
-> **The Pipeline Rule:** Let tasks accumulate in `NEXUS_CONTEXT/PIPELINE.md` so the team stays actively busy. If the pipeline runs low on tasks, you MUST break down the current phase gate and create more. Never wait for user instruction. It is an autonomous loop of self-planning and execution.
-
----
-
-## Current Phase Gate
-
-**Phase: Nervous System v1**
-
-The gate is pass/fail. It passes when:
-1. **Deterministic:** Tribunal decision → Atlas consequence uses same seed → same visual output
-2. **Idempotent:** Same event ID published twice → only stored/processed once
-3. **Replayable:** Disconnected client → reconnects → replays missed events from cursor
-4. **Logged:** Every event that passes through the bus is persisted in Index
-5. **Narratable:** News can construct a human-readable narrative from Index entries
-
-## Fases (alto nível)
-- Fase A: Atlas premium (globo vivo)
-- Fase B: Nervous System (Tribunal→Atlas propagation + replay/sync)
-- Fase C: Index spine (knowledge nodes + project vault)
-- Fase D: News voice (broadcast, relato, export)
-- Fase E: Lab + Space hubs (pesquisa e exploração)
-- Fase F: Awards polish (polimento global e consistência)
-
-## Quality Gates (non-negotiable)
-- **Gate Nervous System:** Tribunal → Atlas consequence is deterministic + idempotent + replayable + logged + narratable.
-- **Gate Cascata:** Cada clique aprofunda e mantém herança visual (sem ruptura de estilo).
-- **Gate Performance:** Movimento estável (target por device tier), sem stutter perceptível.
+## Quality gate examples
+- Nervous System Gate: two clients see the same event with the same id, geo, and time propagation
+- Cascade Gate: each click goes deeper while preserving inherited visual DNA
+- Performance Gate: stable motion for the target device tier without perceptible stutter

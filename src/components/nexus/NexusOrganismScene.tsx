@@ -6,6 +6,7 @@ import {
   Float,
   MeshDistortMaterial,
   Text,
+  Line,
 } from "@react-three/drei";
 import * as THREE from "three";
 import {
@@ -136,18 +137,21 @@ function NeuralParticles({ params }: { params: NexusParameters }) {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
+          args={[positions, 3]}
           count={params.particleCount}
           array={positions}
           itemSize={3}
         />
         <bufferAttribute
           attach="attributes-color"
+          args={[colors, 3]}
           count={params.particleCount}
           array={colors}
           itemSize={3}
         />
         <bufferAttribute
           attach="attributes-size"
+          args={[sizes, 1]}
           count={params.particleCount}
           array={sizes}
           itemSize={1}
@@ -281,6 +285,7 @@ function EINode({
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
+            args={[trailPositions.current, 3]}
             count={30}
             array={trailPositions.current}
             itemSize={3}

@@ -16,6 +16,7 @@
     "watch:antigravity": "node scripts/ops/antigravity-watcher.mjs",
     "hibernate": "node scripts/ops/wake-organism.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "gate:memory:atlas": "node --expose-gc scripts/gates/map-memory-profile-gate.cjs"
     "ops:doctor": "bash ./.ops/doctor.sh",
     "ops:bootstrap": "bash ./.ops/bootstrap.sh",
     "ops:check": "bash ./.ops/check.sh",
@@ -103,8 +104,8 @@
     "@testing-library/jest-dom": "^6.6.0",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^22.16.5",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
     "@types/three": "^0.183.1",
     "@vitejs/plugin-react": "^6.0.1",
     "@vitest/browser": "^4.1.0",
@@ -114,7 +115,6 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "jsdom": "^20.0.3",
-
     "playwright": "^1.58.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.2.2",

@@ -56,10 +56,11 @@ export const initCesiumViewer = (container: string | HTMLElement): Viewer | null
       navigationHelpButton: false,
       scene3DOnly: true,
       targetFrameRate: CESIUM_CONFIG.performance.targetFrameRate,
-      maximumScreenSpaceError: CESIUM_CONFIG.performance.maximumScreenSpaceError,
+      // maximumScreenSpaceError was removed from Viewer ConstructorOptions in CesiumJS 1.x — set on globe after init
       requestRenderMode: false,     // Sempre render — organismo VIVO
       useBrowserRecommendedResolution: CESIUM_CONFIG.performance.useBrowserRecommendedResolution,
     });
+    viewer.scene.globe.maximumScreenSpaceError = CESIUM_CONFIG.performance.maximumScreenSpaceError;
 
     // sacred-flow: câmera voa para Cabo Verde — ponto de origem morabeza
     viewer.camera.flyTo(CESIUM_CONFIG.defaultView);
