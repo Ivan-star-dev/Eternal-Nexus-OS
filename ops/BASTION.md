@@ -1,5 +1,8 @@
 # BASTION — Coração Canônico de Execução dos Pioneiros
 
+**Versão:** v1.3
+**Data:** 2026-03-21
+**Task:** OPS-BASTION-001
 **Versão:** v2.0
 **Data:** 2026-03-21
 **Task:** BASTION-2.0-CYCLE-START-001
@@ -137,6 +140,7 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 iniciado |
 | COUNCIL-PR-TRIAGE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — triagem 27 PRs/Issues |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 activado |
 | BULK-01.3-a | Mecânico | WorkStructure | @cursor | concluída | já resolvido por @copilot F5 — timestamp removido do tracking + .gitignore blindado |
@@ -309,6 +313,17 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v1.3
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
+                │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → lê BASTION → executa elegível WorkStructure (L-001/L-002/BULK-02.2)
+@cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
+@codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
+@claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
 VERSÃO          │ v2.0
 DATA            │ 2026-03-21
 ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
@@ -373,5 +388,6 @@ INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio rea
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v2.0 — ciclo contínuo BASTION 2.0 activado por ordem do owner em 2026-03-21 | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
