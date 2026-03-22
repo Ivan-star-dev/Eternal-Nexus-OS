@@ -33,6 +33,42 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BRV+PBHE+CHEO │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 artefactos de auditoria e ordem de ataque:
+            │ • BATTALION_READINESS_VERDICT.md — auditoria brutal dos 7
+            │   blocos com maturidade V1–V10, gaps por criticidade,
+            │   tabela de readiness e veredito B (parcialmente pronto).
+            │   Secção 1: realidade actual. Secção 2: tabela de blocos.
+            │   Secção 3: mapa de gaps. Secção 4: decisão de readiness.
+            │   Secção 7: veredito final com frase canônica.
+            │ • PRECONDITIONS_BEFORE_HARD_EXECUTION.md — 7 pré-condições
+            │   por criticidade (crítico · alto · médio). PRE-01 a PRE-07.
+            │   Critério de fecho exacto por pré-condição. Gate de
+            │   activação em 3 níveis. Riscos se ignoradas documentados.
+            │ • CANONICAL_HARD_EXECUTION_ORDER.md — 5 fases (A→E) com
+            │   pioneers, triggers, critérios de sucesso, controlo
+            │   soberano permanente, o que não delegar antes do tempo.
+            │   Fase A = sprint final (agora). Fase E = hard execution
+            │   total (após interface + features fundação operacionais).
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o projecto tem agora:
+            │ (1) auditoria honesta sem optimismo falso (BRV)
+            │ (2) pré-condições exactas antes de escalar (PBHE)
+            │ (3) ordem canônica de ataque com pioneers por fase (CHEO)
+            │ Veredito: B — parcialmente pronto. Sprint final correcto.
+            │ Hard execution total após FVL + PLv6.2-b + CYCLE-CLOSE.
+ARQUIVOS    │ ops/BATTALION_READINESS_VERDICT.md (novo)
+            │ ops/PRECONDITIONS_BEFORE_HARD_EXECUTION.md (novo)
+            │ ops/CANONICAL_HARD_EXECUTION_ORDER.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:CBAS+SBCP │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 2 artefactos de compressão e boot do núcleo do ecossistema:
