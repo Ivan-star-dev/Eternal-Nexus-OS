@@ -1,6 +1,6 @@
 # OUTPUT STANDARD — Padrão Canônico de Output Copiável
 
-**Versão:** v1
+**Versão:** v1.2
 **Data:** 2026-03-20
 **Task:** OPS-OUTPUT-001
 **Branch:** `claude/expose-workspace-config-yt4Km`
@@ -146,11 +146,74 @@ Todo executor, ao encerrar uma sessão com handoff, emite **nesta ordem**:
 
 ```
 1. HANDOFF_TABLE     — bloco de código copiável
-2. CANALIZACAO_TABLE — bloco de código copiável
+2. EVIDENCE_BLOCK    — bloco de código copiável (obrigatório — ver seção 8)
+3. CANALIZACAO_TABLE — bloco de código copiável
 ```
 
-Opcionalmente, antes dos dois blocos, pode vir texto livre de contexto.
+Opcionalmente, antes dos três blocos, pode vir texto livre de contexto.
 Nunca substituir os blocos por texto livre.
+
+---
+
+## 8. EVIDENCE_BLOCK — Bloco Obrigatório de Evidência Real
+
+> Handoff sem evidence block não é prova forte.
+> O owner precisa distinguir imediatamente: task executada / analisada / sugerida / sem prova.
+
+### Template
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ file1 | file2 | file3 — ou: nenhum
+TIPO_DE_ACAO           │ create | edit | review | analyze | no-change
+PROVA_MINIMA           │ commit abc1234 | seção X.Y alterada | arquivo Z criado
+                       │ diff: "texto antigo" → "texto novo" — ou: analysis-only
+ALTERACAO_REAL         │ sim | não
+═══════════════════════════════════════════════════════════════════════════
+```
+
+### Campos obrigatórios
+
+| Campo | Obrigatório | Valores válidos |
+|---|---|---|
+| `ARQUIVOS_TOCADOS_REAIS` | sim | lista de paths — `nenhum` se task só de análise |
+| `TIPO_DE_ACAO` | sim | `create` / `edit` / `review` / `analyze` / `no-change` |
+| `PROVA_MINIMA` | sim | commit id, seção alterada, arquivo criado, diff resumido, ou `analysis-only` |
+| `ALTERACAO_REAL` | sim | `sim` / `não` |
+
+### Regras de preenchimento
+
+```
+TIPO_DE_ACAO: create
+→ PROVA_MINIMA obrigatório: nome do arquivo criado + commit id
+→ ALTERACAO_REAL: sim
+
+TIPO_DE_ACAO: edit
+→ PROVA_MINIMA obrigatório: onde foi editado (seção | linha | campo) + commit id
+→ ALTERACAO_REAL: sim
+
+TIPO_DE_ACAO: review
+→ PROVA_MINIMA: o que foi revisto + conclusão da revisão
+→ ALTERACAO_REAL: não (a menos que a revisão gerou edição — nesse caso: edit)
+
+TIPO_DE_ACAO: analyze
+→ PROVA_MINIMA: "analysis-only — nenhum arquivo alterado"
+→ ALTERACAO_REAL: não
+
+TIPO_DE_ACAO: no-change
+→ PROVA_MINIMA: "task executada — nenhuma alteração necessária / task bloqueada"
+→ ALTERACAO_REAL: não
+```
+
+### O que o owner vê ao ler o EVIDENCE_BLOCK
+
+| ALTERACAO_REAL | TIPO_DE_ACAO | Leitura imediata |
+|---|---|---|
+| sim | create | arquivo novo entrou no sistema |
+| sim | edit | arquivo existente foi modificado |
+| não | review | task executada como análise — sem mudança de artefacto |
+| não | analyze | task executada como análise — sem mudança de artefacto |
+| não | no-change | task concluída sem alteração — ou bloqueada |
 
 ---
 
@@ -175,7 +238,36 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 | Este padrão | `ops/OUTPUT_STANDARD.md` |
 | Referência no FOL | `ops/FOL.md` seção 10 |
 | Blueprint do relatório-mãe | `ops/CODEX_CONSOLIDATOR.md` |
+| Template pack visual vivo | `ops/VISUAL_TEMPLATE_PACK_002A.md` |
+
+---
+
+## 9. CAMADA VIVA (VISUAL-SPINE-002A)
+
+Esta seção ativa presença visual sem alterar o schema fixo.
+
+### O que permanece imutável
+- Nomes de blocos (`HANDOFF_TABLE`, `CANALIZACAO_TABLE`)
+- Ordem dos campos obrigatórios
+- Regra de bloco copiável único
+
+### O que pode variar
+- Linha curta de atmosfera antes do handoff
+- Assinatura textual do pioneiro (ex.: `AURA_CURSOR:`)
+- Separadores premium/clean sem quebrar legibilidade
+
+### Princípio de aplicação
+
+> Conteúdo manda. Visual acelera leitura.
+> Se houver conflito entre estética e rastreabilidade, vence rastreabilidade.
+
+### Referências desta camada
+- `docs/DOC_VISUAL_SPINE_001.md`
+- `docs/DOC_VISUAL_SPINE_002A.md`
+- `ops/VISUAL_TEMPLATE_PACK_002A.md`
 
 ---
 
 *OUTPUT_STANDARD.md v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
+*OUTPUT_STANDARD.md v1.1 — seção 8 + ordem de output actualizada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
+*OUTPUT_STANDARD.md v1.2 — camada viva integrada em 2026-03-20 | gpt-5.3-codex-high | VISUAL-SPINE-002A*

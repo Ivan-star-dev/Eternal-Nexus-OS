@@ -52,6 +52,417 @@ ADAPTACOES  │ Lapidação restrita a ruído editorial real encontrado (duplos
             │ ausentes não criados — escopo preservado
 ARQUIVOS    │ ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
 IMPACTO     │ baixo (editorial — zero toque em produto)
+@codex │ MODELO:GPT-5.2-Codex │ TASK:NEXUS-WORKFUNCTION-CODEX-REALIGN-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Branch local realinhado para o canônico do sistema
+            │ (`claude/expose-workspace-config-yt4Km`) e tomada formal do
+            │ WorkFunction executada com mapa técnico funcional real,
+            │ sentença KEEP/SALVAGE/KILL/REBUILD/OWNER_ONLY e ordem de assalto.
+NAO_FEITO   │ Correção dos erros herdados de lint/typecheck (apenas mapeados)
+BLOQUEIOS   │ Gates owner permanecem: PM canônico final, decisão PLv6.2-b+, 
+            │ e política de dados sensíveis/histórico (.env)
+ADAPTACOES  │ Branch canônico não existia localmente; foi criado a partir do
+            │ estado atual para preservar continuidade e remover desalinhamento.
+ARQUIVOS    │ ops/WORKFUNCTION_REALIGN_001.md (criado) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — Codex sai de consolidação leve e volta ao comando técnico
+            │ do pilar funcional com dependência real e sequência de ataque
+PROX_PASSO  │ iniciar assalto funcional pela frente de qualidade-base
+SUGESTOES   │ 1) atacar lint/typecheck por ondas de categoria; 2) resolver
+            │ hooks-order e bordas de dados antes da malha 3D profunda;
+            │ 3) manter tribunal técnico por item com sentença explícita
+DECISAO_REC │ executar ordem 1→2→3 do assalto funcional e manter owner gates
+            │ fora do core até deliberação explícita
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/WORKFUNCTION_REALIGN_001.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (WORKFUNCTION_REALIGN_001.md) + edit (restantes)
+PROVA_MINIMA           │ branch atual = claude/expose-workspace-config-yt4Km;
+                       │ mapa técnico funcional documentado e fila Codex atualizada
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkFunction
+NATUREZA    │ realinhamento de branch + comando técnico funcional
+EXECUTOR    │ @codex
+ESTADO      │ done
+ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo de execução contínua até segunda ordem reforçado no
+            │ núcleo operacional: BASTION v1.3 atualizado, artefato da ordem
+            │ full-auto criado e LIVE_STATE sincronizado com ciclo ativo.
+            │ Regra de passagem automática por CHAIN_BLOCK consolidada para
+            │ continuidade sem prompt redundante do owner.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Estado de branch local estava em `work`; branch canônico vivo
+            │ foi criado no ambiente e usado para execução desta task.
+ARQUIVOS    │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — governança de execução contínua reforçada no coração
+            │ operacional, com fluxo mais inteligível entre pioneiros
+PROX_PASSO  │ @copilot entra em BULK-01.2/L-001 e segue sequência elegível;
+            │ @cursor entra em BULK-01.3-a; @codex consolida com leitura
+            │ contínua dos handoffs recebidos
+SUGESTOES   │ 1) Manter no BASTION apenas tasks realmente elegíveis por gate;
+            │ 2) Exigir MICRO_REPORT + STATUS_FEED em toda conclusão;
+            │ 3) Owner só intervir em gate, trava real ou redirecionamento
+DECISAO_REC │ Continuar em full-auto com BASTION como fonte única; próximo
+            │ elo entra por ACTIVATION_MODE imediato quando condição = nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (OPS_FULL_AUTO_UNTIL_STOP_001.md) + edit (restantes)
+PROVA_MINIMA           │ BASTION v1.3 com semáforo reforçado + LIVE_STATE sincronizado
+                       │ com full-auto + ledger prepend desta task
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / execução contínua até segunda ordem
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
+            │ retorna ao BASTION e continua enquanto houver elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático pelo BASTION activado e selado para execução
+            │ contínua: terminou task → lê BASTION → executa elegível →
+            │ registra → passa bastão → volta ao BASTION.
+            │ ops/BASTION_AUTO_001.md criado com estado final da activação.
+            │ ops/BASTION.md atualizado (histórico + semáforo v1.2 com
+            │ AUTOMÁTICO: ON e critério de entrada imediata).
+            │ ops/LIVE_STATE.md atualizado (executor, estado geral, semáforo,
+            │ fila @claude e linha temporal com OPS-BASTION-AUTO-001).
+            │ ops/HANDOFF_LEDGER.md: entrada prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Branch local detectada como `work`; sem mudança de branch nesta task
+ARQUIVOS    │ ops/BASTION_AUTO_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — governança operacional reforçada sem alterar produto
+PROX_PASSO  │ @copilot e @cursor seguem tasks elegíveis já abertas; @claude
+            │ retorna ao BASTION e aguarda gate owner para PLv6.2-b/FVL-IMPL-001
+SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atual;
+            │ 2) Próximo executor validar NEXT_ACTOR/ACTIVATION_MODE/CONDITION
+            │ antes de entrar; 3) Codex refletir estado automático no próximo
+            │ relatório-mãe consolidado
+DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
+            │ elegíveis no BASTION com ativação imediata quando aplicável
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_AUTO_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_AUTO_001.md) + edit (restantes)
+PROVA_MINIMA           │ seção 5.1 e seção 8 do BASTION atualizadas para registrar OPS-BASTION-AUTO-001
+                       │ LIVE_STATE atualizado para "Última atualização: 2026-03-21" e estado automático
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🔴 work (diverge do canônico informado no semáforo de entrada)
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / modo automático pelo BASTION
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ modo automático ligado; corrente segue por elegibilidade BASTION
+            │ + ACTIVATION_MODE imediato + ACTIVATION_CONDITION nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:COUNCIL-PR-TRIAGE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Triagem de 27 PRs/Issues/branches do ciclo anterior.
+            │ Matriz de decisão: 3 KEEP (já merged), 1 MIGRATE_NOW (R3F v9),
+            │ 3 SALVAGE (C6-streams, A2-ci, C6-eslint), 20 KILL.
+            │ Pareceres curtos por @claude, @copilot, @codex, @cursor,
+            │ @antigravity. Acções imediatas: lista FECHAR/MIGRAR/MANTER.
+            │ ops/COUNCIL_TRIAGE_REPORT_001.md criado.
+NAO_FEITO   │ Fechamento físico dos PRs/Issues (gh CLI indisponível)
+BLOQUEIOS   │ Gitea API inacessível via proxy — triagem via git data
+ADAPTACOES  │ Baseado em git log + branches + triage Copilot 2026-03-19
+ARQUIVOS    │ ops/COUNCIL_TRIAGE_REPORT_001.md (criado) | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — clareza sobre 27 itens; path limpo para PLv6.2-b
+PROX_PASSO  │ Owner fecha PRs/Issues listados; R3F v9 entra como nova task BASTION
+SUGESTOES   │ 1) Fechar PRs/Issues via web (lista FECHAR_AGORA no relatório);
+            │ 2) R3F v9 → nova task @cursor/@copilot no BASTION;
+            │ 3) Só manter 3 branches até decisão PLv6.2-b
+DECISAO_REC │ Limpar 20+ agora; migrar R3F v9; decidir PLv6.2-b
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/COUNCIL_TRIAGE_REPORT_001.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (COUNCIL_TRIAGE_REPORT_001.md) + edit (LEDGER)
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo | BRANCH │ 🟢 claude/expose-workspace-config-yt4Km
+NATUREZA    │ consulta tática ao conselho / triagem de PRs antigas
+ESTADO      │ done | ATIVA │ Triagem emitida; owner executa limpeza
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-DISPATCH-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Leitura do BASTION v1 → verificação de tasks elegíveis por executor.
+            │ @claude: sem tasks elegíveis (PLv6.2-b + FVL-IMPL-001 aguarda-gate).
+            │ ops/BASTION_DISPATCH_001.md criado: blocos de activação formais
+            │ para @copilot (L-001→L-002→BULK-02.2), @cursor (01.3-a→b→c),
+            │ @codex (consolidador); regras de execução do dispatch; estado
+            │ do sistema após activação.
+            │ ops/BASTION.md v1.1: semáforo actualizado com dispatch + estado
+            │ de cada pioneiro + localização do dispatch file.
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo,
+            │ linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ @claude sem tasks elegíveis neste ciclo — declarado explicitamente
+            │ (PODE_ENTRAR_SOZINHO: não para PLv6.2-b e FVL-IMPL-001)
+ARQUIVOS    │ ops/BASTION_DISPATCH_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — máquina activada; 6 tasks em execução via 2 pioneiros;
+            │ @codex em modo consolidação; sistema sem deriva
+PROX_PASSO  │ @copilot lê BASTION_DISPATCH_001.md → entra em L-001;
+            │ @cursor lê BASTION_DISPATCH_001.md → entra em BULK-01.3-a;
+            │ @codex aguarda handoffs para relatório-mãe;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot + @cursor: copiar o bloco de dispatch do seu nome
+            │ e seguir a sequência exata — sem desvios; 2) @codex: ao
+            │ consolidar, usar BASTION_AUDIT incluído no dispatch; 3) owner:
+            │ para activar @claude, basta mover PLv6.2-b ou FVL-IMPL-001
+            │ para elegível em BASTION.md seção 5.3
+DECISAO_REC │ Máquina activa sem gate adicional; @claude aguarda owner;
+            │ pioneiros seguem o BASTION_DISPATCH_001 como fonte de execução
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_DISPATCH_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_DISPATCH_001.md) + edit (restantes)
+PROVA_MINIMA           │ commit id: gerado no próximo passo
+                       │ BASTION_DISPATCH_001.md criado do zero (blocos por pioneiro,
+                       │ regras de dispatch, estado do sistema)
+                       │ BASTION.md: semáforo actualizado (v1.1, estado por @pioneiro)
+                       │ LIVE_STATE.md: @claude declarado SEM TASKS ELEGÍVEIS
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / dispatch / activação de pioneiros
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION_DISPATCH_001 emitido; @copilot activado (L-001→L-002→
+            │ BULK-02.2); @cursor activado (01.3-a→b→c); @codex consolidador;
+            │ @claude aguarda gate owner; máquina sem deriva
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/BASTION.md criado (v1): 9 secções — identidade e hierarquia,
+            │ territórios, regra de execução, estrutura da matriz (15 campos),
+            │ matriz viva com tasks concluídas / elegíveis / planejadas /
+            │ bloqueadas, protocolo de actualização, Codex como orquestrador,
+            │ semáforo BASTION, localização canônica.
+            │ ops/FOL.md → v1.7: seção 15 adicionada (hierarquia, loop do
+            │ pioneiro, regra-mãe, referência a BASTION.md).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (BASTION: ACTIVO), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-BASTION-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md (criado) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto (protocolo operacional central — muda o fluxo de todos os
+            │ pioneiros; agora executam só o que o BASTION permite)
+PROX_PASSO  │ @copilot lê BASTION → entra em BULK-02.2 (elegível); @cursor lê
+            │ BASTION → entra em BULK-01.3-a (elegível); owner abre PLv6.2-b
+            │ ou FVL-IMPL-001 quando pronto; Codex usa BASTION ao consolidar
+SUGESTOES   │ 1) Todos os pioneiros: primeira acção após BASTION activo é ler
+            │ BASTION.md seção 5 antes de qualquer execução; 2) Codex: incluir
+            │ tabela BASTION no relatório-mãe (task_id | executor | elegível?);
+            │ 3) owner: quando quiser abrir nova fase, basta marcar task de
+            │ aguarda-gate → elegível em BASTION.md seção 5.3
+DECISAO_REC │ BASTION activo sem gate adicional; pioneiros adoptam o loop
+            │ imediatamente; deriva = execução fora do BASTION; owner é soberano
+            │ único de gates e prioridade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION.md) + edit (restantes)
+PROVA_MINIMA           │ ops/BASTION.md criado do zero (v1, 9 secções, matriz viva completa)
+                       │ ops/FOL.md seção 15 adicionada (linha *FOL v1.7* no rodapé)
+                       │ ops/LIVE_STATE.md semáforo: BASTION: ACTIVO v1
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / coração operacional / bastion
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION v1 activo: pioneiros só executam tasks elegíveis na
+            │ matriz; loop: ler BASTION → executar → handoff → voltar;
+            │ @copilot BULK-02.2 elegível; @cursor BULK-01.3-a elegível;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; EVIDENCE_BLOCK
+            │ obrigatório em todos os handoffs
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-EVIDENCE-BLOCK-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/OUTPUT_STANDARD.md → v1.1: seção 8 EVIDENCE_BLOCK adicionada
+            │ (template canônico, campos obrigatórios, regras de preenchimento
+            │ por TIPO_DE_ACAO, tabela de leitura rápida); seção 5 (ordem de
+            │ emissão) atualizada: 1.HANDOFF_TABLE 2.EVIDENCE_BLOCK 3.CANALIZACAO_TABLE.
+            │ ops/FOL.md → v1.6: seção 14 adicionada (template rápido, tabela de
+            │ leitura, regra, referência a OUTPUT_STANDARD.md seção 8).
+            │ ops/LIVE_STATE.md: executor, estado, fila @claude, semáforo
+            │ (EVIDENCE_BLOCK: VIGENTE), linha temporal actualizados.
+            │ ops/HANDOFF_LEDGER.md: entry OPS-EVIDENCE-BLOCK-001 prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (protocolo operacional — sem mudança de produto nem Git)
+PROX_PASSO  │ Todos os pioneiros adoptam EVIDENCE_BLOCK imediatamente no próximo
+            │ handoff; @copilot BULK-02.2 em WorkStructure (primeiro handoff com
+            │ os 3 blocos: HANDOFF + EVIDENCE + CANALIZACAO); owner decide PLv6.2-b
+SUGESTOES   │ 1) Copilot: ao emitir BULK-02.2, usar os 3 blocos — é o primeiro
+            │ handoff com o padrão novo em produção; 2) Codex: incluir EVIDENCE_BLOCK
+            │ no relatório-mãe por pioneiro (campo ALTERACAO_REAL por task lida);
+            │ 3) owner: ao receber handoff sem EVIDENCE_BLOCK, pode solicitar
+            │ retroativamente — é sinal de output incompleto
+DECISAO_REC │ EVIDENCE_BLOCK em vigor imediatamente — sem gate adicional; pioneiros
+            │ adoptam no próximo handoff emitido; handoff sem evidence = prova incompleta
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OUTPUT_STANDARD.md | ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ OUTPUT_STANDARD.md: seção 8 criada (EVIDENCE_BLOCK) + seção 5 (ordem de emissão) atualizada
+                       │ FOL.md: seção 14 adicionada (linha *FOL v1.6* no rodapé)
+                       │ LIVE_STATE.md: linha EVIDENCE_BLOCK adicionada ao semáforo; fila e timeline actualizados
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / evidência operacional obrigatória
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ EVIDENCE_BLOCK vigente: pioneiros emitem 3 blocos por sessão
+            │ (HANDOFF + EVIDENCE + CANALIZACAO); OUTPUT_STANDARD v1.1 + FOL v1.6
+            │ selados; IGNIÇÃO_ATIVA mantida; @copilot BULK-02.2 gate aberto;
+            │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-WORKTREE-ALIAS-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/WORKTREE_ALIASES.md (NOVO): aliases operacionais de
+            │ território selados — WorkStructure (estrutura/base/governança),
+            │ WorkFunction (funcionalidade/integração/produto vivo),
+            │ WorkVisual (design/UI/UX/identidade). Tabela de aliases,
+            │ regras de uso, relação ortogonal com matrix de pilar dominante,
+            │ exemplos de uso em prompts/handoffs/semáforo, glossário rápido.
+            │ ops/FOL.md v1.5: seção 13 adicionada — tabela de aliases,
+            │ glossário rápido, regras de uso, referência a WORKTREE_ALIASES.md.
+            │ ops/LIVE_STATE.md: semáforo atualizado (WORKTREE: WorkStructure /
+            │ wt-estrutura-nucleo-vivo); linha ALIASES registada; estado, fila,
+            │ linha temporal atualizados.
+NAO_FEITO   │ Renomear fisicamente worktrees no Git (não era objetivo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/WORKTREE_ALIASES.md (NOVO) | ops/FOL.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (clareza semântica — sem alteração de produto ou Git)
 DEPENDENCIA │ independente
 DEPENDE_DE  │ nenhum
 PODE_ENTRAR │ sim
@@ -67,6 +478,20 @@ SUGESTOES   │ 1) BULK-01.2/L-001+L-002 são mecânicos e seguros — @copilot
 DECISAO_REC │ rastro limpo; sistema mais pronto para próxima camada; @copilot
             │ segue para BULK-01.2/L-001+L-002 via loop IGNITION; owner
             │ decide PLv6.2-b quando pronto
+PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + WORKTREE_ALIASES →
+            │ BULK-02.2 em WorkStructure (FORÇA PRINCIPAL, Lapidação);
+            │ owner decide PLv6.2-b + FVL-IMPL-001; aliases passam a valer
+            │ imediatamente em prompts e handoffs futuros
+SUGESTOES   │ 1) Pioneiros devem usar WorkStructure/WorkFunction/WorkVisual
+            │ no campo WORKTREE do semáforo e CANALIZACAO_TABLE a partir de
+            │ agora — adopção imediata; 2) quando PLv6.2-b for definida,
+            │ classificar explicitamente como WorkFunction ou WorkVisual para
+            │ testar o sistema de aliases na prática; 3) no relatório-mãe do
+            │ Codex, incluir campo TERRITORIO (alias) além de TASK
+DECISAO_REC │ Aliases operacionais em vigor — owner pode operar com
+            │ WorkStructure/WorkFunction/WorkVisual como vocabulário diário;
+            │ nomes técnicos legados disponíveis como nota adicional quando
+            │ necessário; nenhuma mudança adicional de Git requerida
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -81,6 +506,13 @@ ESTADO      │ done
 ATIVA       │ BULK-02.2 done; FOL sem ruído editorial; LIVE_STATE atualizado;
             │ sistema mais limpo para próxima camada; @copilot próximo:
             │ BULK-01.2/L-001+L-002 (gates abertos); PLv6.2-b aguarda owner
+WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
+NATUREZA    │ governança / aliases operacionais dos worktrees
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ WorkStructure/WorkFunction/WorkVisual selados (WORKTREE_ALIASES.md);
+            │ FOL v1.5; LIVE_STATE semáforo actualizado; aliases válidos
+            │ imediatamente em prompts, handoffs e docs ops/; IGNIÇÃO_ATIVA mantida
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
