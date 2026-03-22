@@ -26,6 +26,22 @@ import { useEffect, useRef } from "react";
 // Types
 // ---------------------------------------------------------------------------
 
+/**
+ * Minimal GeoJSON Feature shape used here so that @types/geojson is not
+ * required as a dependency. When maplibre-gl is installed its bundled types
+ * will expose the full GeoJSON namespace; until then this local alias keeps
+ * the component self-contained.
+ */
+export type GeoJSONFeature = {
+  type: "Feature";
+  geometry: {
+    type: string;
+    coordinates: unknown;
+  } | null;
+  properties: Record<string, unknown> | null;
+  id?: string | number;
+};
+
 export interface GeopoliticsMapProps {
   /** Optional Tailwind / CSS class applied to the outer container. */
   className?: string;
@@ -33,7 +49,7 @@ export interface GeopoliticsMapProps {
    * Called when the user clicks a GeoJSON feature on the map.
    * Receives the raw GeoJSON Feature object from MapLibre.
    */
-  onFeatureClick?: (feature: GeoJSON.Feature) => void;
+  onFeatureClick?: (feature: GeoJSONFeature) => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -93,7 +109,7 @@ export function GeopoliticsMap({ className = "", onFeatureClick }: GeopoliticsMa
     //   if (!onFeatureClick) return;
     //   const features = map.queryRenderedFeatures(e.point);
     //   if (features.length > 0) {
-    //     onFeatureClick(features[0] as unknown as GeoJSON.Feature);
+    //     onFeatureClick(features[0] as unknown as GeoJSONFeature);
     //   }
     // };
     // map.on("click", handleClick);

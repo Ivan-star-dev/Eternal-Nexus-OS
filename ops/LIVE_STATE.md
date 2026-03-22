@@ -4,8 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
-**Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001
+**Última atualização:** 2026-03-22
+**Atualizado por:** @claude | claude-sonnet-4-6 | PILAR-2-STACK-REGISTRY-001
 
 ---
 
