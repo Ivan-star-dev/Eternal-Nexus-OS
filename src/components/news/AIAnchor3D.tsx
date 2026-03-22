@@ -1,9 +1,26 @@
-import { useRef, useMemo, useState, useCallback } from "react";
+import { useRef, useMemo, useState, useCallback, Component, ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment } from "@react-three/drei";
+import { Float } from "@react-three/drei";
 import * as THREE from "three";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+
+// Silent error boundary for the 3D canvas
+class CanvasBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  componentDidCatch(e: Error) { console.warn('[AIAnchor3D] Canvas failed:', e.message); }
+  render() {
+    if (this.state.failed) return (
+      <div className="h-full flex items-center justify-center">
+        <span className="font-mono text-[0.5rem] text-muted-foreground tracking-widest uppercase">
+          NEXUS AI ANCHOR — MODO OFFLINE
+        </span>
+      </div>
+    );
+    return this.props.children;
+  }
+}
 
 // ═══ Holographic head with lip-sync ═══
 function AnchorHead({ speaking }: { speaking: boolean }) {
@@ -243,6 +260,14 @@ function AnchorScene({ speaking }: { speaking: boolean }) {
   );
 }
 
+// Detect WebGL support at module level
+const hasWebGL = (() => {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+  } catch { return false; }
+})();
+
 // ═══ Exported component ═══
 interface AIAnchor3DProps {
   speaking: boolean;
@@ -257,14 +282,24 @@ export default function AIAnchor3D({ speaking, reportTitle, onToggleSpeak, muted
     <div className="relative bg-card border border-primary/20 rounded-lg overflow-hidden">
       {/* 3D Canvas */}
       <div className="h-[280px] sm:h-[320px]">
-        <Canvas
-          camera={{ position: [0, 0.5, 3], fov: 40 }}
-          dpr={[1, 1.5]}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-          style={{ background: "transparent" }}
-        >
-          <AnchorScene speaking={speaking} />
-        </Canvas>
+        {hasWebGL ? (
+          <CanvasBoundary>
+            <Canvas
+              camera={{ position: [0, 0.5, 3], fov: 40 }}
+              dpr={[1, 1.5]}
+              gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+              style={{ background: "transparent" }}
+            >
+              <AnchorScene speaking={speaking} />
+            </Canvas>
+          </CanvasBoundary>
+        ) : (
+          <div className="h-full flex items-center justify-center">
+            <span className="font-mono text-[0.5rem] text-muted-foreground tracking-widest uppercase">
+              NEXUS AI ANCHOR — MODO OFFLINE
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Overlay controls */}

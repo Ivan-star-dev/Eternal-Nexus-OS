@@ -1,0 +1,401 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ETERNAL NEXUS — Atlas / Map Layer Glassmorphism Style System
+   Pilar 2: Dark glassmorphism visual structure
+   Aether Canon Terminal principle: calm surface, precise core
+═══════════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────────
+   CSS Custom Properties — Atlas color tokens
+─────────────────────────────────────────────────────────────────── */
+:root {
+  /* Base canvas */
+  --atlas-bg-void:          #0a0a0f;
+  --atlas-bg-deep:          #0d0d14;
+  --atlas-bg-surface:       #10101a;
+
+  /* Glass surface fills */
+  --atlas-glass-fill:       rgba(255, 255, 255, 0.04);
+  --atlas-glass-fill-hover: rgba(255, 255, 255, 0.06);
+  --atlas-glass-fill-dark:  rgba(255, 255, 255, 0.02);
+  --atlas-glass-fill-mid:   rgba(255, 255, 255, 0.08);
+
+  /* Glass borders */
+  --atlas-glass-border:     rgba(255, 255, 255, 0.07);
+  --atlas-glass-border-dim: rgba(255, 255, 255, 0.04);
+  --atlas-glass-border-hi:  rgba(255, 255, 255, 0.12);
+
+  /* Neon accents */
+  --atlas-neon-cyan:        #00d4ff;
+  --atlas-neon-blue:        #0066ff;
+  --atlas-neon-amber:       #ffb300;
+
+  /* Neon glow variants (with alpha) */
+  --atlas-neon-cyan-glow:   rgba(0, 212, 255, 0.55);
+  --atlas-neon-cyan-dim:    rgba(0, 212, 255, 0.18);
+  --atlas-neon-cyan-faint:  rgba(0, 212, 255, 0.07);
+  --atlas-neon-blue-glow:   rgba(0, 102, 255, 0.50);
+  --atlas-neon-blue-dim:    rgba(0, 102, 255, 0.18);
+  --atlas-neon-amber-glow:  rgba(255, 179, 0, 0.55);
+  --atlas-neon-amber-dim:   rgba(255, 179, 0, 0.18);
+  --atlas-neon-amber-faint: rgba(255, 179, 0, 0.07);
+
+  /* Typography */
+  --atlas-text-primary:     rgba(230, 235, 245, 0.92);
+  --atlas-text-secondary:   rgba(180, 190, 210, 0.65);
+  --atlas-text-muted:       rgba(130, 145, 170, 0.45);
+  --atlas-text-label:       rgba(200, 215, 235, 0.75);
+
+  /* Blur tokens */
+  --atlas-blur-sm:          8px;
+  --atlas-blur-md:          16px;
+  --atlas-blur-lg:          28px;
+
+  /* Geo boundary glow */
+  --atlas-geo-border-color:      rgba(0, 212, 255, 0.5);
+  --atlas-geo-border-glow:       rgba(0, 212, 255, 0.25);
+  --atlas-geo-border-color-dim:  rgba(0, 102, 255, 0.35);
+  --atlas-geo-border-glow-dim:   rgba(0, 102, 255, 0.15);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-map-container — Full-size map host
+─────────────────────────────────────────────────────────────────── */
+.atlas-map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background-color: var(--atlas-bg-void);
+  isolation: isolate;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-glass-panel — Primary glass surface
+─────────────────────────────────────────────────────────────────── */
+.atlas-glass-panel {
+  position: relative;
+  background: var(--atlas-glass-fill);
+  backdrop-filter: blur(var(--atlas-blur-md)) saturate(1.6);
+  -webkit-backdrop-filter: blur(var(--atlas-blur-md)) saturate(1.6);
+  border: 1px solid var(--atlas-glass-border);
+  border-radius: 4px;
+  color: var(--atlas-text-primary);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.atlas-glass-panel:hover {
+  background: var(--atlas-glass-fill-hover);
+  border-color: var(--atlas-glass-border-hi);
+  box-shadow:
+    0 4px 24px -4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-glass-panel--dark — Darker / more recessed variant
+─────────────────────────────────────────────────────────────────── */
+.atlas-glass-panel--dark {
+  background: var(--atlas-glass-fill-dark);
+  backdrop-filter: blur(var(--atlas-blur-lg)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--atlas-blur-lg)) saturate(1.4);
+  border-color: var(--atlas-glass-border-dim);
+  box-shadow:
+    0 2px 16px -4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.atlas-glass-panel--dark:hover {
+  background: var(--atlas-glass-fill);
+  border-color: var(--atlas-glass-border);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-neon-border — Glowing neon border (cyan, default)
+─────────────────────────────────────────────────────────────────── */
+.atlas-neon-border {
+  border: 1px solid var(--atlas-neon-cyan);
+  box-shadow:
+    0 0 6px  var(--atlas-neon-cyan-glow),
+    0 0 18px var(--atlas-neon-cyan-dim),
+    inset 0 0 8px var(--atlas-neon-cyan-faint);
+  animation: atlasCyanPulse 3s ease-in-out infinite;
+}
+
+@keyframes atlasCyanPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px  var(--atlas-neon-cyan-glow),
+      0 0 18px var(--atlas-neon-cyan-dim),
+      inset 0 0 8px var(--atlas-neon-cyan-faint);
+  }
+  50% {
+    box-shadow:
+      0 0 10px var(--atlas-neon-cyan-glow),
+      0 0 30px var(--atlas-neon-cyan-dim),
+      0 0 60px rgba(0, 212, 255, 0.08),
+      inset 0 0 12px var(--atlas-neon-cyan-faint);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-neon-border--amber — Amber accent variant
+─────────────────────────────────────────────────────────────────── */
+.atlas-neon-border--amber {
+  border-color: var(--atlas-neon-amber);
+  box-shadow:
+    0 0 6px  var(--atlas-neon-amber-glow),
+    0 0 18px var(--atlas-neon-amber-dim),
+    inset 0 0 8px var(--atlas-neon-amber-faint);
+  animation: atlasAmberPulse 3s ease-in-out infinite;
+}
+
+@keyframes atlasAmberPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px  var(--atlas-neon-amber-glow),
+      0 0 18px var(--atlas-neon-amber-dim),
+      inset 0 0 8px var(--atlas-neon-amber-faint);
+  }
+  50% {
+    box-shadow:
+      0 0 10px var(--atlas-neon-amber-glow),
+      0 0 30px var(--atlas-neon-amber-dim),
+      0 0 60px rgba(255, 179, 0, 0.08),
+      inset 0 0 12px var(--atlas-neon-amber-faint);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-geo-boundary — Geopolitical boundary overlay element
+─────────────────────────────────────────────────────────────────── */
+.atlas-geo-boundary {
+  stroke: var(--atlas-geo-border-color);
+  stroke-width: 1.2px;
+  fill: rgba(0, 212, 255, 0.03);
+  filter: drop-shadow(0 0 3px var(--atlas-geo-border-glow))
+          drop-shadow(0 0 8px var(--atlas-geo-border-color-dim));
+  transition: stroke 0.2s ease, filter 0.2s ease;
+  pointer-events: none;
+}
+
+.atlas-geo-boundary:hover,
+.atlas-geo-boundary--active {
+  stroke: var(--atlas-neon-cyan);
+  fill: rgba(0, 212, 255, 0.05);
+  filter: drop-shadow(0 0 5px var(--atlas-neon-cyan-glow))
+          drop-shadow(0 0 14px var(--atlas-neon-cyan-dim));
+}
+
+/* Alternate dim variant for secondary boundaries */
+.atlas-geo-boundary--dim {
+  stroke: var(--atlas-geo-border-color-dim);
+  fill: rgba(0, 102, 255, 0.02);
+  filter: drop-shadow(0 0 2px var(--atlas-geo-border-glow-dim));
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   .atlas-label — Minimal label typography
+─────────────────────────────────────────────────────────────────── */
+.atlas-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--atlas-text-label);
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  text-shadow:
+    0 0 8px rgba(0, 212, 255, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.atlas-label--primary {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--atlas-text-primary);
+  text-shadow:
+    0 0 10px rgba(0, 212, 255, 0.4),
+    0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.atlas-label--muted {
+  font-size: 0.55rem;
+  color: var(--atlas-text-muted);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.atlas-label--cyan {
+  color: var(--atlas-neon-cyan);
+  text-shadow:
+    0 0 6px var(--atlas-neon-cyan-glow),
+    0 0 14px var(--atlas-neon-cyan-dim),
+    0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.atlas-label--amber {
+  color: var(--atlas-neon-amber);
+  text-shadow:
+    0 0 6px var(--atlas-neon-amber-glow),
+    0 0 14px var(--atlas-neon-amber-dim),
+    0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   MapLibre GL overrides — minimal UI, dark canvas
+─────────────────────────────────────────────────────────────────── */
+
+/* Hide default MapLibre controls entirely */
+.maplibregl-ctrl-top-left,
+.maplibregl-ctrl-top-right,
+.maplibregl-ctrl-bottom-left,
+.maplibregl-ctrl-bottom-right {
+  display: none !important;
+}
+
+/* If controls must be visible, apply glass styling */
+.maplibregl-ctrl {
+  background: var(--atlas-glass-fill-dark) !important;
+  backdrop-filter: blur(var(--atlas-blur-sm)) !important;
+  -webkit-backdrop-filter: blur(var(--atlas-blur-sm)) !important;
+  border: 1px solid var(--atlas-glass-border-dim) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.maplibregl-ctrl button {
+  background: transparent !important;
+  color: var(--atlas-text-secondary) !important;
+  border: none !important;
+  transition: color 0.2s ease, background 0.2s ease !important;
+}
+
+.maplibregl-ctrl button:hover {
+  background: var(--atlas-glass-fill) !important;
+  color: var(--atlas-text-primary) !important;
+}
+
+/* Dark map canvas background */
+.maplibregl-map {
+  background-color: var(--atlas-bg-void) !important;
+}
+
+.maplibregl-canvas {
+  background-color: var(--atlas-bg-void) !important;
+}
+
+/* Attribution — minimal, non-intrusive */
+.maplibregl-ctrl-attrib {
+  background: rgba(10, 10, 15, 0.6) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  color: var(--atlas-text-muted) !important;
+  font-size: 0.55rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  letter-spacing: 0.05em !important;
+  padding: 2px 6px !important;
+  border-radius: 2px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--atlas-neon-cyan-dim) !important;
+}
+
+/* Popup glass styling */
+.maplibregl-popup-content {
+  background: rgba(13, 13, 20, 0.88) !important;
+  backdrop-filter: blur(var(--atlas-blur-md)) !important;
+  -webkit-backdrop-filter: blur(var(--atlas-blur-md)) !important;
+  border: 1px solid var(--atlas-glass-border) !important;
+  border-radius: 4px !important;
+  color: var(--atlas-text-primary) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 0 1px var(--atlas-glass-border-dim) !important;
+  padding: 12px 16px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.7rem !important;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: rgba(13, 13, 20, 0.88) !important;
+  border-bottom-color: rgba(13, 13, 20, 0.88) !important;
+}
+
+.maplibregl-popup-close-button {
+  color: var(--atlas-text-secondary) !important;
+  font-size: 1rem !important;
+  right: 8px !important;
+  top: 6px !important;
+}
+
+.maplibregl-popup-close-button:hover {
+  color: var(--atlas-neon-cyan) !important;
+  background: transparent !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   Utility classes for atlas layer composition
+─────────────────────────────────────────────────────────────────── */
+
+/* Subtle inner highlight on top edge (light shelf) */
+.atlas-shelf::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.08) 70%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Corner accent pip — top-left only */
+.atlas-corner-pip::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--atlas-neon-cyan);
+  box-shadow: 0 0 6px var(--atlas-neon-cyan-glow);
+  pointer-events: none;
+}
+
+/* Scan line overlay for data atmosphere */
+.atlas-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 212, 255, 0.012) 3px,
+    rgba(0, 212, 255, 0.012) 4px
+  );
+  pointer-events: none;
+}
+
+/* Reduced motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  .atlas-neon-border {
+    animation: none;
+  }
+  .atlas-neon-border--amber {
+    animation: none;
+  }
+}

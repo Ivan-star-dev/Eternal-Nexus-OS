@@ -11,7 +11,7 @@
 // ---------------------------------------------------------------------------
 
 /** Fixed organs — never invent new ones */
-export type Organ = 'nexus' | 'tribunal' | 'atlas' | 'index' | 'news';
+export type Organ = 'nexus' | 'tribunal' | 'atlas' | 'index' | 'news' | 'streams';
 
 /** The sacred flow order (immutable) */
 export const SACRED_FLOW_ORDER: readonly Organ[] = [
@@ -19,6 +19,7 @@ export const SACRED_FLOW_ORDER: readonly Organ[] = [
   'atlas',
   'index',
   'news',
+  'streams',
 ] as const;
 
 // ---------------------------------------------------------------------------
@@ -31,7 +32,8 @@ export type NexusEventType =
   | 'atlas.marker'
   | 'atlas.layer-update'
   | 'index.entry'
-  | 'news.broadcast';
+  | 'news.broadcast'
+  | 'streams.feed';
 
 // ---------------------------------------------------------------------------
 // Geo payload (shared across organs)
@@ -130,6 +132,17 @@ export interface NewsBroadcastPayload {
   mediaUrl?: string;
   live: boolean;
   linkedVerdictId?: string;
+}
+
+export interface StreamsFeedPayload {
+  /** ID of the news.broadcast event that triggered this feed */
+  sourceBroadcastId: string;
+  /** Channel or feed identifier */
+  channel: string;
+  /** Summary text for the feed entry */
+  summary: string;
+  /** Timestamp when the feed was emitted */
+  emittedAt: string;
 }
 
 // ---------------------------------------------------------------------------

@@ -102,7 +102,7 @@ Deno.serve(async (req: Request) => {
     }
 
     // Fetch current values for skip_unchanged
-    let currentMap = new Map<string, number>();
+    const currentMap = new Map<string, number>();
     if (skipUnchanged) {
       const projectIds = [...new Set(unique.map((m: any) => m.project_id))];
       const { data: existing } = await supabaseAdmin

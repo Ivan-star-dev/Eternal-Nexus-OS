@@ -20,7 +20,11 @@ export {
   createAtlasLayerUpdate,
   createIndexEntry,
   createNewsBroadcast,
+  createStreamsFeed,
 } from './schema';
+
+// Streams organ (5th Sacred Flow organ)
+export { createStreamsOrgan, type StreamsOrgan } from './streams';
 
 // Replay
 export { createReplaySession, replaySince, type ReplaySession } from './replay';
