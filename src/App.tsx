@@ -39,6 +39,7 @@ const SalaDeCrise = lazy(() => import("./pages/SalaDeCrise"));
 const EducacaoNacional = lazy(() => import("./pages/EducacaoNacional"));
 const IndexPage = lazy(() => import("./pages/IndexPage"));
 const FounderPage = lazy(() => import("./pages/FounderPage"));
+const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -106,6 +107,7 @@ const App = () => (
                 <Route path="/sala-de-crise" element={<SalaDeCrise />} />
                 <Route path="/educacao" element={<EducacaoNacional />} />
                 <Route path="/founder" element={<FounderPage />} />
+                <Route path="/projects" element={<Projects />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
