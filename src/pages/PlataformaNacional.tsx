@@ -243,14 +243,14 @@ function ConnectionArc({
 
   return (
     <group>
-      <line ref={lineRef} geometry={lineGeom}>
+      <threeLine ref={lineRef} geometry={lineGeom}>
         <lineBasicMaterial
           color={color}
           transparent
           opacity={0.25}
           blending={THREE.AdditiveBlending}
         />
-      </line>
+      </threeLine>
       <points ref={particlesRef} geometry={particleGeom}>
         <pointsMaterial
           size={0.04}
@@ -491,7 +491,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 

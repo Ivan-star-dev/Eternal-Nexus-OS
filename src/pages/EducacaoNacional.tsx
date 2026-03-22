@@ -1,4 +1,4 @@
-import { useRef, useMemo, Suspense } from "react";
+import React, { useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -433,7 +433,7 @@ export default function EducacaoNacional() {
               variants={itemVariants}
               className="flex items-center gap-2 text-center"
             >
-              <stat.icon className="h-4 w-4 text-violet-400/60" />
+              {(() => { const Icon = stat.icon as React.FC<React.SVGProps<SVGSVGElement>>; return <Icon className="h-4 w-4 text-violet-400/60" />; })()}
               <div>
                 <p className="text-lg font-bold text-white">{stat.value}</p>
                 <p className="text-[10px] uppercase tracking-wider text-violet-300/50">

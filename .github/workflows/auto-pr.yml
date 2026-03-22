@@ -1,0 +1,91 @@
+name: Auto PR — Claude Branch
+
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+jobs:
+  auto-pr:
+    name: Create PR + Enable Auto-Merge
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check if PR already exists
+        id: check-pr
+        run: |
+          PR=$(gh pr list \
+            --head "${{ github.ref_name }}" \
+            --base main \
+            --json number \
+            --jq '.[0].number // empty')
+          echo "pr_number=$PR" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract branch description
+        id: branch-info
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          # Extract readable name from claude/some-description-XXXXX
+          DESC=$(echo "$BRANCH" | sed 's|claude/||' | sed 's|-[a-zA-Z0-9]*$||' | tr '-' ' ')
+          echo "description=$DESC" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Create PR
+        if: steps.check-pr.outputs.pr_number == ''
+        id: create-pr
+        run: |
+          PR_URL=$(gh pr create \
+            --title "feat: ${{ steps.branch-info.outputs.description }}" \
+            --body "$(cat <<'EOF'
+## Auto-PR — Eternal Nexus OS
+
+**Branch:** \`${{ steps.branch-info.outputs.branch }}\`
+**Gerado automaticamente** pelo AUTOFLOW após push para branch canônico.
+
+---
+
+### Checklist de fechamento
+- [ ] Quality checks passam (lint, typecheck, tests, build)
+- [ ] LIVE_STATE.md atualizado
+- [ ] HANDOFF_LEDGER.md com entrada de fechamento
+- [ ] BASTION.md com tasks marcadas concluídas
+
+---
+_AUTOFLOW-COPILOT-001 | Eternal Nexus OS_
+EOF
+)" \
+            --base main \
+            --head "${{ steps.branch-info.outputs.branch }}")
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+          echo "PR criado: $PR_URL"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge on new PR
+        if: steps.create-pr.outputs.pr_url != ''
+        run: |
+          PR_NUMBER=$(gh pr list \
+            --head "${{ github.ref_name }}" \
+            --base main \
+            --json number \
+            --jq '.[0].number')
+          gh pr merge "$PR_NUMBER" --auto --squash
+          echo "Auto-merge ativado no PR #$PR_NUMBER"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge on existing PR
+        if: steps.check-pr.outputs.pr_number != ''
+        run: |
+          gh pr merge "${{ steps.check-pr.outputs.pr_number }}" --auto --squash
+          echo "Auto-merge ativado no PR #${{ steps.check-pr.outputs.pr_number }} (já existia)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

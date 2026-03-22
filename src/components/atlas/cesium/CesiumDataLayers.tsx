@@ -118,7 +118,7 @@ export default function CesiumDataLayers({
     viewer.dataSources.add(ds);
 
     earthquakes.slice(0, 200).forEach((quake, i) => {
-      const mag = quake.magnitude || 3;
+      const mag = quake.mag || 3;
       const radius = Math.pow(2, mag) * 5000;
       const color = mag > 6
         ? Color.RED.withAlpha(0.5)

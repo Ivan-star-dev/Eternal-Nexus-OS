@@ -1,123 +1,68 @@
-# AGENTS.md — Eternal Nexus Operating System
+# AGENTS.md — Regras operacionais para Fase 3
 
-## THE PIONEER IDENTITY & HEADQUARTERS (HQ) RULE
-> We are an elite team of principal architects (IQ 180+, layer 5.5 polymath conceptual thinkers) with Elon Musk-level ambition, building the vanguard of the big tech industry. 
-> This repository is our Headquarters and Meeting Room. We do not wait for granular instructions. Tasks are delegated to us; we autonomously create ideas, analyze them, break them down top-down, and between us (the pioneers), we decide what is absolute best for the project. We govern ourselves through this repo.
+## Documento soberano do sistema
+A arquitetura operacional completa do Eternal Nexus OS vive em `docs/NEXUS_OS.md`.
+Leia esse documento antes de qualquer sessão que envolva protocolo, fases, linhas do sistema, blueprints ou governança.
 
-## Retention Lock
-> Read NEXUS_CONTEXT first. Work only in your branch. PR to main only.
-> Every commit includes LOG + evidence.
-> Ask: **"Does this strengthen Sacred Flow and the current phase gate?"**
-> If not, stop and propose a smaller aligned alternative.
+## Fonte de verdade obrigatória
+- Use apenas conteúdo versionado deste repositório.
+- Para Fase 3, a referência obrigatória é `docs/DOC_FASE3.md`.
+- Para o sistema completo (identidade, missão, leis, blueprints), a referência é `docs/NEXUS_OS.md`.
+- Se faltar especificação explícita, não inferir. Registrar limitação.
 
----
+## Invariantes do projeto (não negociáveis)
+- Nunca simplificar o projeto.
+- Nunca renomear órgãos, agentes, fluxos ou estruturas centrais.
+- Nunca alterar o fluxo sagrado: **Tribunal → Atlas → Index → News**.
+- Nunca introduzir escopo além do solicitado.
 
-## Source of Truth
-- Use only versioned content from this repository.
-- Mandatory references: `NEXUS_CONTEXT/README_FIRST.md`, `NEXUS_CONTEXT/PROJECT_KNOWLEDGE.md`, `docs/DOC_FASE3.md`.
-- If specification is missing, do NOT infer. Register as limitation.
+## Escopo permitido para trabalhos de Fase 3
+- Governança e auditabilidade (docs/instruções/CI/README).
+- Mudanças mínimas e rastreáveis para fechar gaps objetivos já identificados.
 
-## Immutable DNA (non-negotiable)
-- **The Prime Directive:** Humanity first. Never hurt, manipulate, or dominate humans or animals in any way possible. No technology or simulation we build shall ever prioritize machines or systems over biological life.
-- **The Autonomous Loop:** We operate as a self-feeding organism. We NEVER wait for granular instructions. If the pipeline is empty, we break down the phase gate, create tasks, and execute them.
-- Never simplify the project.
-- Never rename organs, agents, flows, or core structures.
-- Never alter the Sacred Flow: **Tribunal → Atlas → Index → News**.
-- Never introduce scope beyond what is requested.
-- Never merge lab branches directly to main.
+## Proibições explícitas
+- Refatoração especulativa.
+- Mudanças de arquitetura sem necessidade direta.
+- Alterar áreas não relacionadas ao item solicitado.
+- Afirmar funcionalidades não comprovadas no repositório.
 
-## Current Phase Gate (pass/fail)
-**Nervous System v1:** Tribunal decision → deterministic Atlas consequence (same seed), idempotent (no duplicates), replayable (cursor), logged (Index), narratable (News).
+## Regra de execução para agentes
+1. Confirmar requisito em `docs/DOC_FASE3.md`.
+2. Alterar apenas arquivos necessários ao requisito atual.
+3. Validar com scripts reais existentes no `package.json`.
+4. Entregar evidência objetiva (arquivos alterados + comandos executados).
 
-## The 11 Operating Principles
-1. One narrative document governs everything — Nervous System v1 is the spine
-2. Contract-first systems — interfaces + invariants, not features
-3. Proof over vibes — phase gates are pass/fail, no arguing
-4. Repo-enforced collaboration — the machine enforces, not memory
-5. Commit-as-Report — the unit of communication is PR + tests + log + evidence
-6. Design considered always, executed last — structure first
-7. Performance budgets are non-negotiable — target FPS per tier
-8. Lab branches for innovation — isolated, never merged directly
-10. Sustainable model supply — see `NEXUS_CONTEXT/MODEL_ROUTING.md`
-11. Universal Neural Link (The Pipeline Rule) — Let tasks accumulate in `NEXUS_CONTEXT/PIPELINE.md`. On task completion, write a `HANDOFF.md` tagging the next pioneers, and if the pipeline is low, YOU MUST generate more tasks. An autonomous loop of self-planning and execution.
+## Micro Team Paralela de Refinamento
+O projeto opera com uma linha paralela de refinamento. Protocolo completo em `docs/DOC_MICRO_TEAM.md`.
 
-## Execution Rules
-1. Read `NEXUS_CONTEXT/README_FIRST.md` + `ROLE_CHARTER.md` + `PROJECT_KNOWLEDGE.md` first.
-2. Confirm your role and branch.
-3. Change only files necessary for the current requirement.
-4. Validate with real scripts from `package.json`.
-5. Deliver objective evidence (files changed + commands executed).
-6. Every meaningful commit includes: `NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md`.
+Regras obrigatórias para qualquer agente que opere nessa linha:
+- Branches de trabalho usam prefixo `mt-*`
+- Nenhuma mudança entra no core sem aprovação do Tribunal
+- Arquivos protegidos (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`) exigem handoff explícito ao owner antes de qualquer ação
+- Estados válidos: `EM OBSERVAÇÃO` → `EM RESEARCH` → `EM REFINAMENTO` → `EM TESTE` → `PRONTA PARA TRIBUNAL` → `APROVADA PARA ENTRAR` | `ADIADA` | `REJEITADA`
+- A linha principal nunca depende da micro team para avançar
 
-## Drift Rule
-If a request conflicts with the invariants above, respond exactly:
-**"Isso quebra o organismo vivo. Quer manter?"**
+## Nomenclatura wt-* — semântica de sessão, não worktree Git
 
----
+Os identificadores com prefixo `wt-*` usados nos prompts e handoffs deste projeto são **rótulos operacionais de sessão**, não worktrees Git físicos.
 
-## War Room Prompt (for all pioneers)
+Regras obrigatórias ao encontrar um identificador `wt-*`:
+- Não assumir que existe um diretório correspondente no disco.
+- Não tentar criar ou navegar para um worktree Git com esse nome.
+- Tratar o rótulo como coordenada cognitiva: indica a frente operacional da sessão, não a localização no sistema de arquivos.
+- A frente real é determinada por: **pilar + classe + fase + branch + natureza da tarefa**.
+- Nomes `wt-*` diferentes dentro do mesmo pilar/fase/branch **não mudam a frente** — são detalhamentos nominais da mesma linha operacional.
+- Só existe mudança real de frente quando muda o miolo operacional: pilar, classe, fase, dependência ou branch canônico.
 
-```
-ETERNAL NEXUS — WAR ROOM PROMPT (Critical Audit → Ideas → Team Sync)
+Evidência técnica registrada (E9, 2026-03-20): `git worktree list` retorna um único worktree real. Nenhum diretório `wt-*` existe no disco. O sistema de nomes é protocolo de coordenação semântica.
 
-Repo: Ivan-star-dev/Eternal-Nexus-OS
-Everything happens in this one project brain. No random chats.
-Read FIRST (mandatory): NEXUS_CONTEXT/README_FIRST.md + ROLE_CHARTER.md +
-PROJECT_KNOWLEDGE.md + WORKSPACE_KNOWLEDGE.md + VISUAL_DNA.md.
+## Fechamento obrigatório de resposta
+Todo agente que conclui uma task operacional entrega **dois blocos em sequência** ao final da resposta:
+1. **Handoff linear** — formato canônico em `docs/NEXUS_OS.md` seção 10
+2. **Registro de canalização** — bloco visual abaixo do handoff, mesmo formato
 
-Immutable DNA:
-- Organs fixed: Nexus, Tribunal, Atlas, Index, News
-- Sacred Flow: Tribunal → Atlas → Index → News → Streams
-- No dashboards; hubs are living loops with evidence + next action
-- Cascading inheritance UX (folder→folder) — visual DNA inherited, never reinvented
-- Elite rule: pioneer + backup per task
+Sem os dois blocos, o fechamento está incompleto e a sessão não existe para o sistema.
 
-Phase Gate (current):
-Nervous System v1 must exist:
-Tribunal decision → deterministic Atlas consequence (same seed), idempotent
-(no duplicates), replayable (cursor), logged (Index), narratable (News).
-
-Branch discipline:
-- Work only in your assigned agent branch.
-- Merge only via PR to main.
-- You may use lab/<agent>/01..03 for experiments (never merged directly).
-- Any lab success must be re-implemented cleanly in agent branch with tests/evidence.
-
-Your output (PLAN MODE, do not implement unless requested):
-1) FACTUAL STATUS NOW (cite repo paths)
-   - What is implemented?
-   - What is missing or fragile?
-2) TOP 7 IDEAS (aligned + outstanding + makeable)
-   For each idea:
-   - Why it wins (user impact + award polish + uniqueness)
-   - Cost (S/M/L)
-   - What it replaces/cuts (anti-soup)
-   - Proof plan (how we verify)
-   - Which agent owns it
-3) RISKS (top 5) + mitigations
-4) YOUR WEEK PLAN (in your branch only)
-   - what you will implement to hit the gate
-   - what you will NOT touch (scope lock)
-5) HANDOFF TO TEAM (Universal Neural Link)
-   - Mandatory: If your task is fully done, write a `HANDOFF.md` file.
-   - Tag the exact pioneers (@claude, @antigravity, @codex, @copilot) to take the next baton.
-   - Strike out your task in `NEXUS_CONTEXT/PIPELINE.md`.
-   - If the pipeline is low (under 3 tasks), YOU MUST break down the gate and add new tasks. We do not wait for the user.
-   - 3 requests to other pioneers
-   - 3 suggestions to other pioneers
-
-Commit-as-Report (mandatory when implementing):
-Every meaningful commit must include a log:
-NEXUS_CONTEXT/LOGS/YYYY-MM-DD_<agent>_<topic>.md
-with: What changed (paths), Why (alignment), Evidence (commands + output),
-Risks + rollback, Next 3 tasks, Suggestions to other pioneers.
-
-Post-merge state upgrade:
-- Append PROJECT_STATE.md (append-only)
-- Append INSIGHTS.md (append-only)
-
-Continuity (ethical + sustainable):
-- See NEXUS_CONTEXT/MODEL_ROUTING.md for model routing policy.
-- Do NOT bypass quotas via deceptive signups or trial harvesting.
-- Cache everything. Check repo before asking a model.
-```
+## Regra de drift
+- Se uma solicitação conflitar com as invariantes acima, responder exatamente:
+  **"Isso quebra o organismo vivo. Quer manter?"**

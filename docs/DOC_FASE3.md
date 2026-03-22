@@ -97,3 +97,27 @@ Quando a evidência não estiver explícita no código/documentação versionada
 
 ## 10) Definição de concluído para esta Fase 3 (escopo atual)
 A Fase 3 (escopo deste documento) é considerada concluída quando F3-REQ-001..004 estiverem implementados e verificáveis por inspeção de arquivos e execução de CI.
+
+## 11) Micro Team Paralela de Refinamento
+A Fase 3 reconhece a existência de uma linha operacional secundária — a **Micro Team Paralela de Refinamento** — que opera ao lado da linha principal sem substituí-la.
+
+**Protocolo completo:** `docs/DOC_MICRO_TEAM.md`
+
+**Princípios de coexistência com a Fase 3:**
+- A micro team não altera requisitos F3-REQ-001..004 — ela os respeita como invariantes
+- Nenhum output da micro team entra no core sem aprovação do Tribunal
+- A linha temporal principal permanece soberana — a micro team é serviço, não dependência
+- Todo trabalho da micro team que afete escopo de Fase 3 passa pelos mesmos critérios de aceitação verificáveis
+
+| Requisito | Evidência |
+|---|---|
+| Protocolo da micro team | `docs/DOC_MICRO_TEAM.md` |
+| Regra operacional para agentes | `AGENTS.md` seção "Micro Team" |
+
+
+## 12) Camada técnica executável pós-soberana
+Para operacionalizar a execução técnica da Fase 3 sem alterar o documento soberano, a referência canônica é:
+
+- `docs/DOC_F6_CASCA_TECNICA_EXECUTAVEL.md`
+
+Este artefato detalha trilhas técnicas iniciais, classes de decisão (A0..A4), hardening por recorte e o papel operacional do Codex após a camada soberana.

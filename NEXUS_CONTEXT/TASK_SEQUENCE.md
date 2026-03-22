@@ -66,12 +66,18 @@ Ownership comes from benchmark triage, not preference.
 - Owner: `@antigravity`
 - Backup: `@codex`
 - Labels: `organ:nexus`, `type:ops`, `gate:workspace-setup`, `effort:M`, `blocked:yes`
+- Status: `done`
+- Owner: `@antigravity`
+- Backup: `@codex`
+- Labels: `organ:nexus`, `type:ops`, `gate:workspace-setup`, `effort:M`, `blocked:no`
 - Triage: `@antigravity` is the strongest fit because the task is workspace setup, scripts, and onboarding flow.
 - Branch: `agent/antigravity`
 - Task: merge workspace setup and context seeding support
 - Why now: reduces setup friction for every pioneer and helps the collaboration OS stick
 - Evidence: PR #9
 - Blocker: reviewer approval and merge
+- Evidence: PR #9 (Merged)
+- Blocker: none
 
 ### T-005
 - Status: `queued`
@@ -86,6 +92,7 @@ Ownership comes from benchmark triage, not preference.
 
 ### T-006
 - Status: `queued`
+- Status: `done`
 - Owner: `@antigravity`
 - Backup: `@ui`
 - Labels: `organ:atlas`, `type:stack-debate`, `gate:nervous-system-v1`, `effort:S`, `blocked:no`
@@ -97,6 +104,7 @@ Ownership comes from benchmark triage, not preference.
 
 ### T-007
 - Status: `done`
+- Status: `queued`
 - Owner: `@codex`
 - Backup: `@copilot`
 - Labels: `organ:nexus`, `type:proof-criteria`, `gate:nervous-system-v1`, `effort:S`, `blocked:soft`
@@ -106,3 +114,4 @@ Ownership comes from benchmark triage, not preference.
 - Why now: benchmark scoring needs testability, not just taste
 - Blocker: none (completed as documentation-only proof criteria)
 - Evidence: `NEXUS_CONTEXT/CODEX_PROOF_CRITERIA.md`
+- Blocker: best done after T-003 or in parallel only if it stays documentation-only
