@@ -111,6 +111,12 @@ PRIORIDADE 3 — Bloqueio / Sem Elegível
 
 ## 4. CORREDOR COMUM — O BRANCH CANÔNICO
 
+```
+Branch canônico vivo: claude/expose-workspace-config-yt4Km
+```
+
+**Durante IGNIÇÃO_ATIVA:**
+- Todos os pioneiros operam sobre o branch canônico vivo
 O branch canônico vivo **não é definido manualmente** neste documento.
 Ele deve ser sempre lido de `ops/LIVE_STATE.md`, que é a fonte de verdade operacional.
 

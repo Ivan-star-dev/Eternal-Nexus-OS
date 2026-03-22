@@ -282,6 +282,7 @@ export function createDarkStyle(tileSource?: string): StyleSpecification {
 }
 
 /**
+ * Animate the teal neon border glow — call in rAF loop to create pulse effect.
  * Initiates a self-managed rAF loop to animate the teal neon border glow pulse effect.
  * Returns cleanup function. Uses MapLibre setPaintProperty for smooth animation.
  * Guards against calling on destroyed/unloaded map instances.
@@ -327,6 +328,11 @@ export function startNeonBorderAnimation(
 }
 
 /**
+ * Enable hover glow effects on interactive map layers.
+ *
+ * - Country borders: mouse proximity triggers a brightened teal glow.
+ * - Verdict markers: feature-state hover boosts circle size/opacity.
+ *   (Requires `generateId: true` on the verdict-markers source.)
  * Enable hover glow effects on country borders.
  *
  * Mouse proximity to country borders triggers a brightened teal glow

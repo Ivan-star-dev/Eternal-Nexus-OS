@@ -1,23 +1,24 @@
-# Eternal Nexus — VISUAL_DNA (herança em cascata)
+# Eternal Nexus - VISUAL_DNA
 
-## Regra central
-Cada hub herda: **DNA da mãe (Nexus)** + **DNA da aba** + **intensificação contextual**.
-Nunca inventar um estilo novo no fundo do stack.
+## Core rule
+Every hub inherits the DNA of the mother shell (Nexus), the active tab, and the contextual intensification.
+Never invent an unrelated style deep in the stack.
 
-## Proibições (sem exceções)
-- Misturar famílias (propósitos diferentes) na mesma tela/poster
-- Dashboards estáticos e "cards aleatórios"
-- Clutter e widgets "dev leftovers"
-- Neon soup / over-bloom global
+## Hard bans
+- Mixing unrelated visual families on the same screen or poster
+- Static dashboards and random cards
+- Clutter and leftover developer widgets
+- Neon soup or global over-bloom
 
-## Transições permitidas (apenas 3)
-1) Push-in (portal/zoom) — entrar num subhub
-2) Pull-out — subir um nível
-3) Lateral glide — mudar de modo no mesmo nível
+## Allowed transitions
+1. Push-in for entering a subhub
+2. Pull-out for moving up one level
+3. Lateral glide for changing mode at the same level
 
 ## Breadcrumbs
-Sempre mostrar caminho (folder feeling): `NEXUS / <ABA> / ... / <HUB>`
+Always show a folder-like path:
+`NEXUS / <TAB> / ... / <HUB>`
 
 ## Design execution timing
-Design polish is **considered always**, but **executed last**, after the spine is bulletproof.
+Design polish is considered always, but executed last, after the spine is bulletproof.
 UI work happens only after architecture and gates are validated.

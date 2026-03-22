@@ -1,5 +1,14 @@
 # BASTION — Coração Canônico de Execução dos Pioneiros
 
+**Versão:** v1.3
+**Data:** 2026-03-21
+**Task:** OPS-BASTION-001
+**Versão:** v2.0
+**Data:** 2026-03-21
+**Task:** BASTION-2.0-CYCLE-START-001
+**Branch:** `claude/expose-workspace-config-yt4Km`
+**Modelo:** claude-4.6-opus-high-thinking
+**Aprovado por:** owner (instrução direta — ordem de ignição operacional)
 **Versão:** v1
 **Data:** 2026-03-20
 **Task:** OPS-BASTION-001
@@ -41,6 +50,7 @@
 |---|---|---|
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor |
+| **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot |
 | **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot |
 
 **Regra de território:**
@@ -71,6 +81,7 @@ LOOP DO PIONEIRO:
 - Não actua fora do seu worktree sem aprovação explícita
 - Não assume que task PLANEJADA é elegível sem mudança de status
 
+**O pioneer SIM:**
 **O pioneiro SIM:**
 - Lê BASTION antes de cada sessão
 - Executa só o que estiver elegível
@@ -144,6 +155,14 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
 | OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
+| OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 iniciado |
+| COUNCIL-PR-TRIAGE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — triagem 27 PRs/Issues |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 activado |
+| BULK-01.3-a | Mecânico | WorkStructure | @cursor | concluída | já resolvido por @copilot F5 — timestamp removido do tracking + .gitignore blindado |
+| BULK-01.3-b | Mecânico | WorkStructure | @cursor | concluída | análise done — npm é PM canônico; bun.lock residual; aguarda B-002 owner para remoção |
+| BULK-01.3-c | Mecânico | WorkStructure | @cursor | concluída | análise done — 5 HTMLs legacy do owner (420K); zero refs no src/; aguarda B-003 owner |
+| OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION 2.0 ciclo activado por ordem owner |
 | DNA-PROTOCOL-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — DNA_PROTOCOL.md v1 criado |
 | NEXUS-PIONEER-ROLE-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — PIONEER_MATRIX.md v1 criado; papéis cravados; 3 chats selados |
@@ -279,6 +298,45 @@ Cada item da matriz regista os seguintes campos:
 
 ---
 
+### 5.3 TASKS PLANEJADAS (Aguardam Gate do Owner)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ PLv6.2-b                                                │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ a definir                                               │
+│ STATUS             │ aguarda-gate                                            │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ não                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ fechado — aguarda decisão owner                         │
+│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ NEXT_TASK          │ a definir                                               │
+│ EVIDENCIA_MINIMA   │ a definir pelo owner ao abrir gate                      │
+│ NOTAS_DO_OWNER     │ NewsAPI? project_metrics? página dedicada de portfólio? │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ FVL-IMPL-001                                            │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @copilot (WorkVisual)                                   │
+│ STATUS             │ aguarda-gate                                            │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ não                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ fechado — aguarda decisão owner                         │
+│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ NEXT_TASK          │ a definir                                               │
+│ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
+│ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
 ### 5.3 TASKS ELEGÍVEIS — GATE ABERTO PELO OWNER (2026-03-22)
 
 ```
@@ -397,6 +455,55 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v1.3
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
+                │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → lê BASTION → executa elegível WorkStructure (L-001/L-002/BULK-02.2)
+@cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
+@codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
+@claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
+VERSÃO          │ v2.0
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
+ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 EM EXECUÇÃO
+DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+CICLO           │ BASTION 2.0 — fluxo contínuo sem microgestão do owner
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
+@cursor         │ 01.3-a DONE (já resolvido) | 01.3-b DONE (análise→B-002) | 01.3-c DONE (análise→B-003) | SEM TASK ELEGÍVEL
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity    │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+@framer         │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+VERSÃO          │ v1.2
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
+VERSÃO          │ v1.3
+DATA            │ 2026-03-20
+ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION_DISPATCH_001 + OPS_FULL_AUTO_UNTIL_STOP_001 activos
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
+                │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
+@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
+@claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
+AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
+                │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
+GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
+BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
+IGNIÇÃO         │ ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
+IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
+MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
+DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
+INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio real | red line | sem elegível
 VERSÃO          │ v2.0
 DATA            │ 2026-03-22
 ÚLTIMA_ACTUAÇÃO │ BULK-CLOSE | @claude cross-support | 2026-03-22
@@ -433,6 +540,9 @@ DERIVA          │ impermitida
 | Estado vivo | `ops/LIVE_STATE.md` |
 | Histórico de handoffs | `ops/HANDOFF_LEDGER.md` |
 | Orquestração do Codex | `ops/CODEX_CONSOLIDATOR.md` |
+| Modo de ignição | `ops/IGNITION.md` |
+| Fluxo autônomo | `ops/AUTOFLOW.md` |
+| Ordem full-auto | `ops/OPS_FULL_AUTO_UNTIL_STOP_001.md` |
 | Protocolo-mãe | `ops/DNA_PROTOCOL.md` |
 | Papéis dos pioneiros | `ops/PIONEER_MATRIX.md` |
 | Modo de ignição | `ops/IGNITION.md` |
@@ -446,6 +556,10 @@ DERIVA          │ impermitida
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v2.0 — ciclo contínuo BASTION 2.0 activado por ordem do owner em 2026-03-21 | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
 *BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.4 — DNA-PROTOCOL-MOTHER-001 concluída; DNA_PROTOCOL.md v1 adicionado ao histórico e localização canônica — 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
 *BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
