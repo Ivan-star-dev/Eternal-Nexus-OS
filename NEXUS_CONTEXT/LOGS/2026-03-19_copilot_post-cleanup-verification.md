@@ -113,7 +113,7 @@ gh pr view 51 --json mergeable
 
 ## Risks + rollback
 - **Risk:** None — audit-only commit, no code changes
-- **Rollback:** `git revert <commit>`
+- **Rollback:** `git revert 9561102`
 
 ## Next 3 tasks (ranked)
 1. Merge PR #59 (C6 Streams type contract) — no blockers
