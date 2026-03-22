@@ -33,6 +33,40 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CPBS+NSBHE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de sequência e North Star pré-batalhão:
+            │ • CANONICAL_PRE-BATTALION_SEQUENCE.md — 6 fases canônicas
+            │   da sequência pré-batalhão: fechar sprint · cravar Brand
+            │   Mother System · activar Framer+Antigravity · construir
+            │   Presence+Exploration · construir Collaboration+Intelligence
+            │   · liberar hard execution total. Por fase: pioneers,
+            │   trigger de entrada, gate de saída, o que fecha a fase,
+            │   anti-patterns a evitar.
+            │ • NORTH_STAR_BEFORE_HARD_EXECUTION.md — 3 North Stars com
+            │   critérios de validação sensorial (não apenas técnica):
+            │   NS-1 Visual Incarnated (Heaven Lab feeling real no site),
+            │   NS-2 Presence+Exploration Scaffolding (world workspace
+            │   truth + signature moment + comparative feel),
+            │   NS-3 First Wonder Layer Matter (5–7 features canônicas
+            │   vivas, produto tem alma visível). Declaração canônica de
+            │   validação do owner quando os 3 estiverem alcançados.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o sistema tem agora:
+            │ auditoria (BRV) + pré-condições (PBHE) + ordem técnica
+            │ (CHEO) + sequência operacional (CPBS) + North Star
+            │ sensorial (NSBHE). Resposta completa a "quando e como
+            │ activar batalhão" está encerrada em 5 documentos.
+ARQUIVOS    │ ops/CANONICAL_PRE-BATTALION_SEQUENCE.md (novo)
+            │ ops/NORTH_STAR_BEFORE_HARD_EXECUTION.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BRV+PBHE+CHEO │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 3 artefactos de auditoria e ordem de ataque:
