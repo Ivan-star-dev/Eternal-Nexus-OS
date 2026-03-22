@@ -12,6 +12,7 @@ import { lazy, Suspense } from "react";
 import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
 import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
+import LoadingFallback from "./components/LoadingFallback";
 
 const Index = lazy(() => import("./pages/Index"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -41,15 +42,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const PageSkeleton = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-      <span className="font-mono text-[0.58rem] tracking-[0.2em] text-muted-foreground uppercase">Loading…</span>
-    </div>
-  </div>
-);
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
@@ -62,7 +54,7 @@ const App = () => (
           <BrowserRouter>
             <OrganTransitionParticles />
             <NexusFlowInspector />
-            <Suspense fallback={<PageSkeleton />}>
+            <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/project/:id" element={<ProjectPage />} />
