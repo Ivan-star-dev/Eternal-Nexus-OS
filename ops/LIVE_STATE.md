@@ -83,6 +83,7 @@ PIONEERS: @claude P1 | @copilot P1+P3 | @cursor mecânico | @codex consolidador 
 | BRANCH-GUARD-001 | `ops/PROTOCOL_BRANCH_GUARD.md` + `.claude/hooks/branch-guard.sh` | ✓ ACTIVO |
 | CASCADE-CANON-001 | `ops/PROTOCOL_CASCADE_CANON.md` | ✓ ACTIVO |
 | V10-LINE-001 | `ops/V10_PROJECT_LINE_SYSTEM.md` | ✓ ACTIVO |
+| BLOCK-MAT-001 | `ops/BLOCK_MATURATION_OS.md` | ✓ ACTIVO |
 
 ---
 

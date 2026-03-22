@@ -148,6 +148,7 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 | `ops/PROTOCOL_BRANCH_GUARD.md` | Guard de branch — triage automática, rejeição, redirecionamento |
 | `ops/PROTOCOL_CASCADE_CANON.md` | Lei de resposta — retenção em cascata, 4 blocos, V10, matéria |
 | `ops/V10_PROJECT_LINE_SYSTEM.md` | Linha V1→V10 — fases, diagnóstico, Phase Tracker, Gap Auditor |
+| `ops/BLOCK_MATURATION_OS.md` | Maturação por blocos — 7 blocos, 5 leis, Cross-Block Connector, Consistency Guard |
 
 ---
 
