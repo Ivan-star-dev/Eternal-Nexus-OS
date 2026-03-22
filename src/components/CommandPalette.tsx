@@ -124,7 +124,7 @@ const CommandPalette = () => {
                   className="w-6 h-6 rounded flex items-center justify-center transition-colors"
                   style={{ backgroundColor: `${p.organColor}15` }}
                 >
-                  <p.icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />
+                  {(() => { const Icon = p.icon; return <Icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />; })()}
                 </div>
                 <div className="flex-1">
                   <span className="font-mono text-xs">{p.label}</span>

@@ -180,6 +180,7 @@ function ProjectNode({ project, selected, onClick }: {
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
+              args={[particlePositions, 3]}
               count={80}
               array={particlePositions}
               itemSize={3}

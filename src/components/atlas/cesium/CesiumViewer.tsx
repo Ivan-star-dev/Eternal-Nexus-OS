@@ -100,16 +100,19 @@ const CesiumViewerComponent = forwardRef<CesiumViewerHandle, CesiumViewerProps>(
       scene.globe.atmosphereMieCoefficient = new Cartesian3(21e-6, 21e-6, 21e-6);
       scene.fog.enabled = true;
       scene.fog.density = 2.0e-4;
-      scene.skyAtmosphere.hueShift = 0.05;
-      scene.skyAtmosphere.saturationShift = 0.1;
-      scene.skyAtmosphere.brightnessShift = 0.1;
+      if (scene.skyAtmosphere) {
+        scene.skyAtmosphere.hueShift = 0.05;
+        scene.skyAtmosphere.saturationShift = 0.1;
+        scene.skyAtmosphere.brightnessShift = 0.1;
+      }
 
       // sacred flow — dark Nexus background
       scene.backgroundColor = Color.fromCssColorString("#0a0a0f");
       scene.globe.baseColor = Color.fromCssColorString("#0a0e1a");
 
       // sacred flow — enable shadows for terrain depth
-      widget.scene.globe.terrainExaggeration = 1.0;
+      // terrainExaggeration was moved to Scene in CesiumJS 1.119+; cast to avoid stale type definition
+      (widget.scene as unknown as { terrainExaggeration: number }).terrainExaggeration = 1.0;
 
       // sacred flow — Apple-smooth camera choreography
       configureCameraChoreography(widget);

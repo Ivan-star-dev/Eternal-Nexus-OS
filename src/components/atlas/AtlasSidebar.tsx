@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PanelLeft, Search, MapPin, Zap } from "lucide-react";
-import type { GeoProject } from "@/pages/AtlasPage";
+import type { GeoProject } from "@/components/atlas/cesium/CesiumProjectEntities";
 
 interface AtlasSidebarProps {
   projects: GeoProject[];
