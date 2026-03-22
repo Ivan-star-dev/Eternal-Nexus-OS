@@ -38,6 +38,9 @@
 | BULK-01.2/L-002 | git rm --cached timestamp | @claude | **CONCLUÍDA ✓** |
 | BULK-01.3-a/b/c | Backlog mecânico | @claude | **CONCLUÍDA ✓** |
 | CYCLE-CLOSE-001 | Consolidação final + PR | @claude | **CONCLUÍDA ✓ — PR ABERTO** |
+| BMS-001 | Brand Mother System v1.0 | @claude | **CONCLUÍDA ✓** |
+| NS1-HERO | Index hero — Heaven Lab pass | @claude | **CONCLUÍDA ✓** |
+| FSP-001 | Feature Scaffolding Plan v1.0 | @claude | **CONCLUÍDA ✓** |
 
 ---
 

@@ -8,6 +8,31 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NS1+FSP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NS1 — Index hero transformado: engineering grid + 2 orbs atmosféricos
+            │   (gold top-right + teal bottom-left) + classification strip institucional
+            │   + eyebrow → section-label + subtítulo mais preciso
+            │   + copy corporal mais institucional. Heaven Lab test: base estabelecida.
+            │ FSP-001 — FEATURE_SCAFFOLDING_PLAN.md v1.0 criado:
+            │   • Mapa das 4 famílias: PRESENCE → EXPLORATION → COLLABORATION → INTELLIGENCE
+            │   • PLv7 (Globe Observatory) + PLv7.1 (World Pulse) — Sprint próximo
+            │   • PLv8 (Scenario Comparison) + PLv8.1 (Timeline) — Sprint +1
+            │   • PLv9–10 (Trails + AI Copilot) — Sprint +2
+            │   • Critérios de validação NS2 + NS3 por família
+            │   • 8 regras de execução FSP
+            │   • Sequência de 3 sprints com gates do owner
+NAO_FEITO   │ NS1 completo requer @framer + @antigravity para páginas restantes
+            │   (About, NavBar polimento, DossierCard motion) — após merge do PR
+IMPACTO     │ alto — Fase B completa (BMS + FSP); Fase C pode começar após merge;
+            │   @cursor tem roadmap executável; NS2 e NS3 têm critérios exactos
+ARQUIVOS    │ src/pages/Index.tsx (NS1 hero) | ops/FEATURE_SCAFFOLDING_PLAN.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BMS-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ BRAND_MOTHER_SYSTEM.md v1.0 criado — lei canónica de identidade visual
