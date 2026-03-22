@@ -47,5 +47,9 @@ vite.config.ts.timestamp-*
 npm_ci_output.txt
 typecheck_filtered.txt
 
-# Claude Code local tooling
+# Claude Code local tooling — worktrees e estado local ignorados
 .claude/
+# Exceções: settings e hooks são infra canónica do sistema
+!.claude/settings.json
+!.claude/hooks/
+!.claude/hooks/*.sh
