@@ -33,6 +33,42 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CBAS+SBCP │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de compressão e boot do núcleo do ecossistema:
+            │ • CORE_BRAIN_ABBREVIATION_SYSTEM.md — formalização das 6
+            │   siglas do núcleo comprimido (PCSE · ESER · CSPS · POCR ·
+            │   DMGS · PPLBT) como sistema canônico de abreviação. Cada
+            │   sigla tem: nome completo, ficheiro, família, bloco, lei
+            │   comprimida, check operacional de 3–5 itens, estados
+            │   (pass/partial/fail). Painel executivo do núcleo, 6 usos
+            │   oficiais (header · legenda · resumo · auditoria · boot ·
+            │   contrato operacional ultra-curto), regra de adição de
+            │   novas siglas com gate de aprovação do owner.
+            │ • SYSTEM_BOOT_CHECK_PROTOCOL.md — ritual canônico de arranque
+            │   de sessão com os 6 pilares como checagem. Formato curto
+            │   (6 linhas + boot result) e formato longo (com notas por
+            │   pilar). Tabela de resultados PASS/PARTIAL/FAIL com actions
+            │   concretas. Boot check triggers (início de sessão, de sprint,
+            │   de mudança de branch, de pioneer lead, de task urgente).
+            │   Relação com 6 protocolos existentes documentada.
+            │   Estados do sistema definidos.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o núcleo comprimido fica agora:
+            │ (1) formalmente nomeado e referenciável (CBAS)
+            │ (2) operacional como ritual de arranque auditável (SBCP)
+            │ Sistema transita de "doutrina espalhada" para
+            │ "núcleo executivo sintetizado com boot check canônico"
+ARQUIVOS    │ ops/CORE_BRAIN_ABBREVIATION_SYSTEM.md (novo)
+            │ ops/SYSTEM_BOOT_CHECK_PROTOCOL.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:POCR+DMGS+PPLBT │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 3 protocolos de memória omnipresente e inteligência autónoma:
