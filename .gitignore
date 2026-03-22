@@ -1,4 +1,5 @@
 # Logs
+/logs/
 logs
 *.log
 npm-debug.log*
@@ -40,6 +41,11 @@ vite.config.ts.timestamp-*
 *.sln
 *.sw?
 
+# Local desktop worktrees
+/_worktrees/
+
+# Optional private strategy vault
+NEXUS_CONTEXT/_private/
 # Vite dev server temp files
 *.timestamp*.mjs
 

@@ -416,6 +416,7 @@ Sem essa identidade, o agente está operando sem coordenada. Sem coordenada, nã
 
 ## 21. BLUEPRINTS OBRIGATÓRIOS
 
+O sistema tem 9 blueprints canônicos. Todos os agentes devem conhecê-los:
 O sistema tem 11 blueprints canônicos. Todos os agentes devem conhecê-los:
 
 | Blueprint | Propósito | Localização |
