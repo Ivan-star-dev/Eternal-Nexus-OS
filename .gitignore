@@ -24,5 +24,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment variables (secrets)
+.env
+.env.local
+.env.production
+.env.*.local
+
 # Worktrees (local workspace, not tracked)
 _worktrees/
