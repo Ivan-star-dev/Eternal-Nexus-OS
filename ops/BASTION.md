@@ -3,9 +3,12 @@
 **Versão:** v1.3
 **Data:** 2026-03-21
 **Task:** OPS-BASTION-001
+**Versão:** v2.0
+**Data:** 2026-03-21
+**Task:** BASTION-2.0-CYCLE-START-001
 **Branch:** `claude/expose-workspace-config-yt4Km`
-**Modelo:** claude-sonnet-4-6
-**Aprovado por:** owner (instrução direta)
+**Modelo:** claude-4.6-opus-high-thinking
+**Aprovado por:** owner (instrução direta — ordem de ignição operacional)
 
 > O BASTION é a fonte única de execução elegível do Eternal Nexus OS.
 > Pioneiro que não encontra sua task elegível no BASTION não executa.
@@ -134,8 +137,16 @@ Cada item da matriz regista os seguintes campos:
 | OPS-WORKTREE-ALIAS-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — WORKTREE_ALIASES v1 |
 | OPS-EVIDENCE-BLOCK-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1.1 + FOL v1.6 |
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
+| OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
+| OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 iniciado |
+| COUNCIL-PR-TRIAGE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — triagem 27 PRs/Issues |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 activado |
+| BULK-01.3-a | Mecânico | WorkStructure | @cursor | concluída | já resolvido por @copilot F5 — timestamp removido do tracking + .gitignore blindado |
+| BULK-01.3-b | Mecânico | WorkStructure | @cursor | concluída | análise done — npm é PM canônico; bun.lock residual; aguarda B-002 owner para remoção |
+| BULK-01.3-c | Mecânico | WorkStructure | @cursor | concluída | análise done — 5 HTMLs legacy do owner (420K); zero refs no src/; aguarda B-003 owner |
+| OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
 
 ---
 
@@ -159,66 +170,6 @@ Cada item da matriz regista os seguintes campos:
 │ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
 │ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
 │                    │ suavizar superfície operacional; sem alteração soberana  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-a                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-b                                             │
-│ EVIDENCIA_MINIMA   │ arquivo removido do tracking + ALTERACAO_REAL: sim      │
-│ NOTAS_DO_OWNER     │ Remover vite.config.ts.timestamp-* do versionamento     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-b                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-c                                             │
-│ EVIDENCIA_MINIMA   │ decisão PM canônico (B-002) ou limpeza + ALTERACAO_REAL │
-│ NOTAS_DO_OWNER     │ Avaliar bun.lock + package-lock.json — PM canônico?     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-c                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P4                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ @owner decide próximo backlog mecânico                  │
-│ EVIDENCIA_MINIMA   │ avaliação registada + decisão clara + ALTERACAO_REAL    │
-│ NOTAS_DO_OWNER     │ Verificar antigravity/legacy-html/ — lixo mecânico?     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -362,8 +313,8 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.2
-DATA            │ 2026-03-20
+VERSÃO          │ v1.3
+DATA            │ 2026-03-21
 ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
 ESTADO          │ ACTIVO — fonte única de execução elegível
 DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
@@ -373,12 +324,44 @@ TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
 @cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
 @codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
 @claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
+VERSÃO          │ v2.0
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
+ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 EM EXECUÇÃO
+DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+CICLO           │ BASTION 2.0 — fluxo contínuo sem microgestão do owner
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
+@cursor         │ 01.3-a DONE (já resolvido) | 01.3-b DONE (análise→B-002) | 01.3-c DONE (análise→B-003) | SEM TASK ELEGÍVEL
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity    │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+@framer         │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+VERSÃO          │ v1.2
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
+VERSÃO          │ v1.3
+DATA            │ 2026-03-20
+ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION_DISPATCH_001 + OPS_FULL_AUTO_UNTIL_STOP_001 activos
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
+                │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
+@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
+@claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
 AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
                 │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
 GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
 BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
-IGNIÇÃO         │ ATIVA
+IGNIÇÃO         │ ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
+IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
+MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
 DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
+INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio real | red line | sem elegível
 ════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -397,10 +380,14 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Orquestração do Codex | `ops/CODEX_CONSOLIDATOR.md` |
 | Modo de ignição | `ops/IGNITION.md` |
 | Fluxo autônomo | `ops/AUTOFLOW.md` |
+| Ordem full-auto | `ops/OPS_FULL_AUTO_UNTIL_STOP_001.md` |
 
 ---
 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
+*BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
 *BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v2.0 — ciclo contínuo BASTION 2.0 activado por ordem do owner em 2026-03-21 | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
