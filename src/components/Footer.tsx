@@ -16,7 +16,7 @@ const Footer = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease }}
-        className="border-t border-border bg-background py-12 px-6 md:px-10"
+        className="border-t border-white/[0.04] bg-background py-12 px-6 md:px-10"
       >
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -75,12 +75,19 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-10 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="mt-10 pt-6 border-t border-white/[0.04] flex flex-col md:flex-row items-center justify-between gap-4">
             <span className="font-mono text-[0.6rem] tracking-[0.15em] text-muted-foreground">
               © 2026 NEXT PATH INFRA — IVANILDO MICHEL MONTEIRO FERNANDES — {t("footer_rights")}
             </span>
             <span className="font-mono text-[0.6rem] tracking-[0.15em] text-destructive">
               ● CONFIDENTIAL · STRATEGIC INFRASTRUCTURE · {t("footer_ip")}
+            </span>
+          </div>
+
+          {/* Canonical copyright line */}
+          <div className="mt-4 text-center">
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-paper-dim/30 uppercase">
+              © 2026 · Eternal Nexus OS · Next Path Infrastructure Authority
             </span>
           </div>
         </div>
