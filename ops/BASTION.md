@@ -126,6 +126,8 @@ Cada item da matriz regista os seguintes campos:
 | PLv5.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv5 |
 | PLv6.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.1 |
 | PLv6.2-a | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.2-a |
+| PLv6.2-b | Produto | WorkFunction | @claude | concluída | handoff emitido — project_metrics expandido (CO₂, jobs, SDG, impactScore, PortfolioImpactSummary) |
+| FVL-IMPL-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | handoff emitido — FounderPage v2 (hero atmosférico, secção Architects, 6 pioneers, seal v2) |
 | OPS-OUTPUT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1 |
 | GENESIS-FOUNDER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido |
 | OPS-AUTOFLOW-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — AUTOFLOW v1 |
@@ -275,7 +277,7 @@ Cada item da matriz regista os seguintes campos:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ PLv6.2-b                                                │
+│ TASK_ID            │ PLv6.2-b [CONCLUÍDA — ver 5.1]                          │
 │ PILAR              │ Produto                                                 │
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
@@ -295,7 +297,7 @@ Cada item da matriz regista os seguintes campos:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ FVL-IMPL-001                                            │
+│ TASK_ID            │ FVL-IMPL-001 [CONCLUÍDA — ver 5.1]                      │
 │ PILAR              │ Produto                                                 │
 │ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
 │ DONO_PRINCIPAL     │ @claude                                                 │

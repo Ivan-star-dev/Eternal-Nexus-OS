@@ -6,6 +6,47 @@
 
 ---
 
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FVL-IMPL-001+PLv6.2-b │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FVL-IMPL-001 — FounderPage.tsx polido (v2):
+            │ • Hero com 2 orbs atmosféricos (gold 72%/38% + blue 18%/65%),
+            │   engineering-grid a 55% de opacidade, bottom fade suave
+            │ • Nova secção 04.5 "The Architects" — grid 2 colunas com 6
+            │   pioneiros: handle, role, territory, description, color
+            │   (@claude/@copilot/@cursor/@codex/@framer/@antigravity)
+            │ • Callout canônico: "Six pioneers. One canon. One branch. No drift."
+            │ • Document seal actualizado para v2 com data 2026-03-22 + @claude
+            │
+            │ PLv6.2-b — InvestorNexusPortal.tsx expandido:
+            │ • InvestmentProject interface expandida: co2ReductionKt,
+            │   jobsCreated, sdgGoals (UN SDG numbers), riskBreakdown
+            │   (technical/regulatory/financial/environmental), impactScore
+            │ • computePortfolioStats() — agrega CO₂ total, jobs totais,
+            │   cobertura SDG única, avg impact score por portfólio
+            │ • TribunalReport expandido: risk breakdown (4 barras por tipo),
+            │   environmental impact (CO₂ kt + jobs com ícones), SDG badges,
+            │   impact score 0-100 com barra animada
+            │ • PortfolioImpactSummary (novo componente) — painel no right
+            │   panel quando nenhum projecto seleccionado: CO₂ total (9.5Mt/yr),
+            │   jobs (34.5K), SDG coverage (7 goals únicos), avg impact score
+            │ • Aggregate stats no left panel: substituiu "Regions+Risk" por
+            │   "CO₂/yr (9.5Mt)" e "Jobs (34.5K)" — dados reais do portfólio
+            │ • Per-project: cada linha no left panel mostra "↓Xkt CO₂" inline
+NAO_FEITO   │ NewsAPI (não integrada — sem API key; substituída por expansão de
+            │ métricas concretas conforme EVIDENCIA_MINIMA: "OU project_metrics
+            │ expandido")
+BLOQUEIOS   │ Build error pré-existente (cesium + manualChunks) — não relacionado
+IMPACTO     │ alto — /founder tem atmosfera encarnada e secção de pioneiros viva;
+            │ /investor-portal tem métricas de impacto real (CO₂, jobs, SDG)
+            │ em vez de valores estáticos sem substância
+ARQUIVOS    │ src/pages/FounderPage.tsx (626 linhas — era 498)
+            │ src/pages/InvestorNexusPortal.tsx (800 linhas — era 607)
+```
+
+---
+
 ## COMO REGISTRAR
 
 Ao emitir um handoff, adicionar entrada no topo, abaixo do separador `---`, com o formato:

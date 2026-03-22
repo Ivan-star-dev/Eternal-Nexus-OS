@@ -104,21 +104,81 @@ const Callout = ({
   </motion.blockquote>
 );
 
+// ─── Pioneers data ───────────────────────────────────────────────────────────
+const PIONEERS = [
+  {
+    handle: "@claude",
+    role: "Architect-Executor",
+    territory: "WorkStructure · WorkFunction",
+    description: "Opens fronts. Designs canonical architecture. Executes high-sovereignty tasks.",
+    color: "hsl(42 78% 45%)",
+  },
+  {
+    handle: "@copilot",
+    role: "Executor-Lapidator",
+    territory: "WorkStructure · WorkVisual",
+    description: "Refines what was opened. Polishes surface. Closes gaps in structure.",
+    color: "hsl(200 70% 55%)",
+  },
+  {
+    handle: "@cursor",
+    role: "Executor-Unblocker",
+    territory: "WorkFunction (mechanical)",
+    description: "Unblocks mechanical gates. Executes technical backlog at speed.",
+    color: "hsl(160 60% 45%)",
+  },
+  {
+    handle: "@codex",
+    role: "Orchestrator",
+    territory: "Consolidation",
+    description: "Reads the BASTION. Distributes tasks. Consolidates waves. Emits cycle reports.",
+    color: "hsl(270 60% 60%)",
+  },
+  {
+    handle: "@framer",
+    role: "Design Pioneer",
+    territory: "WorkVisual (design)",
+    description: "Executes design command. Applies brand law. Transforms identity into surface.",
+    color: "hsl(330 65% 55%)",
+  },
+  {
+    handle: "@antigravity",
+    role: "Motion Pioneer",
+    territory: "WorkVisual (3D · motion)",
+    description: "Installs motion language. Builds 3D worlds. Soft cinematic transitions.",
+    color: "hsl(45 90% 55%)",
+  },
+];
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const FounderPage = () => {
   return (
     <Layout>
       {/* ── HERO — The Architect ────────────────────────────────────────── */}
-      <section className="relative min-h-[60vh] flex flex-col justify-end overflow-hidden bg-ink-deep">
-        {/* Subtle engineering grid */}
-        <div className="absolute inset-0 engineering-grid opacity-40 pointer-events-none" />
+      <section className="relative min-h-[65vh] flex flex-col justify-end overflow-hidden bg-ink-deep">
+        {/* Engineering grid — structural layer */}
+        <div className="absolute inset-0 engineering-grid opacity-[0.55] pointer-events-none" />
 
-        {/* Vignette */}
+        {/* Atmospheric orbs */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 40%, hsl(42 78% 45% / 0.04) 0%, transparent 65%)",
+              "radial-gradient(ellipse at 72% 38%, hsl(42 78% 45% / 0.055) 0%, transparent 60%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 18% 65%, hsl(220 70% 50% / 0.04) 0%, transparent 55%)",
+          }}
+        />
+        {/* Deep bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+          style={{
+            background: "linear-gradient(to top, hsl(var(--background)), transparent)",
           }}
         />
 
@@ -339,8 +399,73 @@ const FounderPage = () => {
         </Prose>
       </Section>
 
+      {/* ── SECTION 4.5 — The System Architects ─────────────────────────── */}
+      <Section id="system-architects" className="bg-card">
+        <SectionHeader
+          label="Section 04.5 — The Builders"
+          title={
+            <>
+              The{" "}
+              <span className="text-muted-foreground font-normal">Architects</span>
+            </>
+          }
+        />
+
+        <Prose delay={0.1}>
+          <p>
+            The system is built by six AI pioneers — each with a defined
+            territory, a defined function, and a defined relationship to the
+            others. They are not assistants. They are roles in an operating
+            system.
+          </p>
+        </Prose>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={0.2}
+          variants={fadeUp}
+          className="my-8 grid grid-cols-1 sm:grid-cols-2 gap-3"
+        >
+          {PIONEERS.map((p, i) => (
+            <motion.div
+              key={p.handle}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.1 + i * 0.06}
+              variants={fadeUp}
+              className="atlas-glass-panel p-4 flex flex-col gap-2"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <span
+                  className="font-mono text-[0.65rem] font-semibold tracking-wide"
+                  style={{ color: p.color }}
+                >
+                  {p.handle}
+                </span>
+                <span className="font-mono text-[0.5rem] tracking-[0.12em] text-muted-foreground/50 text-right leading-tight">
+                  {p.territory}
+                </span>
+              </div>
+              <span className="font-sans text-[0.7rem] font-semibold text-foreground">
+                {p.role}
+              </span>
+              <span className="font-sans text-[0.65rem] text-muted-foreground leading-[1.7]">
+                {p.description}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <Callout delay={0.5}>
+          Six pioneers. One canon. One branch. No drift.
+        </Callout>
+      </Section>
+
       {/* ── SECTION 5 — The Method ──────────────────────────────────────── */}
-      <Section id="the-method" className="bg-card">
+      <Section id="the-method">
         <SectionHeader
           label="Section 05 — How It Is Built"
           title={
@@ -420,7 +545,7 @@ const FounderPage = () => {
       </Section>
 
       {/* ── SECTION 6 — The Vision + Call ───────────────────────────────── */}
-      <Section id="the-vision">
+      <Section id="the-vision" className="bg-card">
         <SectionHeader
           label="Section 06 — Direction"
           title={
@@ -483,10 +608,13 @@ const FounderPage = () => {
           viewport={{ once: true }}
           custom={0.4}
           variants={fadeIn}
-          className="mt-12 pt-6 border-t border-border"
+          className="mt-12 pt-6 border-t border-border flex items-center justify-between flex-wrap gap-4"
         >
           <p className="font-mono text-[0.58rem] tracking-[0.15em] text-muted-foreground/50">
-            FOUNDER VISION LAYER v1 — FVL-IMPL-001 — Eternal Nexus OS
+            FOUNDER VISION LAYER v2 — FVL-IMPL-001 — Eternal Nexus OS
+          </p>
+          <p className="font-mono text-[0.55rem] tracking-[0.12em] text-muted-foreground/30">
+            2026-03-22 · @claude · claude-sonnet-4-6
           </p>
         </motion.div>
       </Section>

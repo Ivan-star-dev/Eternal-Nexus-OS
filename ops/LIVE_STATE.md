@@ -31,8 +31,8 @@
 
 | ID | Tarefa | Pioneer | Estado |
 |----|--------|---------|--------|
-| PLv6.2-b | Próxima camada de produto | @claude | **ELEGÍVEL — P1** |
-| FVL-IMPL-001 | Founder Vision Layer polida | @claude + @copilot | **ELEGÍVEL — P1** |
+| PLv6.2-b | Próxima camada de produto | @claude | **CONCLUÍDA ✓** |
+| FVL-IMPL-001 | Founder Vision Layer polida | @claude | **CONCLUÍDA ✓** |
 | BULK-02.2 | Lapidação ops/ | @copilot | **ELEGÍVEL — P3** |
 | BULK-01.2/L-001 | Higiene .gitignore | @copilot | **ELEGÍVEL — P3** |
 | BULK-01.2/L-002 | git rm --cached timestamp | @copilot | **ELEGÍVEL — P3** |
