@@ -61,6 +61,9 @@ DECISAO_REC │ Manter BASTION 2.0 ativo com execução contínua por elegibilid
 EVIDENCE ═══════════════════════════════════════════════════════════════════
 ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
 TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION v1.3 com semáforo atualizado para BASTION-2.0-CYCLE-START-001
+                       │ LIVE_STATE atualizado com executor/timeline/estado de continuidade
+                       │ commit id: 296fad2
 PROVA_MINIMA           │ ops/BASTION.md — seção "BASTION v1.3" atualizada com semáforo ligado à TASK BASTION-2.0-CYCLE-START-001
                        │ ops/LIVE_STATE.md — seção de executor/timeline/estado ajustada para refletir continuidade do ciclo
                        │ ops/HANDOFF_LEDGER.md — bloco "EVIDENCE" desta entrada atualizado para registrar prova e commit id: 296fad2c79276c2b7d30c1ae30947a702e01b6f5
