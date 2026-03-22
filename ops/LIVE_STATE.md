@@ -114,7 +114,7 @@ SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
 🟢 WORKTREE: WorkStructure
-NATUREZA: mecânico / backlog do @cursor completado
+NATUREZA: mecânico
 EXECUTOR: @cursor (BULK-01.3-a/b/c done)
 IGNIÇÃO: ATIVA — ciclo contínuo em execução
 ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
