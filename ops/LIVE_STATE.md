@@ -20,10 +20,11 @@
 - **Pilar 2 — Structure** ✓
 - **Pilar 3 — Motion + Polish** ✓
 - **Pilar 4 — Data + Production** ✓
-- **Bastião Zero** — EM ANDAMENTO (mecânico: @copilot + @cursor)
-- **PLv6.2-b** — GATE ABERTO — @claude executa agora (P1)
-- **FVL-IMPL-001** — GATE ABERTO — @claude + @copilot + @antigravity (P1, paralelo)
-- **CYCLE-CLOSE-001** — aguarda handoffs → @codex consolida → PR para main
+- **Pilar 1–4** ✓ — todos fechados
+- **CYCLE-CLOSE-001** ✓ — PR aberto
+- **AUTOFLOW-COPILOT-001** ✓ — automação CI/CD completa instalada
+- **BLOCK-OP-001** — EM CURSO: White Paper + Reverse Tech + Hardware Prototype + Didactic Manifest
+- **Dev server** — ATIVO em http://localhost:5173
 
 ---
 
@@ -41,6 +42,11 @@
 | BMS-001 | Brand Mother System v1.0 | @claude | **CONCLUÍDA ✓** |
 | NS1-HERO | Index hero — Heaven Lab pass | @claude | **CONCLUÍDA ✓** |
 | FSP-001 | Feature Scaffolding Plan v1.0 | @claude | **CONCLUÍDA ✓** |
+| AUTOFLOW-COPILOT-001 | Auto PR + Auto Merge + Copilot Instructions v2 | @claude | **CONCLUÍDA ✓** |
+| DIDACTIC-001 | Didactic Manifest v1.0 | @claude | **CONCLUÍDA ✓** |
+| RT-001 | Reverse Tech Audit | @claude | **EM CURSO — agente paralelo** |
+| WP-001 | White Paper v1.0 | @claude | **EM CURSO — agente paralelo** |
+| HW-001 | Hardware Prototype Spec v0.1 | @claude | **EM CURSO — agente paralelo** |
 
 ---
 

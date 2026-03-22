@@ -8,6 +8,40 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BLOCK-OP-001 — Operação em bloco lançada: Reverse Tech + White Paper
+            │   + Hardware Prototype + Didactic Manifest + Auto-PR/Merge + Copilot v2
+            │ AUTOFLOW-COPILOT-001 — copilot-instructions.md v2.0 (BASTION protocol)
+            │   auto-pr.yml: PR automático em push para claude/* branch
+            │   auto-merge.yml: merge automático quando quality gate passa
+            │ DIDACTIC-001 — DIDACTIC_MANIFEST.md v1.0 criado:
+            │   6 módulos (A→F), curriculo completo, inovações catalogadas,
+            │   3 níveis de assessment (undergrad/grad/doctorate)
+            │ WHITE_PAPER.md — em produção por agente paralelo
+            │ REVERSE_TECH_AUDIT.md — em produção por agente paralelo
+            │ HARDWARE_PROTOTYPE.md — em produção por agente paralelo
+            │ Dev server arrancado: http://localhost:5173
+NAO_FEITO   │ Docs finais aguardam conclusão dos agentes paralelos
+IMPACTO     │ crítico — toda a documentação didática do sistema instalada;
+            │   automação completa do ciclo CI/CD implementada;
+            │   Copilot tem lei autónoma para operar sem briefing manual
+ARQUIVOS    │ .github/copilot-instructions.md (v2.0)
+            │ .github/workflows/auto-pr.yml (novo)
+            │ .github/workflows/auto-merge.yml (novo)
+            │ docs/didactic/DIDACTIC_MANIFEST.md (novo)
+            │ docs/WHITE_PAPER.md (em produção)
+            │ docs/REVERSE_TECH_AUDIT.md (em produção)
+            │ docs/HARDWARE_PROTOTYPE.md (em produção)
+COMMIT      │ 6f0ea76 (autoflow) + commits docs pendentes
+PROX_PASSO  │ Owner aprova merge PR → Fase C começa (@framer NS2/NS3)
+DECISAO_REC │ @owner: merge PR → @framer: NS2 (About) + NS3 (NavBar polish)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NS1+FSP-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ NS1 — Index hero transformado: engineering grid + 2 orbs atmosféricos
