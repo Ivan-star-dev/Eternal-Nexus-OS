@@ -49,6 +49,20 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ["react", "react-dom", "@tanstack/react-query"],
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-three": ["three", "@react-three/fiber", "@react-three/drei"],
+          "vendor-cesium": ["cesium"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-query": ["@tanstack/react-query"],
+        },
+      },
+    },
+  },
   worker: {
     format: "es",
   },
