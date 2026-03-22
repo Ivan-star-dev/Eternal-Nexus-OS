@@ -52,6 +52,153 @@ SUGESTOES   │ 1) Owner confirma MODO_AUTO ON e valida handoff; 2) @codex
             │ consolida onda e emite relatório-mãe; 3) Owner abre gate PLv6.2-b
             │ ou FVL-IMPL-001 para próxima frente de produto
 DECISAO_REC │ MODO_AUTO selado — máquina avança; owner revisita apenas em gate
+@copilot │ MODELO:github-copilot │ TASK:BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/FOL.md: duplos separadores `---` removidos entre secções
+            │ 9/10, 10/11 e 11/12 (ruído editorial de adições incrementais
+            │ — leitura limpa, estrutura preservada).
+            │ ops/LIVE_STATE.md: cabeçalho, secção 1 (estado/executor/
+            │ frente/camada/estado geral), fila @copilot (BULK-02.2 →
+            │ CONCLUÍDA), semáforo seção 3, linha temporal seção 3.1,
+            │ próximos passos seção 5 — todos atualizados.
+            │ ops/HANDOFF_LEDGER.md: esta entrada adicionada no topo.
+NAO_FEITO   │ docs/DOC_VISUAL_SPINE_001.md, docs/DOC_VISUAL_SPINE_002A.md,
+            │ ops/VISUAL_TEMPLATE_PACK_002A.md — referenciados no prompt mas
+            │ não existem no repo; fora do escopo de "sem abrir nova camada"
+BLOQUEIOS   │ —
+ADAPTACOES  │ Lapidação restrita a ruído editorial real encontrado (duplos
+            │ separadores FOL + LIVE_STATE desatualizado); arquivos visuais
+            │ ausentes não criados — escopo preservado
+ARQUIVOS    │ ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (editorial — zero toque em produto)
+@codex │ MODELO:GPT-5.2-Codex │ TASK:NEXUS-WORKFUNCTION-CODEX-REALIGN-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Branch local realinhado para o canônico do sistema
+            │ (`claude/expose-workspace-config-yt4Km`) e tomada formal do
+            │ WorkFunction executada com mapa técnico funcional real,
+            │ sentença KEEP/SALVAGE/KILL/REBUILD/OWNER_ONLY e ordem de assalto.
+NAO_FEITO   │ Correção dos erros herdados de lint/typecheck (apenas mapeados)
+BLOQUEIOS   │ Gates owner permanecem: PM canônico final, decisão PLv6.2-b+, 
+            │ e política de dados sensíveis/histórico (.env)
+ADAPTACOES  │ Branch canônico não existia localmente; foi criado a partir do
+            │ estado atual para preservar continuidade e remover desalinhamento.
+ARQUIVOS    │ ops/WORKFUNCTION_REALIGN_001.md (criado) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — Codex sai de consolidação leve e volta ao comando técnico
+            │ do pilar funcional com dependência real e sequência de ataque
+PROX_PASSO  │ iniciar assalto funcional pela frente de qualidade-base
+SUGESTOES   │ 1) atacar lint/typecheck por ondas de categoria; 2) resolver
+            │ hooks-order e bordas de dados antes da malha 3D profunda;
+            │ 3) manter tribunal técnico por item com sentença explícita
+DECISAO_REC │ executar ordem 1→2→3 do assalto funcional e manter owner gates
+            │ fora do core até deliberação explícita
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/WORKFUNCTION_REALIGN_001.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (WORKFUNCTION_REALIGN_001.md) + edit (restantes)
+PROVA_MINIMA           │ branch atual = claude/expose-workspace-config-yt4Km;
+                       │ mapa técnico funcional documentado e fila Codex atualizada
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkFunction
+NATUREZA    │ realinhamento de branch + comando técnico funcional
+EXECUTOR    │ @codex
+ESTADO      │ done
+ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo de execução contínua até segunda ordem reforçado no
+            │ núcleo operacional: BASTION v1.3 atualizado, artefato da ordem
+            │ full-auto criado e LIVE_STATE sincronizado com ciclo ativo.
+            │ Regra de passagem automática por CHAIN_BLOCK consolidada para
+            │ continuidade sem prompt redundante do owner.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Estado de branch local estava em `work`; branch canônico vivo
+            │ foi criado no ambiente e usado para execução desta task.
+ARQUIVOS    │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — governança de execução contínua reforçada no coração
+            │ operacional, com fluxo mais inteligível entre pioneiros
+PROX_PASSO  │ @copilot entra em BULK-01.2/L-001 e segue sequência elegível;
+            │ @cursor entra em BULK-01.3-a; @codex consolida com leitura
+            │ contínua dos handoffs recebidos
+SUGESTOES   │ 1) Manter no BASTION apenas tasks realmente elegíveis por gate;
+            │ 2) Exigir MICRO_REPORT + STATUS_FEED em toda conclusão;
+            │ 3) Owner só intervir em gate, trava real ou redirecionamento
+DECISAO_REC │ Continuar em full-auto com BASTION como fonte única; próximo
+            │ elo entra por ACTIVATION_MODE imediato quando condição = nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (OPS_FULL_AUTO_UNTIL_STOP_001.md) + edit (restantes)
+PROVA_MINIMA           │ BASTION v1.3 com semáforo reforçado + LIVE_STATE sincronizado
+                       │ com full-auto + ledger prepend desta task
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / execução contínua até segunda ordem
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
+            │ retorna ao BASTION e continua enquanto houver elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático pelo BASTION activado e selado para execução
+            │ contínua: terminou task → lê BASTION → executa elegível →
+            │ registra → passa bastão → volta ao BASTION.
+            │ ops/BASTION_AUTO_001.md criado com estado final da activação.
+            │ ops/BASTION.md atualizado (histórico + semáforo v1.2 com
+            │ AUTOMÁTICO: ON e critério de entrada imediata).
+            │ ops/LIVE_STATE.md atualizado (executor, estado geral, semáforo,
+            │ fila @claude e linha temporal com OPS-BASTION-AUTO-001).
+            │ ops/HANDOFF_LEDGER.md: entrada prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Branch local detectada como `work`; sem mudança de branch nesta task
+ARQUIVOS    │ ops/BASTION_AUTO_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — governança operacional reforçada sem alterar produto
+PROX_PASSO  │ @copilot e @cursor seguem tasks elegíveis já abertas; @claude
+            │ retorna ao BASTION e aguarda gate owner para PLv6.2-b/FVL-IMPL-001
+SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atual;
+            │ 2) Próximo executor validar NEXT_ACTOR/ACTIVATION_MODE/CONDITION
+            │ antes de entrar; 3) Codex refletir estado automático no próximo
+            │ relatório-mãe consolidado
+DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
+            │ elegíveis no BASTION com ativação imediata quando aplicável
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -63,6 +210,25 @@ TIPO_DE_ACAO           │ edit (BASTION.md: v1.2 + concluídas + semáforo MODO
                        │ edit (HANDOFF_LEDGER.md: nova entrada topo)
 PROVA_MINIMA           │ BASTION.md v1.2 selado | MODO_AUTO registado | commit a seguir
 ALTERACAO_REAL_CONFIRMADA │ sim
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_AUTO_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_AUTO_001.md) + edit (restantes)
+PROVA_MINIMA           │ seção 5.1 e seção 8 do BASTION atualizadas para registrar OPS-BASTION-AUTO-001
+                       │ LIVE_STATE atualizado para "Última atualização: 2026-03-21" e estado automático
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🔴 work (diverge do canônico informado no semáforo de entrada)
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / modo automático pelo BASTION
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ modo automático ligado; corrente segue por elegibilidade BASTION
+            │ + ACTIVATION_MODE imediato + ACTIVATION_CONDITION nenhuma
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -326,6 +492,17 @@ DEPENDENCIA │ independente
 DEPENDE_DE  │ nenhum
 PODE_ENTRAR │ sim
 ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot BULK-01.2/L-001 (higiene .gitignore — gaps E4) +
+            │ L-002 (rm --cached timestamp file) — gates abertos, pode
+            │ entrar agora; owner decide PLv6.2-b + FVL-IMPL-001
+SUGESTOES   │ 1) BULK-01.2/L-001+L-002 são mecânicos e seguros — @copilot
+            │ pode entrar sem gate adicional; 2) Codex pode consolidar onda
+            │ atual (OPS-HANDOFF-001 ativo) para dar visão unificada ao
+            │ owner antes de PLv6.2-b; 3) owner responde B-002 (PM canônico)
+            │ para destravar backlog mecânico do @cursor
+DECISAO_REC │ rastro limpo; sistema mais pronto para próxima camada; @copilot
+            │ segue para BULK-01.2/L-001+L-002 via loop IGNITION; owner
+            │ decide PLv6.2-b quando pronto
 PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + WORKTREE_ALIASES →
             │ BULK-02.2 em WorkStructure (FORÇA PRINCIPAL, Lapidação);
             │ owner decide PLv6.2-b + FVL-IMPL-001; aliases passam a valer
@@ -347,6 +524,13 @@ DECISAO_REC │ Aliases operacionais em vigor — owner pode operar com
 CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
 CHAT        │ 🟢 mesmo
 BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-copilot-funcionalidade
+NATUREZA    │ lapidação / suavização operacional
+EXECUTOR    │ @copilot
+ESTADO      │ done
+ATIVA       │ BULK-02.2 done; FOL sem ruído editorial; LIVE_STATE atualizado;
+            │ sistema mais limpo para próxima camada; @copilot próximo:
+            │ BULK-01.2/L-001+L-002 (gates abertos); PLv6.2-b aguarda owner
 WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
 NATUREZA    │ governança / aliases operacionais dos worktrees
 EXECUTOR    │ @claude

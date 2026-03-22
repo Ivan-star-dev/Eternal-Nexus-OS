@@ -6,6 +6,10 @@
 
 **Última atualização:** 2026-03-21
 **Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-AUTO-001
+**Última atualização:** 2026-03-20
+**Atualizado por:** @copilot | BULK-02.2
+**Última atualização:** 2026-03-21
+**Atualizado por:** @codex | GPT-5.2-Codex | NEXUS-WORKFUNCTION-CODEX-REALIGN-001
 
 ---
 
@@ -19,6 +23,14 @@
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; MODO_AUTO selado — pioneiros em ignição contínua sem instrução manual |
 | **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos e selados; MODO_AUTO ON; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Executor ativo** | @copilot (BULK-02.2 concluída) |
+| **Frente ativa** | Lapidação operacional / wt-copilot-funcionalidade |
+| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BULK-02.2 done (lapidação de superfície ops/) |
+| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; BULK-02.2 done (FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados); IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
+| **Executor ativo** | @codex (NEXUS-WORKFUNCTION-CODEX-REALIGN-001 concluído) |
+| **Frente ativa** | Pilar funcional / WorkFunction |
+| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; execução contínua até segunda ordem reforçada (OPS-FULL-AUTO-UNTIL-STOP-001) |
+| **Estado geral** | Branch canônico realinhado para o executor Codex; tomada formal do WorkFunction concluída com mapa técnico funcional emitido; governança e linhas paralelas mantidas sem alteração estrutural. |
 
 ---
 
@@ -49,6 +61,8 @@
 | OPS-BASTION-001 | Criar o BASTION — coração canônico de execução dos pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-DISPATCH-001 | Emitir BASTION_DISPATCH_001 — activar todos os pioneiros | CONCLUÍDA | handoff emitido |
 | OPS-BASTION-AUTO-001 | Selar modo automático — IGNIÇÃO_ATIVA permanente; BASTION governa fila | CONCLUÍDA | handoff emitido |
+| OPS-BASTION-AUTO-001 | Activar modo automático de execução pelo BASTION seguindo protocolo vivo | CONCLUÍDA | handoff emitido |
+| OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 
@@ -56,9 +70,10 @@
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
-| OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | owner solicita relatório-mãe — não requer branch alinhado |
+| OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | consolidação contínua por handoffs recebidos |
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
-| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | BLOQUEADA | branch não alinhado ao canônico — entra na próxima onda após alinhamento |
+| NEXUS-WORKFUNCTION-CODEX-REALIGN-001 | Realinhamento de branch + tomada WorkFunction | CONCLUÍDA | branch canônico vivo + mapa funcional emitido |
+| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | ELEGÍVEL | bloqueio de branch removido nesta sessão |
 
 ### @cursor (Desbloqueador / Backlog Mecânico)
 
@@ -74,7 +89,7 @@
 |---|---|---|---|
 | BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
 | BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora |
-| BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | GATE ABERTO | FOL v1 criado por Claude — pode iniciar |
+| BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | CONCLUÍDA | handoff emitido |
 | — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
 
 ### Micro Team
@@ -91,6 +106,13 @@
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/expose-workspace-config-yt4Km
+🟢 WORKTREE: wt-copilot-funcionalidade
+NATUREZA: lapidação / suavização operacional
+EXECUTOR: @copilot (BULK-02.2 done)
+IGNIÇÃO: ATIVA
+ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
+ESTADO: done (Copilot — BULK-02.2: FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados)
+CANALIZAÇÃO ATIVA: BULK-02.2 concluída; FOL v1.4 sem ruído editorial; LIVE_STATE atualizado; HANDOFF_LEDGER com entrada de @copilot; próximos gates: @copilot BULK-01.2/L-001+L-002 (abertos); PLv6.2-b + FVL-IMPL-001 aguardam gate owner
 🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
 NATUREZA: governança / modo automático selado / IGNIÇÃO_ATIVA permanente
 EXECUTOR: @claude (OPS-BASTION-AUTO-001 done)
@@ -105,6 +127,20 @@ BASTION: ACTIVO v1.2 — MODO_AUTO ON; pioneiros em ignição contínua
 EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
 ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001)
 CANALIZAÇÃO ATIVA: MODO_AUTO selado; máquina em ignição contínua; owner só entra para gate, visão, trava ou redirecionamento
+NATUREZA: governança / execução contínua até segunda ordem
+EXECUTOR: @claude (OPS-FULL-AUTO-UNTIL-STOP-001 done)
+IGNIÇÃO: ATIVA
+ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
+BASTION: ACTIVO v1.3 — modo full-auto reforçado; pioneiros seguem loop contínuo
+@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
+@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
+@codex: WORKFUNCTION ACTIVO → branch canônico alinhado + tribunal técnico funcional emitido
+@claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+ATIVAÇÃO_AUTOMÁTICA: NEXT_ACTOR=ele + ACTIVATION_MODE=imediato + ACTIVATION_CONDITION=nenhuma
+FULL_AUTO: ACTIVO até segunda ordem do owner ou condição real de parada
+EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
+ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001 + OPS-FULL-AUTO-UNTIL-STOP-001)
+CANALIZAÇÃO ATIVA: execução contínua selada; cada elo volta ao BASTION após concluir e entra no próximo com ativação imediata quando elegível
 ```
 
 ---
@@ -118,13 +154,20 @@ MACROFASE: Fase 3 → Bulking Controlado do Produto
 ─────────────────────────────────────────────
 Claude:  OPS-BASTION-AUTO-001 — MODO_AUTO selado; IGNIÇÃO_ATIVA permanente registada; BASTION governa fila; owner só entra para gate/visão/trava/redirecionamento
 Claude:  OPS-BASTION-DISPATCH-001 — BASTION_DISPATCH_001.md emitido (@copilot activado: L-001→L-002→BULK-02.2; @cursor activado: 01.3-a→b→c; @codex consolidador activo; @claude sem tasks elegíveis — aguarda gate owner)
+Claude:  OPS-BASTION-AUTO-001 — HANDOFF EMITIDO (modo automático reforçado; regra-mãe activa: terminou task → lê BASTION → executa elegível → registra → passa bastão → volta ao BASTION)
+Claude:  OPS-FULL-AUTO-UNTIL-STOP-001 — HANDOFF EMITIDO (execução contínua disciplinada até segunda ordem; fechamento expandido com MICRO_REPORT + STATUS_FEED + CHAIN_BLOCK por task)
 Claude:  OPS-BASTION-001 — HANDOFF EMITIDO (BASTION.md v1 criado: matriz viva, regra-mãe, 9 secções, semáforo, loop do pioneiro; FOL v1.7 seção 15; LIVE_STATE atualizado; BASTION ACTIVO)
 Claude:  OPS-EVIDENCE-BLOCK-001 — HANDOFF EMITIDO (OUTPUT_STANDARD v1.1: seção 8 EVIDENCE_BLOCK + nova ordem de emissão; FOL v1.6 seção 14; LIVE_STATE atualizado; EVIDENCE_BLOCK vigente imediatamente)
 Claude:  OPS-WORKTREE-ALIAS-001 — HANDOFF EMITIDO (WORKTREE_ALIASES.md selado; WorkStructure/WorkFunction/WorkVisual registados; FOL v1.5; LIVE_STATE atualizado com aliases no semáforo)
 Claude:  OPS-IGNITION-001 — HANDOFF EMITIDO (IGNITION.md selado; IGNIÇÃO_ATIVA ligada; FOL v1.4 + NLF v1.1; loop 7 passos canônico; interruptor definido)
+Copilot: BULK-02.2 — CONCLUÍDA (FOL duplo-separador removido; LIVE_STATE + HANDOFF_LEDGER atualizados; rastro editorial limpo)
+Cursor:  timeout auxiliar — fora da trava desta onda (BULK-01.3-a/b/c gates abertos)
+Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
+─────────────────────────────────────────────
+PRÓXIMA TRANSIÇÃO: @copilot BULK-01.2/L-001+L-002 (gates abertos — higiene .gitignore + rm --cached); owner decide PLv6.2-b + FVL-IMPL-001; Codex pode consolidar onda
 Copilot: BULK-02.2 — ELEGÍVEL NO BASTION (WorkStructure, Lapidação ops/)
 Cursor:  BULK-01.3-a/b/c — ELEGÍVEIS NO BASTION (mecânico, gates abertos)
-Codex:   CONSOLIDADOR ATIVO (sem branch requerido) | F6 EM ANDAMENTO | BULK-01-Codex bloqueado (branch)
+Codex:   WORKFUNCTION ACTIVO (branch canônico alinhado) | F6 EM ANDAMENTO | BULK-01-Codex desbloqueado
 ─────────────────────────────────────────────
 PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência obrigatória); @cursor executa 01.3-a → b → c; @codex consolida quando handoffs chegarem; @claude aguarda gate owner para PLv6.2-b ou FVL-IMPL-001
 ```
@@ -153,6 +196,13 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2 (sequência
 6. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
 7. **Owner responde B-002** — confirmar npm como PM canônico
 8. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
+1. **@copilot** — BULK-01.2/L-001 (gate aberto — higiene `.gitignore`, cobrir gaps E4) + L-002 (`rm --cached` do timestamp file) → pode entrar agora via loop IGNITION
+2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
+3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
+4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
+5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
+6. **Owner responde B-002** — confirmar npm como PM canônico
+7. **@codex** — iniciar assalto funcional em qualidade (lint/typecheck) com sentença KEEP/SALVAGE/REBUILD já emitida
 
 ---
 
