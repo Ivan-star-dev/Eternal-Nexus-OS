@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -83,7 +84,12 @@ interface L1CorporateHeaderProps {
 
 function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps) {
   return (
-    <div className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30">
+    <motion.div
+      className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30"
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
         {/* Identity + Phase */}
         <div className="flex items-center gap-3">
@@ -135,7 +141,7 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -169,7 +175,12 @@ function L2ContextRail({
   streamingMeta,
 }: L2ContextRailProps) {
   return (
-    <section className="mb-4 border border-border/20 rounded-lg bg-card/40">
+    <motion.section
+      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      initial={{ x: -16, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.35, ease: "easeOut", delay: 0.1, staggerChildren: 0.05 }}
+    >
       {/* Semaphore + gate header */}
       <div className="flex items-center justify-between px-4 py-2 border-b border-border/20">
         <div className="flex items-center gap-3">
@@ -259,7 +270,7 @@ function L2ContextRail({
           </pre>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 
@@ -291,7 +302,12 @@ function L3LongReadCore({
   if (!result && !streamingMeta) return null;
 
   return (
-    <section className="mb-4 border border-border/20 rounded-lg bg-card/40">
+    <motion.section
+      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+    >
       {/* Section header */}
       <div className="flex items-center gap-2 px-4 py-2 border-b border-border/20">
         <Brain className="h-3.5 w-3.5 text-primary" />
@@ -340,7 +356,7 @@ function L3LongReadCore({
           </div>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 
