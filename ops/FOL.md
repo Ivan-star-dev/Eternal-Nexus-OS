@@ -302,8 +302,6 @@ Ver `ops/CODEX_CONSOLIDATOR.md` — blueprint canônico completo com formato do 
 
 ---
 
----
-
 ## 10. PADRÃO DE OUTPUT COPIÁVEL
 
 **Registrado em:** OPS-OUTPUT-001 | 2026-03-20
@@ -328,8 +326,6 @@ Layout fixo, consistente e idêntico para todos os pioneiros.
 ### Referência completa
 
 Ver `ops/OUTPUT_STANDARD.md` — templates, campos obrigatórios, regras de preenchimento e identidade operacional.
-
----
 
 ---
 
@@ -370,8 +366,6 @@ Ao terminar uma task, o pioneiro não entra em vazio — ele lê o estado e iden
 
 Ver `ops/AUTOFLOW.md` — documento canônico com loop completo, matrix, apoio cruzado,
 motor de indução e o que o sistema torna desnecessário.
-
----
 
 ---
 

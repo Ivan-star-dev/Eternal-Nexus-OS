@@ -20,7 +20,7 @@
 | Dimensão | Valor atual |
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
-| **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
+| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
 | **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
@@ -118,7 +118,7 @@
 ```
 SEMÁFORO:
 🟢 CHAT: mesmo
-🟢 BRANCH: claude/expose-workspace-config-yt4Km
+🟢 BRANCH: claude/rebuild-bastion-core-rihGX
 🟢 WORKTREE: WorkStructure
 NATUREZA: mecânico / backlog do @cursor completado
 EXECUTOR: @cursor (BULK-01.3-a/b/c done)
