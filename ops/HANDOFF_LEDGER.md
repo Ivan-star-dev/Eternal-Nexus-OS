@@ -33,6 +33,46 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V10-LINE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/V10_PROJECT_LINE_SYSTEM.md criado — linha V1→V10 completa
+            │ com diagnóstico honesto (V8 conceptual / V2-V3 produto),
+            │4 famílias, 4 leis, Protocol V10 Line Guidance, árvore, camadas,
+            │ funções e estados. CLAUDE.md atualizado com referência.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/V10_PROJECT_LINE_SYSTEM.md (novo) | CLAUDE.md (ref adicionada)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md (atualizado)
+IMPACTO     │ alto
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 — encarnação visual V3 no produto
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CASCADE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROTOCOL_CASCADE_CANON.md criado — 3 famílias, 6 leis,
+            │ 4 blocos fixos de resposta (CASCADE RETENTION / STRUCTURE /
+            │ MATCHED MATTER / REFINEMENT V10), master prompt executável,
+            │ bagagem permanente do projecto, árvore, camadas, estados.
+            │ CLAUDE.md: tabela de artefactos expandida com PROTOCOL_BRANCH_GUARD
+            │ e PROTOCOL_CASCADE_CANON.
+NAO_FEITO   │ HANDOFF_LEDGER e LIVE_STATE não atualizados na sessão anterior
+             │ (corrigido nesta sessão)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Handoff consolidado com sessão V10-LINE-001 para reduzir duplicação
+ARQUIVOS    │ ops/PROTOCOL_CASCADE_CANON.md (novo) | CLAUDE.md (2 refs adicionadas)
+IMPACTO     │ alto
+PROXIMO_PASSO│ V10-LINE-001 (executado nesta mesma sessão)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @owner+claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-DISPATCH │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ Gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner.

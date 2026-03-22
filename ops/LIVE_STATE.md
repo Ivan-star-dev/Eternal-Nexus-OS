@@ -76,4 +76,14 @@ PIONEERS: @claude P1 | @copilot P1+P3 | @cursor mecânico | @codex consolidador 
 
 ---
 
-_Última atualização: 2026-03-22 — CYCLE-CLOSE-DISPATCH / owner + @claude_
+## 6. Protocolos de Governança Instalados
+
+| Protocolo | Ficheiro | Estado |
+|-----------|----------|--------|
+| BRANCH-GUARD-001 | `ops/PROTOCOL_BRANCH_GUARD.md` + `.claude/hooks/branch-guard.sh` | ✓ ACTIVO |
+| CASCADE-CANON-001 | `ops/PROTOCOL_CASCADE_CANON.md` | ✓ ACTIVO |
+| V10-LINE-001 | `ops/V10_PROJECT_LINE_SYSTEM.md` | ✓ ACTIVO |
+
+---
+
+_Última atualização: 2026-03-22 — V10-LINE-001 + CASCADE-CANON-001 + BRANCH-GUARD-001 instalados / @claude_
