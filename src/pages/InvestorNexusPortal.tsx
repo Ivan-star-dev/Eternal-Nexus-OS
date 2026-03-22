@@ -24,6 +24,7 @@ import {
   BarChart3,
   FileText,
 } from "lucide-react";
+import ProjectMetrics from "@/components/ProjectMetrics";
 
 // ═══════════════════════════════════════════════
 // Living Project Renders — 3D Investment View
@@ -467,6 +468,11 @@ export default function InvestorNexusPortal() {
               </div>
             </button>
           ))}
+        </div>
+
+        {/* Portfolio Analytics */}
+        <div className="p-3 border-t border-white/5">
+          <ProjectMetrics projects={PROJECTS} />
         </div>
 
         {/* Aggregate Stats */}
