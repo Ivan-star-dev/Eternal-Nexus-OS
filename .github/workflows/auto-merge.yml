@@ -1,0 +1,85 @@
+name: Auto Merge — Quality Gate Passed
+
+on:
+  workflow_run:
+    workflows:
+      - "App Quality"
+    types:
+      - completed
+  pull_request:
+    types:
+      - labeled
+
+jobs:
+  auto-merge:
+    name: Merge when all checks pass
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    # Só corre se quality workflow passou
+    if: |
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      (github.event_name == 'pull_request' && github.event.label.name == 'auto-merge')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find PR for this commit
+        id: find-pr
+        run: |
+          SHA="${{ github.event.workflow_run.head_sha || github.sha }}"
+          PR=$(gh pr list \
+            --base main \
+            --state open \
+            --json number,headRefName,headSha \
+            --jq ".[] | select(.headSha == \"$SHA\") | .number" \
+            | head -1)
+          echo "pr_number=$PR" >> $GITHUB_OUTPUT
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check all required status checks
+        id: check-status
+        if: steps.find-pr.outputs.pr_number != ''
+        run: |
+          PR="${{ steps.find-pr.outputs.pr_number }}"
+          STATUS=$(gh pr view "$PR" \
+            --json statusCheckRollup \
+            --jq '.statusCheckRollup | map(.conclusion) | all(. == "SUCCESS")')
+          echo "all_passed=$STATUS" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge
+        if: |
+          steps.find-pr.outputs.pr_number != '' &&
+          steps.check-status.outputs.all_passed == 'true'
+        run: |
+          PR="${{ steps.find-pr.outputs.pr_number }}"
+          gh pr merge "$PR" --auto --squash \
+            --subject "feat: auto-merge PR #$PR — quality gate passed" \
+            --body "Merged automaticamente pelo AUTOFLOW após quality gate.
+
+Branch: $(gh pr view $PR --json headRefName --jq '.headRefName')
+SHA: ${{ steps.find-pr.outputs.sha }}
+
+_AUTOFLOW-COPILOT-001 | Eternal Nexus OS_"
+          echo "PR #$PR merged automaticamente."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report — no PR found
+        if: steps.find-pr.outputs.pr_number == ''
+        run: |
+          echo "Nenhum PR aberto encontrado para SHA ${{ steps.find-pr.outputs.sha }}. Nada a fazer."
+
+      - name: Report — checks not passed
+        if: |
+          steps.find-pr.outputs.pr_number != '' &&
+          steps.check-status.outputs.all_passed != 'true'
+        run: |
+          echo "PR #${{ steps.find-pr.outputs.pr_number }} encontrado mas nem todos os checks passaram. Aguardando."
