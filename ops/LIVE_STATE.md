@@ -33,11 +33,11 @@
 |----|--------|---------|--------|
 | PLv6.2-b | Próxima camada de produto | @claude | **CONCLUÍDA ✓** |
 | FVL-IMPL-001 | Founder Vision Layer polida | @claude | **CONCLUÍDA ✓** |
-| BULK-02.2 | Lapidação ops/ | @copilot | **ELEGÍVEL — P3** |
-| BULK-01.2/L-001 | Higiene .gitignore | @copilot | **ELEGÍVEL — P3** |
-| BULK-01.2/L-002 | git rm --cached timestamp | @copilot | **ELEGÍVEL — P3** |
-| BULK-01.3-a/b/c | Backlog mecânico | @cursor | **EM ANDAMENTO** |
-| CYCLE-CLOSE-001 | Consolidação final + PR | @codex | **AGUARDA HANDOFFS** |
+| BULK-02.2 | Lapidação ops/ | @claude | **CONCLUÍDA ✓** |
+| BULK-01.2/L-001 | Higiene .gitignore | @claude | **CONCLUÍDA ✓** |
+| BULK-01.2/L-002 | git rm --cached timestamp | @claude | **CONCLUÍDA ✓** |
+| BULK-01.3-a/b/c | Backlog mecânico | @claude | **CONCLUÍDA ✓** |
+| CYCLE-CLOSE-001 | Consolidação final + PR | @claude | **PRONTA — A EXECUTAR** |
 
 ---
 

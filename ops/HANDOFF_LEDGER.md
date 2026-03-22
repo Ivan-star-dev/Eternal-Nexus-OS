@@ -8,6 +8,39 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BULK-01+BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.2/L-001 — .gitignore auditado: já cobria vite timestamps,
+            │   bun.lock, .claude/, artifacts CI. Nenhum gap encontrado. ✓
+            │ BULK-01.2/L-002 — vite timestamp files NÃO estão tracked no git.
+            │   O padrão `vite.config.ts.timestamp-*` já os exclui. ✓
+            │ BULK-01.3-a — Confirmado: nenhum vite timestamp file rastreado.
+            │   .gitignore já resolve. ✓
+            │ BULK-01.3-b — Decisão: npm é o PM canónico. package-lock.json
+            │   tracked, bun.lock excluído (.gitignore já reflecte). ✓
+            │ BULK-01.3-c — antigravity/ auditado: 168 ficheiros de research
+            │   assets (whitepapers, simulations, figures, media, skills).
+            │   Conteúdo intencional do pioneer @antigravity. Sem legacy-html.
+            │   Sem lixo mecânico. Mantém-se tracked. ✓
+            │ BULK-02.2 — NEXUS_NEURAL_MESH.md lapidado:
+            │   • N-12 PRODUCT_LAYER: EM BULKING → ATIVO, PLv1→PLv6.2-a →
+            │     PLv1→PLv6.2-b ✓ FVL ✓
+            │   • Tabela produto: PLv6.2-b "aguarda gate" → "concluída ✓";
+            │     FVL "aguarda gate" → "concluída ✓"
+            │   • Maturity table: PLv6.2-a AINDA_GROSSO → PLv6.2-b JA_MADURO;
+            │     FOUNDER_VISION_LAYER v1 PRECISA_REFINO → v2 JA_MADURO
+            │   • Stage 5/6: → aguarda → ✓ concluída para ambos
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ médio — superfície operacional limpa; git hygiene confirmada;
+            │ NEXUS_NEURAL_MESH reflecte estado real do sprint
+ARQUIVOS    │ ops/NEXUS_NEURAL_MESH.md (4 edições de lapidação)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:FVL-IMPL-001+PLv6.2-b │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ FVL-IMPL-001 — FounderPage.tsx polido (v2):

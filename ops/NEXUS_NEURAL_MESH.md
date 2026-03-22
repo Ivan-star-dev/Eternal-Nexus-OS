@@ -65,7 +65,7 @@ N-08      │ OUTPUT_LAYER        │ padrão        │ ATIVO      │ OUTPUT_S
 N-09      │ CROSS_SUPPORT_LAYER │ polivalência  │ ATIVO      │ CROSS_SUPPORT
 N-10      │ LIVE_STATE_MIRROR   │ espelho vivo  │ ATIVO      │ LIVE_STATE
 N-11      │ HANDOFF_LEDGER_NODE │ ledger        │ ATIVO      │ HANDOFF_LEDGER
-N-12      │ PRODUCT_LAYER       │ produto       │ EM BULKING │ PLv1→PLv6.2-a
+N-12      │ PRODUCT_LAYER       │ produto       │ ATIVO      │ PLv1→PLv6.2-b ✓ FVL ✓
 N-13      │ VISUAL_LAYER        │ visual        │ AGUARDA    │ DOC_VISUAL_SPINE
 N-14      │ CORPORATE_LAYER     │ corporação    │ MAPEADO    │ FLOWMESH seção 6
 N-15      │ DIDACTIC_LAYER      │ didática      │ PLANEJADO  │ (a criar)
@@ -176,8 +176,8 @@ WORKTREE_ALIASES.md        │ v1.1   │ JA_MADURO        │ aliases operacion
 NLF.md                     │ v1.2   │ JA_MADURO        │ leis operacionais activas
 FLOWMESH.md                │ v1.0   │ AINDA_GROSSO     │ criado; primeiro ciclo pendente
 NEXUS_NEURAL_MESH.md       │ v1.0   │ AINDA_GROSSO     │ criado; ativação completa pendente
-PLv6.2-a (produto)         │ —      │ AINDA_GROSSO     │ PLv6.2-b aguarda gate owner
-FOUNDER_VISION_LAYER       │ v1     │ PRECISA_REFINO   │ blueprint pronto; impl. pendente
+PLv6.2-b (produto)         │ —      │ JA_MADURO        │ concluída 2026-03-22 — métricas expandidas
+FOUNDER_VISION_LAYER       │ v2     │ JA_MADURO        │ FVL-IMPL-001 concluída; FounderPage v2 live
 CODEX_CONSOLIDATOR.md      │ v1     │ PRECISA_REFINO   │ blueprint; codex não totalmente op.
 BASTION_DISPATCH_001.md    │ v1     │ PRECISA_REFINO   │ dispatch emitido; modelos pendentes
 CORPORATE_LAYER (D01-D12)  │ —      │ AINDA_GROSSO     │ mapeado no FLOWMESH; não activado
@@ -252,8 +252,8 @@ A camada de produto está ligada à rede neural através de tasks no BASTION.
 | PLv5 — DATA_LAYER_1 (7/7 órgãos) | PLv5.1 | concluída | — |
 | PLv6.1 — Projects Table Layer | PLv6.1 | concluída | — |
 | PLv6.2-a — Projects Gallery Layer | PLv6.2-a | concluída | — |
-| PLv6.2-b — próxima camada | PLv6.2-b | aguarda gate | owner decide: NewsAPI? metrics? portfólio? |
-| FVL — Founder Vision Layer | FVL-IMPL-001 | aguarda gate | blueprint pronto |
+| PLv6.2-b — metrics + impact expansion | PLv6.2-b | concluída ✓ | CO₂/jobs/SDG/impactScore integrados |
+| FVL — Founder Vision Layer | FVL-IMPL-001 | concluída ✓ | FounderPage v2 + pioneer grid live |
 
 ### Regra de produto
 
@@ -350,13 +350,13 @@ ESTÁGIO ATUAL: Stage 5 — Mesh de Inteligência Operacional
   ✓ PIONEER_MATRIX selada
   ✓ FLOWMESH criado (roteamento v1)
   ✓ NEXUS_NEURAL_MESH criado (camada neural v1)
-  → PLv6.2-b aguarda gate owner
-  → FVL-IMPL-001 aguarda gate owner
+  ✓ PLv6.2-b — concluída 2026-03-22 (métricas: CO₂, jobs, SDG, impactScore)
+  ✓ FVL-IMPL-001 — concluída 2026-03-22 (FounderPage v2 + pioneer grid)
 
 PRÓXIMO: Stage 6 — Produto em Escala
-  □ PLv6.2-b — próxima camada de produto (owner decide)
-  □ FVL-IMPL-001 — Founder Vision Layer implementada
-  □ PLv7+ — expansão de produto (post-gate)
+  ✓ PLv6.2-b — concluída
+  ✓ FVL-IMPL-001 — concluída
+  □ PLv7+ — expansão de produto (post-CYCLE-CLOSE-001)
 
 FUTURO: Stage 7 — Corporate Activation
   □ D01-D12 activados progressivamente

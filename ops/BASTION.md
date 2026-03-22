@@ -128,6 +128,12 @@ Cada item da matriz regista os seguintes campos:
 | PLv6.2-a | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.2-a |
 | PLv6.2-b | Produto | WorkFunction | @claude | concluída | handoff emitido — project_metrics expandido (CO₂, jobs, SDG, impactScore, PortfolioImpactSummary) |
 | FVL-IMPL-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | handoff emitido — FounderPage v2 (hero atmosférico, secção Architects, 6 pioneers, seal v2) |
+| BULK-01.2/L-001 | Mecânico | WorkStructure | @claude | concluída | .gitignore auditado — sem gaps; vite/bun/cli já cobertos |
+| BULK-01.2/L-002 | Mecânico | WorkStructure | @claude | concluída | timestamp files não rastreados — .gitignore resolve |
+| BULK-01.3-a | Mecânico | WorkStructure | @claude | concluída | vite timestamps não tracked — confirmado |
+| BULK-01.3-b | Mecânico | WorkStructure | @claude | concluída | decisão: npm canónico; package-lock.json tracked; bun.lock excluído |
+| BULK-01.3-c | Mecânico | WorkStructure | @claude | concluída | antigravity/ auditado — 168 ficheiros research assets intencional; sem lixo |
+| BULK-02.2 | Governança | WorkStructure | @claude | concluída | NEXUS_NEURAL_MESH.md lapidado — 4 rastos PLv6 actualizados para estado real |
 | OPS-OUTPUT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1 |
 | GENESIS-FOUNDER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido |
 | OPS-AUTOFLOW-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — AUTOFLOW v1 |
@@ -391,26 +397,26 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.9
+VERSÃO          │ v2.0
 DATA            │ 2026-03-22
-ÚLTIMA_ACTUAÇÃO │ CYCLE-CLOSE-DISPATCH | owner + @claude | 2026-03-22
-ESTADO          │ FECHAMENTO DE CICLO ATIVO — todos os gates abertos pelo owner
-CICLO_2.0       │ ATIVO — sprint final; todos os pioneers em fluxo máximo
+ÚLTIMA_ACTUAÇÃO │ BULK-CLOSE | @claude cross-support | 2026-03-22
+ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
+CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
 DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
-TASKS_ELEGÍVEIS │ PLv6.2-b | FVL-IMPL-001 | CYCLE-CLOSE-001 |
-                │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
-@claude         │ EXECUTOR PRINCIPAL → PLv6.2-b + FVL-IMPL-001 (paralelo, P1)
-@copilot        │ EM FLUXO → L-001 → L-002 → BULK-02.2 → apoio FVL-IMPL-001 (WorkVisual)
-@cursor         │ EM FLUXO → fechar BULK-01.3 → suporte mecânico PLv6.2-b
-@codex          │ CONSOLIDADOR FINAL → aguarda handoffs → emite relatório-mãe → CYCLE-CLOSE-001
-@antigravity    │ APOIO WorkVisual → FVL-IMPL-001 (polimento visual)
-@framer         │ APOIO WorkVisual → FVL-IMPL-001 (animações)
-GATES_FECHADOS  │ nenhum — owner abriu todos em 2026-03-22
-BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (paralelo, não bloqueia)
-IGNIÇÃO         │ ATIVA — SPRINT FINAL
-MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-CICLO_PARA      │ CYCLE-CLOSE-001 concluída → PR para main → owner aprova merge
-DERIVA          │ impermitida — qualquer execução fora do BASTION é deriva
+TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 (última — aguarda PR)
+TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
+                │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
+                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓
+@claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
+@copilot        │ LIBERADO — tasks completadas por @claude em cross-support
+@cursor         │ LIBERADO — tasks completadas por @claude em cross-support
+@codex          │ CYCLE-CLOSE-001 — emitir relatório-mãe + abrir PR
+GATES_FECHADOS  │ nenhum — ciclo encerrado operacionalmente
+BLOQUEADAS      │ BULK-01-Codex (branch, não bloqueia PR) | F6 (paralelo)
+IGNIÇÃO         │ COMPLETA — sprint final executado em bulk
+MODO_AUTO       │ SELADO
+CICLO_PARA      │ PR para main → owner aprova merge → ciclo declarado fechado
+DERIVA          │ impermitida
 ════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -447,3 +453,4 @@ DERIVA          │ impermitida — qualquer execução fora do BASTION é deriv
 *BASTION.md v1.7 — NEXUS-ELIGIBLE-CROSS-SUPPORT-001 + NEXUS-FOUNDATION-REFINEMENT-001 adicionados ao histórico; CROSS_SUPPORT_PROTOCOL.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
 *BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
+*BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
