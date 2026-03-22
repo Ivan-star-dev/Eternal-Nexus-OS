@@ -1,28 +1,128 @@
-# Copilot Instructions — Eternal Nexus (Fase 3)
+# Copilot Instructions — Eternal Nexus OS · BASTION Protocol
 
-## Objetivo
-Executar somente o que está definido em `docs/DOC_FASE3.md`, sem ampliar escopo.
+> Lei primária do Copilot. Lida automaticamente em cada sessão.
+> Versão: v2.0 — 2026-03-22 | AUTOFLOW-COPILOT-001
 
-## Fonte de verdade
-- Repositório atual é a única fonte válida.
-- Não inventar requisitos, APIs ou comportamento.
-- Quando algo não estiver explícito, sinalizar como não especificado.
+---
 
-## Invariantes obrigatórias
-- Preservar identidade e nomenclaturas do projeto.
-- Preservar fluxo sagrado: **Tribunal → Atlas → Index → News**.
-- Não simplificar ou substituir estruturas nucleares.
+## 0. LEITURA OBRIGATÓRIA AO INICIAR
 
-## Escopo de alteração (Fase 3)
-- Apenas governança operacional: documento formal, instruções persistentes, CI de app e README operacional.
-- Evitar tocar arquivos fora do escopo imediato da tarefa.
+Antes de qualquer ação, ler nesta ordem:
+1. `ops/LIVE_STATE.md` → branch canônico + fila ativa + bloqueadores
+2. `ops/BASTION.md` → tasks elegíveis com STATUS: elegível + NEXT_ACTOR: @copilot
+3. `ops/HANDOFF_LEDGER.md` → últimas 2 entradas (contexto da corrente)
 
-## Regras de implementação
-- Preferir mudanças mínimas, auditáveis e reversíveis.
-- Usar scripts reais de `package.json`.
-- Não criar comandos fictícios.
-- Não remover ou quebrar workflows existentes (incluindo banco).
+---
 
-## Regra de conflito
-Se o pedido exigir quebrar invariantes, responder exatamente:
+## 1. BRANCH CANÔNICO
+
+```
+BRANCH ATIVO: claude/rebuild-bastion-core-rihGX
+FONTE DA VERDADE: ops/LIVE_STATE.md (campo "Branch canônico")
+```
+
+**Regra absoluta:** todo commit e push vai para o branch canônico ativo.
+Nunca escrever em `main` ou qualquer outro branch.
+
+Se o branch atual ≠ branch canônico:
+```bash
+git fetch origin claude/rebuild-bastion-core-rihGX
+git checkout claude/rebuild-bastion-core-rihGX
+```
+
+---
+
+## 2. LOOP AUTÔNOMO DO COPILOT
+
+```
+AUTOFLOW — LOOP DO COPILOT
+══════════════════════════════════════════════════════════
+1. LÊ LIVE_STATE.md → identifica tasks da fila com NEXT_ACTOR: @copilot
+2. LÊ BASTION.md   → confirma STATUS: elegível + GATE: aberto
+3. VERIFICA dependências → DEPENDENCIA_STATUS: livre?
+4. EXECUTA task no território WorkStructure (pilar dominante do Copilot)
+5. FECHA com commit + push + handoff (formato OUTPUT_STANDARD)
+6. ATUALIZA LIVE_STATE.md + HANDOFF_LEDGER.md
+7. VOLTA ao passo 1 → próxima task elegível
+══════════════════════════════════════════════════════════
+```
+
+**Se não houver task elegível para @copilot:**
+- Registar "aguardando gate" no LIVE_STATE
+- Não inventar trabalho fora do BASTION
+
+---
+
+## 3. PILAR DOMINANTE DO COPILOT
+
+| Pilar | Território | Competência |
+|-------|-----------|-------------|
+| **WorkStructure** | ops/, docs, config, governança | FORÇA PRINCIPAL |
+| **WorkVisual** | UI hygiene, polish, DX | apoio/cooperativo |
+| **WorkFunction** | features, lógica de produto | apoio/cooperativo apenas com gate |
+
+**Regra:** no WorkStructure, o Copilot lidera sem consulta adicional.
+Fora dele, só entra em apoio e sem tomar decisões de núcleo.
+
+---
+
+## 4. INVARIANTES ABSOLUTAS
+
+```
+✅ Sempre no branch canônico ativo
+✅ Sempre com task do BASTION com STATUS: elegível
+✅ Sempre emitir handoff ao fechar task
+✅ Sempre atualizar LIVE_STATE + HANDOFF_LEDGER
+✅ Preservar fluxo sagrado: Tribunal → Atlas → Index → News
+✅ Não alterar arquitetura nuclear sem gate do owner
+
+❌ Nunca escrever em main ou outro branch
+❌ Nunca inventar tasks fora do BASTION
+❌ Nunca saltar dependência bloqueada
+❌ Nunca abrir nova fase sem gate do owner
+❌ Nunca simplificar ou substituir estruturas nucleares
+```
+
+---
+
+## 5. FORMATO DE HANDOFF (obrigatório ao fechar task)
+
+```
+HANDOFF — [TASK_ID]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXECUTOR       : @copilot
+STATUS         : done | partial | blocked
+ALTERACAO_REAL : sim | não
+FEITO          : [o que foi entregue]
+NAO_FEITO      : [o que ficou pendente]
+BLOQUEIOS      : [o que parou — ou: nenhum]
+ARQUIVOS       : [lista dos ficheiros modificados]
+COMMIT         : [hash do commit]
+PROX_PASSO     : [recomendação para o próximo pioneer]
+DECISAO_REC    : [quem entra a seguir e porquê]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
+
+## 6. REGRA DE CONFLITO
+
+Se o pedido exigir quebrar invariantes, responder:
 **"Isso quebra o organismo vivo. Quer manter?"**
+
+---
+
+## 7. ARTEFACTOS CANÔNICOS
+
+| Ficheiro | Papel |
+|----------|-------|
+| `ops/BASTION.md` | Tasks elegíveis — lei de execução |
+| `ops/LIVE_STATE.md` | Estado vivo — branch + fila |
+| `ops/HANDOFF_LEDGER.md` | Histórico — motor de indução |
+| `ops/AUTOFLOW.md` | Loop autônomo — regras de movimento |
+| `ops/OUTPUT_STANDARD.md` | Formato canônico de output |
+| `ops/DNA_PROTOCOL.md` | Espinha canônica — lei primária |
+
+---
+
+_copilot-instructions.md v2.0 — 2026-03-22 | AUTOFLOW-COPILOT-001 | @claude_

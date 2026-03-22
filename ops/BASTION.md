@@ -9,6 +9,12 @@
 **Branch:** `claude/expose-workspace-config-yt4Km`
 **Modelo:** claude-4.6-opus-high-thinking
 **Aprovado por:** owner (instrução direta — ordem de ignição operacional)
+**Versão:** v1
+**Data:** 2026-03-20
+**Task:** OPS-BASTION-001
+**Branch:** `claude/expose-workspace-config-yt4Km`
+**Modelo:** claude-sonnet-4-6
+**Aprovado por:** owner (instrução direta)
 
 > O BASTION é a fonte única de execução elegível do Eternal Nexus OS.
 > Pioneiro que não encontra sua task elegível no BASTION não executa.
@@ -45,6 +51,7 @@
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor |
 | **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot |
+| **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot |
 
 **Regra de território:**
 - No próprio território: competência máxima — executa sem consulta adicional.
@@ -75,6 +82,7 @@ LOOP DO PIONEIRO:
 - Não assume que task PLANEJADA é elegível sem mudança de status
 
 **O pioneer SIM:**
+**O pioneiro SIM:**
 - Lê BASTION antes de cada sessão
 - Executa só o que estiver elegível
 - Fecha com EVIDENCE_BLOCK (ALTERACAO_REAL obrigatório)
@@ -129,6 +137,14 @@ Cada item da matriz regista os seguintes campos:
 | PLv5.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv5 |
 | PLv6.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.1 |
 | PLv6.2-a | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.2-a |
+| PLv6.2-b | Produto | WorkFunction | @claude | concluída | handoff emitido — project_metrics expandido (CO₂, jobs, SDG, impactScore, PortfolioImpactSummary) |
+| FVL-IMPL-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | handoff emitido — FounderPage v2 (hero atmosférico, secção Architects, 6 pioneers, seal v2) |
+| BULK-01.2/L-001 | Mecânico | WorkStructure | @claude | concluída | .gitignore auditado — sem gaps; vite/bun/cli já cobertos |
+| BULK-01.2/L-002 | Mecânico | WorkStructure | @claude | concluída | timestamp files não rastreados — .gitignore resolve |
+| BULK-01.3-a | Mecânico | WorkStructure | @claude | concluída | vite timestamps não tracked — confirmado |
+| BULK-01.3-b | Mecânico | WorkStructure | @claude | concluída | decisão: npm canónico; package-lock.json tracked; bun.lock excluído |
+| BULK-01.3-c | Mecânico | WorkStructure | @claude | concluída | antigravity/ auditado — 168 ficheiros research assets intencional; sem lixo |
+| BULK-02.2 | Governança | WorkStructure | @claude | concluída | NEXUS_NEURAL_MESH.md lapidado — 4 rastos PLv6 actualizados para estado real |
 | OPS-OUTPUT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1 |
 | GENESIS-FOUNDER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido |
 | OPS-AUTOFLOW-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — AUTOFLOW v1 |
@@ -147,6 +163,13 @@ Cada item da matriz regista os seguintes campos:
 | BULK-01.3-b | Mecânico | WorkStructure | @cursor | concluída | análise done — npm é PM canônico; bun.lock residual; aguarda B-002 owner para remoção |
 | BULK-01.3-c | Mecânico | WorkStructure | @cursor | concluída | análise done — 5 HTMLs legacy do owner (420K); zero refs no src/; aguarda B-003 owner |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION 2.0 ciclo activado por ordem owner |
+| DNA-PROTOCOL-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — DNA_PROTOCOL.md v1 criado |
+| NEXUS-PIONEER-ROLE-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — PIONEER_MATRIX.md v1 criado; papéis cravados; 3 chats selados |
+| NEXUS-FOUNDATION-REFINEMENT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — 7 refinamentos estruturais; OUTPUT_STANDARD v2.1; DNA v1.1; BASTION v1.6; FOL v2.0; NEXUS_OS v1.1; PIONEER_MATRIX v1.1 |
+| NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
+| NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
+| NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
 
 ---
 
@@ -170,6 +193,66 @@ Cada item da matriz regista os seguintes campos:
 │ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
 │ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
 │                    │ suavizar superfície operacional; sem alteração soberana  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BULK-01.3-a                                             │
+│ PILAR              │ Mecânico                                                │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P3                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ BULK-01.3-b                                             │
+│ EVIDENCIA_MINIMA   │ arquivo removido do tracking + ALTERACAO_REAL: sim      │
+│ NOTAS_DO_OWNER     │ Remover vite.config.ts.timestamp-* do versionamento     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BULK-01.3-b                                             │
+│ PILAR              │ Mecânico                                                │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P3                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ BULK-01.3-c                                             │
+│ EVIDENCIA_MINIMA   │ decisão PM canônico (B-002) ou limpeza + ALTERACAO_REAL │
+│ NOTAS_DO_OWNER     │ Avaliar bun.lock + package-lock.json — PM canônico?     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BULK-01.3-c                                             │
+│ PILAR              │ Mecânico                                                │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P4                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ @owner decide próximo backlog mecânico                  │
+│ EVIDENCIA_MINIMA   │ avaliação registada + decisão clara + ALTERACAO_REAL    │
+│ NOTAS_DO_OWNER     │ Verificar antigravity/legacy-html/ — lixo mecânico?     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -254,6 +337,65 @@ Cada item da matriz regista os seguintes campos:
 │ NEXT_TASK          │ a definir                                               │
 │ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
 │ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
+### 5.3 TASKS ELEGÍVEIS — GATE ABERTO PELO OWNER (2026-03-22)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ PLv6.2-b [CONCLUÍDA — ver 5.1]                          │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @codex (consolidação) / @cursor (suporte mecânico)      │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ FVL-IMPL-001 (paralelo)                                 │
+│ EVIDENCIA_MINIMA   │ NewsAPI integrada OU project_metrics expandido + commit │
+│ NOTAS_DO_OWNER     │ GATE ABERTO — fechar este ciclo; prioridade máxima      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ FVL-IMPL-001 [CONCLUÍDA — ver 5.1]                      │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @copilot (WorkVisual) / @antigravity (WorkVisual)       │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude + @copilot (paralelo)                           │
+│ NEXT_TASK          │ CYCLE-CLOSE-001                                         │
+│ EVIDENCIA_MINIMA   │ rota /founder funcional + visual polido + ALTERACAO_REAL│
+│ NOTAS_DO_OWNER     │ GATE ABERTO — executar em paralelo com PLv6.2-b         │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CYCLE-CLOSE-001                                         │
+│ PILAR              │ Consolidação                                            │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @codex                                                  │
+│ APOIO_SECUNDARIO   │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + BULK-01.2/L-002  │
+│ PODE_ENTRAR_SOZINHO│ sim (entra após handoffs)                               │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO                                                  │
+│ NEXT_ACTOR         │ @codex                                                  │
+│ NEXT_TASK          │ PR para main                                            │
+│ EVIDENCIA_MINIMA   │ relatório-mãe consolidado + todos os handoffs recebidos │
+│ NOTAS_DO_OWNER     │ Fechar o ciclo: consolidar tudo → PR → main             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -362,6 +504,26 @@ IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / b
 MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
 DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
 INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio real | red line | sem elegível
+VERSÃO          │ v2.0
+DATA            │ 2026-03-22
+ÚLTIMA_ACTUAÇÃO │ BULK-CLOSE | @claude cross-support | 2026-03-22
+ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
+CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
+DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
+TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 (última — aguarda PR)
+TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
+                │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
+                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓
+@claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
+@copilot        │ LIBERADO — tasks completadas por @claude em cross-support
+@cursor         │ LIBERADO — tasks completadas por @claude em cross-support
+@codex          │ CYCLE-CLOSE-001 — emitir relatório-mãe + abrir PR
+GATES_FECHADOS  │ nenhum — ciclo encerrado operacionalmente
+BLOQUEADAS      │ BULK-01-Codex (branch, não bloqueia PR) | F6 (paralelo)
+IGNIÇÃO         │ COMPLETA — sprint final executado em bulk
+MODO_AUTO       │ SELADO
+CICLO_PARA      │ PR para main → owner aprova merge → ciclo declarado fechado
+DERIVA          │ impermitida
 ════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -381,6 +543,13 @@ INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio rea
 | Modo de ignição | `ops/IGNITION.md` |
 | Fluxo autônomo | `ops/AUTOFLOW.md` |
 | Ordem full-auto | `ops/OPS_FULL_AUTO_UNTIL_STOP_001.md` |
+| Protocolo-mãe | `ops/DNA_PROTOCOL.md` |
+| Papéis dos pioneiros | `ops/PIONEER_MATRIX.md` |
+| Modo de ignição | `ops/IGNITION.md` |
+| Fluxo autônomo | `ops/AUTOFLOW.md` |
+| Polivalência controlada | `ops/CROSS_SUPPORT_PROTOCOL.md` |
+| Roteamento adaptativo | `ops/FLOWMESH.md` |
+| Camada de inteligência viva | `ops/NEXUS_NEURAL_MESH.md` |
 
 ---
 
@@ -391,3 +560,11 @@ INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio rea
 *BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v2.0 — ciclo contínuo BASTION 2.0 activado por ordem do owner em 2026-03-21 | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
+*BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v1.4 — DNA-PROTOCOL-MOTHER-001 concluída; DNA_PROTOCOL.md v1 adicionado ao histórico e localização canônica — 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
+*BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
+*BASTION.md v1.6 — WorkVisual corrigido (@framer/@antigravity/@copilot); typo 'pioneer'→'pioneiro' — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
+*BASTION.md v1.7 — NEXUS-ELIGIBLE-CROSS-SUPPORT-001 + NEXUS-FOUNDATION-REFINEMENT-001 adicionados ao histórico; CROSS_SUPPORT_PROTOCOL.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
+*BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
+*BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*

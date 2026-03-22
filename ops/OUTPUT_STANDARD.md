@@ -1,6 +1,7 @@
 # OUTPUT STANDARD — Padrão Canônico de Output Copiável
 
 **Versão:** v1.2
+**Versão:** v1
 **Data:** 2026-03-20
 **Task:** OPS-OUTPUT-001
 **Branch:** `claude/expose-workspace-config-yt4Km`
@@ -152,6 +153,7 @@ Nunca substituir o bloco por tabelas markdown ou texto solto.
 ---
 
 ## 8. EVIDENCE — Referência de Valores (integrado no bloco único)
+## 6. EVIDENCE — Referência de Valores (integrado no bloco único)
 
 > O EVIDENCE está embutido na seção 2 (bloco único). Esta seção é referência de valores válidos.
 
@@ -172,6 +174,7 @@ Nunca substituir o bloco por tabelas markdown ou texto solto.
 ---
 
 ## 6. IDENTIDADE OPERACIONAL
+## 7. IDENTIDADE OPERACIONAL
 
 A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 
@@ -186,6 +189,7 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 ---
 
 ## 7. LOCALIZAÇÃO CANÔNICA
+## 8. LOCALIZAÇÃO CANÔNICA
 
 | Artefato | Localização |
 |---|---|
@@ -226,3 +230,4 @@ Esta seção ativa presença visual sem alterar o schema fixo.
 *OUTPUT_STANDARD.md v1.1 — seção 8 + ordem de output actualizada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
 *OUTPUT_STANDARD.md v2.0 — bloco único copiável (HANDOFF+EVIDENCE+CHAIN+CANALIZAÇÃO) em 2026-03-21 | claude-sonnet-4-6 | OPS-OUTPUT-HANDOFF-V2*
 *OUTPUT_STANDARD.md v1.2 — camada viva integrada em 2026-03-20 | gpt-5.3-codex-high | VISUAL-SPINE-002A*
+*OUTPUT_STANDARD.md v2.1 — secções reordenadas (6=EVIDENCE, 7=IDENTIDADE, 8=LOCALIZAÇÃO) em 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*

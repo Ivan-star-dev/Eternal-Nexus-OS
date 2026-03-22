@@ -3,6 +3,9 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { RealtimeDataPoint } from '../types';
+import { getDefaultBus } from '@/lib/events/bus';
+import { makeEventId, seedFromId } from '@/lib/events/id';
+import type { NexusEvent, AtlasMarkerPayload } from '@/types/sacred-flow';
 
 interface UseRealtimeDataOptions {
   sources?: RealtimeDataPoint['source'][];
@@ -46,6 +49,44 @@ export function useRealtimeData(options: UseRealtimeDataOptions = {}): RealtimeD
   });
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const bus = getDefaultBus();
+  const publishedIds = useRef<Set<string>>(new Set());
+
+  // Sacred Flow: publish RealtimeDataPoints as atlas.marker events
+  const publishAtlasMarkers = useCallback((points: RealtimeDataPoint[]) => {
+    for (const point of points) {
+      const payload: AtlasMarkerPayload = {
+        label: point.label ?? `${point.source} reading`,
+        category: point.category ?? point.source,
+        dataSource: point.source,
+        value: point.value,
+        unit: point.unit,
+      };
+
+      const createdAt = new Date(point.timestamp).toISOString();
+      const eventId = makeEventId('atlas.marker', 'atlas', createdAt, payload);
+
+      // Skip if already published (idempotency at source)
+      if (publishedIds.current.has(eventId)) continue;
+
+      const event: NexusEvent<AtlasMarkerPayload> = {
+        id: eventId,
+        type: 'atlas.marker',
+        createdAt,
+        source: 'atlas',
+        geo: { lat: point.lat, lon: point.lng },
+        severity: point.severity,
+        payload,
+        confidence: 1 - (point.severity * 0.3),
+        seed: seedFromId(eventId),
+        version: 1,
+      };
+
+      if (bus.publish(event as NexusEvent)) {
+        publishedIds.current.add(eventId);
+      }
+    }
+  }, [bus]);
 
   const fetchData = useCallback(async () => {
     if (!enabled) return;
@@ -88,6 +129,9 @@ export function useRealtimeData(options: UseRealtimeDataOptions = {}): RealtimeD
         error: null,
         lastUpdate: Date.now(),
       });
+
+      // Sacred Flow: publish each data point as atlas.marker to the event bus
+      publishAtlasMarkers(allData);
     } catch (err) {
       // sacred-flow: fallback — gera dados simulados para dev
       const simulated = generateSimulatedData(sources);
@@ -97,6 +141,9 @@ export function useRealtimeData(options: UseRealtimeDataOptions = {}): RealtimeD
         error: 'Using simulated data — connect real APIs in production',
         lastUpdate: Date.now(),
       });
+
+      // Sacred Flow: even simulated data flows through the bus
+      publishAtlasMarkers(simulated);
     }
   }, [sources, enabled]);
 

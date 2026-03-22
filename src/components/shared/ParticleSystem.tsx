@@ -1,4 +1,4 @@
-﻿// sacred-flow: TextureLord — ParticleSystem base para TODO o organismo
+// sacred-flow: TextureLord — ParticleSystem base para TODO o organismo
 // Glow dourado morabeza + bloom radial + 60fps via Web Worker
 // Integra: Razorfish Blue Dot (60k+ particles) + Figma (Web Workers)
 
@@ -107,12 +107,14 @@ export default function ParticleSystem({
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
+          args={[positions, 3]}
           count={count}
           array={positions}
           itemSize={3}
         />
         <bufferAttribute
           attach="attributes-size"
+          args={[sizes, 1]}
           count={count}
           array={sizes}
           itemSize={1}

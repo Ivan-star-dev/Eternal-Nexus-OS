@@ -101,3 +101,74 @@ WorkVisual    = o que aparece     → UI, UX, design, identidade, apresentação
 ---
 
 *WORKTREE_ALIASES v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
+---
+
+## 6. REGRA DOS 3 CHATS — ORIENTAÇÃO DO OWNER
+
+**Registrado em:** NEXUS-PIONEER-ROLE-MOTHER-001 | 2026-03-21
+
+O owner opera com **3 chats-base** — um por território.
+
+```
+CHAT 1: WorkStructure   → o que sustenta (protocolo, base, governança, docs canônicos)
+CHAT 2: WorkFunction    → o que funciona (features, produto, APIs, comportamento)
+CHAT 3: WorkVisual      → o que aparece  (UI, UX, design, identidade, motion)
+```
+
+### Triagem de qualquer task nova
+
+```
+Task produz doc / protocolo / config / infra?    → WorkStructure
+Task produz feature / fluxo / dado / integração? → WorkFunction
+Task produz design / UI / visual / identidade?   → WorkVisual
+```
+
+### Convenção de convocação
+
+```
+"@pioneiro — [território] — [task resumida]"
+
+Exemplos:
+"@claude — WorkStructure — cravar protocolo de consolidação"
+"@cursor — WorkFunction — implementa rota de webhook"
+"@copilot — WorkStructure — lapida DNA Protocol seção 7"
+"@framer — WorkVisual — constrói card de ativo"
+"@antigravity — WorkVisual — anima hero da landing"
+"@codex — WorkStructure — consolida onda BASTION 2.0"
+```
+
+### O chat pertence ao território, não ao pioneiro
+
+```
+WorkStructure: @claude / @copilot / @codex conforme task
+WorkFunction:  @cursor / @claude / @codex conforme task
+WorkVisual:    @framer / @antigravity / @copilot conforme task
+```
+
+---
+
+## 7. APLICAÇÃO DUPLA — ECOSSISTEMA E PRODUTO
+
+```
+O mesmo DNA governa a máquina interna e o produto.
+
+ECOSSISTEMA               PRODUTO
+WorkStructure:            WorkStructure:
+  infra, CI/CD, config,     data model, schema,
+  protocolos, docs canon    arquitetura, auth, base
+
+WorkFunction:             WorkFunction:
+  automações, integrações   features, fluxos,
+  internas, APIs            dados de mercado, portfólio
+
+WorkVisual:               WorkVisual:
+  docs visuais, identidade  dashboard, UI/UX,
+  interna, apresentações    componentes, identidade pública
+```
+
+**Referência completa:** `ops/PIONEER_MATRIX.md`
+
+---
+
+*WORKTREE_ALIASES v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
+*WORKTREE_ALIASES v1.1 — seções 6 e 7 adicionadas em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*

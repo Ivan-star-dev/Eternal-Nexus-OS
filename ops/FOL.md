@@ -33,6 +33,8 @@ Todo executor, ao iniciar uma sessão, lê nesta ordem:
 | **Copilot** | Fila própria na seção 2 | Gate de Claude para a camada atual foi emitido? |
 | **Cursor** | Seção 4 (bloqueios) + fila própria | Existe item mecânico designado sem depender de decisão soberana? |
 | **Codex** | Fila própria + seção 1 (branch) | Branch alinhado ao canônico? Gate de Claude para refinamento disponível? |
+| **Framer** | Fila própria na seção 2 (WorkVisual) | Existe task elegível no WorkVisual? Gate aberto? Visual Spine disponível? |
+| **Antigravity** | Fila própria na seção 2 (WorkVisual) | Existe task elegível no WorkVisual? Gate aberto? B-003 resolvido? |
 
 ### Regra de leitura
 
@@ -300,6 +302,8 @@ Ver `ops/CODEX_CONSOLIDATOR.md` — blueprint canônico completo com formato do 
 
 ---
 
+---
+
 ## 10. PADRÃO DE OUTPUT COPIÁVEL
 
 **Registrado em:** OPS-OUTPUT-001 | 2026-03-20
@@ -324,6 +328,8 @@ Layout fixo, consistente e idêntico para todos os pioneiros.
 ### Referência completa
 
 Ver `ops/OUTPUT_STANDARD.md` — templates, campos obrigatórios, regras de preenchimento e identidade operacional.
+
+---
 
 ---
 
@@ -364,6 +370,8 @@ Ao terminar uma task, o pioneiro não entra em vazio — ele lê o estado e iden
 
 Ver `ops/AUTOFLOW.md` — documento canônico com loop completo, matrix, apoio cruzado,
 motor de indução e o que o sistema torna desnecessário.
+
+---
 
 ---
 
@@ -475,6 +483,7 @@ ALTERACAO_REAL         │ sim | não
 **Regra:** handoff sem EVIDENCE_BLOCK deixa de ser prova forte.
 
 **Referência completa:** `ops/OUTPUT_STANDARD.md` seção 8
+**Referência completa:** `ops/OUTPUT_STANDARD.md` seção 6
 
 ---
 
@@ -514,6 +523,135 @@ Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
 
 ---
 
+---
+
+---
+
+## 16. DNA PROTOCOL — PROTOCOLO-MÃE DO SISTEMA
+
+**Registrado em:** DNA-PROTOCOL-MOTHER-001 | 2026-03-21
+
+O **DNA Protocol** é o protocolo-mãe do Eternal Nexus OS.
+Não substitui nenhum artefacto canônico — codifica o que os torna coerentes entre si.
+É o ponto de entrada fractal: quem o lê, entende o sistema.
+
+**O que o DNA Protocol formaliza:**
+
+| Parte | Conteúdo |
+|---|---|
+| **Identidade** | O que é o Eternal Nexus OS — natureza fractal, missão, estado atual |
+| **Regras Primitivas** | As 8 leis absolutas do sistema — sem exceção, sem workaround |
+| **Sistemas Vivos** | Os 8 sistemas interdependentes e como se encadeiam |
+| **Territórios** | WorkStructure / WorkFunction / WorkVisual — regras de competência |
+| **Pioneiros** | Matrix completa — pilar, papel, loop, competência fora do pilar |
+| **Operações** | Protocolo de sessão canônico (iniciar + encerrar) |
+| **Moléculas** | Átomos operacionais — HANDOFF_TABLE, EVIDENCE_BLOCK, gate, commit |
+| **Creator / Bastion** | Espaço soberano do owner + BASTION como extensão |
+| **Mantra** | Os 7 mantras vivos do sistema |
+| **Mapa Canônico** | Navegação rápida por todos os artefactos |
+| **Changelog** | Histórico de versões |
+
+**Regra base:**
+
+> DNA Protocol é leitura obrigatória ao entrar no sistema pela primeira vez.
+> Leitura de manutenção: ao retomar após pausa longa ou ao integrar novo pioneiro.
+
+**Referência completa:** `ops/DNA_PROTOCOL.md`
+
+---
+
+---
+
+## 17. PIONEER MATRIX — PAPÉIS, TERRITÓRIOS E REGRA DOS 3 CHATS
+
+**Registrado em:** NEXUS-PIONEER-ROLE-MOTHER-001 | 2026-03-21
+
+A **Pioneer Matrix** cravar os papéis de cada pioneiro, a regra dos 3 chats e a compatibilidade com o DNA Protocol.
+
+### Os 6 pioneiros (resumo operacional)
+
+| Pioneiro | Pilar | Território Dominante | Papel |
+|---|---|---|---|
+| **@claude** | Estrutura + Produto | WorkStructure | Arquiteto-executor / árbitro canônico |
+| **@copilot** | Lapidação | WorkStructure + WorkVisual | Executor-lapidador / consolidador |
+| **@codex** | Qualidade | WorkStructure (orquestração) | Cérebro-orquestrador / consolidador de ondas |
+| **@cursor** | Mecânico (transversal) | WorkFunction | Executor-desbloqueador / gates mecânicos |
+| **@framer** | Visual (território) | WorkVisual | Executor-visual / design system / UI Framer |
+| **@antigravity** | Visual (território) | WorkVisual | Executor-visual / motion / 3D / R3F |
+
+### A regra dos 3 chats (orientação do owner)
+
+```
+CHAT 1: WorkStructure   → o que sustenta (protocolo, base, governança, docs)
+CHAT 2: WorkFunction    → o que funciona (features, produto, APIs, comportamento)
+CHAT 3: WorkVisual      → o que aparece  (UI, UX, design, identidade, motion)
+
+Triagem rápida:
+→ task produz doc/protocolo/config?      → WorkStructure
+→ task produz feature/fluxo/integração?  → WorkFunction
+→ task produz design/UI/visual?          → WorkVisual
+```
+
+### Aplicação dupla
+
+```
+O mesmo DNA governa ecossistema e produto.
+WorkStructure: infra/ops (ecossistema) = data model/arquitetura (produto)
+WorkFunction:  automações (ecossistema) = features/fluxos (produto)
+WorkVisual:    docs visuais (ecossistema) = dashboard/UI (produto)
+```
+
+### Referência completa
+
+Ver `ops/PIONEER_MATRIX.md` — papéis completos, loops, regra de benefício, compatibilidade total.
+
+---
+
+---
+
+## 18. CROSS SUPPORT PROTOCOL — POLIVALÊNCIA CONTROLADA EM HORA MORTA
+
+**Registrado em:** NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | 2026-03-21
+
+O **Cross Support Protocol** formaliza como um pioneiro age quando o território dominante entra em espera real — sem ociosidade, sem invasão, sem deriva.
+
+### O que é hora morta real
+
+```
+Todas as tasks elegíveis com PODE_ENTRAR_SOZINHO: sim do território dominante estão CONCLUÍDAS.
+Tasks restantes aguardam gate do owner. Nada resolvível pelo pioneiro sozinho.
+```
+
+### Nível de apoio elegível
+
+| Nível | Tipo | Permitido? |
+|---|---|---|
+| 🟢 Baixo | review, validate, harmonize, clarify, prepare | Sim — entrada direta |
+| 🟡 Médio | edit de doc secundário, cross-ref, acceptance criteria | Sim — nota no handoff |
+| 🔴 Alto | decisão soberana, liderança de núcleo alheio, nova frente | Não — aguarda gate |
+
+### Loop de apoio (resumo)
+
+```
+Hora morta confirmada → lê BASTION → apoio elegível encontrado?
+  → SIM: executa como APOIO/COOPERATIVO — handoff marcado — EVIDENCE_BLOCK
+  → NÃO: regista "aguardando gate" no LIVE_STATE — pioneiro não inventa trabalho
+Retorno: ao primeiro sinal de task elegível no território dominante
+```
+
+### Regra de não-invasão
+
+> Pioneiro preenche onde o líder ainda não chegou.
+> Nunca atua onde o líder já está a executar.
+> Retorno imediato ao território dominante quando task elegível surgir.
+
+### Referência completa
+
+Ver `ops/CROSS_SUPPORT_PROTOCOL.md` — definição completa de hora morta, critérios de apoio,
+casos de uso por pioneiro, loop de @claude, protocolo de retorno.
+
+---
+
 *FOL v1 — aberto em 2026-03-20 | claude-sonnet-4-6 | BULK-02.1*
 *FOL v1.1 — seção 9 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-HANDOFF-001*
 *FOL v1.2 — seção 10 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
@@ -522,3 +660,7 @@ Pioneiro não cria trabalho fora do BASTION. Pioneiro não salta gate.
 *FOL v1.5 — seção 13 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
 *FOL v1.6 — seção 14 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
 *FOL v1.7 — seção 15 adicionada em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
+*FOL v1.8 — seção 16 adicionada em 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
+*FOL v1.9 — seção 17 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
+*FOL v2.0 — seção 1 tabela de leitura expandida com @framer e @antigravity; ref OUTPUT_STANDARD seção 8→6 — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
+*FOL v2.1 — seção 18 adicionada em 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*

@@ -8,11 +8,11 @@ import { getSacredFlowOrgans, WORKSPACE } from "@/config/workspace";
  * PLv1: exposes canonical workspace config (sacred flow + product layer).
  */
 export const NexusFlowInspector = () => {
-  if (import.meta.env.PROD) return null;
-
   const { verdicts } = useNexusState();
   const { entries } = useIndexOrgan();
   const sacredFlowOrgans = getSacredFlowOrgans();
+
+  if (import.meta.env.PROD) return null;
 
   return (
     <div className="fixed bottom-4 left-4 z-[9999] bg-black/90 border border-gold-500/30 p-4 rounded-lg font-mono text-[10px] w-64 max-h-96 overflow-y-auto shadow-2xl backdrop-blur-md">

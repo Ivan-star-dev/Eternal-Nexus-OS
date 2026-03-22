@@ -6,6 +6,241 @@
 
 ---
 
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001-CLOSE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BLOCK-OP-001 — FECHADO COMPLETAMENTE
+            │ WP-001 — docs/WHITE_PAPER.md v1.0 (383 linhas)
+            │   11 secções, estatísticas, arquitetura, roadmap V10, hardware
+            │ RT-001 — docs/REVERSE_TECH_AUDIT.md v1.0 (326 linhas)
+            │   10 sistemas auditados, 55 protocolos avaliados (Tier 1/2/3)
+            │   9 inovações Tier-1 originais mapeadas, technical debt map
+            │ HW-001 — docs/HARDWARE_PROTOTYPE.md v0.1 (463 linhas)
+            │   Nexus Node Mk.I: BOM ~$1305, 4 fases, block diagram completo
+            │ DIDACTIC-001 — docs/didactic/DIDACTIC_MANIFEST.md v1.0
+            │   6 módulos A→F, 3 níveis de assessment universitário
+            │ AUTOFLOW-COPILOT-001 — .github/copilot-instructions.md v2.0
+            │   .github/workflows/auto-pr.yml + auto-merge.yml
+            │ Commit: 50cd9ac — docs(audit): RT-001 — Reverse Tech Audit v1.0
+NAO_FEITO   │ nada pendente neste bloco
+IMPACTO     │ crítico — toda a documentação estratégica do sistema produzida:
+            │   White Paper para investidores/parceiros governamentais
+            │   Reverse Tech Audit para credibilidade técnica
+            │   Hardware Prototype spec para fase de build física
+            │   Didactic Manifest para ensino e transferência de conhecimento
+ARQUIVOS    │ docs/WHITE_PAPER.md
+            │ docs/REVERSE_TECH_AUDIT.md
+            │ docs/HARDWARE_PROTOTYPE.md
+            │ docs/didactic/DIDACTIC_MANIFEST.md
+ALTERACAO_REAL │ sim — 4 documentos estratégicos produzidos e no repo
+DATA        │ 2026-03-22
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BLOCK-OP-001 — Operação em bloco lançada: Reverse Tech + White Paper
+            │   + Hardware Prototype + Didactic Manifest + Auto-PR/Merge + Copilot v2
+            │ AUTOFLOW-COPILOT-001 — copilot-instructions.md v2.0 (BASTION protocol)
+            │   auto-pr.yml: PR automático em push para claude/* branch
+            │   auto-merge.yml: merge automático quando quality gate passa
+            │ DIDACTIC-001 — DIDACTIC_MANIFEST.md v1.0 criado:
+            │   6 módulos (A→F), curriculo completo, inovações catalogadas,
+            │   3 níveis de assessment (undergrad/grad/doctorate)
+            │ WHITE_PAPER.md — em produção por agente paralelo
+            │ REVERSE_TECH_AUDIT.md — em produção por agente paralelo
+            │ HARDWARE_PROTOTYPE.md — em produção por agente paralelo
+            │ Dev server arrancado: http://localhost:5173
+NAO_FEITO   │ Docs finais aguardam conclusão dos agentes paralelos
+IMPACTO     │ crítico — toda a documentação didática do sistema instalada;
+            │   automação completa do ciclo CI/CD implementada;
+            │   Copilot tem lei autónoma para operar sem briefing manual
+ARQUIVOS    │ .github/copilot-instructions.md (v2.0)
+            │ .github/workflows/auto-pr.yml (novo)
+            │ .github/workflows/auto-merge.yml (novo)
+            │ docs/didactic/DIDACTIC_MANIFEST.md (novo)
+            │ docs/WHITE_PAPER.md (em produção)
+            │ docs/REVERSE_TECH_AUDIT.md (em produção)
+            │ docs/HARDWARE_PROTOTYPE.md (em produção)
+COMMIT      │ 6f0ea76 (autoflow) + commits docs pendentes
+PROX_PASSO  │ Owner aprova merge PR → Fase C começa (@framer NS2/NS3)
+DECISAO_REC │ @owner: merge PR → @framer: NS2 (About) + NS3 (NavBar polish)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NS1+FSP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NS1 — Index hero transformado: engineering grid + 2 orbs atmosféricos
+            │   (gold top-right + teal bottom-left) + classification strip institucional
+            │   + eyebrow → section-label + subtítulo mais preciso
+            │   + copy corporal mais institucional. Heaven Lab test: base estabelecida.
+            │ FSP-001 — FEATURE_SCAFFOLDING_PLAN.md v1.0 criado:
+            │   • Mapa das 4 famílias: PRESENCE → EXPLORATION → COLLABORATION → INTELLIGENCE
+            │   • PLv7 (Globe Observatory) + PLv7.1 (World Pulse) — Sprint próximo
+            │   • PLv8 (Scenario Comparison) + PLv8.1 (Timeline) — Sprint +1
+            │   • PLv9–10 (Trails + AI Copilot) — Sprint +2
+            │   • Critérios de validação NS2 + NS3 por família
+            │   • 8 regras de execução FSP
+            │   • Sequência de 3 sprints com gates do owner
+NAO_FEITO   │ NS1 completo requer @framer + @antigravity para páginas restantes
+            │   (About, NavBar polimento, DossierCard motion) — após merge do PR
+IMPACTO     │ alto — Fase B completa (BMS + FSP); Fase C pode começar após merge;
+            │   @cursor tem roadmap executável; NS2 e NS3 têm critérios exactos
+ARQUIVOS    │ src/pages/Index.tsx (NS1 hero) | ops/FEATURE_SCAFFOLDING_PLAN.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BMS-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BRAND_MOTHER_SYSTEM.md v1.0 criado — lei canónica de identidade visual
+            │ Cobre: código emocional (5 codes + anti-codes) | paleta completa
+            │ (core + atlas glass + morabeza + regra de uso) | tipografia
+            │ (3 famílias, hierarquia, regras) | glass anatomy (3 estados) |
+            │ motion (easings + durações + 5 padrões canónicos + anti-patterns) |
+            │ espaçamento + grid | iconografia | componentes (badge, botão, card,
+            │ hero) | identidade completa | checklist validação visual
+            │ Precondição do NORTH STAR 1 satisfeita.
+NAO_FEITO   │ —
+IMPACTO     │ alto — @framer e @antigravity têm lei para trabalhar; NS1 liberado
+ARQUIVOS    │ ops/BRAND_MOTHER_SYSTEM.md (novo — 280+ linhas)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+RELATÓRIO-MÃE ══════════════════════════════════════════════════════════════
+FASE_ONDA:     Sprint Final — branch claude/rebuild-bastion-core-rihGX
+DATA:          2026-03-22
+CONSOLIDADOR:  @claude cross-support | claude-sonnet-4-6
+FONTE:         ops/HANDOFF_LEDGER.md | ops/BASTION.md | ops/LIVE_STATE.md
+
+TAREFAS CONCLUÍDAS:
+│ Task                  │ Executor │ Impacto │ Output
+│ BRV-001               │ @claude  │ alto    │ BATTALION_READINESS_VERDICT.md — auditoria 7 blocos
+│ PBHE-001              │ @claude  │ alto    │ PRECONDITIONS_BEFORE_HARD_EXECUTION.md
+│ CHEO-001              │ @claude  │ alto    │ CANONICAL_HARD_EXECUTION_ORDER.md
+│ CPBS-001              │ @claude  │ alto    │ CANONICAL_PRE-BATTALION_SEQUENCE.md — 6 fases
+│ NSBHE-001             │ @claude  │ alto    │ NORTH_STAR_BEFORE_HARD_EXECUTION.md — 3 NS
+│ PLv6.2-b              │ @claude  │ alto    │ InvestorNexusPortal — CO₂/jobs/SDG/impactScore
+│ FVL-IMPL-001          │ @claude  │ alto    │ FounderPage v2 — hero + pioneer grid + seal v2
+│ BULK-01.2/L-001       │ @claude  │ baixo   │ .gitignore auditado — sem gaps
+│ BULK-01.2/L-002       │ @claude  │ baixo   │ timestamp files confirmados não tracked
+│ BULK-01.3-a           │ @claude  │ baixo   │ vite timestamps confirmados fora do git
+│ BULK-01.3-b           │ @claude  │ baixo   │ npm declarado PM canónico
+│ BULK-01.3-c           │ @claude  │ baixo   │ antigravity/ auditado — conteúdo intencional
+│ BULK-02.2             │ @claude  │ médio   │ NEXUS_NEURAL_MESH lapidado — 4 rastos PLv6
+
+BLOQUEIOS ATIVOS:
+│ BULK-01-Codex │ branch @codex não alinhado │ não bloqueia PR │ paralelo
+│ F6            │ em andamento @codex        │ não bloqueia PR │ paralelo
+
+CONFLITOS: nenhum detectado
+
+PRÓXIMOS PASSOS:
+1. PR aberto → owner revê e aprova merge para main
+2. Após merge: Branch Mother System docs (brand identity canónica)
+3. Activar @framer + @antigravity para North Star Visual
+4. Construir Presence + Exploration (North Star 2)
+5. Construir Wonder Layer (North Star 3) → liberar Hard Execution Total
+══════════════════════════════════════════════════════════════════════════════
+FEITO       │ Relatório-mãe emitido. PR aberto. Ciclo operacionalmente fechado.
+NAO_FEITO   │ Merge (decisão do owner)
+BLOQUEIOS   │ —
+IMPACTO     │ alto — sprint final completo; produto avançou em 2 frentes;
+            │ governança avançou em 5 artefactos de battalion strategy
+ARQUIVOS    │ [ver commits do PR — todos em claude/rebuild-bastion-core-rihGX]
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BULK-01+BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.2/L-001 — .gitignore auditado: já cobria vite timestamps,
+            │   bun.lock, .claude/, artifacts CI. Nenhum gap encontrado. ✓
+            │ BULK-01.2/L-002 — vite timestamp files NÃO estão tracked no git.
+            │   O padrão `vite.config.ts.timestamp-*` já os exclui. ✓
+            │ BULK-01.3-a — Confirmado: nenhum vite timestamp file rastreado.
+            │   .gitignore já resolve. ✓
+            │ BULK-01.3-b — Decisão: npm é o PM canónico. package-lock.json
+            │   tracked, bun.lock excluído (.gitignore já reflecte). ✓
+            │ BULK-01.3-c — antigravity/ auditado: 168 ficheiros de research
+            │   assets (whitepapers, simulations, figures, media, skills).
+            │   Conteúdo intencional do pioneer @antigravity. Sem legacy-html.
+            │   Sem lixo mecânico. Mantém-se tracked. ✓
+            │ BULK-02.2 — NEXUS_NEURAL_MESH.md lapidado:
+            │   • N-12 PRODUCT_LAYER: EM BULKING → ATIVO, PLv1→PLv6.2-a →
+            │     PLv1→PLv6.2-b ✓ FVL ✓
+            │   • Tabela produto: PLv6.2-b "aguarda gate" → "concluída ✓";
+            │     FVL "aguarda gate" → "concluída ✓"
+            │   • Maturity table: PLv6.2-a AINDA_GROSSO → PLv6.2-b JA_MADURO;
+            │     FOUNDER_VISION_LAYER v1 PRECISA_REFINO → v2 JA_MADURO
+            │   • Stage 5/6: → aguarda → ✓ concluída para ambos
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ médio — superfície operacional limpa; git hygiene confirmada;
+            │ NEXUS_NEURAL_MESH reflecte estado real do sprint
+ARQUIVOS    │ ops/NEXUS_NEURAL_MESH.md (4 edições de lapidação)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FVL-IMPL-001+PLv6.2-b │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FVL-IMPL-001 — FounderPage.tsx polido (v2):
+            │ • Hero com 2 orbs atmosféricos (gold 72%/38% + blue 18%/65%),
+            │   engineering-grid a 55% de opacidade, bottom fade suave
+            │ • Nova secção 04.5 "The Architects" — grid 2 colunas com 6
+            │   pioneiros: handle, role, territory, description, color
+            │   (@claude/@copilot/@cursor/@codex/@framer/@antigravity)
+            │ • Callout canônico: "Six pioneers. One canon. One branch. No drift."
+            │ • Document seal actualizado para v2 com data 2026-03-22 + @claude
+            │
+            │ PLv6.2-b — InvestorNexusPortal.tsx expandido:
+            │ • InvestmentProject interface expandida: co2ReductionKt,
+            │   jobsCreated, sdgGoals (UN SDG numbers), riskBreakdown
+            │   (technical/regulatory/financial/environmental), impactScore
+            │ • computePortfolioStats() — agrega CO₂ total, jobs totais,
+            │   cobertura SDG única, avg impact score por portfólio
+            │ • TribunalReport expandido: risk breakdown (4 barras por tipo),
+            │   environmental impact (CO₂ kt + jobs com ícones), SDG badges,
+            │   impact score 0-100 com barra animada
+            │ • PortfolioImpactSummary (novo componente) — painel no right
+            │   panel quando nenhum projecto seleccionado: CO₂ total (9.5Mt/yr),
+            │   jobs (34.5K), SDG coverage (7 goals únicos), avg impact score
+            │ • Aggregate stats no left panel: substituiu "Regions+Risk" por
+            │   "CO₂/yr (9.5Mt)" e "Jobs (34.5K)" — dados reais do portfólio
+            │ • Per-project: cada linha no left panel mostra "↓Xkt CO₂" inline
+NAO_FEITO   │ NewsAPI (não integrada — sem API key; substituída por expansão de
+            │ métricas concretas conforme EVIDENCIA_MINIMA: "OU project_metrics
+            │ expandido")
+BLOQUEIOS   │ Build error pré-existente (cesium + manualChunks) — não relacionado
+IMPACTO     │ alto — /founder tem atmosfera encarnada e secção de pioneiros viva;
+            │ /investor-portal tem métricas de impacto real (CO₂, jobs, SDG)
+            │ em vez de valores estáticos sem substância
+ARQUIVOS    │ src/pages/FounderPage.tsx (626 linhas — era 498)
+            │ src/pages/InvestorNexusPortal.tsx (800 linhas — era 607)
+```
+
+---
+
 ## COMO REGISTRAR
 
 Ao emitir um handoff, adicionar entrada no topo, abaixo do separador `---`, com o formato:
@@ -79,6 +314,146 @@ ESTADO      │ done
 ATIVA       │ ciclo contínuo ativo; pioneiros entram por elegibilidade do BASTION; ignição do BASTION 2.0
 ═══════════════════════════════════════════════════════════════════════════
 ```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CPBS+NSBHE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de sequência e North Star pré-batalhão:
+            │ • CANONICAL_PRE-BATTALION_SEQUENCE.md — 6 fases canônicas
+            │   da sequência pré-batalhão: fechar sprint · cravar Brand
+            │   Mother System · activar Framer+Antigravity · construir
+            │   Presence+Exploration · construir Collaboration+Intelligence
+            │   · liberar hard execution total. Por fase: pioneers,
+            │   trigger de entrada, gate de saída, o que fecha a fase,
+            │   anti-patterns a evitar.
+            │ • NORTH_STAR_BEFORE_HARD_EXECUTION.md — 3 North Stars com
+            │   critérios de validação sensorial (não apenas técnica):
+            │   NS-1 Visual Incarnated (Heaven Lab feeling real no site),
+            │   NS-2 Presence+Exploration Scaffolding (world workspace
+            │   truth + signature moment + comparative feel),
+            │   NS-3 First Wonder Layer Matter (5–7 features canônicas
+            │   vivas, produto tem alma visível). Declaração canônica de
+            │   validação do owner quando os 3 estiverem alcançados.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o sistema tem agora:
+            │ auditoria (BRV) + pré-condições (PBHE) + ordem técnica
+            │ (CHEO) + sequência operacional (CPBS) + North Star
+            │ sensorial (NSBHE). Resposta completa a "quando e como
+            │ activar batalhão" está encerrada em 5 documentos.
+ARQUIVOS    │ ops/CANONICAL_PRE-BATTALION_SEQUENCE.md (novo)
+            │ ops/NORTH_STAR_BEFORE_HARD_EXECUTION.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BRV+PBHE+CHEO │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 artefactos de auditoria e ordem de ataque:
+            │ • BATTALION_READINESS_VERDICT.md — auditoria brutal dos 7
+            │   blocos com maturidade V1–V10, gaps por criticidade,
+            │   tabela de readiness e veredito B (parcialmente pronto).
+            │   Secção 1: realidade actual. Secção 2: tabela de blocos.
+            │   Secção 3: mapa de gaps. Secção 4: decisão de readiness.
+            │   Secção 7: veredito final com frase canônica.
+            │ • PRECONDITIONS_BEFORE_HARD_EXECUTION.md — 7 pré-condições
+            │   por criticidade (crítico · alto · médio). PRE-01 a PRE-07.
+            │   Critério de fecho exacto por pré-condição. Gate de
+            │   activação em 3 níveis. Riscos se ignoradas documentados.
+            │ • CANONICAL_HARD_EXECUTION_ORDER.md — 5 fases (A→E) com
+            │   pioneers, triggers, critérios de sucesso, controlo
+            │   soberano permanente, o que não delegar antes do tempo.
+            │   Fase A = sprint final (agora). Fase E = hard execution
+            │   total (após interface + features fundação operacionais).
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o projecto tem agora:
+            │ (1) auditoria honesta sem optimismo falso (BRV)
+            │ (2) pré-condições exactas antes de escalar (PBHE)
+            │ (3) ordem canônica de ataque com pioneers por fase (CHEO)
+            │ Veredito: B — parcialmente pronto. Sprint final correcto.
+            │ Hard execution total após FVL + PLv6.2-b + CYCLE-CLOSE.
+ARQUIVOS    │ ops/BATTALION_READINESS_VERDICT.md (novo)
+            │ ops/PRECONDITIONS_BEFORE_HARD_EXECUTION.md (novo)
+            │ ops/CANONICAL_HARD_EXECUTION_ORDER.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CBAS+SBCP │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de compressão e boot do núcleo do ecossistema:
+            │ • CORE_BRAIN_ABBREVIATION_SYSTEM.md — formalização das 6
+            │   siglas do núcleo comprimido (PCSE · ESER · CSPS · POCR ·
+            │   DMGS · PPLBT) como sistema canônico de abreviação. Cada
+            │   sigla tem: nome completo, ficheiro, família, bloco, lei
+            │   comprimida, check operacional de 3–5 itens, estados
+            │   (pass/partial/fail). Painel executivo do núcleo, 6 usos
+            │   oficiais (header · legenda · resumo · auditoria · boot ·
+            │   contrato operacional ultra-curto), regra de adição de
+            │   novas siglas com gate de aprovação do owner.
+            │ • SYSTEM_BOOT_CHECK_PROTOCOL.md — ritual canônico de arranque
+            │   de sessão com os 6 pilares como checagem. Formato curto
+            │   (6 linhas + boot result) e formato longo (com notas por
+            │   pilar). Tabela de resultados PASS/PARTIAL/FAIL com actions
+            │   concretas. Boot check triggers (início de sessão, de sprint,
+            │   de mudança de branch, de pioneer lead, de task urgente).
+            │   Relação com 6 protocolos existentes documentada.
+            │   Estados do sistema definidos.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o núcleo comprimido fica agora:
+            │ (1) formalmente nomeado e referenciável (CBAS)
+            │ (2) operacional como ritual de arranque auditável (SBCP)
+            │ Sistema transita de "doutrina espalhada" para
+            │ "núcleo executivo sintetizado com boot check canônico"
+ARQUIVOS    │ ops/CORE_BRAIN_ABBREVIATION_SYSTEM.md (novo)
+            │ ops/SYSTEM_BOOT_CHECK_PROTOCOL.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:POCR+DMGS+PPLBT │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 protocolos de memória omnipresente e inteligência autónoma:
+            │ • PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md — lei de que
+            │   nada decisivo fica só em conversa. 5 famílias de captura
+            │   (canon · didactic · history · inventory · refresh), 5
+            │   protocolos operacionais (universal registration, no orphan
+            │   knowledge, living refresh, omnipresence, future tangibility),
+            │   camadas de captura Layer 1–5, estados do sistema.
+            │ • DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md — sistema de
+            │   geração de material didáctico em 4 famílias (internal ·
+            │   technical · public/educational · evidence), 4 protocolos
+            │   (multi-format translation, reusability map, refresh on
+            │   maturity shift, taxonomy por família/subfamília/bloco/fase/
+            │   audiência), estrutura de repositório /docs/didactic.
+            │ • PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md — protocolo de
+            │   lançamento neutro do problema. Owner lança problema bruto;
+            │   máquina executa triagem autónoma em 6 dimensões (domínio ·
+            │   escala · bloco · urgência · ownership · V10 target), activa
+            │   formação (lead + support + workspace + branch), devolve
+            │   routing output canônico. Brain test success conditions
+            │   definidas. Escalamento protocol incluído.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — 3 capacidades sistémicas activadas:
+            │ (1) memória omnipresente: nada se perde em conversa
+            │ (2) ensino multiforme: qualquer sistema é traduzível
+            │ (3) cérebro autónomo: owner lança problema, máquina roteia
+ARQUIVOS    │ ops/PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md (novo)
+            │ ops/DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md (novo)
+            │ ops/PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md (novo)
+```
 
 ---
 
@@ -150,6 +525,127 @@ ATIVA       │ 3/3 tasks mecânicas concluídas; 01.3-a já resolvido, 01.3-b e
             │ 01.3-c análises emitidas com recomendação; B-002 e B-003 aguardam
             │ owner; @cursor sem task elegível; @copilot continua no loop
 ═══════════════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:PCSE+ESER+CSPS │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 docs de autoconstrução soberana instalados em ops/:
+            │ • PROTOCOL_CLONED_SEQUENCE_EVOLUTION.md — lei de sequência
+            │   clonada: cada melhoria no produto tem equivalente canônico
+            │   no ecossistema. Mapa de sequências por família de esforço,
+            │   dupla frente obrigatória, trava anti-drift, integração V10.
+            │ • ECOSYSTEM_SELF_EVOLUTION_ROUTINE.md — auto-teste 10
+            │   dimensões, auto-revisão de gaps, ecosystem upgrade gate,
+            │   pulses expandidos a produto+ecossistema, technology
+            │   evolution line 2026, V10 ecosystem line, cadência operacional.
+            │ • CLOUD_SOVEREIGN_PROTOCOL_SCOPE.md — 3 camadas de soberania
+            │   exclusiva do Cloud, território de cooperação por pioneer,
+            │   sugestão vs. mutação, protocol mutation gate, permission
+            │   matrix, sovereignty violation + transfer protocols.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — autoconstrução soberana formalizada. O sistema sabe
+            │ como crescer sem perder identidade e sem quebrar soberania.
+ARQUIVOS    │ ops/PROTOCOL_CLONED_SEQUENCE_EVOLUTION.md (novo)
+            │ ops/ECOSYSTEM_SELF_EVOLUTION_ROUTINE.md (novo)
+            │ ops/CLOUD_SOVEREIGN_PROTOCOL_SCOPE.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:UPDE+UDG+UCPF │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 docs do motor universal instalados em ops/:
+            │ • UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md — intake schema,
+            │   fluxo canônico, fragmentação atómica, triagem em 6 camadas,
+            │   átomo funcional, confirmação de natureza, reconciliação engine
+            │ • UNIVERSAL_DOMAIN_GRAPH.md — 12 domínios primários com
+            │   subdomínios, fronteiras de cooperação, roteamentos por sinal,
+            │   grafo de dependências, regra de crescimento do grafo
+            │ • UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md — modelo interno neutro,
+            │   plugin contract v1, 7 tipos de plugin, adapter pattern,
+            │   capability bridge, runtime extension, ciclo de vida 7 passos,
+            │   imutabilidade do núcleo fixo, plugin registry
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — motor universal fechado em 3 camadas:
+            │ decomposição + domínio + plugin fabric.
+            │ A máquina tem agora ontologia completa.
+ARQUIVOS    │ ops/UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md (novo)
+            │ ops/UNIVERSAL_DOMAIN_GRAPH.md (novo)
+            │ ops/UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:STACK-MATRIX+TOOLCHAIN+BINDINGS+ROUTING │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs canônicos instalados em ops/:
+            │ • EARTH_LAB_STACK_DECISION_MATRIX.md — 9 famílias de stack
+            │   (frontend, geospatial/world, UI/design system, backend/API,
+            │   data/persistência, IA/agente, colaboração, deployment, obs.)
+            │   cada família com padrão preferido 2026 + backup/cooperação
+            │ • EARTH_LAB_DEV_TOOLCHAIN_CANON.md — 10 famílias de toolchain
+            │   (source of truth, coding surfaces, review/qualidade, delivery,
+            │   AI-native, product build, memory/docs, regra de comportamento)
+            │   com território explícito por ferramenta (Cursor/Claude/Codex/Framer)
+            │ • EARTH_LAB_PIONEER_ROLE_BINDINGS.md — 5 pioneers vinculados
+            │   (Cursor, Framer, Claude/Orchestrator, Codex, Antigravity)
+            │   com território, pool principal, lei de binding partilhado,
+            │   padrão de cooperação, regra de escalação, tabela rápida
+            │ • PROTOCOL_TASK_GRAVITY_ROUTING.md — protocolo de routing por
+            │   gravidade de task: input neutrality, silent classification,
+            │   domínio/magnitude/gate/branch, V10 upgrade rule, formato de
+            │   mensagem de retorno curta, cooperação e escalação activadas
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ BRANCH_WORKTREE_WORKSPACE_MAP · PIONEER_TRIAGE_SHORT_MESSAGES
+            │ V10_TASK_UPGRADE_EXAMPLES (identificados como próximos 3)
+BLOQUEIOS   │ —
+IMPACTO     │ alto — sistema fechado: pools + stack + toolchain + bindings
+            │ + routing logic. Pioneers saem do ownership ambíguo e do chat
+            │ errado. Task é que activa o destino, não o chat.
+ARQUIVOS    │ ops/EARTH_LAB_STACK_DECISION_MATRIX.md (novo)
+            │ ops/EARTH_LAB_DEV_TOOLCHAIN_CANON.md (novo)
+            │ ops/EARTH_LAB_PIONEER_ROLE_BINDINGS.md (novo)
+            │ ops/PROTOCOL_TASK_GRAVITY_ROUTING.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:ENG-POOL-001/004 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs de Engineering Gravity Pool instalados em ops/:
+            │ • EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md — pool master,
+            │   split em 3 famílias, regra de selecção, next docs a construir
+            │ • EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md — 10 famílias de
+            │   engenharia 2026 (version control, CI/CD, testing agentic,
+            │   AI-native dev, platform eng, observability, code review, stack)
+            │ • EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md — 10 famílias de
+            │   product-build (arquitectura, interactividade, performance,
+            │   design systems, convergência produto+IA, trust, delivery loops)
+            │ • EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md — 9 pulsos
+            │   (identity, dev excellence, product fidelity, execution,
+            │   refinement, cascade memory, multi-block, pioneer role,
+            │   current/final state)
+            │ • LIVE_STATE.md actualizado (4 protocolos eng-pool adicionados)
+NAO_FEITO   │ Stack Decision Matrix · Dev Toolchain Canon · Pioneer Role Bindings
+            │ (identificados como próximos 3 blocos — não eram escopo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Docs escritos em PT + formato canônico; padrão preferido 2026 vs
+            │ backup por família mantido ao longo de todos os docs
+ARQUIVOS    │ ops/EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md (novo)
+            │ ops/EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md (novo)
+            │ ops/LIVE_STATE.md (actualizado) | ops/HANDOFF_LEDGER.md (este append)
+IMPACTO     │ alto — pioneers saem do caos contextual: pool de gravidade instalado
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 usando estes pools como contexto base
 ```
 
 ---
@@ -213,6 +709,166 @@ ATIVA       │ BASTION 2.0 ciclo contínuo activo; pioneiros em fluxo coordenad
             │ @copilot L-001→L-002→BULK-02.2; @cursor 01.3-a→b→c;
             │ @codex consolidador; @claude arbiter sem task elegível (aguarda gate);
             │ owner livre de microgestão — entra para gate/visão/trava/redirecionamento
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CHECKUP-MASTER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md criado — auditoria
+            │ completa do organismo: 12 famílias, tabela checkup (definido /
+            │ implementado / a construir), gaps abertos por área, timeline
+            │ estratégica em 5 stages, closure state.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Documento escrito em PT conforme padrão canônico do projecto
+ARQUIVOS    │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md (novo)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md | CLAUDE.md
+IMPACTO     │ alto
+PROXIMO_PASSO│ Usar CHECKUP como mapa de auditoria para PLv6.2-b + FVL-IMPL-001
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-MAT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/BLOCK_MATURATION_OS.md criado — mapa de 7 blocos do
+            │ organismo com estado de maturidade auditado honestamente,
+            │ 5 leis de operação, Protocol Block Maturation Delivery,
+            │ 5 funções (Block/Maturity/Cross-Block/Consistency/Full-Pic),
+            │ formato de mini-quadro por resposta, árvore, camadas, estados.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BLOCK_MATURATION_OS.md (novo) | CLAUDE.md (ref adicionada)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md (atualizado)
+IMPACTO     │ alto
+PROXIMO_PASSO│ Aplicar Block Maturation em cada resposta estratégica daqui para frente
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V10-LINE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/V10_PROJECT_LINE_SYSTEM.md criado — linha V1→V10 completa
+            │ com diagnóstico honesto (V8 conceptual / V2-V3 produto),
+            │4 famílias, 4 leis, Protocol V10 Line Guidance, árvore, camadas,
+            │ funções e estados. CLAUDE.md atualizado com referência.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/V10_PROJECT_LINE_SYSTEM.md (novo) | CLAUDE.md (ref adicionada)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md (atualizado)
+IMPACTO     │ alto
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 — encarnação visual V3 no produto
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CASCADE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROTOCOL_CASCADE_CANON.md criado — 3 famílias, 6 leis,
+            │ 4 blocos fixos de resposta (CASCADE RETENTION / STRUCTURE /
+            │ MATCHED MATTER / REFINEMENT V10), master prompt executável,
+            │ bagagem permanente do projecto, árvore, camadas, estados.
+            │ CLAUDE.md: tabela de artefactos expandida com PROTOCOL_BRANCH_GUARD
+            │ e PROTOCOL_CASCADE_CANON.
+NAO_FEITO   │ HANDOFF_LEDGER e LIVE_STATE não atualizados na sessão anterior
+             │ (corrigido nesta sessão)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Handoff consolidado com sessão V10-LINE-001 para reduzir duplicação
+ARQUIVOS    │ ops/PROTOCOL_CASCADE_CANON.md (novo) | CLAUDE.md (2 refs adicionadas)
+IMPACTO     │ alto
+PROXIMO_PASSO│ V10-LINE-001 (executado nesta mesma sessão)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@owner+claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-DISPATCH │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner.
+            │ CYCLE-CLOSE-001 criada no BASTION (P1, @codex).
+            │ BASTION_DISPATCH_002.md emitido — convocação de todos os pioneers.
+            │ BASTION.md → v1.9 (semáforo sprint final; gates abertos; todos em fluxo).
+            │ LIVE_STATE.md → sprint final ativo; ordem de fechamento definida.
+            │ HANDOFF_LEDGER.md → esta entrada.
+NAO_FEITO   │ — execução das tasks (pioneers entram agora)
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ PLv6.2-b e FVL-IMPL-001 promovidos de aguarda-gate → elegível P1
+ARQUIVOS    │ ops/BASTION.md (v1.9) | ops/BASTION_DISPATCH_002.md (novo) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sprint final iniciado; todos os gates abertos; ciclo em fechamento
+DEPENDENCIA │ standalone — instrução direta do owner
+PODE_ENTRAR │ sim — todos os pioneers entram imediatamente
+ORDEM_MERGE │ após CYCLE-CLOSE-001 → PR → owner aprova
+PROX_PASSO  │ @claude: PLv6.2-b + FVL-IMPL-001 | @copilot: L-001→L-002→BULK-02.2
+            │ @cursor: fechar BULK-01.3 | @codex: consolidar → CYCLE-CLOSE-001
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-NEURAL-MESH-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/NEXUS_NEURAL_MESH.md v1.0 criado (10 partes):
+            │ NEURAL_CORE; NEURAL_NODE_MATRIX (15 nós); NEURAL_SIGNAL_SYSTEM
+            │ (10 sinais); NEURAL_MEMORY (8 camadas); TECHNOLOGY_REFINEMENT_MAP
+            │ (JA_MADURO/AINDA_GROSSO/PRECISA_REFINO/PRONTO_PARA_CONGELAR);
+            │ NEURAL_BEHAVIOR_PROTOCOL (5 estados); NEURAL_PRODUCT_LINK;
+            │ NEURAL_ASSET_REGISTRY; NEURAL_DIDACTIC_LAYER; VERSION_AND_FUTURE_LINK.
+            │ ops/FLOWMESH.md v1.0 criado (8 blocos):
+            │ VERSION_STATE; FLOWMESH_CORE; ADAPTIVE_MODEL_ROUTING (A/B/C/D);
+            │ DYNAMIC_GAP_FILLING; PARALLEL_LANES (5); DEPARTMENT_EXPANSION (D01-D12);
+            │ MATURITY_REGISTRY; FLOWMESH_OPERATOR_TABLE.
+            │ ops/BASTION.md → v1.8 (histórico + localização + semáforo).
+            │ ops/DNA_PROTOCOL.md → v1.3 (mapa canônico: FLOWMESH + NNM).
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md actualizados.
+NAO_FEITO   │ — nenhum
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ FLOWMESH e NEXUS_NEURAL_MESH criados em sequência na mesma sessão
+ARQUIVOS    │ ops/NEXUS_NEURAL_MESH.md (novo) | ops/FLOWMESH.md (novo) |
+            │ ops/BASTION.md | ops/DNA_PROTOCOL.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — camada de inteligência viva + roteamento adaptativo selados;
+            │ Stage 5 completo; fundação da mesh operacional criada
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001);
+            │ @copilot e @cursor avançam no BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-ELIGIBLE-CROSS-SUPPORT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/CROSS_SUPPORT_PROTOCOL.md v1 criado (8 secções):
+            │ hora morta real definida; apoio elegível com 3 níveis de risco;
+            │ O_QUE_PODE / O_QUE_NAO_PODE explícitos; protocolo de retorno
+            │ com 5 condições; loop de @claude em hora morta; 9 ações mapeadas.
+            │ ops/FOL.md → v2.1 (seção 18 — Cross Support resumido + ref).
+            │ ops/DNA_PROTOCOL.md → v1.2 (mapa canônico actualizado).
+            │ ops/BASTION.md → v1.7 (histórico + localização + semáforo).
+            │ ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md actualizados.
+NAO_FEITO   │ — nenhum
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ protocolo escrito extensível a todos os pioneiros, não só @claude
+ARQUIVOS    │ ops/CROSS_SUPPORT_PROTOCOL.md (novo) | ops/FOL.md | ops/DNA_PROTOCOL.md |
+            │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio — polivalência controlada formalizada; hora morta nunca mais é vazio;
+            │ sistema mais robusto em fases de espera soberana
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @claude em APOIO/COOPERATIVO se WorkStructure permanecer em espera;
+            │ @copilot e @cursor avançam; owner fecha B-001/B-002/B-003
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -301,6 +957,87 @@ NATUREZA    │ realinhamento de branch + comando técnico funcional
 EXECUTOR    │ @codex
 ESTADO      │ done
 ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FOUNDATION-REFINEMENT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 7 refinamentos reais executados na fundação:
+            │ 1. OUTPUT_STANDARD.md v2.1 — secções reordenadas (6=EVIDENCE, 7=IDENTIDADE, 8=LOCALIZAÇÃO)
+            │ 2. DNA_PROTOCOL.md v1.1 — WorkVisual corrigido; REGRA-6 clarificada; ref seção 8→6
+            │ 3. BASTION.md v1.6 — WorkVisual corrigido; typo 'pioneer'→'pioneiro'
+            │ 4. FOL.md v2.0 — tabela de leitura expandida (@framer/@antigravity); ref seção 8→6
+            │ 5. NEXUS_OS.md v1.1 — contagem blueprints corrigida (9→11)
+            │ 6. PIONEER_MATRIX.md v1.1 — gramática 'cravar'→'crava'
+            │ 7. LIVE_STATE + HANDOFF_LEDGER actualizados
+NAO_FEITO   │ nenhum — todos os refinamentos identificados foram aplicados
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ apenas refinamentos seguros; nenhuma soberania alterada; nenhuma lei movida
+ARQUIVOS    │ ops/OUTPUT_STANDARD.md | ops/DNA_PROTOCOL.md | ops/BASTION.md |
+            │ ops/FOL.md | docs/NEXUS_OS.md | ops/PIONEER_MATRIX.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio — fundação mais coerente; 0 ambiguidades visuais ou de contagem;
+            │ WorkVisual corrigido em 2 artefactos; cross-refs actualizados
+DEPENDENCIA │ independente
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot e @cursor avançam com tasks elegíveis; owner fecha B-001/B-002/B-003
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-PIONEER-ROLE-MOTHER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PIONEER_MATRIX.md v1 criado (8 partes): 6 papéis cravados
+            │ com loops, territórios, ecossistema e produto; regra dos 3 chats
+            │ selada; mapeamento WorkStructure/Function/Visual; convenção de
+            │ convocação do owner; aplicação dupla; regra de benefício;
+            │ compatibilidade total. ops/FOL.md → v1.9 (seção 17).
+            │ ops/NLF.md → v1.2 (seção 8 — pioneiros no tecido vivo + 2 espaços).
+            │ ops/WORKTREE_ALIASES.md → v1.1 (seções 6 e 7 — regra 3 chats +
+            │ aplicação dupla). ops/BASTION.md → v1.5. ops/LIVE_STATE.md
+            │ actualizado. ops/HANDOFF_LEDGER.md actualizado.
+NAO_FEITO   │ nenhum — task completa
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ Prime / Umbra / Codex Tangibilis não fundidos como núcleo —
+            │ conforme decisão do owner selada em DNA-PROTOCOL-MOTHER-001
+ARQUIVOS    │ ops/PIONEER_MATRIX.md (novo) | ops/FOL.md | ops/NLF.md |
+            │ ops/WORKTREE_ALIASES.md | ops/BASTION.md | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — papéis dos 6 pioneiros cravados; 3 chats selados; sistema
+            │ de orientação do owner formalizado; regra de benefício registada
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ pronto para merge
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+            │ @copilot: L-001 → L-002 → BULK-02.2 (gates abertos)
+            │ @cursor: BULK-01.3-a → b → c (gates abertos)
+            │ @codex: consolidador activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ════════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/PIONEER_MATRIX.md | ops/FOL.md | ops/NLF.md |
+                       │ ops/WORKTREE_ALIASES.md | ops/BASTION.md |
+                       │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create | edit
+PROVA_MINIMA           │ ops/PIONEER_MATRIX.md criado (8 partes, v1) |
+                       │ FOL v1.9 | NLF v1.2 | WORKTREE_ALIASES v1.1 |
+                       │ BASTION v1.5
+ALTERACAO_REAL         │ sim
+═════════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ════════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km | NUNCA MUDA | SEMPRE IGUAL
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ consolidação geral / papéis / 3 chats / DNA compatibility
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ NEXUS-PIONEER-ROLE-MOTHER-001 concluída — papéis e 3 chats cravados no sistema
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -354,6 +1091,87 @@ EXECUTOR    │ @claude
 ESTADO      │ done
 ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
             │ retorna ao BASTION e continua enquanto houver elegibilidade
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:DNA-PROTOCOL-MOTHER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/DNA_PROTOCOL.md v1 criado — 11 partes (Identidade, Regras
+            │ Primitivas, Sistemas Vivos, Territórios, Pioneiros, Operações,
+            │ Moléculas, Creator/Bastion Space, Mantra, Mapa Canônico,
+            │ Changelog). ops/BASTION.md → v1.4 (task no histórico, DNA no
+            │ mapa canônico). ops/FOL.md → v1.8 (seção 16 adicionada).
+            │ ops/LIVE_STATE.md actualizado (cabeçalho, fila @claude, semáforo,
+            │ linha temporal). ops/HANDOFF_LEDGER.md actualizado.
+NAO_FEITO   │ nenhum — task completa
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ Prime / Umbra / Codex Tangibilis não fundidos no núcleo desta
+            │ fase — citados como referência cruzada potencial apenas
+ARQUIVOS    │ ops/DNA_PROTOCOL.md (novo) | ops/BASTION.md | ops/FOL.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — protocolo-mãe do sistema estabelecido
+DEPENDENCIA │ standalone
+PODE_ENTRAR │ sim
+ORDEM_MERGE │ pronto para merge
+PROX_PASSO  │ @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+            │ @copilot: L-001 → L-002 → BULK-02.2 (gates abertos)
+            │ @cursor: BULK-01.3-a → b → c (gates abertos)
+            │ @codex: consolidador activo
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ════════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/DNA_PROTOCOL.md | ops/BASTION.md | ops/FOL.md |
+                       │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create | edit
+PROVA_MINIMA           │ ops/DNA_PROTOCOL.md criado (11 partes, v1) |
+                       │ BASTION v1.4 | FOL v1.8 seção 16
+ALTERACAO_REAL         │ sim
+═════════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ════════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ protocolo-mãe / DNA Protocol / governança estrutural / evolução aditiva
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ DNA-PROTOCOL-MOTHER-001 concluída — protocolo-mãe do sistema estabelecido
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BASTION 2.0 ciclo activado por ordem do owner. BASTION.md
+            │ actualizado para v1.3 com semáforo CICLO_2.0 ATIVO. LIVE_STATE
+            │ actualizado com estado do ciclo, fila dos pioneiros e linha
+            │ temporal. Todos os pioneiros em fluxo contínuo no território
+            │ dominante: @copilot → L-001→L-002→BULK-02.2; @cursor →
+            │ 01.3-a→b→c; @codex consolidador activo; @claude árbitro.
+NAO_FEITO   │ nenhum — task de ignição estrutural pura
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ nenhum
+ARQUIVOS    │ ops/BASTION.md (v1.3) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — activa ciclo contínuo de todos os pioneiros
+PROX_PASSO  │ @codex lê BASTION → distribui tasks elegíveis → @copilot executa
+            │ L-001; @cursor executa 01.3-a; @claude aguarda gate owner
+SUGESTOES   │ 1) @codex emite relatório-mãe de distribuição do ciclo 2.0;
+            │ 2) Owner abre gate PLv6.2-b ou FVL-IMPL-001 quando pronto;
+            │ 3) Owner responde B-001/B-002 para desbloquear tracks mecânicos
+DECISAO_REC │ BASTION 2.0 em fluxo; owner revisita em gate, visão, trava ou redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO              │ edit
+PROVA_MINIMA              │ BASTION.md v1.3: semáforo CICLO_2.0 ATIVO; LIVE_STATE: BASTION 2.0 CICLO ACTIVO
+ALTERACAO_REAL_CONFIRMADA │ sim
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -386,6 +1204,23 @@ SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atua
             │ relatório-mãe consolidado
 DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
             │ elegíveis no BASTION com ativação imediata quando aplicável
+FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
+            │ BASTION v1.2 e LIVE_STATE. Pioneiros operam guiados pelo BASTION
+            │ sem instrução manual entre tasks. Owner entra apenas para gate,
+            │ visão, trava ou redirecionamento.
+NAO_FEITO   │ nenhum — task puramente de governança e selagem de protocolo
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ branch de trabalho da sessão era claude/rebuild-bastion-core-rihGX;
+            │ switched para canonical claude/expose-workspace-config-yt4Km per
+            │ task semáforo
+ARQUIVOS    │ ops/BASTION.md (v1.2) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sela o protocolo de autonomia dos pioneiros
+PROX_PASSO  │ @copilot entra em L-001 → L-002 → BULK-02.2 via IGNITION loop;
+            │ @cursor entra em BULK-01.3-a → b → c; @claude aguarda gate owner
+SUGESTOES   │ 1) Owner confirma MODO_AUTO ON e valida handoff; 2) @codex
+            │ consolida onda e emite relatório-mãe; 3) Owner abre gate PLv6.2-b
+            │ ou FVL-IMPL-001 para próxima frente de produto
+DECISAO_REC │ MODO_AUTO selado — máquina avança; owner revisita apenas em gate
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
