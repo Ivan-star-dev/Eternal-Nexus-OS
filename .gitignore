@@ -17,6 +17,11 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Certificate and private key files
+*.pem
+*.key
+*.p12
+
 # Lock file — npm is canonical; bun.lock is not tracked
 bun.lock
 bun.lockb
