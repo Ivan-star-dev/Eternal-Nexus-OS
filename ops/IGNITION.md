@@ -111,12 +111,11 @@ PRIORIDADE 3 — Bloqueio / Sem Elegível
 
 ## 4. CORREDOR COMUM — O BRANCH CANÔNICO
 
-```
-Branch canônico vivo: claude/expose-workspace-config-yt4Km
-```
+O branch canônico vivo **não é definido manualmente** neste documento.
+Ele deve ser sempre lido de `ops/LIVE_STATE.md`, que é a fonte de verdade operacional.
 
 **Durante IGNIÇÃO_ATIVA:**
-- Todos os pioneiros operam sobre o branch canônico vivo
+- Todos os pioneiros operam sobre o branch canônico vivo definido em `ops/LIVE_STATE.md`
 - `main` não é o motor da fase ativa — é o destino de merge, não a fonte de verdade
 - Verificar branch ao iniciar cada loop (semáforo 🟢/🔴)
 - Branch divergido → para o loop → registra → aguarda realinhamento
