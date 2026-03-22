@@ -145,6 +145,8 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 | `ops/DNA_PROTOCOL.md` | Espinha canónica — lei primária do sistema |
 | `ops/PIONEER_MATRIX.md` | Papéis, territórios, regra dos 3 chats |
 | `ops/HANDOFF_LEDGER.md` | Histórico imutável de todas as sessões |
+| `ops/PROTOCOL_BRANCH_GUARD.md` | Guard de branch — triage automática, rejeição, redirecionamento |
+| `ops/PROTOCOL_CASCADE_CANON.md` | Lei de resposta — retenção em cascata, 4 blocos, V10, matéria |
 
 ---
 
