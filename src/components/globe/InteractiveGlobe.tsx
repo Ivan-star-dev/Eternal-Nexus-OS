@@ -4,6 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import GlobeScene from "./GlobeScene";
 import MobileGlobeMap from "./MobileGlobeMap";
 import GlobeConstructionSequence from "./GlobeConstructionSequence";
+import GlobeLayerSelector from "./GlobeLayerSelector";
 
 interface InteractiveGlobeProps {
   onHotspotClick?: (projectId: string) => void;
@@ -12,11 +13,16 @@ interface InteractiveGlobeProps {
 const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
   const isMobile = useIsMobile();
   const [focusedProject, setFocusedProject] = useState<string | null>(null);
+  const [layers, setLayers] = useState({ projects: true, seismic: true, airQuality: false });
 
   const handleClick = useCallback((id: string) => {
     setFocusedProject(id);
     onHotspotClick?.(id);
   }, [onHotspotClick]);
+
+  const handleLayerToggle = useCallback((layer: string) => {
+    setLayers((prev) => ({ ...prev, [layer]: !prev[layer as keyof typeof prev] }));
+  }, []);
 
   if (isMobile) {
     return <MobileGlobeMap onHotspotClick={handleClick} />;
@@ -38,8 +44,14 @@ const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
             gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
             style={{ background: "transparent" }}
           >
-            <GlobeScene focusedProject={focusedProject} onHotspotClick={handleClick} />
+            <GlobeScene
+              focusedProject={focusedProject}
+              onHotspotClick={handleClick}
+              showProjects={layers.projects}
+              showSeismic={layers.seismic}
+            />
           </Canvas>
+          <GlobeLayerSelector layers={layers} onToggle={handleLayerToggle} />
         </Suspense>
       </GlobeConstructionSequence>
     </div>
