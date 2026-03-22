@@ -362,8 +362,8 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.2
-DATA            │ 2026-03-20
+VERSÃO          │ v1.3
+DATA            │ 2026-03-21
 ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
 ESTADO          │ ACTIVO — fonte única de execução elegível
 DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
