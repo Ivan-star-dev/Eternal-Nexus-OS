@@ -37,7 +37,7 @@
 | BULK-01.2/L-001 | Higiene .gitignore | @claude | **CONCLUÍDA ✓** |
 | BULK-01.2/L-002 | git rm --cached timestamp | @claude | **CONCLUÍDA ✓** |
 | BULK-01.3-a/b/c | Backlog mecânico | @claude | **CONCLUÍDA ✓** |
-| CYCLE-CLOSE-001 | Consolidação final + PR | @claude | **PRONTA — A EXECUTAR** |
+| CYCLE-CLOSE-001 | Consolidação final + PR | @claude | **CONCLUÍDA ✓ — PR ABERTO** |
 
 ---
 
