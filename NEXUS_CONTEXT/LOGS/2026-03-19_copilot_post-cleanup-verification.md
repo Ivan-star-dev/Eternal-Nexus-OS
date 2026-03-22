@@ -63,13 +63,13 @@ PR #59 (C6 types) → PR #65 (R3F v9) → [rebase] PR #51 (ReplayCursor) → [ma
 
 ### Anything Unsafe About the Current State
 
-1. **2 orphan branches** with no open PRs:
+1. **2 orphan branches** (unmerged, no open PRs):
    - `A2-ci-baseline-gate` — stale, should be cleaned up
    - `C6-codex-eslint-audit` — stale, should be cleaned up
 2. **PR #7 is extremely stale** — its base SHA is from 6 merges ago. The 46 changed files likely overlap with content already on `main`. A fresh audit of what #7 still contributes (vs what's already merged) is needed before attempting rebase.
 3. **PR #51 scope is large** (58 files) for what should be a focused ReplayCursor upgrade. Contains Phase 1 closure docs + Phase 2 task seeding + test fixes. Consider splitting if conflict resolution is complex.
 4. **`docs/task-queue/` on main is outdated** — `ready/` still shows C4b, U1, U2 as ready, but these are DONE per PIPELINE.md. PR #51 moves them to `done/` but hasn't merged yet.
-5. **Branch `claude/magical-goodall`** still exists despite its PR #8 being merged — harmless but should be cleaned up.
+5. **Merged-but-not-deleted branch `claude/magical-goodall`** (PR #8 merged) still exists — harmless but should be cleaned up; not counted in the orphan-branch total above.
 
 ### Remaining Branches (13)
 
