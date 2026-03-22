@@ -33,6 +33,25 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CHECKUP-MASTER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md criado — auditoria
+            │ completa do organismo: 12 famílias, tabela checkup (definido /
+            │ implementado / a construir), gaps abertos por área, timeline
+            │ estratégica em 5 stages, closure state.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Documento escrito em PT conforme padrão canônico do projecto
+ARQUIVOS    │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md (novo)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md | CLAUDE.md
+IMPACTO     │ alto
+PROXIMO_PASSO│ Usar CHECKUP como mapa de auditoria para PLv6.2-b + FVL-IMPL-001
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-MAT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/BLOCK_MATURATION_OS.md criado — mapa de 7 blocos do
