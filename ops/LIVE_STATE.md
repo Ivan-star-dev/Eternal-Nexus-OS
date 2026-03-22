@@ -18,7 +18,7 @@
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.8 activo; PIONEER_MATRIX v1.1; DNA_PROTOCOL v1.3; FOL v2.1; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; CROSS_SUPPORT_PROTOCOL v1; FLOWMESH v1.0 criado; NEXUS_NEURAL_MESH v1.0 criado; BASTION 2.0 CICLO ACTIVO |
-| **Estado geral** | BASTION 2.0 CICLO ACTIVADO; fundação lapidada + FLOWMESH + NEURAL_MESH criados; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
+| **Estado geral** | BASTION 2.0 CICLO ACTIVADO; fundação lapidada + FLOWMESH + NEURAL_MESH criados; STACK_REGISTRY scored — 5 lanes completas; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
 
@@ -56,6 +56,7 @@
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Cross Support Protocol — polivalência controlada formalizada | CONCLUÍDA | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1; FOL v2.1 seção 18; DNA v1.2; BASTION v1.7 |
 | NEXUS-FLOWMESH-001 | FLOWMESH v1.0 — roteamento adaptativo de modelos e tasks | CONCLUÍDA | handoff emitido — FLOWMESH.md v1.0 criado; 8 blocos; 12 departamentos; DNA v1.3; BASTION v1.8 |
 | NEXUS-NEURAL-MESH-001 | NEXUS_NEURAL_MESH v1.0 — camada de inteligência viva do sistema | CONCLUÍDA | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; 15 nós; BASTION v1.8 |
+| PILAR-2-STACK-REGISTRY-001 | STACK_REGISTRY scored — all 5 lanes complete | CONCLUÍDA | handoff emitido — NEXUS_CONTEXT/STACK_REGISTRY.md v1.0 criado; 5 lanes; 18 candidatos avaliados |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 

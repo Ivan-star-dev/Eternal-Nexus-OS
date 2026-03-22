@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { TribunalVerdict, RealtimeDataPoint } from '../types';
+import { validateTribunalEvent } from '@/lib/tribunal/validation';
 
 /**
  * Shared Nervous System for the Eternal Nexus.
@@ -17,7 +18,15 @@ export const useNexusState = () => {
   });
 
   const addVerdict = useMutation({
-    mutationFn: async (verdict: TribunalVerdict) => verdict,
+    mutationFn: async (verdict: TribunalVerdict) => {
+      // Pilar 1: validate before ingestion — reject malformed events
+      const { valid, errors } = validateTribunalEvent(verdict);
+      if (!valid) {
+        console.warn('[Tribunal] Malformed event rejected:', errors);
+        throw new Error(`[Tribunal] Invalid event: ${errors.join('; ')}`);
+      }
+      return verdict;
+    },
     onSuccess: (newVerdict) => {
       queryClient.setQueryData<TribunalVerdict[]>(['verdicts'], (old = []) => [
         newVerdict,
