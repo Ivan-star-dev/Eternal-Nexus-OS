@@ -12,6 +12,8 @@ import { lazy, Suspense } from "react";
 import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
 import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
+import LoadingFallback from "./components/LoadingFallback";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const Index = lazy(() => import("./pages/Index"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -36,20 +38,14 @@ const InvestorNexusPortal = lazy(() => import("./pages/InvestorNexusPortal"));
 const SalaDeCrise = lazy(() => import("./pages/SalaDeCrise"));
 const EducacaoNacional = lazy(() => import("./pages/EducacaoNacional"));
 const IndexPage = lazy(() => import("./pages/IndexPage"));
+const FounderPage = lazy(() => import("./pages/FounderPage"));
+const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const PageSkeleton = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-center">
-      <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-      <span className="font-mono text-[0.58rem] tracking-[0.2em] text-muted-foreground uppercase">Loading…</span>
-    </div>
-  </div>
-);
-
 const App = () => (
+  <ErrorBoundary>
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <AuthProvider>
@@ -61,7 +57,7 @@ const App = () => (
           <BrowserRouter>
             <OrganTransitionParticles />
             <NexusFlowInspector />
-            <Suspense fallback={<PageSkeleton />}>
+            <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/project/:id" element={<ProjectPage />} />
@@ -110,6 +106,8 @@ const App = () => (
                 <Route path="/investor-portal" element={<InvestorNexusPortal />} />
                 <Route path="/sala-de-crise" element={<SalaDeCrise />} />
                 <Route path="/educacao" element={<EducacaoNacional />} />
+                <Route path="/founder" element={<FounderPage />} />
+                <Route path="/projects" element={<Projects />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
@@ -118,6 +116,7 @@ const App = () => (
       </AuthProvider>
     </LanguageProvider>
   </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;

@@ -16,7 +16,7 @@ const NavBar = () => {
   const { visible, atTop } = useScrollDirection();
 
   const navLinks = [
-    { label: "DOSSIERS", path: "/#projects", icon: null as any, live: false },
+    { label: "PROJECTS", path: "/projects", icon: null as any, live: false },
     { label: "ATLAS", path: "/atlas", icon: Globe, live: true },
     { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
     { label: "GALLERY", path: "/gallery", icon: null as any, live: false },

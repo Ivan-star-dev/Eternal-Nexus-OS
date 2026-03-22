@@ -1,13 +1,16 @@
 import { useNexusState } from "@/hooks/useNexusState";
 import { useIndexOrgan } from "@/hooks/useIndexOrgan";
+import { getSacredFlowOrgans, WORKSPACE } from "@/config/workspace";
 
 /**
- * Audit-safe Dev Inspector. 
+ * Audit-safe Dev Inspector.
  * Provides visibility into the shared session state and propagation path.
+ * PLv1: exposes canonical workspace config (sacred flow + product layer).
  */
 export const NexusFlowInspector = () => {
   const { verdicts } = useNexusState();
   const { entries } = useIndexOrgan();
+  const sacredFlowOrgans = getSacredFlowOrgans();
 
   if (import.meta.env.PROD) return null;
 
@@ -17,8 +20,31 @@ export const NexusFlowInspector = () => {
         <span>Nexus Flow Inspector</span>
         <span className="text-green-500">LIVE</span>
       </div>
-      
+
       <div className="space-y-3">
+        {/* Workspace config — PLv1 */}
+        <div>
+          <div className="text-muted-foreground mb-1">WORKSPACE CONFIG</div>
+          <div className="flex gap-1 flex-wrap">
+            {sacredFlowOrgans.map((organ, i) => (
+              <span key={organ.id} className="flex items-center gap-0.5">
+                <span
+                  className="px-1 py-0.5 rounded text-[8px] font-bold"
+                  style={{ color: organ.color, border: `1px solid ${organ.color}40` }}
+                >
+                  {organ.label}
+                </span>
+                {i < sacredFlowOrgans.length - 1 && (
+                  <span className="text-muted-foreground/50">→</span>
+                )}
+              </span>
+            ))}
+          </div>
+          <div className="text-[8px] text-muted-foreground mt-1">
+            {WORKSPACE.name} · {WORKSPACE.productLayer}
+          </div>
+        </div>
+
         <div>
           <div className="text-muted-foreground mb-1 flex justify-between">
             <span>TRIBUNAL VERDICTS</span>
@@ -42,15 +68,11 @@ export const NexusFlowInspector = () => {
           <ul className="space-y-1">
             {entries.slice(0, 3).map(e => (
               <li key={e.id} className="text-[9px] border-l border-blue-500/50 pl-2 py-0.5">
-                 <div className="truncate text-foreground">{e.title}</div>
-                 <div className="text-blue-500/70 uppercase">{e.category} | SEV: {e.severity.toFixed(2)}</div>
+                <div className="truncate text-foreground">{e.title}</div>
+                <div className="text-blue-500/70 uppercase">{e.category} | SEV: {e.severity.toFixed(2)}</div>
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="text-[8px] text-muted-foreground border-t border-white/5 pt-2 italic">
-          Sacred Flow: Tribunal ➔ Atlas ➔ Index ➔ News
         </div>
       </div>
     </div>

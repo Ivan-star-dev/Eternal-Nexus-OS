@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,13 +8,28 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import ReactMarkdown from "react-markdown";
-import AIAnchor3D from "@/components/news/AIAnchor3D";
 import BroadcastBar from "@/components/news/BroadcastBar";
 import { useIndexOrgan } from "@/hooks/useIndexOrgan";
 import { IndexEntry } from "@/types/index-organ";
 import { getDefaultBus } from "@/lib/events/bus";
 import { makeEventId, seedFromId } from "@/lib/events/id";
 import type { NexusEvent, NewsBroadcastPayload } from "@/types/sacred-flow";
+
+// Lazy-load AIAnchor3D so that a WebGL/r3f module failure doesn't crash NewsPortal
+const AIAnchor3D = lazy(() =>
+  import("@/components/news/AIAnchor3D").catch(() => ({
+    default: ({ onToggleSpeak, onToggleMute }: any) => (
+      <div className="relative bg-card border border-primary/20 rounded-lg overflow-hidden h-[80px] flex items-center px-4 gap-3">
+        <div className="w-10 h-10 rounded-full border-2 border-border bg-card flex items-center justify-center shrink-0">
+          <span className="font-mono text-[0.5rem] text-primary font-bold">AI</span>
+        </div>
+        <span className="font-mono text-[0.5rem] text-muted-foreground tracking-widest uppercase">
+          NEXUS AI ANCHOR — MODO OFFLINE
+        </span>
+      </div>
+    ),
+  }))
+);
 
 // ═══ Report types ═══
 interface NewsReport {
@@ -180,17 +195,18 @@ export default function NewsPortal() {
   const { user } = useAuth();
   const { entries } = useIndexOrgan();
   
-  // Map IndexEntry to NewsReport
-  const reports: NewsReport[] = entries.map(e => ({
+  // Map IndexEntry to NewsReport — fallback to daily mock reports when live data is unavailable
+  const liveReports: NewsReport[] = entries.map(e => ({
     id: e.id,
     title: e.title,
     summary: e.summary,
     category: e.category === 'verdict' ? 'security' : (e.category as any),
     severity: e.severity > 0.8 ? 'critical' : e.severity > 0.6 ? 'high' : e.severity > 0.3 ? 'moderate' : 'info',
     timestamp: new Date(e.timestamp).toISOString(),
-    source: e.sources[0]?.organ || 'Nexus',
+    source: e.sources?.[0]?.organ || 'Nexus',
     fullAnalysis: e.summary
   }));
+  const reports: NewsReport[] = liveReports.length > 0 ? liveReports : generateDailyReports();
 
   const [selectedReport, setSelectedReport] = useState<NewsReport | null>(null);
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
@@ -324,19 +340,27 @@ export default function NewsPortal() {
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* ═══ AI ANCHOR 3D AVATAR ═══ */}
         <div className="mb-6">
-          <AIAnchor3D
-            speaking={anchor.speaking}
-            reportTitle={selectedReport?.title}
-            onToggleSpeak={() => {
-              if (anchor.speaking) {
-                anchor.stop();
-              } else if (selectedReport) {
-                anchor.speak(`${CATEGORY_META[selectedReport.category]?.label}. ${selectedReport.title}. ${selectedReport.summary}`);
-              }
-            }}
-            muted={anchor.muted}
-            onToggleMute={() => anchor.setMuted(!anchor.muted)}
-          />
+          <Suspense fallback={
+            <div className="bg-card border border-primary/20 rounded-lg h-[80px] flex items-center px-4">
+              <span className="font-mono text-[0.5rem] text-muted-foreground tracking-widest uppercase animate-pulse">
+                CARREGANDO ANCHOR…
+              </span>
+            </div>
+          }>
+            <AIAnchor3D
+              speaking={anchor.speaking}
+              reportTitle={selectedReport?.title}
+              onToggleSpeak={() => {
+                if (anchor.speaking) {
+                  anchor.stop();
+                } else if (selectedReport) {
+                  anchor.speak(`${CATEGORY_META[selectedReport.category]?.label}. ${selectedReport.title}. ${selectedReport.summary}`);
+                }
+              }}
+              muted={anchor.muted}
+              onToggleMute={() => anchor.setMuted(!anchor.muted)}
+            />
+          </Suspense>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">

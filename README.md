@@ -56,16 +56,19 @@ Definidos em `package.json`:
 - `typecheck`
 - `preview`
 
+## Arquitetura operacional do sistema
+A casca grossa canônica do Eternal Nexus OS — identidade, missão, leis, pilares, fases, semáforo, linhas, tribunal, handoff, blueprints e critério de sistema maduro — vive em:
+- `docs/NEXUS_OS.md` ← documento soberano
+
 ## Governança da Fase 3
 A fonte de verdade da Fase 3 neste repositório é:
 - `docs/DOC_FASE3.md`
 
 Documentos de suporte:
-- `docs/DOC_VISUAL_SPINE_001.md` — blueprint da identidade visual-mãe do ecossistema
-- `docs/DOC_VISUAL_SPINE_002A.md` — ativação localizada da Visual Spine (presença e templates)
-- `ops/VISUAL_TEMPLATE_PACK_002A.md` — pack de templates vivos (handoffs, reports, letters, outputs)
+- `docs/DOC_MICRO_TEAM.md` — protocolo da Micro Team Paralela de Refinamento
+- `docs/DOC_TRIBUNAL_E4.md` — parecer de higiene e ordem de merge
 
-Esse documento define:
+Esses documentos definem:
 - escopo e não-escopo
 - requisitos verificáveis
 - critérios de aceitação auditáveis
@@ -81,3 +84,23 @@ Em vigor neste repositório:
 Não afirmado por falta de evidência técnica fechada neste repositório:
 - Novas capacidades de produto além do que já está codificado/documentado
 - Critérios funcionais detalhados não versionados em arquivos do projeto
+
+## Deployment
+
+Before deploying, run the deploy readiness gate to verify all structural prerequisites are met:
+
+```bash
+node scripts/gates/deploy-readiness-gate.cjs
+```
+
+The gate checks (all must pass — exits 0 on success, exits 1 on any failure):
+
+- **Structural check: `src/main.tsx` exists** — application entry point present
+- **Structural check: `src/App.tsx` exists** — root component present
+- **Structural check: `package.json` exists** — project manifest present
+- **Structural check: `vite.config.ts` exists** — build configuration present
+- **Environment documentation: `.env.example` exists** — required environment variable names are documented
+- **Sacred Flow gate dependency: `ops/LIVE_STATE.md` exists** — live state file required by the Sacred Flow gate
+- **Report presence dependency: `ops/HANDOFF_LEDGER.md` exists** — handoff ledger required for reporting
+
+The gate also runs automatically on every pull request and push to `main` via `.github/workflows/deploy-readiness.yml`.

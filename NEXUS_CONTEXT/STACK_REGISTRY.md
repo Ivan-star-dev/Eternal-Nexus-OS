@@ -1,122 +1,97 @@
-# Eternal Nexus — STACK_REGISTRY (external tech candidates)
+# STACK_REGISTRY — Eternal Nexus OS
 
-> **Rule:** No random copy-paste. All external tech goes through:
-> registry entry → lab branch validation → clean implementation PR
->
-> Each entry must contain: subsystem, candidate, license, rationale,
-> integration plan, risks, and adoption decision.
+> Scoring canônico dos candidatos tecnológicos por lane.
+> Decisões: ADOPT | TRIAL | HOLD | REJECT
+> Scores: 1 (fraco) → 5 (excelente)
 
----
-
-## Registry format
-
-```
-### <Subsystem>
-- **Candidate:** <repo URL or npm package>
-- **License:** <e.g., MIT, Apache-2.0, GPL-3.0>
-- **Why best-in-class:** <brief rationale>
-- **Integration plan:** <how it connects to Sacred Flow>
-- **Risks:** <bundle size, maintenance, lock-in>
-- **Lab branch:** <lab/<agent>/XX or "not yet tested">
-- **Decision:** 🟡 PENDING | ✅ ADOPT | ❌ REJECT
-- **Date:** YYYY-MM-DD
-```
+**Criado:** 2026-03-22
+**Criado por:** @claude | Pilar 2 — Structure
+**Versão:** v1.0
 
 ---
 
-## Current stack (already in use — not candidates)
+## Scoring Legend
 
-### UI Framework
-- **In use:** React 18 + Vite + TypeScript
-- **Status:** ✅ Established
-
-### State Management
-- **In use:** TanStack Query (nervous system backbone)
-- **Status:** ✅ Established
-
-### 3D/Globe
-- **In use:** Cesium + React Three Fiber
-- **Status:** ✅ Established
-
-### Styling
-- **In use:** Tailwind CSS + shadcn/ui
-- **Status:** ✅ Established
-
-### Testing
-- **In use:** Vitest
-- **Status:** ✅ Established
-
-### Backend
-- **In use:** Supabase (edge functions + DB)
-- **Status:** ✅ Established
-
-### 2D Map Engine
-- **In use:** MapLibre GL JS v5 (`maplibre-gl@5.20.2`)
-- **Status:** ✅ Adopted (2026-03-18, Task C2)
-
-### Serverless Vector Tiles
-- **In use:** PMTiles v4 (`pmtiles@4.4.0`)
-- **Status:** ✅ Adopted (2026-03-18, Task C2)
+| Coluna | Critério |
+|---|---|
+| **A** | Performance |
+| **B** | Integration fit |
+| **C** | Maturity / Stability |
+| **D** | Dev experience |
+| **E** | Vision alignment |
+| **Total** | A+B+C+D+E (max 25) |
 
 ---
 
-## Candidates (pending evaluation)
+## Lane 1 — Map Engine
 
-> Add entries here as pioneers discover best-in-class options.
-> No entry = no adoption. Period.
+| Candidate | A | B | C | D | E | Total | Decision | Rationale |
+|---|---|---|---|---|---|---|---|---|
+| **MapLibre GL JS** | 5 | 5 | 4 | 5 | 5 | 24 | ADOPT | Open-source, WebGL-native, zero licensing cost — ideal fit for the project's sovereign map layer |
+| **Mapbox GL JS** | 5 | 4 | 5 | 5 | 3 | 22 | HOLD | Feature-equivalent to MapLibre but vendor-locked with paid token; deprioritized until licensing is a non-issue |
+| **CesiumJS** | 4 | 3 | 5 | 3 | 4 | 19 | TRIAL | Best-in-class for 3D globe/terrain; trial if Nexus OS expands into immersive 3D map territory |
+| **deck.gl** | 4 | 4 | 4 | 4 | 4 | 20 | TRIAL | Excellent large-dataset overlay layer; trial as a composable layer on top of MapLibre, not a map engine replacement |
 
-### PMTiles
-- **Candidate:** `protomaps/PMTiles`
-- **License:** BSD-3-Clause
-- **Why best-in-class:** Serverless tiles in one file reduces infra complexity drastically. No heavy GeoServer/PostGIS containers are required.
-- **Integration plan:** Ship PMTiles for geopolitics basemaps and overlays natively inside the Vite/MapLibre pipeline.
-- **Risks:** Tile generation pipeline complexity; static caching strategy footprint.
-- **Lab branch:** `lab/antigravity/01-pmtiles`
-- **Decision:** ✅ ADOPT
-- **Date:** 2026-03-18
-- **Scores:** A: 5/5 | B: 5/5 | C: 4/5 | D: 5/5 | E: 4/5
-- **Benchmark tags:** `@antigravity` + `@ui`
+---
 
-### Protomaps Basemaps
-- **Candidate:** `protomaps/basemaps`
-- **License:** ODbL
-- **Why best-in-class:** Fast path to quality vector basemaps containing pure geopolitical boundary data without Mapbox/Google API styling bloat.
-- **Integration plan:** Provide raw vector tiles that UI can perfectly style via Dark Glassmorphism.
-- **Risks:** Missing granular local street-level details (acceptable for a global OS layer).
-- **Lab branch:** `lab/antigravity/01-pmtiles`
-- **Decision:** ✅ ADOPT
-- **Date:** 2026-03-18
-- **Scores:** A: 4/5 | B: 5/5 | C: 4/5 | D: 5/5 | E: 4/5
-- **Benchmark tags:** `@ui` + `@antigravity`
+## Lane 2 — Data / Tiles
 
-### Yjs
-- **Candidate:** `yjs/yjs`
-- **License:** MIT
-- **Why best-in-class:** CRDT patterns for local-first peer-to-peer shared state and workspace presence without centralized chokepoints.
-- **Integration plan:** Strictly bound to the Lab Hub for live document interaction. Must keep the central event Index independent for now.
-- **Risks:** Networking topology stability; persistence layers synchronization.
-- **Lab branch:** `lab/claude/02-yjs`
-- **Decision:** 🟡 LAB-VALIDATING
-- **Date:** 2026-03-18
-- **Scores:** A: 5/5 | B: 4/5 | C: 3/5 | D: 5/5 | E: 5/5
-- **Benchmark tags:** `@claude` + `@antigravity`
+| Candidate | A | B | C | D | E | Total | Decision | Rationale |
+|---|---|---|---|---|---|---|---|---|
+| **PMTiles** | 5 | 5 | 4 | 4 | 5 | 23 | ADOPT | Single-file, serverless tile delivery — eliminates tile server ops overhead and aligns with edge-first architecture |
+| **GeoJSON static** | 3 | 5 | 5 | 5 | 3 | 21 | ADOPT | Zero infra cost; adopted for lightweight overlays and dev/prototype layers; not for large datasets |
+| **Supabase PostGIS** | 4 | 4 | 4 | 4 | 4 | 20 | TRIAL | Powerful spatial queries with Supabase already in stack; trial for dynamic data layers and user-generated geo content |
 
-### 2D Map Engine (Atlas / Geopolitics)
-- **Candidate:** `maplibre-gl` (https://maplibre.org)
-- **License:** BSD-3-Clause (fork of Mapbox GL JS v1, fully open)
-- **Why best-in-class:** Only production-grade open-source WebGL map renderer. No API key required. Active community (2k+ contributors). WebGPU roadmap. Complements Cesium (3D globe) with 2D geopolitics view.
-- **Integration plan:** PMTiles protocol for serverless tiles → GeopoliticsMap component → event bus bridge (tribunal verdicts as live GeoJSON markers) → Sacred Flow Atlas organ
-- **Risks:** ~200KB bundle (lazy-loaded), WebGL context conflicts with Cesium (mitigated: separate page/route)
-- **Lab branch:** Direct adoption (proven stable, no lab needed)
-- **Decision:** ✅ ADOPT
-- **Date:** 2026-03-18
+---
 
-### Serverless Vector Tiles
-- **Candidate:** `pmtiles` (https://github.com/protomaps/PMTiles)
-- **License:** BSD-3-Clause
-- **Why best-in-class:** Single-file tile archive, zero tile server, HTTP range requests only. Perfect for serverless deployment (S3/R2/GCS). Protomaps ecosystem is the standard for serverless mapping.
-- **Integration plan:** Custom `pmtiles://` protocol registered with MapLibre. Tiles served from any static file host. Cached per-archive for performance.
-- **Risks:** ~15KB bundle (negligible). Requires CORS-enabled hosting for remote PMTiles files.
-- **Lab branch:** Direct adoption (mature, production-proven)
-- **Decision:** ✅ ADOPT
-- **Date:** 2026-03-18
+## Lane 3 — Animation / Motion
+
+| Candidate | A | B | C | D | E | Total | Decision | Rationale |
+|---|---|---|---|---|---|---|---|---|
+| **Framer Motion** | 4 | 5 | 4 | 5 | 5 | 23 | ADOPT | React-native, declarative, deep integration with current UI system (shadcn + Radix); canonical motion layer |
+| **React Spring** | 4 | 4 | 4 | 4 | 4 | 20 | TRIAL | Physics-based; trial for specific interactive map gestures or orbital animations that feel physics-driven |
+| **GSAP** | 5 | 3 | 5 | 4 | 3 | 20 | HOLD | Industry-leading but complex licensing for commercial use and weak React integration; hold until clear need arises |
+| **CSS transitions only** | 3 | 5 | 5 | 5 | 2 | 20 | HOLD | Zero-overhead default; hold as fallback strategy for performance-critical no-JS paths, not for primary UI motion |
+
+---
+
+## Lane 4 — Packaging / Ops
+
+| Candidate | A | B | C | D | E | Total | Decision | Rationale |
+|---|---|---|---|---|---|---|---|---|
+| **Vite (current)** | 5 | 5 | 5 | 5 | 5 | 25 | ADOPT | Current canonical bundler; fast HMR, ecosystem maturity, zero reason to migrate — stays |
+| **Bun** | 5 | 3 | 3 | 4 | 4 | 19 | TRIAL | Fastest runtime/install but ecosystem parity still maturing (see B-002 blocker); trial as dev-only runtime, not prod PM |
+| **Docker deployment** | 4 | 4 | 5 | 3 | 4 | 20 | TRIAL | Solid for self-hosted or staging environments; trial for ops reproducibility as project scales to multi-service |
+| **Vercel / Netlify edge** | 5 | 5 | 5 | 5 | 5 | 25 | ADOPT | Zero-config edge deployment aligns with serverless-first vision; current preferred hosting lane |
+
+---
+
+## Lane 5 — UI System
+
+| Candidate | A | B | C | D | E | Total | Decision | Rationale |
+|---|---|---|---|---|---|---|---|---|
+| **Tailwind CSS (current)** | 5 | 5 | 5 | 5 | 5 | 25 | ADOPT | Current canonical utility layer; zero friction, maximum composability — stays indefinitely |
+| **shadcn/ui (current)** | 4 | 5 | 4 | 5 | 5 | 23 | ADOPT | Current canonical component layer; copy-owned components, Radix-based, aligned with sovereign design philosophy |
+| **Radix UI** | 4 | 5 | 5 | 4 | 4 | 22 | ADOPT | shadcn/ui is built on Radix primitives; already in stack as foundation layer — adopt as dependency, not replacement |
+| **Custom design tokens** | 4 | 5 | 3 | 4 | 5 | 21 | TRIAL | Trial as system matures; needed for brand consistency across map UI, dashboards, and public-facing surfaces |
+
+---
+
+## Summary — Decisions by Lane
+
+| Lane | ADOPT | TRIAL | HOLD | REJECT |
+|---|---|---|---|---|
+| **1 — Map Engine** | MapLibre GL JS | CesiumJS, deck.gl | Mapbox GL JS | — |
+| **2 — Data/Tiles** | PMTiles, GeoJSON static | Supabase PostGIS | — | — |
+| **3 — Animation/Motion** | Framer Motion | React Spring | GSAP, CSS transitions only | — |
+| **4 — Packaging/Ops** | Vite, Vercel/Netlify edge | Bun, Docker deployment | — | — |
+| **5 — UI System** | Tailwind CSS, shadcn/ui, Radix UI | Custom design tokens | — | — |
+
+---
+
+## Notes
+
+- **B-002 blocker** (npm vs bun) is registered in `ops/LIVE_STATE.md` — Bun TRIAL score reflects this unresolved decision.
+- No candidates were REJECTED in v1.0; all have legitimate futures within the project's trajectory.
+- Re-evaluate HOLD candidates when: (a) licensing constraints change (Mapbox, GSAP), (b) performance ceiling is hit (CSS transitions), or (c) product moves to 3D-dominant surfaces (CesiumJS upgrade path).
+- This registry is a living document. Versions bump when new lanes are opened or decisions change.

@@ -29,7 +29,7 @@ function crossOriginIsolationPlugin(): Plugin {
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: "0.0.0.0",
     port: 8080,
     hmr: {
       overlay: false,
@@ -49,6 +49,20 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ["react", "react-dom", "@tanstack/react-query"],
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom", "react-router-dom"],
+          "vendor-three": ["three", "@react-three/fiber", "@react-three/drei"],
+          "vendor-cesium": ["cesium"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-query": ["@tanstack/react-query"],
+        },
+      },
+    },
   },
   worker: {
     format: "es",

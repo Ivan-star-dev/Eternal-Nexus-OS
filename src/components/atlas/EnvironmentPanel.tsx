@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Wind, Droplets, Thermometer, AlertTriangle, Loader2, Cloud, Waves } from "lucide-react";
 import { fetchAirQuality, fetchWaterQuality, type AirQualityData, type WaterQualityData } from "@/lib/dataSources";
-import type { GeoProject } from "@/pages/AtlasPage";
+import type { GeoProject } from "@/components/atlas/cesium/CesiumProjectEntities";
 
 interface EnvironmentPanelProps {
   project: GeoProject;
