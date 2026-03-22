@@ -23,7 +23,7 @@
 - **Pilar 1–4** ✓ — todos fechados
 - **CYCLE-CLOSE-001** ✓ — PR aberto
 - **AUTOFLOW-COPILOT-001** ✓ — automação CI/CD completa instalada
-- **BLOCK-OP-001** — EM CURSO: White Paper + Reverse Tech + Hardware Prototype + Didactic Manifest
+- **BLOCK-OP-001** ✓ — White Paper + Reverse Tech Audit + Hardware Prototype + Didactic Manifest — CONCLUÍDOS
 - **Dev server** — ATIVO em http://localhost:5173
 
 ---
@@ -44,9 +44,9 @@
 | FSP-001 | Feature Scaffolding Plan v1.0 | @claude | **CONCLUÍDA ✓** |
 | AUTOFLOW-COPILOT-001 | Auto PR + Auto Merge + Copilot Instructions v2 | @claude | **CONCLUÍDA ✓** |
 | DIDACTIC-001 | Didactic Manifest v1.0 | @claude | **CONCLUÍDA ✓** |
-| RT-001 | Reverse Tech Audit | @claude | **EM CURSO — agente paralelo** |
-| WP-001 | White Paper v1.0 | @claude | **EM CURSO — agente paralelo** |
-| HW-001 | Hardware Prototype Spec v0.1 | @claude | **EM CURSO — agente paralelo** |
+| RT-001 | Reverse Tech Audit | @claude | **CONCLUÍDA ✓** |
+| WP-001 | White Paper v1.0 | @claude | **CONCLUÍDA ✓** |
+| HW-001 | Hardware Prototype Spec v0.1 | @claude | **CONCLUÍDA ✓** |
 
 ---
 
