@@ -1,5 +1,5 @@
 // Neural Search — Google-style instant search across all organs with fuzzy matching
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
 import { Search, FileText, Globe, Shield, Info, Scale, BarChart3, Brain, Radio, Newspaper, Zap } from "lucide-react";
@@ -124,7 +124,7 @@ const CommandPalette = () => {
                   className="w-6 h-6 rounded flex items-center justify-center transition-colors"
                   style={{ backgroundColor: `${p.organColor}15` }}
                 >
-                  {(() => { const Icon = p.icon; return <Icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />; })()}
+                  {(() => { const Icon = p.icon as React.FC<React.SVGProps<SVGSVGElement>>; return <Icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />; })()}
                 </div>
                 <div className="flex-1">
                   <span className="font-mono text-xs">{p.label}</span>
