@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, useAnimation, type Variants } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -77,6 +77,28 @@ const DATA_SOURCES = [
 // L1 — Corporate Header
 // ─────────────────────────────────────────────
 
+// ── L1 live-state: heartbeat pulse on EXECUTOR ACTIVE badge while loading ──
+function ExecutorActiveBadge({ active }: { active: boolean }) {
+  return (
+    <motion.span
+      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-[0.4rem] tracking-widest border ${
+        active
+          ? "border-primary/40 text-primary bg-primary/10"
+          : "border-border/30 text-muted-foreground"
+      }`}
+      animate={active ? { scale: [1, 1.08, 1] } : { scale: 1 }}
+      transition={
+        active
+          ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+          : { duration: 0.2 }
+      }
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${active ? "bg-primary animate-pulse" : "bg-muted-foreground/40"}`} />
+      {active ? "EXECUTOR ACTIVE" : "EXECUTOR IDLE"}
+    </motion.span>
+  );
+}
+
 interface L1CorporateHeaderProps {
   userEmail?: string;
   executorActive: boolean;
@@ -125,15 +147,8 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
             </Button>
           </Link>
           <div className="w-px h-4 bg-border/50" />
-          {/* Executor state badge */}
-          <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-[0.4rem] tracking-widest border ${
-            executorActive
-              ? "border-primary/40 text-primary bg-primary/10"
-              : "border-border/30 text-muted-foreground"
-          }`}>
-            <span className={`h-1.5 w-1.5 rounded-full ${executorActive ? "bg-primary animate-pulse" : "bg-muted-foreground/40"}`} />
-            {executorActive ? "EXECUTOR ACTIVE" : "EXECUTOR IDLE"}
-          </span>
+          {/* Executor state badge — heartbeat pulse while SSE active (live-state) */}
+          <ExecutorActiveBadge active={executorActive} />
           {userEmail && (
             <span className="font-mono text-[0.4rem] text-muted-foreground">
               {userEmail.split("@")[0]}
@@ -162,6 +177,77 @@ interface L2ContextRailProps {
   streamingMeta: string;
 }
 
+// ── L2 live-state: semaphore indicator with glow-cycle while SSE active ──
+function SemaphoreIndicator({
+  src,
+  online,
+  loading,
+}: {
+  src: { key: string; label: string; icon: React.ReactNode };
+  online: boolean;
+  loading: boolean;
+}) {
+  return (
+    <motion.div
+      className={`bg-card border rounded-lg px-3 py-2 flex items-center gap-2 ${
+        online ? "border-accent/30" : "border-destructive/30"
+      }`}
+      animate={loading && online ? { opacity: [0.7, 1, 0.7] } : { opacity: 1 }}
+      transition={
+        loading && online
+          ? { duration: 2, repeat: Infinity, ease: "easeInOut" }
+          : { duration: 0.3 }
+      }
+    >
+      {src.icon}
+      <div>
+        <span className="font-mono text-[0.5rem] text-foreground block">{src.label}</span>
+        <span className={`font-mono text-[0.4rem] ${online ? "text-accent-foreground" : "text-destructive"}`}>
+          {online ? "● ONLINE" : "● OFFLINE"}
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+// ── L2 live-state: gate status item that briefly flashes when status changes to done ──
+function GateStatusItem({
+  agentKey,
+  status,
+}: {
+  agentKey: string;
+  status: "pending" | "done" | "error" | undefined;
+}) {
+  const controls = useAnimation();
+  const prevStatusRef = useRef(status);
+
+  useEffect(() => {
+    if (prevStatusRef.current !== status && status === "done") {
+      controls.start({
+        backgroundColor: ["rgba(255,255,255,0.12)", "rgba(255,255,255,0)"],
+        transition: { duration: 0.4, ease: "easeOut" },
+      });
+    }
+    prevStatusRef.current = status;
+  }, [status, controls]);
+
+  return (
+    <motion.span
+      animate={controls}
+      className="inline-flex items-center gap-1 px-2 py-1 rounded bg-muted border border-border/30"
+    >
+      {status === "done" ? (
+        <CheckCircle2 className="h-2.5 w-2.5 text-accent-foreground" />
+      ) : status === "error" ? (
+        <Activity className="h-2.5 w-2.5 text-destructive" />
+      ) : (
+        <Loader2 className="h-2.5 w-2.5 animate-spin text-primary" />
+      )}
+      <span className="font-mono text-[0.45rem] text-muted-foreground uppercase">{agentKey}</span>
+    </motion.span>
+  );
+}
+
 function L2ContextRail({
   healthSources,
   healthCount,
@@ -174,6 +260,17 @@ function L2ContextRail({
   loading,
   streamingMeta,
 }: L2ContextRailProps) {
+  // Track raw data source keys so new entries can animate in
+  const [rawEntryKeys, setRawEntryKeys] = useState<string[]>([]);
+  const prevDataOceanRef = useRef<DataOceanResult | null>(null);
+
+  useEffect(() => {
+    if (dataOcean?.sources && dataOcean !== prevDataOceanRef.current) {
+      setRawEntryKeys(Object.keys(dataOcean.sources));
+      prevDataOceanRef.current = dataOcean;
+    }
+  }, [dataOcean]);
+
   return (
     <motion.section
       className="mb-4 border border-border/20 rounded-lg bg-card/40"
@@ -213,61 +310,53 @@ function L2ContextRail({
         </div>
       </div>
 
-      {/* Semaphore status grid */}
+      {/* Semaphore status grid — active indicators glow-cycle while SSE streams */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-3">
         {DATA_SOURCES.map((src) => (
-          <div
+          <SemaphoreIndicator
             key={src.key}
-            className={`bg-card border rounded-lg px-3 py-2 flex items-center gap-2 ${
-              healthSources[src.key] ? "border-accent/30" : "border-destructive/30"
-            }`}
-          >
-            {src.icon}
-            <div>
-              <span className="font-mono text-[0.5rem] text-foreground block">{src.label}</span>
-              <span className={`font-mono text-[0.4rem] ${healthSources[src.key] ? "text-accent-foreground" : "text-destructive"}`}>
-                {healthSources[src.key] ? "● ONLINE" : "● OFFLINE"}
-              </span>
-            </div>
-          </div>
+            src={src}
+            online={!!healthSources[src.key]}
+            loading={loading}
+          />
         ))}
       </div>
 
-      {/* Agent gate status during streaming */}
+      {/* Agent gate status during streaming — items flash on status → done */}
       {loading && Object.keys(agentStatuses).length > 0 && (
         <div className="flex items-center gap-3 flex-wrap px-4 py-2 border-t border-border/20">
           <span className="font-mono text-[0.45rem] text-muted-foreground tracking-widest uppercase">Agent Gates:</span>
-          {(["climate", "economy", "health", "meta"] as const).map((a) => {
-            const status = agentStatuses[a];
-            return (
-              <span key={a} className="inline-flex items-center gap-1 px-2 py-1 rounded bg-muted border border-border/30">
-                {status === "done" ? (
-                  <CheckCircle2 className="h-2.5 w-2.5 text-accent-foreground" />
-                ) : status === "error" ? (
-                  <Activity className="h-2.5 w-2.5 text-destructive" />
-                ) : (
-                  <Loader2 className="h-2.5 w-2.5 animate-spin text-primary" />
-                )}
-                <span className="font-mono text-[0.45rem] text-muted-foreground uppercase">{a}</span>
-              </span>
-            );
-          })}
+          {(["climate", "economy", "health", "meta"] as const).map((a) => (
+            <GateStatusItem key={a} agentKey={a} status={agentStatuses[a]} />
+          ))}
           <span className="font-mono text-[0.4rem] text-muted-foreground animate-pulse ml-2">
             {streamingMeta ? "Meta-agent streaming..." : "Agents analyzing..."}
           </span>
         </div>
       )}
 
-      {/* Raw data feed */}
+      {/* Raw data feed — new source entries slide in from bottom */}
       {showData && dataOcean && (
         <div className="mx-3 mb-3 bg-card/80 border border-border/30 rounded-lg p-4 max-h-64 overflow-y-auto">
           <div className="flex items-center gap-2 mb-2">
             <Terminal className="h-3 w-3 text-primary" />
             <span className="font-mono text-[0.5rem] text-primary tracking-wider">RAW DATA FEED</span>
           </div>
-          <pre className="font-mono text-[0.5rem] text-muted-foreground whitespace-pre-wrap break-all">
-            {JSON.stringify(dataOcean.sources, null, 2).slice(0, 4000)}
-          </pre>
+          <AnimatePresence initial={false}>
+            {rawEntryKeys.map((key, idx) => (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15, delay: idx * 0.05, ease: "easeOut" }}
+                className="font-mono text-[0.5rem] text-muted-foreground"
+              >
+                <span className="text-primary/60">{key}:</span>{" "}
+                {JSON.stringify(dataOcean.sources[key]).slice(0, 120)}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       )}
     </motion.section>
@@ -389,8 +478,32 @@ function L4ExecutionDeck({
   onDeploy,
   dataOcean,
 }: L4ExecutionDeckProps) {
+  // Track dataOcean identity to trigger chart nudge on new data arrival
+  const prevDataOceanRef = useRef<DataOceanResult | null>(null);
+  const chartControls = useAnimation();
+
+  useEffect(() => {
+    if (
+      dataOcean?.sources &&
+      prevDataOceanRef.current !== null &&
+      dataOcean !== prevDataOceanRef.current
+    ) {
+      // New data arrived — brief scale nudge on chart container (live-state)
+      chartControls.start({
+        scale: [0.99, 1],
+        transition: { duration: 0.2, ease: "easeOut" },
+      });
+    }
+    prevDataOceanRef.current = dataOcean;
+  }, [dataOcean, chartControls]);
+
   return (
-    <section className="mb-4 border border-border/20 rounded-lg bg-card/40">
+    <motion.section
+      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      initial={{ scale: 0.98, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
+    >
       {/* Section header */}
       <div className="flex items-center justify-between px-4 py-2 border-b border-border/20">
         <div className="flex items-center gap-2">
@@ -410,14 +523,14 @@ function L4ExecutionDeck({
         <NexusHolographicRoom />
       </div>
 
-      {/* Charts */}
+      {/* Charts — scale nudge when new data arrives (live-state) */}
       {dataOcean?.sources && (
-        <div className="p-4 border-b border-border/20">
+        <motion.div animate={chartControls} className="p-4 border-b border-border/20">
           <DataCharts sources={dataOcean.sources} />
-        </div>
+        </motion.div>
       )}
 
-      {/* Prompt / command input */}
+      {/* Prompt / command input — pulsing border while SSE streams (live-state) */}
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <Brain className="h-3.5 w-3.5 text-primary" />
@@ -434,7 +547,25 @@ function L4ExecutionDeck({
             </Link>
           </div>
         ) : (
-          <div className="flex gap-2">
+          <motion.div
+            className="flex gap-2 rounded-lg"
+            animate={
+              loading
+                ? {
+                    boxShadow: [
+                      "0 0 0 1px hsl(var(--primary) / 0.3)",
+                      "0 0 0 2px hsl(var(--primary) / 0.15)",
+                      "0 0 0 1px hsl(var(--primary) / 0.3)",
+                    ],
+                  }
+                : { boxShadow: "0 0 0 0px transparent" }
+            }
+            transition={
+              loading
+                ? { duration: 1.4, repeat: Infinity, ease: "easeInOut" }
+                : { duration: 0.3 }
+            }
+          >
             <Input
               value={prompt}
               onChange={(e) => onPromptChange(e.target.value)}
@@ -462,7 +593,7 @@ function L4ExecutionDeck({
               {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               {loading ? "STREAMING" : "DEPLOY SWARM"}
             </Button>
-          </div>
+          </motion.div>
         )}
 
         {/* Voice indicator */}
@@ -473,7 +604,7 @@ function L4ExecutionDeck({
           </div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -483,7 +614,12 @@ function L4ExecutionDeck({
 
 function L5PioneerSignatureBand() {
   return (
-    <div className="mb-4 border border-primary/10 rounded-lg bg-primary/5 px-4 py-2 flex items-center justify-between">
+    <motion.div
+      className="mb-4 border border-primary/10 rounded-lg bg-primary/5 px-4 py-2 flex items-center justify-between"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: 0.35 }}
+    >
       <div className="flex items-center gap-3">
         <Radio className="h-3.5 w-3.5 text-primary/60" />
         <span className="font-mono text-[0.45rem] text-primary/60 tracking-[0.3em] uppercase">
@@ -495,7 +631,7 @@ function L5PioneerSignatureBand() {
         <span className="font-mono text-[0.4rem] text-muted-foreground/60">arch: 6-layer</span>
         <span className="font-mono text-[0.4rem] text-primary/50 tracking-widest">{PHASE}</span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -507,11 +643,31 @@ interface L6HandoffChainBlockProps {
   history: { prompt: string; hash: string; date: string }[];
 }
 
+const l6ContainerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const l6ItemVariants: Variants = {
+  hidden: { y: 6, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.25, ease: [0, 0, 0.58, 1] } },
+};
+
 function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
   if (history.length === 0) return null;
 
   return (
-    <section className="mb-6 border border-border/20 rounded-lg bg-card/40">
+    <motion.section
+      className="mb-6 border border-border/20 rounded-lg bg-card/40"
+      variants={l6ContainerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {/* Section header */}
       <div className="flex items-center gap-2 px-4 py-2 border-b border-border/20">
         <Activity className="h-3.5 w-3.5 text-primary" />
@@ -522,7 +678,7 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
       {/* Chain entries */}
       <div className="p-3 space-y-1">
         {history.map((h, i) => (
-          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-card/50 border border-border/20 rounded-lg">
+          <motion.div key={i} className="flex items-center gap-3 px-3 py-2 bg-card/50 border border-border/20 rounded-lg" variants={l6ItemVariants}>
             <span className="font-mono text-[0.45rem] text-muted-foreground/60 shrink-0 tabular-nums">
               #{String(history.length - i).padStart(3, "0")}
             </span>
@@ -540,7 +696,7 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
                 #{h.hash.slice(0, 8)}
               </span>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
 
@@ -549,7 +705,7 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
         <span className="font-mono text-[0.4rem] text-muted-foreground/50 tracking-widest">NEXT ACTOR →</span>
         <span className="font-mono text-[0.4rem] text-primary/50">swarm-executor / atlas-layer / tribunal-gate</span>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
