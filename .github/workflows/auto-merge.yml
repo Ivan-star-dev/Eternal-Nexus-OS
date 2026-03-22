@@ -30,17 +30,32 @@ jobs:
       - name: Find PR for this commit
         id: find-pr
         run: |
-          SHA="${{ github.event.workflow_run.head_sha || github.sha }}"
-          PR=$(gh pr list \
-            --base main \
-            --state open \
-            --json number,headRefName,headSha \
-            --jq ".[] | select(.headSha == \"$SHA\") | .number" \
-            | head -1)
+          if [ "${EVENT_NAME}" = "pull_request" ]; then
+            # For pull_request events, use the PR number and head SHA directly from the event payload.
+            PR="${PULL_REQUEST_NUMBER}"
+            SHA="${PULL_REQUEST_HEAD_SHA}"
+          else
+            # For workflow_run events, resolve the PR by the workflow run's head SHA.
+            SHA="${WORKFLOW_RUN_HEAD_SHA}"
+            if [ -n "$SHA" ]; then
+              PR=$(gh pr list \
+                --base main \
+                --state open \
+                --json number,headRefName,headSha \
+                --jq ".[] | select(.headSha == \"$SHA\") | .number" \
+                | head -1)
+            else
+              PR=""
+            fi
+          fi
           echo "pr_number=$PR" >> $GITHUB_OUTPUT
           echo "sha=$SHA" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+          PULL_REQUEST_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
 
       - name: Check all required status checks
         id: check-status
