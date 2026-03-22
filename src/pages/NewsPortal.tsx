@@ -11,6 +11,9 @@ import ReactMarkdown from "react-markdown";
 import BroadcastBar from "@/components/news/BroadcastBar";
 import { useIndexOrgan } from "@/hooks/useIndexOrgan";
 import { IndexEntry } from "@/types/index-organ";
+import { getDefaultBus } from "@/lib/events/bus";
+import { makeEventId, seedFromId } from "@/lib/events/id";
+import type { NexusEvent, NewsBroadcastPayload } from "@/types/sacred-flow";
 
 // Lazy-load AIAnchor3D so that a WebGL/r3f module failure doesn't crash NewsPortal
 const AIAnchor3D = lazy(() =>
@@ -209,6 +212,41 @@ export default function NewsPortal() {
   const [aiAnalysis, setAiAnalysis] = useState<string | null>(null);
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const anchor = useAIAnchor();
+  const bus = getDefaultBus();
+  const publishedBroadcasts = useRef<Set<string>>(new Set());
+
+  // Gate: Narratable — publish news.broadcast events to bus
+  // When Index entries are transformed into readable reports, publish them
+  // so the full Sacred Flow is traceable: Tribunal → Atlas → Index → News
+  useEffect(() => {
+    for (const report of reports) {
+      if (publishedBroadcasts.current.has(report.id)) continue;
+
+      const payload: NewsBroadcastPayload = {
+        title: report.title,
+        content: report.summary,
+        live: false,
+        linkedVerdictId: report.id,
+      };
+
+      const eventId = makeEventId('news.broadcast', 'news', report.timestamp, payload);
+      const event: NexusEvent<NewsBroadcastPayload> = {
+        id: eventId,
+        type: 'news.broadcast',
+        createdAt: report.timestamp,
+        source: 'news',
+        severity: report.severity === 'critical' ? 0.9 : report.severity === 'high' ? 0.7 : 0.4,
+        payload,
+        confidence: 0.85,
+        seed: seedFromId(eventId),
+        version: 1,
+      };
+
+      if (bus.publish(event as NexusEvent)) {
+        publishedBroadcasts.current.add(report.id);
+      }
+    }
+  }, [reports, bus]);
 
   // Initial report selection
   useEffect(() => {

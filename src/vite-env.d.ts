@@ -5,7 +5,7 @@
 // Force R3F JSX augmentation: needed for bundler moduleResolution + isolatedModules
 // @react-three/fiber augments JSX.IntrinsicElements in three-types.d.ts but only
 // when the module is explicitly imported in the type path.
- 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type {} from '@react-three/fiber';
 
 // sacred-flow: global type declarations
