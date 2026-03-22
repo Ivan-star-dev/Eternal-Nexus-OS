@@ -33,6 +33,42 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:STACK-MATRIX+TOOLCHAIN+BINDINGS+ROUTING │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs canônicos instalados em ops/:
+            │ • EARTH_LAB_STACK_DECISION_MATRIX.md — 9 famílias de stack
+            │   (frontend, geospatial/world, UI/design system, backend/API,
+            │   data/persistência, IA/agente, colaboração, deployment, obs.)
+            │   cada família com padrão preferido 2026 + backup/cooperação
+            │ • EARTH_LAB_DEV_TOOLCHAIN_CANON.md — 10 famílias de toolchain
+            │   (source of truth, coding surfaces, review/qualidade, delivery,
+            │   AI-native, product build, memory/docs, regra de comportamento)
+            │   com território explícito por ferramenta (Cursor/Claude/Codex/Framer)
+            │ • EARTH_LAB_PIONEER_ROLE_BINDINGS.md — 5 pioneers vinculados
+            │   (Cursor, Framer, Claude/Orchestrator, Codex, Antigravity)
+            │   com território, pool principal, lei de binding partilhado,
+            │   padrão de cooperação, regra de escalação, tabela rápida
+            │ • PROTOCOL_TASK_GRAVITY_ROUTING.md — protocolo de routing por
+            │   gravidade de task: input neutrality, silent classification,
+            │   domínio/magnitude/gate/branch, V10 upgrade rule, formato de
+            │   mensagem de retorno curta, cooperação e escalação activadas
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ BRANCH_WORKTREE_WORKSPACE_MAP · PIONEER_TRIAGE_SHORT_MESSAGES
+            │ V10_TASK_UPGRADE_EXAMPLES (identificados como próximos 3)
+BLOQUEIOS   │ —
+IMPACTO     │ alto — sistema fechado: pools + stack + toolchain + bindings
+            │ + routing logic. Pioneers saem do ownership ambíguo e do chat
+            │ errado. Task é que activa o destino, não o chat.
+ARQUIVOS    │ ops/EARTH_LAB_STACK_DECISION_MATRIX.md (novo)
+            │ ops/EARTH_LAB_DEV_TOOLCHAIN_CANON.md (novo)
+            │ ops/EARTH_LAB_PIONEER_ROLE_BINDINGS.md (novo)
+            │ ops/PROTOCOL_TASK_GRAVITY_ROUTING.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:ENG-POOL-001/004 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 4 docs de Engineering Gravity Pool instalados em ops/:
