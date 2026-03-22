@@ -33,6 +33,34 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:UPDE+UDG+UCPF │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 docs do motor universal instalados em ops/:
+            │ • UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md — intake schema,
+            │   fluxo canônico, fragmentação atómica, triagem em 6 camadas,
+            │   átomo funcional, confirmação de natureza, reconciliação engine
+            │ • UNIVERSAL_DOMAIN_GRAPH.md — 12 domínios primários com
+            │   subdomínios, fronteiras de cooperação, roteamentos por sinal,
+            │   grafo de dependências, regra de crescimento do grafo
+            │ • UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md — modelo interno neutro,
+            │   plugin contract v1, 7 tipos de plugin, adapter pattern,
+            │   capability bridge, runtime extension, ciclo de vida 7 passos,
+            │   imutabilidade do núcleo fixo, plugin registry
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — motor universal fechado em 3 camadas:
+            │ decomposição + domínio + plugin fabric.
+            │ A máquina tem agora ontologia completa.
+ARQUIVOS    │ ops/UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md (novo)
+            │ ops/UNIVERSAL_DOMAIN_GRAPH.md (novo)
+            │ ops/UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:STACK-MATRIX+TOOLCHAIN+BINDINGS+ROUTING │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 4 docs canônicos instalados em ops/:
