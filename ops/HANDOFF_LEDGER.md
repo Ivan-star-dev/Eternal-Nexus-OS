@@ -73,10 +73,10 @@ CANALIZAÇÃO ══════════════════════
 CHAT        │ 🟢 mesmo
 BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
 WORKTREE    │ 🟢 WorkStructure
-NATUREZA    │ governança / ignição do BASTION 2.0
+NATUREZA    │ governança
 EXECUTOR    │ @claude
 ESTADO      │ done
-ATIVA       │ ciclo contínuo ativo; pioneiros entram por elegibilidade do BASTION
+ATIVA       │ ciclo contínuo ativo; pioneiros entram por elegibilidade do BASTION; ignição do BASTION 2.0
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
