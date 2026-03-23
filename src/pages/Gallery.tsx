@@ -263,14 +263,17 @@ const Gallery = () => {
                     />
                   </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 p-3">
+                  {/* V3: hover overlay — bg-ink-dark/70 backdrop-blur-sm, caption font-mono text-[0.48rem] */}
+                  <div className="absolute inset-0 bg-ink-dark/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 p-3">
                     <ZoomIn className="w-5 h-5 text-primary" />
-                    <span className="font-mono text-[0.42rem] tracking-[0.15em] text-primary uppercase text-center">
+                    <span className="font-mono text-[0.48rem] tracking-[0.15em] text-primary uppercase text-center">
                       {categoryLabels[img.category]}
                     </span>
-                    <span className="font-mono text-[0.38rem] tracking-[0.1em] text-muted-foreground uppercase">
+                    <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/60 uppercase">
                       {img.projectNumber}
+                    </span>
+                    <span className="font-mono text-[0.48rem] tracking-[0.08em] text-paper-dim/40 text-center line-clamp-2 mt-0.5">
+                      {img.caption}
                     </span>
                   </div>
 
