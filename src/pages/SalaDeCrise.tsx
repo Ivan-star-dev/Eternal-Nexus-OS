@@ -422,11 +422,11 @@ export default function SalaDeCrise() {
             <div className="flex items-center gap-6">
               <div className="text-right">
                 <div className="flex items-center gap-2">
-                  <Activity className={`w-4 h-4 ${cfg.text}`} />
-                  <span className={`text-lg font-mono font-bold ${cfg.text}`}>
+                  <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                  <span className={`text-lg font-mono font-bold text-rose-400`}>
                     {simulationCount}
                   </span>
-                  <span className="text-xs text-gray-500">Simulações Ativas</span>
+                  <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">Simulações Ativas</span>
                 </div>
               </div>
               <div className="text-right border-l border-gray-800 pl-4">
@@ -596,7 +596,7 @@ export default function SalaDeCrise() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-xs text-gray-500 mb-2 font-mono">{source.location}</p>
+                    <p className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 mb-2 uppercase">{source.location}</p>
 
                     <div className="flex items-center justify-between text-xs mb-1">
                       <span className="text-gray-400">Capacidade</span>
@@ -631,7 +631,7 @@ export default function SalaDeCrise() {
 
               {/* Total capacity */}
               <motion.div
-                className={`mt-4 p-3 rounded-lg border ${cfg.border} ${cfg.bg}`}
+                className="mt-4 p-3 rounded-sm border bg-rose-500/[0.04] border-rose-500/20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -657,8 +657,8 @@ export default function SalaDeCrise() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="flex items-center gap-2 mb-3">
-            <Activity className="w-4 h-4 text-gray-500" />
-            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase">
+            <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+            <h3 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
               Resultados da Simulação
             </h3>
           </div>

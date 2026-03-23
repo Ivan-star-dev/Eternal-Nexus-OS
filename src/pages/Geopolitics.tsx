@@ -116,14 +116,14 @@ const Geopolitics = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}>
-            <span className="section-label">PROGRAMA ESTRATÉGICO GLOBAL · v2.0 · MARÇO 2026</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">PROGRAMA ESTRATÉGICO GLOBAL · v2.0 · MARÇO 2026</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold text-foreground leading-[0.88] mt-4 mb-4">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl md:text-4xl font-light text-paper leading-[0.88] mt-4 mb-4">
             Narrativa <span className="text-primary">Geopolítica</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }} className="font-serif text-base sm:text-lg font-light italic text-muted-foreground max-w-2xl leading-relaxed">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }} className="text-sm text-paper-dim/70 font-light max-w-2xl leading-relaxed">
             Quem Financia. Quem Lidera. O Papel do Brasil.
           </motion.p>
         </div>

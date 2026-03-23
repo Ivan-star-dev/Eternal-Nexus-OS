@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, Suspense } from "react";
+import { useState, useRef, useMemo, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
@@ -581,6 +581,10 @@ function PortfolioImpactSummary() {
 
 export default function InvestorNexusPortal() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = "Nexus Investor Portal — Living Investment Renders · Eternal Nexus";
+  }, []);
 
   const selected = PROJECTS.find((p) => p.id === selectedProject);
 

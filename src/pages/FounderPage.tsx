@@ -592,16 +592,16 @@ const FounderPage = () => {
           variants={fadeUp}
           className="mt-12 pt-10 border-t border-border"
         >
-          <p className="font-sans text-sm text-muted-foreground leading-[1.9] mb-6">
+          <p className="font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl mb-6">
             I am not selling an idea. I am building a system that demonstrates
             the idea. The code is open. The protocol is documented. The history
             is recorded.
           </p>
-          <p className="font-sans text-sm text-muted-foreground leading-[1.9]">
+          <p className="font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl">
             If you arrive here and want to understand better — read everything.
             Form your own opinion.
           </p>
-          <p className="font-serif text-base text-foreground mt-6 font-medium">
+          <p className="font-serif text-base text-paper mt-6 font-light">
             — Ivan
           </p>
         </motion.div>
