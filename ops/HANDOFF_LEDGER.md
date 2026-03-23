@@ -6,6 +6,42 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @cursor | PRODUCT-FACE-HERO-ANATOMY-001 | claude-4.6-sonnet
+
+**TASK:** PRODUCT-FACE-HERO-ANATOMY-001 — Product Face hero canônico · globe → trinity → proof
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/home/ProductHero.tsx` — hero wrapper: GlobeZone + TrinityRow + HeroFirstProof + AtmosphericLayer + MachineSubstrate
+- `src/components/home/TrinityRow.tsx` — 3 filhos horizontais (Heaven Lab · Bridge Nova · Nexus Cria); glass panel; hover expande Cormorant + JetBrains micro
+- `src/components/home/HeroFirstProof.tsx` — Cormorant mother phrase + 4 count-up metrics + canonical stamp
+
+**Ficheiros modificados:**
+- `src/pages/Index.tsx` → hero section substituído por `<ProductHero />`; imports limpos
+
+**Estrutura implementada:**
+```
+ProductHero
+├── MachineSubstrate     (grid SVG 0.025 opacity, hidden mobile)
+├── AtmosphericLayer     (orbs gold+teal, blur 56px, z=1)
+├── GlobeZone            (clamp 480px–780px height, InteractiveGlobe)
+│   ├── radial overlay   (legibility control, z=2)
+│   ├── micro-label top  (Observatory Node-01)
+│   └── anchor label bot ("O sistema e os seus filhos")
+├── TrinityRow           (glass panel, 3 children, equal dignity)
+│   ├── Heaven Lab       (Syne gold · Cormorant italic · JetBrains hover)
+│   ├── Bridge Nova      (idem)
+│   └── Nexus Cria       (idem)
+└── HeroFirstProof       (Cormorant phrase · 4 count-up · stamp)
+```
+
+**Lei aplicada:** HEAVEN_LAB_REFERENCE_SURFACE.md + SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
 ## HANDOFF — 2026-03-23 | @cursor | SYSTEM-FACE-CORE-001 | claude-4.6-sonnet
 
 **TASK:** SYSTEM-FACE-CORE-001 — System Face · cockpit soberano em código
