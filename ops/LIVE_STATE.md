@@ -4,14 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
-**Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001
-**Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
-**Atualizado por:** @claude | claude-sonnet-4-6 | OPS-BASTION-AUTO-001
-**Última atualização:** 2026-03-20
-**Atualizado por:** @copilot | BULK-02.2
-**Última atualização:** 2026-03-21
-**Atualizado por:** @codex | GPT-5.2-Codex | NEXUS-WORKFUNCTION-CODEX-REALIGN-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-LIVING-CANON-001
 
 ---
 
@@ -19,28 +13,14 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Bulking Controlado do Produto |
+| **Era ativa** | Era Living Canon |
+| **Fase ativa** | Stage 5 → transição para Stage 6 |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; ciclo contínuo iniciado por comando do owner; pioneiros entram por elegibilidade no território dominante (WorkStructure/WorkFunction/WorkVisual) ou apoio elegível; owner intervém só em gate/trava/red line. |
-| **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
-| **Frente ativa** | Mecânico / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
-| **Estado geral** | BASTION 2.0 CICLO CONTÍNUO EM EXECUÇÃO; @cursor completou 01.3-a (já resolvido), 01.3-b (análise→B-002), 01.3-c (análise→B-003); @copilot → L-001→L-002→BULK-02.2; @codex consolidador; @claude arbiter aguarda gate; @cursor sem task elegível (backlog mecânico esgotado) |
-| **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; MODO_AUTO selado — pioneiros em ignição contínua sem instrução manual |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos e selados; MODO_AUTO ON; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
-| **Executor ativo** | @copilot (BULK-02.2 concluída) |
-| **Frente ativa** | Lapidação operacional / wt-copilot-funcionalidade |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BULK-02.2 done (lapidação de superfície ops/) |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; BULK-02.2 done (FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados); IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
-| **Executor ativo** | @codex (NEXUS-WORKFUNCTION-CODEX-REALIGN-001 concluído) |
-| **Frente ativa** | Pilar funcional / WorkFunction |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; execução contínua até segunda ordem reforçada (OPS-FULL-AUTO-UNTIL-STOP-001) |
-| **Estado geral** | Branch canônico realinhado para o executor Codex; tomada formal do WorkFunction concluída com mapa técnico funcional emitido; governança e linhas paralelas mantidas sem alteração estrutural. |
+| **Executor ativo** | @claude |
+| **Frente ativa** | WorkStructure — Living Canon Integration |
+| **Camada atual** | PLv6.2-b ✓ · FVL-IMPL-001 ✓ · NEXUS-LIVING-CANON-001 ✓ |
+| **Estado geral** | IGNIÇÃO_ATIVA; BASTION v2.0 governa fila; Living Canon aplicado; repo neural limpa; próximo gate = CYCLE_CLOSE_001 → Stage 6 |
+| **Bloqueadores ativos** | B-002 (PM canônico — bun.lock) · B-003 (legacy-html decision) · PLv7+ gate · Stage 6 gate — todos aguardam owner |
 
 ---
 
@@ -116,70 +96,30 @@
 ## 3. ESTADO DE CANALIZAÇÃO ATUAL
 
 ```
-SEMÁFORO:
-🟢 CHAT: mesmo
-🟢 BRANCH: claude/rebuild-bastion-core-rihGX
-🟢 WORKTREE: WorkStructure
-NATUREZA: mecânico / backlog do @cursor completado
-EXECUTOR: @cursor (BULK-01.3-a/b/c done)
-IGNIÇÃO: ATIVA — ciclo contínuo em execução
-ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
-BASTION: ACTIVO v2.0 — CICLO CONTÍNUO EM EXECUÇÃO
-@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
-@cursor: BACKLOG MECÂNICO COMPLETADO — 01.3-a done (já resolvido) | 01.3-b done (análise→B-002) | 01.3-c done (análise→B-003) | SEM TASK ELEGÍVEL
-@codex: CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude: ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-@antigravity: SEM TASK ELEGÍVEL
-@framer: SEM TASK ELEGÍVEL
-🟢 WORKTREE: wt-copilot-funcionalidade
-NATUREZA: lapidação / suavização operacional
-EXECUTOR: @copilot (BULK-02.2 done)
-IGNIÇÃO: ATIVA
-ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-ESTADO: done (Copilot — BULK-02.2: FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados)
-CANALIZAÇÃO ATIVA: BULK-02.2 concluída; FOL v1.4 sem ruído editorial; LIVE_STATE atualizado; HANDOFF_LEDGER com entrada de @copilot; próximos gates: @copilot BULK-01.2/L-001+L-002 (abertos); PLv6.2-b + FVL-IMPL-001 aguardam gate owner
-🟢 WORKTREE: WorkStructure (wt-estrutura-nucleo-vivo)
-NATUREZA: governança
-EXECUTOR: @claude (BASTION-2.0-CYCLE-START-001 done)
-IGNIÇÃO: ATIVA
-ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-BASTION: ACTIVO v1.3 — ciclo contínuo BASTION 2.0 ligado; pioneiros seguem loop contínuo
-@copilot: ACTIVADO → lê BASTION e executa elegível no território dominante (WorkFunction) ou apoio elegível
-@cursor: ACTIVADO → lê BASTION e executa elegível no território dominante (WorkVisual) ou apoio elegível
-@codex: CONSOLIDADOR ATIVO → lê estado do BASTION e ordena dependências
-@claude: ARBITRAGEM ATIVA → mantém topo do BASTION coerente e chama próximo elo elegível
-NATUREZA: governança / modo automático selado / IGNIÇÃO_ATIVA permanente
-EXECUTOR: @claude (OPS-BASTION-AUTO-001 done)
-IGNIÇÃO: ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
-ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-MODO_AUTO: SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-BASTION: ACTIVO v1.2 — MODO_AUTO ON; pioneiros em ignição contínua
-@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
-@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
-@codex: CONSOLIDADOR ATIVO → aguarda handoffs
-@claude: MODO_AUTO_SELADO → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001)
-CANALIZAÇÃO ATIVA: MODO_AUTO selado; máquina em ignição contínua; owner só entra para gate, visão, trava ou redirecionamento
-NATUREZA: governança / execução contínua até segunda ordem
-EXECUTOR: @claude (OPS-FULL-AUTO-UNTIL-STOP-001 done)
-IGNIÇÃO: ATIVA
-ATIVADA POR: owner | 2026-03-20 | OPS-IGNITION-001
-BASTION: ACTIVO v1.3 — modo full-auto reforçado; pioneiros seguem loop contínuo
-@copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2
-@cursor: ACTIVADO → BULK-01.3-a → 01.3-b → 01.3-c
-@codex: WORKFUNCTION ACTIVO → branch canônico alinhado + tribunal técnico funcional emitido
-@claude: SEM TASKS ELEGÍVEIS → aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-ATIVAÇÃO_AUTOMÁTICA: NEXT_ACTOR=ele + ACTIVATION_MODE=imediato + ACTIVATION_CONDITION=nenhuma
-FULL_AUTO: ACTIVO até segunda ordem do owner ou condição real de parada
-EVIDENCE_BLOCK: VIGENTE — obrigatório em todos os handoffs
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001 + BASTION-2.0-CYCLE-START-001)
-CANALIZAÇÃO ATIVA: ciclo BASTION 2.0 ligado; cada elo lê BASTION, executa task elegível, registra handoff, passa bastão e retorna ao BASTION até gate/bloqueio/red line/ordem do owner
-ESTADO: @cursor completou backlog mecânico (3/3 tasks done); @copilot em execução; ciclo 2.0 activo
-CANALIZAÇÃO ATIVA: BASTION 2.0 ciclo contínuo; @cursor sem task elegível após completar backlog; @copilot segue L-001→L-002→BULK-02.2; owner decide B-002 (PM) + B-003 (legacy-html) para desbloquear acções reais
-INTERRUPTOR: ordem owner | gate soberano | bloqueio real | red line | sem elegível
-ESTADO: done (Claude — PLv1…PLv6.2-a + todos OPS + OPS-BASTION-001 + OPS-BASTION-DISPATCH-001 + OPS-BASTION-AUTO-001 + OPS-FULL-AUTO-UNTIL-STOP-001)
-CANALIZAÇÃO ATIVA: execução contínua selada; cada elo volta ao BASTION após concluir e entra no próximo com ativação imediata quando elegível
+SEMÁFORO | 2026-03-23 | Era Living Canon
+═══════════════════════════════════════════════════════════════════════
+🟢 CHAT          → mesmo
+🟢 BRANCH        → claude/rebuild-bastion-core-rihGX
+🟢 WORKTREE      → WorkStructure
+🟢 EXECUTOR      → @claude
+🟢 NATUREZA      → Living Canon integration / flagship upgrade / repo neural limpa
+🟢 IGNIÇÃO       → ATIVA — PERMANENTE
+🟢 BASTION       → v2.0 CICLO CONTÍNUO EM EXECUÇÃO
+🟢 EVIDENCE_BLOCK→ VIGENTE em todos os handoffs
+🟡 @claude       → NEXUS-LIVING-CANON-001 done → aguarda gate CYCLE_CLOSE_001
+🟡 @copilot      → BULK-01.2/L-001 + L-002 + BULK-02.2 CONCLUÍDAS → sem task elegível
+🟡 @cursor       → backlog mecânico CONCLUÍDO (01.3-a/b/c) → aguarda B-002 + B-003
+🟡 @codex        → CONSOLIDADOR ATIVO → aguarda handoffs
+🔴 @antigravity  → SEM TASK ELEGÍVEL
+🔴 @framer       → SEM TASK ELEGÍVEL
+───────────────────────────────────────────────────────────────────────
+BLOQUEADORES:
+  B-002 → PM canônico decision (bun.lock) → owner
+  B-003 → antigravity/legacy-html decision → owner
+  CYCLE_CLOSE_001 → fechar Stage 5 → gate owner
+  PLv7+ → próxima camada produto → gate owner
+INTERRUPTOR: ordem owner | gate soberano | bloqueio real | sem elegível
+═══════════════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -189,8 +129,15 @@ CANALIZAÇÃO ATIVA: execução contínua selada; cada elo volta ao BASTION apó
 ```
 LINHA TEMPORAL:
 ─────────────────────────────────────────────
-MACROFASE: Fase 3 → Bulking Controlado do Produto
+MACROFASE: Stage 5 → Era Living Canon → transição Stage 6
 ─────────────────────────────────────────────
+Claude:  NEXUS-LIVING-CANON-001 — DONE (Living Canon v1.0 aplicado; repo neural limpa; flagship upgrade; NEXUS_LIVING_CANON.md criado; NEXUS_NEURAL_MESH v2.0; LIVE_STATE consolidado; BASTION limpo)
+Claude:  NEXUS-MOTHER-AUDIT-001 — DONE (auditoria-mãe completa; 6 divergências mapeadas)
+Claude:  BLOCK-OP-001-CLOSE — DONE (WP-001 + RT-001 + HW-001 + DIDACTIC-001 + AUTOFLOW-COPILOT-001)
+Claude:  NEXUS-NEURAL-MESH-001 — DONE (NEXUS_NEURAL_MESH.md v1.0 criado)
+Claude:  NEXUS-FLOWMESH-001 — DONE (FLOWMESH.md v1.0 criado)
+Claude:  FVL-IMPL-001 — DONE (FounderPage v2 live + pioneer grid)
+Claude:  PLv6.2-b — DONE (CO₂, jobs, SDG, impactScore integrados)
 Claude:  BASTION-2.0-CYCLE-START-001 — HANDOFF EMITIDO (ciclo contínuo iniciado por ordem do owner; pioneiros em loop por elegibilidade do BASTION; passagem de bastão automática quando NEXT_ACTOR + imediato + nenhuma condição)
 Cursor:  BULK-01.3-a — DONE (já resolvido por @copilot F5; timestamp removido do tracking + .gitignore blindado)
 Cursor:  BULK-01.3-b — DONE (análise: npm é PM canônico; bun.lock residual; remoção aguarda B-002 owner)

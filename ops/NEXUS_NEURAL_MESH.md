@@ -1,8 +1,8 @@
 # NEXUS NEURAL MESH — Camada de Inteligência Viva do Sistema
 
-**Versão:** v1.0
-**Data:** 2026-03-21
-**Task:** NEXUS-NEURAL-MESH-001
+**Versão:** v2.0
+**Data:** 2026-03-23
+**Task:** NEXUS-LIVING-CANON-001 (update) | NEXUS-NEURAL-MESH-001 (criação)
 **Branch:** `claude/rebuild-bastion-core-rihGX`
 **Modelo:** claude-sonnet-4-6
 **Aprovado por:** owner (gate aberto — 2026-03-21)
@@ -69,6 +69,7 @@ N-12      │ PRODUCT_LAYER       │ produto       │ ATIVO      │ PLv1→PL
 N-13      │ VISUAL_LAYER        │ visual        │ AGUARDA    │ DOC_VISUAL_SPINE
 N-14      │ CORPORATE_LAYER     │ corporação    │ MAPEADO    │ FLOWMESH seção 6
 N-15      │ DIDACTIC_LAYER      │ didática      │ PLANEJADO  │ (a criar)
+N-16      │ LIVING_CANON_LAYER  │ era viva      │ ATIVO      │ NEXUS_LIVING_CANON.md v1.0
 ══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -175,7 +176,8 @@ CROSS_SUPPORT_PROTOCOL.md  │ v1     │ JA_MADURO        │ polivalência con
 WORKTREE_ALIASES.md        │ v1.1   │ JA_MADURO        │ aliases operacionais selados
 NLF.md                     │ v1.2   │ JA_MADURO        │ leis operacionais activas
 FLOWMESH.md                │ v1.0   │ AINDA_GROSSO     │ criado; primeiro ciclo pendente
-NEXUS_NEURAL_MESH.md       │ v1.0   │ AINDA_GROSSO     │ criado; ativação completa pendente
+NEXUS_NEURAL_MESH.md       │ v2.0   │ ATIVO            │ N-16 Living Canon adicionado; ativação em Stage 6
+NEXUS_LIVING_CANON.md      │ v1.0   │ RECENTE          │ Era Living Canon — camada superior viva do sistema
 PLv6.2-b (produto)         │ —      │ JA_MADURO        │ concluída 2026-03-22 — métricas expandidas
 FOUNDER_VISION_LAYER       │ v2     │ JA_MADURO        │ FVL-IMPL-001 concluída; FounderPage v2 live
 CODEX_CONSOLIDATOR.md      │ v1     │ PRECISA_REFINO   │ blueprint; codex não totalmente op.
@@ -298,6 +300,14 @@ OPS VIVOS (atualização contínua)
   ops/LIVE_STATE.md                   │ espelho operacional do sistema
   ops/HANDOFF_LEDGER.md               │ ledger imutável de todas as sessões
   ops/BASTION_DISPATCH_001.md         │ ativação dos pioneiros — BASTION 2.0
+  ops/NEXUS_LIVING_CANON.md           │ camada superior viva — Era Living Canon v1.0
+  ops/V10_PROJECT_LINE_SYSTEM.md      │ linha de raciocínio V1→V10 — lei ativa
+  ops/BLOCK_MATURATION_OS.md          │ sistema de maturação por blocos
+  ops/PROJECT_CANONICAL_CHECKUP_MASTER.md │ auditoria mestre — 12 famílias
+  docs/WHITE_PAPER.md                 │ white paper estratégico v1.0
+  docs/REVERSE_TECH_AUDIT.md          │ auditoria técnica reversa v1.0
+  docs/HARDWARE_PROTOTYPE.md          │ protótipo hardware Nexus Node Mk.I v0.1
+  docs/didactic/DIDACTIC_MANIFEST.md  │ manifesto didático v1.0 — 6 módulos
 ══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -344,19 +354,22 @@ Direção de evolução do sistema nos próximos estágios.
 ```
 VERSION_AND_FUTURE_LINK ══════════════════════════════════════════════════════
 
-ESTÁGIO ATUAL: Stage 5 — Mesh de Inteligência Operacional
+ESTÁGIO ATUAL: Stage 5 → transição Era Living Canon
   ✓ DNA_PROTOCOL criado e maduro
-  ✓ BASTION 2.0 activado
+  ✓ BASTION 2.0 activado (v2.1 após Living Canon)
   ✓ PIONEER_MATRIX selada
   ✓ FLOWMESH criado (roteamento v1)
-  ✓ NEXUS_NEURAL_MESH criado (camada neural v1)
+  ✓ NEXUS_NEURAL_MESH v2.0 (N-16 Living Canon adicionado)
+  ✓ NEXUS_LIVING_CANON.md v1.0 — Era Living Canon iniciada 2026-03-23
   ✓ PLv6.2-b — concluída 2026-03-22 (métricas: CO₂, jobs, SDG, impactScore)
   ✓ FVL-IMPL-001 — concluída 2026-03-22 (FounderPage v2 + pioneer grid)
+  ✓ WHITE_PAPER v1.0 + REVERSE_TECH_AUDIT v1.0 + HARDWARE_PROTOTYPE v0.1
+  ✓ DIDACTIC_MANIFEST v1.0 — base didática criada
+  □ CYCLE-CLOSE-001 — gate owner (fechar Stage 5 formalmente)
 
-PRÓXIMO: Stage 6 — Produto em Escala
-  ✓ PLv6.2-b — concluída
-  ✓ FVL-IMPL-001 — concluída
-  □ PLv7+ — expansão de produto (post-CYCLE-CLOSE-001)
+PRÓXIMO: Stage 6 — Produto em Escala + Living Canon ativo
+  □ CYCLE-CLOSE-001 — gate owner
+  □ PLv7+ — expansão de produto (pós CYCLE-CLOSE-001)
 
 FUTURO: Stage 7 — Corporate Activation
   □ D01-D12 activados progressivamente
@@ -395,4 +408,5 @@ FUTURO: Stage 10 — Autonomia Total
 
 ---
 
-*NEXUS_NEURAL_MESH.md v1.0 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*NEXUS_NEURAL_MESH.md v2.0 — atualizado em 2026-03-23 | claude-sonnet-4-6 | NEXUS-LIVING-CANON-001*
+*Criado em 2026-03-21 | NEXUS-NEURAL-MESH-001 | N-16 LIVING_CANON_LAYER adicionado*

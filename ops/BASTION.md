@@ -1,20 +1,11 @@
 # BASTION — Coração Canônico de Execução dos Pioneiros
 
-**Versão:** v1.3
-**Data:** 2026-03-21
-**Task:** OPS-BASTION-001
-**Versão:** v2.0
-**Data:** 2026-03-21
-**Task:** BASTION-2.0-CYCLE-START-001
-**Branch:** `claude/expose-workspace-config-yt4Km`
-**Modelo:** claude-4.6-opus-high-thinking
-**Aprovado por:** owner (instrução direta — ordem de ignição operacional)
-**Versão:** v1
-**Data:** 2026-03-20
-**Task:** OPS-BASTION-001
-**Branch:** `claude/expose-workspace-config-yt4Km`
+**Versão:** v2.1
+**Data:** 2026-03-23
+**Task:** NEXUS-LIVING-CANON-001
+**Branch:** `claude/rebuild-bastion-core-rihGX`
 **Modelo:** claude-sonnet-4-6
-**Aprovado por:** owner (instrução direta)
+**Aprovado por:** owner (instrução direta — Living Canon era)
 
 > O BASTION é a fonte única de execução elegível do Eternal Nexus OS.
 > Pioneiro que não encontra sua task elegível no BASTION não executa.
@@ -50,7 +41,6 @@
 |---|---|---|
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor |
-| **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot |
 | **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot |
 
 **Regra de território:**
@@ -81,7 +71,6 @@ LOOP DO PIONEIRO:
 - Não actua fora do seu worktree sem aprovação explícita
 - Não assume que task PLANEJADA é elegível sem mudança de status
 
-**O pioneer SIM:**
 **O pioneiro SIM:**
 - Lê BASTION antes de cada sessão
 - Executa só o que estiver elegível
@@ -170,6 +159,9 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
 | NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
+| NEXUS-MOTHER-AUDIT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — auditoria-mãe completa; 6 divergências mapeadas |
+| BLOCK-OP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — WP-001 + RT-001 + HW-001 + DIDACTIC-001 + AUTOFLOW-COPILOT-001 |
+| NEXUS-LIVING-CANON-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_LIVING_CANON.md v1.0; BASTION v2.1; LIVE_STATE consolidado; NEXUS_NEURAL_MESH v2.0; repo neural limpa; Era Living Canon iniciada |
 
 ---
 
@@ -177,122 +169,21 @@ Cada item da matriz regista os seguintes campos:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-02.2                                               │
-│ PILAR              │ Governança / Operacional                                │
+│ TASK_ID            │ CYCLE-CLOSE-001                                         │
+│ PILAR              │ Consolidação                                            │
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @copilot                                                │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @copilot                                                │
-│ NEXT_TASK          │ BULK-02.2 completa → @owner decide PLv6.2-b ou FVL     │
-│ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
-│ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
-│                    │ suavizar superfície operacional; sem alteração soberana  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-a                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-b                                             │
-│ EVIDENCIA_MINIMA   │ arquivo removido do tracking + ALTERACAO_REAL: sim      │
-│ NOTAS_DO_OWNER     │ Remover vite.config.ts.timestamp-* do versionamento     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-b                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ BULK-01.3-c                                             │
-│ EVIDENCIA_MINIMA   │ decisão PM canônico (B-002) ou limpeza + ALTERACAO_REAL │
-│ NOTAS_DO_OWNER     │ Avaliar bun.lock + package-lock.json — PM canônico?     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.3-c                                             │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P4                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ @owner decide próximo backlog mecânico                  │
-│ EVIDENCIA_MINIMA   │ avaliação registada + decisão clara + ALTERACAO_REAL    │
-│ NOTAS_DO_OWNER     │ Verificar antigravity/legacy-html/ — lixo mecânico?     │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.2 / L-001                                       │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @copilot                                                │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @copilot                                                │
-│ NEXT_TASK          │ BULK-01.2 / L-002                                       │
-│ EVIDENCIA_MINIMA   │ .gitignore actualizado + ALTERACAO_REAL: sim            │
-│ NOTAS_DO_OWNER     │ Higiene .gitignore — cobrir gaps mapeados pelo Tribunal  │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ BULK-01.2 / L-002                                       │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @copilot                                                │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
-│ DEPENDE_DE         │ BULK-01.2 / L-001                                       │
-│ PODE_ENTRAR_SOZINHO│ não                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto (após L-001)                                     │
-│ NEXT_ACTOR         │ @copilot                                                │
-│ NEXT_TASK          │ BULK-02.2                                               │
-│ EVIDENCIA_MINIMA   │ timestamp file removido do tracking + ALTERACAO_REAL    │
-│ NOTAS_DO_OWNER     │ git rm --cached do timestamp file já rastreado          │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @codex                                                  │
+│ STATUS             │ aguarda-gate                                            │
+│ DEPENDENCIA_STATUS │ livre — todas as dependências concluídas                │
+│ DEPENDE_DE         │ PLv6.2-b ✓ + FVL-IMPL-001 ✓ + BULK-02.2 ✓ + L-001 ✓ + L-002 ✓ │
+│ PODE_ENTRAR_SOZINHO│ não — requer gate owner                                 │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aguarda-owner                                           │
+│ NEXT_ACTOR         │ @owner → gate → @claude                                 │
+│ NEXT_TASK          │ Stage 6 open → PLv7+ gate                               │
+│ EVIDENCIA_MINIMA   │ Stage 5 declarado fechado + LIVE_STATE + LEDGER + PR    │
+│ NOTAS_DO_OWNER     │ Fechar Stage 5 formalmente → abrir Stage 6              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -302,100 +193,41 @@ Cada item da matriz regista os seguintes campos:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ PLv6.2-b                                                │
+│ TASK_ID            │ PLv7+                                                   │
 │ PILAR              │ Produto                                                 │
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ a definir                                               │
 │ STATUS             │ aguarda-gate                                            │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ CYCLE-CLOSE-001                                         │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
-│ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ fechado — aguarda CYCLE-CLOSE-001 + decisão owner       │
 │ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
-│ NEXT_TASK          │ a definir                                               │
+│ NEXT_TASK          │ a definir pelo owner                                    │
 │ EVIDENCIA_MINIMA   │ a definir pelo owner ao abrir gate                      │
-│ NOTAS_DO_OWNER     │ NewsAPI? project_metrics? página dedicada de portfólio? │
+│ NOTAS_DO_OWNER     │ próxima camada de produto após Stage 6 aberto           │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ FVL-IMPL-001                                            │
-│ PILAR              │ Produto                                                 │
-│ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
+│ TASK_ID            │ DIDACTIC-LAYER-v1                                       │
+│ PILAR              │ Governança / Didática                                   │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @claude                                                 │
-│ APOIO_SECUNDARIO   │ @copilot (WorkVisual)                                   │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
 │ STATUS             │ aguarda-gate                                            │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P2                                                      │
 │ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ NEXT_ACTOR         │ @owner → gate → @claude                                 │
 │ NEXT_TASK          │ a definir                                               │
-│ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
-│ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
-### 5.3 TASKS ELEGÍVEIS — GATE ABERTO PELO OWNER (2026-03-22)
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ PLv6.2-b [CONCLUÍDA — ver 5.1]                          │
-│ PILAR              │ Produto                                                 │
-│ WORKTREE_ALIAS     │ WorkFunction                                            │
-│ DONO_PRINCIPAL     │ @claude                                                 │
-│ APOIO_SECUNDARIO   │ @codex (consolidação) / @cursor (suporte mecânico)      │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P1                                                      │
-│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
-│ NEXT_ACTOR         │ @claude                                                 │
-│ NEXT_TASK          │ FVL-IMPL-001 (paralelo)                                 │
-│ EVIDENCIA_MINIMA   │ NewsAPI integrada OU project_metrics expandido + commit │
-│ NOTAS_DO_OWNER     │ GATE ABERTO — fechar este ciclo; prioridade máxima      │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ FVL-IMPL-001 [CONCLUÍDA — ver 5.1]                      │
-│ PILAR              │ Produto                                                 │
-│ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
-│ DONO_PRINCIPAL     │ @claude                                                 │
-│ APOIO_SECUNDARIO   │ @copilot (WorkVisual) / @antigravity (WorkVisual)       │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P1                                                      │
-│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
-│ NEXT_ACTOR         │ @claude + @copilot (paralelo)                           │
-│ NEXT_TASK          │ CYCLE-CLOSE-001                                         │
-│ EVIDENCIA_MINIMA   │ rota /founder funcional + visual polido + ALTERACAO_REAL│
-│ NOTAS_DO_OWNER     │ GATE ABERTO — executar em paralelo com PLv6.2-b         │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ CYCLE-CLOSE-001                                         │
-│ PILAR              │ Consolidação                                            │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @codex                                                  │
-│ APOIO_SECUNDARIO   │ @claude                                                 │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
-│ DEPENDE_DE         │ PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + BULK-01.2/L-002  │
-│ PODE_ENTRAR_SOZINHO│ sim (entra após handoffs)                               │
-│ PRIORIDADE         │ P1                                                      │
-│ GATE               │ ABERTO                                                  │
-│ NEXT_ACTOR         │ @codex                                                  │
-│ NEXT_TASK          │ PR para main                                            │
-│ EVIDENCIA_MINIMA   │ relatório-mãe consolidado + todos os handoffs recebidos │
-│ NOTAS_DO_OWNER     │ Fechar o ciclo: consolidar tudo → PR → main             │
+│ EVIDENCIA_MINIMA   │ primeiro módulo didático criado (candidato: DNA_PROTOCOL)│
+│ NOTAS_DO_OWNER     │ Stage 9 na linha V10; pode abrir independente do Stage 6│
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -455,75 +287,29 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.3
-DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
+VERSÃO          │ v2.1
+DATA            │ 2026-03-23
+ÚLTIMA_ACTUAÇÃO │ NEXUS-LIVING-CANON-001 | @claude | 2026-03-23
+ERA             │ Living Canon — Stage 5 → Stage 6
 ESTADO          │ ACTIVO — fonte única de execução elegível
-DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
-TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
-                │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ ACTIVADO → lê BASTION → executa elegível WorkStructure (L-001/L-002/BULK-02.2)
-@cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
-@codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
-@claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
-VERSÃO          │ v2.0
-DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
-ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 EM EXECUÇÃO
-DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
-CICLO           │ BASTION 2.0 — fluxo contínuo sem microgestão do owner
-TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
-@cursor         │ 01.3-a DONE (já resolvido) | 01.3-b DONE (análise→B-002) | 01.3-c DONE (análise→B-003) | SEM TASK ELEGÍVEL
-@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude         │ ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-@antigravity    │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
-@framer         │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
-VERSÃO          │ v1.2
-DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
-VERSÃO          │ v1.3
-DATA            │ 2026-03-20
-ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
-ESTADO          │ ACTIVO — fonte única de execução elegível
-DISPATCH        │ BASTION_DISPATCH_001 + OPS_FULL_AUTO_UNTIL_STOP_001 activos
-TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
-                │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
-@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
-@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
-@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-@codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
-@claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
-AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
-                │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
-GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
-BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
-IGNIÇÃO         │ ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
-IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
-MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
-INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio real | red line | sem elegível
-VERSÃO          │ v2.0
-DATA            │ 2026-03-22
-ÚLTIMA_ACTUAÇÃO │ BULK-CLOSE | @claude cross-support | 2026-03-22
-ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
-CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
-DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
-TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 (última — aguarda PR)
+DISPATCH        │ BASTION 2.0 ciclo contínuo — IGNIÇÃO_ATIVA permanente
 TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
                 │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
-                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓
-@claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
-@copilot        │ LIBERADO — tasks completadas por @claude em cross-support
-@cursor         │ LIBERADO — tasks completadas por @claude em cross-support
-@codex          │ CYCLE-CLOSE-001 — emitir relatório-mãe + abrir PR
-GATES_FECHADOS  │ nenhum — ciclo encerrado operacionalmente
-BLOQUEADAS      │ BULK-01-Codex (branch, não bloqueia PR) | F6 (paralelo)
-IGNIÇÃO         │ COMPLETA — sprint final executado em bulk
+                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓ |
+                │ NEXUS-LIVING-CANON-001 ✓
+TASK_ATUAL      │ CYCLE-CLOSE-001 — aguarda gate owner
+TASKS_PLANEJADAS│ PLv7+ (gate owner) | DIDACTIC-LAYER-v1 (gate owner)
+BLOQUEADORES    │ B-002 (PM canônico) | B-003 (legacy-html) — owner decide
+@claude         │ LIVING CANON APLICADO — aguarda gate CYCLE-CLOSE-001
+@copilot        │ SEM TASK ELEGÍVEL
+@cursor         │ SEM TASK ELEGÍVEL — aguarda B-002 + B-003
+@codex          │ CONSOLIDADOR ATIVO → aguarda gate CYCLE-CLOSE-001
+@antigravity    │ SEM TASK ELEGÍVEL
+@framer         │ SEM TASK ELEGÍVEL
+IGNIÇÃO         │ ATIVA — PERMANENTE
 MODO_AUTO       │ SELADO
-CICLO_PARA      │ PR para main → owner aprova merge → ciclo declarado fechado
 DERIVA          │ impermitida
+INTERRUPTOR     │ ordem owner | gate soberano | bloqueio real | sem elegível
 ════════════════════════════════════════════════════════════════════════════
 ```
 
