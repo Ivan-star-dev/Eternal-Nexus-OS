@@ -20,7 +20,7 @@
 | Dimensão | Valor atual |
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
-| **Branch canônico** | `claude/website-quality-assessment-Bb6r7` |
+| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
 | **Executor ativo** | @claude + todos os pioneiros (sprint V5/V6) |
 | **Frente ativa** | Produto / WorkFunction + WorkVisual |
 | **Camada atual** | V4 Living World entregue (PLv7+PLv8+PLv8.1+V3 polish); V5 EarthLab em execução; V6 LearningPathway em construção |
