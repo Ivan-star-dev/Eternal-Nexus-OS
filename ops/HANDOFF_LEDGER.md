@@ -8,6 +8,50 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE — CONCLUÍDA
+            │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 criado (9 secções)
+            │   — Judgment Core: ciclo input→avaliação→sentença
+            │   — Fractal Council: 7 nós (DNA/BASTION/PIONEER/FLOW/NEURAL/LIVE/OWNER)
+            │   — Judgment Value Function (JVF): pesos por nó + limiares
+            │   — Canonical Recompression: 8 passos → sentença única
+            │   — Stop Condition: 5 condições de paragem imediata
+            │   — 7 Sentenças: aceita|rejeita|refina|salvage|rebuild|owner-only|adia
+            │   — Protocolo de uso + tabela de exemplos aplicados
+            │   — Integração com a malha (8 artefactos referenciados)
+            │ ops/NEXUS_LIVING_CANON.md v1.0 criado
+            │   — Índice vivo de todos os artefactos canônicos do sistema
+            │   — Hierarquia em 8 camadas (Soberania → Índice)
+            │   — Tabela de artefactos ativos com versão + task de origem
+            │ ops/NEXUS_NEURAL_MESH.md → v1.1
+            │   — FRACTAL_JUDGMENT adicionado ao NEURAL_CORE
+            │   — localização canônica expandida
+            │ ops/BASTION.md → v2.1
+            │   — task adicionada ao histórico (5.1); semáforo atualizado
+            │   — localização canônica expandida (2 novos artefactos)
+            │ ops/LIVE_STATE.md — task na fila + estado geral atualizado
+NAO_FEITO   │ nada pendente nesta task
+IMPACTO     │ crítico — sistema agora tem peça formal de julgamento canônico;
+            │   toda decisão tem critério claro (JVF + 7 sentenças);
+            │   Fractal Council distribui avaliação pelos 7 nós estruturais;
+            │   NEXUS_LIVING_CANON.md indexa o canon pela primeira vez
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (novo — v1.0)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — v1.1)
+            │ ops/BASTION.md (atualizado — v2.1)
+            │ ops/LIVE_STATE.md (atualizado)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+ALTERACAO_REAL │ sim — 2 ficheiros criados + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001-CLOSE │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ BLOCK-OP-001 — FECHADO COMPLETAMENTE

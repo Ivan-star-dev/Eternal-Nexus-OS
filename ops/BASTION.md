@@ -170,6 +170,7 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
 | NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
+| NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 criados; Fractal Council 7 nós; JVF; 7 sentenças |
 
 ---
 
@@ -399,6 +400,8 @@ Cada item da matriz regista os seguintes campos:
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
 ---
 
 ### 5.4 TASKS BLOQUEADAS
@@ -510,10 +513,11 @@ DATA            │ 2026-03-22
 ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
 CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
 DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
-TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 (última — aguarda PR)
+TASKS_ELEGÍVEIS │ nenhuma — ciclo encerrado; próxima frente aguarda gate owner
 TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
                 │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
-                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓
+                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓ |
+                │ CYCLE-CLOSE-001 ✓ | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE ✓
 @claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
 @copilot        │ LIBERADO — tasks completadas por @claude em cross-support
 @cursor         │ LIBERADO — tasks completadas por @claude em cross-support
@@ -550,6 +554,8 @@ DERIVA          │ impermitida
 | Polivalência controlada | `ops/CROSS_SUPPORT_PROTOCOL.md` |
 | Roteamento adaptativo | `ops/FLOWMESH.md` |
 | Camada de inteligência viva | `ops/NEXUS_NEURAL_MESH.md` |
+| Critério de julgamento canônico | `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` |
+| Índice vivo do canon | `ops/NEXUS_LIVING_CANON.md` |
 
 ---
 
@@ -568,3 +574,4 @@ DERIVA          │ impermitida
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
 *BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
 *BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
+*BASTION.md v2.1 — NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE concluída; NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 adicionados ao histórico e localização canônica; semáforo atualizado — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*

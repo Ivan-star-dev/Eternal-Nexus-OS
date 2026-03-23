@@ -31,6 +31,7 @@ AUTOFLOW         │ comportamento autônomo entre tasks
 CROSS_SUPPORT    │ polivalência controlada em hora morta
 OUTPUT_STANDARD  │ handoffs copiáveis — evidência obrigatória
 EVIDENCE_BLOCK   │ prova real — ALTERACAO_REAL em cada entrega
+FRACTAL_JUDGMENT │ critério canônico de julgamento — o que entra, o que sai, sentença única
 ══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -392,7 +393,9 @@ FUTURO: Stage 10 — Autonomia Total
 | Roteamento | `ops/FLOWMESH.md` |
 | Estado vivo | `ops/LIVE_STATE.md` |
 | Ledger de sessões | `ops/HANDOFF_LEDGER.md` |
+| Critério de julgamento | `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` |
 
 ---
 
 *NEXUS_NEURAL_MESH.md v1.0 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*NEXUS_NEURAL_MESH.md v1.1 — FRACTAL_JUDGMENT adicionado ao NEURAL_CORE + localização canônica — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*

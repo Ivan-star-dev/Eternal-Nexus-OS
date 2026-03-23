@@ -1,0 +1,89 @@
+# NEXUS LIVING CANON — Índice Vivo dos Artefactos Canônicos
+
+**Versão:** v1.0
+**Data:** 2026-03-23
+**Task:** NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE
+**Branch:** `claude/rebuild-bastion-core-rihGX`
+**Modelo:** claude-sonnet-4-6
+
+> O NEXUS LIVING CANON é o índice vivo de todos os artefactos canônicos do sistema.
+> Não substitui nenhum artefacto — indexa-os e define a sua posição na hierarquia.
+> Sempre que um novo artefacto canônico é criado, entra neste índice.
+
+---
+
+## 1. HIERARQUIA CANÔNICA
+
+```
+CAMADA 0 — SOBERANIA
+  Owner                              → decisão final · veto absoluto · gate soberano
+
+CAMADA 1 — LEI PRIMÁRIA
+  ops/DNA_PROTOCOL.md                → protocolo-mãe · lei fractal do sistema
+
+CAMADA 2 — EXECUÇÃO ELEGÍVEL
+  ops/BASTION.md                     → fonte única de trabalho real · semáforo de tasks
+
+CAMADA 3 — JULGAMENTO CANÔNICO
+  ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → o que entra · o que sai · sentença única
+
+CAMADA 4 — INTELIGÊNCIA VIVA
+  ops/NEXUS_NEURAL_MESH.md           → coerência global · todos os nós conectados
+  ops/FLOWMESH.md                    → roteamento adaptativo · modelo certo na task certa
+
+CAMADA 5 — EXECUÇÃO OPERACIONAL
+  ops/PIONEER_MATRIX.md              → papéis · territórios · competências
+  ops/IGNITION.md                    → fluxo contínuo · máquina nunca para
+  ops/AUTOFLOW.md                    → comportamento autônomo entre tasks
+  ops/CROSS_SUPPORT_PROTOCOL.md      → polivalência controlada em hora morta
+
+CAMADA 6 — ESTADO VIVO
+  ops/LIVE_STATE.md                  → estado real atual · fila viva · bloqueadores
+  ops/HANDOFF_LEDGER.md              → histórico imutável · ledger de sessões
+
+CAMADA 7 — PROTOCOLOS ESPECIALIZADOS
+  ops/OUTPUT_STANDARD.md             → handoffs copiáveis · evidência obrigatória
+  ops/PROTOCOL_BRANCH_GUARD.md       → guard de branch · triage automática
+  ops/PROTOCOL_CASCADE_CANON.md      → lei de resposta · retenção em cascata
+  ops/V10_PROJECT_LINE_SYSTEM.md     → linha V1→V10 · fases · diagnóstico
+  ops/BLOCK_MATURATION_OS.md         → maturação por blocos · 7 blocos · 5 leis
+  ops/PROJECT_CANONICAL_CHECKUP_MASTER.md → auditoria mestre · 12 famílias
+
+CAMADA 8 — ESTE ÍNDICE
+  ops/NEXUS_LIVING_CANON.md          → índice vivo dos artefactos canônicos
+```
+
+---
+
+## 2. REGRA DE ENTRADA NESTE ÍNDICE
+
+Um artefacto entra no NEXUS_LIVING_CANON quando:
+1. Foi criado por gate aberto do owner (via BASTION)
+2. Tem handoff emitido com ALTERACAO_REAL: sim
+3. Tem localização canônica definida
+4. Não conflitua com DNA_PROTOCOL
+
+Um artefacto **não** entra quando:
+- É temporário, experimental ou de suporte
+- Não tem gate do owner
+- Não tem handoff com evidência real
+
+---
+
+## 3. TABELA DE ARTEFACTOS ATIVOS
+
+| Artefacto | Camada | Versão | Task de origem | Estado |
+|-----------|--------|--------|---------------|--------|
+| `ops/DNA_PROTOCOL.md` | 1 | v1.2 | DNA-PROTOCOL-MOTHER-001 | ✓ ativo |
+| `ops/BASTION.md` | 2 | v2.1 | OPS-BASTION-001 | ✓ ativo |
+| `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` | 3 | v1.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | ✓ ativo |
+| `ops/NEXUS_NEURAL_MESH.md` | 4 | v1.1 | NEXUS-NEURAL-MESH-001 | ✓ ativo |
+| `ops/FLOWMESH.md` | 4 | v1.0 | NEXUS-FLOWMESH-001 | ✓ ativo |
+| `ops/PIONEER_MATRIX.md` | 5 | v1.1 | NEXUS-PIONEER-ROLE-MOTHER-001 | ✓ ativo |
+| `ops/LIVE_STATE.md` | 6 | vivo | contínuo | ✓ ativo |
+| `ops/HANDOFF_LEDGER.md` | 6 | imutável | contínuo | ✓ ativo |
+| `ops/NEXUS_LIVING_CANON.md` | 8 | v1.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | ✓ ativo |
+
+---
+
+*NEXUS_LIVING_CANON.md v1.0 — criado em 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
