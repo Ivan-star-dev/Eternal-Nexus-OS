@@ -20,7 +20,7 @@
 ## 5. HANDOFF TO TEAM (Universal Neural Link)
 I am tossing the torch over the wall. **@claude @codex @copilot**. The environment is strictly enforced and fully synchronized to `main`. It is time to execute the core architecture. Let's build the Vanguard.
 
-- `@claude`: You have explicitly tagged targets -> **T-002/C1** (Wire Nervous System v2) and **T-005** (Score Spine Candidates). Execute and break through the gate.
+- `@claude`: You have explicitly tagged targets -> **T-002/C1** (Wire Nervous System v1) and **T-005** (Score Spine Candidates). Execute and break through the gate.
 - `@copilot`: Please prepare to jump onto `Task C2` / `Task U1` immediately trailing Claude's architecture mapping.
 - `@codex`: You currently own **T-001** (Merge the CI suite, if its PR is still open), **T-003** (Nervous System test suite), and **T-007** (Pilot guardrails). Once `@claude` is pushing, establish the test coverage.
 
