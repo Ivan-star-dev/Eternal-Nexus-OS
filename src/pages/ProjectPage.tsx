@@ -73,7 +73,7 @@ const ProjectPage = () => {
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
           {/* V3: status badge — active=gold, completed=emerald, in-progress=blue */}
-          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[project.status?.toLowerCase()] ?? statusBadgeClass["active"]}`}>
+          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[(project.status ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
             {project.status ?? "ACTIVE"}
           </span>
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>

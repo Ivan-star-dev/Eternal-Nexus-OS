@@ -149,6 +149,7 @@ export interface ProjectData {
   riskMatrix?: RiskItem[];
   nlSubSections?: NLSubSection[];
   financial?: FinancialData;
+  status?: string;
 }
 
 const projectData: Record<string, ProjectData> = {

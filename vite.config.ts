@@ -27,7 +27,7 @@ function crossOriginIsolationPlugin(): Plugin {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -70,9 +70,10 @@ export default defineConfig(({ mode }) => ({
   test: {
     browser: {
       enabled: true,
+      // @ts-expect-error — vitest 4.x BrowserProviderOption<object> generic not narrowing literal
       provider: 'playwright',
       name: 'chromium',
     },
     setupFiles: ['./src/setupTests.ts'],
   },
-}));
+});
