@@ -19,7 +19,7 @@
 | **Executor ativo** | @claude |
 | **Frente ativa** | WorkStructure — Living Canon Integration |
 | **Camada atual** | PLv6.2-b ✓ · FVL-IMPL-001 ✓ · NEXUS-LIVING-CANON-001 ✓ |
-| **Estado geral** | IGNIÇÃO_ATIVA; BASTION v2.0 governa fila; Living Canon aplicado; repo neural limpa; próximo gate = CYCLE_CLOSE_001 → Stage 6 |
+| **Estado geral** | IGNIÇÃO_ATIVA; BASTION v2.0 governa fila; Living Canon aplicado; repo neural limpa; próximo gate = CYCLE-CLOSE-001 → Stage 6 |
 | **Bloqueadores ativos** | B-002 (PM canônico — bun.lock) · B-003 (legacy-html decision) · PLv7+ gate · Stage 6 gate — todos aguardam owner |
 
 ---
