@@ -1,8 +1,9 @@
 import { useRef, useMemo, useState } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
+import EarthquakeLayer from "./EarthquakeLayer";
 
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
@@ -11,6 +12,8 @@ const CONNECTION_DISTANCE = 2.6;
 interface GlobeSceneProps {
   focusedProject: string | null;
   onHotspotClick: (id: string) => void;
+  showProjects?: boolean;
+  showSeismic?: boolean;
 }
 
 // Wireframe globe sphere + network nodes
@@ -167,14 +170,14 @@ function ParticleFlow() {
 
 
 
-const GlobeScene = ({ focusedProject, onHotspotClick }: GlobeSceneProps) => {
+const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
   return (
     <>
       <ambientLight intensity={0.25} />
       <pointLight position={[10, 8, 10]} intensity={0.3} color="#D4AF37" />
       <NetworkSphere />
       <ParticleFlow />
-      {projectLocations.map((p) => (
+      {showProjects !== false && projectLocations.map((p) => (
         <ProjectHotspot
           key={p.id}
           id={p.id}
@@ -188,6 +191,7 @@ const GlobeScene = ({ focusedProject, onHotspotClick }: GlobeSceneProps) => {
           onClick={onHotspotClick}
         />
       ))}
+      <EarthquakeLayer visible={showSeismic} />
       <OrbitControls
         enablePan={false}
         enableZoom={true}

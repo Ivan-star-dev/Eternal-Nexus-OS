@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, Suspense } from "react";
+import { useState, useCallback, useRef, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Brain,
@@ -40,6 +40,10 @@ export default function NexusOrganismBuilder() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [voiceEnabled, setVoiceEnabled] = useState(false);
   const ttsPlayerRef = useRef(createTTSPlayer());
+
+  useEffect(() => {
+    document.title = "Nexus Organism Builder — Eternal Nexus OS";
+  }, []);
 
   // ── Seed navigation ──
   const setSeed = useCallback((newSeed: number) => {
@@ -138,95 +142,71 @@ export default function NexusOrganismBuilder() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -320, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="w-[320px] min-w-[320px] h-full flex flex-col border-r border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden"
+            className="w-[320px] min-w-[320px] h-full flex flex-col border-r border-white/[0.06] bg-[#08081a]/95 backdrop-blur-xl overflow-hidden"
           >
             {/* Header */}
-            <div className="p-4 border-b border-white/5">
-              <div className="flex items-center gap-2 mb-1">
-                <Brain className="h-5 w-5 text-violet-400" />
-                <h1
-                  className="text-lg font-bold tracking-tight"
-                  style={{ fontFamily: "'Poppins', sans-serif" }}
-                >
-                  Nexus Organism
-                </h1>
+            <div className="p-4 border-b border-white/[0.06]">
+              <div className="flex items-center gap-2 mb-2">
+                <Brain className="h-4 w-4 text-violet-400/70" />
+                <span className="font-mono text-[0.55rem] tracking-[0.2em] uppercase text-paper/70 border-b border-white/[0.06] pb-0 mb-0">
+                  Nexus Organism Builder
+                </span>
               </div>
-              <p
-                className="text-[0.65rem] text-white/40 tracking-wide uppercase"
-                style={{ fontFamily: "'Lora', serif" }}
-              >
-                Cérebro — Living Neural Architecture
+              <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+                Cérebro · Living Neural Architecture
               </p>
             </div>
 
             {/* Seed Controls */}
-            <div className="p-4 border-b border-white/5">
-              <label className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40 mb-2 block">
+            <div className="p-4 border-b border-white/[0.06]">
+              <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-3">
                 Seed
-              </label>
+              </p>
               <div className="flex items-center gap-1 mb-2">
-                <div className="flex-1 flex items-center gap-1 bg-white/5 rounded-md px-2 py-1.5">
-                  <Hash className="h-3 w-3 text-violet-400/60" />
+                <div className="flex-1 flex items-center gap-1 bg-white/[0.04] border border-white/[0.06] rounded px-2 py-1.5">
+                  <Hash className="h-3 w-3 text-violet-400/50" />
                   <Input
                     value={seedInput}
                     onChange={(e) => setSeedInput(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && jumpToSeed()}
-                    className="h-6 bg-transparent border-none text-sm font-mono p-0 focus-visible:ring-0"
+                    className="h-6 bg-transparent border-none font-mono text-[0.6rem] text-paper-dim p-0 focus-visible:ring-0"
                   />
                 </div>
               </div>
               <div className="flex gap-1">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={prevSeed}
-                  className="flex-1 h-7 text-[0.6rem] hover:bg-white/5"
-                >
-                  <ChevronLeft className="h-3 w-3 mr-0.5" /> Prev
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={nextSeed}
-                  className="flex-1 h-7 text-[0.6rem] hover:bg-white/5"
-                >
-                  Next <ChevronRight className="h-3 w-3 ml-0.5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={randomSeed}
-                  className="flex-1 h-7 text-[0.6rem] hover:bg-white/5"
-                >
-                  <Dices className="h-3 w-3 mr-0.5" /> Random
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={jumpToSeed}
-                  className="flex-1 h-7 text-[0.6rem] hover:bg-white/5"
-                >
-                  Jump
-                </Button>
+                {[
+                  { label: "Prev", action: prevSeed, icon: <ChevronLeft className="h-3 w-3 mr-0.5" /> },
+                  { label: "Next", action: nextSeed, iconRight: <ChevronRight className="h-3 w-3 ml-0.5" /> },
+                  { label: "Random", action: randomSeed, icon: <Dices className="h-3 w-3 mr-0.5" /> },
+                  { label: "Jump", action: jumpToSeed },
+                ].map((btn) => (
+                  <button
+                    key={btn.label}
+                    onClick={btn.action}
+                    className="flex-1 h-7 border border-white/[0.12] text-paper-dim font-mono text-[0.55rem] tracking-[0.1em] uppercase px-2 hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center"
+                  >
+                    {btn.icon}{btn.label}{btn.iconRight}
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Parameter Sliders */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/10">
-              <div className="flex items-center gap-1.5 mb-2">
-                <Sliders className="h-3.5 w-3.5 text-violet-400/60" />
-                <span className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Sliders className="h-3.5 w-3.5 text-violet-400/50" />
+                <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
                   Parameters
                 </span>
               </div>
 
               {sliders.map((s) => (
-                <div key={s.key}>
-                  <div className="flex justify-between items-center mb-1">
-                    <label className="text-[0.65rem] text-white/60">
+                <div key={s.key} className="border-b border-white/[0.04] pb-3">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <label className="font-mono text-[0.6rem] text-paper-dim">
                       {s.label}
                     </label>
-                    <span className="text-[0.6rem] font-mono text-violet-300/80">
+                    <span className="font-mono text-[0.6rem] text-violet-300/70">
                       {typeof params[s.key] === "number"
                         ? Number(params[s.key]).toFixed(
                             s.step < 1 ? (s.step < 0.01 ? 3 : 2) : 0
@@ -246,24 +226,24 @@ export default function NexusOrganismBuilder() {
               ))}
 
               {/* EI Status */}
-              <div className="mt-4 pt-4 border-t border-white/5">
+              <div className="mt-2 pt-2">
                 <div className="flex items-center gap-1.5 mb-3">
-                  <Eye className="h-3.5 w-3.5 text-violet-400/60" />
-                  <span className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40">
+                  <Eye className="h-3.5 w-3.5 text-violet-400/50" />
+                  <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
                     Emergent Intelligences
                   </span>
                 </div>
                 {NEXUS_EIS.map((ei) => (
                   <div
                     key={ei.id}
-                    className="flex items-center gap-2 py-1.5 px-2 rounded bg-white/[0.02] mb-1"
+                    className="flex items-center gap-2 py-1.5 px-2 border-b border-white/[0.04] font-mono text-[0.6rem] text-paper-dim"
                   >
                     <div
-                      className="w-2 h-2 rounded-full animate-pulse"
+                      className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
                       style={{ backgroundColor: ei.color }}
                     />
-                    <span className="text-[0.65rem] font-medium">{ei.name}</span>
-                    <span className="text-[0.55rem] text-white/30 ml-auto">
+                    <span>{ei.name}</span>
+                    <span className="text-white/30 ml-auto text-[0.52rem]">
                       {ei.role}
                     </span>
                   </div>
@@ -272,47 +252,46 @@ export default function NexusOrganismBuilder() {
             </div>
 
             {/* Actions */}
-            <div className="p-4 border-t border-white/5 space-y-1.5">
+            <div className="p-4 border-t border-white/[0.06] space-y-1.5">
+              <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-2">
+                Actions
+              </p>
               <div className="flex gap-1.5">
-                <Button
-                  variant="ghost"
-                  size="sm"
+                <button
                   onClick={regenerate}
-                  className="flex-1 h-8 text-[0.6rem] hover:bg-violet-500/10 hover:text-violet-300"
+                  className="flex-1 border border-white/[0.12] text-paper-dim font-mono text-[0.55rem] tracking-[0.1em] uppercase px-4 py-2 hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center gap-1"
                 >
-                  <RefreshCw className="h-3 w-3 mr-1" /> Regenerate
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
+                  <RefreshCw className="h-3 w-3" /> Regenerate
+                </button>
+                <button
                   onClick={resetParams}
-                  className="flex-1 h-8 text-[0.6rem] hover:bg-white/5"
+                  className="flex-1 border border-white/[0.12] text-paper-dim font-mono text-[0.55rem] tracking-[0.1em] uppercase px-4 py-2 hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center gap-1"
                 >
-                  <RotateCcw className="h-3 w-3 mr-1" /> Reset
-                </Button>
+                  <RotateCcw className="h-3 w-3" /> Reset
+                </button>
               </div>
               <div className="flex gap-1.5">
-                <Button
-                  variant="ghost"
-                  size="sm"
+                <button
                   onClick={downloadSnapshot}
-                  className="flex-1 h-8 text-[0.6rem] hover:bg-white/5"
+                  className="flex-1 border border-white/[0.12] text-paper-dim font-mono text-[0.55rem] tracking-[0.1em] uppercase px-4 py-2 hover:border-gold/40 hover:text-gold transition-all duration-200 flex items-center justify-center gap-1"
                 >
-                  <Download className="h-3 w-3 mr-1" /> Download
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
+                  <Download className="h-3 w-3" /> Download
+                </button>
+                <button
                   onClick={toggleVoice}
-                  className="flex-1 h-8 text-[0.6rem] hover:bg-white/5"
+                  className={`flex-1 border font-mono text-[0.55rem] tracking-[0.1em] uppercase px-4 py-2 transition-all duration-200 flex items-center justify-center gap-1 ${
+                    voiceEnabled
+                      ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
+                      : "border-white/[0.12] text-paper-dim hover:border-gold/40 hover:text-gold"
+                  }`}
                 >
                   {voiceEnabled ? (
-                    <Volume2 className="h-3 w-3 mr-1 text-green-400" />
+                    <Volume2 className="h-3 w-3" />
                   ) : (
-                    <VolumeX className="h-3 w-3 mr-1" />
+                    <VolumeX className="h-3 w-3" />
                   )}
                   Voice
-                </Button>
+                </button>
               </div>
             </div>
           </motion.aside>
@@ -322,13 +301,13 @@ export default function NexusOrganismBuilder() {
       {/* Sidebar toggle */}
       <button
         onClick={() => setSidebarOpen((v) => !v)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-50 bg-violet-500/10 hover:bg-violet-500/20 border border-white/5 rounded-r-lg p-1.5 transition-colors"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-50 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] rounded-r px-1.5 py-2 transition-colors"
         style={{ left: sidebarOpen ? "320px" : "0px" }}
       >
         {sidebarOpen ? (
-          <ChevronLeft className="h-3 w-3 text-violet-300" />
+          <ChevronLeft className="h-3 w-3 text-white/40" />
         ) : (
-          <ChevronRight className="h-3 w-3 text-violet-300" />
+          <ChevronRight className="h-3 w-3 text-white/40" />
         )}
       </button>
 
@@ -339,10 +318,10 @@ export default function NexusOrganismBuilder() {
 
         {/* Organism info overlay */}
         <div className="absolute top-4 right-4 z-10 text-right">
-          <div className="text-[0.55rem] uppercase tracking-[0.2em] text-white/20 mb-0.5">
+          <div className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-0.5">
             Organ: Nexus — Cérebro
           </div>
-          <div className="text-[0.5rem] font-mono text-violet-400/40">
+          <div className="font-mono text-[0.6rem] text-paper-dim">
             Seed #{params.seed} · {params.particleCount.toLocaleString()}{" "}
             particles · 60fps
           </div>
@@ -354,7 +333,7 @@ export default function NexusOrganismBuilder() {
             (organ, i, arr) => (
               <div key={organ} className="flex items-center gap-2">
                 <span
-                  className={`text-[0.55rem] uppercase tracking-[0.15em] ${
+                  className={`font-mono text-[0.55rem] uppercase tracking-[0.15em] ${
                     organ === "Tribunal"
                       ? "text-red-400/60"
                       : organ === "Atlas"
@@ -382,8 +361,8 @@ export default function NexusOrganismBuilder() {
             fallback={
               <div className="h-full flex items-center justify-center">
                 <div className="text-center">
-                  <Sparkles className="h-6 w-6 text-violet-400 animate-pulse mx-auto mb-2" />
-                  <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/30">
+                  <Sparkles className="h-5 w-5 text-violet-400/60 animate-pulse mx-auto mb-2" />
+                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-white/30">
                     Awakening neural cortex…
                   </span>
                 </div>

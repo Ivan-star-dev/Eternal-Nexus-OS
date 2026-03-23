@@ -45,7 +45,16 @@ afterEach(() => {
 // ---------------------------------------------------------------------------
 
 function makeEvent(label = 'Test verdict') {
-  return createTribunalVerdict({ label, category: 'test', confidence: 0.9 });
+  return createTribunalVerdict(
+    {
+      topic: label,
+      judges: ['system'],
+      verdict: 'approved',
+      reasoning: 'automated test',
+      flowTarget: 'atlas',
+    },
+    { confidence: 0.9 },
+  );
 }
 
 // ---------------------------------------------------------------------------

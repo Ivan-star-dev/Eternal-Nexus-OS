@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronRight } from "lucide-react";
@@ -20,6 +20,12 @@ import projectData from "@/data/projects";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
+// V3: status badge colour map
+const statusBadgeClass: Record<string, string> = {
+  active: "text-yellow-400 border-yellow-400/40 bg-yellow-400/10",
+  completed: "text-emerald-400 border-emerald-400/40 bg-emerald-400/10",
+  "in-progress": "text-blue-400 border-blue-400/40 bg-blue-400/10",
+};
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -28,6 +34,12 @@ const ProjectPage = () => {
   const { t } = useLanguage();
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
+
+  // V3: dynamic document title
+  useEffect(() => {
+    document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, [project]);
 
   if (!project) {
     return (
@@ -51,15 +63,19 @@ const ProjectPage = () => {
         animate={{ opacity: 1 }}
         className="border-b border-border bg-secondary/50 backdrop-blur-sm px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
       >
-        <div className="flex items-center gap-2 font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.12em] text-muted-foreground">
+        {/* V3: breadcrumb meta — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
+        <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">
           <Link to="/" className="hover:text-primary transition-colors hidden sm:inline">NPI REGISTRY</Link>
           <ChevronRight className="w-3 h-3 opacity-40 hidden sm:inline" />
           <span className="text-primary">{project.number}</span>
           <ChevronRight className="w-3 h-3 opacity-40" />
-          <span className="text-foreground">{project.title}</span>
+          <span className="text-paper">{project.title}</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="badge-status badge-active text-[0.48rem] sm:text-[0.55rem]">ACTIVE</span>
+          {/* V3: status badge — active=gold, completed=emerald, in-progress=blue */}
+          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[project.status?.toLowerCase()] ?? statusBadgeClass["active"]}`}>
+            {project.status ?? "ACTIVE"}
+          </span>
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>
         </div>
       </motion.div>
@@ -88,12 +104,14 @@ const ProjectPage = () => {
             </Link>
           </motion.div>
 
+          {/* V3: meta row — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8, ease }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
-            <span className="section-label">{project.number} · {project.version}</span>
-            <span className="font-mono text-[0.48rem] sm:text-[0.55rem] tracking-[0.1em] text-muted-foreground/60">© 2026 Ivanildo Michel Monteiro Fernandes</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">{project.number} · {project.version}</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">© 2026 Ivanildo Michel Monteiro Fernandes</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-bold text-foreground leading-[0.88] mb-3">
+          {/* V3: hero title — font-serif font-light text-paper */}
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper leading-[0.92] mb-3">
             {project.title.split(" ").slice(0, -1).join(" ")}<span className="text-primary">{project.title.split(" ").slice(-1)}</span>
           </motion.h1>
 
@@ -101,7 +119,8 @@ const ProjectPage = () => {
             {project.subtitle}
           </motion.p>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="font-sans text-xs sm:text-sm text-muted-foreground/70 max-w-xl leading-relaxed mb-8 sm:mb-10">
+          {/* V3: body — font-serif text-sm text-paper-dim/80 leading-relaxed */}
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="font-serif text-sm text-paper-dim/80 leading-relaxed max-w-xl mb-8 sm:mb-10">
             {project.summary.slice(0, 200)}…
           </motion.p>
 

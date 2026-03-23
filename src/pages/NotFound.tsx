@@ -8,6 +8,7 @@ const NotFound = () => {
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    document.title = "404 — Eternal Nexus OS";
   }, [location.pathname]);
 
   return (
@@ -16,42 +17,25 @@ const NotFound = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="font-mono text-[0.55rem] tracking-[0.25em] text-amber-500/60 uppercase mb-6">
-            ■ Route Not Found
+          <div className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-8">
+            404 · COORDINATES NOT FOUND
           </div>
 
-          <motion.h1
-            className="font-mono font-bold text-[6rem] leading-none mb-4 text-white"
-            style={{
-              textShadow:
-                "0 0 20px rgba(251,191,36,0.4), 0 0 60px rgba(251,191,36,0.15)",
-            }}
-            animate={{
-              textShadow: [
-                "0 0 20px rgba(251,191,36,0.4), 0 0 60px rgba(251,191,36,0.15)",
-                "0 0 30px rgba(251,191,36,0.6), 0 0 80px rgba(251,191,36,0.25)",
-                "0 0 20px rgba(251,191,36,0.4), 0 0 60px rgba(251,191,36,0.15)",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-            404
-          </motion.h1>
+          <h1 className="font-serif text-4xl md:text-5xl font-light text-paper mb-5">
+            This territory is uncharted.
+          </h1>
 
-          <p className="font-mono text-sm text-neutral-300 mb-2 tracking-wide">
-            Page not found
-          </p>
-          <p className="font-mono text-[0.7rem] text-neutral-500 mb-10 leading-relaxed">
-            The page you're looking for doesn't exist or has been moved.
+          <p className="font-serif text-sm text-paper-dim/60 italic mb-12">
+            The page you're looking for doesn't exist in this branch of the system.
           </p>
 
           <Link
             to="/"
-            className="inline-block font-mono text-[0.65rem] tracking-[0.2em] uppercase border border-amber-500/60 text-amber-400 px-8 py-3 rounded hover:border-amber-400 hover:text-amber-300 hover:bg-amber-500/5 transition-all duration-200"
+            className="inline-block border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] uppercase px-8 py-3 hover:border-gold hover:bg-gold/5 transition-all duration-200"
           >
-            Go Home
+            Return to Base
           </Link>
         </motion.div>
       </div>

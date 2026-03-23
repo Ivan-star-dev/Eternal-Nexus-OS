@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, Suspense } from "react";
+import React, { useRef, useMemo, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -246,39 +246,39 @@ function BrainScene() {
 
 function ModuleCard({ module }: { module: LearningModule }) {
   return (
-    <div className="rounded-xl border border-violet-500/20 bg-[#0a0a1a]/80 p-4 backdrop-blur-sm hover:border-violet-500/40 transition-colors">
+    <div className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4 hover:border-white/[0.12] transition-all duration-200">
       <div className="flex items-start gap-3 mb-3">
-        <div className="mt-0.5 rounded-lg bg-violet-600/20 p-2">
-          <BookOpen className="h-4 w-4 text-violet-400" />
+        <div className="mt-0.5 rounded-sm bg-gold/10 p-2">
+          <BookOpen className="h-4 w-4 text-gold/70" />
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-semibold text-white truncate">
+          <h4 className="font-serif text-sm text-paper truncate">
             {module.title}
           </h4>
-          <p className="text-xs text-violet-300/70">{module.subtitle}</p>
+          <p className="font-serif text-sm text-paper-dim/80 leading-relaxed">{module.subtitle}</p>
         </div>
       </div>
 
       <div className="mb-2">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] text-cyan-400/80 uppercase tracking-wider">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
             Progresso
           </span>
-          <span className="text-xs font-mono text-violet-300">
+          <span className="font-mono text-2xl font-light text-gold">
             {module.progress}%
           </span>
         </div>
-        <Progress value={module.progress} className="h-1.5 bg-violet-950" />
+        <Progress value={module.progress} className="h-1 bg-white/10" />
       </div>
 
-      <div className="flex items-center justify-between mt-3">
-        <span className="text-[11px] text-gray-500">
+      <div className="flex items-center justify-between mt-3 border-t border-white/[0.04] pt-3">
+        <span className="font-serif text-sm text-paper-dim/80">
           {module.lessons} lições
         </span>
         <Button
           size="sm"
           variant="outline"
-          className="h-7 text-xs border-violet-500/30 text-violet-300 hover:bg-violet-600/20 hover:text-violet-100"
+          className="h-7 border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] bg-transparent hover:bg-gold/10"
         >
           <Play className="mr-1 h-3 w-3" />
           Continuar
@@ -290,28 +290,28 @@ function ModuleCard({ module }: { module: LearningModule }) {
 
 function TutorCard({ tutor }: { tutor: AITutor }) {
   return (
-    <div className="rounded-xl border border-cyan-500/20 bg-[#0a0a1a]/80 p-4 backdrop-blur-sm hover:border-cyan-500/40 transition-colors">
+    <div className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4 hover:border-white/[0.12] transition-all duration-200">
       <div className="flex items-center gap-3 mb-3">
-        <div className="rounded-lg bg-cyan-600/20 p-2">
-          <Bot className="h-4 w-4 text-cyan-400" />
+        <div className="rounded-sm bg-gold/10 p-2">
+          <Bot className="h-4 w-4 text-gold/70" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h4 className="text-sm font-bold text-white">{tutor.name}</h4>
+            <h4 className="font-serif text-sm text-paper">{tutor.name}</h4>
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
             </span>
-            <span className="text-[10px] text-green-400">{tutor.status}</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-green-400 uppercase">{tutor.status}</span>
           </div>
-          <p className="text-xs text-cyan-300/70">{tutor.specialty}</p>
+          <p className="font-serif text-sm text-paper-dim/80 leading-relaxed">{tutor.specialty}</p>
         </div>
       </div>
 
       <Button
         size="sm"
         variant="outline"
-        className="w-full h-7 text-xs border-cyan-500/30 text-cyan-300 hover:bg-cyan-600/20 hover:text-cyan-100"
+        className="w-full h-7 border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] bg-transparent hover:bg-gold/10"
       >
         Iniciar Sessão
       </Button>
@@ -337,6 +337,10 @@ const itemVariants = {
 };
 
 export default function EducacaoNacional() {
+  useEffect(() => {
+    document.title = "Educação Nacional · Formação de Futuros Líderes";
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#04040e] text-white overflow-hidden flex flex-col">
       {/* ── Header ── */}
@@ -344,17 +348,20 @@ export default function EducacaoNacional() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center py-6 px-4 flex-shrink-0"
+        className="text-center py-6 px-4 flex-shrink-0 border-b border-white/[0.04]"
       >
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <GraduationCap className="h-7 w-7 text-violet-400" />
-          <h1 className="text-xl md:text-2xl font-bold tracking-wide bg-gradient-to-r from-violet-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
-            EDUCAÇÃO NACIONAL · FORMAÇÃO DE FUTUROS LÍDERES
-          </h1>
-          <Brain className="h-7 w-7 text-cyan-400" />
+        <div className="flex items-center justify-center gap-3 mb-1">
+          <GraduationCap className="h-6 w-6 text-gold/60" />
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+            Cabo Verde &amp; Europa · Cérebro Vivo Interativo
+          </span>
+          <Brain className="h-6 w-6 text-gold/60" />
         </div>
-        <p className="text-sm text-violet-300/60 tracking-widest">
-          Cabo Verde & Europa · Cérebro Vivo Interativo
+        <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+          Educação Nacional · Formação de Futuros Líderes
+        </h1>
+        <p className="mt-1 text-sm text-paper-dim/70 font-light">
+          Plataforma integrada de aprendizagem — DeltaSpine, GeoCore, Terra Lenta e além
         </p>
       </motion.header>
 
@@ -369,7 +376,7 @@ export default function EducacaoNacional() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-widest text-violet-400/80 mb-1 flex items-center gap-2"
+            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-1 flex items-center gap-2"
           >
             <BookOpen className="h-3.5 w-3.5" />
             Módulos de Aprendizagem
@@ -386,7 +393,7 @@ export default function EducacaoNacional() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative rounded-2xl border border-violet-500/10 overflow-hidden min-h-[400px]"
+          className="relative rounded-sm border border-white/[0.05] overflow-hidden min-h-[400px] hover:border-white/[0.12] transition-all duration-200"
         >
           <BrainScene />
           {/* Overlay label */}
@@ -406,7 +413,7 @@ export default function EducacaoNacional() {
         >
           <motion.h2
             variants={itemVariants}
-            className="text-xs font-semibold uppercase tracking-widest text-cyan-400/80 mb-1 flex items-center gap-2"
+            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-1 flex items-center gap-2"
           >
             <Bot className="h-3.5 w-3.5" />
             EIs Tutores
@@ -424,7 +431,7 @@ export default function EducacaoNacional() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-shrink-0 border-t border-violet-500/10 bg-[#06061a]/60 backdrop-blur-sm"
+        className="flex-shrink-0 border-t border-white/[0.04] bg-[#06061a]/60 backdrop-blur-sm"
       >
         <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-8 py-4 px-4">
           {STATS.map((stat) => (
@@ -433,10 +440,10 @@ export default function EducacaoNacional() {
               variants={itemVariants}
               className="flex items-center gap-2 text-center"
             >
-              {(() => { const Icon = stat.icon as React.FC<React.SVGProps<SVGSVGElement>>; return <Icon className="h-4 w-4 text-violet-400/60" />; })()}
+              {(() => { const Icon = stat.icon as React.FC<React.SVGProps<SVGSVGElement>>; return <Icon className="h-4 w-4 text-gold/60" />; })()}
               <div>
-                <p className="text-lg font-bold text-white">{stat.value}</p>
-                <p className="text-[10px] uppercase tracking-wider text-violet-300/50">
+                <p className="font-mono text-2xl font-light text-gold">{stat.value}</p>
+                <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
                   {stat.label}
                 </p>
               </div>

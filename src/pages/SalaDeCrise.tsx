@@ -321,6 +321,11 @@ export default function SalaDeCrise() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    document.title = "Crisis Room — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   const cfg = ALERT_CONFIG[alertLevel];
 
   // ── Data ──
@@ -380,12 +385,12 @@ export default function SalaDeCrise() {
                 <AlertTriangle className={`w-6 h-6 ${cfg.text}`} />
               </motion.div>
               <div>
-                <h1 className="text-sm font-bold tracking-[0.3em] text-gray-200 uppercase">
-                  Sala de Crise · Simulação de Resiliência
-                </h1>
-                <p className="text-xs text-gray-500 font-mono">
+                <p className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-0.5">
                   NEXUS EMERGENCY OPERATIONS CENTER v3.7
                 </p>
+                <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+                  Sala de Crise
+                </h1>
               </div>
             </div>
 
@@ -417,18 +422,18 @@ export default function SalaDeCrise() {
             <div className="flex items-center gap-6">
               <div className="text-right">
                 <div className="flex items-center gap-2">
-                  <Activity className={`w-4 h-4 ${cfg.text}`} />
-                  <span className={`text-lg font-mono font-bold ${cfg.text}`}>
+                  <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                  <span className={`text-lg font-mono font-bold text-rose-400`}>
                     {simulationCount}
                   </span>
-                  <span className="text-xs text-gray-500">Simulações Ativas</span>
+                  <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">Simulações Ativas</span>
                 </div>
               </div>
               <div className="text-right border-l border-gray-800 pl-4">
-                <div className="text-xs font-mono text-gray-400">
+                <div className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">
                   {currentTime.toLocaleDateString("pt-BR")}
                 </div>
-                <div className={`text-sm font-mono font-bold ${cfg.text}`}>
+                <div className={`font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40`}>
                   {currentTime.toLocaleTimeString("pt-BR")}
                 </div>
               </div>
@@ -447,8 +452,8 @@ export default function SalaDeCrise() {
           >
             <div className="p-4">
               <div className="flex items-center gap-2 mb-4">
-                <Globe className="w-4 h-4 text-blue-400" />
-                <h2 className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <h2 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   Terra Lenta · Cidades Flutuantes
                 </h2>
               </div>
@@ -460,7 +465,7 @@ export default function SalaDeCrise() {
                   return (
                     <motion.div
                       key={city.name}
-                      className="bg-gray-900/60 border border-gray-800/60 rounded-lg p-3"
+                      className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-3"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + i * 0.1 }}
@@ -499,7 +504,7 @@ export default function SalaDeCrise() {
 
               {/* Crisis type selector */}
               <div className="mt-6">
-                <h3 className="text-xs font-bold tracking-[0.15em] text-gray-500 uppercase mb-3">
+                <h3 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-3">
                   Selecionar Cenário
                 </h3>
                 <div className="space-y-2">
@@ -537,9 +542,9 @@ export default function SalaDeCrise() {
           >
             {/* Canvas overlay label */}
             <div className="absolute top-4 left-4 z-10">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded border border-gray-800/60">
-                <Radio className={`w-3 h-3 ${cfg.text} animate-pulse`} />
-                <span className="text-xs font-mono text-gray-400">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded-sm border border-rose-500/20">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <span className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   SIMULAÇÃO 3D · {selectedCrisis ? selectedCrisis.toUpperCase() : "PANORÂMICA"}
                 </span>
               </div>
@@ -563,8 +568,8 @@ export default function SalaDeCrise() {
           >
             <div className="p-4">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="w-4 h-4 text-amber-400" />
-                <h2 className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <h2 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   GeoCore · Energia de Emergência
                 </h2>
               </div>
@@ -573,7 +578,11 @@ export default function SalaDeCrise() {
                 {powerSources.map((source, i) => (
                   <motion.div
                     key={source.name}
-                    className="bg-gray-900/60 border border-gray-800/60 rounded-lg p-3"
+                    className={`border rounded-sm p-3 ${
+                      source.status === "Critical"
+                        ? "bg-rose-500/[0.04] border-rose-500/20"
+                        : "bg-ink-medium/60 border-white/[0.05]"
+                    }`}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + i * 0.1 }}
@@ -587,7 +596,7 @@ export default function SalaDeCrise() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-xs text-gray-500 mb-2 font-mono">{source.location}</p>
+                    <p className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 mb-2 uppercase">{source.location}</p>
 
                     <div className="flex items-center justify-between text-xs mb-1">
                       <span className="text-gray-400">Capacidade</span>
@@ -622,7 +631,7 @@ export default function SalaDeCrise() {
 
               {/* Total capacity */}
               <motion.div
-                className={`mt-4 p-3 rounded-lg border ${cfg.border} ${cfg.bg}`}
+                className="mt-4 p-3 rounded-sm border bg-rose-500/[0.04] border-rose-500/20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
@@ -648,8 +657,8 @@ export default function SalaDeCrise() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="flex items-center gap-2 mb-3">
-            <Activity className="w-4 h-4 text-gray-500" />
-            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase">
+            <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+            <h3 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
               Resultados da Simulação
             </h3>
           </div>
@@ -658,13 +667,13 @@ export default function SalaDeCrise() {
             {kpis.map((kpi, i) => (
               <motion.div
                 key={kpi.label}
-                className="bg-gray-900/60 border border-gray-800/50 rounded-lg p-3"
+                className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                whileHover={{ borderColor: "rgba(255,255,255,0.15)", scale: 1.02 }}
+                whileHover={{ borderColor: "rgba(244,63,94,0.2)", scale: 1.02 }}
               >
-                <p className="text-xs text-gray-500 mb-1 font-mono">{kpi.label}</p>
+                <p className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase mb-1">{kpi.label}</p>
                 <p className="text-xl font-mono font-bold text-gray-100">{kpi.value}</p>
                 {/* Sparkline bar */}
                 <div className="mt-2 w-full bg-gray-800 rounded-full h-1.5">

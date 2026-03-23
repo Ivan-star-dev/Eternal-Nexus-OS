@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Shield, Globe, Award, Fingerprint } from "lucide-react";
@@ -6,19 +7,23 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const About = () => {
   const { t } = useLanguage();
 
+  useEffect(() => {
+    document.title = "About — Eternal Nexus";
+  }, []);
+
   return (
     <Layout>
       <section className="relative min-h-[50vh] flex flex-col justify-end overflow-hidden bg-ink-deep">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 49px, hsl(var(--border)) 50px)",
         }} />
-        
-        <div className="relative z-10 px-6 md:px-20 pb-16 max-w-[1200px]">
+
+        <div className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 md:px-16 max-w-[1200px]">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.5 }} className="stamp-classified inline-block mb-6">
             {t("about_personnel")}
           </motion.div>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="section-label mb-4">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="font-mono text-[0.48rem] tracking-[0.28em] uppercase text-gold/60 mb-4">
             {t("about_dossier")}
           </motion.p>
 
@@ -26,7 +31,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="font-serif text-4xl md:text-6xl font-black text-foreground leading-[0.95]"
+            className="font-serif text-4xl md:text-6xl font-light text-foreground leading-[0.95]"
           >
             Ivanildo Michel<br />
             <span className="text-primary">Monteiro Fernandes</span>
@@ -47,8 +52,8 @@ const About = () => {
       <section className="border-t border-border py-16 md:py-24 px-6 md:px-20">
         <div className="max-w-[800px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <span className="section-label">{t("section_01")}</span>
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-3 mb-2">
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] uppercase text-gold/60">{t("section_01")}</span>
+            <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-3 mb-2">
               {t("about_vision")} <span className="text-muted-foreground font-normal">{t("about_mission")}</span>
             </h2>
             <div className="gold-rule mb-8" />
@@ -63,8 +68,8 @@ const About = () => {
 
       <section className="border-t border-border py-16 md:py-24 px-6 md:px-20 bg-card">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">{t("section_02")}</span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-3 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] uppercase text-gold/60">{t("section_02")}</span>
+          <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-3 mb-2">
             {t("about_ip")} <span className="text-muted-foreground font-normal">{t("about_ip_protection")}</span>
           </h2>
           <div className="gold-rule mb-10" />
