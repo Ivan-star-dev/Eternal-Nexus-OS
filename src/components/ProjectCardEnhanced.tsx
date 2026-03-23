@@ -2,7 +2,6 @@ import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield, Activity } from "lucide-react";
-import AnimatedCounter from "./AnimatedCounter";
 import { cn } from "@/lib/utils";
 
 const MiniProjectScene = lazy(() =>
@@ -171,14 +170,13 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
               </div>
             </div>
 
-            {/* Animated Metrics */}
+            {/* Metrics */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] mt-4 border border-white/[0.05]">
               {project.metrics.map((m) => (
                 <div key={m.label} className="bg-ink-medium/40 p-3">
-                  <AnimatedCounter
-                    value={Number(m.value)}
-                    className="font-serif text-base font-light text-paper"
-                  />
+                  <span className="font-serif text-base font-light text-paper font-mono tabular-nums">
+                    {m.value}
+                  </span>
                   <div className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 uppercase mt-1">
                     {m.label}
                   </div>
