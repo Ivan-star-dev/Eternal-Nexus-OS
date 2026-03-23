@@ -54,12 +54,12 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks: {
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
-          "vendor-three": ["three", "@react-three/fiber", "@react-three/drei"],
-          "vendor-cesium": ["cesium"],
-          "vendor-motion": ["framer-motion"],
-          "vendor-query": ["@tanstack/react-query"],
+        manualChunks(id) {
+          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom") || id.includes("node_modules/react-router-dom")) return "vendor-react";
+          if (id.includes("node_modules/three") || id.includes("node_modules/@react-three/fiber") || id.includes("node_modules/@react-three/drei")) return "vendor-three";
+          if (id.includes("node_modules/cesium")) return "vendor-cesium";
+          if (id.includes("node_modules/framer-motion")) return "vendor-motion";
+          if (id.includes("node_modules/@tanstack/react-query")) return "vendor-query";
         },
       },
     },
