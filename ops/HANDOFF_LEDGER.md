@@ -6,6 +6,36 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @claude | HEAVEN-LAB-REFERENCE-SURFACE-001 | claude-sonnet-4-6
+
+**TASK:** HEAVEN-LAB-REFERENCE-SURFACE-001 — Superfície de Referência Heaven Lab (Brand North Star)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/HEAVEN_LAB_REFERENCE_SURFACE.md` — v1.0 · 5 blocos canônicos · North Star visual
+
+**Ficheiros atualizados:**
+- `ops/BASTION.md` → HEAVEN-LAB-REFERENCE-SURFACE-001 adicionada à secção 5.1 (concluídas)
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados:**
+- `REFERENCE_SURFACE_OBJECTIVE`: objetivo + Heaven Lab Test + posição na sequência canônica
+- `HEAVEN_LAB_TEST`: critérios PASSA/FALHA · 5 sinais positivos · 5 sinais de falha
+- `REFERENCE_SURFACE_STRUCTURE`: GLOBE (living 3D) · TRINITY (3 filhos orbitais) ·
+  CHAMBER (sacred orbital) · MACHINE_SUBSTRATE (grid técnico) · FIRST_PROOF (evidência real)
+- `WORKTREE_ASSIGNMENT`: @framer + @antigravity · Brand Mother System como lei
+- `NEXT_ACTION_CHAIN`: 7 passos · gate Framer · gate Antigravity · NS-1→NS-2→NS-3
+
+**Gates definidos:**
+- GATE_FRAMER: owner abre → @framer entra em WorkVisual
+- GATE_ANTIGRAVITY: owner abre em paralelo → @antigravity entra em WorkVisual
+
+---
+
 ## HANDOFF — 2026-03-23 | @claude | GREAT-STORY-OF-THE-PRODUCT-001 | claude-sonnet-4-6
 
 **TASK:** GREAT-STORY-OF-THE-PRODUCT-001 — Grande História do Produto (Heaven Lab)

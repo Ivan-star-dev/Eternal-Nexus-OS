@@ -174,6 +174,9 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-FRACTAL-JUDGMENT-CORE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v2.0; FRACTAL_COUNCIL_MATRIX 9 nós; JVF 10 critérios; Flagship Threshold; Seven-Force; escalas de mobilização |
 | NEXUS-V10-SOVEREIGN-DESTINY-001 | Visão | WorkStructure | @claude | concluída | handoff emitido — NEXUS_V10_SOVEREIGN_DESTINY.md v1.0; 7 dimensões V10; brain-first architecture; V10_GAP_MATRIX; alignment debt; 5 seeds + 5 gates BASTION |
 | FOUNDER-SIGNATURE-CANON-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — FOUNDER_SIGNATURE_CANON.md v1.0; assinatura canônica do founder; 3 blocos; camada 0.5 cravada |
+| FOUNDER-STORY-SPINE-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — FOUNDER_STORY_SPINE.md v1.0; espinha da história; 6 viradas; FRASES_CANON; camada 0.6 cravada |
+| GREAT-STORY-OF-THE-PRODUCT-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — GREAT_STORY_OF_HEAVEN_LAB.md v1.0; mito real; 3 filhos; MOTHER_PHRASES; camada 0.7 cravada |
+| HEAVEN-LAB-REFERENCE-SURFACE-001 | Visão/WorkVisual | WorkStructure | @claude | concluída | handoff emitido — HEAVEN_LAB_REFERENCE_SURFACE.md v1.0; 5 blocos; globe+trinity+chamber+substrate+proof; gates Framer+Antigravity definidos |
 
 ---
 
