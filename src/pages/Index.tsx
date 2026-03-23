@@ -15,6 +15,10 @@ import WorldPulse from "@/components/home/WorldPulse";
 import ScenarioComparison from "@/components/home/ScenarioComparison";
 import MetricsTimeline from "@/components/home/MetricsTimeline";
 import EarthLab from "@/components/home/EarthLab";
+import LearningPathway from "@/components/home/LearningPathway";
+import CollaborationHub from "@/components/home/CollaborationHub";
+import EcosystemMap from "@/components/home/EcosystemMap";
+import ManifestoSection from "@/components/home/ManifestoSection";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -241,6 +245,22 @@ const Index = () => {
 
         {/* ═══ EARTH LAB — V5 Research Core ═══ */}
         <EarthLab />
+
+        {/* ═══ LEARNING PATHWAY — V6 Mastery ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <LearningPathway />
+        </section>
+
+        {/* ═══ COLLABORATION HUB — V7 Intelligence ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <CollaborationHub />
+        </section>
+
+        {/* ═══ ECOSYSTEM MAP — V8 Convergence ═══ */}
+        <EcosystemMap />
+
+        {/* ═══ MANIFESTO — V9 Category Power ═══ */}
+        <ManifestoSection />
 
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
