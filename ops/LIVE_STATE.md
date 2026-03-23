@@ -107,7 +107,7 @@ SEMÁFORO | 2026-03-23 | Era Living Canon
 🟢 BASTION       → v2.0 CICLO CONTÍNUO EM EXECUÇÃO
 🟢 EVIDENCE_BLOCK→ VIGENTE em todos os handoffs
 🟡 @claude       → NEXUS-LIVING-CANON-001 done → aguarda gate CYCLE_CLOSE_001
-🟡 @copilot      → BULK-01.2/L-001 + L-002 + BULK-02.2 CONCLUÍDAS → sem task elegível
+🟡 @copilot      → BULK-01.2/L-001 + L-002 + BULK-02.2 EM ANDAMENTO → fila elegível ativa (GATE ABERTO)
 🟡 @cursor       → backlog mecânico CONCLUÍDO (01.3-a/b/c) → aguarda B-002 + B-003
 🟡 @codex        → CONSOLIDADOR ATIVO → aguarda handoffs
 🔴 @antigravity  → SEM TASK ELEGÍVEL
