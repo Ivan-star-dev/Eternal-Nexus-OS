@@ -24,7 +24,7 @@
 | **Executor ativo** | @claude + todos os pioneiros (sprint V5/V6) |
 | **Frente ativa** | Produto / WorkFunction + WorkVisual |
 | **Camada atual** | V4 Living World entregue (PLv7+PLv8+PLv8.1+V3 polish); V5 EarthLab em execução; V6 LearningPathway em construção |
-| **Estado geral** | SPRINT ATIVO — V5 Research Core + V6 preview em execução paralela. Branch: claude/website-quality-assessment-Bb6r7. Todos os pioneiros invocados pelo owner. |
+| **Estado geral** | SPRINT ATIVO — V5 Research Core + V6 preview em execução paralela no branch canônico vigente. Todos os pioneiros invocados pelo owner. |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
 | **Frente ativa** | Mecânico / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
