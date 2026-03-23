@@ -6,6 +6,34 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @claude | FOUNDER-STORY-SPINE-001 | claude-sonnet-4-6
+
+**TASK:** FOUNDER-STORY-SPINE-001 — Espinha da História do Founder
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `docs/FOUNDER_STORY_SPINE.md` — v1.0 · espinha completa da história do founder
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.3 · camada 0.6 + tabela de artefactos
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff (append no topo)
+
+**Blocos criados:**
+- `FOUNDER_STORY_SPINE`: ORIGEM · PRIMEIRA_TENSAO · GRANDES_VIRADAS (6) ·
+  POR_QUE_O_SISTEMA_TINHA_QUE_EXISTIR · POR_QUE_NAO_PODIA_SER_UM_SITE_NORMAL ·
+  O_QUE_ISTO_REVELA_DO_FOUNDER (7 dimensões)
+- `STORY_APPLICATION`: NO_PRODUTO (7) · NA_FOUNDER_PAGE (5) ·
+  NA_DIDATICA (6 viradas mapeadas) · NA_CORPORACAO (6)
+- `FRASES_CANON`: 8 frases utilizáveis diretamente no produto, docs, didática
+
+**Posição canônica:** Camada 0.6 — entre FOUNDER_SIGNATURE_CANON (0.5) e DNA_PROTOCOL (1)
+
+---
+
 ## HANDOFF — 2026-03-23 | @claude | PLv8.1-COMPLETE | claude-sonnet-4-6
 
 **TASK:** PLv7 + PLv7.1 + PLv8 + PLv8.1 + V3 polish + branch-guard fix
