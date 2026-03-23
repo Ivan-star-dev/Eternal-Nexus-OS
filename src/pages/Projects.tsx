@@ -70,8 +70,8 @@ const GlobeProjectCard = ({ project, index }: { project: GlobeProject; index: nu
   const colorClass = statusColor[normalizedStatus] ?? "text-muted-foreground border-border bg-secondary/20";
   const dotClass = statusDot[normalizedStatus] ?? "bg-muted-foreground";
 
+  // V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200
   return (
-    {/* V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 */}
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
@@ -126,8 +126,8 @@ const PortfolioCard = ({ project, index }: { project: HomeProject; index: number
   const colorClass = statusColor[normalizedStatus] ?? "text-muted-foreground border-border bg-secondary/20";
   const dotClass = statusDot[normalizedStatus] ?? "bg-muted-foreground";
 
+  // V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200
   return (
-    {/* V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 */}
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
