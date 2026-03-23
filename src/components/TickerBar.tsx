@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const tickerItems = [
@@ -12,31 +15,55 @@ const tickerItems = [
 ];
 
 const TickerBar = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="border-y border-primary/15 bg-card/60 backdrop-blur-sm overflow-hidden relative">
-      <div className="flex items-center gap-6 py-3 px-6">
+    <div className="border-y border-white/[0.04] bg-ink-medium/20 py-2 overflow-hidden relative">
+      <div className="flex items-center gap-6 px-6">
         {/* Label */}
-        <span className="font-mono text-[0.58rem] tracking-[0.2em] text-primary uppercase whitespace-nowrap flex-shrink-0 flex items-center gap-2">
+        <span className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-paper-dim/50 whitespace-nowrap flex-shrink-0 flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
           LIVE · NPI REGISTRY
         </span>
 
         {/* Track */}
         <div className="overflow-hidden flex-1">
-          <motion.div
-            className="flex gap-12 whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          >
-            {[...tickerItems, ...tickerItems].map((item, i) => (
-              <span key={i} className="font-mono text-[0.62rem] text-muted-foreground">
-                {item.text}{" "}
-                {item.highlight && (
-                  <span className="text-accent-foreground">{item.highlight}</span>
-                )}
-              </span>
-            ))}
-          </motion.div>
+          {mounted ? (
+            <motion.div
+              className="flex whitespace-nowrap"
+              style={{ willChange: "transform" }}
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            >
+              {[...tickerItems, ...tickerItems].map((item, i) => (
+                <span
+                  key={i}
+                  className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-paper-dim/50 mr-8"
+                >
+                  {item.text}{" "}
+                  {item.highlight && (
+                    <span className="text-paper-dim/50">{item.highlight}</span>
+                  )}
+                  <span className="mx-4 text-gold/30">·</span>
+                </span>
+              ))}
+            </motion.div>
+          ) : (
+            <div className="flex whitespace-nowrap invisible">
+              {tickerItems.slice(0, 1).map((item, i) => (
+                <span
+                  key={i}
+                  className="font-mono text-[0.5rem] tracking-[0.15em] uppercase text-paper-dim/50 mr-8"
+                >
+                  {item.text}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
