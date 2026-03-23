@@ -243,7 +243,7 @@ NEURAL_MESH       │ Memória de rede — Living Canon adiciona nó N-16
                   │ Estado: INTEGRADO — v2.0 com Living Canon node
 
 V10_LINE          │ Raciocínio por linha — Living Canon aplica em todas as decisões
-                  │ Estado atual: Stage 5 → gap para Stage 6 = CYCLE_CLOSE_001
+                  │ Estado atual: Stage 5 → gap para Stage 6 = CYCLE-CLOSE-001
                   │ Estado: INTEGRADO — lei ativa em todas as sessões
 
 BLOCK_MATURATION  │ Maturação por blocos — avalia quando elevar ou congelar
@@ -265,7 +265,7 @@ IGNITION/AUTOFLOW │ Fluxo contínuo — Living Canon depende para velocidade
                   │ Estado: INTEGRADO — selados e ativos
 
 FOUNDER/PRODUCT   │ PLv1→PLv6.2-b + FVL — Living Canon preserva e eleva
-                  │ PLv7+ entra após CYCLE_CLOSE_001
+                  │ PLv7+ entra após CYCLE-CLOSE-001
                   │ Estado: INTEGRADO — pipeline ativo
 
 ══════════════════════════════════════════════════════════════════════════
@@ -356,7 +356,7 @@ ABAIXO_FLAGSHIP ═════════════════════�
 
 ```
 PRIORITY_REFINEMENT ══════════════════════════════════════════════════════
-P1  CYCLE_CLOSE_001     — fechar Stage 5 formalmente → desbloqueia Stage 6
+P1  CYCLE-CLOSE-001     — fechar Stage 5 formalmente → desbloqueia Stage 6
 P2  FLOWMESH segundo ciclo — transformar de grosso para maduro
 P3  DIDACTIC_LAYER v1   — primeiro módulo ensinável (DNA_PROTOCOL)
 P4  NEXUS_NEURAL_MESH ativação completa — segundo ciclo de uso
@@ -370,7 +370,7 @@ P5  PLv7+ gate          — próxima camada de produto
 
 ### O que já pode abrir agora
 
-- CYCLE_CLOSE_001 — fechar Stage 5 formalmente (gate owner)
+- CYCLE-CLOSE-001 — fechar Stage 5 formalmente (gate owner)
 - REPO-NEURAL-UPDATE-001 — já executado nesta task (Living Canon aplicado)
 - NEXUS_NEURAL_MESH v2.0 update — feito nesta task
 
@@ -393,7 +393,7 @@ P5  PLv7+ gate          — próxima camada de produto
 
 ```
 PROXIMA_TASK ═════════════════════════════════════════════════════════════
-PRIMEIRA    │ CYCLE_CLOSE_001 — fechar Stage 5 formalmente
+PRIMEIRA    │ CYCLE-CLOSE-001 — fechar Stage 5 formalmente
             │   output: Stage 6 declarado, Stage 5 arquivado no LEDGER
 SEGUNDA     │ PLv7+ gate — owner decide próxima camada de produto
 TERCEIRA    │ DIDACTIC_LAYER_v1 — primeiro artefato didático
