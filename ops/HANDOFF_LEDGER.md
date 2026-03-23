@@ -30,7 +30,7 @@ BLOQUEIOS   │ CYCLE-CLOSE-001 aguarda gate owner · B-002 · B-003 · Stage 6 
 ADAPTACOES  │ Limpeza executada diretamente nos ficheiros canônicos — sem ficheiros temporários
 ARQUIVOS    │ ops/NEXUS_LIVING_CANON.md (novo) · ops/BASTION.md · ops/LIVE_STATE.md
             │ ops/NEXUS_NEURAL_MESH.md · ops/HANDOFF_LEDGER.md
-IMPACTO     │ alto — nova era do sistema iniciada; repo neural limpa; flagship upgrade aplicado
+IMPACTO     │ alto
 ALTERACAO_REAL │ sim — 5 arquivos tocados; 1 criado
 COMMIT      │ deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
 DATA        │ 2026-03-23
