@@ -23,7 +23,7 @@ const PIONEERS: Pioneer[] = [
     name: "@cursor",
     role: "Executor-Desbloqueador",
     territory: "WorkFunction · mecânico",
-    state: "ATIVO",
+    state: "DONE",
     lastTask: "SYSTEM-FACE-CORE-001",
   },
   {
@@ -39,8 +39,8 @@ const PIONEERS: Pioneer[] = [
     name: "@codex",
     role: "Cérebro-Orquestrador",
     territory: "WorkFunction · consolidação",
-    state: "AGUARDA",
-    lastTask: "NEXUS-WORKFUNCTION-CODEX-REALIGN-001",
+    state: "ATIVO",
+    lastTask: "NEXUS-WORKFUNCTION-NEXT",
   },
   {
     id: "framer",

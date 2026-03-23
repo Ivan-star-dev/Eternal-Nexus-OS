@@ -14,53 +14,63 @@ export default function SystemFacePage() {
   return (
     <SystemShell>
       {/*
-        Layout: 5-region grid
-        ┌─────────────────────────────────────────┐
-        │  header (SystemShell)                   │
-        ├──────────────┬──────────────┬───────────┤
-        │ LiveState    │ TaskControl  │ Orchestra │
-        │              │              │           │
-        ├──────────────┼──────────────┴───────────┤
-        │ Handoff      │ CommandLine               │
-        │ Ledger       │                           │
-        ├──────────────┴───────────────────────────┤
-        │  footer (SystemShell)                   │
-        └─────────────────────────────────────────┘
+        Cockpit layout — proportional to information weight:
+
+        ┌──────────────┬─────────────────────┬──────────────┐
+        │ LiveState    │ TaskControl         │ Orchestra    │
+        │ 22%          │ 40%                 │ 38%          │
+        ├──────────────┴──────────┬──────────┴──────────────┤
+        │ Handoff Ledger          │ Command Line             │
+        │ 35%                     │ 65%                      │
+        └─────────────────────────┴──────────────────────────┘
+
+        Gaps are 1px tinted lines — structural dividers, not cards.
       */}
-      <div
-        className="grid h-full gap-px p-px"
-        style={{
-          background: "rgba(255,255,255,0.04)",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gridTemplateRows: "1fr 1fr",
-        }}
-      >
-        {/* Row 1, Col 1 — Live State */}
-        <div className="overflow-hidden p-4" style={{ background: "#060c14" }}>
-          <LiveStateSurface />
+      <div className="h-full flex flex-col gap-px" style={{ background: "rgba(255,255,255,0.05)" }}>
+        {/* Row 1 */}
+        <div className="flex flex-1 min-h-0 gap-px">
+          {/* LiveState — narrowest: contains short k/v pairs */}
+          <div
+            className="overflow-hidden p-4"
+            style={{ background: "#060c14", width: "22%" }}
+          >
+            <LiveStateSurface />
+          </div>
+
+          {/* TaskControl — widest in row 1: most content per line */}
+          <div
+            className="overflow-hidden p-4"
+            style={{ background: "#060c14", flex: 1 }}
+          >
+            <TaskControlRegion />
+          </div>
+
+          {/* Orchestra — fixed: 6-cell grid, needs consistent width */}
+          <div
+            className="overflow-hidden p-4"
+            style={{ background: "#060c14", width: "30%" }}
+          >
+            <OrchestraPanel />
+          </div>
         </div>
 
-        {/* Row 1, Col 2 — Task Control */}
-        <div className="overflow-hidden p-4" style={{ background: "#060c14" }}>
-          <TaskControlRegion />
-        </div>
+        {/* Row 2 */}
+        <div className="flex flex-1 min-h-0 gap-px">
+          {/* Handoff — narrower: list view */}
+          <div
+            className="overflow-hidden p-4"
+            style={{ background: "#060c14", width: "35%" }}
+          >
+            <HandoffLedger />
+          </div>
 
-        {/* Row 1, Col 3 — Orchestra */}
-        <div className="overflow-hidden p-4" style={{ background: "#060c14" }}>
-          <OrchestraPanel />
-        </div>
-
-        {/* Row 2, Col 1 — Handoff Ledger */}
-        <div className="overflow-hidden p-4" style={{ background: "#060c14" }}>
-          <HandoffLedger />
-        </div>
-
-        {/* Row 2, Col 2+3 — Command Line */}
-        <div
-          className="col-span-2 overflow-hidden p-4"
-          style={{ background: "#060c14" }}
-        >
-          <CommandLine />
+          {/* CommandLine — dominant: primary interactive surface */}
+          <div
+            className="overflow-hidden p-4"
+            style={{ background: "#060c14", flex: 1 }}
+          >
+            <CommandLine />
+          </div>
         </div>
       </div>
     </SystemShell>
