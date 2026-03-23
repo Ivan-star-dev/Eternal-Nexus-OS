@@ -100,9 +100,10 @@ const ProjectPage = () => {
             </Link>
           </motion.div>
 
+          {/* V3: meta row — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8, ease }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
-            <span className="section-label">{project.number} · {project.version}</span>
-            <span className="font-mono text-[0.48rem] sm:text-[0.55rem] tracking-[0.1em] text-muted-foreground/60">© 2026 Ivanildo Michel Monteiro Fernandes</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">{project.number} · {project.version}</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">© 2026 Ivanildo Michel Monteiro Fernandes</span>
           </motion.div>
 
           {/* V3: hero title — font-serif font-light text-paper */}

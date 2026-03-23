@@ -55,8 +55,8 @@ const SectionHeader = ({
     custom={delay}
     variants={fadeUp}
   >
-    <span className="section-label">{label}</span>
-    <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-3 mb-2">
+    <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">{label}</span>
+    <h2 className="font-serif text-4xl md:text-5xl font-light text-paper mt-3 mb-2">
       {title}
     </h2>
     <div className="gold-rule mb-8" />
@@ -77,7 +77,7 @@ const Prose = ({
     viewport={{ once: true }}
     custom={delay}
     variants={fadeUp}
-    className="space-y-5 font-sans text-sm text-muted-foreground leading-[1.9]"
+    className="space-y-5 font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl"
   >
     {children}
   </motion.div>
@@ -97,9 +97,9 @@ const Callout = ({
     viewport={{ once: true }}
     custom={delay}
     variants={fadeUp}
-    className="callout-gold my-8"
+    className="border-l-2 border-gold/30 pl-6 font-serif italic text-paper/70 my-8"
   >
-    <p className="font-serif text-base md:text-lg text-foreground leading-[1.6] font-medium italic">
+    <p className="text-base md:text-lg leading-[1.6]">
       {children}
     </p>
   </motion.blockquote>
@@ -221,7 +221,7 @@ const FounderPage = () => {
             animate="visible"
             custom={1.0}
             variants={fadeUp}
-            className="mt-8 max-w-[640px] space-y-4 font-sans text-sm text-muted-foreground leading-[1.9]"
+            className="mt-8 space-y-4 font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl"
           >
             <p>
               I am a founder. I build systems — not merely products.

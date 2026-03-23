@@ -153,42 +153,42 @@ const InvestorBriefing = () => {
       </section>
 
       {/* Briefing Footer */}
-      <footer className="border-t border-border bg-background py-10 px-8 md:px-20">
+      <footer className="border-t border-white/[0.04] bg-background py-10 px-8 md:px-20">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
-            <h4 className="section-label mb-4">DeltaSpine NL</h4>
-            <p className="font-sans text-sm font-light text-muted-foreground leading-[1.7]">
+            <h4 className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-4">DeltaSpine NL</h4>
+            <p className="text-sm text-paper-dim/70 font-light leading-relaxed">
               Modular subsurface infrastructure for the Netherlands canal network. Designed for Rijkswaterstaat, Ministry of Infrastructure and Water, and National Growth Fund presentation.
             </p>
-            <p className="font-mono text-[0.6rem] text-muted-foreground mt-3">REF: DSN-2026-INV-001 · March 2026</p>
+            <p className="font-mono text-[0.6rem] text-paper-dim/40 mt-3">REF: DSN-2026-INV-001 · March 2026</p>
           </div>
           <div>
-            <h4 className="section-label mb-4">Technology Partners</h4>
-            <p className="font-sans text-sm font-light text-muted-foreground leading-[1.7]">
+            <h4 className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-4">Technology Partners</h4>
+            <p className="text-sm text-paper-dim/70 font-light leading-relaxed">
               TU Delft · Green Basilisk · Reefy · Coastruction · ECOncrete · Boskalis · Van Oord · Gasunie
             </p>
           </div>
           <div>
-            <h4 className="section-label mb-4">Regulatory Framework</h4>
-            <p className="font-sans text-sm font-light text-muted-foreground leading-[1.7]">
+            <h4 className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-4">Regulatory Framework</h4>
+            <p className="text-sm text-paper-dim/70 font-light leading-relaxed">
               Wet waterbeheer · Waterwet · WFD · NAPSEA · Delta Programme · EU Nature-Based Solutions
             </p>
           </div>
           <div>
-            <h4 className="section-label mb-4">Funding Available</h4>
-            <p className="font-sans text-sm font-light text-muted-foreground leading-[1.7]">
+            <h4 className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-4">Funding Available</h4>
+            <p className="text-sm text-paper-dim/70 font-light leading-relaxed">
               National Growth Fund · EU Innovation Fund · CEF Transport · Stikstof Funds ~€25B · PPP
             </p>
           </div>
         </div>
-        <div className="max-w-[1200px] mx-auto mt-10 pt-6 border-t border-border flex items-center justify-center gap-6">
-          <Link to="/project/deltaspine-nl" className="font-mono text-[0.68rem] tracking-[0.12em] text-primary hover:underline">
+        <div className="max-w-[1200px] mx-auto mt-10 pt-6 border-t border-white/[0.04] flex items-center justify-center gap-6">
+          <Link to="/project/deltaspine-nl" className="border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] px-4 py-2 hover:bg-gold/5 transition-colors">
             ← PROJECT DOSSIER
           </Link>
-          <Link to="/nexus" className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground hover:text-primary hover:underline">
+          <Link to="/nexus" className="border border-white/[0.05] text-paper-dim/60 font-mono text-[0.6rem] tracking-[0.12em] px-4 py-2 hover:border-white/[0.12] hover:text-paper-dim/80 transition-colors">
             NEXUS WAR ROOM →
           </Link>
-          <Link to="/atlas" className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground hover:text-primary hover:underline">
+          <Link to="/atlas" className="border border-white/[0.05] text-paper-dim/60 font-mono text-[0.6rem] tracking-[0.12em] px-4 py-2 hover:border-white/[0.12] hover:text-paper-dim/80 transition-colors">
             ATLAS GLOBAL →
           </Link>
         </div>

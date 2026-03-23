@@ -430,10 +430,10 @@ export default function SalaDeCrise() {
                 </div>
               </div>
               <div className="text-right border-l border-gray-800 pl-4">
-                <div className="text-xs font-mono text-gray-400">
+                <div className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">
                   {currentTime.toLocaleDateString("pt-BR")}
                 </div>
-                <div className={`text-sm font-mono font-bold ${cfg.text}`}>
+                <div className={`font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40`}>
                   {currentTime.toLocaleTimeString("pt-BR")}
                 </div>
               </div>
@@ -452,8 +452,8 @@ export default function SalaDeCrise() {
           >
             <div className="p-4">
               <div className="flex items-center gap-2 mb-4">
-                <Globe className="w-4 h-4 text-blue-400" />
-                <h2 className="text-xs font-bold tracking-[0.2em] text-blue-400 uppercase">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <h2 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   Terra Lenta · Cidades Flutuantes
                 </h2>
               </div>
@@ -568,8 +568,8 @@ export default function SalaDeCrise() {
           >
             <div className="p-4">
               <div className="flex items-center gap-2 mb-4">
-                <Zap className="w-4 h-4 text-amber-400" />
-                <h2 className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <h2 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   GeoCore · Energia de Emergência
                 </h2>
               </div>

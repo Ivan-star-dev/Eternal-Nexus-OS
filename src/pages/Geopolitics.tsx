@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Globe, Shield, Zap, Cpu, RotateCcw, ChevronRight, Map } from "lucide-react";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import geopoliticsMap from "@/assets/geopolitics-map.jpg";
 import geopoliticsOverview from "@/assets/geopolitics-overview.jpg";
@@ -84,6 +84,10 @@ const risks = [
 
 const Geopolitics = () => {
   const [mapExpanded, setMapExpanded] = useState(false);
+
+  useEffect(() => {
+    document.title = "Nexus · Narrativa Geopolítica";
+  }, []);
 
   return (
     <Layout>
