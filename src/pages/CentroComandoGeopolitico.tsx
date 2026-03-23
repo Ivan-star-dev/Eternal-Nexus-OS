@@ -473,7 +473,7 @@ function RightPanel() {
             <Button
               key={scenario.id}
               variant="outline"
-              className="w-full justify-start border-white/10 bg-white/5 text-xs text-white/80 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-500/30"
+              className="w-full justify-start border-white/[0.05] bg-ink-medium/60 font-mono text-[0.6rem] tracking-[0.1em] text-paper-dim/60 hover:bg-rose-500/10 hover:text-rose-300 hover:border-rose-500/30 rounded-sm"
               onClick={() => handleScenarioClick(scenario)}
             >
               <Shield className="mr-2 h-3.5 w-3.5 text-cyan-500/60" />
