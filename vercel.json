@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/((?!assets|favicon|Cesium).*)", "destination": "/index.html" }
+    { "source": "/:path((?!assets|favicon|Cesium).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
