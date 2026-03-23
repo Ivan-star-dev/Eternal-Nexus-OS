@@ -176,7 +176,7 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
               {project.metrics.map((m) => (
                 <div key={m.label} className="bg-ink-medium/40 p-3">
                   <AnimatedCounter
-                    value={m.value}
+                    value={Number(m.value)}
                     className="font-serif text-base font-light text-paper"
                   />
                   <div className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 uppercase mt-1">
