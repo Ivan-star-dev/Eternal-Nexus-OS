@@ -593,21 +593,21 @@ export default function InvestorNexusPortal() {
       {/* ═══ LEFT PANEL — Portfolio Overview ═══ */}
       <aside className="w-[300px] min-w-[300px] h-full flex flex-col border-r border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
         {/* Header */}
-        <div className="p-4 border-b border-white/5">
+        <div className="p-4 border-b border-white/[0.04]">
           <div className="flex items-center gap-2 mb-1">
-            <TrendingUp className="h-4 w-4 text-emerald-400" />
-            <h1 className="text-sm font-bold tracking-tight">
+            <TrendingUp className="h-4 w-4 text-gold" />
+            <h1 className="font-serif text-base font-light text-paper">
               Investor Portal
             </h1>
           </div>
-          <p className="text-[0.55rem] text-white/30 tracking-wide uppercase">
+          <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
             Nexus Living Renders · Real-Time ROI
           </p>
         </div>
 
         {/* Project List */}
         <div className="flex-1 overflow-y-auto p-3 space-y-1.5">
-          <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30 px-1 mb-2">
+          <div className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 px-1 mb-2">
             Portfolio ({PROJECTS.length} projects)
           </div>
 
@@ -615,31 +615,31 @@ export default function InvestorNexusPortal() {
             <button
               key={p.id}
               onClick={() => setSelectedProject(p.id)}
-              className={`w-full text-left p-3 rounded-lg transition-all ${
+              className={`w-full text-left p-3 rounded-sm transition-all ${
                 selectedProject === p.id
-                  ? "bg-white/[0.06] border border-white/10"
-                  : "hover:bg-white/[0.03] border border-transparent"
+                  ? "bg-ink-medium/60 border border-white/[0.12]"
+                  : "bg-ink-medium/30 border border-white/[0.05] hover:border-white/[0.12]"
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
                 <div
-                  className="w-2 h-2 rounded-full"
+                  className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: p.color }}
                 />
-                <span className="text-[0.7rem] font-medium">{p.name}</span>
+                <span className="font-mono text-[0.65rem] font-light text-paper">{p.name}</span>
                 <span
-                  className={`ml-auto text-[0.5rem] uppercase px-1.5 py-0.5 rounded-full ${
+                  className={`ml-auto font-mono text-[0.45rem] tracking-[0.2em] uppercase px-1.5 py-0.5 rounded-sm ${
                     p.status === "active"
-                      ? "bg-green-500/10 text-green-400"
+                      ? "bg-green-500/10 text-green-400 border border-green-500/20"
                       : p.status === "pilot"
-                      ? "bg-amber-500/10 text-amber-400"
-                      : "bg-white/5 text-white/40"
+                      ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                      : "bg-white/[0.03] text-paper-dim/40 border border-white/[0.05]"
                   }`}
                 >
                   {p.status === "active" ? "Ativo" : p.status === "pilot" ? "Piloto" : "Planeamento"}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-[0.55rem] text-white/40">
+              <div className="flex items-center gap-3 font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">
                 <span className="flex items-center gap-0.5">
                   <DollarSign className="h-2.5 w-2.5" /> {p.investment}
                 </span>
@@ -651,7 +651,7 @@ export default function InvestorNexusPortal() {
                 </span>
               </div>
               <div className="mt-2">
-                <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
                   <div
                     className="h-full rounded-full transition-all"
                     style={{
@@ -661,10 +661,10 @@ export default function InvestorNexusPortal() {
                   />
                 </div>
                 <div className="flex items-center justify-between mt-0.5">
-                  <span className="text-[0.5rem] text-white/30 font-mono">
+                  <span className="font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">
                     {p.progress}% complete
                   </span>
-                  <span className="text-[0.5rem] text-emerald-400/60 font-mono">
+                  <span className="font-mono text-[0.45rem] text-gold/60">
                     ↓{p.co2ReductionKt}kt CO₂
                   </span>
                 </div>
@@ -674,25 +674,25 @@ export default function InvestorNexusPortal() {
         </div>
 
         {/* Portfolio Analytics */}
-        <div className="p-3 border-t border-white/5">
+        <div className="p-3 border-t border-white/[0.04]">
           <ProjectMetrics projects={PROJECTS} />
         </div>
 
         {/* Aggregate Stats */}
-        <div className="p-4 border-t border-white/5">
+        <div className="p-4 border-t border-white/[0.04]">
           <div className="grid grid-cols-2 gap-2">
             {[
-              { icon: <DollarSign className="h-3 w-3" />, label: "Total", value: "€1.985B" },
-              { icon: <BarChart3 className="h-3 w-3" />, label: "Avg ROI", value: "8.6 yr" },
-              { icon: <Leaf className="h-3 w-3" />, label: "CO₂/yr", value: "9.5Mt" },
-              { icon: <Users className="h-3 w-3" />, label: "Jobs", value: "34.5K" },
+              { icon: <DollarSign className="h-3 w-3" />, label: "TOTAL", value: "€1.985B" },
+              { icon: <BarChart3 className="h-3 w-3" />, label: "AVG ROI", value: "8.6 yr" },
+              { icon: <Leaf className="h-3 w-3" />, label: "CO₂/YR", value: "9.5Mt" },
+              { icon: <Users className="h-3 w-3" />, label: "JOBS", value: "34.5K" },
             ].map((s) => (
-              <div key={s.label} className="p-2 rounded bg-white/[0.02]">
-                <div className="flex items-center gap-1 text-white/30 mb-0.5">
+              <div key={s.label} className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-2 hover:border-white/[0.12] transition-colors">
+                <div className="flex items-center gap-1 text-gold/60 mb-0.5">
                   {s.icon}
-                  <span className="text-[0.5rem]">{s.label}</span>
+                  <span className="font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">{s.label}</span>
                 </div>
-                <span className="text-[0.65rem] font-semibold">{s.value}</span>
+                <span className="font-mono text-lg font-light text-gold">{s.value}</span>
               </div>
             ))}
           </div>
@@ -758,15 +758,15 @@ export default function InvestorNexusPortal() {
       </main>
 
       {/* ═══ RIGHT PANEL — Tribunal Report / Portfolio Impact ═══ */}
-      <aside className="w-[280px] min-w-[280px] h-full flex flex-col border-l border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
-        <div className="p-4 border-b border-white/5">
+      <aside className="w-[280px] min-w-[280px] h-full flex flex-col border-l border-white/[0.04] bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
+        <div className="p-4 border-b border-white/[0.04]">
           <div className="flex items-center gap-2">
-            <Zap className="h-4 w-4 text-amber-400" />
-            <h2 className="text-sm font-bold">
+            <Zap className="h-4 w-4 text-gold" />
+            <h2 className="font-serif text-base font-light text-paper">
               {selected ? "Tribunal Report" : "Portfolio Impact"}
             </h2>
           </div>
-          <p className="text-[0.55rem] text-white/30 mt-0.5">
+          <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mt-0.5">
             {selected ? "Auto-generated analysis" : "Aggregate environmental + social metrics"}
           </p>
         </div>
@@ -782,15 +782,15 @@ export default function InvestorNexusPortal() {
         </div>
 
         {/* Investor Partners */}
-        <div className="p-4 border-t border-white/5">
-          <div className="text-[0.5rem] uppercase tracking-[0.15em] text-white/30 mb-2">
+        <div className="p-4 border-t border-white/[0.04]">
+          <div className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 mb-2">
             Target Investors
           </div>
           <div className="flex flex-wrap gap-1">
             {["EU Fund", "World Bank", "Banco Africano", "Emirates IA", "China Dev"].map((inv) => (
               <span
                 key={inv}
-                className="text-[0.5rem] px-2 py-0.5 rounded-full bg-white/[0.04] text-white/40 border border-white/5"
+                className="font-mono text-[0.45rem] tracking-[0.15em] uppercase px-2 py-0.5 rounded-sm bg-ink-medium/60 text-paper-dim/40 border border-white/[0.05] hover:border-white/[0.12] transition-colors"
               >
                 {inv}
               </span>

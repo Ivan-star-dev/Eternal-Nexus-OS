@@ -504,7 +504,7 @@ export default function SalaDeCrise() {
 
               {/* Crisis type selector */}
               <div className="mt-6">
-                <h3 className="text-xs font-bold tracking-[0.15em] text-gray-500 uppercase mb-3">
+                <h3 className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-3">
                   Selecionar Cenário
                 </h3>
                 <div className="space-y-2">
@@ -673,7 +673,7 @@ export default function SalaDeCrise() {
                 transition={{ delay: 0.5 + i * 0.1 }}
                 whileHover={{ borderColor: "rgba(244,63,94,0.2)", scale: 1.02 }}
               >
-                <p className="text-xs text-gray-500 mb-1 font-mono">{kpi.label}</p>
+                <p className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase mb-1">{kpi.label}</p>
                 <p className="text-xl font-mono font-bold text-gray-100">{kpi.value}</p>
                 {/* Sparkline bar */}
                 <div className="mt-2 w-full bg-gray-800 rounded-full h-1.5">

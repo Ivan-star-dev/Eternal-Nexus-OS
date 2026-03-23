@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Folder } from "lucide-react";
@@ -71,11 +71,12 @@ const GlobeProjectCard = ({ project, index }: { project: GlobeProject; index: nu
   const dotClass = statusDot[normalizedStatus] ?? "bg-muted-foreground";
 
   return (
+    {/* V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 */}
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.07, duration: 0.7, ease }}
-      className="border border-border bg-card hover:border-primary/60 transition-all duration-300 group relative overflow-hidden"
+      className="bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 group relative overflow-hidden"
     >
       {/* Color accent stripe */}
       <div className="h-1 w-full" style={{ backgroundColor: project.color }} />
@@ -83,7 +84,8 @@ const GlobeProjectCard = ({ project, index }: { project: GlobeProject; index: nu
       {/* Content */}
       <div className="p-6">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <span className="font-mono text-[0.55rem] tracking-[0.15em] text-muted-foreground uppercase">
+          {/* V3: card meta — font-mono text-[0.45rem] tracking-[0.15em] text-paper-dim/40 uppercase */}
+          <span className="font-mono text-[0.45rem] tracking-[0.15em] text-paper-dim/40 uppercase">
             GLOBE PROJECT
           </span>
           <span className={`flex items-center gap-1.5 font-mono text-[0.55rem] tracking-[0.12em] border px-2 py-0.5 ${colorClass}`}>
@@ -92,7 +94,8 @@ const GlobeProjectCard = ({ project, index }: { project: GlobeProject; index: nu
           </span>
         </div>
 
-        <h3 className="font-serif text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+        {/* V3: card title — font-serif text-base font-light text-paper */}
+        <h3 className="font-serif text-base font-light text-paper group-hover:text-primary transition-colors leading-snug">
           {project.name}
         </h3>
 
@@ -124,11 +127,12 @@ const PortfolioCard = ({ project, index }: { project: HomeProject; index: number
   const dotClass = statusDot[normalizedStatus] ?? "bg-muted-foreground";
 
   return (
+    {/* V3: card — bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 */}
     <motion.div
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.07, duration: 0.7, ease }}
-      className="border border-border bg-card hover:border-primary/60 transition-all duration-300 group relative overflow-hidden"
+      className="bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] transition-all duration-200 group relative overflow-hidden"
     >
       <Link to={`/project/${project.id}`} className="block">
         {/* Image */}
@@ -149,10 +153,12 @@ const PortfolioCard = ({ project, index }: { project: HomeProject; index: number
 
         {/* Content */}
         <div className="p-6">
-          <span className="font-mono text-[0.55rem] tracking-[0.15em] text-primary/60 uppercase">
+          {/* V3: card meta — font-mono text-[0.45rem] tracking-[0.15em] text-paper-dim/40 uppercase */}
+          <span className="font-mono text-[0.45rem] tracking-[0.15em] text-paper-dim/40 uppercase">
             NPI REGISTRY · DOSSIER
           </span>
-          <h3 className="font-serif text-xl font-bold text-foreground mt-2 group-hover:text-primary transition-colors leading-snug">
+          {/* V3: card title — font-serif text-base font-light text-paper */}
+          <h3 className="font-serif text-base font-light text-paper mt-2 group-hover:text-primary transition-colors leading-snug">
             {project.title}
           </h3>
           <p className="font-sans text-sm text-muted-foreground/80 mt-1 italic font-light">
@@ -183,6 +189,12 @@ const Projects = () => {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [tagFilter, setTagFilter] = useState<string>("All");
   const [search, setSearch] = useState("");
+
+  // V3: document title
+  useEffect(() => {
+    document.title = "Projects — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
 
   // Fetch globe_projects from Supabase
   const { data: globeProjects = [], isLoading: globeLoading } = useQuery({
@@ -243,8 +255,9 @@ const Projects = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease }}
             >
-              <span className="font-mono text-[0.6rem] tracking-[0.3em] text-primary/60 uppercase">
-                Next Path Infra · NPI Registry
+              {/* V3: section label — font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase */}
+              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+                PROJECT PORTFOLIO
               </span>
             </motion.div>
 

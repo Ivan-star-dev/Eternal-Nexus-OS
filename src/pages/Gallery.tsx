@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn, Filter, Grid3X3, LayoutGrid } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -74,6 +74,12 @@ const Gallery = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [columns, setColumns] = useState<3 | 4>(4);
 
+  // V3: document title
+  useEffect(() => {
+    document.title = "Gallery — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   const projectIds = useMemo(() => {
     const ids = Array.from(new Set(allImages.map((img) => img.projectId)));
     return ids;
@@ -113,7 +119,8 @@ const Gallery = () => {
       {/* Hero */}
       <section className="pt-28 sm:pt-32 pb-12 px-4 sm:px-6 md:px-16 lg:px-20 border-b border-border">
         <div className="max-w-[1400px] mx-auto">
-          <span className="font-mono text-[0.5rem] sm:text-[0.55rem] tracking-[0.2em] text-primary uppercase font-medium">
+          {/* V3: section label — font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase */}
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
             MEDIA ARCHIVE · {allImages.length} ASSETS
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-2">
@@ -227,8 +234,9 @@ const Gallery = () => {
       {/* Grid */}
       <section className="py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[1400px] mx-auto">
+          {/* V3: tight grid — gap-1 md:gap-2 */}
           <div
-            className={`grid gap-2 ${
+            className={`grid gap-1 md:gap-2 ${
               columns === 3
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
