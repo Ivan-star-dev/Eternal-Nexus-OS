@@ -102,7 +102,8 @@ SEMÁFORO | 2026-03-23 | Era Living Canon
 🟢 BRANCH        → claude/rebuild-bastion-core-rihGX
 🟢 WORKTREE      → WorkStructure
 🟢 EXECUTOR      → @claude
-🟢 NATUREZA      → Living Canon integration / flagship upgrade / repo neural limpa
+🟢 NATUREZA      → governança
+    DETALHE NATUREZA: Living Canon integration / flagship upgrade / repo neural limpa
 🟢 IGNIÇÃO       → ATIVA — PERMANENTE
 🟢 BASTION       → v2.0 CICLO CONTÍNUO EM EXECUÇÃO
 🟢 EVIDENCE_BLOCK→ VIGENTE em todos os handoffs
