@@ -4,6 +4,7 @@ import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
 import EarthquakeLayer from "./EarthquakeLayer";
+import AirQualityLayer from "./AirQualityLayer";
 
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
@@ -14,6 +15,7 @@ interface GlobeSceneProps {
   onHotspotClick: (id: string) => void;
   showProjects?: boolean;
   showSeismic?: boolean;
+  showAirQuality?: boolean;
 }
 
 // Wireframe globe sphere + network nodes
@@ -170,7 +172,7 @@ function ParticleFlow() {
 
 
 
-const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
+const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true, showAirQuality = false }: GlobeSceneProps) => {
   return (
     <>
       <ambientLight intensity={0.25} />
@@ -192,6 +194,7 @@ const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showS
         />
       ))}
       <EarthquakeLayer visible={showSeismic} />
+      <AirQualityLayer visible={showAirQuality} />
       <OrbitControls
         enablePan={false}
         enableZoom={true}

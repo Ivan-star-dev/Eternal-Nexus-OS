@@ -49,6 +49,7 @@ const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
               onHotspotClick={handleClick}
               showProjects={layers.projects}
               showSeismic={layers.seismic}
+              showAirQuality={layers.airQuality}
             />
           </Canvas>
           <GlobeLayerSelector layers={layers} onToggle={handleLayerToggle} />
