@@ -8,6 +8,48 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001 — CONCLUÍDA
+            │   ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → v2.0
+            │     — FRACTAL_COUNCIL_MATRIX: 9 fragmentos com pesos, tipo de parecer, veto e owner_only
+            │     — JVF com 10 critérios: verdade, coerência, qualidade, velocidade, custo, risco,
+            │       flagship_alignment, continuidade_evolutiva, benefício_automático, aderência_visão_mãe
+            │     — Flagship Threshold: limiar mínimo de contribuição ao produto-bandeira (≥ 0.4)
+            │     — Seven-Force integrado como fragmento de avaliação operacional
+            │     — Escalas de mobilização (kernel piece → total occupation) mapeadas no julgamento
+            │     — Recompression Protocol expandido para 11 passos
+            │ NEXUS-V10-SOVEREIGN-DESTINY-001 — CONCLUÍDA
+            │   ops/NEXUS_V10_SOVEREIGN_DESTINY.md v1.0 criado
+            │     — V10_SOVEREIGN_DESTINY: 7 dimensões (SISTEMA / PRODUTO / ECOSSISTEMA /
+            │       CORPORACAO / RUNTIME / SOFTWARE / HARDWARE_HORIZON)
+            │     — BRAIN_FIRST_ARCHITECTURE: ordem de construção v10→v1, anti-padrões, padrão correto
+            │     — V10_GAP_MATRIX: 7 domínios, estado_atual → estado_v10, gap, já_provável, horizonte
+            │     — ALIGNMENT_DEBT_ATUAL: 5 dívidas mapeadas com mitigação atual
+            │     — NEXT_BASTION_INSERTS: 5 tasks + 5 seeds + 5 gates prontos para o owner aprovar
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ NEXUS_FRACTAL_JUDGMENT_CORE.md reescrito em v2.0 (não duplicado — v1.0 era LITE)
+            │ NEXUS_V10_SOVEREIGN_DESTINY.md criado como ficheiro separado (não anexado ao LIVING_CANON)
+            │   → decisão: ficheiro próprio evita dispersão e facilita referência canônica direta
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (atualizado — v1.0 → v2.0)
+            │ ops/NEXUS_V10_SOVEREIGN_DESTINY.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1; camada 3.5 adicionada)
+            │ ops/BASTION.md (atualizado — v2.2; tasks no histórico + localização expandida)
+            │ ops/LIVE_STATE.md (atualizado — estado + fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: julgamento canônico completo (v2.0) + destino v10 soberano
+            │   instalados; Fractal Council com 9 fragmentos; JVF com 10 critérios quantificados;
+            │   V10 compacto como equação de chegada; gap mapeado; seeds prontos para próximo ciclo
+ALTERACAO_REAL │ sim — 2 ficheiros criados/reescritos + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE — CONCLUÍDA

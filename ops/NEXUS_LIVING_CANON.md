@@ -25,7 +25,10 @@ CAMADA 2 — EXECUÇÃO ELEGÍVEL
   ops/BASTION.md                     → fonte única de trabalho real · semáforo de tasks
 
 CAMADA 3 — JULGAMENTO CANÔNICO
-  ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → o que entra · o que sai · sentença única
+  ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → o que entra · o que sai · FRACTAL_COUNCIL_MATRIX · JVF 10 critérios · Flagship Threshold · Seven-Force · 7 sentenças
+
+CAMADA 3.5 — DESTINO SOBERANO
+  ops/NEXUS_V10_SOVEREIGN_DESTINY.md → destino final v10 · brain-first · 7 dimensões · gap matrix · seeds BASTION
 
 CAMADA 4 — INTELIGÊNCIA VIVA
   ops/NEXUS_NEURAL_MESH.md           → coerência global · todos os nós conectados
@@ -76,7 +79,8 @@ Um artefacto **não** entra quando:
 |-----------|--------|--------|---------------|--------|
 | `ops/DNA_PROTOCOL.md` | 1 | v1.2 | DNA-PROTOCOL-MOTHER-001 | ✓ ativo |
 | `ops/BASTION.md` | 2 | v2.1 | OPS-BASTION-001 | ✓ ativo |
-| `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` | 3 | v1.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | ✓ ativo |
+| `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` | 3 | v2.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001 | ✓ ativo |
+| `ops/NEXUS_V10_SOVEREIGN_DESTINY.md` | 3.5 | v1.0 | NEXUS-V10-SOVEREIGN-DESTINY-001 | ✓ ativo |
 | `ops/NEXUS_NEURAL_MESH.md` | 4 | v1.1 | NEXUS-NEURAL-MESH-001 | ✓ ativo |
 | `ops/FLOWMESH.md` | 4 | v1.0 | NEXUS-FLOWMESH-001 | ✓ ativo |
 | `ops/PIONEER_MATRIX.md` | 5 | v1.1 | NEXUS-PIONEER-ROLE-MOTHER-001 | ✓ ativo |
@@ -87,3 +91,4 @@ Um artefacto **não** entra quando:
 ---
 
 *NEXUS_LIVING_CANON.md v1.0 — criado em 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
+*NEXUS_LIVING_CANON.md v1.1 — NEXUS_V10_SOVEREIGN_DESTINY adicionado (camada 3.5); NEXUS_FRACTAL_JUDGMENT_CORE atualizado para v2.0 — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*

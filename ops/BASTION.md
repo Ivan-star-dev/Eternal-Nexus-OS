@@ -171,6 +171,8 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 criados; Fractal Council 7 nós; JVF; 7 sentenças |
+| NEXUS-FRACTAL-JUDGMENT-CORE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v2.0; FRACTAL_COUNCIL_MATRIX 9 nós; JVF 10 critérios; Flagship Threshold; Seven-Force; escalas de mobilização |
+| NEXUS-V10-SOVEREIGN-DESTINY-001 | Visão | WorkStructure | @claude | concluída | handoff emitido — NEXUS_V10_SOVEREIGN_DESTINY.md v1.0; 7 dimensões V10; brain-first architecture; V10_GAP_MATRIX; alignment debt; 5 seeds + 5 gates BASTION |
 
 ---
 
@@ -401,7 +403,43 @@ Cada item da matriz regista os seguintes campos:
 ```
 
 ```
+
+```
 ┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NEXUS-FRACTAL-JUDGMENT-CORE-001                        │
+│ PILAR              │ Governança / WorkStructure                              │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner autorizou em 2026-03-23                  │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ EVIDENCIA_MINIMA   │ NEXUS_FRACTAL_JUDGMENT_CORE.md v2.0 + ALTERACAO_REAL   │
+│ NOTAS_DO_OWNER     │ Versão full: FRACTAL_COUNCIL_MATRIX tabela, JVF 10      │
+│                    │ critérios, Flagship Threshold, Seven-Force integration  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NEXUS-V10-SOVEREIGN-DESTINY-001                        │
+│ PILAR              │ Visão / WorkStructure                                   │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner autorizou em 2026-03-23                  │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ EVIDENCIA_MINIMA   │ NEXUS_V10_SOVEREIGN_DESTINY.md criado + ALTERACAO_REAL │
+│ NOTAS_DO_OWNER     │ V10 compacto: 7 dimensões, brain-first, gap matrix,    │
+│                    │ seeds para BASTION, retroengenharia do destino final    │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ### 5.4 TASKS BLOQUEADAS
@@ -513,11 +551,12 @@ DATA            │ 2026-03-22
 ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
 CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
 DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
-TASKS_ELEGÍVEIS │ nenhuma — ciclo encerrado; próxima frente aguarda gate owner
+TASKS_ELEGÍVEIS │ nenhuma — próxima frente aguarda gates owner (ver NEXT_BASTION_INSERTS em NEXUS_V10_SOVEREIGN_DESTINY.md)
 TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
                 │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
                 │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓ |
-                │ CYCLE-CLOSE-001 ✓ | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE ✓
+                │ CYCLE-CLOSE-001 ✓ | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE ✓ |
+                │ NEXUS-FRACTAL-JUDGMENT-CORE-001 ✓ | NEXUS-V10-SOVEREIGN-DESTINY-001 ✓
 @claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
 @copilot        │ LIBERADO — tasks completadas por @claude em cross-support
 @cursor         │ LIBERADO — tasks completadas por @claude em cross-support
@@ -556,6 +595,7 @@ DERIVA          │ impermitida
 | Camada de inteligência viva | `ops/NEXUS_NEURAL_MESH.md` |
 | Critério de julgamento canônico | `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` |
 | Índice vivo do canon | `ops/NEXUS_LIVING_CANON.md` |
+| Destino soberano v10 | `ops/NEXUS_V10_SOVEREIGN_DESTINY.md` |
 
 ---
 
@@ -575,3 +615,4 @@ DERIVA          │ impermitida
 *BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
 *BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
 *BASTION.md v2.1 — NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE concluída; NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 adicionados ao histórico e localização canônica; semáforo atualizado — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
+*BASTION.md v2.2 — NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 concluídas; localização canônica expandida — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*
