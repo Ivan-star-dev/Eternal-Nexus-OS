@@ -4,6 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | FOUNDER-SIGNATURE-CANON-001
 **Última atualização:** 2026-03-21
 **Atualizado por:** @claude | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001
 **Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
@@ -80,6 +82,7 @@
 | COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
+| FOUNDER-SIGNATURE-CANON-001 | Formalizar assinatura canônica do founder — 3 blocos + camada 0.5 | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 

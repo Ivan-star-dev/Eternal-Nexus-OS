@@ -21,6 +21,7 @@ O NEURAL CORE é o núcleo de soberania do sistema.
 
 ```
 NEXUS_NEURAL_MESH_CORE ═══════════════════════════════════════════════════════
+FOUNDER_SIGNATURE│ origem humana da máquina — assinatura que atravessa todos os pilares
 SOBERANIA        │ owner — decisão final em qualquer nó
 DNA_PROTOCOL     │ protocolo-mãe — lei fractal do sistema
 BASTION          │ execução elegível — fonte única de trabalho real
@@ -55,6 +56,7 @@ Cada nó tem função, tipo, estado e ligação canônica.
 NEURAL_NODE_MATRIX ═══════════════════════════════════════════════════════════
 NODE_ID   │ NOME                │ TIPO          │ ESTADO     │ ARTEFACTO
 ──────────┼─────────────────────┼───────────────┼────────────┼───────────────
+N-00      │ FOUNDER_SIGNATURE   │ origem humana │ ATIVO      │ FOUNDER_SIGNATURE_CANON
 N-01      │ SOVEREIGN_CORE      │ soberania     │ ATIVO      │ DNA_PROTOCOL
 N-02      │ EXECUTION_MATRIX    │ execução      │ ATIVO      │ BASTION
 N-03      │ FACTORY_LAYER       │ operacional   │ ATIVO      │ FOL

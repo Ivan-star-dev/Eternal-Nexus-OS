@@ -18,6 +18,9 @@
 CAMADA 0 — SOBERANIA
   Owner                              → decisão final · veto absoluto · gate soberano
 
+CAMADA 0.5 — ORIGEM HUMANA
+  docs/FOUNDER_SIGNATURE_CANON.md    → assinatura do founder · origem da máquina · lei de identidade
+
 CAMADA 1 — LEI PRIMÁRIA
   ops/DNA_PROTOCOL.md                → protocolo-mãe · lei fractal do sistema
 
@@ -77,6 +80,7 @@ Um artefacto **não** entra quando:
 
 | Artefacto | Camada | Versão | Task de origem | Estado |
 |-----------|--------|--------|---------------|--------|
+| `docs/FOUNDER_SIGNATURE_CANON.md` | 0.5 | v1.0 | FOUNDER-SIGNATURE-CANON-001 | ✓ ativo |
 | `ops/DNA_PROTOCOL.md` | 1 | v1.2 | DNA-PROTOCOL-MOTHER-001 | ✓ ativo |
 | `ops/BASTION.md` | 2 | v2.1 | OPS-BASTION-001 | ✓ ativo |
 | `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` | 3 | v2.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001 | ✓ ativo |
@@ -92,3 +96,4 @@ Um artefacto **não** entra quando:
 
 *NEXUS_LIVING_CANON.md v1.0 — criado em 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
 *NEXUS_LIVING_CANON.md v1.1 — NEXUS_V10_SOVEREIGN_DESTINY adicionado (camada 3.5); NEXUS_FRACTAL_JUDGMENT_CORE atualizado para v2.0 — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*
+*NEXUS_LIVING_CANON.md v1.2 — FOUNDER_SIGNATURE_CANON adicionado (camada 0.5); origem humana da máquina cravada — 2026-03-23 | claude-sonnet-4-6 | FOUNDER-SIGNATURE-CANON-001*

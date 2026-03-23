@@ -32,6 +32,44 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-SIGNATURE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FOUNDER-SIGNATURE-CANON-001 — CONCLUÍDA
+            │   docs/FOUNDER_SIGNATURE_CANON.md → v1.0 (novo ficheiro)
+            │     — FOUNDER_SIGNATURE: O_QUE_E · PRINCIPIOS_NUCLEARES (7) ·
+            │       TONALIDADE_HUMANA (7) · O_QUE_TORNA_ISTO_UNICO (7)
+            │     — SIGNATURE_IN_SYSTEM: COMO_APARECE_NO_SISTEMA (10) ·
+            │       COMO_APARECE_NO_PRODUTO (8) · COMO_APARECE_NO_VISUAL (8) ·
+            │       COMO_APARECE_NA_CORPORACAO (8)
+            │     — NON_NEGOTIABLE_SIGNATURE_LAWS: O_QUE_NUNCA_PODE_SE_PERDER (12) ·
+            │       O_QUE_SERIA_DRIFT (12)
+            │     — Camada 0.5 definida: entre Soberania (owner) e Lei Primária (DNA_PROTOCOL)
+            │     — EVIDENCE_BLOCK integrado no próprio documento
+            │   ops/NEXUS_LIVING_CANON.md → v1.2 (camada 0.5 + tabela de artefactos)
+            │   ops/NEXUS_NEURAL_MESH.md → N-00 FOUNDER_SIGNATURE adicionado + NEURAL CORE
+            │   ops/BASTION.md → FOUNDER-SIGNATURE-CANON-001 no histórico de tasks
+            │   ops/LIVE_STATE.md → task concluída + executor + data atualizados
+            │   ops/HANDOFF_LEDGER.md → este handoff (append no topo)
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ Camada 0.5 criada — posição canônica entre owner e DNA_PROTOCOL
+            │ N-00 (FOUNDER_SIGNATURE) inserido antes de N-01 no NEURAL_NODE_MATRIX
+            │   → decisão: o founder é a origem, não um nó entre outros — deve preceder tudo
+ARQUIVOS    │ docs/FOUNDER_SIGNATURE_CANON.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1 → v1.2)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — N-00 + NEURAL_CORE)
+            │ ops/BASTION.md (atualizado — task adicionada ao histórico)
+            │ ops/LIVE_STATE.md (atualizado — data + executor + task na fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: assinatura humana do founder formalizada como lei
+            │   canônica · origem da máquina cravada · 3 blocos de identidade selados ·
+            │   non-negotiable laws definidas · posição 0.5 na hierarquia estabelecida
+══════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001 — CONCLUÍDA

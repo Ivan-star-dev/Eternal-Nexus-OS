@@ -173,6 +173,7 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 criados; Fractal Council 7 nós; JVF; 7 sentenças |
 | NEXUS-FRACTAL-JUDGMENT-CORE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_FRACTAL_JUDGMENT_CORE.md v2.0; FRACTAL_COUNCIL_MATRIX 9 nós; JVF 10 critérios; Flagship Threshold; Seven-Force; escalas de mobilização |
 | NEXUS-V10-SOVEREIGN-DESTINY-001 | Visão | WorkStructure | @claude | concluída | handoff emitido — NEXUS_V10_SOVEREIGN_DESTINY.md v1.0; 7 dimensões V10; brain-first architecture; V10_GAP_MATRIX; alignment debt; 5 seeds + 5 gates BASTION |
+| FOUNDER-SIGNATURE-CANON-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — FOUNDER_SIGNATURE_CANON.md v1.0; assinatura canônica do founder; 3 blocos; camada 0.5 cravada |
 
 ---
 
