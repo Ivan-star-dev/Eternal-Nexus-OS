@@ -96,6 +96,11 @@ function CountryColumn({
       <div className="space-y-0">
         {loading ? (
           <>
+            <div className="py-1 mb-1">
+              <span className="font-mono text-[0.44rem] tracking-[0.18em] text-white/20 uppercase animate-pulse">
+                Calibrating comparative model…
+              </span>
+            </div>
             <SkeletonMetric />
             <SkeletonMetric />
             <SkeletonMetric />
@@ -221,7 +226,7 @@ export default function ScenarioComparison() {
       {/* header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.05]">
         <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
-          Scenario Comparison
+          Scenario Comparison · Macro Model
         </span>
         <span className="font-mono text-[0.4rem] tracking-[0.18em] text-white/20 uppercase">
           World Bank
@@ -256,7 +261,7 @@ export default function ScenarioComparison() {
       <div className="px-4 pb-3 flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
         <span className="font-mono text-[0.4rem] tracking-[0.15em] text-white/20 uppercase">
-          higher value
+          dominant signal
         </span>
       </div>
     </motion.div>

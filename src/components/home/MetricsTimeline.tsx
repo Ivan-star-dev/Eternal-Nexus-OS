@@ -205,7 +205,8 @@ function LineChart({ data, unit, onHover }: ChartProps) {
       width="100%"
       height={CHART_H}
       style={{ overflow: "visible" }}
-      aria-hidden="true"
+      aria-label="Historical indicator line chart"
+      role="img"
     >
       {/* Gridlines */}
       {gridLines.map((gl) => (
@@ -344,7 +345,7 @@ export default function MetricsTimeline() {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
-          Historical Metrics
+          Historical Indicators · World Bank
         </span>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -356,7 +357,7 @@ export default function MetricsTimeline() {
                 const c = COUNTRIES.find((c) => c.iso2 === e.target.value);
                 if (c) setSelectedCountry(c);
               }}
-              className="appearance-none font-mono text-[0.6rem] tracking-[0.1em] bg-background/60 border border-white/[0.08] text-muted-foreground px-3 py-1.5 pr-6 rounded-sm focus:outline-none focus:border-gold/40 transition-colors cursor-pointer"
+              className="appearance-none font-mono text-[0.6rem] tracking-[0.1em] bg-background/60 border border-white/[0.08] text-muted-foreground px-3 py-1.5 pr-6 rounded-sm focus:outline-none focus:border-gold/40 transition-colors duration-200 cursor-pointer"
             >
               {COUNTRIES.map((c) => (
                 <option key={c.iso2} value={c.iso2}>
@@ -377,7 +378,7 @@ export default function MetricsTimeline() {
                 const ind = INDICATORS.find((i) => i.code === e.target.value);
                 if (ind) setSelectedIndicator(ind);
               }}
-              className="appearance-none font-mono text-[0.6rem] tracking-[0.1em] bg-background/60 border border-white/[0.08] text-muted-foreground px-3 py-1.5 pr-6 rounded-sm focus:outline-none focus:border-gold/40 transition-colors cursor-pointer"
+              className="appearance-none font-mono text-[0.6rem] tracking-[0.1em] bg-background/60 border border-white/[0.08] text-muted-foreground px-3 py-1.5 pr-6 rounded-sm focus:outline-none focus:border-gold/40 transition-colors duration-200 cursor-pointer"
             >
               {INDICATORS.map((ind) => (
                 <option key={ind.code} value={ind.code}>
@@ -397,7 +398,7 @@ export default function MetricsTimeline() {
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <span className="font-mono text-[0.52rem] tracking-[0.2em] text-muted-foreground/50 uppercase animate-pulse">
-              Loading…
+              Fetching historical record…
             </span>
           </div>
         )}
@@ -405,7 +406,7 @@ export default function MetricsTimeline() {
         {!loading && validCount === 0 && (
           <div className="flex items-center justify-center h-[160px]">
             <span className="font-mono text-[0.52rem] tracking-[0.2em] text-muted-foreground/40 uppercase">
-              No data available
+              No observable data · indicator absent
             </span>
           </div>
         )}

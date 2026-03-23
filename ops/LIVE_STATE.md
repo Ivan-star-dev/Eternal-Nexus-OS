@@ -21,10 +21,10 @@
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
 | **Branch canônico** | `claude/website-quality-assessment-Bb6r7` |
-| **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; ciclo contínuo iniciado por comando do owner; pioneiros entram por elegibilidade no território dominante (WorkStructure/WorkFunction/WorkVisual) ou apoio elegível; owner intervém só em gate/trava/red line. |
+| **Executor ativo** | @claude + todos os pioneiros (sprint V5/V6) |
+| **Frente ativa** | Produto / WorkFunction + WorkVisual |
+| **Camada atual** | V4 Living World entregue (PLv7+PLv8+PLv8.1+V3 polish); V5 EarthLab em execução; V6 LearningPathway em construção |
+| **Estado geral** | SPRINT ATIVO — V5 Research Core + V6 preview em execução paralela. Branch: claude/website-quality-assessment-Bb6r7. Todos os pioneiros invocados pelo owner. |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
 | **Frente ativa** | Mecânico / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |

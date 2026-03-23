@@ -14,6 +14,7 @@ import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import WorldPulse from "@/components/home/WorldPulse";
 import ScenarioComparison from "@/components/home/ScenarioComparison";
 import MetricsTimeline from "@/components/home/MetricsTimeline";
+import EarthLab from "@/components/home/EarthLab";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -237,6 +238,9 @@ const Index = () => {
 
         {/* ═══ ÓRGÃOS DO ORGANISMO ═══ */}
         <OrganStatusGrid />
+
+        {/* ═══ EARTH LAB — V5 Research Core ═══ */}
+        <EarthLab />
 
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />

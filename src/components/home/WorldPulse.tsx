@@ -94,13 +94,13 @@ export default function WorldPulse() {
       </div>
 
       {/* list */}
-      <div className="max-h-64 overflow-y-auto">
+      <div className="max-h-64 overflow-y-auto" style={{ willChange: "transform" }}>
         {loading ? (
           Array.from({ length: 6 }).map((_, i) => <SkeletonRow key={i} />)
         ) : error || events.length === 0 ? (
           <div className="py-8 px-4 text-center">
             <span className="font-mono text-[0.55rem] tracking-[0.15em] text-white/20 uppercase">
-              {error ? "Feed unavailable" : "No recent events"}
+              {error ? "Signal lost · Feed unavailable" : "No seismic events detected"}
             </span>
           </div>
         ) : (
@@ -111,7 +111,8 @@ export default function WorldPulse() {
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
-                className="flex items-center gap-3 py-2.5 px-3 border-b border-white/[0.03] hover:bg-white/[0.015] transition-colors"
+                style={{ willChange: "transform" }}
+                className="flex items-center gap-3 py-2.5 px-3 border-b border-white/[0.03] hover:bg-white/[0.015] transition-colors duration-200"
               >
                 {/* magnitude badge */}
                 <span
