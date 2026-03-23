@@ -20,7 +20,7 @@
 | Dimensão | Valor atual |
 |---|---|
 | **Fase ativa** | Bulking Controlado do Produto |
-| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Branch canônico** | `claude/website-quality-assessment-Bb6r7` |
 | **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
