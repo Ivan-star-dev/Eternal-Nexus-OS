@@ -591,7 +591,7 @@ export default function InvestorNexusPortal() {
   return (
     <div className="h-screen w-screen flex overflow-hidden bg-[#04040e] text-white">
       {/* ═══ LEFT PANEL — Portfolio Overview ═══ */}
-      <aside className="w-[300px] min-w-[300px] h-full flex flex-col border-r border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
+      <aside className="w-[300px] min-w-[300px] h-full flex flex-col border-r border-white/[0.04] bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
         {/* Header */}
         <div className="p-4 border-b border-white/[0.04]">
           <div className="flex items-center gap-2 mb-1">
