@@ -182,7 +182,7 @@ export default function CommandLine() {
       >
         <div className="flex-1 overflow-y-auto space-y-0.5">
           <AnimatePresence initial={false}>
-            {lines.map((line, i) => (
+            {lines.filter(line => line && line.type).map((line, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
