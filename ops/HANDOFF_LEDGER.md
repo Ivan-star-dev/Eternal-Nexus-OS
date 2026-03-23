@@ -1332,6 +1332,7 @@ TIPO_DE_ACAO           │ analyze (01.3-a verificação) + analyze (01.3-b PM) 
 PROVA_MINIMA           │ 01.3-a: git ls-files sem timestamp; .gitignore linha 27 *.timestamp*.mjs
                        │ 01.3-b: npm v10.9.4 instalado; bun not found; package-lock.json activo
                        │ 01.3-c: ls antigravity/legacy-html/ = 5 HTMLs 420K; rg src/ = 0 refs
+                       │ edit: ops/BASTION.md + ops/LIVE_STATE.md + ops/HANDOFF_LEDGER.md — secções status/análise — commit 38952b9
 ALTERACAO_REAL         │ sim (ops/ actualizados com status + análise)
 ═══════════════════════════════════════════════════════════════════════════
 ```
@@ -1339,7 +1340,7 @@ ALTERACAO_REAL         │ sim (ops/ actualizados com status + análise)
 ```
 CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
 CHAT        │ 🟢 mesmo
-BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+BRANCH      │ 🟢 claude/rebuild-bastion-core-rihGX
 WORKTREE    │ 🟢 WorkStructure
 NATUREZA    │ mecânico / backlog @cursor completado
 EXECUTOR    │ @cursor

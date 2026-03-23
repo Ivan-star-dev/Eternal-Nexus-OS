@@ -4,7 +4,7 @@
  * sacred-flow: PLv8 | DATA_LAYER_1 | 2026-03-22
  */
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { fetchWorldBankIndicator, formatUSD, WorldBankEntry } from "@/lib/worldBankData";
 
@@ -174,8 +174,18 @@ export default function ScenarioComparison() {
   const [loadingA, setLoadingA] = useState(true);
   const [loadingB, setLoadingB] = useState(true);
 
+  // Track in-flight request IDs to ignore stale responses
+  const reqIdA = useRef(0);
+  const reqIdB = useRef(0);
+
   const loadCountry = useCallback(
-    async (code: string, setter: (d: Indicators) => void, setLoading: (v: boolean) => void) => {
+    async (
+      code: string,
+      setter: (d: Indicators) => void,
+      setLoading: (v: boolean) => void,
+      reqRef: React.MutableRefObject<number>,
+    ) => {
+      const id = ++reqRef.current;
       setLoading(true);
       try {
         const [gdp, pop, co2] = await Promise.all([
@@ -183,22 +193,24 @@ export default function ScenarioComparison() {
           fetchWorldBankIndicator(code, "SP.POP.TOTL"),
           fetchWorldBankIndicator(code, "EN.ATM.CO2E.PC"),
         ]);
+        if (id !== reqRef.current) return; // stale response — discard
         setter({ gdp, pop, co2 });
       } catch {
+        if (id !== reqRef.current) return;
         setter({ gdp: null, pop: null, co2: null });
       } finally {
-        setLoading(false);
+        if (id === reqRef.current) setLoading(false);
       }
     },
     []
   );
 
   useEffect(() => {
-    loadCountry(countryA, setDataA, setLoadingA);
+    loadCountry(countryA, setDataA, setLoadingA, reqIdA);
   }, [countryA, loadCountry]);
 
   useEffect(() => {
-    loadCountry(countryB, setDataB, setLoadingB);
+    loadCountry(countryB, setDataB, setLoadingB, reqIdB);
   }, [countryB, loadCountry]);
 
   // determine which column wins each metric

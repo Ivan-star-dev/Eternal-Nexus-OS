@@ -45,6 +45,7 @@ function makeVerdict(topic: string, ts: string): NexusEvent<TribunalVerdictPaylo
 
 function makeAtlasMarker(label: string, ts: string): NexusEvent<AtlasMarkerPayload> {
   const payload: AtlasMarkerPayload = {
+    kind: 'metric',
     label,
     category: 'climate',
     dataSource: 'climate',

@@ -105,16 +105,28 @@ export interface TribunalEscalationPayload {
   originalVerdictId: string;
 }
 
-export interface AtlasMarkerPayload {
+/** Atlas marker with metric data (value-based, no geo coordinates) */
+export interface AtlasMetricMarkerPayload {
+  kind: 'metric';
   label: string;
   category: string;
-  dataSource?: string;
-  value?: number;
+  dataSource: string;
+  value: number;
   unit?: string;
-  lat?: number;
-  lng?: number;
+}
+
+/** Atlas marker with geographic coordinates (event-based, no metric data) */
+export interface AtlasGeoMarkerPayload {
+  kind: 'geo';
+  label: string;
+  category: string;
+  lat: number;
+  lng: number;
   intensity?: number;
 }
+
+/** Discriminated union for all atlas.marker event payloads */
+export type AtlasMarkerPayload = AtlasMetricMarkerPayload | AtlasGeoMarkerPayload;
 
 export interface AtlasLayerUpdatePayload {
   layerType: string;
