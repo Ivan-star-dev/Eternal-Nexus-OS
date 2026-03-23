@@ -19,6 +19,8 @@ import LearningPathway from "@/components/home/LearningPathway";
 import CollaborationHub from "@/components/home/CollaborationHub";
 import EcosystemMap from "@/components/home/EcosystemMap";
 import ManifestoSection from "@/components/home/ManifestoSection";
+import WorldClock from "@/components/home/WorldClock";
+import V10Proof from "@/components/home/V10Proof";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -261,6 +263,12 @@ const Index = () => {
 
         {/* ═══ MANIFESTO — V9 Category Power ═══ */}
         <ManifestoSection />
+
+        {/* ═══ WORLD CLOCK — Live Global Sync ═══ */}
+        <WorldClock />
+
+        {/* ═══ V10 PROOF — Universal Factory Proof ═══ */}
+        <V10Proof />
 
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
