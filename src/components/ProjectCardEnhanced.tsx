@@ -174,7 +174,7 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] mt-4 border border-white/[0.05]">
               {project.metrics.map((m) => (
                 <div key={m.label} className="bg-ink-medium/40 p-3">
-                  <span className="font-serif text-base font-light text-paper font-mono tabular-nums">
+                  <span className="font-serif text-base font-light text-paper tabular-nums">
                     {m.value}
                   </span>
                   <div className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 uppercase mt-1">
