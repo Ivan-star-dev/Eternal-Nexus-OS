@@ -32,7 +32,7 @@ ARQUIVOS    │ ops/NEXUS_LIVING_CANON.md (novo) · ops/BASTION.md · ops/LIVE_S
             │ ops/NEXUS_NEURAL_MESH.md · ops/HANDOFF_LEDGER.md
 IMPACTO     │ alto — nova era do sistema iniciada; repo neural limpa; flagship upgrade aplicado
 ALTERACAO_REAL │ sim — 5 arquivos tocados; 1 criado
-COMMIT      │ deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+COMMIT      │ unknown
 DATA        │ 2026-03-23
 ═══════════════════════════════════════════════════════════════════════════
 ```
