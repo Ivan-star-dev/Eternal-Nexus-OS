@@ -1317,8 +1317,9 @@ FEITO       │ BULK-01.3-a: VERIFICADO — vite.config.ts.timestamp-* já remov
 NAO_FEITO   │ Remoção efectiva de bun.lock (aguarda B-002) e legacy-html (aguarda B-003)
 BLOQUEIOS   │ B-002 (PM canônico — owner decide) | B-003 (legacy-html — owner decide)
 ADAPTACOES  │ 01.3-a confirmado como já resolvido — task de verificação, não de execução
+            │ Backlog mecânico completado; 2 bloqueios escalados ao owner
 ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
-IMPACTO     │ medio — backlog mecânico completado; 2 bloqueios escalados ao owner
+IMPACTO     │ medio
 PROX_PASSO  │ Owner decide B-002 (npm → remover bun.lock) e B-003 (legacy-html:
             │ manter/mover/remover); @copilot continua L-001→L-002→BULK-02.2;
             │ @cursor sem task elegível — aguarda nova task ou apoio
