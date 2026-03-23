@@ -56,6 +56,7 @@ export function useRealtimeData(options: UseRealtimeDataOptions = {}): RealtimeD
   const publishAtlasMarkers = useCallback((points: RealtimeDataPoint[]) => {
     for (const point of points) {
       const payload: AtlasMarkerPayload = {
+        kind: 'metric',
         label: point.label ?? `${point.source} reading`,
         category: point.category ?? point.source,
         dataSource: point.source,

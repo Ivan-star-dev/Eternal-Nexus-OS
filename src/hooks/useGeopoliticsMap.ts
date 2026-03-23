@@ -11,6 +11,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { getDefaultBus } from '@/lib/events/bus';
+import { createReplaySession } from '@/lib/events/replay';
 import { makeEventId, seedFromId } from '@/lib/events/id';
 import type {
   NexusEvent,
@@ -126,9 +127,17 @@ export function useGeopoliticsMap() {
     return unsubscribe;
   }, [bus]);
 
-  // Replay existing verdicts on mount (cursor-based replay)
+  // Replay existing verdicts on mount (cursor-based replay, exhausts all pages)
   useEffect(() => {
-    const existing = bus.replay({}).filter((e) => e.type === 'tribunal.verdict');
+    const session = createReplaySession(bus);
+    const allEvents: NexusEvent[] = [];
+    let batch: NexusEvent[];
+    do {
+      batch = session.fetchNext(500);
+      allEvents.push(...batch);
+    } while (batch.length === 500);
+
+    const existing = allEvents.filter((e) => e.type === 'tribunal.verdict');
     if (existing.length === 0) return;
 
     const features: VerdictFeature[] = existing.map((event) => {
@@ -160,6 +169,7 @@ export function useGeopoliticsMap() {
   const publishAtlasMarker = useCallback(
     (lat: number, lng: number, label: string, category: string) => {
       const payload: AtlasMarkerPayload = {
+        kind: 'geo',
         lat,
         lng,
         label,

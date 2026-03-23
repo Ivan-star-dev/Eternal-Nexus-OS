@@ -13,15 +13,15 @@ interface InteractiveGlobeProps {
 const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
   const isMobile = useIsMobile();
   const [focusedProject, setFocusedProject] = useState<string | null>(null);
-  const [layers, setLayers] = useState({ projects: true, seismic: true, airQuality: false });
+  const [layers, setLayers] = useState({ projects: true, seismic: true });
 
   const handleClick = useCallback((id: string) => {
     setFocusedProject(id);
     onHotspotClick?.(id);
   }, [onHotspotClick]);
 
-  const handleLayerToggle = useCallback((layer: string) => {
-    setLayers((prev) => ({ ...prev, [layer]: !prev[layer as keyof typeof prev] }));
+  const handleLayerToggle = useCallback((layer: keyof typeof layers) => {
+    setLayers((prev) => ({ ...prev, [layer]: !prev[layer] }));
   }, []);
 
   if (isMobile) {

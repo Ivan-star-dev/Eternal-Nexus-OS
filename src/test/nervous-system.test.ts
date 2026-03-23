@@ -406,8 +406,9 @@ describe('Nervous System v1 — Phase Gate', () => {
 
         // Index processes the atlas marker into an index entry
         const ap = e.payload as AtlasMarkerPayload;
+        const source = ap.kind === 'metric' ? ap.dataSource : ap.category;
         index.emit<IndexEntryPayload>('index.entry', {
-          title: `${ap.label} [${ap.dataSource}]`,
+          title: `${ap.label} [${source}]`,
           category: ap.category,
           rank: e.severity * e.confidence,
         }, {
@@ -421,6 +422,7 @@ describe('Nervous System v1 — Phase Gate', () => {
       const emitted = atlas.emit<AtlasMarkerPayload>(
         'atlas.marker',
         {
+          kind: 'metric',
           label: 'Temperature anomaly',
           category: 'climate',
           dataSource: 'climate',
@@ -451,6 +453,7 @@ describe('Nervous System v1 — Phase Gate', () => {
       const atlas = createNexusClient({ organ: 'atlas', bus });
 
       const payload: AtlasMarkerPayload = {
+        kind: 'metric',
         label: 'CO2 reading',
         category: 'climate',
         dataSource: 'climate',
@@ -509,6 +512,7 @@ describe('Nervous System v1 — Phase Gate', () => {
       atlas.emit<AtlasMarkerPayload>(
         'atlas.marker',
         {
+          kind: 'metric',
           label: 'Earthquake detected',
           category: 'security',
           dataSource: 'geopolitics',
@@ -836,6 +840,7 @@ describe('Nervous System v1 — Phase Gate', () => {
       atlas.subscribe((verdictEvent) => {
         const vp = verdictEvent.payload as TribunalVerdictPayload;
         atlas.emit<AtlasMarkerPayload>('atlas.marker', {
+          kind: 'metric',
           label: vp.topic,
           category: 'verdict-consequence',
           dataSource: 'tribunal',

@@ -1,14 +1,13 @@
-import { Globe, Activity, Wind } from "lucide-react";
+import { Globe, Activity } from "lucide-react";
 
 interface LayerState {
   projects: boolean;
   seismic: boolean;
-  airQuality: boolean;
 }
 
 interface GlobeLayerSelectorProps {
   layers: LayerState;
-  onToggle: (layer: string) => void;
+  onToggle: (layer: keyof LayerState) => void;
 }
 
 interface LayerButtonProps {
@@ -57,12 +56,6 @@ const GlobeLayerSelector = ({ layers, onToggle }: GlobeLayerSelectorProps) => {
         active={layers.seismic}
         icon={<Activity size={12} />}
         onClick={() => onToggle("seismic")}
-      />
-      <LayerButton
-        label="Air Quality"
-        active={layers.airQuality}
-        icon={<Wind size={12} />}
-        onClick={() => onToggle("airQuality")}
       />
     </div>
   );

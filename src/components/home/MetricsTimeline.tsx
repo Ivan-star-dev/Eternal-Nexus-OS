@@ -6,7 +6,7 @@
  * sacred-flow: PLv8.1 | WorkFunction | 2026-03-22
  */
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -126,17 +126,22 @@ function LineChart({ data, unit, onHover }: ChartProps) {
   const xScale = (idx: number, total: number) =>
     PADDING.left + (idx / Math.max(total - 1, 1)) * plotW;
 
-  const yScale = (value: number) =>
-    PADDING.top + plotH - ((value - minVal) / range) * plotH;
+  const yScale = useMemo(
+    () => (value: number) => PADDING.top + plotH - ((value - minVal) / range) * plotH,
+    [plotH, minVal, range]
+  );
 
   const allYears = validPoints.map((d) => d.year);
   const firstYear = allYears.length > 0 ? Number(allYears[0]) : 1994;
   const lastYear = allYears.length > 0 ? Number(allYears[allYears.length - 1]) : 2023;
 
-  const xFromYear = (year: string) => {
-    const span = lastYear - firstYear || 1;
-    return PADDING.left + ((Number(year) - firstYear) / span) * plotW;
-  };
+  const xFromYear = useMemo(
+    () => (year: string) => {
+      const span = lastYear - firstYear || 1;
+      return PADDING.left + ((Number(year) - firstYear) / span) * plotW;
+    },
+    [firstYear, lastYear, plotW]
+  );
 
   // Build SVG path
   const pathD =
@@ -191,8 +196,7 @@ function LineChart({ data, unit, onHover }: ChartProps) {
         value: d.value,
       });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [validPoints]
+    [xFromYear, yScale, onHover]
   );
 
   const handleCircleLeave = useCallback(() => {

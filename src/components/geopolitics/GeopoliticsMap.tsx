@@ -396,9 +396,10 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
       minZoom: 1.5,
       maxZoom: 16,
       attributionControl: false,
+      // fadeDuration is not yet in the MapLibre GL type definitions
+      // @ts-expect-error TS2353 – fadeDuration is a valid runtime option
       fadeDuration: 0,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+    });
 
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
     map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), 'top-right');
