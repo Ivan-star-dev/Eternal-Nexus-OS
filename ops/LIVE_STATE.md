@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-23
+**Atualizado por:** @cursor | claude-4.6-sonnet | SYSTEM-FACE-CORE-001
+**Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001
 **Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | HEAVEN-LAB-REFERENCE-SURFACE-001

@@ -6,6 +6,47 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @cursor | SYSTEM-FACE-CORE-001 | claude-4.6-sonnet
+
+**TASK:** SYSTEM-FACE-CORE-001 — System Face · cockpit soberano em código
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/system/SystemShell.tsx` — shell permanente: header vivo + footer + grid técnico
+- `src/components/system/LiveStateSurface.tsx` — superfície LIVE_STATE com dados reais
+- `src/components/system/HandoffLedger.tsx` — painel de handoffs com expansão por entrada
+- `src/components/system/TaskControlRegion.tsx` — BASTION surface: tasks + status semântico
+- `src/components/system/OrchestraPanel.tsx` — Pioneer Matrix: 6 pioneiros + estado
+- `src/components/system/CommandLine.tsx` — linha de comando interativa com boot sequence
+- `src/pages/SystemFacePage.tsx` — página System Face com grid 5 regiões
+
+**Ficheiros modificados:**
+- `src/App.tsx` → rota `/system` adicionada → SystemFacePage
+- `ops/LIVE_STATE.md` → executor + data + task atualizada
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Implementação:**
+- Fundo deep navy `#060c14` permanente + grid técnico SVG (opacity 0.035–0.06)
+- Tipografia: JetBrains Mono dominante em dados/IDs + Syne 400-500 para labels UI
+- Cor operacional: teal `#206358` / teal-light `#46b09e` como sinal ativo/vivo
+- Gold `#c9870f` apenas em autoridade (GATE aberto, P1, task ativa)
+- Grid layout 3×2 com gap-px background como separador visual
+- Animações mecânicas precisas (framer-motion 0.5s ease [0.22,1,0.36,1])
+- CommandLine interativa: boot sequence + comandos (help, status, gates, pioneers, branch, law)
+- HandoffLedger expandível: histórico real das sessões
+- TaskControlRegion: BASTION tasks com status semântico e dot colorido
+- OrchestraPanel: 6 pioneiros em grid 2×3 com estado vivo
+- SystemShell: relógio vivo (HH:MM:SS) + data + footer de estado
+
+**Rota:** `/system`
+
+**Lei aplicada:** SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
 ## HANDOFF — 2026-03-23 | @claude | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | claude-sonnet-4-6
 
 **TASK:** SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 — 3 Faces Canónicas + Lei Tipográfica da Mãe
