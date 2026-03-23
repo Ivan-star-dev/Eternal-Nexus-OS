@@ -64,6 +64,11 @@ function altitudeToLOD(height: number): LODLevel {
 
 // ═══ sacred flow — Main Atlas Page with CesiumJS + Mode System ═══
 export default function AtlasPage() {
+  // V3 — document title
+  useEffect(() => {
+    document.title = "Atlas — Eternal Nexus OS";
+  }, []);
+
   // sacred flow — mode system state
   const [mode, setMode] = useState<AtlasMode>("clean");
   const [quality] = useState<QualityTier>(() => tierToQuality(detectDeviceTier()));
@@ -210,6 +215,15 @@ export default function AtlasPage() {
       <VignetteOverlay />
       <GrainOverlay />
 
+      {/* V3 — hero label: geographic intelligence identity */}
+      {!isFlyMode && (
+        <div className="fixed top-16 left-4 z-50 pointer-events-none">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+            ATLAS ENGINE · GEOGRAPHIC INTELLIGENCE
+          </span>
+        </div>
+      )}
+
       {/* sacred flow — new UI shell */}
       {!isFlyMode && (
         <>
@@ -226,7 +240,7 @@ export default function AtlasPage() {
 
           <AgentStatusOverlay />
           
-          <div className="fixed bottom-4 left-4 z-40">
+          <div className="fixed bottom-4 left-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
             <WeatherOverlay
               projectName={selectedProject?.name}
               lat={selectedProject?.lat}
@@ -239,7 +253,7 @@ export default function AtlasPage() {
       {!isFlyMode && <FlyModeHint />}
 
       {/* sacred flow — CesiumJS globe (terrain, 3D tiles, infinite zoom) */}
-      <div className="absolute inset-0" onContextMenu={handleContextMenu}>
+      <div className="absolute inset-0 border border-white/[0.05] rounded-sm overflow-hidden" onContextMenu={handleContextMenu}>
         <CesiumViewerComponent
           ref={cesiumRef}
           mode={mode}
@@ -294,7 +308,7 @@ export default function AtlasPage() {
 
       {/* sacred flow — project detail panels */}
       {selectedProject && !isFlyMode && (
-        <div className="fixed bottom-4 right-4 z-40">
+        <div className="fixed bottom-4 right-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
           <EnvironmentPanel project={selectedProject} />
         </div>
       )}
