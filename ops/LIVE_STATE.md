@@ -107,7 +107,7 @@ SEMÁFORO | 2026-03-23 | Era Living Canon
 🟢 IGNIÇÃO       → ATIVA — PERMANENTE
 🟢 BASTION       → v2.0 CICLO CONTÍNUO EM EXECUÇÃO
 🟢 EVIDENCE_BLOCK→ VIGENTE em todos os handoffs
-🟡 @claude       → NEXUS-LIVING-CANON-001 done → aguarda gate CYCLE_CLOSE_001
+🟡 @claude       → NEXUS-LIVING-CANON-001 done → aguarda gate CYCLE-CLOSE-001
 🟡 @copilot      → BULK-01.2/L-001 + L-002 + BULK-02.2 EM ANDAMENTO → fila elegível ativa (GATE ABERTO)
 🟡 @cursor       → backlog mecânico CONCLUÍDO (01.3-a/b/c) → aguarda B-002 + B-003
 🟡 @codex        → CONSOLIDADOR ATIVO → aguarda handoffs
@@ -117,7 +117,7 @@ SEMÁFORO | 2026-03-23 | Era Living Canon
 BLOQUEADORES:
   B-002 → PM canônico decision (bun.lock) → owner
   B-003 → antigravity/legacy-html decision → owner
-  CYCLE_CLOSE_001 → fechar Stage 5 → gate owner
+  CYCLE-CLOSE-001 → fechar Stage 5 → gate owner
   PLv7+ → próxima camada produto → gate owner
 INTERRUPTOR: ordem owner | gate soberano | bloqueio real | sem elegível
 ═══════════════════════════════════════════════════════════════════════
