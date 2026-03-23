@@ -61,6 +61,12 @@ CAMADA 7 — PROTOCOLOS ESPECIALIZADOS
   ops/BLOCK_MATURATION_OS.md         → maturação por blocos · 7 blocos · 5 leis
   ops/PROJECT_CANONICAL_CHECKUP_MASTER.md → auditoria mestre · 12 famílias
 
+CAMADA 7.1 — IDENTIDADE VISUAL CANÓNICA
+  ops/BRAND_MOTHER_SYSTEM.md         → lei visual mãe · paleta · glass · motion · tipografia base
+  ops/SYSTEM_FACE_CANON.md           → 3 faces (sistema · produto · ecossistema) · herança · deriva proibida
+  ops/TYPOGRAPHY_LAW.md              → lei tipográfica · pesos · famílias · weight matrix · proibições
+  ops/HEAVEN_LAB_REFERENCE_SURFACE.md → surface de referência · globe · trinity · chamber · first proof
+
 CAMADA 8 — ESTE ÍNDICE
   ops/NEXUS_LIVING_CANON.md          → índice vivo dos artefactos canônicos
 ```
@@ -98,6 +104,10 @@ Um artefacto **não** entra quando:
 | `ops/PIONEER_MATRIX.md` | 5 | v1.1 | NEXUS-PIONEER-ROLE-MOTHER-001 | ✓ ativo |
 | `ops/LIVE_STATE.md` | 6 | vivo | contínuo | ✓ ativo |
 | `ops/HANDOFF_LEDGER.md` | 6 | imutável | contínuo | ✓ ativo |
+| `ops/BRAND_MOTHER_SYSTEM.md` | 7.1 | v1.0 | BMS-001 | ✓ ativo |
+| `ops/SYSTEM_FACE_CANON.md` | 7.1 | v1.0 | SYSTEM-FACE-CANON-001 | ✓ ativo |
+| `ops/TYPOGRAPHY_LAW.md` | 7.1 | v1.0 | TYPOGRAPHY-LAW-001 | ✓ ativo |
+| `ops/HEAVEN_LAB_REFERENCE_SURFACE.md` | 7.1 | v1.0 | HEAVEN-LAB-REFERENCE-SURFACE-001 | ✓ ativo |
 | `ops/NEXUS_LIVING_CANON.md` | 8 | v1.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | ✓ ativo |
 
 ---
@@ -107,3 +117,4 @@ Um artefacto **não** entra quando:
 *NEXUS_LIVING_CANON.md v1.2 — FOUNDER_SIGNATURE_CANON adicionado (camada 0.5); origem humana da máquina cravada — 2026-03-23 | claude-sonnet-4-6 | FOUNDER-SIGNATURE-CANON-001*
 *NEXUS_LIVING_CANON.md v1.3 — FOUNDER_STORY_SPINE adicionado (camada 0.6); espinha da história do founder cravada — 2026-03-23 | claude-sonnet-4-6 | FOUNDER-STORY-SPINE-001*
 *NEXUS_LIVING_CANON.md v1.4 — GREAT_STORY_OF_HEAVEN_LAB adicionado (camada 0.7); mito real do produto + 3 filhos + MOTHER_PHRASES cravados — 2026-03-23 | claude-sonnet-4-6 | GREAT-STORY-OF-THE-PRODUCT-001*
+*NEXUS_LIVING_CANON.md v1.5 — Camada 7.1 criada (Identidade Visual Canónica); SYSTEM_FACE_CANON + TYPOGRAPHY_LAW + HEAVEN_LAB_REFERENCE_SURFACE + BRAND_MOTHER_SYSTEM indexados — 2026-03-23 | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001*

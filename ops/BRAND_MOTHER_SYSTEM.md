@@ -427,7 +427,10 @@ Antes de fazer merge de qualquer PR com mudanças visuais:
 | `src/styles/atlas-glassmorphism.css` | Glass system — map/atlas layer |
 | `ops/NORTH_STAR_BEFORE_HARD_EXECUTION.md` | North Stars que dependem deste doc |
 | `ops/PIONEER_MATRIX.md` | @framer e @antigravity — territórios de execução |
+| `ops/SYSTEM_FACE_CANON.md` | especialização das 3 faces da mãe — criado em 2026-03-23 |
+| `ops/TYPOGRAPHY_LAW.md` | lei tipográfica completa com weight matrix — criada em 2026-03-23 |
 
 ---
 
 *BRAND_MOTHER_SYSTEM.md v1.0 — cravado em 2026-03-22 | claude-sonnet-4-6 | BMS-001*
+*BRAND_MOTHER_SYSTEM.md v1.1 — ARTEFACTOS RELACIONADOS expandido com SYSTEM_FACE_CANON + TYPOGRAPHY_LAW — 2026-03-23 | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001*

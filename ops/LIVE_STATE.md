@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001
+**Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | HEAVEN-LAB-REFERENCE-SURFACE-001
 **Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | GREAT-STORY-OF-THE-PRODUCT-001
@@ -88,6 +90,7 @@
 | COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
+| SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | 3 faces canónicas + lei tipográfica mãe — SYSTEM_FACE_CANON + TYPOGRAPHY_LAW | CONCLUÍDA | handoff emitido |
 | HEAVEN-LAB-REFERENCE-SURFACE-001 | Superfície de referência Heaven Lab — globe+trinity+chamber+substrate+proof | CONCLUÍDA | handoff emitido |
 | GREAT-STORY-OF-THE-PRODUCT-001 | Grande história Heaven Lab — 3 filhos + MOTHER_PHRASES + camada 0.7 | CONCLUÍDA | handoff emitido |
 | FOUNDER-STORY-SPINE-001 | Espinha da história do founder — 2 blocos + FRASES_CANON + camada 0.6 | CONCLUÍDA | handoff emitido |

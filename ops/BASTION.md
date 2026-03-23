@@ -177,6 +177,8 @@ Cada item da matriz regista os seguintes campos:
 | FOUNDER-STORY-SPINE-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — FOUNDER_STORY_SPINE.md v1.0; espinha da história; 6 viradas; FRASES_CANON; camada 0.6 cravada |
 | GREAT-STORY-OF-THE-PRODUCT-001 | Identidade | WorkStructure | @claude | concluída | handoff emitido — GREAT_STORY_OF_HEAVEN_LAB.md v1.0; mito real; 3 filhos; MOTHER_PHRASES; camada 0.7 cravada |
 | HEAVEN-LAB-REFERENCE-SURFACE-001 | Visão/WorkVisual | WorkStructure | @claude | concluída | handoff emitido — HEAVEN_LAB_REFERENCE_SURFACE.md v1.0; 5 blocos; globe+trinity+chamber+substrate+proof; gates Framer+Antigravity definidos |
+| SYSTEM-FACE-CANON-001 | Identidade Visual | WorkStructure | @claude | concluída | handoff emitido — SYSTEM_FACE_CANON.md v1.0; 3 faces; FACE_SEPARATION_MATRIX; herança mãe + deriva proibida por face |
+| TYPOGRAPHY-LAW-001 | Identidade Visual | WorkStructure | @claude | concluída | handoff emitido — TYPOGRAPHY_LAW.md v1.0; weight matrix; family use map; escala canónica; 13 proibições |
 
 ---
 

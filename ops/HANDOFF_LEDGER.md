@@ -6,6 +6,41 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @claude | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | claude-sonnet-4-6
+
+**TASK:** SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 — 3 Faces Canónicas + Lei Tipográfica da Mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/SYSTEM_FACE_CANON.md` — v1.0 · 3 faces (sistema · produto · ecossistema) + FACE_SEPARATION_MATRIX
+- `ops/TYPOGRAPHY_LAW.md` — v1.0 · lei tipográfica · weight matrix · family use map · escala canónica
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.5 · camada 7.1 criada + 4 artefactos visuais indexados
+- `ops/BRAND_MOTHER_SYSTEM.md` → v1.1 · ARTEFACTOS_RELACIONADOS expandido com ponteiros para as 2 novas leis
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados em SYSTEM_FACE_CANON.md:**
+- `SYSTEM_FACE_CANON`: O_QUE_E · FUNCAO · EMOCAO · VISUAL_LANGUAGE · HERANCA · NUNCA_PODE_VIRAR
+- `PRODUCT_FACE_CANON`: idem · 6 campos · face pública Heaven Lab
+- `ECOSYSTEM_FACE_CANON`: idem · 6 campos · membrana conectiva
+- `HERANCA_COMUM`: o que todas as faces partilham inegociavelmente
+- `FACE_SEPARATION_MATRIX`: tabela 5 colunas · FACE/PAPEL/LOOK/TONALIDADE/RISCO_DE_DRIFT
+
+**Blocos criados em TYPOGRAPHY_LAW.md:**
+- `TYPOGRAPHY_LAW`: PRINCIPIO_GERAL · SYSTEM/PRODUCT/ECOSYSTEM_FACE_TYPE
+- `DISPLAY_RULES` · `HEADING_RULES` · `LABEL_RULES` · `TERMINAL_RULES` · `READING_LAYER_RULES`
+- `PROIBIDO`: 13 proibições tipográficas explícitas
+- `TYPOGRAPHY_WEIGHT_MATRIX`: 8 linhas · CAMADA/PESO/FUNCAO/EFEITO/RISCO
+- `FAMILY_USE_MAP`: 3 famílias × 3 faces + regra de contenção
+- `ESCALA_TIPOGRÁFICA_CANÓNICA`: valores concretos por face
+
+---
+
 ## HANDOFF — 2026-03-23 | @claude | HEAVEN-LAB-REFERENCE-SURFACE-001 | claude-sonnet-4-6
 
 **TASK:** HEAVEN-LAB-REFERENCE-SURFACE-001 — Superfície de Referência Heaven Lab (Brand North Star)
