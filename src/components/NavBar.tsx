@@ -38,10 +38,10 @@ const NavBar = () => {
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Navegação principal"
         role="navigation"
-        className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-300 border-b backdrop-blur-md ${
           atTop
-            ? "bg-transparent border-b border-transparent"
-            : "bg-background/60 backdrop-blur-2xl border-b border-border/50"
+            ? "bg-transparent border-white/[0.04]"
+            : "bg-background/60 backdrop-blur-2xl border-border/50"
         }`}
       >
         {/* Logo */}
@@ -58,7 +58,7 @@ const NavBar = () => {
               to={link.path}
               className={`font-mono text-[0.62rem] tracking-[0.12em] uppercase py-1 border-b transition-all duration-200 flex items-center gap-1.5 hover:scale-105 ${
                 location.pathname === link.path
-                  ? "text-primary border-primary link-glow-active"
+                  ? "text-gold border-gold/60 link-glow-active"
                   : "text-muted-foreground border-transparent hover:text-primary/80 hover:border-primary/30"
               }`}
             >

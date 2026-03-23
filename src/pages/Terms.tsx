@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -15,17 +16,21 @@ const sections = [
 const Terms = () => {
   const { t } = useLanguage();
 
+  useEffect(() => {
+    document.title = "Terms of Use — Eternal Nexus OS";
+  }, []);
+
   return (
     <Layout>
       <section className="py-16 md:py-24 px-6 md:px-20">
         <div className="max-w-[800px] mx-auto">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-            <span className="section-label">{t("legal_doc")}</span>
-            <h1 className="font-serif text-3xl md:text-5xl font-black text-foreground mt-3 mb-2">
-              {t("terms_title")} <span className="text-muted-foreground font-normal">of Use</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.25em] uppercase text-paper-dim/40">{t("legal_doc")}</span>
+            <h1 className="font-serif text-3xl md:text-5xl font-light text-paper mt-3 mb-2">
+              {t("terms_title")} <span className="text-paper-dim/50">of Use</span>
             </h1>
             <div className="gold-rule mb-4" />
-            <p className="font-mono text-[0.62rem] tracking-[0.15em] text-muted-foreground mb-12">{t("legal_updated")}</p>
+            <p className="font-mono text-[0.62rem] tracking-[0.15em] text-paper-dim/40 mb-12">{t("legal_updated")}</p>
           </motion.div>
 
           <div className="space-y-12">
@@ -33,22 +38,22 @@ const Terms = () => {
               <motion.div key={section.num} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
               >
-                <span className="section-label">ARTICLE {section.num}</span>
-                <h2 className="font-serif text-xl font-bold text-foreground mt-2 mb-2">{section.title}</h2>
-                <div className="gold-rule mb-4" />
-                <p className="font-sans text-sm text-muted-foreground leading-[1.8]">{section.body}</p>
+                <div className="border-t border-white/[0.04] my-8" />
+                <span className="font-mono text-[0.48rem] tracking-[0.25em] uppercase text-paper-dim/40">ARTICLE {section.num}</span>
+                <h2 className="font-serif text-xl font-light text-paper mt-2 mb-3">{section.title}</h2>
+                <p className="font-sans text-sm text-paper-dim/70 leading-relaxed">{section.body}</p>
               </motion.div>
             ))}
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-16 border-t border-border pt-8 text-center"
+            className="mt-16 border-t border-white/[0.04] pt-8 text-center"
           >
             <div className="gold-rule mx-auto mb-6" />
-            <span className="font-mono text-[0.6rem] tracking-[0.2em] text-muted-foreground block mb-1">AUTHORIZED BY</span>
-            <span className="font-serif text-lg text-foreground font-bold block">Ivanildo Michel Monteiro Fernandes</span>
-            <span className="font-mono text-[0.55rem] tracking-[0.15em] text-primary block mt-1">{t("about_founder")} · NEXT PATH INFRA</span>
-            <span className="font-mono text-[0.55rem] tracking-[0.15em] text-destructive block mt-3">© 2026 · {t("footer_rights")} · INTERNATIONAL COPYRIGHT PROTECTED</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.25em] uppercase text-paper-dim/40 block mb-1">AUTHORIZED BY</span>
+            <span className="font-serif text-lg text-paper font-light block">Ivanildo Michel Monteiro Fernandes</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] text-paper-dim/40 block mt-1">{t("about_founder")} · NEXT PATH INFRA</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] text-paper-dim/40 block mt-3">© 2026 · {t("footer_rights")} · INTERNATIONAL COPYRIGHT PROTECTED</span>
           </motion.div>
         </div>
       </section>

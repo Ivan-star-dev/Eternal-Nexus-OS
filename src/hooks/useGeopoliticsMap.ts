@@ -128,7 +128,7 @@ export function useGeopoliticsMap() {
 
   // Replay existing verdicts on mount (cursor-based replay)
   useEffect(() => {
-    const existing = bus.replay({ types: ['tribunal.verdict'] });
+    const existing = bus.replay({}).filter((e) => e.type === 'tribunal.verdict');
     if (existing.length === 0) return;
 
     const features: VerdictFeature[] = existing.map((event) => {

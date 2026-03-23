@@ -265,15 +265,15 @@ function TrustMeter({
 }) {
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex items-center justify-between text-xs">
-        <span className="text-gray-400">{label}</span>
-        <span className="font-mono font-bold" style={{ color }}>
+      <div className="flex items-center justify-between">
+        <span className="font-serif text-sm text-paper-dim/80">{label}</span>
+        <span className="font-mono text-2xl font-light text-gold">
           {value}%
         </span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+      <div className="h-1.5 w-full overflow-hidden rounded-sm bg-white/10">
         <motion.div
-          className="h-full rounded-full"
+          className="h-full rounded-sm"
           style={{ backgroundColor: color }}
           initial={{ width: 0 }}
           animate={{ width: `${value}%` }}
@@ -293,11 +293,11 @@ function BroadcastFeed() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15 * i, duration: 0.5 }}
-          className="rounded-lg border border-white/10 bg-white/[0.03] p-4"
+          className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4 hover:border-white/[0.12] transition-all duration-200"
         >
           <div className="mb-2 flex items-center gap-2">
             <span
-              className="rounded px-2 py-0.5 text-[10px] font-bold tracking-wider"
+              className="rounded px-2 py-0.5 font-mono text-[0.48rem] tracking-[0.28em] uppercase"
               style={{
                 backgroundColor: item.categoryColor + "22",
                 color: item.categoryColor,
@@ -305,12 +305,12 @@ function BroadcastFeed() {
             >
               {item.category}
             </span>
-            <span className="text-[10px] text-gray-500">{item.time}</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">{item.time}</span>
           </div>
-          <p className="mb-3 text-sm leading-relaxed text-gray-200">
+          <p className="mb-3 font-serif text-sm text-paper-dim/80 leading-relaxed">
             {item.title}
           </p>
-          <button className="text-xs font-medium text-cyan-400 transition-colors hover:text-cyan-300">
+          <button className="border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] px-3 py-1 transition-all duration-200 hover:bg-gold/10">
             Ler mais &rarr;
           </button>
         </motion.div>
@@ -326,7 +326,7 @@ function NewsTicker() {
   const doubled = `${tickerText}   ●   ${tickerText}`;
 
   return (
-    <div className="overflow-hidden border-t border-white/10 bg-black/40 py-2">
+    <div className="overflow-hidden border-t border-white/[0.04] bg-black/40 py-2">
       <div
         className="whitespace-nowrap text-xs text-cyan-300/70"
         style={{
@@ -381,6 +381,11 @@ export default function CanalTransparencia() {
     setIsMuted((prev) => !prev);
   }, []);
 
+  // document.title
+  useEffect(() => {
+    document.title = "Canal de Transparência · Morabeza";
+  }, []);
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -391,13 +396,21 @@ export default function CanalTransparencia() {
   return (
     <div className="relative flex min-h-screen flex-col" style={{ background: "#04040e" }}>
       {/* ---- Header ---- */}
-      <header className="flex flex-col gap-3 border-b border-white/10 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-4">
-          <h1 className="text-lg font-bold tracking-widest text-white sm:text-xl">
-            CANAL DE TRANSPARÊNCIA{" "}
-            <span className="text-cyan-400">· MORABEZA</span>
-          </h1>
-          <LiveIndicator />
+      <header className="flex flex-col gap-3 border-b border-white/[0.04] px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-1">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+            Transparência · Cabo Verde
+          </span>
+          <div className="flex items-center gap-4">
+            <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+              Canal de Transparência{" "}
+              <span className="text-gold/80">· Morabeza</span>
+            </h1>
+            <LiveIndicator />
+          </div>
+          <p className="text-sm text-paper-dim/70 font-light">
+            Transmissão em tempo real — plataformas nacionais e internacionais
+          </p>
         </div>
         <PlatformBadges />
       </header>
@@ -411,14 +424,14 @@ export default function CanalTransparencia() {
           </div>
 
           {/* Voice controls + Trust meters */}
-          <div className="flex flex-col gap-4 border-t border-white/10 bg-black/30 px-6 py-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-4 border-t border-white/[0.04] bg-black/30 px-6 py-4 sm:flex-row sm:items-end sm:justify-between">
             {/* Voice controls */}
             <div className="flex items-center gap-3">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handlePlayPause}
-                className="gap-2 border-cyan-800 bg-cyan-950/40 text-cyan-300 hover:bg-cyan-900/50"
+                className="gap-2 border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] bg-transparent hover:bg-gold/10"
               >
                 {isSpeaking ? (
                   <Pause className="h-4 w-4" />
@@ -450,10 +463,10 @@ export default function CanalTransparencia() {
         </div>
 
         {/* Broadcast Feed */}
-        <aside className="flex w-full flex-col border-l border-white/10 bg-black/20 lg:w-[380px]">
-          <div className="border-b border-white/10 px-5 py-3">
-            <h2 className="text-sm font-bold tracking-wider text-gray-300">
-              FEED DE TRANSMISSÃO
+        <aside className="flex w-full flex-col border-l border-white/[0.04] bg-black/20 lg:w-[380px]">
+          <div className="border-b border-white/[0.04] px-5 py-3">
+            <h2 className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+              Feed de Transmissão
             </h2>
           </div>
           <div className="flex-1 overflow-y-auto p-4">

@@ -716,6 +716,10 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
 export default function NexusPage() {
   const { user } = useAuth();
   const [prompt, setPrompt] = useState("");
+
+  useEffect(() => {
+    document.title = "Nexus War Room — Eternal Nexus";
+  }, []);
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
   const [result, setResult] = useState<SwarmResult | null>(null);

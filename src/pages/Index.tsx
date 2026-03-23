@@ -11,6 +11,20 @@ import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
+import WorldPulse from "@/components/home/WorldPulse";
+import ScenarioComparison from "@/components/home/ScenarioComparison";
+import MetricsTimeline from "@/components/home/MetricsTimeline";
+import EarthLab from "@/components/home/EarthLab";
+import LearningPathway from "@/components/home/LearningPathway";
+import CollaborationHub from "@/components/home/CollaborationHub";
+import EcosystemMap from "@/components/home/EcosystemMap";
+import ManifestoSection from "@/components/home/ManifestoSection";
+import WorldClock from "@/components/home/WorldClock";
+import V10Proof from "@/components/home/V10Proof";
+import PlatformStats from "@/components/home/PlatformStats";
+import ResearchCallout from "@/components/home/ResearchCallout";
+import RoadmapTimeline from "@/components/home/RoadmapTimeline";
+import QuoteBlock from "@/components/home/QuoteBlock";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -93,17 +107,26 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 1, ease }}
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.92] tracking-tight"
+              className="font-light tracking-tight text-5xl md:text-7xl text-paper"
               id="main-heading"
             >
               Eternal Nexus
             </motion.h1>
 
             <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8, ease }}
+              className="text-paper-dim text-base md:text-lg font-light mt-4"
+            >
+              A scientific workspace for the world
+            </motion.p>
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8, ease }}
-              className="font-serif text-lg sm:text-xl md:text-2xl text-primary/80 mt-6 italic font-light"
+              transition={{ delay: 0.4, duration: 0.8, ease }}
+              className="font-serif text-lg sm:text-xl md:text-2xl text-primary/80 mt-5 italic font-light"
             >
               Infra. Produto. Governança. <span className="text-morabeza not-italic font-light">— com morabeza.</span>
             </motion.p>
@@ -111,7 +134,7 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
               className="font-sans text-sm sm:text-base text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed"
             >
               Megaprojetos de infraestrutura planetária — energia, computação, sistemas globais.
@@ -121,18 +144,20 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
               className="flex flex-wrap items-center justify-center gap-4 mt-10"
             >
+              {/* Primary CTA — gold outlined */}
               <a
                 href="#dossiers"
-                className="font-mono text-[0.65rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+                className="font-mono text-[0.65rem] tracking-[0.12em] border border-gold/60 text-gold px-6 py-3 hover:bg-gold/10 hover:shadow-[0_0_24px_-4px_hsl(42_78%_45%/0.4)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
               >
                 Ver Dossiês <ArrowRight className="w-3.5 h-3.5" />
               </a>
+              {/* Secondary CTA — ghost */}
               <Link
                 to="/atlas"
-                className="font-mono text-[0.65rem] tracking-[0.12em] border border-primary/40 text-primary px-6 py-3 hover:bg-primary/10 hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.3)] hover:border-primary/60 active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+                className="font-mono text-[0.65rem] tracking-[0.12em] border border-white/[0.12] text-muted-foreground px-6 py-3 hover:bg-white/[0.04] hover:text-foreground hover:border-white/20 active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
               >
                 <Globe className="w-3.5 h-3.5" /> Atlas Global
               </Link>
@@ -163,6 +188,9 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </section>
+
+        {/* ═══ PLATFORM STATS — Live Activity Strip ═══ */}
+        <PlatformStats />
 
         {/* ═══ DOSSIÊS — Apple-style staggered scroll reveals ═══ */}
         <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Dossiês estratégicos dos projetos ativos">
@@ -224,8 +252,59 @@ const Index = () => {
         {/* ═══ ÓRGÃOS DO ORGANISMO ═══ */}
         <OrganStatusGrid />
 
+        {/* ═══ RESEARCH CALLOUT — Methodology ═══ */}
+        <section className="relative py-8 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <ResearchCallout />
+        </section>
+
+        {/* ═══ EARTH LAB — V5 Research Core ═══ */}
+        <EarthLab />
+
+        {/* ═══ LEARNING PATHWAY — V6 Mastery ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <LearningPathway />
+        </section>
+
+        {/* ═══ COLLABORATION HUB — V7 Intelligence ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <CollaborationHub />
+        </section>
+
+        {/* ═══ ECOSYSTEM MAP — V8 Convergence ═══ */}
+        <EcosystemMap />
+
+        {/* ═══ ROADMAP TIMELINE — V1→V10 Progress ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <RoadmapTimeline />
+        </section>
+
+        {/* ═══ MANIFESTO — V9 Category Power ═══ */}
+        <ManifestoSection />
+
+        {/* ═══ WORLD CLOCK — Live Global Sync ═══ */}
+        <WorldClock />
+
+        {/* ═══ V10 PROOF — Universal Factory Proof ═══ */}
+        <V10Proof />
+
+        {/* ═══ QUOTE BLOCK — Rotating Manifesto ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-3xl mx-auto w-full">
+          <QuoteBlock />
+        </section>
+
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
+
+        {/* ═══ OBSERVATORY DATA ═══ */}
+        <section className="relative py-16 px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto w-full">
+          <WorldPulse />
+          <ScenarioComparison />
+        </section>
+
+        {/* ═══ HISTORICAL METRICS ═══ */}
+        <section className="relative py-8 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <MetricsTimeline />
+        </section>
 
         {/* ═══ CTA FOOTER — Apple-style reveal ═══ */}
         <section className="border-t border-border py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20 cinematic-vignette">

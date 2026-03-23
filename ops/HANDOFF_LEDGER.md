@@ -6,6 +6,30 @@
 
 ---
 
+## HANDOFF — 2026-03-23 | @claude | PLv8.1-COMPLETE | claude-sonnet-4-6
+
+**TASK:** PLv7 + PLv7.1 + PLv8 + PLv8.1 + V3 polish + branch-guard fix
+**BRANCH:** claude/website-quality-assessment-Bb6r7
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Componentes criados:**
+- `src/components/home/MetricsTimeline.tsx` — PLv8.1 historical indicators (World Bank API, 12 countries × 3 indicators, SVG line charts)
+- `src/components/home/WorldPulse.tsx` — PLv7.1 live ticker
+- `src/components/home/ScenarioComparison.tsx` — PLv8 scenario engine
+
+**Componentes modificados:**
+- `src/pages/Index.tsx` — all sections integrated
+- `src/components/NavBar.tsx` — active route gold underline
+- `src/components/Footer.tsx` — institutional copyright line
+- `ops/LIVE_STATE.md` — canonical branch updated to claude/website-quality-assessment-Bb6r7
+
+**V10 Line:** V1✓ V2✓ V3✓ V4✓ | V5→ em execução | V6→ em construção
+**Commits:** 443782a + 38952b9 + 5e439ea
+
+---
+
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 │ STATUS:done

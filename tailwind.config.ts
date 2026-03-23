@@ -68,6 +68,15 @@ export default {
           light: "hsl(var(--gold-light))",
           dim: "hsl(var(--gold-dim))",
         },
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          dim: "hsl(var(--paper-dim))",
+        },
+        ink: {
+          deep: "hsl(var(--ink-deep))",
+          dark: "hsl(var(--ink-dark))",
+          medium: "hsl(var(--ink-medium))",
+        },
         teal: {
           DEFAULT: "hsl(var(--teal))",
           light: "hsl(var(--teal-light))",
