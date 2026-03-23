@@ -134,24 +134,24 @@ const Geopolitics = () => {
         <div className="px-4 sm:px-6 md:px-16 lg:px-20 py-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <span className="font-mono text-[0.48rem] tracking-[0.2em] text-primary uppercase block mb-1">LIVE INTELLIGENCE MAP</span>
-              <h3 className="font-serif text-lg font-bold text-foreground flex items-center gap-2">
+              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-1">LIVE INTELLIGENCE MAP</span>
+              <h3 className="font-serif text-lg font-light text-paper flex items-center gap-2">
                 <Map className="w-4 h-4 text-primary" />
                 Geopolitical <span className="text-muted-foreground font-light italic">Overlay</span>
               </h3>
             </div>
             <button
               onClick={() => setMapExpanded(!mapExpanded)}
-              className="font-mono text-[0.55rem] tracking-[0.1em] text-primary border border-primary/30 px-3 py-1.5 hover:bg-primary/10 transition-colors"
+              className="font-mono text-[0.55rem] tracking-[0.15em] uppercase border border-white/[0.08] px-3 py-1.5 text-paper-dim/50 hover:border-white/[0.15] hover:text-paper-dim/80 transition-all duration-200"
             >
               {mapExpanded ? "COLLAPSE" : "EXPAND"}
             </button>
           </div>
         </div>
-        <div style={{ height: mapExpanded ? '70vh' : '400px', transition: 'height 0.4s ease' }}>
+        <div className="mx-4 sm:mx-6 md:mx-16 lg:mx-20 mb-6 bg-ink-medium/60 border border-white/[0.05] rounded-sm overflow-hidden" style={{ height: mapExpanded ? '70vh' : '400px', transition: 'height 0.4s ease' }}>
           <Suspense fallback={
-            <div className="w-full h-full flex items-center justify-center bg-[#0a0a0f]">
-              <span className="font-mono text-[0.6rem] text-primary/60 tracking-[0.2em] animate-pulse">LOADING MAP ENGINE...</span>
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="font-mono text-[0.55rem] tracking-[0.28em] text-gold/60 uppercase animate-pulse">Fetching intelligence feed…</span>
             </div>
           }>
             <GeopoliticsMap showVerdicts={true} />
@@ -162,8 +162,8 @@ const Geopolitics = () => {
       {/* Strategic Table */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 01 · O TABULEIRO 2026</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 01 · O TABULEIRO 2026</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             Nova Ordem <span className="text-muted-foreground font-light italic">Estratégica</span>
           </h2>
           <div className="gold-rule mb-8" />
@@ -198,8 +198,8 @@ const Geopolitics = () => {
       {/* Actors */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20 bg-card">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 02 · ATORES REAIS 2026</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 02 · ATORES REAIS 2026</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             Quem <span className="text-primary">Financia</span>
           </h2>
           <div className="gold-rule mb-10" />
@@ -229,8 +229,8 @@ const Geopolitics = () => {
       {/* Core Drill Cycle */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 03 · TECNOLOGIA REALISTA</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 03 · TECNOLOGIA REALISTA</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             Core Drill <span className="text-muted-foreground font-light italic">Cycle</span>
           </h2>
           <div className="gold-rule mb-6" />
@@ -261,8 +261,8 @@ const Geopolitics = () => {
       {/* Brazil — CIEP */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20 bg-card">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 04 · O PAPEL DO BRASIL</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 04 · O PAPEL DO BRASIL</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             CIEP — <span className="text-primary">Centro Internacional</span> <span className="text-muted-foreground font-light italic">de Engenharia Planetária</span>
           </h2>
           <div className="gold-rule mb-6" />
@@ -295,8 +295,8 @@ const Geopolitics = () => {
       {/* Financing */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 05 · FINANCIAMENTO REALISTA</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 05 · FINANCIAMENTO REALISTA</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             Estrutura de <span className="text-muted-foreground font-light italic">Capital</span>
           </h2>
           <div className="gold-rule mb-8" />
@@ -324,8 +324,8 @@ const Geopolitics = () => {
       {/* Risks */}
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20 bg-card">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">SECTION 06 · TENSÕES & RISCOS</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mt-4 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">SECTION 06 · TENSÕES & RISCOS</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-light text-paper mt-4 mb-2">
             Gestão de <span className="text-muted-foreground font-light italic">Riscos Geopolíticos</span>
           </h2>
           <div className="gold-rule mb-8" />
@@ -348,7 +348,7 @@ const Geopolitics = () => {
       <section className="border-t border-border py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[900px] mx-auto text-center">
           <div className="callout-gold p-6 sm:p-8 mb-8">
-            <span className="font-mono text-[0.55rem] tracking-[0.2em] text-primary block mb-4">CONCLUSÃO</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-4">CONCLUSÃO</span>
             <p className="font-serif text-lg sm:text-xl text-foreground/90 italic leading-relaxed">
               "A estratégia é simples: começar com 5km, provar conceito, escalar. Cada fase tem payback independente. O risco real é não começar — é chegar tarde quando a corrida já tiver vencedor."
             </p>
