@@ -321,6 +321,11 @@ export default function SalaDeCrise() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    document.title = "Crisis Room — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   const cfg = ALERT_CONFIG[alertLevel];
 
   // ── Data ──
@@ -380,12 +385,12 @@ export default function SalaDeCrise() {
                 <AlertTriangle className={`w-6 h-6 ${cfg.text}`} />
               </motion.div>
               <div>
-                <h1 className="text-sm font-bold tracking-[0.3em] text-gray-200 uppercase">
-                  Sala de Crise · Simulação de Resiliência
-                </h1>
-                <p className="text-xs text-gray-500 font-mono">
+                <p className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-0.5">
                   NEXUS EMERGENCY OPERATIONS CENTER v3.7
                 </p>
+                <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+                  Sala de Crise
+                </h1>
               </div>
             </div>
 
@@ -460,7 +465,7 @@ export default function SalaDeCrise() {
                   return (
                     <motion.div
                       key={city.name}
-                      className="bg-gray-900/60 border border-gray-800/60 rounded-lg p-3"
+                      className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-3"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + i * 0.1 }}
@@ -537,9 +542,9 @@ export default function SalaDeCrise() {
           >
             {/* Canvas overlay label */}
             <div className="absolute top-4 left-4 z-10">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded border border-gray-800/60">
-                <Radio className={`w-3 h-3 ${cfg.text} animate-pulse`} />
-                <span className="text-xs font-mono text-gray-400">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-sm rounded-sm border border-rose-500/20">
+                <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+                <span className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
                   SIMULAÇÃO 3D · {selectedCrisis ? selectedCrisis.toUpperCase() : "PANORÂMICA"}
                 </span>
               </div>
@@ -573,7 +578,11 @@ export default function SalaDeCrise() {
                 {powerSources.map((source, i) => (
                   <motion.div
                     key={source.name}
-                    className="bg-gray-900/60 border border-gray-800/60 rounded-lg p-3"
+                    className={`border rounded-sm p-3 ${
+                      source.status === "Critical"
+                        ? "bg-rose-500/[0.04] border-rose-500/20"
+                        : "bg-ink-medium/60 border-white/[0.05]"
+                    }`}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + i * 0.1 }}
@@ -658,11 +667,11 @@ export default function SalaDeCrise() {
             {kpis.map((kpi, i) => (
               <motion.div
                 key={kpi.label}
-                className="bg-gray-900/60 border border-gray-800/50 rounded-lg p-3"
+                className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                whileHover={{ borderColor: "rgba(255,255,255,0.15)", scale: 1.02 }}
+                whileHover={{ borderColor: "rgba(244,63,94,0.2)", scale: 1.02 }}
               >
                 <p className="text-xs text-gray-500 mb-1 font-mono">{kpi.label}</p>
                 <p className="text-xl font-mono font-bold text-gray-100">{kpi.value}</p>

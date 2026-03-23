@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronRight } from "lucide-react";
@@ -20,6 +20,12 @@ import projectData from "@/data/projects";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
+// V3: status badge colour map
+const statusBadgeClass: Record<string, string> = {
+  active: "text-yellow-400 border-yellow-400/40 bg-yellow-400/10",
+  completed: "text-emerald-400 border-emerald-400/40 bg-emerald-400/10",
+  "in-progress": "text-blue-400 border-blue-400/40 bg-blue-400/10",
+};
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -28,6 +34,12 @@ const ProjectPage = () => {
   const { t } = useLanguage();
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
+
+  // V3: dynamic document title
+  useEffect(() => {
+    document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, [project]);
 
   if (!project) {
     return (
@@ -93,7 +105,8 @@ const ProjectPage = () => {
             <span className="font-mono text-[0.48rem] sm:text-[0.55rem] tracking-[0.1em] text-muted-foreground/60">© 2026 Ivanildo Michel Monteiro Fernandes</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-bold text-foreground leading-[0.88] mb-3">
+          {/* V3: hero title — font-serif font-light text-paper */}
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper leading-[0.92] mb-3">
             {project.title.split(" ").slice(0, -1).join(" ")}<span className="text-primary">{project.title.split(" ").slice(-1)}</span>
           </motion.h1>
 

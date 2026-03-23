@@ -13,6 +13,7 @@ const InvestorBriefing = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    document.title = "DeltaSpine NL — Investor Briefing · Eternal Nexus";
     const handleScroll = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
@@ -45,7 +46,7 @@ const InvestorBriefing = () => {
 
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-            className="section-label mt-10 mb-5"
+            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mt-10 mb-5"
           >
             Infrastructure Investment Opportunity · Netherlands · 2026
           </motion.p>
@@ -53,7 +54,7 @@ const InvestorBriefing = () => {
           <motion.h1
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.95] text-foreground"
+            className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[0.95] text-paper"
           >
             DeltaSpine<br />
             <span className="text-gold">NL</span>
@@ -61,7 +62,7 @@ const InvestorBriefing = () => {
 
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}
-            className="font-sans text-lg font-light text-foreground/65 mt-7 max-w-[620px] leading-[1.7]"
+            className="text-sm text-paper-dim/70 font-light leading-relaxed mt-7 max-w-[620px]"
           >
             A modular, reversible subsurface framework installed along the Netherlands' 6,500 km canal
             network — simultaneously addressing the country's most critical legal, environmental and
@@ -78,11 +79,11 @@ const InvestorBriefing = () => {
               { val: "15–25%", unit: "", label: "N REDUCTION IN CANALS", delta: "↑ Deltares 2026 projection" },
               { val: "140", unit: "km/h", label: "CAPSULE CRUISE SPEED", delta: "↑ Phase 2, 2029+" },
             ].map((m) => (
-              <div key={m.label} className="bg-card p-6 md:p-7">
-                <div className="metric-value text-2xl md:text-[2.2rem]">
-                  {m.val}{m.unit && <span className="metric-unit">{m.unit}</span>}
+              <div key={m.label} className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-6 md:p-7 hover:border-white/[0.12] transition-colors">
+                <div className="font-mono text-3xl font-light text-gold">
+                  {m.val}{m.unit && <span className="font-mono text-base ml-0.5">{m.unit}</span>}
                 </div>
-                <div className="metric-label">{m.label}</div>
+                <div className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 mt-1">{m.label}</div>
                 <div className="font-mono text-[0.65rem] text-teal mt-1.5">{m.delta}</div>
               </div>
             ))}
@@ -109,14 +110,14 @@ const InvestorBriefing = () => {
       <RiskAssessment />
 
       {/* ═══ OTHER PROJECTS — Live Portfolio ═══ */}
-      <section className="border-t border-border bg-background py-16 px-8 md:px-20">
+      <section className="border-t border-white/[0.04] bg-background py-16 px-8 md:px-20">
         <div className="max-w-[1200px] mx-auto">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase">
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
               ETERNAL NEXUS PORTFOLIO
             </span>
-            <h3 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2 mb-8">
-              Live <span className="text-primary italic">Infrastructure</span> Pipeline
+            <h3 className="font-serif text-3xl md:text-4xl font-light text-paper mt-2 mb-8">
+              Live <span className="text-gold italic">Infrastructure</span> Pipeline
             </h3>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -134,15 +135,15 @@ const InvestorBriefing = () => {
                 transition={{ delay: i * 0.1 }}
               >
                 <Link to={p.path} className="block group">
-                  <div className="bg-card border border-border/30 rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.15)]">
+                  <div className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-5 transition-all duration-300 hover:border-white/[0.12]">
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-2 h-2 rounded-full" style={{ backgroundColor: p.color }} />
-                      <span className="font-mono text-[0.4rem] text-muted-foreground">{p.status} CLEARANCE</span>
+                      <span className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40">{p.status} CLEARANCE</span>
                     </div>
-                    <h4 className="font-mono text-sm font-bold text-foreground mb-1">{p.name}</h4>
-                    <p className="font-mono text-[0.45rem] text-muted-foreground mb-3">{p.loc}</p>
-                    <span className="font-mono text-xl font-bold" style={{ color: p.color }}>{p.val}</span>
-                    <span className="font-mono text-[0.4rem] text-muted-foreground block mt-1">estimated pipeline</span>
+                    <h4 className="font-mono text-sm font-light text-paper mb-1">{p.name}</h4>
+                    <p className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 mb-3">{p.loc}</p>
+                    <span className="font-mono text-3xl font-light text-gold">{p.val}</span>
+                    <span className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 block mt-1">estimated pipeline</span>
                   </div>
                 </Link>
               </motion.div>

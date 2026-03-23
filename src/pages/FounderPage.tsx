@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 
@@ -152,6 +153,10 @@ const PIONEERS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const FounderPage = () => {
+  useEffect(() => {
+    document.title = "Founder — Eternal Nexus OS";
+  }, []);
+
   return (
     <Layout>
       {/* ── HERO — The Architect ────────────────────────────────────────── */}
@@ -188,7 +193,7 @@ const FounderPage = () => {
             animate="visible"
             custom={0.3}
             variants={fadeIn}
-            className="section-label mb-6"
+            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-6"
           >
             FVL — Founder Vision Layer
           </motion.p>
@@ -198,7 +203,7 @@ const FounderPage = () => {
             animate="visible"
             custom={0.5}
             variants={fadeUp}
-            className="font-serif text-4xl md:text-6xl lg:text-[4.5rem] font-black text-foreground leading-[0.95]"
+            className="font-serif text-4xl md:text-5xl font-light text-paper leading-[0.95]"
           >
             The Architect
           </motion.h1>
@@ -241,7 +246,7 @@ const FounderPage = () => {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <span className="badge-status badge-active">Active build</span>
-            <span className="font-mono text-[0.6rem] tracking-[0.15em] text-muted-foreground">
+            <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase text-gold/70">
               Ivan · Founder + Architect
             </span>
           </motion.div>
