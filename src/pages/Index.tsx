@@ -21,6 +21,10 @@ import EcosystemMap from "@/components/home/EcosystemMap";
 import ManifestoSection from "@/components/home/ManifestoSection";
 import WorldClock from "@/components/home/WorldClock";
 import V10Proof from "@/components/home/V10Proof";
+import PlatformStats from "@/components/home/PlatformStats";
+import ResearchCallout from "@/components/home/ResearchCallout";
+import RoadmapTimeline from "@/components/home/RoadmapTimeline";
+import QuoteBlock from "@/components/home/QuoteBlock";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -185,6 +189,9 @@ const Index = () => {
           </motion.div>
         </section>
 
+        {/* ═══ PLATFORM STATS — Live Activity Strip ═══ */}
+        <PlatformStats />
+
         {/* ═══ DOSSIÊS — Apple-style staggered scroll reveals ═══ */}
         <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Dossiês estratégicos dos projetos ativos">
           <div className="max-w-[1200px] mx-auto">
@@ -245,6 +252,11 @@ const Index = () => {
         {/* ═══ ÓRGÃOS DO ORGANISMO ═══ */}
         <OrganStatusGrid />
 
+        {/* ═══ RESEARCH CALLOUT — Methodology ═══ */}
+        <section className="relative py-8 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <ResearchCallout />
+        </section>
+
         {/* ═══ EARTH LAB — V5 Research Core ═══ */}
         <EarthLab />
 
@@ -261,6 +273,11 @@ const Index = () => {
         {/* ═══ ECOSYSTEM MAP — V8 Convergence ═══ */}
         <EcosystemMap />
 
+        {/* ═══ ROADMAP TIMELINE — V1→V10 Progress ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <RoadmapTimeline />
+        </section>
+
         {/* ═══ MANIFESTO — V9 Category Power ═══ */}
         <ManifestoSection />
 
@@ -269,6 +286,11 @@ const Index = () => {
 
         {/* ═══ V10 PROOF — Universal Factory Proof ═══ */}
         <V10Proof />
+
+        {/* ═══ QUOTE BLOCK — Rotating Manifesto ═══ */}
+        <section className="relative py-16 px-6 md:px-16 max-w-3xl mx-auto w-full">
+          <QuoteBlock />
+        </section>
 
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
