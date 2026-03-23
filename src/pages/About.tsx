@@ -68,8 +68,8 @@ const About = () => {
 
       <section className="border-t border-border py-16 md:py-24 px-6 md:px-20 bg-card">
         <div className="max-w-[1200px] mx-auto">
-          <span className="section-label">{t("section_02")}</span>
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-3 mb-2">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] uppercase text-gold/60">{t("section_02")}</span>
+          <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground mt-3 mb-2">
             {t("about_ip")} <span className="text-muted-foreground font-normal">{t("about_ip_protection")}</span>
           </h2>
           <div className="gold-rule mb-10" />
