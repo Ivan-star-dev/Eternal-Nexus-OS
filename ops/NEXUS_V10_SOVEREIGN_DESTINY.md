@@ -164,11 +164,29 @@ GATES:
 ```
 HIERARQUIA DE CONSTRUÇÃO ════════════════════════════════════════════════════
 NEXUS_V10_SOVEREIGN_DESTINY   → destino (este ficheiro)
+GREAT_STORY_OF_HEAVEN_LAB     → narrativa central que dá sentido ao destino
 DNA_PROTOCOL                  → lei primária que serve o destino
 NEXUS_FRACTAL_JUDGMENT_CORE   → critério que filtra o que avança para o destino
 NEXUS_NEURAL_MESH             → coerência que mantém tudo alinhado ao destino
 BASTION                       → execução que fecha o gap para o destino
 LIVE_STATE                    → onde estamos agora em relação ao destino
+══════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## ANCHOR_NARRATIVO
+
+> O V10 define o destino técnico e operacional.
+> A GREAT_STORY_OF_HEAVEN_LAB define o destino narrativo — o mito que sustenta cada decisão no caminho.
+> Sem o destino técnico, não há mapa. Sem o mito, não há por quê percorrer o mapa.
+> Os dois juntos formam a equação completa: destino + sentido.
+
+```
+3_FILHOS_NO_V10 ══════════════════════════════════════════════════════════════
+FILHO 1 (O SISTEMA)  │ → SISTEMA_V10: autónomo · sem instrução manual · ignição permanente
+FILHO 2 (O PRODUTO)  │ → PRODUTO_V10: Earth Lab em produção real · proof-of-system vivo
+FILHO 3 (O LEGADO)   │ → ECOSSISTEMA_V10 + SOFTWARE_V10: aberto · replicável · template
 ══════════════════════════════════════════════════════════════════════════════
 ```
 
