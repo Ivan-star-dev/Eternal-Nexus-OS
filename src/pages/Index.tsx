@@ -4,7 +4,6 @@ import { ArrowRight, Globe, Heart, Github, ChevronUp, ChevronDown, ExternalLink 
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
-import { useLanguage } from "@/contexts/LanguageContext";
 import DossierCard from "@/components/home/DossierCard";
 import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
@@ -17,7 +16,6 @@ const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const Index = () => {
-  const { t } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
@@ -82,7 +80,7 @@ const Index = () => {
               className="font-sans text-sm sm:text-base text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed"
             >
               Criados por humanos + IA, validados por dados reais.
-              5 megaprojetos que redesenham energia, computação e sistemas planetários.
+              Heaven Lab · Bridge Nova · Nexus Cria. Cinco megaprojetos que redesenham energia, computação e sistemas planetários.
             </motion.p>
 
             <motion.div
@@ -93,15 +91,17 @@ const Index = () => {
             >
               <a
                 href="#dossiers"
+                aria-label="Heaven Lab — abrir dossiês estratégicos"
                 className="font-mono text-[0.65rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
               >
-                Ver Dossiês <ArrowRight className="w-3.5 h-3.5" />
+                Heaven Lab <ArrowRight className="w-3.5 h-3.5" />
               </a>
               <Link
                 to="/atlas"
+                aria-label="Bridge Nova — atlas global"
                 className="font-mono text-[0.65rem] tracking-[0.12em] border border-primary/40 text-primary px-6 py-3 hover:bg-primary/10 hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.3)] hover:border-primary/60 active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
               >
-                <Globe className="w-3.5 h-3.5" /> Atlas Global
+                <Globe className="w-3.5 h-3.5" /> Bridge Nova
               </Link>
             </motion.div>
 
@@ -219,9 +219,10 @@ const Index = () => {
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/nexus"
+                  aria-label="Nexus Cria — Parlamento AI"
                   className="font-mono text-[0.6rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
                 >
-                  <Heart className="w-3.5 h-3.5" /> Nexus — Parlamento AI
+                  <Heart className="w-3.5 h-3.5" /> Nexus Cria
                 </Link>
                 <Link
                   to="/tribunal"
