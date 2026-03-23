@@ -138,7 +138,7 @@ SUCCESSOR      │ Era Corporate Activation (Stage 7 — gate futuro)
 
 ### O que esta era abre
 
-- □ Stage 6 formal — após CYCLE_CLOSE_001
+- □ Stage 6 formal — após CYCLE-CLOSE-001
 - □ PLv7+ — expansão de produto (gate owner)
 - □ DIDACTIC_LAYER — primeira camada didática real
 - □ NEXUS_LIVING_CANON.md v1.0 → versionamento contínuo
