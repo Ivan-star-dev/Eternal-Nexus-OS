@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — onda de memória runtime fechada: 6 tasks · session backbone · provenance spine · SWMR · relay pool · entry hookup · resume guard · NexusFlowInspector SESSION panel · BASTION §5.1 + HANDOFF_LEDGER actualizados
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | RESUME-GUARD-REFINEMENT-001 — re_entry_point guard in NexusPage runSwarmStreaming · skip startSession on same prompt · 2-line change
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | REAL-ENTRY-SESSION-HOOKUP-001 — NexusPage + ProjectPage wired to session · commit a7bd4b6
