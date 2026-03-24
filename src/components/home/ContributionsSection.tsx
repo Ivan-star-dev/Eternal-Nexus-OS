@@ -37,6 +37,7 @@ const ContributionsSection = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const fetchContributions = useCallback(async () => {
+    if (!supabase) return;
     const { data } = await supabase
       .from("public_contributions")
       .select("*")
@@ -46,7 +47,7 @@ const ContributionsSection = () => {
   }, []);
 
   const fetchUserVotes = useCallback(async () => {
-    if (!user) return;
+    if (!user || !supabase) return;
     const { data } = await supabase
       .from("contribution_votes")
       .select("contribution_id, vote_type")
