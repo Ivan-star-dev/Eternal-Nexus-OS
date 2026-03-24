@@ -37,7 +37,13 @@ const Index = () => {
             Law: HEAVEN_LAB_REFERENCE_SURFACE.md
             Read order: 1. Globe  2. Trinity  3. First Proof
         */}
-        <ProductHero onHotspotClick={(id) => console.log("hotspot", id)} />
+        <ProductHero
+          onHotspotClick={(id) => {
+            if (process.env.NODE_ENV !== "production") {
+              console.log("hotspot", id);
+            }
+          }}
+        />
 
         {/* ═══ PLATFORM STATS — Live Activity Strip ═══ */}
         <PlatformStats />
