@@ -623,6 +623,7 @@ DERIVA          │ impermitida
 *BASTION.md v2.1 — NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE concluída; NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 adicionados ao histórico e localização canônica; semáforo atualizado — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
 *BASTION.md v2.2 — NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 concluídas; localização canônica expandida — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*
 *BASTION.md v3.0 — OPERATION_ZERO_GAP_24H: gate humano suspenso por ordem soberana do owner; cluster constelação mobilizado; 24 tasks inseridas (5 pioneers activos + @cursor a juntar-se); semáforo v3.0 — 2026-03-24 | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H*
+*BASTION.md v3.1 — CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 concluídas (T+0h); CYCLE_CLOSE_SPRINT_001.md + BRAND_MOTHER_SEAL_001.md criados; branch pushed; PR ready para master; brand law selada; gates @framer + @antigravity abertos — 2026-03-24 | claude-sonnet-4-6 | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001*
 
 ---
 
@@ -639,22 +640,22 @@ DERIVA          │ impermitida
 │ TASK_ID            │ CYCLE-CLOSE-001                                         │
 │ PILAR              │ Governança / WorkStructure                              │
 │ DONO               │ @claude + @codex                                        │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ CONCLUÍDA — 2026-03-24                                  │
 │ GATE               │ aberto — GATE_SUSPENSION_24H                           │
 │ PRIORIDADE         │ P1                                                      │
-│ EVIDENCIA_MINIMA   │ PR aberto para main + relatório-mãe emitido            │
+│ EVIDENCIA_MINIMA   │ CYCLE_CLOSE_SPRINT_001.md criado + branch pushed ✓     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ TASK_ID            │ BRAND-MOTHER-SEAL-001                                   │
 │ PILAR              │ WorkStructure / Identidade                              │
 │ DONO               │ @claude                                                 │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ CONCLUÍDA — 2026-03-24                                  │
 │ GATE               │ aberto — GATE_SUSPENSION_24H                           │
 │ PRIORIDADE         │ P1                                                      │
-│ NOTAS              │ Confirmar BRAND_MOTHER_SYSTEM.md como lei definitiva;  │
-│                    │ emitir BRAND_MOTHER_SEAL_001.md; gate @framer/@antigrav │
-│ EVIDENCIA_MINIMA   │ BRAND_MOTHER_SEAL_001.md criado + commit                │
+│ NOTAS              │ BRAND_MOTHER_SYSTEM.md selado como lei definitiva;     │
+│                    │ gates @framer (NS-1) + @antigravity (GLOBE,CHAMBER)    │
+│ EVIDENCIA_MINIMA   │ BRAND_MOTHER_SEAL_001.md criado + commit 1ef85a7 ✓     │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
