@@ -6,6 +6,113 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 | claude-sonnet-4-6
+
+**TASK:** MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — consolidated closure of the full memory runtime wave
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — added SESSION-AWARE-PRODUCT-INTEGRATION-001 · REAL-ENTRY-SESSION-HOOKUP-001 · RESUME-GUARD-REFINEMENT-001 · MEMORY-RUNTIME-CLOSURE-HANDOFF-001 to §5.1 concluídas table
+- `ops/HANDOFF_LEDGER.md` — this consolidated closure entry (append topo)
+- `ops/LIVE_STATE.md` — header updated to reflect post-wave state
+
+---
+
+### WAVE_CLOSURE_SUMMARY
+
+**Onda fechada:** CORE-SPINE-RUNTIME-RELAY-001 + ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 + SESSION-INTEGRATION wave
+
+**6 tasks entregues nesta onda:**
+
+| Task | O que ficou vivo |
+|---|---|
+| SESSION-BACKBONE-MINIMUM-001 | `src/lib/memory/types.ts` + `client.ts` + `vite-plugin-memory.ts` — entidade de sessão com id, face, fruit, reentry, is_resume |
+| PROVENANCE-SPINE-MINIMUM-001 | `scripts/memory/io.mjs` + `proof-loop.mjs` — escrita/leitura de sessão real em `ops/sessions/` + `ops/runtime/provenance/` |
+| SWMR-CLASSIFIER-MINIMUM-001 + TRINITY-ROUTING + FRUIT-DETECTION | `src/lib/memory/classifier.ts` + `routing.ts` + `fruit.ts` — SWMR 3-input proof: heaven_lab · bridge_nova · nexus_cria correctos |
+| DUAL_AI_RELAY_POOL-001 Layer C | `ops/relay/TASK_POOL.md` + `RESULT_POOL.md` + `AI_SESSION_LOG.md` — schema + seed real; CORE-SPINE family fechada |
+| REAL-ENTRY-SESSION-HOOKUP-001 | NexusPage: `startSession` no swarm fire · `updateFruit` + `updateReEntry` no done; ProjectPage: `startSession` no mount · `updateReEntry` na tab change |
+| RESUME-GUARD-REFINEMENT-001 | Guard em `runSwarmStreaming`: skip `startSession` se `re_entry_point` inclui primeiros 30 chars do prompt actual — elimina overwrite de sessão no resume path |
+
+---
+
+### O_QUE_E_AGORA_REAL
+
+O organismo tem o seu primeiro músculo real de continuidade:
+- sessions persistem por localStorage
+- sessions classificam qual filho do trinity serve o prompt (SWMR)
+- sessions registam o fruto do trabalho (fruit detector)
+- sessions têm re-entry point para retomar investigação anterior
+- entry points reais (NexusPage + ProjectPage) disparam sessão ao usar o produto
+- resume guard protege a sessão de overwrite ao reutilizar o mesmo prompt
+- relay pool tem schema real para coordenação multi-AI (ops/relay/)
+- NexusFlowInspector expõe painel SESSION (face · next · reentry · fruit) visível em dev
+
+---
+
+### O_QUE_MUDOU_NO_PRODUTO
+
+**Antes desta onda:** produto stateless — cada submissão começava do zero; sem memória de quem o utilizador é, o que explorou, ou para onde vai.
+
+**Depois desta onda:** produto session-aware — sessão viva; face identificada; re-entry point salvo; fruto capturado; resume detectado; SWMR router activo.
+
+Não é UI nova. É músculo de continuidade que o produto antes não tinha.
+
+---
+
+### O_QUE_NAO_FOI_ABERTO
+
+- Sem novos routes
+- Sem nova arquitectura
+- Sem expansão de Wonder Layer
+- Sem V5
+- Sem corp backlane
+- Sem nova feature de produto
+- SEQUENCE_LAW intacta: V3 → V4 → V5
+
+---
+
+### PROXIMO_PASSO_LOGICO
+
+```
+PRÓXIMO: V3-FLAGSHIP-SURFACE-CLOSE-001
+PILAR: WorkVisual
+EXECUTOR: @framer · @antigravity · @claude (WorkVisual)
+GATE: aberto (ORDEM SOBERANA 2026-03-24 activa)
+OBJECTIVO: fechar a superfície flagship para que o corpo pare de ficar atrás do cânone
+FOCO: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling
+BLOQUEIO: nenhum — músculo de sessão está vivo; pode reflectir-se subtilmente na superfície
+```
+
+---
+
+### O_QUE_NAO_DEVE_SER_REABERTO
+
+```
+LOCK-1: Session Backbone — não redesenhar; o minimum está vivo
+LOCK-2: SWMR classifier — não expandir; 3 inputs correctos são suficientes para V3/V4
+LOCK-3: Relay Pool schema — não alterar sem gate do owner; ops/relay/ é fonte real
+LOCK-4: Sequence Law — V3 fecha antes de V4; V4 fecha antes de V5; sem saltos
+LOCK-5: Esta onda de memória — fechada; qualquer expansão é tarefa separada com gate novo
+```
+
+---
+
+### COMMITS_DESTA_ONDA
+
+```
+22a3d5f — ORGANISM_MINIMUM_MEMORY-001 Layer A (backbone + provenance)
+95068ae — SWMR_MINIMUM_RUNTIME-001 (classifier + routing + fruit)
+c830609 — ORGANISM_MINIMUM_MEMORY-001 Layer B + relay coupling
+a7bd4b6 — REAL-ENTRY-SESSION-HOOKUP-001
+e296451 — SESSION-AWARE-PRODUCT-INTEGRATION-001
+[resume guard] — RESUME-GUARD-REFINEMENT-001 (NexusPage 2-line guard)
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | RESUME-GUARD-REFINEMENT-001 | claude-sonnet-4-6
 
 **TASK:** RESUME-GUARD-REFINEMENT-001 — prevent unnecessary session overwrite on same prompt
