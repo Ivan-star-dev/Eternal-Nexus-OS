@@ -6,10 +6,13 @@ interface StateRow {
   accent?: "teal" | "gold" | "red" | "dim";
 }
 
+export const BRANCH_CANONICO = "claude/rebuild-bastion-core-rihGX";
+export const BRANCH_SISTEMA = "cursor/system-face-core-d9db";
+
 const STATE_ROWS: StateRow[] = [
   { key: "FASE_ATIVA", value: "Bulking Controlado do Produto", accent: "teal" },
-  { key: "BRANCH_CANÔNICO", value: "claude/rebuild-bastion-core-rihGX", accent: "teal" },
-  { key: "BRANCH_SISTEMA", value: "cursor/system-face-core-d9db", accent: "gold" },
+  { key: "BRANCH_CANÔNICO", value: BRANCH_CANONICO, accent: "teal" },
+  { key: "BRANCH_SISTEMA", value: BRANCH_SISTEMA, accent: "gold" },
   { key: "EXECUTOR_ATIVO", value: "@claude + todos os pioneiros (sprint V5/V6)", accent: "dim" },
   { key: "CAMADA_ATUAL", value: "V4 done · V5 EarthLab em exec · V6 preview", accent: "dim" },
   { key: "ESTADO_GERAL", value: "SPRINT ATIVO — V5 Research Core + V6 preview", accent: "gold" },
