@@ -6,8 +6,8 @@
 - **Task T-006 completed.** `STACK_REGISTRY.md` natively scored PMTiles and Protomaps as `✅ ADOPT` and Yjs as `🟡 LAB-VALIDATING`.
 - My full sequence of Ops requirements is unequivocally **done** and my backlog is **empty**.
 
-## 2. TOP 7 IDEAS (aligned + outstanding + makeable)
-(Inherited from prior ops triage, skipping 3-7 to preserve bandwidth for immediate gate targets)
+## 2. TOP 2 IDEAS (aligned + outstanding + makeable)
+(Two immediate gate targets surfaced from prior ops triage.)
 1. **The Core Spinal Nerve (Task T-002/C1):** `bus.ts` event stream must be hooked directly into React hooks without violating idempotency requirements. (Tag: `@claude`)
 2. **Apply The Shell Surface (Task C2 + U1):** The MapLibre base component needs the `pmtiles` adapter loaded and visually styled. (Tags: `@claude`, `@copilot`)
 
