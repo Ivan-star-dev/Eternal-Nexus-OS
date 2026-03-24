@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | RESUME-GUARD-REFINEMENT-001 — re_entry_point guard in NexusPage runSwarmStreaming · skip startSession on same prompt · 2-line change
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | REAL-ENTRY-SESSION-HOOKUP-001 — NexusPage + ProjectPage wired to session · commit a7bd4b6
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | SESSION-AWARE-PRODUCT-INTEGRATION-001 — SessionContext (localStorage) wired · classify+route on cold start · resume branch from stored session · NexusFlowInspector SESSION panel (face · next · reentry · fruit) · TypeScript clean · commit e296451

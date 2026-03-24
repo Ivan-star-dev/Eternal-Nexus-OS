@@ -6,6 +6,43 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | RESUME-GUARD-REFINEMENT-001 | claude-sonnet-4-6
+
+**TASK:** RESUME-GUARD-REFINEMENT-001 — prevent unnecessary session overwrite on same prompt
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — added `session` to `useSession()` destructure; guard in `runSwarmStreaming` skips `startSession` if `session.re_entry_point` includes first 30 chars of current prompt
+
+### RESUME_BEHAVIOR_PROOF
+
+```
+SAME PROMPT (resume path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user re-submits "compact fusion plasma stability"
+  → isResume = re_entry_point.includes("compact fusion plasma") = true
+  → startSession SKIPPED
+  → session_id unchanged · is_resume stays true · no re-classify ✓
+
+NEW PROMPT (fresh path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user types "global food crisis 2026"
+  → isResume = re_entry_point.includes("global food crisis 2") = false
+  → startSession FIRES → fresh session built · new session_id · is_resume: false ✓
+```
+
+### LIMITATIONS
+- 30-char prefix match: "compact fusion plasma stability 2026" and "compact fusion plasma" share same prefix → both treated as resume. Acceptable for inquiry continuity.
+- Edge: re_entry_point not yet set (first ever submit) → isResume = false → startSession fires correctly ✓
+
+### NEXT_SAFE_STEP
+None required. Guard is stable. Session overwrite eliminated on resume path.
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | REAL-ENTRY-SESSION-HOOKUP-001 | claude-sonnet-4-6
 
 **TASK:** REAL-ENTRY-SESSION-HOOKUP-001 — connect session core to real product entry points

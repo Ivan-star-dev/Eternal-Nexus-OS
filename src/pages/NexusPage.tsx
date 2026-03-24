@@ -716,7 +716,7 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
 
 export default function NexusPage() {
   const { user } = useAuth();
-  const { startSession, updateFruit, updateReEntry } = useSession();
+  const { session, startSession, updateFruit, updateReEntry } = useSession();
   const [prompt, setPrompt] = useState("");
 
   useEffect(() => {
@@ -784,7 +784,8 @@ export default function NexusPage() {
     if (!prompt.trim() || !user) return;
     setLoading(true);
     setResult(null);
-    startSession(prompt.trim(), "global-swarm-synthesis");
+    const isResume = !!session?.re_entry_point?.includes(prompt.trim().slice(0, 30));
+    if (!isResume) startSession(prompt.trim(), "global-swarm-synthesis");
     setStreamingMeta("");
     setActiveTab("synthesis");
     setAgentStatuses({ climate: "pending", economy: "pending", health: "pending", meta: "pending" });
