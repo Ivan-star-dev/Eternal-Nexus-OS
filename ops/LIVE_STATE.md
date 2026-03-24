@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | REAL-ENTRY-SESSION-HOOKUP-001 — NexusPage + ProjectPage wired to session · commit a7bd4b6
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | SESSION-AWARE-PRODUCT-INTEGRATION-001 — SessionContext (localStorage) wired · classify+route on cold start · resume branch from stored session · NexusFlowInspector SESSION panel (face · next · reentry · fruit) · TypeScript clean · commit e296451
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | CORE-SPINE-RUNTIME-RELAY-001 CLOSED — DUAL_AI_RELAY_POOL-001 Layer C complete · TASK_POOL.md + RESULT_POOL.md + AI_SESSION_LOG.md created · full family closed (Layer A + B + C · 10 tasks total)

@@ -6,6 +6,43 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | REAL-ENTRY-SESSION-HOOKUP-001 | claude-sonnet-4-6
+
+**TASK:** REAL-ENTRY-SESSION-HOOKUP-001 — connect session core to real product entry points
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** a7bd4b6
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — `startSession(prompt, "global-swarm-synthesis")` on swarm fire; `updateFruit(synthesis.slice(0,120))` + `updateReEntry("resume-swarm:<prompt>")` on swarm done
+- `src/pages/ProjectPage.tsx` — `startSession(project.title, "project-review")` on mount; `updateReEntry(activeTab)` on tab change
+
+### REAL_ENTRY_BEHAVIOR
+
+```
+NexusPage:
+  user types "compact fusion engine analysis" → submits
+  → startSession("compact fusion engine analysis", "global-swarm-synthesis")
+  → session: { active_face: heaven_lab, next_expected_step: "Open structured analysis..." }
+  swarm done → synthesis arrives
+  → updateFruit("Compact fusion engines represent a pivotal...")
+  → updateReEntry("resume-swarm:compact fusion engine analysis")
+
+  reload → Inspector: RESUME · face: heaven_lab · reentry: resume-swarm:compact...
+
+ProjectPage:
+  user opens /project/deltaspine-nl
+  → startSession("DeltaSpine NL", "project-review")
+  user clicks "technical" tab → updateReEntry("technical")
+  reload → Inspector: RESUME · reentry: technical
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | SESSION-AWARE-PRODUCT-INTEGRATION-001 | claude-sonnet-4-6
 
 **TASK:** SESSION-AWARE-PRODUCT-INTEGRATION-001 — connect memory muscle to visible product behavior
