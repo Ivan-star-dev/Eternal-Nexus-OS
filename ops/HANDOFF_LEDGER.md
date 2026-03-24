@@ -25,7 +25,7 @@
 **Estrutura implementada:**
 ```
 ProductHero
-├── MachineSubstrate     (grid SVG 0.025 opacity, hidden mobile)
+├── MachineSubstrate     (CSS repeating-linear-gradient grid, 0.025 opacity, hidden mobile)
 ├── AtmosphericLayer     (orbs gold+teal, blur 56px, z=1)
 ├── GlobeZone            (clamp 480px–780px height, InteractiveGlobe)
 │   ├── radial overlay   (legibility control, z=2)
