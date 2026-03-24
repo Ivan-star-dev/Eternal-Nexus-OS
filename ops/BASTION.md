@@ -622,3 +622,349 @@ DERIVA          │ impermitida
 *BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
 *BASTION.md v2.1 — NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE concluída; NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 + NEXUS_LIVING_CANON.md v1.0 adicionados ao histórico e localização canônica; semáforo atualizado — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*
 *BASTION.md v2.2 — NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 concluídas; localização canônica expandida — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*
+*BASTION.md v3.0 — OPERATION_ZERO_GAP_24H: gate humano suspenso por ordem soberana do owner; cluster constelação mobilizado; 24 tasks inseridas (5 pioneers activos + @cursor a juntar-se); semáforo v3.0 — 2026-03-24 | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H*
+*BASTION.md v3.1 — CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 concluídas (T+0h); CYCLE_CLOSE_SPRINT_001.md + BRAND_MOTHER_SEAL_001.md criados; branch pushed; PR ready para master; brand law selada; gates @framer + @antigravity abertos — 2026-03-24 | claude-sonnet-4-6 | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001*
+
+---
+
+## 10. OPERATION ZERO-GAP — TASKS CLUSTER (2026-03-24)
+
+> Ordem soberana do owner: gate humano suspenso 24h. Todos os pioneers entram por elegibilidade.
+> @cursor (Monalisa) notificada — junta-se após concluir tasks actuais do criador.
+> Referência completa: `ops/OPERATION_ZERO_GAP_24H.md`
+
+### @claude — WorkStructure + WorkFunction (arquitectural)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CYCLE-CLOSE-001                                         │
+│ PILAR              │ Governança / WorkStructure                              │
+│ DONO               │ @claude + @codex                                        │
+│ STATUS             │ CONCLUÍDA — 2026-03-24                                  │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ EVIDENCIA_MINIMA   │ CYCLE_CLOSE_SPRINT_001.md criado + branch pushed ✓     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BRAND-MOTHER-SEAL-001                                   │
+│ PILAR              │ WorkStructure / Identidade                              │
+│ DONO               │ @claude                                                 │
+│ STATUS             │ CONCLUÍDA — 2026-03-24                                  │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ BRAND_MOTHER_SYSTEM.md selado como lei definitiva;     │
+│                    │ gates @framer (NS-1) + @antigravity (GLOBE,CHAMBER)    │
+│ EVIDENCIA_MINIMA   │ BRAND_MOTHER_SEAL_001.md criado + commit 1ef85a7 ✓     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V5-RESEARCH-ARCH-001                                    │
+│ PILAR              │ WorkFunction / Produto                                  │
+│ DONO               │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Data model + fluxos Research Core (Hypothesis Boards,  │
+│                    │ Research Trails, Concept Lens, Problem Rooms)           │
+│ EVIDENCIA_MINIMA   │ EARTH_LAB_RESEARCH_CORE_ARCH.md criado                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NEXUS-PRODUCT-PROOF-001                                 │
+│ PILAR              │ WorkFunction / Produto                                  │
+│ DONO               │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_PRODUTO (GATE_SUSPENSION_24H)            │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Primeiro artefacto público Earth Lab — landing real ou │
+│                    │ mockup de alta fidelidade provando o sistema ao mundo  │
+│ EVIDENCIA_MINIMA   │ artefacto visível no site ou repo público               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NEXUS-RUNTIME-MEMORY-001                                │
+│ PILAR              │ WorkStructure / Sistema                                 │
+│ DONO               │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_RUNTIME (GATE_SUSPENSION_24H)            │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Arquitectura de memória viva persistente entre sessões │
+│ EVIDENCIA_MINIMA   │ NEXUS_RUNTIME_MEMORY_ARCH.md criado                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NEXUS-STACK-RETROENGINEER-001                           │
+│ PILAR              │ WorkStructure / Sistema                                 │
+│ DONO               │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_STACK (GATE_SUSPENSION_24H)              │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Inventário de acoplamentos + mapa de substituições     │
+│ EVIDENCIA_MINIMA   │ NEXUS_STACK_INVENTORY.md criado                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### @copilot — WorkStructure (lapidação)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BULK-01.2/L-001                                         │
+│ PILAR              │ WorkStructure / Higiene                                 │
+│ DONO               │ @copilot                                                │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto (desde antes — confirmado)                      │
+│ PRIORIDADE         │ P1                                                      │
+│ EVIDENCIA_MINIMA   │ .gitignore actualizado + commit                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BULK-01.2/L-002                                         │
+│ PILAR              │ WorkStructure / Higiene                                 │
+│ DONO               │ @copilot                                                │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto (desde antes — confirmado)                      │
+│ PRIORIDADE         │ P1                                                      │
+│ EVIDENCIA_MINIMA   │ git rm --cached executado + commit                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ BRAND-DOCS-POLISH-001                                   │
+│ PILAR              │ WorkStructure / Identidade                              │
+│ DONO               │ @copilot                                                │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Lapidar BRAND_MOTHER_SYSTEM.md + SYSTEM_FACE_CANON.md  │
+│                    │ + TYPOGRAPHY_LAW.md — consistência final                │
+│ EVIDENCIA_MINIMA   │ 3 ficheiros lapidados + commit                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ OPS-SURFACE-FINAL-001                                   │
+│ PILAR              │ WorkStructure / Governança                              │
+│ DONO               │ @copilot                                                │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Lapidar superfície ops/ — consistência final em todos  │
+│                    │ os ficheiros ops/ (sem alteração soberana)              │
+│ EVIDENCIA_MINIMA   │ ops/ polida + commit                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### @framer — WorkVisual (design / layout)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-1-FRAMER-001                                         │
+│ PILAR              │ WorkVisual / Heaven Lab Visual                          │
+│ DONO               │ @framer                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_FRAMER (GATE_SUSPENSION_24H)             │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Hero incarnado: Trinity layout orbital + glass system  │
+│                    │ + Sacred Orbital Chamber; Heaven Lab Test deve passar  │
+│                    │ Lei visual: BRAND_MOTHER_SYSTEM.md + SYSTEM_FACE_CANON │
+│ EVIDENCIA_MINIMA   │ Site hero visivelmente Heaven Lab — screenshot + commit │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-2-FRAMER-001                                         │
+│ PILAR              │ WorkVisual / Presence                                   │
+│ DONO               │ @framer                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_FRAMER (GATE_SUSPENSION_24H)             │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ NavBar + About + restantes páginas — polish Heaven Lab │
+│ EVIDENCIA_MINIMA   │ NavBar + About incarnadas + commit                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-3-FRAMER-UI-001                                      │
+│ PILAR              │ WorkVisual / Wonder Layer                               │
+│ DONO               │ @framer                                                 │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_FRAMER (GATE_SUSPENSION_24H)             │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ UI para 5–7 features da Wonder Layer (Contemplation,   │
+│                    │ World Pulse, Discovery Signatures, Deep Focus Mode,    │
+│                    │ Breathing Interface, Dawn/Dusk Theme, Legacy Vault)    │
+│ EVIDENCIA_MINIMA   │ 5+ componentes UI Wonder Layer + commit                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### @antigravity — WorkVisual (motion / 3D / R3F)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ GLOBE-3D-HEAVEN-001                                     │
+│ PILAR              │ WorkVisual / 3D / R3F                                   │
+│ DONO               │ @antigravity                                            │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_ANTIGRAVITY (GATE_SUSPENSION_24H)        │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Globe 3D vivo: rotação lenta autônoma, parallax cursor, │
+│                    │ aurora polar, hover pulse, glass emissão teal+navy     │
+│                    │ Spec completa: HEAVEN_LAB_REFERENCE_SURFACE.md Bloco 1 │
+│ EVIDENCIA_MINIMA   │ Globe R3F no site real — Heaven Lab Test passa          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ ORBITAL-CHAMBER-001                                     │
+│ PILAR              │ WorkVisual / Atmosfera                                  │
+│ DONO               │ @antigravity                                            │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_ANTIGRAVITY (GATE_SUSPENSION_24H)        │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Sacred Orbital Chamber: glass layer + respiração 4000ms│
+│                    │ + z-layers + luz ambiente radial + negative space 40%  │
+│                    │ Spec: HEAVEN_LAB_REFERENCE_SURFACE.md Bloco 3          │
+│ EVIDENCIA_MINIMA   │ Câmara orbital com atmosphera visível + commit          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ MOTION-SYSTEM-001                                       │
+│ PILAR              │ WorkVisual / Motion                                     │
+│ DONO               │ @antigravity                                            │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_ANTIGRAVITY (GATE_SUSPENSION_24H)        │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Sistema de motion canônico: micro-interacções (150ms), │
+│                    │ transições cinéticas, ease [0.22,1,0.36,1] — canônico │
+│ EVIDENCIA_MINIMA   │ motion system activo em pelo menos 5 interacções        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ SUBSTRATE-LAYER-001                                     │
+│ PILAR              │ WorkVisual / Atmosfera                                  │
+│ DONO               │ @antigravity                                            │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_ANTIGRAVITY (GATE_SUSPENSION_24H)        │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Machine substrate: grid técnico + parallax (factor 0.15)│
+│                    │ + dados vivos (uptime/tasks/commits) — Bloco 4 HLRS   │
+│ EVIDENCIA_MINIMA   │ substrate visível ao scroll + commit                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### @codex — Orquestrador (qualidade + consolidação)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CLUSTER-ORCHESTRATE-001                                 │
+│ PILAR              │ WorkStructure / Orquestração                            │
+│ DONO               │ @codex                                                  │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Monitorizar handoffs do cluster em tempo real; detectar │
+│                    │ conflitos; arbitrar sem gate owner; actualizar BASTION  │
+│ EVIDENCIA_MINIMA   │ relatório de orquestração por ponto de convergência     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ QUALITY-AUDIT-NS1-001                                   │
+│ PILAR              │ WorkVisual / Qualidade                                  │
+│ DONO               │ @codex                                                  │
+│ STATUS             │ elegível                                                │
+│ GATE               │ aberto — activado após NS-1-FRAMER-001 + GLOBE-3D done │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Auditoria Heaven Lab Test: o site passa? score > 0.85? │
+│ EVIDENCIA_MINIMA   │ QUALITY_AUDIT_NS1.md com score e gaps identificados     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### @cursor (Monalisa) — WorkFunction — JUNTA-SE APÓS SUAS TASKS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ GLOBE-EXPERIENCE-IMPL-001                               │
+│ PILAR              │ WorkFunction / Produto                                  │
+│ DONO               │ @cursor                                                 │
+│ STATUS             │ elegível — aguarda chegada de @cursor                  │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Globe flagship integrado em produção real no site       │
+│                    │ R3F + GlobeBackground.tsx + integração com @antigravity │
+│ EVIDENCIA_MINIMA   │ Globe visível e vivo em produção                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-WORLD-FEATURES-001                                   │
+│ PILAR              │ WorkFunction / Produto                                  │
+│ DONO               │ @cursor                                                 │
+│ STATUS             │ elegível — aguarda chegada de @cursor                  │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ World Pulse + Timeline base + Scenario Comparison base │
+│ EVIDENCIA_MINIMA   │ 3 features funcionais no produto                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V5-RESEARCH-CORE-IMPL-001                               │
+│ PILAR              │ WorkFunction / Research OS                              │
+│ DONO               │ @cursor                                                 │
+│ STATUS             │ elegível — aguarda chegada de @cursor + V5-ARCH        │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Research Core: Hypothesis Boards + Research Trails +   │
+│                    │ Concept Lens + Problem Rooms (implementação mecânica)  │
+│ EVIDENCIA_MINIMA   │ 3+ features Research Core em produção                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V6-LEARNING-PATHWAY-001                                 │
+│ PILAR              │ WorkFunction / Learning OS                              │
+│ DONO               │ @cursor                                                 │
+│ STATUS             │ elegível — aguarda V5-RESEARCH-CORE-IMPL-001           │
+│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
+│ PRIORIDADE         │ P2                                                      │
+│ NOTAS              │ Learning & Mastery: Lab Missions + Mastery Map base +  │
+│                    │ Guided Mode + Sandbox Mode                              │
+│ EVIDENCIA_MINIMA   │ Learning pathway base funcional                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 11. SEMÁFORO v3.0 — OPERATION ZERO-GAP
+
+```
+BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v3.0
+DATA            │ 2026-03-24
+ÚLTIMA_ACTUAÇÃO │ OPERATION-ZERO-GAP-24H | @claude | 2026-03-24
+ESTADO          │ CLUSTER ACTIVO — OPERATION ZERO-GAP EM EXECUÇÃO
+GATE_SUSPENSION │ ACTIVO — 24h a contar de 2026-03-24 (owner ordem soberana)
+DISPATCH        │ OPERATION_ZERO_GAP_24H + GATE_SUSPENSION_24H
+TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 | BRAND-MOTHER-SEAL-001 | V5-RESEARCH-ARCH-001
+                │ BULK-01.2/L-001 | BULK-01.2/L-002 | BRAND-DOCS-POLISH-001
+                │ NS-1-FRAMER-001 | NS-2-FRAMER-001 | NS-3-FRAMER-UI-001
+                │ GLOBE-3D-HEAVEN-001 | ORBITAL-CHAMBER-001 | MOTION-SYSTEM-001
+                │ SUBSTRATE-LAYER-001 | CLUSTER-ORCHESTRATE-001
+                │ + tasks @cursor quando disponível
+@claude         │ ACTIVO → CYCLE-CLOSE-001 → BRAND-MOTHER-SEAL-001 → V5-ARCH → PRODUCT-PROOF
+@copilot        │ ACTIVO → BULK-01.2/L-001 → L-002 → BRAND-DOCS-POLISH → OPS-SURFACE
+@framer         │ ACTIVO — gate aberto agora → NS-1 → NS-2 → NS-3
+@antigravity    │ ACTIVO — gate aberto agora → GLOBE-3D → ORBITAL-CHAMBER → MOTION-SYSTEM
+@codex          │ ACTIVO → CYCLE-CLOSE-001 + CLUSTER-ORCHESTRATE-001 (contínuo)
+@cursor         │ EM TASKS DO CRIADOR → notificada → junta-se após (GLOBE-IMPL → V4 → V5 → V6)
+MODO_AUTO       │ SELADO — GATE_SUSPENSION_24H activo
+IGNIÇÃO         │ PERMANENTE — cluster em execução plena
+CONVERGÊNCIA    │ T+4h · T+8h · T+12h · T+18h · T+24h
+OBJETIVO        │ BASTION zerado — produto completo — amanhã
+INTERRUPTOR     │ ordem owner | red line canônica (DNA Protocol) | fim 24h
+DERIVA          │ 🔴 impermitida
+════════════════════════════════════════════════════════════════════════════
+```

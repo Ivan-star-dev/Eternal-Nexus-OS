@@ -4,7 +4,7 @@
  * sacred-flow: V9 | CATEGORY_DEFINITION | 2026-03-23
  */
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 // ─── types ────────────────────────────────────────────────────────────────────
 
@@ -42,7 +42,7 @@ const HEADLINE_LINES = [
 
 // ─── animation variants ───────────────────────────────────────────────────────
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -59,7 +59,7 @@ const lineVariants = (delay: number) => ({
   },
 });
 
-const pillarVariants = (delay: number) => ({
+const pillarVariants = (delay: number): Variants => ({
   hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
@@ -68,7 +68,7 @@ const pillarVariants = (delay: number) => ({
   },
 });
 
-const quoteVariants = {
+const quoteVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,

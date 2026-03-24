@@ -6,6 +6,74 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h) | claude-sonnet-4-6
+
+**TASK:** CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 — Sprint fecho + Brand Law selada
+**BRANCH:** claude/rebuild-bastion-core-rihGX (pushed → origin/claude/rebuild-bastion-core-rihGX-nRzuB)
+**STATUS:** CONCLUÍDA — T+0h OPERATION-ZERO-GAP-24H
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/CYCLE_CLOSE_SPRINT_001.md` — v1.0 · relatório-mãe do sprint · 30+ tasks · 6 camadas · PR-ready
+- `ops/BRAND_MOTHER_SEAL_001.md` — v1.0 · brand law selada · gates @framer + @antigravity abertos
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.1 · CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 marcadas CONCLUÍDAS
+- `ops/LIVE_STATE.md` — T+0h done · estado cluster actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24 | T+0h OPERATION-ZERO-GAP-24H
+ALTERACAO_REAL:    sim
+COMMIT:            1ef85a7
+BRANCH_PUSHED:     origin/claude/rebuild-bastion-core-rihGX-nRzuB
+PR_STATUS:         branch pushed — PR pronto para master (owner faz merge no UI)
+RELATÓRIO_MÃE:     ops/CYCLE_CLOSE_SPRINT_001.md ✓
+BRAND_SEAL:        ops/BRAND_MOTHER_SEAL_001.md ✓ — BRAND_MOTHER_SYSTEM.md v1.0 selado
+GATES_ABERTOS:     @framer (NS-1, NS-1-FOUNDER) + @antigravity (GLOBE, CHAMBER, MOTION)
+NEXT_TASK:         V5-RESEARCH-ARCH-001 (@claude T+4h)
+NEXT_ACTOR:        @framer → NS-1 | @antigravity → GLOBE + CHAMBER (imediato)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | OPERATION-ZERO-GAP-24H | claude-sonnet-4-6
+
+**TASK:** OPERATION-ZERO-GAP-24H — Mobilização Cluster Constelação + Gate Suspension 24H
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** OPERAÇÃO ACTIVA — cluster em execução
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/OPERATION_ZERO_GAP_24H.md` — v1.0 · manifesto completo da operação · engagement check · task force por pioneer · sequência de execução · critérios de sucesso
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.0 · 24 tasks inseridas (5 pioneers + @cursor a juntar-se) · semáforo v3.0 · GATE_SUSPENSION_24H · todas as gates abertas
+- `ops/LIVE_STATE.md` — GATE_SUSPENSION_24H activo · estado cluster · @cursor notificada
+
+### EVIDENCE_BLOCK
+
+```
+OPERATION:       ZERO-GAP-24H
+AUTORIZADO_POR:  owner — ordem soberana directa 2026-03-24
+GATE_SUSPENSION: ACTIVO — 24h
+PIONEERS_ACTIVOS: @claude · @copilot · @framer · @antigravity · @codex (5/6)
+@cursor:         EM TASKS DO CRIADOR — Monalisa notificada para se juntar
+TASKS_INSERIDAS: 19 tasks no BASTION (14 imediatas + 5 @cursor)
+OBJECTIVO:       BASTION zerado · produto completo · amanhã
+BRANCH:          claude/rebuild-bastion-core-rihGX
+COMMIT:          pendente (ver abaixo)
+ALTERACAO_REAL:  sim
+```
+
+---
+
 ## HANDOFF — 2026-03-23 | @cursor | PRODUCT-FACE-HERO-ANATOMY-001 | claude-4.6-sonnet
 
 **TASK:** PRODUCT-FACE-HERO-ANATOMY-001 — Product Face hero canônico · globe → trinity → proof
