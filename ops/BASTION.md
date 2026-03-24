@@ -179,6 +179,7 @@ Cada item da matriz regista os seguintes campos:
 | HEAVEN-LAB-REFERENCE-SURFACE-001 | Visão/WorkVisual | WorkStructure | @claude | concluída | handoff emitido — HEAVEN_LAB_REFERENCE_SURFACE.md v1.0; 5 blocos; globe+trinity+chamber+substrate+proof; gates Framer+Antigravity definidos |
 | SYSTEM-FACE-CANON-001 | Identidade Visual | WorkStructure | @claude | concluída | handoff emitido — SYSTEM_FACE_CANON.md v1.0; 3 faces; FACE_SEPARATION_MATRIX; herança mãe + deriva proibida por face |
 | TYPOGRAPHY-LAW-001 | Identidade Visual | WorkStructure | @claude | concluída | handoff emitido — TYPOGRAPHY_LAW.md v1.0; weight matrix; family use map; escala canónica; 13 proibições |
+| HYPERSONIC-ARMY-DOCTRINE-001 | Mobilização / Governança | WorkStructure | @claude | concluída | handoff emitido — HYPERSONIC_ARMY_DOCTRINE.md v1.0; LEI-MOB-001 cravada; 476 unidades; 33 blocks; 177 kernels; 30 modelos; NEXUS SEAL FORCE definida |
 
 ---
 

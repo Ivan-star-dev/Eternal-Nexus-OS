@@ -6,6 +6,36 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | HYPERSONIC-ARMY-DOCTRINE-001 | claude-sonnet-4-6
+
+**TASK:** HYPERSONIC-ARMY-DOCTRINE-001 — Santo Graal da Mobilização · LEI-MOB-001 · NEXUS SEAL FORCE
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — Doutrina v1.0 cravada · 476 unidades mapeadas · Lei imutável selada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados/actualizados:**
+- `ops/HYPERSONIC_ARMY_DOCTRINE.md` — v1.0 criado · LEI-MOB-001 · 476 units · 33 blocks · 177 kernels · 30 models · NEXUS SEAL FORCE · Expansion/Contraction Protocol · Orchestration Protocol · Evolution Law
+- `ops/BASTION.md` — HYPERSONIC-ARMY-DOCTRINE-001 adicionado à tabela de concluídas
+- `ops/LIVE_STATE.md` — entrada de estado actualizada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           HYPERSONIC-ARMY-DOCTRINE-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        HYPERSONIC_ARMY_DOCTRINE.md v1.0 · BASTION v++ · LIVE_STATE v++ · LEDGER entry
+NEXUS_SEAL_FORCE:  476 unidades · 33 blocks · 177 kernels · 30 modelos · 6 tools
+LEI_CRAVADA:       LEI-MOB-001 — Adaptive Fragmentation Law (imutável)
+ESTADO:            Santo Graal selado · evolutivo na escala · imutável na lei
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | ORDEM-MOBILIZACAO-CONTINUA-001 | claude-sonnet-4-6
 
 **TASK:** ORDEM-MOBILIZACAO-CONTINUA-001 — Mobilização contínua · V3 → V4 → V5
