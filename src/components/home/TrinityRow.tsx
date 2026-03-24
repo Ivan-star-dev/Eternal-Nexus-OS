@@ -68,6 +68,9 @@ function ChildNode({ child, delay }: ChildNodeProps) {
       transition={{ delay, duration: 0.7, ease: EASE }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      tabIndex={0}
       className="group relative flex-1 flex flex-col items-center text-center cursor-default select-none"
     >
       {/* Orbital index dot */}
