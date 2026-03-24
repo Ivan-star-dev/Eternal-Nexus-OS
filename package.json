@@ -28,7 +28,8 @@
     "ops:cache": "bash ./.ops/repair-cache.sh",
     "ops:conflicts": "bash ./.ops/find-conflicts.sh",
     "ops:guard": "bash ./.ops/guard.sh guarded-change",
-    "proof:memory": "node scripts/memory/proof-loop.mjs"
+    "proof:memory": "node scripts/memory/proof-loop.mjs",
+    "proof:swmr": "node scripts/memory/swmr-proof.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
