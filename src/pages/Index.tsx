@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
