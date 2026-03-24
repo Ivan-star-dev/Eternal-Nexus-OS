@@ -19,6 +19,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { TrinityFace } from "@/lib/memory/types";
 
+// Primary regime per face — sourced directly from routing.ts surface_hint strings.
+// These are not labels; they are the operative regime of each child.
+const FACE_REGIME: Record<TrinityFace, string> = {
+  heaven_lab:  "hypothesis · model · evidence",
+  bridge_nova: "milestone · guidance · progression",
+  nexus_cria:  "artefact · produce · ship",
+};
+
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 interface Child {
@@ -26,12 +34,14 @@ interface Child {
   name: string;
   role: string;         // one-liner identity
   micro: string;        // JetBrains micro-detail (visible on hover)
+  face: TrinityFace;    // maps to routing regime
   index: number;        // 1 · 2 · 3
 }
 
 const TRINITY: Child[] = [
   {
     id: "heaven-lab",
+    face: "heaven_lab",
     name: "Heaven Lab",
     role: "O sistema que governa tudo",
     micro: "machine_intelligence · governance_core",
@@ -39,6 +49,7 @@ const TRINITY: Child[] = [
   },
   {
     id: "bridge-nova",
+    face: "bridge_nova",
     name: "Bridge Nova",
     role: "A ponte entre o sistema e o mundo",
     micro: "product_layer · proof_of_system",
@@ -46,6 +57,7 @@ const TRINITY: Child[] = [
   },
   {
     id: "nexus-cria",
+    face: "nexus_cria",
     name: "Nexus Cria",
     role: "O legado aberto · template replicável",
     micro: "open_architecture · autonomous_spawn",
@@ -166,7 +178,27 @@ function ChildNode({ child, delay, isActive }: ChildNodeProps) {
         {child.role}
       </motion.span>
 
-      {/* Micro-detail — JetBrains Mono, teal, hover only */}
+      {/* Regime string — always visible when active; hover-only otherwise */}
+      <AnimatePresence>
+        {(hovered || isActive) && (
+          <motion.span
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            className="mt-3 block font-mono text-[9px]"
+            style={{
+              color: isActive ? "hsl(172 48% 52% / 0.9)" : "hsl(172 48% 52% / 0.7)",
+              letterSpacing: "0.06em",
+              fontFamily: "JetBrains Mono, monospace",
+            }}
+          >
+            {FACE_REGIME[child.face]}
+          </motion.span>
+        )}
+      </AnimatePresence>
+
+      {/* Micro-detail — JetBrains Mono, hover only (deeper layer) */}
       <AnimatePresence>
         {hovered && (
           <motion.span
@@ -174,9 +206,9 @@ function ChildNode({ child, delay, isActive }: ChildNodeProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.22, ease: EASE }}
-            className="mt-2 block font-mono text-[10px]"
+            className="mt-1 block font-mono text-[9px]"
             style={{
-              color: "hsl(172 48% 52% / 0.8)",
+              color: "rgba(200,164,78,0.45)",
               letterSpacing: "0.04em",
               fontFamily: "JetBrains Mono, monospace",
             }}
@@ -188,7 +220,7 @@ function ChildNode({ child, delay, isActive }: ChildNodeProps) {
 
       {/* Glass separator bottom — appears on hover */}
       <motion.div
-        animate={{ scaleX: hovered ? 1 : 0, opacity: hovered ? 1 : 0 }}
+        animate={{ scaleX: lit ? 1 : 0, opacity: lit ? 1 : 0 }}
         transition={{ duration: 0.35, ease: EASE }}
         className="mt-4 origin-center"
         style={{
@@ -201,18 +233,28 @@ function ChildNode({ child, delay, isActive }: ChildNodeProps) {
   );
 }
 
-// Vertical divider between children — glass line
-function Divider() {
+// Organism connector — the single visible signal that these are not three separate nodes
+// but three regimes of one body. Pulses slowly; never dominates.
+function OrganismConnector() {
   return (
-    <div
-      className="hidden md:block shrink-0 self-stretch"
-      style={{
-        width: "0.5px",
-        background: "rgba(255,255,255,0.07)",
-        margin: "0 8px",
-      }}
-      aria-hidden="true"
-    />
+    <div className="hidden md:flex shrink-0 flex-col items-center justify-center self-stretch" style={{ margin: "0 4px" }} aria-hidden="true">
+      {/* Static glass line */}
+      <div style={{ width: "0.5px", flex: 1, background: "rgba(255,255,255,0.06)" }} />
+      {/* Pulsing node — middle of the line */}
+      <motion.div
+        animate={{ opacity: [0.2, 0.55, 0.2], scaleY: [0.6, 1.1, 0.6] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          width: "3px",
+          height: "3px",
+          borderRadius: "50%",
+          background: "rgba(200,164,78,0.45)",
+          margin: "4px 0",
+          flexShrink: 0,
+        }}
+      />
+      <div style={{ width: "0.5px", flex: 1, background: "rgba(255,255,255,0.06)" }} />
+    </div>
   );
 }
 
@@ -292,7 +334,7 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
             delay={0.12 * i}
             isActive={activeFace ? nodeIdToFace(child.id) === activeFace : false}
           />,
-          i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
+          i < TRINITY.length - 1 && <OrganismConnector key={`conn-${i}`} />,
         ])}
       </motion.div>
     </div>
