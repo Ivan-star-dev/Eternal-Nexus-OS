@@ -231,12 +231,10 @@ export default function TrinityRow() {
           WebkitBackdropFilter: "blur(16px)",
         }}
       >
-        {TRINITY.map((child, i) => (
-          <>
-            <ChildNode key={child.id} child={child} delay={0.15 * i} />
-            {i < TRINITY.length - 1 && <Divider key={`div-${i}`} />}
-          </>
-        ))}
+        {TRINITY.map((child, i) => [
+          <ChildNode key={child.id} child={child} delay={0.15 * i} />,
+          i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
+        ])}
       </div>
     </div>
   );
