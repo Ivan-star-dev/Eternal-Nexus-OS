@@ -6,6 +6,48 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | PORTAL_IMERSIVO_ORGANISM-001 | claude-sonnet-4-6
+
+**TASK:** PORTAL_IMERSIVO_ORGANISM-001 — Portal Imersivo Organism · 7 blocos · simulação Mars · fatal gap · next muscle · Dual AI Access Layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 2 artefactos criados · fatal gap confirmado (Session Backbone) · next muscle definido (Session Entity Mínima)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/PORTAL_IMERSIVO_ORGANISM.md` — v1.0 · 7 blocos · SWMR simulation · Trinity transformation · fatal 90-day gap · next muscle · signal/noise
+- `ops/DUAL_AI_ACCESS_LAYER.md` — v1.0 · file-based task pool · Claude+ChatGPT shared access · 3 opções de integração · path V3→V4→V5
+
+**Ficheiros committed (sessão anterior pendentes):**
+- `ops/GIANT_BATTALION_PROTOCOL.md` — v1.0
+- `ops/SOVEREIGN_GROWTH_MECHANISM.md` — v1.0
+- `ops/SOVEREIGN_SELF_LAPIDATION_LAW.md` — v1.0
+
+**Ficheiros actualizados:**
+- `ops/LIVE_STATE.md` — entrada adicionada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:              PORTAL_IMERSIVO_ORGANISM-001
+EXECUTOR:             @claude | claude-sonnet-4-6
+DATA:                 2026-03-24
+BRANCH:               claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:       sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/PORTAL_IMERSIVO_ORGANISM.md  — 7 blocos · Mars simulation · fatal gap · next muscle
+  → ops/DUAL_AI_ACCESS_LAYER.md      — file-based pool · Claude+ChatGPT · V3→V4→V5 path
+
+FATAL_GAP_CONFIRMADO: Session Backbone — kills organism before V4 without it
+NEXT_MUSCLE:          Session Entity Mínima — JSON · file-based now / edge DB production
+SIGNAL_VS_NOISE:      defined · noise list · death prescriptions
+DUAL_AI_PATH:         Opção A (file-based, now) → Opção B (edge API, V4) → Custom GPT (V5)
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | RETAINED-TRUTH-INTEGRATION-001 | claude-sonnet-4-6
 
 **TASK:** RETAINED-TRUTH-INTEGRATION-001 — Full Canonical Integration · 8 artefactos · Creator Relay System · One Organism Law · Formações · Double Adaptation · Estratificação

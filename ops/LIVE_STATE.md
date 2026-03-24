@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | PORTAL_IMERSIVO_ORGANISM-001 — PORTAL_IMERSIVO_ORGANISM v1.0 · 7 blocos · simulação Mars · fatal gap (Session Backbone) · next muscle (Session Entity) · DUAL_AI_ACCESS_LAYER v1.0 · 3 sovereign laws committed
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | RETAINED-TRUTH-INTEGRATION-001 — 8 artefactos criados · Creator Relay System (3 artefactos) · ONE_ORGANISM_LAW · OMNIPRESENT_FORMATION_SYSTEM · RECIPROCAL_ADAPTIVE_RESOLUTION · PROBLEM_DECOMPOSITION_LAW · MATERIALIZATION_STRATIFICATION_LAW · NEXUS_LIVING_CANON v1.7
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | CASCADE-RETENTION-INTEGRATION-001 — CASCADE_RETENTION_CANON v1.1 · Lei de Cascade Retention formal · RETAINED/ADAPTED/DISCARDED separados
