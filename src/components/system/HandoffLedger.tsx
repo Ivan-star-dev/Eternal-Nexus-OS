@@ -142,6 +142,8 @@ export default function HandoffLedger() {
             <button
               onClick={() => setExpanded(expanded === entry.id ? null : entry.id)}
               className="w-full px-4 py-3 text-left transition-colors hover:bg-white/[0.02]"
+              aria-expanded={expanded === entry.id}
+              aria-controls={`handoff-details-${entry.id}`}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0 flex-1">
