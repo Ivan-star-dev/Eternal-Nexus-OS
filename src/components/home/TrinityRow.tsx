@@ -332,7 +332,7 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
             key={child.id}
             child={child}
             delay={0.12 * i}
-            isActive={activeFace ? nodeIdToFace(child.id) === activeFace : false}
+            isActive={activeFace ? child.face === activeFace : false}
           />,
           i < TRINITY.length - 1 && <OrganismConnector key={`conn-${i}`} />,
         ])}
