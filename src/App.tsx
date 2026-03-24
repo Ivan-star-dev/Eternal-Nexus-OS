@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { SessionProvider } from "@/contexts/SessionContext";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
@@ -55,6 +56,7 @@ const App = () => (
   <ErrorBoundary>
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
+      <SessionProvider>
       <AuthProvider>
         <TooltipProvider>
           <CustomCursor />
@@ -122,6 +124,7 @@ const App = () => (
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
+      </SessionProvider>
     </LanguageProvider>
   </QueryClientProvider>
   </ErrorBoundary>
