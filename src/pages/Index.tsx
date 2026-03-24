@@ -11,11 +11,12 @@ import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
 import { homeProjects } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
+import type { TrinityFace } from "@/lib/memory/types";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 // Minimal face-to-route mapping — no new logic, uses existing routing data
-const FACE_ENTRY: Record<string, { path: string; label: string }> = {
+const FACE_ENTRY: Record<TrinityFace, { path: string; label: string }> = {
   heaven_lab:  { path: "/nexus",    label: "Heaven Lab — Retomar" },
   bridge_nova: { path: "/nexus",    label: "Bridge Nova — Retomar" },
   nexus_cria:  { path: "/nexus",    label: "Nexus Cria — Retomar" },

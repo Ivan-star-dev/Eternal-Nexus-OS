@@ -63,6 +63,8 @@ const ContributionsSection = () => {
     fetchContributions();
     fetchUserVotes();
 
+    if (!supabase) return;
+
     const channel = supabase
       .channel("contributions-realtime")
       .on("postgres_changes", { event: "*", schema: "public", table: "public_contributions" }, () => {
@@ -78,6 +80,7 @@ const ContributionsSection = () => {
       toast({ title: "Login necessário", description: "Faça login para votar.", variant: "destructive" });
       return;
     }
+    if (!supabase) return;
 
     const existing = userVotes[contributionId];
 
@@ -101,6 +104,7 @@ const ContributionsSection = () => {
 
   const handleSubmit = async () => {
     if (!user) return;
+    if (!supabase) return;
     if (!newContent.trim() || !newName.trim()) {
       toast({ title: "Campos obrigatórios", description: "Preencha nome e sugestão.", variant: "destructive" });
       return;
