@@ -758,8 +758,11 @@ export default function NexusPage() {
   // ═══ RESUME: pre-fill prompt with next_expected_step on session resume ═══
   // Only runs once on mount. If the user already typed something, skip.
   useEffect(() => {
-    if (session?.is_resume && session.re_entry_point && session.next_expected_step) {
-      setPrompt((prev) => prev.trim() ? prev : session.next_expected_step);
+    const nextExpectedStep =
+      typeof session?.next_expected_step === "string" ? session.next_expected_step : "";
+
+    if (session?.is_resume && session?.re_entry_point && nextExpectedStep) {
+      setPrompt((prev) => (prev.trim() ? prev : nextExpectedStep));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // intentionally empty — run once on mount only
