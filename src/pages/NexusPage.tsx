@@ -816,7 +816,9 @@ export default function NexusPage() {
     if (!prompt.trim() || !user) return;
     setLoading(true);
     setResult(null);
-    const isResume = !!session?.re_entry_point?.includes(prompt.trim().slice(0, 30));
+    // Treat as resume only when the stored re_entry_point is a Nexus swarm marker.
+    // A project tab value ("technical", "overview") must never block startSession here.
+    const isResume = !!session?.re_entry_point?.startsWith('resume-swarm:');
     if (!isResume) startSession(prompt.trim(), "global-swarm-synthesis");
     setStreamingMeta("");
     setActiveTab("synthesis");

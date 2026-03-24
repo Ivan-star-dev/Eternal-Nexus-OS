@@ -204,7 +204,8 @@ function SessionPulse() {
 
   if (!session) return null;
 
-  const isResume = session.is_resume && !!session.re_entry_point;
+  // Only signal "Retomar" for real Nexus sessions, not project tab residue
+  const isResume = session.is_resume && !!session.re_entry_point?.startsWith('resume-swarm:');
   const nextStep =
     typeof session.next_expected_step === "string" ? session.next_expected_step : "";
   // Truncate to ~52 chars for the hover strip

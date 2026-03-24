@@ -22,10 +22,12 @@ const FACE_ENTRY: Record<TrinityFace, { path: string; label: string }> = {
   nexus_cria:  { path: "/nexus",    label: "Nexus Cria — Retomar" },
 };
 
-// Session-aware CTA footer — primary entry changes when a resumable session exists
+// Session-aware CTA footer — primary entry changes when a resumable session exists.
+// Requires re_entry_point to be a Nexus swarm marker (resume-swarm:*) so that
+// project tab residue ("technical", "overview") never triggers the Retomar CTA.
 function SessionAwareCTA() {
   const { session } = useSession();
-  const isResume = session?.is_resume && session.re_entry_point;
+  const isResume = session?.is_resume && session.re_entry_point?.startsWith('resume-swarm:');
 
   const resumeEntry = isResume && session
     ? FACE_ENTRY[session.active_face] ?? FACE_ENTRY.heaven_lab
