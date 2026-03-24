@@ -67,7 +67,7 @@ function SystemFooter() {
   return (
     <footer className="relative z-10 flex items-center justify-between border-t border-white/[0.06] px-6 py-2">
       <span className="font-mono text-[9px] tracking-[0.18em] text-paper-dim/30 uppercase">
-        BRANCH: cursor/system-face-core-d9db
+        SYSTEM BRANCH: cursor/system-face-core-d9db
       </span>
       <div className="flex items-center gap-3">
         <span className="block h-1 w-1 rounded-full bg-teal/60" />
