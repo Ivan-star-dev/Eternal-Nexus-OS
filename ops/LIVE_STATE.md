@@ -4,6 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | MASTER-TOTAL-ARMY-WAVE-001 — wave emitida · ProductHero canonical · OrbitalChamber · motion law · Trinity · HeroFirstProof · Index wired
 **Última atualização:** 2026-03-21
 **Atualizado por:** @claude | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001
 **Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
@@ -19,12 +21,12 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Bulking Controlado do Produto |
+| **Fase ativa** | MASTER-TOTAL-ARMY-WAVE-001 — PHASE_1: V3-FLAGSHIP-SURFACE-CLOSE-001 |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos; ciclo contínuo iniciado por comando do owner; pioneiros entram por elegibilidade no território dominante (WorkStructure/WorkFunction/WorkVisual) ou apoio elegível; owner intervém só em gate/trava/red line. |
+| **Executor ativo** | CONSTELLATION: @claude · @antigravity · @framer · @cursor · @copilot · @codex |
+| **Frente ativa** | Front A (Visual Incarnation) · Front B (Surface Close) · Front C (Polish+Anti-Drift) · Front D (State+Handoff) |
+| **Camada atual** | V3 surface gap closed: ProductHero canonical (Globe+OrbitalChamber+Trinity+Proof) · motion law sealed · Index wired · TypeScript 0 errors |
+| **Estado geral** | WAVE ATIVA: motion/config.ts · OrbitalChamber · TrinityRow · HeroFirstProof · ProductHero — todos criados e wired. Index.tsx usa ProductHero. Próximo: @antigravity GlobeScene aurora/pulse · @framer NS-1 hero composition · @copilot L-001+L-002+brand · @codex orchestration · @cursor session surface wiring |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
 | **Frente ativa** | Mecânico / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |

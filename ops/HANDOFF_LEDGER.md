@@ -8,6 +8,38 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:MASTER-TOTAL-ARMY-WAVE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ WAVE_DECISION + ACTIVE_FRONTS + PIONEER_ASSIGNMENTS emitidos
+            │ EXECUTION_ORDER + PROMPTS_FOR_EACH_PIONEER + CONTINUOUS_RULES emitidos
+            │ branch corrigido: claude/v3-flagship-close-wave-p7REZ → claude/rebuild-bastion-core-rihGX
+            │ src/lib/motion/config.ts — canonical motion law (EASE · DUR · STAGGER · variants)
+            │ src/components/orbital/OrbitalChamber.tsx — sacred breathing wrapper v1
+            │ src/components/home/TrinityRow.tsx — canonical trinity row (hover · micro-detail · glass)
+            │ src/components/home/HeroFirstProof.tsx — proof strip (count-up · mother phrase · 4 metrics)
+            │ src/components/home/ProductHero.tsx — canonical hero (Globe+OrbitalChamber+Trinity+Proof)
+            │ src/pages/Index.tsx — old inline hero replaced with ProductHero
+            │ TypeScript: 0 errors
+ALTERACAO_REAL │ sim — 6 ficheiros criados · 1 ficheiro refactorizado
+IMPACTO     │ V3 surface canonical gap closed:
+            │   · Globe is now wrapped in OrbitalChamber (sacred breathing frame)
+            │   · Trinity is now canonical (hover identity · micro-detail · glass panel)
+            │   · First Proof is now real (count-up · mother phrase · 4 live metrics)
+            │   · Index.tsx uses ProductHero — not old inline generic hero
+            │   · Motion law canonical — single source of truth for all animation values
+PROXIMO     │ @antigravity: GlobeScene aurora glow + hover pulse (GLOBE-3D-HEAVEN-001)
+            │ @framer: NS-1 full hero composition refinement
+            │ @cursor: session-aware surface wiring when joining wave
+            │ @copilot: BULK-01.2/L-001 + L-002 + brand docs polish
+            │ @codex: CLUSTER-ORCHESTRATE-001 + conflict detection
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001-CLOSE │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ BLOCK-OP-001 — FECHADO COMPLETAMENTE
