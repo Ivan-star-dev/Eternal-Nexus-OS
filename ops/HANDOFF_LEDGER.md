@@ -6,6 +6,62 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | RETAINED-TRUTH-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** RETAINED-TRUTH-INTEGRATION-001 — Full Canonical Integration · 8 artefactos · Creator Relay System · One Organism Law · Formações · Double Adaptation · Estratificação
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 8 artefactos criados · Creator Relay System operacional · 9 leis canónicas cravadas · NEXUS_LIVING_CANON v1.7
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/CREATOR_RELAY_INBOX.md` — v1.0 · inbox soberana · formato RELAY_ENTRY · 3 exemplos reais · 8 leis
+- `ops/relay/CREATOR_RELAY_STATE.md` — v1.0 · estado de processamento · tabela de estados · sessão actual
+- `ops/relay/CREATOR_RELAY_PROTOCOL.md` — v1.0 · papéis (criador/kernel/pioneiros/ChatGPT) · fluxo de ignição 6 passos · 5 classificações
+- `ops/ONE_ORGANISM_LAW.md` — v1.0 · 9 expressões do organismo · SIGNAL_TEST · integração com LAA · 10 leis
+- `ops/OMNIPRESENT_FORMATION_SYSTEM.md` — v1.0 · 5 formações · critérios entrada/saída/risco · mapeamento para layers
+- `ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md` — v1.0 · double adaptation · 4 mecanismos · Gap Emergence · Resolution Collapse
+- `ops/PROBLEM_DECOMPOSITION_LAW.md` — v1.0 · 4 escalas · projecto como macro-organism problem · mapeamento completo
+- `ops/MATERIALIZATION_STRATIFICATION_LAW.md` — v1.0 · 3 layers (Assault/Preparatory/Strategic Reserve) · protocolo de convergência
+
+**Ficheiros actualizados:**
+- `ops/NEXUS_LIVING_CANON.md` — v1.6 → v1.7 · 4 novas camadas (7.8-7.10 + 7.2 expandida) · 9 artefactos indexados
+- `ops/LIVE_STATE.md` — estado actualizado com RETAINED-TRUTH-INTEGRATION-001
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               RETAINED-TRUTH-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/relay/CREATOR_RELAY_INBOX.md      — ponte ChatGPT↔KERNEL · inbox soberana
+  → ops/relay/CREATOR_RELAY_STATE.md      — estado de processamento · anti-releitura
+  → ops/relay/CREATOR_RELAY_PROTOCOL.md   — protocolo completo · 6 papéis definidos
+  → ops/ONE_ORGANISM_LAW.md               — 9 expressões · signal/noise · SIGNAL_TEST
+  → ops/OMNIPRESENT_FORMATION_SYSTEM.md   — 5 formações · hierarquia orgânica do exército
+  → ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md — double adaptation · gap emergence · collapse
+  → ops/PROBLEM_DECOMPOSITION_LAW.md      — 4 escalas · macro-organism como problema único
+  → ops/MATERIALIZATION_STRATIFICATION_LAW.md — 3 layers · mobilização ≠ materialização
+
+ARTEFACTOS_ACTUALIZADOS:
+  → ops/NEXUS_LIVING_CANON.md             — v1.7 · 9 novos artefactos indexados
+  → ops/LIVE_STATE.md                     — estado actualizado
+  → ops/HANDOFF_LEDGER.md                 — esta entrada
+
+LEIS_CRAVADAS:          9 (OFS-LAW x8, RAR-LAW x8, PDL-LAW x8, MSL-LAW x8, OOL x10, RELAY x8+8+8)
+RELAY_ENTRIES_FUNDADORAS: 3 (RELAY-2026-03-24-001/002/003)
+FORMAÇÕES_FORMALIZADAS:  5 (Needle · Block · Constellation · Omnipresent Mesh · Universal Pressure)
+ESCALAS_FORMALIZADAS:    4 (Micro · Block · Constellation · Macro-Organism)
+LAYERS_FORMALIZADOS:     3 (Assault · Preparatory · Strategic Reserve)
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-INTEGRATION-001 | claude-sonnet-4-6
 
 **TASK:** CASCADE-RETENTION-INTEGRATION-001 — Formalização explícita da Lei de Cascade Retention no artefacto-mãe
