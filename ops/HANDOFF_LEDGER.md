@@ -6,6 +6,32 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @cursor | V3-SURFACE-INTEGRATION-SUPPORT-001 | claude-4.6-sonnet
+
+**TASK:** V3-SURFACE-INTEGRATION-SUPPORT-001 — wire session state into flagship surface (minimum integration, no new architecture)
+**BRANCH:** cursor/v3-flagship-surface-close-2665
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/home/TrinityRow.tsx` — `activeFace` prop + `nodeIdToFace()` + active-face gold ring on `ChildNode`
+- `src/components/home/ProductHero.tsx` — `TrinityRowWithSession` wrapper; `SessionPulse` hover expand with `next_expected_step`; `useState`/`AnimatePresence` added
+- `src/pages/Index.tsx` — `SessionAwareCTA` component; resume-aware primary CTA; `useSession` import
+
+### SESSION_AWARE_SURFACE_PROOF
+- Logic test via `tsx`: `isResume=true`, `resumeEntry={path:'/nexus', label:'Heaven Lab — Retomar'}`, `activeMatches heaven-lab=true`, `stepDisplay` truncated at 52 chars — all pass
+- Manual test: localStorage mock session → hard refresh → Trinity Row Heaven Lab shows gold ring, CTA primary shows "Heaven Lab — Retomar", SessionPulse shows "Retomar" + hover expands `next_expected_step`
+- Cold start: Trinity Row equal dignity, CTA "Nexus — Parlamento AI", SessionPulse hidden
+
+### COMMITS
+- `c5c52fe` feat(session-surface): wire session state into flagship surface
+
+### PR
+- #162 — https://github.com/Ivan-star-dev/Eternal-Nexus-OS/pull/162
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | RESUME-GUARD-REFINEMENT-001 | claude-sonnet-4-6
 
 **TASK:** RESUME-GUARD-REFINEMENT-001 — prevent unnecessary session overwrite on same prompt
