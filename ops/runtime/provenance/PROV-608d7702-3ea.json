@@ -1,0 +1,16 @@
+{
+  "node_id": "PROV-608d7702-3ea",
+  "session_id": "SES-2026-03-24-1b715ae0",
+  "origin_agent": "@claude",
+  "origin_constellation": "Eternal Nexus OS / Heaven Lab",
+  "timestamp": "2026-03-24T19:48:37.890Z",
+  "phase": "V3",
+  "subject": "compact fusion engine",
+  "intention": "Map core fusion dynamics — produce analysis block",
+  "input_ref": "prompt::\"compact fusion engine\"",
+  "output_type": "analysis",
+  "output_ref": "ops/sessions/SES-2026-03-24-1b715ae0.json",
+  "fruit_class": "primary",
+  "next_consumer": "@cursor",
+  "status": "active"
+}

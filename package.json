@@ -27,7 +27,9 @@
     "ops:repair": "bash ./.ops/repair-install.sh",
     "ops:cache": "bash ./.ops/repair-cache.sh",
     "ops:conflicts": "bash ./.ops/find-conflicts.sh",
-    "ops:guard": "bash ./.ops/guard.sh guarded-change"
+    "ops:guard": "bash ./.ops/guard.sh guarded-change",
+    "proof:memory": "node scripts/memory/proof-loop.mjs",
+    "proof:swmr": "node scripts/memory/swmr-proof.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -59,8 +61,8 @@
     "@radix-ui/react-toggle": "^1.1.9",
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.5.0",
+    "@react-three/drei": "9.122.0",
+    "@react-three/fiber": "8.18.0",
     "@react-three/rapier": "^1.5.0",
     "@supabase/supabase-js": "^2.98.0",
     "@tanstack/react-query": "^5.83.0",

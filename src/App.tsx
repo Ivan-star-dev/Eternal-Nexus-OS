@@ -2,9 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { SessionProvider } from "@/contexts/SessionContext";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
@@ -14,6 +15,12 @@ import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
 import LoadingFallback from "./components/LoadingFallback";
 import ErrorBoundary from "./components/ErrorBoundary";
+
+function SystemAwareInspector() {
+  const location = useLocation();
+  if (location.pathname === "/system") return null;
+  return <NexusFlowInspector />;
+}
 
 const Index = lazy(() => import("./pages/Index"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -41,6 +48,7 @@ const IndexPage = lazy(() => import("./pages/IndexPage"));
 const FounderPage = lazy(() => import("./pages/FounderPage"));
 const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
 
 const queryClient = new QueryClient();
 
@@ -48,6 +56,7 @@ const App = () => (
   <ErrorBoundary>
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
+      <SessionProvider>
       <AuthProvider>
         <TooltipProvider>
           <CustomCursor />
@@ -56,7 +65,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <OrganTransitionParticles />
-            <NexusFlowInspector />
+            <SystemAwareInspector />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -108,12 +117,14 @@ const App = () => (
                 <Route path="/educacao" element={<EducacaoNacional />} />
                 <Route path="/founder" element={<FounderPage />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/system" element={<SystemFacePage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
+      </SessionProvider>
     </LanguageProvider>
   </QueryClientProvider>
   </ErrorBoundary>

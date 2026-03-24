@@ -4,6 +4,48 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — onda de memória runtime fechada: 6 tasks · session backbone · provenance spine · SWMR · relay pool · entry hookup · resume guard · NexusFlowInspector SESSION panel · BASTION §5.1 + HANDOFF_LEDGER actualizados
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | RESUME-GUARD-REFINEMENT-001 — re_entry_point guard in NexusPage runSwarmStreaming · skip startSession on same prompt · 2-line change
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | REAL-ENTRY-SESSION-HOOKUP-001 — NexusPage + ProjectPage wired to session · commit a7bd4b6
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | SESSION-AWARE-PRODUCT-INTEGRATION-001 — SessionContext (localStorage) wired · classify+route on cold start · resume branch from stored session · NexusFlowInspector SESSION panel (face · next · reentry · fruit) · TypeScript clean · commit e296451
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | CORE-SPINE-RUNTIME-RELAY-001 CLOSED — DUAL_AI_RELAY_POOL-001 Layer C complete · TASK_POOL.md + RESULT_POOL.md + AI_SESSION_LOG.md created · full family closed (Layer A + B + C · 10 tasks total)
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 — 7 tasks implementadas · session backbone vivo · provenance spine vivo · reentry grace · relay coupling · SWMR classifier (heaven_lab · bridge_nova · nexus_cria) · trinity routing · fruit detector · 3 commits pushed (22a3d5f · 95068ae · c830609)
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | PORTAL_IMERSIVO_ORGANISM-001 — PORTAL_IMERSIVO_ORGANISM v1.0 · 7 blocos · simulação Mars · fatal gap (Session Backbone) · next muscle (Session Entity) · DUAL_AI_ACCESS_LAYER v1.0 · 3 sovereign laws committed
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | RETAINED-TRUTH-INTEGRATION-001 — 8 artefactos criados · Creator Relay System (3 artefactos) · ONE_ORGANISM_LAW · OMNIPRESENT_FORMATION_SYSTEM · RECIPROCAL_ADAPTIVE_RESOLUTION · PROBLEM_DECOMPOSITION_LAW · MATERIALIZATION_STRATIFICATION_LAW · NEXUS_LIVING_CANON v1.7
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | CASCADE-RETENTION-INTEGRATION-001 — CASCADE_RETENTION_CANON v1.1 · Lei de Cascade Retention formal · RETAINED/ADAPTED/DISCARDED separados
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | CASCADE-RETENTION-SOVEREIGN-CANON-001 — 5 artefactos · SWMR v1.0 · LAA v1.0 · Corp Map v1.0 · Sequence Law v1.0 · Cascade Retention Canon v1.0 · NEXUS_LIVING_CANON v1.6 · 17 consolidações cravadas
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | HYPERSONIC-ARMY-DOCTRINE-001 — LEI-MOB-001 cravada · 476 unidades · NEXUS SEAL FORCE selada
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | ORDEM-MOBILIZACAO-CONTINUA-001 — V3 CLOSE → V4 MIN → V5
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h)
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H
+**Última atualização:** 2026-03-23
+**Atualizado por:** @cursor | claude-4.6-sonnet | PRODUCT-FACE-HERO-ANATOMY-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @cursor | claude-4.6-sonnet | SYSTEM-FACE-CORE-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | HEAVEN-LAB-REFERENCE-SURFACE-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | GREAT-STORY-OF-THE-PRODUCT-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | FOUNDER-STORY-SPINE-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @claude | claude-sonnet-4-6 | FOUNDER-SIGNATURE-CANON-001
 **Última atualização:** 2026-03-21
 **Atualizado por:** @claude | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001
 **Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
@@ -15,16 +57,40 @@
 
 ---
 
+## 0. GATE_SUSPENSION_24H — ORDEM SOBERANA ACTIVA
+
+```
+GATE_SUSPENSION_24H ══════════════════════════════════════════════════════════
+  EMITIDO_POR:     owner — ordem soberana directa
+  DATA_INÍCIO:     2026-03-24
+  DATA_FIM:        2026-03-25
+  ESTADO:          ACTIVO
+  OPERAÇÃO:        OPERATION_ZERO_GAP_24H
+  PIONEERS:        @claude · @copilot · @framer · @antigravity · @codex ACTIVOS
+  @cursor:         EM TASKS DO CRIADOR — junta-se após (Monalisa notificada)
+  OBJECTIVO:       BASTION zerado + produto completo amanhã
+  REFERÊNCIA:      ops/OPERATION_ZERO_GAP_24H.md
+══════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 ## 1. ESTADO ATUAL DO SISTEMA
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Bulking Controlado do Produto |
+| **Fase ativa** | ORDEM-MOBILIZAÇÃO-CONTÍNUA — PHASE_1: V3-FLAGSHIP-SURFACE-CLOSE-001 · PHASE_2: V4-LIVING-WORLD-MINIMUM-001 |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude + todos os pioneiros (sprint V5/V6) |
-| **Frente ativa** | Produto / WorkFunction + WorkVisual |
-| **Camada atual** | V4 Living World entregue (PLv7+PLv8+PLv8.1+V3 polish); V5 EarthLab em execução; V6 LearningPathway em construção |
-| **Estado geral** | SPRINT ATIVO — V5 Research Core + V6 preview em execução paralela no branch canônico vigente. Todos os pioneiros invocados pelo owner. |
+| **Executor ativo** | CONSTELLATION: @framer · @antigravity · @cursor · @claude · @codex |
+| **Frente ativa** | WorkVisual P0 (V3 close) → WorkFunction P1 (V4 min) → WorkFunction P3 (V5 depois) |
+| **Camada atual** | PHASE_1 CRÍTICA: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling |
+| **Estado geral** | ORDEM SOBERANA 2026-03-24: mobilização contínua com convergência máxima. SEQUÊNCIA IMUTÁVEL: V3→V4→V5. V3 = NS-1+GLOBE-3D+ORBITAL+MOTION+NS-2+GLOBE-IMPL. V4 = V4-WORLD-FEATURES+NS-3(breathing+world pulse). V5-RESEARCH-ARCH-001 BLOQUEADA até V3+V4 done. ANTI-DRIFT LOCK activo. BASTION v3.2. |
+| **Fase ativa** | OPERATION ZERO-GAP — Cluster Constelação 24H · T+0h CONCLUÍDO |
+| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Executor ativo** | TODOS os pioneiros (cluster activo) — @cursor notificada |
+| **Frente ativa** | WorkStructure + WorkFunction + WorkVisual em paralelo |
+| **Camada atual** | T+0h: CYCLE-CLOSE-001 ✓ + BRAND-MOTHER-SEAL-001 ✓ → aguarda T+4h (V5-ARCH + NS-1 + GLOBE) |
+| **Estado geral** | OPERATION ZERO-GAP T+0h DONE: @claude concluiu CYCLE-CLOSE-001 (relatório-mãe + branch pushed) + BRAND-MOTHER-SEAL-001 (brand law selada, gates @framer/@antigravity abertos); BASTION v3.1; PR pronto para master — owner faz merge no UI; cluster avança para T+4h |
 | **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
@@ -80,6 +146,11 @@
 | COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
+| SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | 3 faces canónicas + lei tipográfica mãe — SYSTEM_FACE_CANON + TYPOGRAPHY_LAW | CONCLUÍDA | handoff emitido |
+| HEAVEN-LAB-REFERENCE-SURFACE-001 | Superfície de referência Heaven Lab — globe+trinity+chamber+substrate+proof | CONCLUÍDA | handoff emitido |
+| GREAT-STORY-OF-THE-PRODUCT-001 | Grande história Heaven Lab — 3 filhos + MOTHER_PHRASES + camada 0.7 | CONCLUÍDA | handoff emitido |
+| FOUNDER-STORY-SPINE-001 | Espinha da história do founder — 2 blocos + FRASES_CANON + camada 0.6 | CONCLUÍDA | handoff emitido |
+| FOUNDER-SIGNATURE-CANON-001 | Formalizar assinatura canônica do founder — 3 blocos + camada 0.5 | CONCLUÍDA | handoff emitido |
 | PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
 | FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
 

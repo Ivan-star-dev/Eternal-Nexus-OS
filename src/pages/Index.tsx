@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, lazy, Suspense } from "react";
-import { ArrowRight, Globe, Heart, Github, ChevronUp, ChevronDown, ExternalLink } from "lucide-react";
+import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
@@ -11,24 +11,21 @@ import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
-import WorldPulse from "@/components/home/WorldPulse";
-import ScenarioComparison from "@/components/home/ScenarioComparison";
-import MetricsTimeline from "@/components/home/MetricsTimeline";
-import EarthLab from "@/components/home/EarthLab";
-import LearningPathway from "@/components/home/LearningPathway";
-import CollaborationHub from "@/components/home/CollaborationHub";
-import EcosystemMap from "@/components/home/EcosystemMap";
-import ManifestoSection from "@/components/home/ManifestoSection";
-import WorldClock from "@/components/home/WorldClock";
-import V10Proof from "@/components/home/V10Proof";
-import PlatformStats from "@/components/home/PlatformStats";
-import ResearchCallout from "@/components/home/ResearchCallout";
-import RoadmapTimeline from "@/components/home/RoadmapTimeline";
-import QuoteBlock from "@/components/home/QuoteBlock";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const PROOF_METRICS = [
+  { value: "12", label: "Infraestruturas", color: "#c9870f" },
+  { value: "3", label: "Continentes", color: "#206358" },
+] as const;
+
+const TRINITY_NODES = [
+  { id: "heaven-lab", label: "Heaven Lab" },
+  { id: "bridge-nova", label: "Bridge Nova" },
+  { id: "nexus-cria", label: "Nexus Cria" },
+] as const;
 
 const Index = () => {
   const { t } = useLanguage();
@@ -107,26 +104,17 @@ const Index = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 1, ease }}
-              className="font-light tracking-tight text-5xl md:text-7xl text-paper"
+              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.92] tracking-tight"
               id="main-heading"
             >
               Eternal Nexus
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8, ease }}
-              className="text-paper-dim text-base md:text-lg font-light mt-4"
-            >
-              A scientific workspace for the world
-            </motion.p>
-
-            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8, ease }}
-              className="font-serif text-lg sm:text-xl md:text-2xl text-primary/80 mt-5 italic font-light"
+              transition={{ delay: 0.5, duration: 0.8, ease }}
+              className="font-serif text-lg sm:text-xl md:text-2xl text-primary/80 mt-6 italic font-light"
             >
               Infra. Produto. Governança. <span className="text-morabeza not-italic font-light">— com morabeza.</span>
             </motion.p>
@@ -134,42 +122,62 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
               className="font-sans text-sm sm:text-base text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed"
             >
               Megaprojetos de infraestrutura planetária — energia, computação, sistemas globais.
               Construídos por humanos e IA. Validados por dados reais.
             </motion.p>
 
+            {/* First Proof — data signal */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-4 mt-10"
+              transition={{ delay: 1.0, duration: 0.6, ease }}
+              className="mt-10 mx-auto max-w-xs backdrop-blur-md bg-white/[0.04] border border-white/[0.05] rounded-sm px-6 py-3 flex items-center justify-center gap-5"
+              aria-label="Prova — dados do sistema"
             >
-              {/* Primary CTA — gold outlined */}
-              <a
-                href="#dossiers"
-                className="font-mono text-[0.65rem] tracking-[0.12em] border border-gold/60 text-gold px-6 py-3 hover:bg-gold/10 hover:shadow-[0_0_24px_-4px_hsl(42_78%_45%/0.4)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-              >
-                Ver Dossiês <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-              {/* Secondary CTA — ghost */}
-              <Link
-                to="/atlas"
-                className="font-mono text-[0.65rem] tracking-[0.12em] border border-white/[0.12] text-muted-foreground px-6 py-3 hover:bg-white/[0.04] hover:text-foreground hover:border-white/20 active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-              >
-                <Globe className="w-3.5 h-3.5" /> Atlas Global
-              </Link>
+              {PROOF_METRICS.map((metric, i) => (
+                <div key={metric.label} className="contents">
+                  {i > 0 && <div className="w-px h-5 bg-white/[0.06]" aria-hidden="true" />}
+                  <div className="text-center">
+                    <span className="font-mono text-sm tabular-nums" style={{ color: metric.color }}>{metric.value}</span>
+                    <p className="font-mono text-[0.42rem] tracking-[0.22em] text-[#e4ebf0]/35 uppercase mt-0.5">{metric.label}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="w-px h-5 bg-white/[0.06]" aria-hidden="true" />
+              <div className="text-center flex flex-col items-center">
+                <div className="flex items-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-[#206358] animate-pulse" aria-hidden="true" />
+                  <span className="font-mono text-sm text-[#206358]">Live</span>
+                </div>
+                <p className="font-mono text-[0.42rem] tracking-[0.22em] text-[#e4ebf0]/35 uppercase mt-0.5">Sistema</p>
+              </div>
             </motion.div>
 
+            {/* Trinity — Heaven Lab · Bridge Nova · Nexus Cria */}
             <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1.4, duration: 1, ease }}
-              className="h-px w-32 mx-auto mt-12 origin-center"
-              style={{ background: "var(--gradient-gold)" }}
-            />
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.3, duration: 0.6 }}
+              className="mt-6 flex flex-wrap items-center justify-center gap-2"
+              aria-label="Trinity — linhas de produto"
+            >
+              {TRINITY_NODES.map((node, i) => (
+                <motion.div
+                  key={node.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3 + i * 0.15, duration: 0.55, ease }}
+                  className="backdrop-blur-md bg-white/[0.04] border border-white/[0.05] px-4 py-2 rounded-sm"
+                >
+                  <span className="font-display text-[0.6rem] tracking-[0.2em] text-[#e4ebf0]/45 uppercase font-normal">
+                    {node.label}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Scroll indicator */}
@@ -188,9 +196,6 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </section>
-
-        {/* ═══ PLATFORM STATS — Live Activity Strip ═══ */}
-        <PlatformStats />
 
         {/* ═══ DOSSIÊS — Apple-style staggered scroll reveals ═══ */}
         <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Dossiês estratégicos dos projetos ativos">
@@ -252,59 +257,8 @@ const Index = () => {
         {/* ═══ ÓRGÃOS DO ORGANISMO ═══ */}
         <OrganStatusGrid />
 
-        {/* ═══ RESEARCH CALLOUT — Methodology ═══ */}
-        <section className="relative py-8 px-6 md:px-16 max-w-7xl mx-auto w-full">
-          <ResearchCallout />
-        </section>
-
-        {/* ═══ EARTH LAB — V5 Research Core ═══ */}
-        <EarthLab />
-
-        {/* ═══ LEARNING PATHWAY — V6 Mastery ═══ */}
-        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
-          <LearningPathway />
-        </section>
-
-        {/* ═══ COLLABORATION HUB — V7 Intelligence ═══ */}
-        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
-          <CollaborationHub />
-        </section>
-
-        {/* ═══ ECOSYSTEM MAP — V8 Convergence ═══ */}
-        <EcosystemMap />
-
-        {/* ═══ ROADMAP TIMELINE — V1→V10 Progress ═══ */}
-        <section className="relative py-16 px-6 md:px-16 max-w-7xl mx-auto w-full">
-          <RoadmapTimeline />
-        </section>
-
-        {/* ═══ MANIFESTO — V9 Category Power ═══ */}
-        <ManifestoSection />
-
-        {/* ═══ WORLD CLOCK — Live Global Sync ═══ */}
-        <WorldClock />
-
-        {/* ═══ V10 PROOF — Universal Factory Proof ═══ */}
-        <V10Proof />
-
-        {/* ═══ QUOTE BLOCK — Rotating Manifesto ═══ */}
-        <section className="relative py-16 px-6 md:px-16 max-w-3xl mx-auto w-full">
-          <QuoteBlock />
-        </section>
-
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
-
-        {/* ═══ OBSERVATORY DATA ═══ */}
-        <section className="relative py-16 px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto w-full">
-          <WorldPulse />
-          <ScenarioComparison />
-        </section>
-
-        {/* ═══ HISTORICAL METRICS ═══ */}
-        <section className="relative py-8 px-6 md:px-16 max-w-7xl mx-auto w-full">
-          <MetricsTimeline />
-        </section>
 
         {/* ═══ CTA FOOTER — Apple-style reveal ═══ */}
         <section className="border-t border-border py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20 cinematic-vignette">
