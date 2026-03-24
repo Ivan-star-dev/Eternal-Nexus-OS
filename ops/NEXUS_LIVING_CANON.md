@@ -67,6 +67,24 @@ CAMADA 7.1 — IDENTIDADE VISUAL CANÓNICA
   ops/TYPOGRAPHY_LAW.md              → lei tipográfica · pesos · famílias · weight matrix · proibições
   ops/HEAVEN_LAB_REFERENCE_SURFACE.md → surface de referência · globe · trinity · chamber · first proof
 
+CAMADA 7.2 — MOBILIZAÇÃO E EXÉRCITO
+  ops/HYPERSONIC_ARMY_DOCTRINE.md    → lei de mobilização · 476 unidades · 177 kernels · NEXUS SEAL FORCE · LEI-MOB-001
+
+CAMADA 7.3 — RETENÇÃO CANÓNICA EM CASCATA
+  ops/CASCADE_RETENTION_CANON.md     → 17 consolidações do debate · o que fica/adapta/descarta · espinha viva
+
+CAMADA 7.4 — RUNTIME SOBERANO
+  ops/SOVEREIGN_WORLD_MATERIALIZATION_RUNTIME.md → SWMR · 7 camadas · sessão viva · face router · capability constellation
+
+CAMADA 7.5 — EIXO MORAL
+  ops/LIFE_ALIGNMENT_AXIS.md         → eixo de alinhamento com a vida · LAA test 5 perguntas · positivo/negativo
+
+CAMADA 7.6 — CORPORAÇÃO PARALELA
+  ops/CORP_V10_OPERATING_MAP.md      → 10 departamentos · backlane paralela · activation sequence · modelo de receita LAA
+
+CAMADA 7.7 — LEI SEQUENCIAL
+  ops/SEQUENCE_LAW_V3_V4_V5.md       → sequência inviolável V3→V4→V5 · gate protocol · o que pode/não pode abrir
+
 CAMADA 8 — ESTE ÍNDICE
   ops/NEXUS_LIVING_CANON.md          → índice vivo dos artefactos canônicos
 ```
@@ -108,6 +126,12 @@ Um artefacto **não** entra quando:
 | `ops/SYSTEM_FACE_CANON.md` | 7.1 | v1.0 | SYSTEM-FACE-CANON-001 | ✓ ativo |
 | `ops/TYPOGRAPHY_LAW.md` | 7.1 | v1.0 | TYPOGRAPHY-LAW-001 | ✓ ativo |
 | `ops/HEAVEN_LAB_REFERENCE_SURFACE.md` | 7.1 | v1.0 | HEAVEN-LAB-REFERENCE-SURFACE-001 | ✓ ativo |
+| `ops/HYPERSONIC_ARMY_DOCTRINE.md` | 7.2 | v1.0 | HYPERSONIC-ARMY-DOCTRINE-001 | ✓ ativo |
+| `ops/CASCADE_RETENTION_CANON.md` | 7.3 | v1.0 | CASCADE-RETENTION-SOVEREIGN-CANON-001 | ✓ ativo |
+| `ops/SOVEREIGN_WORLD_MATERIALIZATION_RUNTIME.md` | 7.4 | v1.0 | CASCADE-RETENTION-SOVEREIGN-CANON-001 | ✓ ativo |
+| `ops/LIFE_ALIGNMENT_AXIS.md` | 7.5 | v1.0 | CASCADE-RETENTION-SOVEREIGN-CANON-001 | ✓ ativo |
+| `ops/CORP_V10_OPERATING_MAP.md` | 7.6 | v1.0 | CASCADE-RETENTION-SOVEREIGN-CANON-001 | ✓ ativo |
+| `ops/SEQUENCE_LAW_V3_V4_V5.md` | 7.7 | v1.0 | CASCADE-RETENTION-SOVEREIGN-CANON-001 | ✓ ativo |
 | `ops/NEXUS_LIVING_CANON.md` | 8 | v1.0 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE | ✓ ativo |
 
 ---
@@ -118,3 +142,4 @@ Um artefacto **não** entra quando:
 *NEXUS_LIVING_CANON.md v1.3 — FOUNDER_STORY_SPINE adicionado (camada 0.6); espinha da história do founder cravada — 2026-03-23 | claude-sonnet-4-6 | FOUNDER-STORY-SPINE-001*
 *NEXUS_LIVING_CANON.md v1.4 — GREAT_STORY_OF_HEAVEN_LAB adicionado (camada 0.7); mito real do produto + 3 filhos + MOTHER_PHRASES cravados — 2026-03-23 | claude-sonnet-4-6 | GREAT-STORY-OF-THE-PRODUCT-001*
 *NEXUS_LIVING_CANON.md v1.5 — Camada 7.1 criada (Identidade Visual Canónica); SYSTEM_FACE_CANON + TYPOGRAPHY_LAW + HEAVEN_LAB_REFERENCE_SURFACE + BRAND_MOTHER_SYSTEM indexados — 2026-03-23 | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001*
+*NEXUS_LIVING_CANON.md v1.6 — Camadas 7.2-7.7 criadas; HYPERSONIC_ARMY_DOCTRINE + CASCADE_RETENTION_CANON + SWMR + LIFE_ALIGNMENT_AXIS + CORP_V10_OPERATING_MAP + SEQUENCE_LAW_V3_V4_V5 indexados — 2026-03-24 | claude-sonnet-4-6 | CASCADE-RETENTION-SOVEREIGN-CANON-001*
