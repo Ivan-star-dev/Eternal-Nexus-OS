@@ -9,7 +9,7 @@
 ## HANDOFF — 2026-03-23 | @cursor | PRODUCT-FACE-HERO-ANATOMY-001 | claude-4.6-sonnet
 
 **TASK:** PRODUCT-FACE-HERO-ANATOMY-001 — Product Face hero canônico · globe → trinity → proof
-**BRANCH:** cursor/system-face-core-d9db
+**BRANCH_DE_TRABALHO:** cursor/system-face-core-d9db
 **STATUS:** CONCLUÍDA
 
 ### ALTERACAO_REAL: sim
