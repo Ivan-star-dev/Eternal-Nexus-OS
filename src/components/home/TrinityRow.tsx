@@ -17,6 +17,15 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { TrinityFace } from "@/lib/memory/types";
+
+// Primary regime per face — sourced directly from routing.ts surface_hint strings.
+// These are not labels; they are the operative regime of each child.
+const FACE_REGIME: Record<TrinityFace, string> = {
+  heaven_lab:  "hypothesis · model · evidence",
+  bridge_nova: "milestone · guidance · progression",
+  nexus_cria:  "artefact · produce · ship",
+};
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -25,12 +34,14 @@ interface Child {
   name: string;
   role: string;         // one-liner identity
   micro: string;        // JetBrains micro-detail (visible on hover)
+  face: TrinityFace;    // maps to routing regime
   index: number;        // 1 · 2 · 3
 }
 
 const TRINITY: Child[] = [
   {
     id: "heaven-lab",
+    face: "heaven_lab",
     name: "Heaven Lab",
     role: "O sistema que governa tudo",
     micro: "machine_intelligence · governance_core",
@@ -38,6 +49,7 @@ const TRINITY: Child[] = [
   },
   {
     id: "bridge-nova",
+    face: "bridge_nova",
     name: "Bridge Nova",
     role: "A ponte entre o sistema e o mundo",
     micro: "product_layer · proof_of_system",
@@ -45,6 +57,7 @@ const TRINITY: Child[] = [
   },
   {
     id: "nexus-cria",
+    face: "nexus_cria",
     name: "Nexus Cria",
     role: "O legado aberto · template replicável",
     micro: "open_architecture · autonomous_spawn",
@@ -52,13 +65,20 @@ const TRINITY: Child[] = [
   },
 ];
 
+// Map TRINITY node id → TrinityFace key (heaven-lab → heaven_lab)
+function nodeIdToFace(id: string): TrinityFace {
+  return id.replace(/-/g, "_") as TrinityFace;
+}
+
 interface ChildNodeProps {
   child: Child;
   delay: number;
+  isActive: boolean;
 }
 
-function ChildNode({ child, delay }: ChildNodeProps) {
+function ChildNode({ child, delay, isActive }: ChildNodeProps) {
   const [hovered, setHovered] = useState(false);
+  const lit = hovered || isActive;
 
   return (
     <motion.div
@@ -73,9 +93,24 @@ function ChildNode({ child, delay }: ChildNodeProps) {
       tabIndex={0}
       className="group relative flex-1 flex flex-col items-center text-center cursor-default select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
     >
+      {/* Active-face ring — appears when this face is the current session face */}
+      {isActive && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            border: "0.5px solid rgba(200,164,78,0.28)",
+            boxShadow: "0 0 24px -8px rgba(200,164,78,0.18)",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Orbital index dot */}
       <motion.div
-        animate={{ opacity: hovered ? 1 : 0.35 }}
+        animate={{ opacity: lit ? 1 : 0.35 }}
         transition={{ duration: 0.3 }}
         className="mb-4 flex items-center justify-center"
       >
@@ -111,26 +146,31 @@ function ChildNode({ child, delay }: ChildNodeProps) {
         />
       </motion.div>
 
-      {/* Name — Syne, gold */}
+      {/* Name — Syne, gold, elevated size; brightens on active face */}
       <motion.span
-        animate={{ color: hovered ? "hsl(42 78% 45%)" : "hsl(42 78% 45% / 0.75)" }}
-        transition={{ duration: 0.3 }}
-        className="block font-sans text-[13px] font-[400] uppercase"
+        animate={{ color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.82)" }}
+        transition={{ duration: 0.35 }}
+        className="block font-sans uppercase"
         style={{
           fontFamily: "Syne, system-ui, sans-serif",
-          letterSpacing: "0.14em",
+          fontSize: "14px",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
         }}
       >
         {child.name}
       </motion.span>
 
-      {/* Identity line — Cormorant italic */}
+      {/* Identity line — Cormorant italic, more present */}
       <motion.span
-        animate={{ opacity: hovered ? 0.85 : 0.55 }}
+        animate={{ opacity: lit ? 0.9 : 0.65 }}
         transition={{ duration: 0.35 }}
-        className="mt-2 block font-serif text-[14px] font-[300] italic leading-snug"
+        className="mt-2.5 block font-serif leading-snug"
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
+          fontSize: "15px",
+          fontWeight: 300,
+          fontStyle: "italic",
           color: "#e4ebf0",
           maxWidth: "200px",
         }}
@@ -138,7 +178,27 @@ function ChildNode({ child, delay }: ChildNodeProps) {
         {child.role}
       </motion.span>
 
-      {/* Micro-detail — JetBrains Mono, teal, hover only */}
+      {/* Regime string — always visible when active; hover-only otherwise */}
+      <AnimatePresence>
+        {(hovered || isActive) && (
+          <motion.span
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            className="mt-3 block font-mono text-[9px]"
+            style={{
+              color: isActive ? "hsl(172 48% 52% / 0.9)" : "hsl(172 48% 52% / 0.7)",
+              letterSpacing: "0.06em",
+              fontFamily: "JetBrains Mono, monospace",
+            }}
+          >
+            {FACE_REGIME[child.face]}
+          </motion.span>
+        )}
+      </AnimatePresence>
+
+      {/* Micro-detail — JetBrains Mono, hover only (deeper layer) */}
       <AnimatePresence>
         {hovered && (
           <motion.span
@@ -146,9 +206,9 @@ function ChildNode({ child, delay }: ChildNodeProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.22, ease: EASE }}
-            className="mt-2 block font-mono text-[10px]"
+            className="mt-1 block font-mono text-[9px]"
             style={{
-              color: "hsl(172 48% 52% / 0.8)",
+              color: "rgba(200,164,78,0.45)",
               letterSpacing: "0.04em",
               fontFamily: "JetBrains Mono, monospace",
             }}
@@ -160,7 +220,7 @@ function ChildNode({ child, delay }: ChildNodeProps) {
 
       {/* Glass separator bottom — appears on hover */}
       <motion.div
-        animate={{ scaleX: hovered ? 1 : 0, opacity: hovered ? 1 : 0 }}
+        animate={{ scaleX: lit ? 1 : 0, opacity: lit ? 1 : 0 }}
         transition={{ duration: 0.35, ease: EASE }}
         className="mt-4 origin-center"
         style={{
@@ -173,72 +233,110 @@ function ChildNode({ child, delay }: ChildNodeProps) {
   );
 }
 
-// Vertical divider between children — glass line
-function Divider() {
+// Organism connector — the single visible signal that these are not three separate nodes
+// but three regimes of one body. Pulses slowly; never dominates.
+function OrganismConnector() {
   return (
-    <div
-      className="hidden md:block shrink-0 self-stretch"
-      style={{
-        width: "0.5px",
-        background: "rgba(255,255,255,0.07)",
-        margin: "0 8px",
-      }}
-      aria-hidden="true"
-    />
+    <div className="hidden md:flex shrink-0 flex-col items-center justify-center self-stretch" style={{ margin: "0 4px" }} aria-hidden="true">
+      {/* Static glass line */}
+      <div style={{ width: "0.5px", flex: 1, background: "rgba(255,255,255,0.06)" }} />
+      {/* Pulsing node — middle of the line */}
+      <motion.div
+        animate={{ opacity: [0.2, 0.55, 0.2], scaleY: [0.6, 1.1, 0.6] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          width: "3px",
+          height: "3px",
+          borderRadius: "50%",
+          background: "rgba(200,164,78,0.45)",
+          margin: "4px 0",
+          flexShrink: 0,
+        }}
+      />
+      <div style={{ width: "0.5px", flex: 1, background: "rgba(255,255,255,0.06)" }} />
+    </div>
   );
 }
 
-export default function TrinityRow() {
+interface TrinityRowProps {
+  activeFace?: TrinityFace | null;
+}
+
+export default function TrinityRow({ activeFace }: TrinityRowProps) {
   return (
     <div>
-      {/* Section anchor label */}
+      {/* Section anchor — orbital label */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.8 }}
-        className="mb-8 flex items-center justify-center gap-4"
+        transition={{ duration: 1.0 }}
+        className="mb-10 flex items-center justify-center gap-5"
       >
-        <span
-          className="block h-px flex-1"
+        <motion.span
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          className="block h-px origin-right"
           style={{
-            maxWidth: "120px",
-            background: "rgba(255,255,255,0.07)",
+            width: "80px",
+            background: "linear-gradient(to right, transparent, rgba(200,164,78,0.3))",
           }}
         />
         <span
-          className="font-sans text-[9px] font-[500] uppercase tracking-[0.24em]"
+          className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(200,164,78,0.55)",
           }}
         >
           Os três filhos
         </span>
-        <span
-          className="block h-px flex-1"
+        <motion.span
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          className="block h-px origin-left"
           style={{
-            maxWidth: "120px",
-            background: "rgba(255,255,255,0.07)",
+            width: "80px",
+            background: "linear-gradient(to left, transparent, rgba(200,164,78,0.3))",
           }}
         />
       </motion.div>
 
-      {/* Trinity row — horizontal, equal dignity */}
-      <div
-        className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-0 rounded-sm py-8 px-6 md:px-10"
+      {/* Trinity row — horizontal, equal dignity, elevated presence */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.9, ease: EASE }}
+        className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-0 py-10 px-6 md:px-12"
         style={{
-          background: "rgba(255,255,255,0.025)",
-          border: "0.5px solid rgba(255,255,255,0.065)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
+          background: "linear-gradient(135deg, rgba(200,164,78,0.03) 0%, rgba(26,107,90,0.03) 100%)",
+          border: "0.5px solid rgba(200,164,78,0.12)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          boxShadow: "0 0 80px -20px rgba(200,164,78,0.06), inset 0 0.5px 0 rgba(200,164,78,0.08)",
         }}
       >
+        {/* Ambient corner marks */}
+        <span className="absolute top-0 left-0 w-3 h-3 border-t border-l" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute top-0 right-0 w-3 h-3 border-t border-r" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+
         {TRINITY.map((child, i) => [
-          <ChildNode key={child.id} child={child} delay={0.15 * i} />,
-          i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
+          <ChildNode
+            key={child.id}
+            child={child}
+            delay={0.12 * i}
+            isActive={activeFace ? child.face === activeFace : false}
+          />,
+          i < TRINITY.length - 1 && <OrganismConnector key={`conn-${i}`} />,
         ])}
-      </div>
+      </motion.div>
     </div>
   );
 }

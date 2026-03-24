@@ -37,6 +37,7 @@ const ContributionsSection = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const fetchContributions = useCallback(async () => {
+    if (!supabase) return;
     const { data } = await supabase
       .from("public_contributions")
       .select("*")
@@ -46,7 +47,7 @@ const ContributionsSection = () => {
   }, []);
 
   const fetchUserVotes = useCallback(async () => {
-    if (!user) return;
+    if (!user || !supabase) return;
     const { data } = await supabase
       .from("contribution_votes")
       .select("contribution_id, vote_type")
@@ -61,6 +62,8 @@ const ContributionsSection = () => {
   useEffect(() => {
     fetchContributions();
     fetchUserVotes();
+
+    if (!supabase) return;
 
     const channel = supabase
       .channel("contributions-realtime")
@@ -77,6 +80,7 @@ const ContributionsSection = () => {
       toast({ title: "Login necessário", description: "Faça login para votar.", variant: "destructive" });
       return;
     }
+    if (!supabase) return;
 
     const existing = userVotes[contributionId];
 
@@ -100,6 +104,7 @@ const ContributionsSection = () => {
 
   const handleSubmit = async () => {
     if (!user) return;
+    if (!supabase) return;
     if (!newContent.trim() || !newName.trim()) {
       toast({ title: "Campos obrigatórios", description: "Preencha nome e sugestão.", variant: "destructive" });
       return;
