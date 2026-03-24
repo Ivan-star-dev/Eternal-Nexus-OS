@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, lazy, Suspense } from "react";
-import { ArrowRight, Globe, Heart, Github, ChevronUp, ChevronDown, ExternalLink } from "lucide-react";
+import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
@@ -14,7 +14,18 @@ import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const PROOF_METRICS = [
+  { value: "12", label: "Infraestruturas", color: "#c9870f" },
+  { value: "3", label: "Continentes", color: "#206358" },
+] as const;
+
+const TRINITY_NODES = [
+  { id: "heaven-lab", label: "Heaven Lab" },
+  { id: "bridge-nova", label: "Bridge Nova" },
+  { id: "nexus-cria", label: "Nexus Cria" },
+] as const;
 
 const Index = () => {
   const { t } = useLanguage();
@@ -118,33 +129,55 @@ const Index = () => {
               Construídos por humanos e IA. Validados por dados reais.
             </motion.p>
 
+            {/* First Proof — data signal */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-4 mt-10"
+              transition={{ delay: 1.0, duration: 0.6, ease }}
+              className="mt-10 mx-auto max-w-xs backdrop-blur-md bg-white/[0.04] border border-white/[0.05] rounded-sm px-6 py-3 flex items-center justify-center gap-5"
+              aria-label="Prova — dados do sistema"
             >
-              <a
-                href="#dossiers"
-                className="font-mono text-[0.65rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-              >
-                Ver Dossiês <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-              <Link
-                to="/atlas"
-                className="font-mono text-[0.65rem] tracking-[0.12em] border border-primary/40 text-primary px-6 py-3 hover:bg-primary/10 hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.3)] hover:border-primary/60 active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-              >
-                <Globe className="w-3.5 h-3.5" /> Atlas Global
-              </Link>
+              {PROOF_METRICS.map((metric, i) => (
+                <div key={metric.label} className="contents">
+                  {i > 0 && <div className="w-px h-5 bg-white/[0.06]" aria-hidden="true" />}
+                  <div className="text-center">
+                    <span className="font-mono text-sm tabular-nums" style={{ color: metric.color }}>{metric.value}</span>
+                    <p className="font-mono text-[0.42rem] tracking-[0.22em] text-[#e4ebf0]/35 uppercase mt-0.5">{metric.label}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="w-px h-5 bg-white/[0.06]" aria-hidden="true" />
+              <div className="text-center flex flex-col items-center">
+                <div className="flex items-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-[#206358] animate-pulse" aria-hidden="true" />
+                  <span className="font-mono text-sm text-[#206358]">Live</span>
+                </div>
+                <p className="font-mono text-[0.42rem] tracking-[0.22em] text-[#e4ebf0]/35 uppercase mt-0.5">Sistema</p>
+              </div>
             </motion.div>
 
+            {/* Trinity — Heaven Lab · Bridge Nova · Nexus Cria */}
             <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1.4, duration: 1, ease }}
-              className="h-px w-32 mx-auto mt-12 origin-center"
-              style={{ background: "var(--gradient-gold)" }}
-            />
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.3, duration: 0.6 }}
+              className="mt-6 flex flex-wrap items-center justify-center gap-2"
+              aria-label="Trinity — linhas de produto"
+            >
+              {TRINITY_NODES.map((node, i) => (
+                <motion.div
+                  key={node.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3 + i * 0.15, duration: 0.55, ease }}
+                  className="backdrop-blur-md bg-white/[0.04] border border-white/[0.05] px-4 py-2 rounded-sm"
+                >
+                  <span className="font-display text-[0.6rem] tracking-[0.2em] text-[#e4ebf0]/45 uppercase font-normal">
+                    {node.label}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Scroll indicator */}
