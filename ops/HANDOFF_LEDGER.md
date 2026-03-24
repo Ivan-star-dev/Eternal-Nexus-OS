@@ -6,6 +6,48 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | CORE-SPINE-RUNTIME-RELAY-001 — FAMILY CLOSED | claude-sonnet-4-6
+
+**TASK:** DUAL_AI_RELAY_POOL-001 — Layer C: TASK_POOL + RESULT_POOL + AI_SESSION_LOG
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — CORE-SPINE-RUNTIME-RELAY-001 family fully closed (Layer A + B + C)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/TASK_POOL.md` — v1.0 · schema + 3 real seeded tasks (memory-core · swmr-runtime · relay-pool)
+- `ops/relay/RESULT_POOL.md` — v1.0 · schema + 3 real results linked to tasks
+- `ops/relay/AI_SESSION_LOG.md` — v1.0 · schema + 9 real log entries from this session
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — DUAL_AI_RELAY_POOL-001 added as concluída
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK — END-TO-END LOOP (Layer A + B + C)
+
+**INPUT:** "compact fusion engine"
+
+```
+[1] Session created:           SES-2026-03-24-1b715ae0.json (ops/sessions/)
+[2] Provenance created:        PROV-608d7702-3ea.json (ops/runtime/provenance/)
+[3] SWMR classifies:           heaven_lab · deep-investigation · confidence: high
+[4] Trinity face chosen:       heaven_lab
+[5] Fruit detected:            has_fruit: true · type: research · directive: continue
+[6] re_entry_point stored:     session field → "resume deep-investigation on compact fusion engine"
+[7] Relay references state:    TASK_POOL (TASK-2026-03-24-memory-core) → RESULT_POOL (RESULT-2026-03-24-memory-core)
+[8] AI_SESSION_LOG:            LOG-2026-03-24-003 documents the full proof run
+[9] Next consumer can read:    PROV node has next_consumer field + output_ref → relay continues
+```
+
+**FAMILY TOTALS:**
+- Layer A (Memory Core): 4 tasks — SESSION-BACKBONE + PROVENANCE-SPINE + REENTRY-GRACE + RELAY-COUPLING
+- Layer B (Runtime): 3 tasks — SWMR-CLASSIFIER + TRINITY-ROUTING + FRUIT-DETECTION
+- Layer C (Relay Pool): 3 tasks — TASK-POOL + RESULT-POOL + AI-SESSION-LOG
+- Total: 10 tasks closed · CORE-SPINE-RUNTIME-RELAY-001 = CLOSED
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 | claude-sonnet-4-6
 
 **TASK:** ORGANISM_MINIMUM_MEMORY-001 — 4-task memory muscle + SWMR_MINIMUM_RUNTIME-001 — 3-task intelligence layer

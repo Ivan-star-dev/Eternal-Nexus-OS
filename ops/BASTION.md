@@ -185,6 +185,7 @@ Cada item da matriz regista os seguintes campos:
 | PORTAL_IMERSIVO_ORGANISM-001 | Produto / Síntese | WorkStructure | @claude | concluída | handoff emitido — PORTAL_IMERSIVO_ORGANISM.md v1.0 · DUAL_AI_ACCESS_LAYER.md v1.0 · 7 blocos · fatal gap (Session Backbone) identificado · next muscle (Session Entity) definido |
 | ORGANISM_MINIMUM_MEMORY-001 | WorkFunction / Memória | WorkFunction | @claude | concluída | handoff emitido — 4 tasks implementadas: SESSION-BACKBONE-MINIMUM-001 · PROVENANCE-SPINE-MINIMUM-001 · REENTRY-GRACE-MINIMUM-001 · RELAY-COUPLING-MINIMUM-001; src/lib/memory/types.ts + client.ts + vite-plugin-memory.ts + scripts/memory/io.mjs + proof-loop.mjs; ops/sessions/ + ops/runtime/provenance/ criados; prova real executada; commits 22a3d5f + c830609 |
 | SWMR_MINIMUM_RUNTIME-001 | WorkFunction / Runtime | WorkFunction | @claude | concluída | handoff emitido — 3 tasks implementadas: SWMR-CLASSIFIER-MINIMUM-001 · TRINITY-ROUTING-MINIMUM-001 · FRUIT-DETECTION-MINIMUM-001; src/lib/memory/classifier.ts + routing.ts + fruit.ts; 3-input SWMR proof: heaven_lab · bridge_nova · nexus_cria confirmados; commit 95068ae |
+| DUAL_AI_RELAY_POOL-001 | WorkStructure / Relay | WorkStructure | @claude | concluída | handoff emitido — Layer C completo: TASK-POOL-MATERIALIZATION-001 · RESULT-POOL-MATERIALIZATION-001 · AI-SESSION-LOG-MINIMUM-001; ops/relay/TASK_POOL.md + RESULT_POOL.md + AI_SESSION_LOG.md criados com schema + seed real; CORE-SPINE-RUNTIME-RELAY-001 family fechada |
 
 ---
 
