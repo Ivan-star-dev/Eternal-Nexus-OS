@@ -18,7 +18,7 @@ export default function SystemFacePage() {
 
         ┌──────────────┬─────────────────────┬──────────────┐
         │ LiveState    │ TaskControl         │ Orchestra    │
-        │ 22%          │ 40%                 │ 38%          │
+        │ 22%          │ 48%                 │ 30%          │
         ├──────────────┴──────────┬──────────┴──────────────┤
         │ Handoff Ledger          │ Command Line             │
         │ 35%                     │ 65%                      │
