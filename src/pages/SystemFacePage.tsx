@@ -18,10 +18,10 @@ export default function SystemFacePage() {
 
         ┌──────────────┬─────────────────────┬──────────────┐
         │ LiveState    │ TaskControl         │ Orchestra    │
-        │ 22%          │ 48%                 │ 30%          │
+        │ 22%          │ flex                │ 30%          │
         ├──────────────┴──────────┬──────────┴──────────────┤
         │ Handoff Ledger          │ Command Line             │
-        │ 35%                     │ 65%                      │
+        │ 35%                     │ flex                     │
         └─────────────────────────┴──────────────────────────┘
 
         Gaps are 1px tinted lines — structural dividers, not cards.
