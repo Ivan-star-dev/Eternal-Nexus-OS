@@ -219,7 +219,11 @@ function SessionPulse() {
       style={{ top: "calc(100% - 52px)" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      tabIndex={0}
       aria-label={isResume ? "Sessão retomada" : "Sessão activa"}
+      aria-expanded={hovered && !!stepDisplay}
     >
       <motion.div
         animate={{ width: hovered && stepDisplay ? "auto" : "auto" }}
