@@ -4,8 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
-**Última atualização:** 2026-03-21
-**Atualizado por:** @claude | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001
+**Última atualização:** 2026-03-24
+**Atualizado por:** @cursor | PRODUCT-FACE-HERO-ANATOMY-001
 
 ---
 
@@ -17,7 +17,7 @@
 | **Branch canônico** | `claude/expose-workspace-config-yt4Km` |
 | **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.8 activo; PIONEER_MATRIX v1.1; DNA_PROTOCOL v1.3; FOL v2.1; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; CROSS_SUPPORT_PROTOCOL v1; FLOWMESH v1.0 criado; NEXUS_NEURAL_MESH v1.0 criado; BASTION 2.0 CICLO ACTIVO |
+| **Camada atual** | PLv6.2-a concluída; **Product face hero canónico** (`ProductHero` + `TrinityRow` + `HeroFirstProof` na home); BASTION v1.8 activo; PIONEER_MATRIX v1.1; DNA_PROTOCOL v1.3; FOL v2.1; OUTPUT_STANDARD v2.1; NEXUS_OS v1.1; CROSS_SUPPORT_PROTOCOL v1; FLOWMESH v1.0 criado; NEXUS_NEURAL_MESH v1.0 criado; BASTION 2.0 CICLO ACTIVO |
 | **Estado geral** | BASTION 2.0 CICLO ACTIVADO; fundação lapidada + FLOWMESH + NEURAL_MESH criados; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador activo; @claude árbitro — aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
 
 ---
@@ -71,6 +71,7 @@
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
+| PRODUCT-FACE-HERO-ANATOMY-001 | Hero canónico `ProductHero` + trinity + first proof na home | CONCLUÍDA | owner / GATE_FRAMER para polish visual |
 | BULK-01.3-a | Remover `vite.config.ts.timestamp-*` (arquivo gerado, não versionável) | GATE ABERTO | pode executar agora — mecânico, seguro, não-soberano |
 | BULK-01.3-b | Avaliar duplicação `bun.lock` + `package-lock.json` — ambos no repo | GATE ABERTO | confirmar PM canônico (B-002) ou limpar se for residual óbvio |
 | BULK-01.3-c | Verificar `antigravity/legacy-html/` — se é lixo mecânico sem decisão soberana | GATE ABERTO | checar se é apenas conteúdo obsoleto removível sem impacto |

@@ -1,75 +1,86 @@
 import { useEffect, useRef, useState } from "react";
 
 const METRICS = [
-  { end: 5, suffix: "", label: "MEGAPROJETOS" },
-  { end: 7, suffix: "", label: "ÓRGÃOS NEXUS" },
-  { end: 3, suffix: "", label: "FACES PRODUTO" },
-  { end: 2, suffix: "", label: "ÂNCORAS GEO" },
+  { end: 5, label: "MEGAPROJETOS" },
+  { end: 7, label: "ÓRGÃOS NEXUS" },
+  { end: 3, label: "FACES PRODUTO" },
+  { end: 2, label: "ÂNCORAS GEO" },
 ] as const;
 
-function CountCell({
-  end,
-  label,
-  suffix,
-}: {
-  end: number;
-  label: string;
-  suffix: string;
-}) {
-  const [n, setN] = useState(0);
+function CountCell({ end, label }: { end: number; label: string }) {
+  // Initial display at 60% of end — instrument calibrating to final reading, not counting from zero.
+  // useState is seeded once on mount; the effect drives all subsequent updates.
+  const [n, setN] = useState(() => Math.floor(end * 0.6));
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Compute start inside the effect so the closure always sees the current `end`
+    // value, and `start` is not a separate reactive dependency.
+    const start = Math.floor(end * 0.6);
+    let rafId = 0;
     let started = false;
     const obs = new IntersectionObserver(
       ([e]) => {
         if (!e.isIntersecting || started) return;
         started = true;
-        const dur = 1400;
+        obs.disconnect();
+        const dur = 1800;
         const t0 = performance.now();
         const tick = (now: number) => {
           const t = Math.min(1, (now - t0) / dur);
-          const eased = 1 - (1 - t) ** 2;
-          setN(Math.min(end, Math.round(end * eased)));
-          if (t < 1) requestAnimationFrame(tick);
+          // Cubic ease-out: rapid acquisition, slow precise settling
+          const eased = 1 - (1 - t) ** 3;
+          setN(Math.min(end, Math.round(start + (end - start) * eased)));
+          if (t < 1) rafId = requestAnimationFrame(tick);
         };
-        requestAnimationFrame(tick);
-        obs.disconnect();
+        rafId = requestAnimationFrame(tick);
       },
       { threshold: 0.15 },
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      cancelAnimationFrame(rafId);
+    };
   }, [end]);
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-mono text-2xl tabular-nums text-teal md:text-3xl md:text-teal-light md:leading-none">
+      {/* Number: foreground, carved — the reading itself */}
+      <div className="font-mono text-[2.6rem] leading-none tabular-nums text-foreground/88 md:text-[3.4rem]">
         {n}
-        {suffix}
       </div>
-      <div className="mt-1 font-mono text-[0.42rem] tracking-[0.18em] text-teal/90 md:text-[0.45rem]">{label}</div>
+      {/* Label: teal annotation — the instrument name */}
+      <div className="mt-2.5 font-mono text-[0.4rem] tracking-[0.28em] text-teal/65 md:text-[0.42rem]">
+        {label}
+      </div>
     </div>
   );
 }
 
-/** Mother phrase, count-up proof grid, canonical stamp — prop-free for Framer handoff. */
+/** Mother phrase + instrument readings + canonical stamp — prop-free for Framer handoff. */
 const HeroFirstProof = () => (
-  <div className="relative z-10 mt-10 w-full max-w-3xl px-4 pb-8 text-center sm:px-6 md:pb-12">
-    <p className="font-serif text-lg italic leading-relaxed text-primary/90 sm:text-xl md:text-2xl">
+  <div className="relative z-10 mt-14 w-full max-w-3xl px-4 pb-12 text-center sm:px-6 md:mt-20 md:pb-20">
+    {/* Mother phrase — quiet, certain */}
+    <p className="font-serif text-base italic leading-relaxed text-primary/68 sm:text-lg md:text-xl">
       Projetos para o Futuro — <span className="text-morabeza">com morabeza</span>
     </p>
 
-    <div className="mx-auto mt-10 grid max-w-xl grid-cols-2 gap-8 md:max-w-none md:grid-cols-4 md:gap-6">
+    {/* Separator */}
+    <div className="mx-auto mt-8 h-px w-10 bg-border/35" />
+
+    {/* Instrument readings — large, carved, inevitable */}
+    <div className="mx-auto mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-10 md:max-w-none md:grid-cols-4 md:gap-x-4 md:gap-y-0">
       {METRICS.map((m) => (
-        <CountCell key={m.label} end={m.end} suffix={m.suffix} label={m.label} />
+        <CountCell key={m.label} end={m.end} label={m.label} />
       ))}
     </div>
 
+    {/* Canonical stamp — watermark opacity, no border */}
     <div
-      className="mx-auto mt-10 inline-block border border-primary/35 bg-background/40 px-5 py-2.5 font-mono text-[0.42rem] tracking-[0.28em] text-muted-foreground backdrop-blur-sm"
+      className="mx-auto mt-16 font-mono text-[0.36rem] tracking-[0.38em] text-foreground/[0.12]"
       aria-hidden
     >
       NPI · CANONICAL PRODUCT FACE · HERO-v1

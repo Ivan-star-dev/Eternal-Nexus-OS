@@ -33,6 +33,26 @@ PROXIMO_PASSO: [resumo curto]
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@cursor │ MODELO:cursor-agent │ TASK:PRODUCT-FACE-HERO-ANATOMY-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Hero da home refatorado: `src/pages/Index.tsx` usa `<ProductHero />`;
+            │ criados `src/components/home/ProductHero.tsx` (substrate + atmosphere +
+            │ GlobeZone + scroll parallax + h1 + scroll cue), `TrinityRow.tsx`
+            │ (Heaven Lab · Bridge Nova · Nexus Cria — painel glass, hover desktop),
+            │ `HeroFirstProof.tsx` (frase mãe Cormorant + 4 métricas count-up JetBrains/teal +
+            │ stamp canónico). Secções abaixo do hero inalteradas.
+NAO_FEITO   │ GATE_FRAMER — substituição visual por camada Framer (componentes prop-free)
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ Hierarquia globe → trinity → proof; grid máquina só md+; divisores trinity md+
+ARQUIVOS    │ ProductHero.tsx | TrinityRow.tsx | HeroFirstProof.tsx | Index.tsx |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ médio — face pública da home; tríade nominal canónica selada no UI
+DEPENDENCIA │ owner confirma nomes vs HEAVEN_LAB_REFERENCE_SURFACE.md se divergir
+PODE_ENTRAR │ sim — lapidação visual / Framer após gate
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-NEURAL-MESH-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/NEXUS_NEURAL_MESH.md v1.0 criado (10 partes):
