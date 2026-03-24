@@ -22,7 +22,7 @@ const GATE_ROWS = [
   { gate: "GATE_FRAMER", status: "AGUARDA GATE OWNER", note: "WorkVisual" },
   { gate: "GATE_ANTIGRAVITY", status: "AGUARDA GATE OWNER", note: "WorkVisual" },
   { gate: "PLv6.2-b", status: "AGUARDA GATE OWNER", note: "próxima camada" },
-  { gate: "FVL-IMPL-001", status: "PLANEJADA", note: "/founder blueprint pronto" },
+  { gate: "FVL-IMPL-001", status: "AGUARDA GATE", note: "/founder blueprint pronto" },
 ];
 
 function accentClass(accent?: StateRow["accent"]) {
