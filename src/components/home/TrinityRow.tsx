@@ -111,26 +111,31 @@ function ChildNode({ child, delay }: ChildNodeProps) {
         />
       </motion.div>
 
-      {/* Name — Syne, gold */}
+      {/* Name — Syne, gold, elevated size */}
       <motion.span
-        animate={{ color: hovered ? "hsl(42 78% 45%)" : "hsl(42 78% 45% / 0.75)" }}
-        transition={{ duration: 0.3 }}
-        className="block font-sans text-[13px] font-[400] uppercase"
+        animate={{ color: hovered ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.82)" }}
+        transition={{ duration: 0.35 }}
+        className="block font-sans uppercase"
         style={{
           fontFamily: "Syne, system-ui, sans-serif",
-          letterSpacing: "0.14em",
+          fontSize: "14px",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
         }}
       >
         {child.name}
       </motion.span>
 
-      {/* Identity line — Cormorant italic */}
+      {/* Identity line — Cormorant italic, more present */}
       <motion.span
-        animate={{ opacity: hovered ? 0.85 : 0.55 }}
+        animate={{ opacity: hovered ? 0.9 : 0.65 }}
         transition={{ duration: 0.35 }}
-        className="mt-2 block font-serif text-[14px] font-[300] italic leading-snug"
+        className="mt-2.5 block font-serif leading-snug"
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
+          fontSize: "15px",
+          fontWeight: 300,
+          fontStyle: "italic",
           color: "#e4ebf0",
           maxWidth: "200px",
         }}
@@ -191,54 +196,73 @@ function Divider() {
 export default function TrinityRow() {
   return (
     <div>
-      {/* Section anchor label */}
+      {/* Section anchor — orbital label */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.8 }}
-        className="mb-8 flex items-center justify-center gap-4"
+        transition={{ duration: 1.0 }}
+        className="mb-10 flex items-center justify-center gap-5"
       >
-        <span
-          className="block h-px flex-1"
+        <motion.span
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          className="block h-px origin-right"
           style={{
-            maxWidth: "120px",
-            background: "rgba(255,255,255,0.07)",
+            width: "80px",
+            background: "linear-gradient(to right, transparent, rgba(200,164,78,0.3))",
           }}
         />
         <span
-          className="font-sans text-[9px] font-[500] uppercase tracking-[0.24em]"
+          className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
-            color: "rgba(255,255,255,0.25)",
+            color: "rgba(200,164,78,0.55)",
           }}
         >
           Os três filhos
         </span>
-        <span
-          className="block h-px flex-1"
+        <motion.span
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          className="block h-px origin-left"
           style={{
-            maxWidth: "120px",
-            background: "rgba(255,255,255,0.07)",
+            width: "80px",
+            background: "linear-gradient(to left, transparent, rgba(200,164,78,0.3))",
           }}
         />
       </motion.div>
 
-      {/* Trinity row — horizontal, equal dignity */}
-      <div
-        className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-0 rounded-sm py-8 px-6 md:px-10"
+      {/* Trinity row — horizontal, equal dignity, elevated presence */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.9, ease: EASE }}
+        className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-0 py-10 px-6 md:px-12"
         style={{
-          background: "rgba(255,255,255,0.025)",
-          border: "0.5px solid rgba(255,255,255,0.065)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
+          background: "linear-gradient(135deg, rgba(200,164,78,0.03) 0%, rgba(26,107,90,0.03) 100%)",
+          border: "0.5px solid rgba(200,164,78,0.12)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          boxShadow: "0 0 80px -20px rgba(200,164,78,0.06), inset 0 0.5px 0 rgba(200,164,78,0.08)",
         }}
       >
+        {/* Ambient corner marks */}
+        <span className="absolute top-0 left-0 w-3 h-3 border-t border-l" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute top-0 right-0 w-3 h-3 border-t border-r" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+        <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
+
         {TRINITY.map((child, i) => [
-          <ChildNode key={child.id} child={child} delay={0.15 * i} />,
+          <ChildNode key={child.id} child={child} delay={0.12 * i} />,
           i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
         ])}
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -44,8 +44,9 @@ function NetworkSphere() {
 
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.04;
-      groupRef.current.rotation.x = Math.sin(Date.now() * 0.0001) * 0.08;
+      // slow authority rotation — sovereign, not performative
+      groupRef.current.rotation.y += delta * 0.022;
+      groupRef.current.rotation.x = Math.sin(Date.now() * 0.00008) * 0.06;
     }
   });
 
@@ -170,12 +171,55 @@ function ParticleFlow() {
 
 
 
+// Orbital breathing ring — calm authority, not decoration
+function OrbitalBreathingRing() {
+  const ringRef = useRef<THREE.Mesh>(null);
+  useFrame(({ clock }) => {
+    if (!ringRef.current) return;
+    const t = clock.getElapsedTime();
+    // Breathing: scale pulses between 1.0 and 1.035 over ~6s
+    const breath = 1 + Math.sin(t * 0.52) * 0.018;
+    ringRef.current.scale.setScalar(breath);
+    // Very slow independent tilt
+    ringRef.current.rotation.z = t * 0.008;
+  });
+
+  return (
+    <mesh ref={ringRef} rotation={[Math.PI * 0.12, 0, 0]}>
+      <ringGeometry args={[GLOBE_RADIUS * 1.18, GLOBE_RADIUS * 1.195, 128]} />
+      <meshBasicMaterial color="#c8a44e" transparent opacity={0.07} side={THREE.DoubleSide} />
+    </mesh>
+  );
+}
+
+// Second orbital ring — offset plane for depth
+function OrbitalRingOuter() {
+  const ringRef = useRef<THREE.Mesh>(null);
+  useFrame(({ clock }) => {
+    if (!ringRef.current) return;
+    const t = clock.getElapsedTime();
+    const breath = 1 + Math.sin(t * 0.38 + 1.2) * 0.012;
+    ringRef.current.scale.setScalar(breath);
+    ringRef.current.rotation.z = -t * 0.005;
+  });
+
+  return (
+    <mesh ref={ringRef} rotation={[-Math.PI * 0.08, Math.PI * 0.15, 0]}>
+      <ringGeometry args={[GLOBE_RADIUS * 1.28, GLOBE_RADIUS * 1.29, 96]} />
+      <meshBasicMaterial color="#206358" transparent opacity={0.05} side={THREE.DoubleSide} />
+    </mesh>
+  );
+}
+
 const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
   return (
     <>
-      <ambientLight intensity={0.25} />
-      <pointLight position={[10, 8, 10]} intensity={0.3} color="#D4AF37" />
+      <ambientLight intensity={0.28} />
+      <pointLight position={[10, 8, 10]} intensity={0.35} color="#D4AF37" />
+      <pointLight position={[-8, -4, 6]} intensity={0.12} color="#1a6b5a" />
       <NetworkSphere />
+      <OrbitalBreathingRing />
+      <OrbitalRingOuter />
       <ParticleFlow />
       {showProjects !== false && projectLocations.map((p) => (
         <ProjectHotspot
@@ -198,7 +242,7 @@ const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showS
         minDistance={8}
         maxDistance={20}
         autoRotate
-        autoRotateSpeed={0.3}
+        autoRotateSpeed={0.18}
         target={[0, 0, 0]}
       />
     </>
