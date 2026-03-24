@@ -290,6 +290,7 @@ export default function CommandLine() {
               autoCapitalize="none"
               autoComplete="off"
               autoCorrect="off"
+              aria-label="Command line input"
             />
             <BlinkCursor />
           </div>
