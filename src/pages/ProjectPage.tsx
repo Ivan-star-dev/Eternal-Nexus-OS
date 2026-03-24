@@ -16,6 +16,7 @@ import RiskTab from "@/components/project/RiskTab";
 import TimelineTab from "@/components/project/TimelineTab";
 import FinancialTab from "@/components/project/FinancialTab";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSession } from "@/contexts/SessionContext";
 import projectData from "@/data/projects";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
@@ -32,6 +33,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
+  const { startSession, updateReEntry } = useSession();
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -40,6 +42,16 @@ const ProjectPage = () => {
     document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
     return () => { document.title = "Eternal Nexus OS"; };
   }, [project]);
+
+  // Session hookup: start session with real project context on mount
+  useEffect(() => {
+    if (project) startSession(project.title, "project-review");
+  }, [project]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Track tab navigation as re_entry_point
+  useEffect(() => {
+    updateReEntry(activeTab);
+  }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!project) {
     return (

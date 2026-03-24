@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation, type Variants } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSession } from "@/contexts/SessionContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -715,6 +716,7 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
 
 export default function NexusPage() {
   const { user } = useAuth();
+  const { startSession, updateFruit, updateReEntry } = useSession();
   const [prompt, setPrompt] = useState("");
 
   useEffect(() => {
@@ -782,6 +784,7 @@ export default function NexusPage() {
     if (!prompt.trim() || !user) return;
     setLoading(true);
     setResult(null);
+    startSession(prompt.trim(), "global-swarm-synthesis");
     setStreamingMeta("");
     setActiveTab("synthesis");
     setAgentStatuses({ climate: "pending", economy: "pending", health: "pending", meta: "pending" });
@@ -893,6 +896,9 @@ export default function NexusPage() {
                   integrityHash: payload.integrityHash,
                   timestamp: payload.timestamp,
                 });
+                const synthText = agents.meta?.response ?? "";
+                if (synthText) updateFruit(synthText.slice(0, 120));
+                updateReEntry(`resume-swarm:${prompt.slice(0, 60)}`);
               } else if (eventType === "error") {
                 toast.error(payload.message || "Swarm error");
               }
