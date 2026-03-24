@@ -6,6 +6,30 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @cursor | TRINITY-CONTINUITY-PASS-001 + RESUME-FRUIT-CARRYOVER-001 | claude-4.6-sonnet
+
+**TASK:** TRINITY-CONTINUITY-PASS-001 + RESUME-FRUIT-CARRYOVER-001 — organism continuity across trinity + fruit carryover through existing flows
+**BRANCH:** cursor/v3-flagship-surface-close-2665
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/home/TrinityRow.tsx` — FACE_REGIME map from routing.ts; ChildNode shows regime on active (always) or hover; OrganismConnector replaces Divider; Child.face field added
+- `src/pages/NexusPage.tsx` — on-mount useEffect pre-fills prompt with next_expected_step on resume; L4ExecutionDeck gains latestFruit prop; "last output ·" context strip above prompt input
+
+### CARRYOVER_PROOF
+- tsx test: all 5 conditions pass (pre-fill, fruit pass, overwrite protection, cold-start skip, FACE_REGIME map)
+- Manual test: Heaven Lab active face shows "hypothesis · model · evidence" always; Bridge Nova hover shows "milestone · guidance · progression"; OrganismConnector pulsing gold node visible between nodes; NexusPage gated behind auth (fruit+pre-fill verified by code)
+
+### COMMITS
+- `4a367e6` feat(trinity+fruit): organism continuity + fruit carryover
+
+### PR
+- #162 — https://github.com/Ivan-star-dev/Eternal-Nexus-OS/pull/162
+
+---
+
 ## HANDOFF — 2026-03-24 | @cursor | V3-SURFACE-INTEGRATION-SUPPORT-001 | claude-4.6-sonnet
 
 **TASK:** V3-SURFACE-INTEGRATION-SUPPORT-001 — wire session state into flagship surface (minimum integration, no new architecture)
