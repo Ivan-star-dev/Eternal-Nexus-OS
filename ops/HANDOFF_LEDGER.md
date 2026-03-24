@@ -6,6 +6,73 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 | claude-sonnet-4-6
+
+**TASK:** ORGANISM_MINIMUM_MEMORY-001 — 4-task memory muscle + SWMR_MINIMUM_RUNTIME-001 — 3-task intelligence layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX → pushed to origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — 7 tasks implementadas · provas reais executadas · 3 commits pushed
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/lib/memory/types.ts` — SessionEntity · ProvenanceNode · ReentryGrace · RelayCoupling (browser-safe TS)
+- `src/lib/memory/client.ts` — thin fetch wrapper, no fs, no node imports
+- `src/lib/memory/classifier.ts` — SWMR classifier: subject+intention → trinity face · mode · confidence
+- `src/lib/memory/routing.ts` — trinity routing: face+mode → regime · toolset · constraint
+- `src/lib/memory/fruit.ts` — fruit detector: has_fruit · progression · session directive
+- `vite-plugin-memory.ts` — node-side file I/O via Vite dev-server middleware (6 routes)
+- `scripts/memory/io.mjs` — standalone Node I/O module (createSession · createProvenance · buildReentryGrace · buildRelayCoupling)
+- `scripts/memory/proof-loop.mjs` — 8-step memory proof (input: "compact fusion engine")
+- `scripts/memory/swmr-proof.mjs` — 3-input SWMR proof
+
+**Ficheiros criados (runtime):**
+- `ops/sessions/SES-2026-03-24-1b715ae0.json` + `.relay.json` — proof session (compact fusion engine)
+- `ops/sessions/SES-2026-03-24-26dcc7a9.json` — SWMR proof session 1
+- `ops/sessions/SES-2026-03-24-5c65ab7e.json` — SWMR proof session 2
+- `ops/sessions/SES-2026-03-24-e8050970.json` — SWMR proof session 3
+- `ops/runtime/provenance/PROV-608d7702-3ea.json` — proof provenance node
+
+**Ficheiros actualizados:**
+- `vite.config.ts` — memoryApiPlugin() added
+- `tsconfig.node.json` — vite-plugin-memory.ts included
+- `package.json` — proof:memory + proof:swmr scripts added
+- `ops/BASTION.md` — 4 tasks marked concluída
+- `ops/LIVE_STATE.md` — esta entrada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+**ORGANISM_MINIMUM_MEMORY-001 — LOOP PROOF (compact fusion engine):**
+```
+✓ [1] Session created:     SES-2026-03-24-1b715ae0
+✓ [2] Provenance created:  PROV-608d7702-3ea
+✓ [3] Fruit recorded
+✓ [4] re_entry_point recorded
+✓ [5] Session reloaded from disk
+✓ [6] Provenance chain readable: next_consumer "@cursor" knows what earlier step produced
+✓ [7] ReentryGrace computed
+✓ [8] RelayCoupling computed
+```
+
+**SWMR_MINIMUM_RUNTIME-001 — 3-INPUT PROOF:**
+```
+"compact fusion engine"                            → heaven_lab  · deep-investigation · continue
+"how to reach Mars in six months"                 → bridge_nova · guided-progression  · continue
+"turn this research into a paper and visual proto" → nexus_cria  · artefact-production · continue
+```
+
+**COMMITS:**
+- `22a3d5f` — feat(memory): ORGANISM_MINIMUM_MEMORY-001
+- `95068ae` — feat(swmr): SWMR_MINIMUM_RUNTIME
+- `c830609` — chore(proof): proof artifacts
+
+**NEXT:**
+- Session backbone is live — real continuity layer exists
+- SWMR classifier is live — trinity routing operational
+- Next muscle: integrate session backbone with existing app state / product surfaces
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | PORTAL_IMERSIVO_ORGANISM-001 | claude-sonnet-4-6
 
 **TASK:** PORTAL_IMERSIVO_ORGANISM-001 — Portal Imersivo Organism · 7 blocos · simulação Mars · fatal gap · next muscle · Dual AI Access Layer
