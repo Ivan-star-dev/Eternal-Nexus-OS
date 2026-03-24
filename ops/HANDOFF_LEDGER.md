@@ -6,6 +6,42 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | SESSION-AWARE-PRODUCT-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** SESSION-AWARE-PRODUCT-INTEGRATION-001 — connect memory muscle to visible product behavior
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** e296451
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/contexts/SessionContext.tsx` — localStorage-backed session context; cold start → classify()+route(); resume branch if re_entry_point stored; exposes 5 fields + 3 mutators
+
+**Ficheiros actualizados:**
+- `src/App.tsx` — `<SessionProvider>` wraps tree (inside LanguageProvider, above AuthProvider)
+- `src/components/shared/NexusFlowInspector.tsx` — SESSION panel: active_face (colored), next_expected_step, re_entry_point, latest_fruit
+
+### SESSION-AWARE BEHAVIOR
+
+```
+Cold start → classify("","") → route() → active_face + next_expected_step derived
+             stored to localStorage key: nxos_session
+
+Resume     → localStorage has session with re_entry_point
+           → hydrate directly, is_resume: true, no re-classify
+
+Inspector  → SESSION panel shows: COLD | LIVE | RESUME
+           → face: heaven_lab (green) | bridge_nova (blue) | nexus_cria (gold)
+           → next expected step
+           → re_entry_point (green, if set)
+           → latest_fruit (yellow, if set)
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | CORE-SPINE-RUNTIME-RELAY-001 — FAMILY CLOSED | claude-sonnet-4-6
 
 **TASK:** DUAL_AI_RELAY_POOL-001 — Layer C: TASK_POOL + RESULT_POOL + AI_SESSION_LOG
