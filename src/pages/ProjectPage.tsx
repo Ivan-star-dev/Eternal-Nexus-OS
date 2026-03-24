@@ -33,7 +33,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
-  const { startSession, updateReEntry } = useSession();
+  const { startSession, updateReEntry, updateFruit } = useSession();
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -48,9 +48,10 @@ const ProjectPage = () => {
     if (project) startSession(project.title, "project-review");
   }, [project]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Track tab navigation as re_entry_point
+  // Track tab navigation: re_entry_point + fruit (what the user last read)
   useEffect(() => {
     updateReEntry(activeTab);
+    if (project) updateFruit(`${project.title} · ${activeTab}`);
   }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!project) {
