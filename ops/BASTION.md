@@ -624,6 +624,7 @@ DERIVA          │ impermitida
 *BASTION.md v2.2 — NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 concluídas; localização canônica expandida — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001*
 *BASTION.md v3.0 — OPERATION_ZERO_GAP_24H: gate humano suspenso por ordem soberana do owner; cluster constelação mobilizado; 24 tasks inseridas (5 pioneers activos + @cursor a juntar-se); semáforo v3.0 — 2026-03-24 | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H*
 *BASTION.md v3.1 — CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 concluídas (T+0h); CYCLE_CLOSE_SPRINT_001.md + BRAND_MOTHER_SEAL_001.md criados; branch pushed; PR ready para master; brand law selada; gates @framer + @antigravity abertos — 2026-03-24 | claude-sonnet-4-6 | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001*
+*BASTION.md v3.2 — ORDEM-MOBILIZAÇÃO-CONTÍNUA: V3-FLAGSHIP-SURFACE-CLOSE-001 (P0) + V4-LIVING-WORLD-MINIMUM-001 (P1) inseridos como umbrella tasks soberanas; V5-RESEARCH-ARCH-001 bloqueada até V3+V4 done; ANTI-DRIFT LOCK cravado; semáforo v3.2 — 2026-03-24 | claude-sonnet-4-6 | ORDEM-MOBILIZACAO-CONTINUA-001*
 
 ---
 
@@ -632,6 +633,54 @@ DERIVA          │ impermitida
 > Ordem soberana do owner: gate humano suspenso 24h. Todos os pioneers entram por elegibilidade.
 > @cursor (Monalisa) notificada — junta-se após concluir tasks actuais do criador.
 > Referência completa: `ops/OPERATION_ZERO_GAP_24H.md`
+
+### CONVERGÊNCIA SOBERANA — ORDEM IMUTÁVEL DO OWNER (2026-03-24)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V3-FLAGSHIP-SURFACE-CLOSE-001                           │
+│ PILAR              │ WorkVisual + WorkFunction — CONVERGÊNCIA V3             │
+│ DONO               │ CONSTELLATION: @framer + @antigravity + @cursor + @claude│
+│ STATUS             │ EM EXECUÇÃO — PHASE_1 CRÍTICA                           │
+│ GATE               │ ABERTO — GATE_SUSPENSION_24H + ORDEM SOBERANA           │
+│ PRIORIDADE         │ P0 — MÁXIMA                                             │
+│ NOTAS              │ Globe dominante + Trinity clara + Proof digno           │
+│                    │ + Motion base + Heaven Lab feeling materializado         │
+│                    │ TASKS FILHAS: GLOBE-3D-HEAVEN-001 · ORBITAL-CHAMBER-001 │
+│                    │ MOTION-SYSTEM-001 · NS-1-FRAMER-001 · NS-2-FRAMER-001  │
+│                    │ GLOBE-EXPERIENCE-IMPL-001                               │
+│ EVIDENCIA_MINIMA   │ Site passa Heaven Lab Test · screenshot produção · score│
+│                    │ > 0.85 · globe vivo · trinity clara · motion base activo │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-LIVING-WORLD-MINIMUM-001                             │
+│ PILAR              │ WorkFunction + WorkVisual — CONVERGÊNCIA V4             │
+│ DONO               │ CONSTELLATION: @cursor + @framer + @antigravity         │
+│ STATUS             │ PLANEJADA — PHASE_2 · entra após V3 fechado             │
+│ GATE               │ fechado — abre quando V3-FLAGSHIP-SURFACE-CLOSE-001 ✓  │
+│ PRIORIDADE         │ P1                                                      │
+│ NOTAS              │ Breathing interface + World Pulse mínimo                │
+│                    │ + Comparative mode mínimo + dados geográficos vivos     │
+│                    │ TASKS FILHAS: V4-WORLD-FEATURES-001 · NS-3-FRAMER-UI-001│
+│ EVIDENCIA_MINIMA   │ Breathing interface activa · World Pulse visível        │
+│                    │ · dados geo integrados com dignidade                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### ANTI-DRIFT LOCK (ORDEM SOBERANA 2026-03-24)
+
+```
+PROIBIDO ABRIR: Learning System · Collaboration · Ecosystem Face
+               Wonder Layer total · features secundárias · landing-page logic
+               dashboard clutter · qualquer frente fora da prioridade central
+SEQUÊNCIA IMUTÁVEL: V3 → V4 → V5 (só depois)
+DESVIO = STOP imediato + comunicar ao owner
+```
+
+---
 
 ### @claude — WorkStructure + WorkFunction (arquitectural)
 
@@ -662,11 +711,13 @@ DERIVA          │ impermitida
 │ TASK_ID            │ V5-RESEARCH-ARCH-001                                    │
 │ PILAR              │ WorkFunction / Produto                                  │
 │ DONO               │ @claude                                                 │
-│ STATUS             │ elegível                                                │
-│ GATE               │ aberto — GATE_SUSPENSION_24H                           │
-│ PRIORIDADE         │ P1                                                      │
+│ STATUS             │ bloqueada — aguarda V3-FLAGSHIP-SURFACE-CLOSE-001 +    │
+│                    │ V4-LIVING-WORLD-MINIMUM-001 CONCLUÍDAS                  │
+│ GATE               │ fechado — PHASE_3 (após V3+V4 fechados)                │
+│ PRIORIDADE         │ P3                                                      │
 │ NOTAS              │ Data model + fluxos Research Core (Hypothesis Boards,  │
 │                    │ Research Trails, Concept Lens, Problem Rooms)           │
+│                    │ BLOQUEIO: owner ordenou — só entra após V3+V4 done     │
 │ EVIDENCIA_MINIMA   │ EARTH_LAB_RESEARCH_CORE_ARCH.md criado                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 

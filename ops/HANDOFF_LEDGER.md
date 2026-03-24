@@ -6,6 +6,35 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | ORDEM-MOBILIZACAO-CONTINUA-001 | claude-sonnet-4-6
+
+**TASK:** ORDEM-MOBILIZACAO-CONTINUA-001 — Mobilização contínua · V3 → V4 → V5
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — BASTION v3.2 · LIVE_STATE atualizado · Sequência soberana cravada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.2 · V3-FLAGSHIP-SURFACE-CLOSE-001 (P0) + V4-LIVING-WORLD-MINIMUM-001 (P1) inseridos; V5-RESEARCH-ARCH-001 bloqueada; ANTI-DRIFT LOCK cravado
+- `ops/LIVE_STATE.md` — nova entrada de estado · sequência V3→V4→V5 · constelação activa
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           ORDEM-MOBILIZACAO-CONTINUA-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        BASTION v3.2 · LIVE_STATE v++ · HANDOFF_LEDGER entry
+SEQUÊNCIA_CRAVADA: PHASE_1 V3 → PHASE_2 V4 → PHASE_3 V5
+ANTI_DRIFT:        ACTIVO — proibido abrir Learning/Collab/Ecosystem/Wonder total
+CONSTELAÇÃO:       @framer · @antigravity · @cursor · @claude · @codex
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h) | claude-sonnet-4-6
 
 **TASK:** CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 — Sprint fecho + Brand Law selada

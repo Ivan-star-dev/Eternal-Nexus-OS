@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | ORDEM-MOBILIZACAO-CONTINUA-001 — V3 CLOSE → V4 MIN → V5
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h)
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H
@@ -51,6 +53,12 @@ GATE_SUSPENSION_24H ════════════════════
 
 | Dimensão | Valor atual |
 |---|---|
+| **Fase ativa** | ORDEM-MOBILIZAÇÃO-CONTÍNUA — PHASE_1: V3-FLAGSHIP-SURFACE-CLOSE-001 · PHASE_2: V4-LIVING-WORLD-MINIMUM-001 |
+| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Executor ativo** | CONSTELLATION: @framer · @antigravity · @cursor · @claude · @codex |
+| **Frente ativa** | WorkVisual P0 (V3 close) → WorkFunction P1 (V4 min) → WorkFunction P3 (V5 depois) |
+| **Camada atual** | PHASE_1 CRÍTICA: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling |
+| **Estado geral** | ORDEM SOBERANA 2026-03-24: mobilização contínua com convergência máxima. SEQUÊNCIA IMUTÁVEL: V3→V4→V5. V3 = NS-1+GLOBE-3D+ORBITAL+MOTION+NS-2+GLOBE-IMPL. V4 = V4-WORLD-FEATURES+NS-3(breathing+world pulse). V5-RESEARCH-ARCH-001 BLOQUEADA até V3+V4 done. ANTI-DRIFT LOCK activo. BASTION v3.2. |
 | **Fase ativa** | OPERATION ZERO-GAP — Cluster Constelação 24H · T+0h CONCLUÍDO |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
 | **Executor ativo** | TODOS os pioneiros (cluster activo) — @cursor notificada |
