@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | CASCADE-RETENTION-INTEGRATION-001 — CASCADE_RETENTION_CANON v1.1 · Lei de Cascade Retention formal · RETAINED/ADAPTED/DISCARDED separados
+**Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | CASCADE-RETENTION-SOVEREIGN-CANON-001 — 5 artefactos · SWMR v1.0 · LAA v1.0 · Corp Map v1.0 · Sequence Law v1.0 · Cascade Retention Canon v1.0 · NEXUS_LIVING_CANON v1.6 · 17 consolidações cravadas
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | HYPERSONIC-ARMY-DOCTRINE-001 — LEI-MOB-001 cravada · 476 unidades · NEXUS SEAL FORCE selada

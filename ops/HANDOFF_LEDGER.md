@@ -6,6 +6,46 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** CASCADE-RETENTION-INTEGRATION-001 — Formalização explícita da Lei de Cascade Retention no artefacto-mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — CASCADE_RETENTION_CANON v1.1 · Lei de 4 passos formalizada · RETAINED/ADAPTED/DISCARDED separados
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:** nenhum (actualização de artefacto existente)
+
+**Ficheiros actualizados:**
+- `ops/CASCADE_RETENTION_CANON.md` — v1.0 → v1.1 · secção 5 nova (Lei formal) · secções 6/7/8 novas (RETAINED/ADAPTED/DISCARDED) · 15 secções totais
+- `ops/BASTION.md` — CASCADE-RETENTION-INTEGRATION-001 adicionado à tabela
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               CASCADE-RETENTION-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+ARTEFACTO_ACTUALIZADO: ops/CASCADE_RETENTION_CANON.md v1.0 → v1.1
+ADICOES:
+  → Secção 5: CASCADE RETENTION LAW — 4 passos (RETER · ADAPTAR · DESCARTAR · INTEGRAR)
+  → Secção 6: RETAINED — 10 entradas com fonte e resultado
+  → Secção 7: ADAPTED — 5 entradas com ideia original / risco / refinamento / resultado
+  → Secção 8: DISCARDED — 9 entradas com motivo
+  → Secções 9-15: conteúdo v1.0 preservado integralmente, renumerado
+TOTAL_SECOES:          15
+LEIS_NOVAS:            0 (lei existente formalizada explicitamente)
+RETENCOES_DOCUMENTADAS: 10
+ADAPTACOES_DOCUMENTADAS: 5
+DESCARTES_DOCUMENTADOS: 9
+```
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-SOVEREIGN-CANON-001 | claude-sonnet-4-6
 
 **TASK:** CASCADE-RETENTION-SOVEREIGN-CANON-001 — Grand Canonical Consolidation · 5 artefactos · runtime · moral · corp · sequência

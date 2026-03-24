@@ -1,9 +1,9 @@
 # CASCADE RETENTION CANON
 # Retenção Integral do Debate em Cascata · Espinha Viva do Projecto
 
-**Versão:** v1.0
-**Data:** 2026-03-24
-**Task:** CASCADE-RETENTION-SOVEREIGN-CANON-001
+**Versão:** v1.1
+**Data:** v1.0 — 2026-03-24 | v1.1 — 2026-03-24
+**Tasks:** CASCADE-RETENTION-SOVEREIGN-CANON-001 · CASCADE-RETENTION-INTEGRATION-001
 **Branch:** `claude/rebuild-bastion-core-rihGX`
 **Modelo:** claude-sonnet-4-6
 **Aprovado por:** owner (instrução directa)
@@ -11,6 +11,8 @@
 > Este documento é o registo formal e operacional de tudo o que emergiu do debate em cascata.
 > Não é resumo. Não é filosofia. É lei consolidada extraída de massa-base sagrada.
 > O que está aqui fixo, fica. O que está descartado, não regressa sem gate soberano.
+>
+> v1.1: Lei de Cascade Retention formalizada explicitamente. Secções RETAINED / ADAPTED / DISCARDED separadas.
 
 ---
 
@@ -59,46 +61,202 @@ CRC-LAW-012  Complexidade → ordem — não por simplificação burra, mas por 
 
 ---
 
-## 5. WHAT STAYS / WHAT ADAPTS / WHAT IS DISCARDED
+## 5. CASCADE RETENTION LAW — LEI FORMAL DE OPERAÇÃO DESTE DOCUMENTO
+
+> Esta lei governa como este artefacto foi construído e como deve ser lido em sessões futuras.
+> Toda expansão do CASCADE_RETENTION_CANON deve seguir estes 4 passos, nesta ordem.
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║  O QUE FICA (imutável · gravado · nenhuma sessão futura revoga)              ║
+║  CASCADE RETENTION LAW — 4 PASSOS OBRIGATÓRIOS                               ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
-║  → Natureza do produto: organismo soberano                                   ║
-║  → Trindade: Heaven Lab · Bridge Nova · Nexus Cria                           ║
-║  → Lei da Mãe: identidade-mãe precede e domina toda face filha               ║
-║  → Atmosfera canónica: silêncio · precisão · orbital chamber · glass         ║
-║  → Lei de Criação: luz → separação → camadas → nomeação → mundo              ║
-║  → Eixo moral: alinhamento com a vida (não dogma, não sentimentalismo)       ║
-║  → Sessão como ciclo vivo: entrada → lock → materialização → fruto           ║
-║  → Sequência V3→V4→V5 protegida                                              ║
-║  → Amplificação de agência como missão central                               ║
-║  → Costura invisível: um organismo, não plugin-zoo                           ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  O QUE ADAPTA (princípio estável · implementação evolui com o produto)       ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  → SWMR: runtime soberano — arquitectura detalhada define em V4              ║
-║  → Corporação: estrutura-base definida · escala com traction real            ║
-║  → Perfil de utilizador: inicia simples · cresce com dados reais de sessão   ║
-║  → Memória de sessão: princípio fixo · implementação técnica define em V4+   ║
-║  → Routing de capacidades: princípio fixo · modelo de routing define em V4   ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  O QUE É DESCARTADO (não entra · não regressa sem gate soberano)             ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  → Lógica de landing page / CTA culture de startup                           ║
-║  → Estética cyberpunk / gamer HUD / SaaS admin                               ║
-║  → Moral fundada em religião institucional ou capricho ideológico             ║
-║  → Sessão como prompt → resposta → fim                                       ║
-║  → Sistema que não gera fruto real                                           ║
-║  → Features que dependem da V5 antes de V3+V4 fecharem                       ║
-║  → Complexidade sem discernimento (simplificação burra ou obscurecimento)    ║
+║                                                                              ║
+║  PASSO 1 — RETER                                                             ║
+║  ─────────────────────────────────────────────────────────────────────────── ║
+║  Tudo o que nasceu bom e válido no debate em cascata é preservado            ║
+║  integralmente. Nada é jogado fora por ser "demasiado" ou por não caber      ║
+║  numa estrutura ainda. A riqueza da massa-base sagrada tem prioridade.       ║
+║  Critério de retenção: prova de valor + coerência com a mãe do sistema.     ║
+║                                                                              ║
+║  PASSO 2 — ADAPTAR                                                           ║
+║  ─────────────────────────────────────────────────────────────────────────── ║
+║  Tudo o que é brilhante mas perigoso se executado literalmente, ou que       ║
+║  está mal formulado / mal encaixado, é refinado e reencaixado.               ║
+║  Adaptação ≠ descarte. A ideia forte sobrevive. O encaixe é corrigido.      ║
+║  Critério: a ideia tem valor real? Sim → adaptar. Não → descartar.          ║
+║                                                                              ║
+║  PASSO 3 — DESCARTAR                                                         ║
+║  ─────────────────────────────────────────────────────────────────────────── ║
+║  Tudo o que introduz drift, relativismo, sentimentalismo raso,               ║
+║  vendor-chaos, religião institucional, landing-page logic, quebra            ║
+║  de prioridade, ou incoerência com a mãe — é rejeitado.                     ║
+║  Descarte é permanente: não regressa sem gate soberano do owner.            ║
+║  Critério: passa no LAA + coerência com DNA_PROTOCOL?                       ║
+║    → Não → descartado.                                                       ║
+║                                                                              ║
+║  PASSO 4 — INTEGRAR                                                          ║
+║  ─────────────────────────────────────────────────────────────────────────── ║
+║  Tudo o que sobreviveu aos 3 filtros acima é fundido no sistema canónico.   ║
+║  Integração real = artefacto criado + ops actualizado + handoff emitido.    ║
+║  Sem integração formal = não cravado. Debate permanece aberto.              ║
+║  Critério: BASTION · LIVE_STATE · HANDOFF_LEDGER · NEXUS_LIVING_CANON       ║
+║  actualizados. Commit + push efectuado. Evidência disponível.               ║
+║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## 6. THE SPINE — ESPINHA VIVA DO PROJECTO
+## 6. RETAINED — O QUE FOI PRESERVADO INTEGRALMENTE
+
+> Estas verdades chegaram ao debate já maduras ou foram imediatamente reconhecidas como lei.
+> Sem alteração. Sem refinamento. Integradas directamente.
+
+```
+RETAINED-001  Natureza do produto: organismo soberano
+              Não é site. Não é app. Não é dashboard. Não é chat com plugins.
+              É world-workspace vivo, surface-mãe, ambiente adaptativo.
+              FONTE: debate em cascata — consenso imediato.
+
+RETAINED-002  Trindade canónica: Heaven Lab · Bridge Nova · Nexus Cria
+              3 regimes vivos do mesmo organismo-mãe. Não são páginas.
+              FONTE: debate em cascata — confirmação do DNA_PROTOCOL.
+
+RETAINED-003  Lei da Mãe: a mãe vem antes dos filhos
+              Identidade-mãe precede e domina toda face filha.
+              Silêncio · precisão · orbital chamber · glass restraint.
+              Nada de cyberpunk · nada de SaaS admin · nada de gamer HUD.
+              FONTE: BRAND_MOTHER_SYSTEM — confirmado no debate.
+
+RETAINED-004  Sessão como ciclo vivo — não morre
+              Entrada → lock → materialização → aprofundamento → fruto → persistência.
+              FONTE: debate em cascata — ideia nova de alta força.
+
+RETAINED-005  Fruto obrigatório
+              Toda sessão precisa gerar fruto real: clareza · output · artefacto ·
+              simulação · entendimento · decisão · progresso.
+              Sem fruto = sessão falhou.
+              FONTE: debate em cascata — consolidação directa.
+
+RETAINED-006  Multiplicação de capacidade — amplifica agência
+              O utilizador sai mais capaz, mais orientado, mais lúcido, mais soberano.
+              FONTE: debate em cascata — confirmação do destino V10.
+
+RETAINED-007  Redução de caos à ordem por estrutura e discernimento
+              Não por simplificação burra. Por estrutura · visualização · comparação
+              · evidência · discernimento · progressão.
+              FONTE: debate em cascata — consolidação directa.
+
+RETAINED-008  Sequência V3→V4→V5 inviolável
+              V3 fecha. V4 abre. V4 fecha. V5 abre. Só o owner declara close.
+              FONTE: debate em cascata — confirmação de prioridade activa.
+
+RETAINED-009  Costura invisível — um organismo
+              O utilizador nunca sente plugin-zoo. O sistema aparece unificado.
+              FONTE: debate em cascata — clarificação de arquitectura.
+
+RETAINED-010  Ambição V10 — organismo soberano de materialização cognitiva
+              Não "mais AIs". Adapta à mente · guarda memória · gera fruto · amplia agência.
+              FONTE: NEXUS_V10_SOVEREIGN_DESTINY — confirmado e expandido.
+```
+
+---
+
+## 7. ADAPTED — O QUE FOI REFINADO E REENCAIXADO
+
+> Estas ideias tinham força real mas estavam formuladas de forma perigosa,
+> vaga ou prematura. Foram refinadas sem perder a ideia central.
+
+```
+ADAPTED-001  IDEIA ORIGINAL: "o sistema deve adaptar-se ao utilizador"
+             RISCO ORIGINAL: podia ser lido como personalização cosmética de UI
+             REFINAMENTO: O sistema interpreta subject · missão · intenção · nível
+             · ritmo cognitivo · perfil · estado da sessão → activa a constelação
+             de capacidades + face correcta → materializa o ambiente ideal.
+             Não é personalização de tema. É routing de capacidade cognitiva.
+             RESULTADO: SWMR v1.0 — Sovereign World Materialization Runtime
+
+ADAPTED-002  IDEIA ORIGINAL: "o sistema tem moral"
+             RISCO ORIGINAL: podia derivar para religião institucional, ideologia
+             política, ou sentimentalismo performativo
+             REFINAMENTO: O sistema observa o real e julga pelo alinhamento com
+             a vida. Verdade factual e julgamento moral são separados.
+             Critério único: impacto real sobre vida humana · animal · ecológica.
+             RESULTADO: LIFE_ALIGNMENT_AXIS.md v1.0
+
+ADAPTED-003  IDEIA ORIGINAL: "a corporação deve existir já"
+             RISCO ORIGINAL: podia roubar foco e recursos de V3/V4/V5
+             REFINAMENTO: a corporação entra como backlane paralela. 10 departamentos
+             mapeados. Activation sequence alinhada com gates de produto.
+             Brand/Narrative activa agora. Legal/IP com V3-close. Growth com V4-close.
+             RESULTADO: CORP_V10_OPERATING_MAP.md v1.0
+
+ADAPTED-004  IDEIA ORIGINAL: "o sistema usa vários engines e modelos"
+             RISCO ORIGINAL: podia ser lido como plugin-zoo com interface exposta
+             REFINAMENTO: o routing é invisível. O utilizador nunca selecciona
+             engines. Capability Constellation Activator (SWMR Layer 5) orquestra
+             silenciosamente. Costura invisível é lei.
+             RESULTADO: SWMR Camada 5 + FLOWMESH herança
+
+ADAPTED-005  IDEIA ORIGINAL: "a sessão deve ter memória"
+             RISCO ORIGINAL: ambíguo — podia ser cookie de sessão ou IA avançada
+             REFINAMENTO: memória opera em 2 níveis. L1: dentro da sessão (simples
+             · V4 mínimo). L2: cross-sessão persistida (V4+ · com perfil real).
+             Princípio fixo. Implementação evolui com o produto.
+             RESULTADO: SWMR Session Lifecycle Manager (Layer 6)
+```
+
+---
+
+## 8. DISCARDED — O QUE FOI REJEITADO
+
+> Estas ideias/padrões foram explicitamente excluídos.
+> Não regressam sem gate soberano do owner.
+
+```
+DISCARDED-001  Lógica de landing page e CTA culture de startup
+               MOTIVO: incompatível com a natureza do organismo soberano.
+               Produto não se explica por headlines e CTAs. Abre-se e entra-se.
+
+DISCARDED-002  Estética cyberpunk / gamer HUD / SaaS admin
+               MOTIVO: viola a identidade-mãe (glass · silêncio · premium calmness).
+               Nenhuma face filha pode adoptar estética conflituante.
+
+DISCARDED-003  Moral fundada em religião institucional
+               MOTIVO: dogma não mede impacto real.
+               O eixo moral do sistema mede pelo alinhamento com a vida — não por norma religiosa.
+
+DISCARDED-004  Moral fundada em capricho ideológico
+               MOTIVO: ideologia política muda com contexto e pressão.
+               O sistema precisa de eixo estável baseado em consequências reais.
+
+DISCARDED-005  Sessão como prompt → resposta → fim
+               MOTIVO: contradiz a lei de sessão viva.
+               Uma sessão que termina sem fruto e sem persistência é falha de design.
+
+DISCARDED-006  Features que dependem de V5 antes de V3+V4 fecharem
+               MOTIVO: viola SEQUENCE_LAW. Gate fechado = task inelegível.
+
+DISCARDED-007  Complexidade sem discernimento
+               MOTIVO: simplificação burra e obscurecimento são opostos simétricos.
+               O sistema reduz caos à ordem por estrutura — não por esconder.
+
+DISCARDED-008  Plugin-zoo visível ao utilizador
+               MOTIVO: viola costura invisível. O utilizador vê um organismo.
+               A arquitectura interna é irrelevante para a experiência.
+
+DISCARDED-009  Sistema que captura em vez de amplificar
+               MOTIVO: viola LAA (Life Alignment Axis) — alinhamento negativo.
+               Qualquer modelo de negócio ou feature que depende de captura é excluído.
+```
+
+---
+
+## 10. WHAT STAYS / WHAT ADAPTS / WHAT IS DISCARDED — SÍNTESE RÁPIDA
+
+---
+
+## 11. THE SPINE — ESPINHA VIVA DO PROJECTO
 
 ```
 ORGANISMO SOBERANO
@@ -136,7 +294,7 @@ ORGANISMO SOBERANO
 
 ---
 
-## 7. THE 17 CONSOLIDATIONS — ÍNDICE FORMAL
+## 12. THE 17 CONSOLIDATIONS — ÍNDICE FORMAL
 
 | # | Tema | Status | Artefacto responsável |
 |---|---|---|---|
@@ -160,7 +318,7 @@ ORGANISMO SOBERANO
 
 ---
 
-## 8. OPERATIONAL_IMPLICATIONS
+## 13. OPERATIONAL_IMPLICATIONS
 
 ```
 Para WorkStructure:
@@ -190,7 +348,7 @@ Para Sequência:
 
 ---
 
-## 9. ANTI_DRIFT_RULES
+## 14. ANTI_DRIFT_RULES
 
 ```
 DRIFT-1: Produto descrito como "site" ou "app" → corrigir para "organismo soberano"
@@ -207,7 +365,7 @@ DRIFT-10: Capacidade não amplifica agência → redesenhar até amplificar
 
 ---
 
-## 10. NEXT_INTEGRATION_POINTS
+## 15. NEXT_INTEGRATION_POINTS
 
 ```
 → SWMR implementado em V4: requisito técnico documentado
@@ -221,3 +379,4 @@ DRIFT-10: Capacidade não amplifica agência → redesenhar até amplificar
 ---
 
 _CASCADE_RETENTION_CANON.md v1.0 — cravado em 2026-03-24 | @claude | CASCADE-RETENTION-SOVEREIGN-CANON-001_
+_CASCADE_RETENTION_CANON.md v1.1 — 2026-03-24 | @claude | CASCADE-RETENTION-INTEGRATION-001 — Lei de Cascade Retention formalizada; secções RETAINED/ADAPTED/DISCARDED separadas explicitamente; síntese rápida mantida; 15 secções_
