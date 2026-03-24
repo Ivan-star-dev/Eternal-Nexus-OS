@@ -71,7 +71,7 @@ function ChildNode({ child, delay }: ChildNodeProps) {
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
       tabIndex={0}
-      className="group relative flex-1 flex flex-col items-center text-center cursor-default select-none"
+      className="group relative flex-1 flex flex-col items-center text-center cursor-default select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
     >
       {/* Orbital index dot */}
       <motion.div
