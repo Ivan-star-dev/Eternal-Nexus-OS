@@ -17,6 +17,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { TrinityFace } from "@/lib/memory/types";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -52,13 +53,20 @@ const TRINITY: Child[] = [
   },
 ];
 
+// Map TRINITY node id → TrinityFace key (heaven-lab → heaven_lab)
+function nodeIdToFace(id: string): TrinityFace {
+  return id.replace(/-/g, "_") as TrinityFace;
+}
+
 interface ChildNodeProps {
   child: Child;
   delay: number;
+  isActive: boolean;
 }
 
-function ChildNode({ child, delay }: ChildNodeProps) {
+function ChildNode({ child, delay, isActive }: ChildNodeProps) {
   const [hovered, setHovered] = useState(false);
+  const lit = hovered || isActive;
 
   return (
     <motion.div
@@ -73,9 +81,24 @@ function ChildNode({ child, delay }: ChildNodeProps) {
       tabIndex={0}
       className="group relative flex-1 flex flex-col items-center text-center cursor-default select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
     >
+      {/* Active-face ring — appears when this face is the current session face */}
+      {isActive && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: EASE }}
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            border: "0.5px solid rgba(200,164,78,0.28)",
+            boxShadow: "0 0 24px -8px rgba(200,164,78,0.18)",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Orbital index dot */}
       <motion.div
-        animate={{ opacity: hovered ? 1 : 0.35 }}
+        animate={{ opacity: lit ? 1 : 0.35 }}
         transition={{ duration: 0.3 }}
         className="mb-4 flex items-center justify-center"
       >
@@ -111,9 +134,9 @@ function ChildNode({ child, delay }: ChildNodeProps) {
         />
       </motion.div>
 
-      {/* Name — Syne, gold, elevated size */}
+      {/* Name — Syne, gold, elevated size; brightens on active face */}
       <motion.span
-        animate={{ color: hovered ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.82)" }}
+        animate={{ color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.82)" }}
         transition={{ duration: 0.35 }}
         className="block font-sans uppercase"
         style={{
@@ -128,7 +151,7 @@ function ChildNode({ child, delay }: ChildNodeProps) {
 
       {/* Identity line — Cormorant italic, more present */}
       <motion.span
-        animate={{ opacity: hovered ? 0.9 : 0.65 }}
+        animate={{ opacity: lit ? 0.9 : 0.65 }}
         transition={{ duration: 0.35 }}
         className="mt-2.5 block font-serif leading-snug"
         style={{
@@ -193,7 +216,11 @@ function Divider() {
   );
 }
 
-export default function TrinityRow() {
+interface TrinityRowProps {
+  activeFace?: TrinityFace | null;
+}
+
+export default function TrinityRow({ activeFace }: TrinityRowProps) {
   return (
     <div>
       {/* Section anchor — orbital label */}
@@ -259,7 +286,12 @@ export default function TrinityRow() {
         <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r" style={{ borderColor: "rgba(200,164,78,0.2)" }} aria-hidden="true" />
 
         {TRINITY.map((child, i) => [
-          <ChildNode key={child.id} child={child} delay={0.12 * i} />,
+          <ChildNode
+            key={child.id}
+            child={child}
+            delay={0.12 * i}
+            isActive={activeFace ? nodeIdToFace(child.id) === activeFace : false}
+          />,
           i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
         ])}
       </motion.div>

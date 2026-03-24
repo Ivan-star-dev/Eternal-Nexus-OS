@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Globe, Heart, ExternalLink } from "lucide-react";
+import { Globe, Heart, ExternalLink, CornerDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
@@ -10,8 +10,60 @@ import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
 import { homeProjects } from "@/data/homeProjects";
+import { useSession } from "@/contexts/SessionContext";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+// Minimal face-to-route mapping — no new logic, uses existing routing data
+const FACE_ENTRY: Record<string, { path: string; label: string }> = {
+  heaven_lab:  { path: "/nexus",    label: "Heaven Lab — Retomar" },
+  bridge_nova: { path: "/nexus",    label: "Bridge Nova — Retomar" },
+  nexus_cria:  { path: "/nexus",    label: "Nexus Cria — Retomar" },
+};
+
+// Session-aware CTA footer — primary entry changes when a resumable session exists
+function SessionAwareCTA() {
+  const { session } = useSession();
+  const isResume = session?.is_resume && session.re_entry_point;
+
+  const resumeEntry = isResume && session
+    ? FACE_ENTRY[session.active_face] ?? FACE_ENTRY.heaven_lab
+    : null;
+
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      {resumeEntry ? (
+        // Resume-aware primary CTA — picks up where they left off
+        <Link
+          to={resumeEntry.path}
+          className="font-mono text-[0.6rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+          title={session?.next_expected_step ?? "Retomar sessão"}
+        >
+          <CornerDownRight className="w-3.5 h-3.5" /> {resumeEntry.label}
+        </Link>
+      ) : (
+        <Link
+          to="/nexus"
+          className="font-mono text-[0.6rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+        >
+          <Heart className="w-3.5 h-3.5" /> Nexus — Parlamento AI
+        </Link>
+      )}
+      <Link
+        to="/tribunal"
+        className="font-mono text-[0.6rem] tracking-[0.12em] border border-border text-foreground px-6 py-3 hover:bg-card hover:border-primary/30 hover:shadow-[0_0_16px_-4px_hsl(var(--primary)/0.2)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+      >
+        <Globe className="w-3.5 h-3.5" /> Tribunal Geopolítico
+      </Link>
+      <Link
+        to="/news"
+        className="font-mono text-[0.6rem] tracking-[0.12em] border border-border text-foreground px-6 py-3 hover:bg-card hover:border-primary/30 hover:shadow-[0_0_16px_-4px_hsl(var(--primary)/0.2)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
+      >
+        <ExternalLink className="w-3.5 h-3.5" /> News Portal
+      </Link>
+    </div>
+  );
+}
 
 const Index = () => {
   const { t } = useLanguage();
@@ -107,26 +159,7 @@ const Index = () => {
                 Doe tempo, recursos ou ideias. Cada sugestão validada entra no ciclo Nexus → Atlas → Execução.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  to="/nexus"
-                  className="font-mono text-[0.6rem] tracking-[0.12em] bg-primary text-primary-foreground px-6 py-3 hover:bg-primary/90 hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.5)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-                >
-                  <Heart className="w-3.5 h-3.5" /> Nexus — Parlamento AI
-                </Link>
-                <Link
-                  to="/tribunal"
-                  className="font-mono text-[0.6rem] tracking-[0.12em] border border-border text-foreground px-6 py-3 hover:bg-card hover:border-primary/30 hover:shadow-[0_0_16px_-4px_hsl(var(--primary)/0.2)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-                >
-                  <Globe className="w-3.5 h-3.5" /> Tribunal Geopolítico
-                </Link>
-                <Link
-                  to="/news"
-                  className="font-mono text-[0.6rem] tracking-[0.12em] border border-border text-foreground px-6 py-3 hover:bg-card hover:border-primary/30 hover:shadow-[0_0_16px_-4px_hsl(var(--primary)/0.2)] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 uppercase"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" /> News Portal
-                </Link>
-              </div>
+              <SessionAwareCTA />
             </motion.div>
 
             <motion.p

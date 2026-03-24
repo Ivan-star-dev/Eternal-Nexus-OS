@@ -11,8 +11,8 @@
  * Session touch: SESSION-AWARE-PRODUCT-INTEGRATION-001 — no new system, surface reads alive
  */
 
-import { lazy, Suspense, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { lazy, Suspense, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import { useSession } from "@/contexts/SessionContext";
 import TrinityRow from "./TrinityRow";
@@ -190,13 +190,24 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
   );
 }
 
-// Session-aware live indicator — subtle, uses existing session state
-// Does not build new systems. Surface reads alive, not dead.
+// Connects TrinityRow to active session face — no new UI, just real state
+function TrinityRowWithSession() {
+  const { session } = useSession();
+  return <TrinityRow activeFace={session?.active_face ?? null} />;
+}
+
+// Session-aware live indicator — uses existing session state.
+// On hover: reveals next_expected_step (one line, truncated) — real continuity signal.
 function SessionPulse() {
   const { session } = useSession();
+  const [hovered, setHovered] = useState(false);
+
   if (!session) return null;
 
-  const isResume = session.is_resume;
+  const isResume = session.is_resume && !!session.re_entry_point;
+  const nextStep = session.next_expected_step;
+  // Truncate to ~52 chars for the hover strip
+  const stepDisplay = nextStep.length > 52 ? nextStep.slice(0, 52) + "…" : nextStep;
 
   return (
     <motion.div
@@ -205,34 +216,63 @@ function SessionPulse() {
       transition={{ delay: 1.2, duration: 0.9, ease: EASE }}
       className="absolute right-6 md:right-14 z-[4]"
       style={{ top: "calc(100% - 52px)" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       aria-label={isResume ? "Sessão retomada" : "Sessão activa"}
     >
-      <div
-        className="flex items-center gap-2 px-3 py-1.5"
+      <motion.div
+        animate={{ width: hovered && stepDisplay ? "auto" : "auto" }}
+        className="flex flex-col gap-1"
         style={{
-          background: "rgba(6,12,20,0.7)",
-          border: "0.5px solid rgba(200,164,78,0.12)",
-          backdropFilter: "blur(12px)",
+          background: "rgba(6,12,20,0.78)",
+          border: `0.5px solid ${isResume ? "rgba(200,164,78,0.2)" : "rgba(32,153,120,0.2)"}`,
+          backdropFilter: "blur(14px)",
+          padding: "6px 10px",
         }}
       >
-        <motion.span
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            display: "inline-block",
-            width: "5px",
-            height: "5px",
-            borderRadius: "50%",
-            background: isResume ? "hsl(42 78% 52%)" : "hsl(172 48% 52%)",
-          }}
-        />
-        <span
-          className="font-mono text-[8px] uppercase tracking-[0.18em]"
-          style={{ color: isResume ? "rgba(200,164,78,0.55)" : "rgba(32,99,88,0.8)" }}
-        >
-          {isResume ? "Retomar" : "Sessão live"}
-        </span>
-      </div>
+        {/* Status row */}
+        <div className="flex items-center gap-2">
+          <motion.span
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              display: "inline-block",
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              flexShrink: 0,
+              background: isResume ? "hsl(42 78% 52%)" : "hsl(172 48% 52%)",
+            }}
+          />
+          <span
+            className="font-mono text-[8px] uppercase tracking-[0.18em] whitespace-nowrap"
+            style={{ color: isResume ? "rgba(200,164,78,0.65)" : "rgba(32,153,120,0.9)" }}
+          >
+            {isResume ? "Retomar" : "Sessão live"}
+          </span>
+        </div>
+
+        {/* Next step — only on hover, only when available */}
+        <AnimatePresence>
+          {hovered && stepDisplay && (
+            <motion.span
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.22, ease: EASE }}
+              className="font-mono text-[8px] leading-[1.5] overflow-hidden"
+              style={{
+                color: "rgba(228,235,240,0.38)",
+                maxWidth: "220px",
+                letterSpacing: "0.06em",
+                display: "block",
+              }}
+            >
+              {stepDisplay}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </motion.div>
   );
 }
@@ -270,7 +310,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
 
       {/* ── 2. TRINITY ROW ────────────────────────────────────────── */}
       <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-8">
-        <TrinityRow />
+        <TrinityRowWithSession />
       </div>
 
       {/* ── 3. FIRST PROOF ────────────────────────────────────────── */}
