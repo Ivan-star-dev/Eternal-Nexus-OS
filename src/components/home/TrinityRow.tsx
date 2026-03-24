@@ -35,58 +35,54 @@ function TrinityCell({
 }: (typeof TRINITY)[number] & { index: number }) {
   const inner = (
     <>
-      <span className="font-display text-[0.65rem] font-semibold tracking-[0.2em] text-primary">
+      {/* Reference number — mono, quiet, system ID */}
+      <span className="font-mono text-[0.48rem] tracking-[0.28em] text-primary/50">
         {num}
       </span>
-      <span className="mt-1 block font-serif text-lg font-semibold italic tracking-tight text-foreground md:text-xl">
+
+      {/* Name — Cormorant light italic; commanding through restraint */}
+      <span className="mt-2 block font-serif text-lg font-light italic tracking-[0.015em] text-foreground md:text-xl">
         {name}
       </span>
-      <span className="mt-2 block font-serif text-sm italic text-muted-foreground md:hidden">{line}</span>
-      <span className="mt-1 block font-mono text-[0.5rem] leading-snug tracking-[0.12em] text-teal-light md:hidden">
-        {detail}
-      </span>
-      <span
-        className={cn(
-          "mt-2 hidden max-h-0 overflow-hidden font-serif text-sm italic text-primary/85 opacity-0 transition-all duration-300 ease-out",
-          "md:group-hover:max-h-24 md:group-hover:opacity-100 md:block",
-        )}
-      >
+
+      {/* Detail line — always in DOM on desktop, uncovered on hover via opacity only.
+          No max-height animation: cells hold their shape; text is revealed, not revealed by expansion. */}
+      <span className="mt-2 hidden font-serif text-[0.78rem] font-light italic leading-snug text-foreground/48 opacity-0 transition-opacity duration-500 ease-out md:block md:group-hover:opacity-100">
         {line}
       </span>
-      <span
-        className={cn(
-          "mt-1 hidden max-h-0 overflow-hidden font-mono text-[0.5rem] leading-relaxed tracking-[0.14em] text-teal-light opacity-0 transition-all duration-300 ease-out",
-          "md:group-hover:max-h-16 md:group-hover:opacity-100 md:block",
-        )}
-      >
+      <span className="mt-1.5 hidden font-mono text-[0.44rem] leading-relaxed tracking-[0.2em] text-teal/55 opacity-0 transition-opacity duration-500 delay-75 ease-out md:block md:group-hover:opacity-100">
+        {detail}
+      </span>
+
+      {/* Mobile: always visible, no hover dependency */}
+      <span className="mt-2 block font-serif text-[0.78rem] italic text-muted-foreground/65 md:hidden">
+        {line}
+      </span>
+      <span className="mt-1 block font-mono text-[0.44rem] tracking-[0.16em] text-teal/55 md:hidden">
         {detail}
       </span>
     </>
   );
 
-  const shellClass =
-    "group flex flex-1 flex-col items-center px-5 py-4 text-center transition-colors hover:bg-primary/5 md:items-start md:text-left md:py-5";
+  const shellClass = cn(
+    "group flex flex-1 flex-col items-center px-6 py-6 text-center",
+    "transition-colors duration-500 hover:bg-primary/[0.04]",
+    "md:items-start md:text-left md:py-8 md:px-7",
+    index > 0 && "md:border-l md:border-border/[0.14]",
+  );
 
   if (href.startsWith("#")) {
-    return (
-      <a href={href} className={cn(shellClass, index > 0 && "md:border-l md:border-border/30")}>
-        {inner}
-      </a>
-    );
+    return <a href={href} className={shellClass}>{inner}</a>;
   }
 
-  return (
-    <Link to={href} className={cn(shellClass, index > 0 && "md:border-l md:border-border/30")}>
-      {inner}
-    </Link>
-  );
+  return <Link to={href} className={shellClass}>{inner}</Link>;
 }
 
-/** Canonical trinity — glass panel, equal dignity; desktop hover reveals Cormorant + JetBrains layers. */
+/** Canonical trinity panel — equal dignity, glass recessive, hover uncovers not expands. */
 const TrinityRow = () => (
-  <div className="relative z-10 mt-6 w-full max-w-5xl px-4 sm:px-6">
+  <div className="relative z-10 mt-10 w-full max-w-5xl px-4 sm:px-6 md:mt-14">
     <div
-      className="flex flex-col overflow-hidden rounded-xl border border-border/35 bg-card/25 shadow-[0_0_0_1px_hsl(var(--foreground)/0.04)_inset] backdrop-blur-md md:flex-row md:rounded-2xl"
+      className="flex flex-col overflow-hidden rounded-2xl border border-border/[0.16] bg-background/[0.16] shadow-[0_0_0_1px_hsl(var(--foreground)/0.025)_inset] backdrop-blur-xl md:flex-row"
       role="list"
       aria-label="Tríade de produto: Heaven Lab, Bridge Nova, Nexus Cria"
     >
