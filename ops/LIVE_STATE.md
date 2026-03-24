@@ -11,6 +11,10 @@
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H
 **Última atualização:** 2026-03-23
+**Atualizado por:** @cursor | claude-4.6-sonnet | PRODUCT-FACE-HERO-ANATOMY-001
+**Última atualização:** 2026-03-23
+**Atualizado por:** @cursor | claude-4.6-sonnet | SYSTEM-FACE-CORE-001
+**Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001
 **Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | HEAVEN-LAB-REFERENCE-SURFACE-001
