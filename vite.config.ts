@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 import cesium from "vite-plugin-cesium";
+import { memoryApiPlugin } from "./vite-plugin-memory";
 
 // Cross-Origin Isolation plugin for SharedArrayBuffer support in dev
 function crossOriginIsolationPlugin(): Plugin {
@@ -40,6 +41,7 @@ export default defineConfig({
     tailwindcss(),
     cesium(),
     crossOriginIsolationPlugin(),
+    memoryApiPlugin(),
   ].filter(Boolean) as Plugin[],
   resolve: {
     alias: {

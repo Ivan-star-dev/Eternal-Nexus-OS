@@ -27,7 +27,8 @@
     "ops:repair": "bash ./.ops/repair-install.sh",
     "ops:cache": "bash ./.ops/repair-cache.sh",
     "ops:conflicts": "bash ./.ops/find-conflicts.sh",
-    "ops:guard": "bash ./.ops/guard.sh guarded-change"
+    "ops:guard": "bash ./.ops/guard.sh guarded-change",
+    "proof:memory": "node scripts/memory/proof-loop.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
