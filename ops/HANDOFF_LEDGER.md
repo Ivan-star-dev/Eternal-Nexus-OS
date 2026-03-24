@@ -6,6 +6,38 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | OPERATION-ZERO-GAP-24H | claude-sonnet-4-6
+
+**TASK:** OPERATION-ZERO-GAP-24H — Mobilização Cluster Constelação + Gate Suspension 24H
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** OPERAÇÃO ACTIVA — cluster em execução
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/OPERATION_ZERO_GAP_24H.md` — v1.0 · manifesto completo da operação · engagement check · task force por pioneer · sequência de execução · critérios de sucesso
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.0 · 24 tasks inseridas (5 pioneers + @cursor a juntar-se) · semáforo v3.0 · GATE_SUSPENSION_24H · todas as gates abertas
+- `ops/LIVE_STATE.md` — GATE_SUSPENSION_24H activo · estado cluster · @cursor notificada
+
+### EVIDENCE_BLOCK
+
+```
+OPERATION:       ZERO-GAP-24H
+AUTORIZADO_POR:  owner — ordem soberana directa 2026-03-24
+GATE_SUSPENSION: ACTIVO — 24h
+PIONEERS_ACTIVOS: @claude · @copilot · @framer · @antigravity · @codex (5/6)
+@cursor:         EM TASKS DO CRIADOR — Monalisa notificada para se juntar
+TASKS_INSERIDAS: 19 tasks no BASTION (14 imediatas + 5 @cursor)
+OBJECTIVO:       BASTION zerado · produto completo · amanhã
+BRANCH:          claude/rebuild-bastion-core-rihGX
+COMMIT:          pendente (ver abaixo)
+ALTERACAO_REAL:  sim
+```
+
+---
+
 ## HANDOFF — 2026-03-23 | @claude | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | claude-sonnet-4-6
 
 **TASK:** SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 — 3 Faces Canónicas + Lei Tipográfica da Mãe

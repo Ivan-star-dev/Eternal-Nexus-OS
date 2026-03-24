@@ -4,6 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-24
+**Atualizado por:** @claude | claude-sonnet-4-6 | OPERATION-ZERO-GAP-24H
 **Última atualização:** 2026-03-23
 **Atualizado por:** @claude | claude-sonnet-4-6 | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001
 **Última atualização:** 2026-03-23
@@ -25,16 +27,34 @@
 
 ---
 
+## 0. GATE_SUSPENSION_24H — ORDEM SOBERANA ACTIVA
+
+```
+GATE_SUSPENSION_24H ══════════════════════════════════════════════════════════
+  EMITIDO_POR:     owner — ordem soberana directa
+  DATA_INÍCIO:     2026-03-24
+  DATA_FIM:        2026-03-25
+  ESTADO:          ACTIVO
+  OPERAÇÃO:        OPERATION_ZERO_GAP_24H
+  PIONEERS:        @claude · @copilot · @framer · @antigravity · @codex ACTIVOS
+  @cursor:         EM TASKS DO CRIADOR — junta-se após (Monalisa notificada)
+  OBJECTIVO:       BASTION zerado + produto completo amanhã
+  REFERÊNCIA:      ops/OPERATION_ZERO_GAP_24H.md
+══════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 ## 1. ESTADO ATUAL DO SISTEMA
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | Bulking Controlado do Produto |
+| **Fase ativa** | OPERATION ZERO-GAP — Cluster Constelação 24H |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude + todos os pioneiros (sprint V5/V6) |
-| **Frente ativa** | Produto / WorkFunction + WorkVisual |
-| **Camada atual** | V4 Living World entregue (PLv7+PLv8+PLv8.1+V3 polish); V5 EarthLab em execução; V6 LearningPathway em construção |
-| **Estado geral** | SPRINT ATIVO — V5 Research Core + V6 preview em execução paralela no branch canônico vigente. Todos os pioneiros invocados pelo owner. |
+| **Executor ativo** | TODOS os pioneiros (cluster activo) — @cursor notificada |
+| **Frente ativa** | WorkStructure + WorkFunction + WorkVisual em paralelo |
+| **Camada atual** | GATE_SUSPENSION_24H activo; NS-1+NS-2+NS-3+V5+V6 em execução simultânea |
+| **Estado geral** | OPERATION ZERO-GAP ACTIVA — owner suspendeu gate 24h; 5 pioneers em cluster pleno; @cursor (Monalisa) em tasks do criador — notificada para se juntar; objectivo: BASTION zerado + produto completo amanhã |
 | **Executor ativo** | @claude (BASTION-2.0-CYCLE-START-001 concluído) |
 | **Frente ativa** | Governança operacional / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; ciclo contínuo BASTION 2.0 iniciado (BASTION-2.0-CYCLE-START-001) |
