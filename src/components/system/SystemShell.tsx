@@ -1,5 +1,4 @@
 import { ReactNode, useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 interface SystemShellProps {
   children: ReactNode;
