@@ -205,7 +205,8 @@ function SessionPulse() {
   if (!session) return null;
 
   const isResume = session.is_resume && !!session.re_entry_point;
-  const nextStep = session.next_expected_step;
+  const nextStep =
+    typeof session.next_expected_step === "string" ? session.next_expected_step : "";
   // Truncate to ~52 chars for the hover strip
   const stepDisplay = nextStep.length > 52 ? nextStep.slice(0, 52) + "…" : nextStep;
 
