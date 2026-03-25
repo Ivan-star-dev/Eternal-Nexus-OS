@@ -23,12 +23,17 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | V3 FECHADO ✅ — owner gate confirmado 2026-03-25 · aguarda V4 gate soberano |
+**Última atualização:** 2026-03-25 (AUTO-GATE V4 OPEN)
+**Atualizado por:** @claude | claude-sonnet-4-6 | AUTO-GATE-LAW sealed · V3 FECHADO · V4 ABERTO · V4-INTERACTION-002 DONE · ProjectFocusPanel deployed · TS 0 errors · commit 773d1ed
+
+| Dimensão | Valor atual |
+|---|---|
+| **Fase ativa** | 🟢 V4 — SYSTEM BEHAVIOUR LIVE — ABERTO 2026-03-25 via AUTO-GATE |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | CONSTELLATION: @claude · @antigravity · @framer · @cursor · @copilot · @codex |
-| **Frente ativa** | Front A (Visual Incarnation) · Front B (Surface Close) · Front C (Polish+Anti-Drift) · Front D (State+Handoff) |
-| **Camada atual** | V3 100% visual — AuroraRimSphere GLSL (teal↔gold fresnel) · OrbitalChamber focus-sync · sacred thread Trinity→Proof · DELAY.afterGlobe stagger · NavBar glass+active bar+mobile polish |
-| **Estado geral** | @claude 3-task wave DONE: GLOBE-3D-AURORA-001 ✓ + NS-1-HERO-COMPOSITION-001 ✓ + NS-2-NAV-POLISH-001 ✓ · TS 0 errors · commit 76d3f93 · V3 visual identity complete · owner fecha gate |
+| **Executor ativo** | @claude — AUTO-GATE activo — execução autónoma |
+| **Frente ativa** | V4 WorkFunction — System Behaviour Live |
+| **Camada atual** | V4-INTERACTION-002 DONE: ProjectFocusPanel (globe hotspot → project detail slide-in) · CLAUDE.md v1.1 AUTO-GATE-LAW sealed · SEQUENCE_LAW V3 FECHADO |
+| **Estado geral** | AUTO-GATE: @claude abre gates quando critérios [✓] sem esperar owner · V3 100% closed · V4 queue: V4-INTERACTION-002 ✓ · V4-SESSION-001 elegível · V4-NEXUS-001 elegível · V4-ATLAS-001 elegível |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
 | **Frente ativa** | Mecânico / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
