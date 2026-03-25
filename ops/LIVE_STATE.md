@@ -4,8 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
-**Última atualização:** 2026-03-24
-**Atualizado por:** @claude | claude-sonnet-4-6 | MASTER-TOTAL-ARMY-WAVE-001 — wave emitida · ProductHero canonical · OrbitalChamber · motion law · Trinity · HeroFirstProof · Index wired
+**Última atualização:** 2026-03-24 (continuação)
+**Atualizado por:** @claude | claude-sonnet-4-6 | WAVE-CLOSE-TASKS — V3 ~95% · Globe atmosphere · EarthquakeLayer · GlobeLayerSelector · motion sweep 32 files · CommandPalette wired · HEAVEN_LAB_REFERENCE_SURFACE v1.0 · SEQUENCE_LAW_V3_V4_V5 v1.0 · barrel exports
 **Última atualização:** 2026-03-21
 **Atualizado por:** @claude | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001
 **Atualizado por:** @cursor | claude-4.6-opus-high-thinking | BULK-01.3-a + BULK-01.3-b + BULK-01.3-c
@@ -25,8 +25,8 @@
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
 | **Executor ativo** | CONSTELLATION: @claude · @antigravity · @framer · @cursor · @copilot · @codex |
 | **Frente ativa** | Front A (Visual Incarnation) · Front B (Surface Close) · Front C (Polish+Anti-Drift) · Front D (State+Handoff) |
-| **Camada atual** | V3 surface gap closed: ProductHero canonical (Globe+OrbitalChamber+Trinity+Proof) · motion law sealed · Index wired · TypeScript 0 errors |
-| **Estado geral** | WAVE ATIVA: motion/config.ts · OrbitalChamber · TrinityRow · HeroFirstProof · ProductHero — todos criados e wired. Index.tsx usa ProductHero. Próximo: @antigravity GlobeScene aurora/pulse · @framer NS-1 hero composition · @copilot L-001+L-002+brand · @codex orchestration · @cursor session surface wiring |
+| **Camada atual** | V3 ~95% — Globe: AtmosphereSphere+CoronaSphere+3-point lighting+EarthquakeLayer+GlobeLayerSelector+focus pulse+ParticleFlow 2000p · motion sweep 32 files → EASE_OUT · CommandPalette wired · barrel exports |
+| **Estado geral** | @claude wave executada: Globe atmosphere sealed · MOTION-SWEEP-001 done (32 files) · HEAVEN_LAB_REFERENCE_SURFACE v1.0 · SEQUENCE_LAW v1.0 · CommandPalette wired. Aguarda: @antigravity GLOBE-3D-AURORA-001 + @framer NS-1+NS-2. Owner fecha V3 gate quando ambos done. |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
 | **Frente ativa** | Mecânico / WorkStructure |
 | **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
