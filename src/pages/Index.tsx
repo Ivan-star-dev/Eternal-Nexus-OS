@@ -44,7 +44,7 @@ const Index = () => {
             <Suspense fallback={
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
             }>
-              <GoldenAtlasScene scrollProgress={0} />
+              <GoldenAtlasScene scrollProgress={scrollYProgress.get()} />
             </Suspense>
           </OrganErrorBoundary>
 

@@ -3691,3 +3691,29 @@ TRAVA DE CONTINUAÇÃO:
 ```
 
 ---
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FORCE-ACTIVATION-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FORCE-ACTIVATION-001: todos os pioneers despachados em paralelo
+            │ GoldenAtlasScene scrollProgress wired (hero parallax live)
+            │ BASTION §6 V4-CLOSE-GATE: 10 critérios definidos (6/10 [✓])
+            │ BASTION §7 FORCE DISPATCH: @cursor · @antigravity · @copilot · @codex
+            │ BASTION §8 V5-GATE: 6 tasks V5 definidas e seladas (locked até V4 fechar)
+            │ Hero section restaurada (main version com parallax + globe + text)
+            │ 18 merge conflicts resolvidos (PR#164 dirty → clean)
+            │ 3 bugs corrigidos (stray EASE_OUT, supabase crash, ErrorBoundary black)
+            │ About.tsx restaurado de main · App.tsx wired SystemAwareInspector
+            │ TS 0 errors · build ✓ (3685 modules · 2.73s)
+PRÓXIMO     │ @cursor: V4-PROJECT-PAGE-001-MECH (Supabase mechanical)
+            │ @antigravity: V4-MOTION-SURFACES-001 (animate V4 surfaces)
+            │ @copilot: V4-LAPIDATION-001 (polish pass)
+            │ @codex: CLUSTER-ORCHESTRATE-001 (wave sync)
+            │ @claude: monitor V4 close → abrir V5 via AUTO-GATE
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+COMMIT      │ pending
+```

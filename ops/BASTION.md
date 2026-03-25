@@ -744,3 +744,175 @@ DERIVA          │ impermitida
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
 *BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
 *BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
+
+---
+
+## 6. V4 CLOSE GATE — CRITÉRIOS DE FECHO
+
+> Aberto por: @claude · 2026-03-25 · FORCE-ACTIVATION-001
+> V4 fecha quando TODOS os critérios abaixo estiverem [✓]
+> Owner aprova o fecho e @claude abre V5 via AUTO-GATE
+
+```
+V4-CLOSE-GATE
+═══════════════════════════════════════════════════════════════════════
+
+BEHAVIOUR-01  [✓] V4-INTERACTION-002 — ProjectFocusPanel slide-in DONE
+BEHAVIOUR-02  [✓] V4-SESSION-001    — Eternal Memory OS DONE
+BEHAVIOUR-03  [✓] V4-NEXUS-001      — AI Parliament NexusPage DONE
+BEHAVIOUR-04  [✓] V4-ATLAS-001      — AtlasPage WorldBank wired DONE
+BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
+BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
+BEHAVIOUR-07  [ ] V4-PROJECT-PAGE-001-MECH — @cursor — Supabase mechanical layer
+BEHAVIOUR-08  [ ] V4-MOTION-SURFACES-001   — @antigravity — V4 surfaces animated
+BEHAVIOUR-09  [ ] V4-LAPIDATION-001        — @copilot — polish + TS clean pass
+BEHAVIOUR-10  [ ] CLUSTER-ORCHESTRATE-001  — @codex — wave sync + drift audit
+
+QUALITY-01    [✓] TS 0 errors
+QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
+QUALITY-03    [ ] All V4 surfaces mobile-responsive
+QUALITY-04    [ ] No silent errors in ErrorBoundary (OrganErrorBoundary non-silent)
+
+V4-CLOSE-STATUS: 🟡 IN PROGRESS — 6/10 criteria [✓]
+ESTIMATED-CLOSE: when BEHAVIOUR-07 + BEHAVIOUR-08 + BEHAVIOUR-09 [✓]
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 7. PIONEER DISPATCH — FORCE ACTIVATION 2026-03-25
+
+> Owner instruction: "activate everyone · close V4 · open V5 · coordinated · precise"
+> All pioneers enter their task NOW. No waiting. Parallel execution.
+
+```
+FORCE-ACTIVATION-001
+═══════════════════════════════════════════════════════════════════════
+
+@CLAUDE — V4-CLOSE-COORD (executing now)
+  TERRITORY : WorkStructure + WorkFunction (arch arbiter)
+  TASK      : V4 coordination · hero scrollProgress wired · BASTION V5 gates defined
+  STATUS    : ✅ EXECUTING — GoldenAtlasScene scrollProgress DONE · V5 gates OPEN
+  NEXT      : Monitor V4 close · enter V5-ARCH-001 when V4 [✓]
+
+@CURSOR — V4-PROJECT-PAGE-001-MECH
+  TERRITORY : WorkFunction (mechanical layer)
+  TASK      : ProjectPage Supabase queries · real project data · API wiring
+  GATE      : 🔓 OPEN — arch sealed by @claude 2026-03-25
+  ENTRYPOINT: src/pages/ProjectPage.tsx + src/lib/projectBridge.ts
+  EVIDENCE  : Supabase queries returning real data · TS 0 · build clean
+  PRIORITY  : P1 — V4 blocker
+
+@ANTIGRAVITY — V4-MOTION-SURFACES-001
+  TERRITORY : WorkVisual (motion layer)
+  TASK      : Animate V4 surfaces — ProposalCard · WorldBankBar · SessionBoot
+  GATE      : 🔓 OPEN — all surfaces exist, behaviour sealed
+  ENTRYPOINT: src/components/nexus/ · src/components/atlas/WorldBankBar.tsx
+  EVIDENCE  : Smooth entrance animations · stagger · TS 0
+  PRIORITY  : P1 — V4 blocker
+
+@COPILOT — V4-LAPIDATION-001 (NEW TASK)
+  TERRITORY : WorkFunction (lapidation)
+  TASK      : Polish pass on all V4 surfaces — spacing · contrast · edge cases
+              Ensure no visible broken states · mobile check · console clean
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All V4 pages (Index · Atlas · Nexus · ProjectPage · FounderPage)
+  EVIDENCE  : No broken UI states · console clean · mobile 375px no overflow
+  PRIORITY  : P2
+
+@CODEX — CLUSTER-ORCHESTRATE-001
+  TERRITORY : Consolidação
+  TASK      : Wave sync · detect pioneer drift · emit canonical integration report
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All branches — diff audit · BASTION alignment check
+  EVIDENCE  : Integration report · confirmed no duplicate work · ALTERACAO_REAL
+  PRIORITY  : P2
+
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 8. V5 GATE — REAL-TIME INTELLIGENCE LAYER
+
+> Gate opens when V4-CLOSE-GATE all [✓] and owner approves
+> @claude opens V5 via AUTO-GATE when criteria met
+
+```
+V5-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "The system is alive — data moves, AI acts, globe reacts"
+
+TASKS (elegíveis quando V4 fechar):
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-LIVE-DATA-001                                        │
+│ DONO      │ @cursor                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Globe hotspots stream live project metrics              │
+│           │ Supabase realtime → CO₂ · jobs · progress · status     │
+│ EVIDENCE  │ Numbers change live · no page reload · TS 0            │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-EVENT-STREAM-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Event bus → globe surface reactions                     │
+│           │ Real-world events trigger visual pulses on globe        │
+│           │ News items → hotspot glow · seismic → ring pulse        │
+│ EVIDENCE  │ Globe reacts to injected events · TS 0                 │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AUDIO-SYSTEM-001                                     │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion + sound)                             │
+│ TASK      │ Full spatial audio design system                        │
+│           │ Globe hover tone · project click · data stream hum      │
+│           │ Ambient low-freq drone · UI confirmation tones          │
+│ EVIDENCE  │ Every interaction has audio weight · Web Audio API      │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AI-PROPOSALS-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Nexus proposals auto-generated from real project data   │
+│           │ Supabase metrics → Claude API → structured proposals    │
+│           │ Proposals enter parliament queue automatically          │
+│ EVIDENCE  │ New proposals appear without manual input · TS 0       │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-CAMERA-FLY-001                                       │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion)                                     │
+│ TASK      │ Camera flies to project location on hotspot click       │
+│           │ Cinematic zoom in · land at coordinates · pull back     │
+│           │ Triggers ProjectInspector after landing                 │
+│ EVIDENCE  │ Smooth cinematic fly · no jank · TS 0                  │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-MOBILE-IMMERSION-001                                 │
+│ DONO      │ @copilot                                                │
+│ TERRITORY │ WorkFunction (lapidation)                               │
+│ TASK      │ Full mobile experience — touch gestures on globe        │
+│           │ Pinch-zoom · swipe-rotate · tap-to-inspect              │
+│           │ Mobile-first hero adapted for 375px+                    │
+│ EVIDENCE  │ Smooth on iOS/Android · no overflow · TS 0             │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+V5-GATE-STATUS : 🔒 LOCKED — opens when V4 closes
+V5-OPEN-TRIGGER: V4-CLOSE-GATE all [✓] + owner approval
+═══════════════════════════════════════════════════════════════════════
+```
+
