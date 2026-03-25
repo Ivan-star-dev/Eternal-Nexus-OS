@@ -170,10 +170,95 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
 | NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
+| MASTER-TOTAL-ARMY-WAVE-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | motion/config.ts · OrbitalChamber · TrinityRow · HeroFirstProof · ProductHero · Index wired · TS 0 errors |
+| GLOBE-3D-ATMOSPHERE-001 | Produto | WorkVisual | @claude | concluída | AtmosphereSphere+CoronaSphere+3-point lighting+focus pulse+EarthquakeLayer+GlobeLayerSelector · TS 0 errors |
 
 ---
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ GLOBE-3D-AURORA-001                                     │
+│ PILAR              │ Visual                                                  │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @antigravity                                            │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ GLOBE-3D-ATMOSPHERE-001 (concluída)                     │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @antigravity                                            │
+│ NEXT_TASK          │ NS-1-HERO-COMPOSITION-001                               │
+│ EVIDENCIA_MINIMA   │ aurora rim shader · hover pulse · commit + ALTERACAO_REAL│
+│ NOTAS_DO_OWNER     │ GlobeScene: aurora backlight rim + hotspot hover pulse  │
+│                    │ OrbitalChamber syncs with globe state                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-1-HERO-COMPOSITION-001                               │
+│ PILAR              │ Visual                                                  │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @framer                                                 │
+│ APOIO_SECUNDARIO   │ @antigravity                                            │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ MASTER-TOTAL-ARMY-WAVE-001 (concluída)                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @framer                                                 │
+│ NEXT_TASK          │ NS-2-NAV-POLISH-001                                     │
+│ EVIDENCIA_MINIMA   │ NS-1 composition review + scroll rhythm + commit        │
+│ NOTAS_DO_OWNER     │ ProductHero spacing · scroll rhythm · typography law    │
+│                    │ TrinityRow → HeroFirstProof transition must feel sacred │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-2-NAV-POLISH-001                                     │
+│ PILAR              │ Visual                                                  │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @framer                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ NS-1-HERO-COMPOSITION-001                               │
+│ PODE_ENTRAR_SOZINHO│ não                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto (após NS-1)                                      │
+│ NEXT_ACTOR         │ @framer                                                 │
+│ NEXT_TASK          │ FOUNDER-V3-DIGNITY-001                                  │
+│ EVIDENCIA_MINIMA   │ NavBar audit · glass effect reviewed · commit           │
+│ NOTAS_DO_OWNER     │ Nav glass polish · active link states · mobile menu     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CLUSTER-ORCHESTRATE-001                                 │
+│ PILAR              │ Consolidação                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @codex                                                  │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @codex                                                  │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ sync report + conflict audit + ALTERACAO_REAL           │
+│ NOTAS_DO_OWNER     │ Wave sync · detect drift across pioneer branches        │
+│                    │ Emit canonical integration report                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

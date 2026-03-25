@@ -8,6 +8,34 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:GLOBE-3D-ATMOSPHERE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GlobeScene enhanced: AtmosphereSphere (breathing opacity loop)
+            │   CoronaSphere (gold corona, very faint, defines presence)
+            │   3-point lighting: gold key + teal fill + hemisphere
+            │   ProjectHotspot: focus pulse ring (scale+opacity on focused)
+            │   EarthquakeLayer: seismic pulse rings at 8 global coordinates
+            │   GlobeLayerSelector: projects + seismic layer toggles
+            │   InteractiveGlobe: layers state + handleLayerToggle + GlobeLayerSelector
+            │   showProjects/showSeismic props wired through InteractiveGlobe → GlobeScene
+            │   BASTION: wave tasks added (4 new eligible tasks for pioneers)
+ALTERACAO_REAL │ sim — 4 ficheiros modificados · 2 ficheiros criados
+IMPACTO     │ Globe now has planetary atmosphere and sacred depth
+            │   Globe + OrbitalChamber are now fully coordinated
+            │   Layer control is live — pioneers can toggle data layers
+            │   Focus state gives the globe interactivity dignity
+            │   BASTION wave queue active: @antigravity · @framer · @codex each have eligible tasks
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (aurora rim shader + hover pulse)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (ProductHero spacing + scroll rhythm)
+            │ @codex: CLUSTER-ORCHESTRATE-001 (sync report + conflict audit)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:MASTER-TOTAL-ARMY-WAVE-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ WAVE_DECISION + ACTIVE_FRONTS + PIONEER_ASSIGNMENTS emitidos

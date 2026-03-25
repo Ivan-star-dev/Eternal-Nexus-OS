@@ -1,8 +1,9 @@
 import { useRef, useMemo, useState } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
+import EarthquakeLayer from "./EarthquakeLayer";
 
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
@@ -11,6 +12,50 @@ const CONNECTION_DISTANCE = 2.6;
 interface GlobeSceneProps {
   focusedProject: string | null;
   onHotspotClick: (id: string) => void;
+  showProjects?: boolean;
+  showSeismic?: boolean;
+}
+
+// Atmospheric glow sphere — gives the globe its planetary presence
+function AtmosphereSphere() {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame(({ clock }) => {
+    if (!meshRef.current) return;
+    const mat = meshRef.current.material as THREE.MeshBasicMaterial;
+    // Subtle breathing opacity
+    mat.opacity = 0.06 + Math.sin(clock.getElapsedTime() * 0.4) * 0.012;
+  });
+
+  return (
+    <mesh ref={meshRef}>
+      {/* Slightly larger than globe — creates edge glow */}
+      <sphereGeometry args={[GLOBE_RADIUS * 1.08, 48, 24]} />
+      <meshBasicMaterial
+        color="#1a4a4a"
+        transparent
+        opacity={0.06}
+        side={THREE.BackSide}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+// Outer corona — very faint gold rim, defines presence in the scene
+function CoronaSphere() {
+  return (
+    <mesh>
+      <sphereGeometry args={[GLOBE_RADIUS * 1.18, 32, 16]} />
+      <meshBasicMaterial
+        color="#c8a44e"
+        transparent
+        opacity={0.018}
+        side={THREE.BackSide}
+        depthWrite={false}
+      />
+    </mesh>
+  );
 }
 
 // Wireframe globe sphere + network nodes
@@ -74,18 +119,28 @@ function NetworkSphere() {
 }
 
 // Project hotspot markers
-function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, onClick }: {
+function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, focused, onClick }: {
   id: string; lat: number; lng: number; title: string; subtitle: string;
-  number: string; color: string; status: string; onClick: (id: string) => void;
+  number: string; color: string; status: string; focused: boolean; onClick: (id: string) => void;
 }) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const focusRingRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
   const pos = latLngToVector3(lat, lng, GLOBE_RADIUS * 1.02);
 
   useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
     if (meshRef.current) {
-      const s = 1 + Math.sin(clock.getElapsedTime() * 3 + lat) * 0.25;
+      const s = focused
+        ? 1 + Math.sin(t * 6 + lat) * 0.35
+        : 1 + Math.sin(t * 3 + lat) * 0.25;
       meshRef.current.scale.setScalar(s);
+    }
+    if (focusRingRef.current) {
+      const pulse = (t * 0.8) % 1.0;
+      focusRingRef.current.scale.setScalar(1 + pulse * 2.5);
+      const mat = focusRingRef.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = focused ? 0.5 * (1 - pulse) : 0;
     }
   });
 
@@ -98,12 +153,17 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
         onPointerOut={() => { setHovered(false); document.body.style.cursor = ""; }}
       >
         <sphereGeometry args={[0.1, 12, 12]} />
-        <meshBasicMaterial color={color} transparent opacity={hovered ? 1 : 0.85} />
+        <meshBasicMaterial color={focused ? "#fff" : color} transparent opacity={hovered || focused ? 1 : 0.85} />
       </mesh>
-      {/* Glow ring */}
+      {/* Static glow ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[0.14, 0.2, 24]} />
-        <meshBasicMaterial color={color} transparent opacity={hovered ? 0.5 : 0.2} side={THREE.DoubleSide} />
+        <meshBasicMaterial color={color} transparent opacity={hovered || focused ? 0.6 : 0.2} side={THREE.DoubleSide} />
+      </mesh>
+      {/* Focus pulse ring */}
+      <mesh ref={focusRingRef} rotation={[Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[0.18, 0.22, 32]} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
       {hovered && (
         <Html center distanceFactor={12} style={{ pointerEvents: "none" }}>
@@ -165,16 +225,26 @@ function ParticleFlow() {
   );
 }
 
-
-
-const GlobeScene = ({ focusedProject, onHotspotClick }: GlobeSceneProps) => {
+const GlobeScene = ({
+  focusedProject,
+  onHotspotClick,
+  showProjects = true,
+  showSeismic = true,
+}: GlobeSceneProps) => {
   return (
     <>
-      <ambientLight intensity={0.25} />
-      <pointLight position={[10, 8, 10]} intensity={0.3} color="#D4AF37" />
+      {/* 3-point lighting: ambient + warm key + cool fill */}
+      <ambientLight intensity={0.2} />
+      <pointLight position={[12, 8, 10]} intensity={0.45} color="#D4AF37" />
+      <pointLight position={[-10, -6, -8]} intensity={0.18} color="#2dd4bf" />
+      <hemisphereLight args={["#1a2a4a", "#0a0a14", 0.15]} />
+
+      <AtmosphereSphere />
+      <CoronaSphere />
       <NetworkSphere />
       <ParticleFlow />
-      {projectLocations.map((p) => (
+
+      {showProjects && projectLocations.map((p) => (
         <ProjectHotspot
           key={p.id}
           id={p.id}
@@ -185,9 +255,13 @@ const GlobeScene = ({ focusedProject, onHotspotClick }: GlobeSceneProps) => {
           number={p.number}
           color={p.color}
           status={p.status}
+          focused={focusedProject === p.id}
           onClick={onHotspotClick}
         />
       ))}
+
+      {showSeismic && <EarthquakeLayer />}
+
       <OrbitControls
         enablePan={false}
         enableZoom={true}
