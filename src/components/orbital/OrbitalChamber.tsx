@@ -15,7 +15,7 @@
  */
 
 import { motion } from "framer-motion";
-import { ORBITAL_PULSE } from "@/lib/motion/config";
+import { ORBITAL_PULSE, EASE_OUT, DUR } from "@/lib/motion/config";
 
 interface OrbitalChamberProps {
   children: React.ReactNode;
@@ -56,7 +56,7 @@ function AuroraRim() {
       className="pointer-events-none absolute inset-0 rounded-full"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
+      transition={{ duration: DUR.cinematic, ease: EASE_OUT, delay: 0.8 }}
       style={{
         background: [
           "radial-gradient(ellipse 90% 40% at 50% 0%, hsl(42 78% 45% / 0.04) 0%, transparent 70%)",

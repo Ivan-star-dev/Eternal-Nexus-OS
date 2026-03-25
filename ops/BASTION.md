@@ -179,6 +179,28 @@ Cada item da matriz regista os seguintes campos:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ MOTION-SWEEP-001                                        │
+│ PILAR              │ Mecânico                                                │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P3                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ files migrated + 0 hardcoded ease in components + commit│
+│ NOTAS_DO_OWNER     │ Replace [0.22,1,0.36,1] and [0.16,1,0.3,1] across all  │
+│                    │ components and pages — import EASE_OUT/EASE_IN_OUT from  │
+│                    │ @/lib/motion/config. ~32 files. Mechanical sweep.        │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
 │ TASK_ID            │ GLOBE-3D-AURORA-001                                     │
 │ PILAR              │ Visual                                                  │
 │ WORKTREE_ALIAS     │ WorkVisual                                              │
