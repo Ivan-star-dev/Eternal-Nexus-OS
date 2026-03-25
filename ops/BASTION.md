@@ -763,18 +763,23 @@ BEHAVIOUR-03  [✓] V4-NEXUS-001      — AI Parliament NexusPage DONE
 BEHAVIOUR-04  [✓] V4-ATLAS-001      — AtlasPage WorldBank wired DONE
 BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
 BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
-BEHAVIOUR-07  [ ] V4-PROJECT-PAGE-001-MECH — @cursor — Supabase mechanical layer
+BEHAVIOUR-07  [~] V4-PROJECT-PAGE-001-MECH — WAIVED by owner 2026-03-25
+               Reclassified → V5-INFRA-SUPABASE-001 (early infra, V5 queue)
+               NOTE: Do NOT mark backend readiness or production Supabase
+               complete until real secrets are wired in proper environment.
 BEHAVIOUR-08  [✓] V4-MOTION-SURFACES-001   — ProposalCard stagger + SessionBoot restore pulse + dialogue framer-motion DONE
 BEHAVIOUR-09  [✓] V4-LAPIDATION-001        — NexusPage header mobile overflow fixed · scrollYProgress reactivity fixed · TS 0 DONE
-BEHAVIOUR-10  [ ] CLUSTER-ORCHESTRATE-001  — @codex — wave sync + drift audit
+BEHAVIOUR-10  [~] CLUSTER-ORCHESTRATE-001  — deferred, not blocking V4 close
 
 QUALITY-01    [✓] TS 0 errors
 QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
 QUALITY-03    [✓] V4 surfaces mobile-responsive — NexusPage L1 header sm/md/lg breakpoints · FounderPage grid-cols-1 sm · ProjectPage responsive padding · AtlasPage fixed-position shell
 QUALITY-04    [✓] OrganErrorBoundary always logs in componentDidCatch (even when silent=true) — console non-silent confirmed
 
-V4-CLOSE-STATUS: 🟡 IN PROGRESS — 9/10 criteria [✓]
-ESTIMATED-CLOSE: when BEHAVIOUR-07 [✓] (owner .env) or owner waves BEHAVIOUR-07
+V4-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — owner waved BEHAVIOUR-07 + BEHAVIOUR-10
+V4-CLOSE-REASON: Supabase .env is a mechanical secret dependency, not a conceptual
+                 behaviour blocker. Phase closure cannot be held hostage by infra secrets.
+═══════════════════════════════════════════════════════════════════════
 ═══════════════════════════════════════════════════════════════════════
 ```
 
@@ -911,8 +916,29 @@ TASKS (elegíveis quando V4 fechar):
 │ PRIORITY  │ P2                                                      │
 └─────────────────────────────────────────────────────────────────────┘
 
-V5-GATE-STATUS : 🔒 LOCKED — opens when V4 closes
-V5-OPEN-TRIGGER: V4-CLOSE-GATE all [✓] + owner approval
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-INFRA-SUPABASE-001 (reclassified from V4-B07)        │
+│ DONO      │ @cursor (mechanical) + owner (secrets)                  │
+│ TERRITORY │ WorkFunction (infra/mechanical)                         │
+│ TASK      │ Wire real Supabase project: create project · add .env   │
+│           │ VITE_SUPABASE_URL · VITE_SUPABASE_PUBLISHABLE_KEY       │
+│           │ VITE_SUPABASE_PROJECT_ID · run globe_projects SQL       │
+│           │ Then: @cursor wires ProjectPage real queries             │
+│ BLOCKED   │ Owner must provide .env with real credentials first     │
+│ EVIDENCE  │ Real project data loads · no placeholder fallback       │
+│ PRIORITY  │ P1 (unblocks V5-LIVE-DATA-001)                          │
+│ CONSTRAINT│ DO NOT mark backend-ready or Supabase-complete until    │
+│           │ real secrets are in environment and queries return data  │
+└─────────────────────────────────────────────────────────────────────┘
+
+V5-GATE-STATUS : 🟢 OPEN — V4 closed by owner 2026-03-25
+V5-EXECUTING   : V5-EVENT-STREAM-001 (@claude — ✅ DONE 2026-03-25)
+V5-QUEUE       : V5-LIVE-DATA-001 (@cursor, BLOCKED on V5-INFRA-SUPABASE-001)
+                 V5-AUDIO-SYSTEM-001 (@antigravity)
+                 V5-AI-PROPOSALS-001 (@claude, arch layer — stub only until Supabase wired)
+                 V5-CAMERA-FLY-001 (@antigravity)
+                 V5-MOBILE-IMMERSION-001 (@copilot)
+                 V5-INFRA-SUPABASE-001 (@cursor + owner, BLOCKED on .env)
 ═══════════════════════════════════════════════════════════════════════
 ```
 

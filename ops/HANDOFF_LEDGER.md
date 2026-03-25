@@ -6,6 +6,36 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V4-CLOSE + V5-OPEN + V5-EVENT-STREAM-001 | claude-sonnet-4-6
+
+**TASK:** V4 phase closure (owner directive) + V5 gate open + V5-EVENT-STREAM-001
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Phase decisions:**
+- V4 CLOSED at 9/10 — owner waved BEHAVIOUR-07 (Supabase .env) + BEHAVIOUR-10 (Codex)
+- BEHAVIOUR-07 reclassified → V5-INFRA-SUPABASE-001 (early infra in V5 queue)
+- CONSTRAINT sealed: do NOT mark backend-ready or Supabase-complete until real secrets are wired
+- V5 gate OPEN immediately per owner directive
+
+**Ficheiros novos:**
+- `src/lib/eventBus.ts` — GlobeEventBus singleton: GlobeEvent type (SEISMIC/NEWS/ALERT/PROJECT_UPDATE/CLIMATE), EVENT_COLORS, EVENT_TTL, emit/subscribe/getHistory, fromEarthquake/fromProjectUpdate helpers, startSimulation (demo synthetic events)
+- `src/hooks/useGlobeEvents.ts` — React hook: subscribes to bus, TTL-based expiry cleanup, seeds USGS earthquake data on mount (staggered 600ms), optional simulation mode
+
+**Ficheiros modificados:**
+- `src/components/GoldenAtlasScene.tsx` — V5 wiring: EventPulseRing (Three.js group + ringGeometry + circleGeometry, lookAt(origin) for tangent orientation, expand+fade useFrame), EventPulseRings, AtlasSceneContent activeEvents prop, useGlobeEvents(seedEarthquakes, simulate=5s interval) in main component
+- `ops/BASTION.md` — V4 CLOSED · V5 gate OPEN · V5-EVENT-STREAM-001 [✓]
+- `ops/LIVE_STATE.md` + `ops/HANDOFF_LEDGER.md` — updated
+
+**Architecture contract (V5-INFRA-SUPABASE-001 constraint):**
+- GlobeEventBus does NOT call Supabase anywhere
+- All live data paths use stub/simulation until V5-INFRA-SUPABASE-001 is unblocked
+- When owner provides .env: @cursor wires Supabase realtime → globeEventBus.emit()
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V4-LAPIDATION-001 | claude-sonnet-4-6
 
 **TASK:** V4-LAPIDATION-001 — Polish pass on all V4 surfaces

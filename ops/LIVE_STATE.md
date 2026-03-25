@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V4 CLOSED · V5 OPEN · V5-EVENT-STREAM-001 DONE — GlobeEventBus singleton · useGlobeEvents hook (earthquake seed + simulation) · EventPulseRings Three.js (ring expand + fade + additive blend) · TS 0
+**Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V4-LAPIDATION-001 DONE — scrollYProgress reactivity fixed · NexusPage L1 header mobile overflow · QUALITY-03/04 [✓] · V4 9/10 criteria · TS 0
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V4-MOTION-SURFACES-001 DONE — ProposalCard stagger entrance + exit · dialogue bubbles framer-motion AnimatePresence · ProposalLedger stagger · SessionBoot restore pulse · V4 7/10 [✓] · TS 0

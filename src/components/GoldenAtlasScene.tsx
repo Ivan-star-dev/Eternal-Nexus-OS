@@ -7,6 +7,8 @@ import ProjectInspector from "./ProjectInspector";
 import OscillatingGoldParticles from "./OscillatingGoldParticles";
 import RightClickPrompt from "./RightClickPrompt";
 import { continentCoastlines } from "@/data/continentCoastlines";
+import { useGlobeEvents } from "@/hooks/useGlobeEvents";
+import type { GlobeEvent } from "@/lib/eventBus";
 
 // ═══ Project data — original + Next Path Infra hubs ═══
 const geoProjects = [
@@ -311,15 +313,84 @@ function CursorAvatar() {
   );
 }
 
+// ═══ V5: Event Pulse Ring — reacts to GlobeEventBus events ═══
+function EventPulseRing({ event }: { event: GlobeEvent }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const ringRef  = useRef<THREE.Mesh>(null);
+  const progressRef = useRef(0);
+  const color = useMemo(() => new THREE.Color(event.color), [event.color]);
+  const position = useMemo(
+    () => new THREE.Vector3(...latLonToPos(event.lat, event.lon, 6.15)),
+    [event.lat, event.lon],
+  );
+  const origin = useMemo(() => new THREE.Vector3(0, 0, 0), []);
+
+  useFrame((_, delta) => {
+    if (!groupRef.current || !ringRef.current) return;
+    progressRef.current = Math.min(1, progressRef.current + delta / (event.ttl / 1000));
+
+    const p = progressRef.current;
+    // Ease-out expansion: scale 0.1 → 2.5 * intensity
+    const targetScale = 0.1 + p * 2.4 * event.intensity;
+    groupRef.current.scale.setScalar(targetScale);
+
+    // Fade out in the last 40% of life
+    const opacity = p < 0.6 ? 1.0 : 1.0 - (p - 0.6) / 0.4;
+    const mat = (ringRef.current.material as THREE.MeshBasicMaterial);
+    mat.opacity = opacity * 0.85;
+  });
+
+  return (
+    <group ref={groupRef} position={position} onUpdate={(self) => self.lookAt(origin)}>
+      <mesh ref={ringRef}>
+        <ringGeometry args={[0.15, 0.28, 48]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.85}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </mesh>
+      {/* Inner dot at epicentre */}
+      <mesh>
+        <circleGeometry args={[0.08, 16]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.6}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </mesh>
+    </group>
+  );
+}
+
+function EventPulseRings({ events }: { events: GlobeEvent[] }) {
+  if (events.length === 0) return null;
+  return (
+    <>
+      {events.map((ev) => (
+        <EventPulseRing key={ev.id} event={ev} />
+      ))}
+    </>
+  );
+}
+
 // ═══ Scene composition ═══
 function AtlasSceneContent({
   onSelectProject,
   customProjects,
   scrollProgress,
+  activeEvents,
 }: {
   onSelectProject: (p: GeoProject) => void;
   customProjects: GeoProject[];
   scrollProgress: number;
+  activeEvents: GlobeEvent[];
 }) {
   const npiBeams = useMemo(() => {
     return geoProjects
@@ -341,6 +412,7 @@ function AtlasSceneContent({
       <GlobeContinents />
       <GlobeGrid />
       <OscillatingGoldParticles />
+      <EventPulseRings events={activeEvents} />
 
       {npiBeams.map((beam) => (
         <NPIBeam key={beam.id} position={beam.position} color={beam.color} id={beam.id} />
@@ -359,6 +431,8 @@ function AtlasSceneContent({
 export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgress?: number }) {
   const [selectedProject, setSelectedProject] = useState<GeoProject | null>(null);
   const [customProjects, setCustomProjects] = useState<GeoProject[]>([]);
+  // V5-EVENT-STREAM-001: seed with live earthquake data; enable simulation for demo
+  const { activeEvents } = useGlobeEvents({ seedEarthquakes: true, simulate: true, simulationInterval: 5000 });
   const [rightClick, setRightClick] = useState<{ x: number; y: number } | null>(null);
   const sound = useSoundManager();
 
@@ -403,6 +477,7 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
               onSelectProject={setSelectedProject}
               customProjects={customProjects}
               scrollProgress={scrollProgress}
+              activeEvents={activeEvents}
             />
           </Suspense>
         </Canvas>
