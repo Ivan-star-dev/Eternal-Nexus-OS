@@ -195,17 +195,17 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ DONE                                                 │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ V4-ATLAS-001 (concluída)                                │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P1                                                      │
-│ GATE               │ aberto (AUTO-GATE V4)                                   │
-│ NEXT_ACTOR         │ @claude                                                 │
+│ GATE               │ concluído — AUTO-GATE abre V4-PROJECT-PAGE-001-MECH    │
+│ NEXT_ACTOR         │ @cursor                                                 │
 │ NEXT_TASK          │ V4-PROJECT-PAGE-001-MECH                                │
-│ EVIDENCIA_MINIMA   │ ProjectPage data model · layout · session carryover · TS 0 │
-│ NOTAS              │ @claude: arch + data model + session carryover          │
-│                    │ @cursor enters after arch sealed                        │
+│ EVIDENCIA_MINIMA   │ projectBridge.ts · session carryover · Inspector CTA · TS 0 │
+│ NOTAS              │ @claude: arch sealed 2026-03-25 · bridge + carryover   │
+│                    │ @cursor enters: MECH gate NOW OPEN                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -216,12 +216,12 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ bloqueada                                               │
-│ DEPENDENCIA_STATUS │ pendente                                                │
-│ DEPENDE_DE         │ V4-PROJECT-PAGE-001 (@claude arch)                      │
-│ PODE_ENTRAR_SOZINHO│ não — aguarda V4-PROJECT-PAGE-001 concluída             │
+│ STATUS             │ 🟡 elegível                                             │
+│ DEPENDENCIA_STATUS │ livre — arch sealed                                     │
+│ DEPENDE_DE         │ V4-PROJECT-PAGE-001 ✅ DONE                             │
+│ PODE_ENTRAR_SOZINHO│ sim — arch concluída, gate aberto                       │
 │ PRIORIDADE         │ P1                                                      │
-│ GATE               │ abre quando V4-PROJECT-PAGE-001 concluída               │
+│ GATE               │ 🔓 ABERTO — V4-PROJECT-PAGE-001 concluída 2026-03-25   │
 │ NEXT_ACTOR         │ @cursor                                                 │
 │ NEXT_TASK          │ @owner decide                                           │
 │ EVIDENCIA_MINIMA   │ Supabase queries · API wiring · TS 0                   │

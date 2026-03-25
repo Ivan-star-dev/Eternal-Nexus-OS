@@ -1,7 +1,8 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { useSessionMemory, readSessionSnapshot } from "@/hooks/useSessionMemory";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
 import ProjectNotes from "@/components/ProjectNotes";
@@ -29,6 +30,21 @@ const ProjectPage = () => {
   const { t } = useLanguage();
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
+
+  // V4-PROJECT-PAGE-001 — session carryover: persist last project + detect returning visitor
+  const { setLastProject } = useSessionMemory();
+  const [isReturningVisitor, setIsReturningVisitor] = useState(false);
+
+  useEffect(() => {
+    if (!id) return;
+    const snap = readSessionSnapshot();
+    // Returning visitor = visitCount > 1 AND they've been here before
+    if (snap && snap.visitCount > 1 && snap.lastProject === id) {
+      setIsReturningVisitor(true);
+    }
+    setLastProject(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   if (!project) {
     return (
@@ -60,6 +76,17 @@ const ProjectPage = () => {
           <span className="text-foreground">{project.title}</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
+          {isReturningVisitor && (
+            <motion.span
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: EASE_OUT }}
+              className="hidden sm:flex items-center gap-1 font-mono text-[0.42rem] tracking-[0.12em] text-primary/60 bg-primary/8 border border-primary/20 px-1.5 py-0.5 rounded"
+            >
+              <RotateCcw className="w-2 h-2" />
+              RESUME
+            </motion.span>
+          )}
           <span className="badge-status badge-active text-[0.48rem] sm:text-[0.55rem]">ACTIVE</span>
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>
         </div>

@@ -22,6 +22,9 @@ import { Canvas } from "@react-three/fiber";
 import { useRealtimeData } from "@/hooks/useRealtimeData";
 import { useWorldBankProject } from "@/hooks/useWorldBankProject";
 import WorldBankBar from "@/components/atlas/WorldBankBar";
+import { useSessionMemory } from "@/hooks/useSessionMemory";
+import { geoIdToRoute, hasProjectPage } from "@/lib/projectBridge";
+import { useNavigate } from "react-router-dom";
 
 // sacred flow — Atlas mode system
 import type { AtlasMode, QualityTier } from "@/lib/atlas/atlas-state";
@@ -91,6 +94,10 @@ export default function AtlasPage() {
   // V4-ATLAS-001: WorldBank macro data for selected project's country
   const worldBankData = useWorldBankProject(selectedProject);
 
+  // V4-PROJECT-PAGE-001: session memory + navigation bridge
+  const { setGlobeFocus } = useSessionMemory();
+  const navigate = useNavigate();
+
   // sacred flow — layer visibility (controlled by right panel)
   const [layers, setLayers] = useState({
     connections: true,
@@ -116,12 +123,20 @@ export default function AtlasPage() {
     setLod(altitudeToLOD(height));
   }, []);
 
-  // sacred flow — project selection with fly-to
+  // sacred flow — project selection with fly-to + session memory
   const handleSelectProject = useCallback((p: GeoProject) => {
     setSelectedProject(p);
     sound.playNavigate();
     cesiumRef.current?.flyTo(p.lat, p.lon, 500000);
-  }, [sound]);
+    // V4-PROJECT-PAGE-001: persist globe focus to session
+    setGlobeFocus(`geo:${p.id}`);
+  }, [sound, setGlobeFocus]);
+
+  // V4-PROJECT-PAGE-001: navigate to full project page from globe
+  const handleOpenProjectPage = useCallback((p: GeoProject) => {
+    const route = geoIdToRoute(p.id);
+    if (route) navigate(route);
+  }, [navigate]);
 
   useEffect(() => {
     if (realtimeData?.length) {
@@ -314,6 +329,7 @@ export default function AtlasPage() {
         <ProjectInspector
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
+          onOpenPage={handleOpenProjectPage}
         />
       )}
 

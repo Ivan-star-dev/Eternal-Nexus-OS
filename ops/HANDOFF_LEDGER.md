@@ -8,6 +8,39 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-PROJECT-PAGE-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ src/lib/projectBridge.ts — canonical bridge (NEW)
+            │   GEO_ID_TO_PROJECT_KEY: 5 mappings (ids 2–6 → project slugs)
+            │   PROJECT_KEY_TO_GEO_ID: reverse lookup auto-derived
+            │   geoIdToProjectKey · projectKeyToGeoId · geoIdToRoute · hasProjectPage
+            │   Ids 1 · 7–12 documented as MECH-pending with inline comments
+            │ ProjectPage.tsx — session carryover on mount (EDIT)
+            │   useSessionMemory wired: setLastProject(id) on every page load
+            │   readSessionSnapshot() used to detect returning visitor (visitCount > 1 + lastProject === id)
+            │   Returning visitor "RESUME" badge in breadcrumb bar (animated, sm:visible)
+            │ AtlasPage.tsx — globe session carryover (EDIT)
+            │   useSessionMemory imported: setGlobeFocus(`geo:${p.id}`) on project select
+            │   useNavigate + geoIdToRoute imported for page navigation
+            │   handleOpenProjectPage: navigate to /project/:key for projects with sealed page
+            │ ProjectInspector.tsx — "View Full Dossier" CTA (EDIT)
+            │   onOpenPage?: (project) => void prop added
+            │   hasProjectPage(project.id) gates visibility of CTA button
+            │   FileText + ExternalLink icons added
+            │   AtlasPage passes handleOpenProjectPage as onOpenPage
+EVIDÊNCIA   │ src/lib/projectBridge.ts (new)
+            │ src/pages/ProjectPage.tsx (session carryover wired)
+            │ src/pages/AtlasPage.tsx (globe focus + navigate bridge)
+            │ src/components/ProjectInspector.tsx (CTA added)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001-MECH — gate NOW OPEN · @cursor enters
+            │ V4-MOTION-SURFACES-001 — @antigravity · elegível (parallel)
+───────────────────────────────────────────────────────────────────────────
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-ATLAS-001 │ STATUS:done
 DATE    │ 2026-03-25
 ───────────────────────────────────────────────────────────────────────────
