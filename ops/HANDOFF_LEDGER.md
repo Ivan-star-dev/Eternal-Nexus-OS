@@ -8,6 +8,25 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-NEXUS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ParliamentProposal type — id · title · scenario · recommendation
+            │   votes · impact (cost/roi/riskLevel) · approvedAt · consensusHash
+            │ PROPOSAL_METADATA[3] — 3 canonical scenarios with real data:
+            │   Transição Energética SP · Pandemia Alpha-7 · Escudo Costeiro SSP2
+            │ ProposalCard — structured output when debate completes
+            │   cost / ROI / unanimous votes + risk level badge
+            │ ProposalLedger — persisted nexus:parliament-ledger (localStorage)
+            │   last 10 approved proposals · re-renders on ledgerVersion bump
+            │ approveAndMigrate() → generates + persists ParliamentProposal
+EVIDÊNCIA   │ src/components/nexus/AICouncil.tsx · TS 0 errors
+NEXT        │ V4-ATLAS-001 — AtlasPage Supabase + WorldBank API
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-SESSION-001 │ STATUS:done
 DATE    │ 2026-03-25
 ───────────────────────────────────────────────────────────────────────────

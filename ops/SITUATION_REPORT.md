@@ -64,7 +64,7 @@ V4 FILA ACTIVA
 ───────────────────────────────────────────────────────────────
 V4-INTERACTION-002  WorkFunction  P1  ✅ DONE  ProjectFocusPanel (globe→panel)
 V4-SESSION-001      WorkFunction  P1  ✅ DONE  useSessionMemory · localStorage · persisted bus
-V4-NEXUS-001        WorkFunction  P1  🟡 elegível  NexusPage AI parliament
+V4-NEXUS-001        WorkFunction  P1  ✅ DONE  AICouncil ParliamentProposal · ProposalLedger · localStorage
 V4-ATLAS-001        WorkFunction  P2  🟡 elegível  AtlasPage Supabase+WorldBank
 
 ───────────────────────────────────────────────────────────────
