@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-INFRA-SUPABASE-001 ✅ wired — fetchSupabaseProjects() + ENRICHMENT_REGISTRY · isLive:true path active · V5-AUDIO-SYSTEM-001 ✅ DONE — audioEngine singleton (Web Audio API) · globeHover · projectClick · uiConfirm · uiDismiss · seismicAlert · ambientDrone · GoldenAtlasScene + AICouncil wired · TS 0
+**Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V5-AI-PROPOSALS-001 DONE — proposalGenerator (pure fn · Supabase-ready) · useProposalQueue · AICouncil AUTO badge + queue UI · 5 stub projects · TS 0
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V4 CLOSED · V5 OPEN · V5-EVENT-STREAM-001 DONE — GlobeEventBus · EventPulseRings Three.js · TS 0

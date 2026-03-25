@@ -6,6 +6,32 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V5-INFRA-SUPABASE-001 + V5-AUDIO-SYSTEM-001 | claude-sonnet-4-6
+
+**TASK:** V5-INFRA-SUPABASE-001 (Supabase wiring complete) + V5-AUDIO-SYSTEM-001 (spatial audio)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/lib/proposalGenerator.ts` — `fetchSupabaseProjects()` async Supabase query + `ENRICHMENT_REGISTRY` (14 projects) + `colorToDomain()` + `latLonToCountry()` + `enrichRow()` — isLive:true when rows returned
+- `src/hooks/useProposalQueue.ts` — async buildQueue: tries Supabase first, falls back to stubs; `isLive` now reactive state
+- `src/lib/audioEngine.ts` — NEW — Web Audio API singleton; sounds: globeHover(220Hz) · projectClick(C4–E4–G4 triad) · dataStreamPulse(1200Hz) · uiConfirm(880Hz) · uiDismiss(440→220Hz) · seismicAlert(60Hz tremolo) · ambientDrone(40+80Hz suboscillators)
+- `src/components/GoldenAtlasScene.tsx` — audioEngine import + init/ambient on first gesture + hotspot hover/click sound + seismicAlert on SEISMIC events
+- `src/components/nexus/AICouncil.tsx` — audioEngine import + uiConfirm on ratify + uiDismiss on reject + projectClick on full debate approval
+
+**COMMIT:** 5971617
+
+**EVIDENCE:**
+- TS 0 errors
+- Supabase path: fetchSupabaseProjects() → enrichRow() → isLive:true; empty → stub fallback
+- Audio engine initialises on first user gesture (Web Audio API policy compliant)
+- Ambient drone starts after init; seismicAlert fires on SEISMIC globe events
+- V5-LIVE-DATA-001 now UNBLOCKED (V5-INFRA-SUPABASE-001 done)
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V4-CLOSE + V5-OPEN + V5-EVENT-STREAM-001 | claude-sonnet-4-6
 
 **TASK:** V4 phase closure (owner directive) + V5 gate open + V5-EVENT-STREAM-001
