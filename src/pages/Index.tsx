@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, lazy, Suspense } from "react";
+import { useRef, lazy, Suspense } from "react";
 import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -12,7 +12,7 @@ import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
-const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
+const GoldenAtlasScene = lazy(() => import("@/components/GoldenAtlasScene"));
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -37,14 +37,14 @@ const Index = () => {
   return (
     <Layout>
       <PageTransition>
-        {/* ═══ HERO — Strategic Observatory ═══ */}
+        {/* ═══ HERO — Strategic Observatory · GoldenAtlasScene ═══ */}
         <section ref={heroRef} className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden" aria-label="Eternal Nexus — Visão estratégica global" role="banner">
-          {/* 3D Globe background */}
+          {/* GoldenAtlasScene — wireframe globe + planet hotspots + gold particles */}
           <OrganErrorBoundary organName="Globe" silent>
             <Suspense fallback={
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
             }>
-              <InteractiveGlobe onHotspotClick={(id) => console.log("hotspot", id)} />
+              <GoldenAtlasScene scrollProgress={0} />
             </Suspense>
           </OrganErrorBoundary>
 
