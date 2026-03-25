@@ -993,6 +993,243 @@ BRANCH      │ claude/rebuild-bastion-core-rihGX
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-PROJECT-PAGE-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ src/lib/projectBridge.ts — canonical bridge (NEW)
+            │   GEO_ID_TO_PROJECT_KEY: 5 mappings (ids 2–6 → project slugs)
+            │   PROJECT_KEY_TO_GEO_ID: reverse lookup auto-derived
+            │   geoIdToProjectKey · projectKeyToGeoId · geoIdToRoute · hasProjectPage
+            │   Ids 1 · 7–12 documented as MECH-pending with inline comments
+            │ ProjectPage.tsx — session carryover on mount (EDIT)
+            │   useSessionMemory wired: setLastProject(id) on every page load
+            │   readSessionSnapshot() used to detect returning visitor (visitCount > 1 + lastProject === id)
+            │   Returning visitor "RESUME" badge in breadcrumb bar (animated, sm:visible)
+            │ AtlasPage.tsx — globe session carryover (EDIT)
+            │   useSessionMemory imported: setGlobeFocus(`geo:${p.id}`) on project select
+            │   useNavigate + geoIdToRoute imported for page navigation
+            │   handleOpenProjectPage: navigate to /project/:key for projects with sealed page
+            │ ProjectInspector.tsx — "View Full Dossier" CTA (EDIT)
+            │   onOpenPage?: (project) => void prop added
+            │   hasProjectPage(project.id) gates visibility of CTA button
+            │   FileText + ExternalLink icons added
+            │   AtlasPage passes handleOpenProjectPage as onOpenPage
+EVIDÊNCIA   │ src/lib/projectBridge.ts (new)
+            │ src/pages/ProjectPage.tsx (session carryover wired)
+            │ src/pages/AtlasPage.tsx (globe focus + navigate bridge)
+            │ src/components/ProjectInspector.tsx (CTA added)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001-MECH — gate NOW OPEN · @cursor enters
+            │ V4-MOTION-SURFACES-001 — @antigravity · elegível (parallel)
+───────────────────────────────────────────────────────────────────────────
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-ATLAS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useWorldBankProject hook — fetches GDP · population · FDI
+            │   PROJECT_COUNTRY_MAP[12 entries]: project id → ISO 2-letter code
+            │   Parallel fetch: NY.GDP.MKTP.CD · SP.POP.TOTL · BX.KLT.DINV.CD.WD
+            │   Graceful degradation: null on failure · cancelled flag on cleanup
+            │ WorldBankBar.tsx — fixed bottom-left overlay with AnimatePresence
+            │   Header: country name + ISO badge · 3-metric list (GDP/POP/FDI)
+            │   Loading state: spinner + "fetching indicators..."
+            │   Source badge: World Bank Open Data attribution
+            │   Motion: fade+slide-up on mount, fade on exit
+            │ AtlasPage — wired useWorldBankProject + WorldBankBar into render
+            │   Supabase globe_projects already wired (read + write) ✓
+            │   WorldBank now surfaces on every project selection ✓
+EVIDÊNCIA   │ src/hooks/useWorldBankProject.ts (new)
+            │ src/components/atlas/WorldBankBar.tsx (new)
+            │ src/pages/AtlasPage.tsx (wired)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001 (next in queue per BASTION)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-NEXUS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ParliamentProposal type — id · title · scenario · recommendation
+            │   votes · impact (cost/roi/riskLevel) · approvedAt · consensusHash
+            │ PROPOSAL_METADATA[3] — 3 canonical scenarios with real data:
+            │   Transição Energética SP · Pandemia Alpha-7 · Escudo Costeiro SSP2
+            │ ProposalCard — structured output when debate completes
+            │   cost / ROI / unanimous votes + risk level badge
+            │ ProposalLedger — persisted nexus:parliament-ledger (localStorage)
+            │   last 10 approved proposals · re-renders on ledgerVersion bump
+            │ approveAndMigrate() → generates + persists ParliamentProposal
+EVIDÊNCIA   │ src/components/nexus/AICouncil.tsx · TS 0 errors
+NEXT        │ V4-ATLAS-001 — AtlasPage Supabase + WorldBank API
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-SESSION-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useSessionMemory hook — localStorage nexus:session
+            │   SessionSnapshot: lastPage · lastGlobeFocus · lastProject
+            │   visitCount · updatedAt (ISO)
+            │   storageAvailable() guard (SSR + private-browsing safe)
+            │   readSessionSnapshot() exported for consumer access
+            │   tracks pathname on every navigation via useLocation
+            │   setGlobeFocus/setLastProject/getSnapshot exposed
+            │ SessionBoot.tsx — null-render, wired inside BrowserRouter
+            │ setDefaultBus() — setter added to bus.ts (no circular dep)
+            │ main.tsx — createPersistedBus({ devOnly: false }) boots first
+            │   event bus singleton now persists to localStorage (500 events)
+            │   events survive page reload, idempotent rehydration on boot
+EVIDÊNCIA   │ src/hooks/useSessionMemory.ts (new)
+            │ src/components/SessionBoot.tsx (new)
+            │ src/lib/events/bus.ts (setDefaultBus added)
+            │ src/lib/events/index.ts (setDefaultBus exported)
+            │ src/main.tsx (persisted bus boot)
+            │ src/App.tsx (<SessionBoot /> inside BrowserRouter)
+            │ TS 0 errors
+NEXT        │ V4-NEXUS-001 — NexusPage canonical · AI parliament
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FULL-FORCE-3-WAVE │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GLOBE-3D-AURORA-001 — aurora fresnel rim shader (GLSL)
+            │   AuroraRimSphere: vertex+fragment shaders, uTime uniform,
+            │   teal↔gold animated fresnel, GLOBE_RADIUS*1.14, FrontSide
+            │   OrbitalChamber: focused prop → 4-sided aurora intensification
+            │   InteractiveGlobe+GlobeScene: onFocusChange propagation chain
+            │   ProductHero: globeFocused state → OrbitalChamber sync
+            │ NS-1-HERO-COMPOSITION-001 — sacred hero composition
+            │   TrinityRow: entries use DELAY.afterGlobe + stagger (no race)
+            │   ProductHero: TrinityRow wrapped in motion.div (afterGlobe delay)
+            │   Sacred thread: Trinity→FirstProof connector (gradient line +
+            │   gold-glow dot + fade tail) — transition feels deliberate
+            │   Spacing: Trinity pt-8 · thread pt-16/pb-4 · Proof pt-2 pb-32
+            │ NS-2-NAV-POLISH-001 — NavBar glass + active states
+            │   Glass: bg-background/80 + white/8 border + shadow when scrolled
+            │   atTop: faint white/4 border (not invisible)
+            │   Active link: gold gradient bottom bar + gold glow shadow
+            │   Mobile: glass bg hsl(216 50%5%/0.96) + active left-border +
+            │   bg-primary/5 + ACTIVE label + icon display per link
+            │   Mobile footer: structured border separators
+ALTERACAO_REAL │ sim — 6 ficheiros modificados · 196 additions · TS 0 errors
+IMPACTO     │ Globe has aurora rim shader — V3 visual identity sealed
+            │ OrbitalChamber responds to globe interaction state
+            │ Hero composition is sacred and temporally correct
+            │ NavBar glass polish complete · active states deliberate
+COMMIT      │ 76d3f93 · claude/rebuild-bastion-core-rihGX
+PROXIMO     │ Owner fecha V3 gate — todas as tasks @claude concluídas
+            │ V3 → 100% quando owner confirma visual close
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:WAVE-CLOSE-TASKS │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ HEAVEN_LAB_REFERENCE_SURFACE.md v1.0 — canonical surface law
+            │   anatomy (Globe→Trinity→Proof) · OrbitalChamber layer spec
+            │   typography law · colour palette · globe lighting law
+            │   motion law · FORBIDDEN list · V3 audit checklist
+            │ SEQUENCE_LAW_V3_V4_V5.md v1.0 — phase sequence law
+            │   V3 close criteria (14+4+4) · current state ~90%
+            │   V4 scope (session memory · NexusPage · live data)
+            │   V5 scope (platform sovereignty)
+            │   FORBIDDEN transitions · V3→V10 line map
+            │ ParticleFlow upgrade: GlobeScene now uses canonical ParticleFlow.tsx
+            │   2000 particles (was 200) · orbital physics · mobile-responsive
+            │ OrbitalChamber: AuroraRim uses DUR.cinematic+EASE_OUT from config
+            │ BASTION: MOTION-SWEEP-001 added for @cursor (~32 files)
+            │ Barrel exports: home/ · orbital/ · lib/motion/
+ALTERACAO_REAL │ sim — 7 ficheiros (2 criados docs, 3 criados barrels, 2 modificados)
+IMPACTO     │ V3 surface law is now sealed in docs
+            │   Pioneer @framer and @antigravity have law to work from
+            │   V3→V5 sequence is formally defined and tracked
+            │   Globe particle field upgraded 10x
+            │   Motion law is now the single source — OrbitalChamber compliant
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (read HEAVEN_LAB_REFERENCE_SURFACE §6)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (read HEAVEN_LAB_REFERENCE_SURFACE §2)
+            │ @cursor: MOTION-SWEEP-001 (~32 files hardcoded ease → motion/config)
+            │ @codex: CLUSTER-ORCHESTRATE-001
+            │ @owner: V3 close gate (when @antigravity + @framer done)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+COMMITS     │ 4813b56 · d6d8d6e · 46f0a2c · e3cc1f6 · 8bf6060 · df78955
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:GLOBE-3D-ATMOSPHERE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GlobeScene enhanced: AtmosphereSphere (breathing opacity loop)
+            │   CoronaSphere (gold corona, very faint, defines presence)
+            │   3-point lighting: gold key + teal fill + hemisphere
+            │   ProjectHotspot: focus pulse ring (scale+opacity on focused)
+            │   EarthquakeLayer: seismic pulse rings at 8 global coordinates
+            │   GlobeLayerSelector: projects + seismic layer toggles
+            │   InteractiveGlobe: layers state + handleLayerToggle + GlobeLayerSelector
+            │   showProjects/showSeismic props wired through InteractiveGlobe → GlobeScene
+            │   BASTION: wave tasks added (4 new eligible tasks for pioneers)
+ALTERACAO_REAL │ sim — 4 ficheiros modificados · 2 ficheiros criados
+IMPACTO     │ Globe now has planetary atmosphere and sacred depth
+            │   Globe + OrbitalChamber are now fully coordinated
+            │   Layer control is live — pioneers can toggle data layers
+            │   Focus state gives the globe interactivity dignity
+            │   BASTION wave queue active: @antigravity · @framer · @codex each have eligible tasks
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (aurora rim shader + hover pulse)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (ProductHero spacing + scroll rhythm)
+            │ @codex: CLUSTER-ORCHESTRATE-001 (sync report + conflict audit)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:MASTER-TOTAL-ARMY-WAVE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ WAVE_DECISION + ACTIVE_FRONTS + PIONEER_ASSIGNMENTS emitidos
+            │ EXECUTION_ORDER + PROMPTS_FOR_EACH_PIONEER + CONTINUOUS_RULES emitidos
+            │ branch corrigido: claude/v3-flagship-close-wave-p7REZ → claude/rebuild-bastion-core-rihGX
+            │ src/lib/motion/config.ts — canonical motion law (EASE · DUR · STAGGER · variants)
+            │ src/components/orbital/OrbitalChamber.tsx — sacred breathing wrapper v1
+            │ src/components/home/TrinityRow.tsx — canonical trinity row (hover · micro-detail · glass)
+            │ src/components/home/HeroFirstProof.tsx — proof strip (count-up · mother phrase · 4 metrics)
+            │ src/components/home/ProductHero.tsx — canonical hero (Globe+OrbitalChamber+Trinity+Proof)
+            │ src/pages/Index.tsx — old inline hero replaced with ProductHero
+            │ TypeScript: 0 errors
+ALTERACAO_REAL │ sim — 6 ficheiros criados · 1 ficheiro refactorizado
+IMPACTO     │ V3 surface canonical gap closed:
+            │   · Globe is now wrapped in OrbitalChamber (sacred breathing frame)
+            │   · Trinity is now canonical (hover identity · micro-detail · glass panel)
+            │   · First Proof is now real (count-up · mother phrase · 4 live metrics)
+            │   · Index.tsx uses ProductHero — not old inline generic hero
+            │   · Motion law canonical — single source of truth for all animation values
+PROXIMO     │ @antigravity: GlobeScene aurora glow + hover pulse (GLOBE-3D-HEAVEN-001)
+            │ @framer: NS-1 full hero composition refinement
+            │ @cursor: session-aware surface wiring when joining wave
+            │ @copilot: BULK-01.2/L-001 + L-002 + brand docs polish
+            │ @codex: CLUSTER-ORCHESTRATE-001 + conflict detection
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001-CLOSE │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ BLOCK-OP-001 — FECHADO COMPLETAMENTE

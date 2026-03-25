@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const MiniProjectScene = lazy(() =>
   import("./MiniProjectScene").catch(() => {
@@ -33,7 +34,7 @@ const PROJECT_COLORS: Record<string, string> = {
   "chip-fold": "#26A69A",
 };
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const statusStyles: Record<string, string> = {
   "Active":      "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",

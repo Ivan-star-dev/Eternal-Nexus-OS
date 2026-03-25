@@ -9,12 +9,14 @@ import { SessionProvider } from "@/contexts/SessionContext";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
+import CommandPalette from "@/components/CommandPalette";
 import { lazy, Suspense } from "react";
 import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
 import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
 import LoadingFallback from "./components/LoadingFallback";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SessionBoot from "./components/SessionBoot";
 
 function SystemAwareInspector() {
   const location = useLocation();
@@ -64,8 +66,10 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <SessionBoot />
             <OrganTransitionParticles />
-            <SystemAwareInspector />
+            <NexusFlowInspector />
+            <CommandPalette />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />

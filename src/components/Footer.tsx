@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import IPProtectionBanner from "./IPProtectionBanner";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const Footer = () => {
   const { t } = useLanguage();

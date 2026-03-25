@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // ─── Animation variants ────────────────────────────────────────────────────
 const fadeUp = {
@@ -8,7 +9,7 @@ const fadeUp = {
   visible: (delay: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    transition: { duration: 0.7, delay, ease: EASE_OUT as [number, number, number, number] },
   }),
 };
 

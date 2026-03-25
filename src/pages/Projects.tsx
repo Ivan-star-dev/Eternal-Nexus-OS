@@ -8,12 +8,13 @@ import { homeProjects, type HomeProject } from "@/data/homeProjects";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
 import type { Database } from "@/integrations/supabase/types";
+import { EASE_OUT } from "@/lib/motion/config";
 
 type GlobeProject = Database["public"]["Tables"]["globe_projects"]["Row"];
 
 type StatusFilter = "all" | "active" | "research" | "planning" | "completed" | "upcoming";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const STATUS_OPTIONS: { value: StatusFilter; label: string }[] = [
   { value: "all", label: "ALL" },

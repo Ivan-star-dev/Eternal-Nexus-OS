@@ -12,13 +12,14 @@ import FrameBudgetMonitor from "@/components/dashboard/FrameBudgetMonitor";
 import ProjectMetricsBarChart from "@/components/dashboard/ProjectMetricsBarChart";
 import SystemRadarChart from "@/components/dashboard/SystemRadarChart";
 import {
+import { EASE_OUT } from "@/lib/motion/config";
   useProjectMetrics,
   useActivityLog,
   useSystemStatus,
   useProjectProgress,
 } from "@/hooks/useDashboardData";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const DashboardPage = () => {
   useEffect(() => {

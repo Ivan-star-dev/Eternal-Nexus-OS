@@ -1,7 +1,8 @@
 import { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { useSessionMemory, readSessionSnapshot } from "@/hooks/useSessionMemory";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
 import ProjectNotes from "@/components/ProjectNotes";
@@ -18,6 +19,7 @@ import FinancialTab from "@/components/project/FinancialTab";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSession } from "@/contexts/SessionContext";
 import projectData from "@/data/projects";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
@@ -28,7 +30,7 @@ const statusBadgeClass: Record<string, string> = {
   "in-progress": "text-blue-400 border-blue-400/40 bg-blue-400/10",
 };
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,21 +39,26 @@ const ProjectPage = () => {
   const project = id ? projectData[id] : null;
   const [activeTab, setActiveTab] = useState("overview");
 
+  // V4-PROJECT-PAGE-001 — session carryover: persist last project + detect returning visitor
+  const { setLastProject } = useSessionMemory();
+  const [isReturningVisitor, setIsReturningVisitor] = useState(false);
+
+  useEffect(() => {
+    if (!id) return;
+    const snap = readSessionSnapshot();
+    // Returning visitor = visitCount > 1 AND they've been here before
+    if (snap && snap.visitCount > 1 && snap.lastProject === id) {
+      setIsReturningVisitor(true);
+    }
+    setLastProject(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
   // V3: dynamic document title
   useEffect(() => {
     document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
     return () => { document.title = "Eternal Nexus OS"; };
   }, [project]);
-
-  // Session hookup: start session with real project context on mount
-  useEffect(() => {
-    if (project) startSession(project.title, "project-review");
-  }, [project]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Track tab navigation as re_entry_point
-  useEffect(() => {
-    updateReEntry(activeTab);
-  }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!project) {
     return (
@@ -84,7 +91,17 @@ const ProjectPage = () => {
           <span className="text-paper">{project.title}</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* V3: status badge — active=gold, completed=emerald, in-progress=blue */}
+          {isReturningVisitor && (
+            <motion.span
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: EASE_OUT }}
+              className="hidden sm:flex items-center gap-1 font-mono text-[0.42rem] tracking-[0.12em] text-primary/60 bg-primary/8 border border-primary/20 px-1.5 py-0.5 rounded"
+            >
+              <RotateCcw className="w-2 h-2" />
+              RESUME
+            </motion.span>
+          )}
           <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[(project.status ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
             {project.status ?? "ACTIVE"}
           </span>

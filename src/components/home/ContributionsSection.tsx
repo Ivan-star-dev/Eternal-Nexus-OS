@@ -6,8 +6,9 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { homeProjects } from "@/data/homeProjects";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 interface Contribution {
   id: string;

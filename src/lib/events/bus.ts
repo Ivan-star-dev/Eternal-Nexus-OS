@@ -184,3 +184,8 @@ export function getDefaultBus(): NexusEventBus {
   }
   return _defaultBus;
 }
+
+/** Replace the singleton bus (call before any component mounts). */
+export function setDefaultBus(bus: NexusEventBus): void {
+  _defaultBus = bus;
+}
