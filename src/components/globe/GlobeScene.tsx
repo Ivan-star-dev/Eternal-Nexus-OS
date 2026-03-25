@@ -4,6 +4,7 @@ import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
 import EarthquakeLayer from "./EarthquakeLayer";
+import ParticleFlow from "./ParticleFlow";
 
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
@@ -182,48 +183,6 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
   );
 }
 
-// Particle flow between hotspots
-function ParticleFlow() {
-  const ref = useRef<THREE.Points>(null);
-  const count = 200;
-
-  const positions = useMemo(() => {
-    const arr = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = GLOBE_RADIUS * (1.04 + Math.random() * 0.15);
-      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      arr[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return arr;
-  }, []);
-
-  useFrame(({ clock }) => {
-    if (!ref.current) return;
-    const t = clock.getElapsedTime() * 0.15;
-    const posArr = ref.current.geometry.attributes.position.array as Float32Array;
-    for (let i = 0; i < count; i++) {
-      const x = posArr[i * 3];
-      const z = posArr[i * 3 + 2];
-      const cos = Math.cos(t * 0.02);
-      const sin = Math.sin(t * 0.02);
-      posArr[i * 3] = x * cos - z * sin;
-      posArr[i * 3 + 2] = x * sin + z * cos;
-    }
-    ref.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  return (
-    <points ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      <pointsMaterial color="#D4AF37" size={0.025} transparent opacity={0.35} sizeAttenuation />
-    </points>
-  );
-}
 
 const GlobeScene = ({
   focusedProject,
@@ -242,7 +201,8 @@ const GlobeScene = ({
       <AtmosphereSphere />
       <CoronaSphere />
       <NetworkSphere />
-      <ParticleFlow />
+      {/* Canonical particle field — 2000 particles, orbital physics, mobile-responsive */}
+      <ParticleFlow count={2000} radius={GLOBE_RADIUS * 1.1} color="#D4AF37" />
 
       {showProjects && projectLocations.map((p) => (
         <ProjectHotspot
