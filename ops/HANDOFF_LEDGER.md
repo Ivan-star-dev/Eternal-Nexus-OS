@@ -6,6 +6,22 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V5-CAMERA-FLY-001 + V5-LIVE-DATA-001 | claude-sonnet-4-6
+
+**TASK:** V5-CAMERA-FLY-001 (cinematic fly) + V5-LIVE-DATA-001 (Supabase realtime)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/components/GoldenAtlasScene.tsx` — CameraController replaces ScrollCamera; fly state machine (scroll/flying/returning); easeInOutCubic arc; handleProjectSelect → flyTarget; handleCameraLanded; handleProjectClose; useGlobeRealtime wired; mergedCustomProjects; live badge bottom-left
+- `src/hooks/useGlobeRealtime.ts` — NEW — Supabase realtime channel on globe_projects; postgres_changes handler; globeEventBus.fromProjectUpdate() on INSERT/UPDATE; isConnected status
+
+**COMMIT:** 3540629
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V5-INFRA-SUPABASE-001 + V5-AUDIO-SYSTEM-001 | claude-sonnet-4-6
 
 **TASK:** V5-INFRA-SUPABASE-001 (Supabase wiring complete) + V5-AUDIO-SYSTEM-001 (spatial audio)

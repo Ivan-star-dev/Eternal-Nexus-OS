@@ -936,9 +936,10 @@ V5-DONE        : V5-EVENT-STREAM-001 ✅
                  V5-AI-PROPOSALS-001 ✅ (arch stub → Supabase-ready)
                  V5-INFRA-SUPABASE-001 ✅ — .env wired · fetchSupabaseProjects() live · ENRICHMENT_REGISTRY · isLive:true active
                  V5-AUDIO-SYSTEM-001 ✅ — audioEngine (Web Audio API) · 6 sounds · ambient drone · wired to globe + AICouncil
-V5-QUEUE       : V5-CAMERA-FLY-001 (@antigravity — NEXT)
-                 V5-MOBILE-IMMERSION-001 (@copilot)
-                 V5-LIVE-DATA-001 (@cursor, UNBLOCKED — V5-INFRA-SUPABASE-001 ✅)
+                 V5-CAMERA-FLY-001 ✅ — CameraController · easeInOutCubic arc · fly→land→inspector · close→return
+                 V5-LIVE-DATA-001 ✅ — useGlobeRealtime · Supabase realtime · INSERT/UPDATE/DELETE · PROJECT_UPDATE → EventPulseRing · live badge
+V5-QUEUE       : V5-MOBILE-IMMERSION-001 (@copilot — NEXT)
+                 CLUSTER-ORCHESTRATE-001 (@codex — wave audit)
 ═══════════════════════════════════════════════════════════════════════
 ```
 
