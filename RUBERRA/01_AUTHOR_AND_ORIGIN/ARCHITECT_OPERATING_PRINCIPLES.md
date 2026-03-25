@@ -1,65 +1,58 @@
 # ARCHITECT OPERATING PRINCIPLES — Como o Fundador Pensa e Opera
 
 > Princípios reais de operação — não aspiracionais, não decorativos.
-> A forma como o arquiteto aborda cada decisão.
+> Fonte: palavra do fundador. Imutável.
 
 ---
 
-## 1. COMPLETUDE ANTES DE VELOCIDADE
+## 1. Retenção acima de reinvenção
+O que já foi decidido, validado e provado forte não deve ser descartado levianamente. Evoluir não é resetar; é preservar, depurar e ampliar.
 
-O arquiteto não avança para o próximo capítulo enquanto o atual não está selado.
-Velocidade sem completude produz ruído. Completude sem velocidade produz solidez.
+## 2. Organismo acima de fragmento
+Nada deve ser tratado como peça isolada se pertencer a um sistema maior. Produto, sistema, corporação, defesa, repo, livro e ecossistema devem operar como partes de um mesmo corpo.
 
-A escolha é sempre solidez.
+## 3. Mãe acima de filhos
+Toda criação deriva da mesma identidade-mãe. Cada artefacto, interface, documento, protocolo ou sistema pode ter função própria, mas deve manter linhagem visual, estrutural e doutrinal.
 
----
+## 4. Princípio acima de ferramenta
+Ferramentas mudam. Funções permanecem. A arquitetura deve ser construída a partir de princípios, não de dependência cega a vendors ou modas.
 
-## 2. CADA DECISÃO TEM UMA RAZÃO DERIVÁVEL
+## 5. Top-down com descida precisa
+Pensar do macro para o micro permite manter coerência. O detalhe deve servir o sistema. O sistema não deve ser sacrificado para acomodar detalhe mal pensado.
 
-Nada é arbitrário. Tudo deriva de algum princípio superior.
-Se uma decisão não puder ser derivada da identidade mãe, não é uma decisão — é um impulso.
+## 6. Clareza, densidade, presença
+Todo artefacto forte deve combinar:
+- clareza suficiente para ser lido rapidamente
+- densidade suficiente para ter valor real
+- presença suficiente para transmitir gravidade e identidade
 
----
+## 7. Problemas grandes primeiro
+Problemas pequenos não devem sequestrar a energia estratégica. O foco principal deve estar nos sistemas, gargalos e estruturas que mudam o jogo inteiro.
 
-## 3. O SISTEMA É MAIS IMPORTANTE QUE O COMPONENTE
+## 8. Estrutura dentro da estrutura
+Tudo relevante contém subestruturas que lhe dão suporte. O trabalho não deve parar no contorno superficial. É preciso mapear as camadas que sustentam o todo.
 
-O arquiteto sacrifica o componente mais elegante para proteger a coerência do sistema.
-Um componente brilhante num sistema incoerente é ruído. Um componente simples num sistema coerente é força.
+## 9. Defesa como condição de continuidade
+Nada valioso sobrevive sem memória, defesa, trust e continuidade. A proteção não é acessório. É parte do organismo.
 
----
+## 10. Beleza funcional
+O visual não é cosmética. Ele deve orientar, atrair, ordenar e transmitir identidade. Beleza sem função é ruído. Função sem beleza perde força de transmissão.
 
-## 4. MEMORIA > IMPROVISO
+## 11. Escala sem perda de identidade
+Expandir não pode significar diluir. O crescimento correto preserva o centro, reforça a espinha e adapta as extremidades sem trair a origem.
 
-O que foi pensado e selado não é reaberto por impulso.
-O que foi decidido com clareza não é renegociado por conforto.
-A memória do sistema protege-o de si mesmo.
+## 12. Sistema · Imigrante · AI
+Uma das chaves do trabalho do fundador nasce desta trindade:
+- **sistema** — estrutura a ser lida e redesenhada
+- **imigrante** — humano em fricção com estruturas imperfeitas
+- **AI** — instrumento de reconstrução, ampliação e coordenação
 
----
+## 13. O ser humano como masterpiece
+Nenhum sistema vale mais do que a vida humana. A tecnologia deve ampliar dignidade, capacidade, continuidade e criação — nunca substituir o valor central da humanidade.
 
-## 5. O PADRÃO NÃO BAIXA
-
-Quando o caminho é difícil, o padrão não baixa para tornar o caminho mais fácil.
-O padrão é fixo. O caminho adapta-se ao padrão.
-
----
-
-## 6. CLAREZA DE ESCALA
-
-O arquiteto pensa simultaneamente em três escalas:
-- O que está a acontecer agora (micro)
-- O que isto significa para a fase atual (meso)
-- O que isto significa para o organismo a 100 anos (macro)
-
-Decisões que são boas no micro mas ruins no macro não são tomadas.
-
----
-
-## 7. COMUNICAÇÃO SOBERANA
-
-O arquiteto não comunica para ser aprovado.
-Comunica para criar clareza.
-A diferença: aprovação depende do interlocutor, clareza não.
+## 14. Construir como continuação da criação
+Observar como a realidade viva se organiza — por leis, continuidade, coerência, adaptação e expansão — e usar esses mesmos princípios para construir sistemas humanos melhores.
 
 ---
 
-_ARCHITECT_OPERATING_PRINCIPLES.md v1.0 · 2026-03-25_
+_ARCHITECT_OPERATING_PRINCIPLES.md v1.0 · 2026-03-25 · selado pelo fundador_
