@@ -8,6 +8,42 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:WAVE-CLOSE-TASKS │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ HEAVEN_LAB_REFERENCE_SURFACE.md v1.0 — canonical surface law
+            │   anatomy (Globe→Trinity→Proof) · OrbitalChamber layer spec
+            │   typography law · colour palette · globe lighting law
+            │   motion law · FORBIDDEN list · V3 audit checklist
+            │ SEQUENCE_LAW_V3_V4_V5.md v1.0 — phase sequence law
+            │   V3 close criteria (14+4+4) · current state ~90%
+            │   V4 scope (session memory · NexusPage · live data)
+            │   V5 scope (platform sovereignty)
+            │   FORBIDDEN transitions · V3→V10 line map
+            │ ParticleFlow upgrade: GlobeScene now uses canonical ParticleFlow.tsx
+            │   2000 particles (was 200) · orbital physics · mobile-responsive
+            │ OrbitalChamber: AuroraRim uses DUR.cinematic+EASE_OUT from config
+            │ BASTION: MOTION-SWEEP-001 added for @cursor (~32 files)
+            │ Barrel exports: home/ · orbital/ · lib/motion/
+ALTERACAO_REAL │ sim — 7 ficheiros (2 criados docs, 3 criados barrels, 2 modificados)
+IMPACTO     │ V3 surface law is now sealed in docs
+            │   Pioneer @framer and @antigravity have law to work from
+            │   V3→V5 sequence is formally defined and tracked
+            │   Globe particle field upgraded 10x
+            │   Motion law is now the single source — OrbitalChamber compliant
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (read HEAVEN_LAB_REFERENCE_SURFACE §6)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (read HEAVEN_LAB_REFERENCE_SURFACE §2)
+            │ @cursor: MOTION-SWEEP-001 (~32 files hardcoded ease → motion/config)
+            │ @codex: CLUSTER-ORCHESTRATE-001
+            │ @owner: V3 close gate (when @antigravity + @framer done)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+COMMITS     │ 4813b56 · d6d8d6e · 46f0a2c · e3cc1f6 · 8bf6060 · df78955
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:GLOBE-3D-ATMOSPHERE-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ GlobeScene enhanced: AtmosphereSphere (breathing opacity loop)
