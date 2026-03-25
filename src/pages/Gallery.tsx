@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import projectData, { type ProjectData, type ConceptImage } from "@/data/projects";
 import { useLightbox } from "@/hooks/useLightbox";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface GalleryImage {
   src: string;
@@ -334,7 +335,7 @@ const Gallery = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: EASE_OUT }}
                 src={filtered[lightboxIndex].src}
                 alt={filtered[lightboxIndex].caption}
                 className="max-w-[90vw] max-h-[75vh] object-contain"

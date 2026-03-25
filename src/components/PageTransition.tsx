@@ -1,6 +1,7 @@
 // PageTransition — Whoosh orbital com blur + scale + partículas gold
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useRef } from "react";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const pageVariants = {
   initial: {
@@ -25,7 +26,7 @@ const pageVariants = {
 
 const pageTransition = {
   duration: 0.6,
-  ease: [0.22, 1, 0.36, 1] as const,
+  ease: EASE_OUT as const,
 };
 
 /** Burst de partículas gold no mount */

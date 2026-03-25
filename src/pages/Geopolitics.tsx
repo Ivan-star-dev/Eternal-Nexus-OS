@@ -5,11 +5,12 @@ import { lazy, Suspense, useState } from "react";
 import Layout from "@/components/Layout";
 import geopoliticsMap from "@/assets/geopolitics-map.jpg";
 import geopoliticsOverview from "@/assets/geopolitics-overview.jpg";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // Lazy-load MapLibre shell (heavy: ~200KB)
 const GeopoliticsMap = lazy(() => import("@/components/geopolitics/GeopoliticsMap"));
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const actors = [
   {

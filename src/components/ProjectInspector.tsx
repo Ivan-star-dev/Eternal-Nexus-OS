@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface InspectorProject {
   id: number;
@@ -98,7 +99,7 @@ export default function ProjectInspector({
           initial={{ scale: 0.75, opacity: 0, y: 60 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.75, opacity: 0, y: 60 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
           className="relative w-[94vw] max-w-4xl overflow-hidden"
           style={{
             border: "1px solid rgba(212, 175, 55, 0.25)",

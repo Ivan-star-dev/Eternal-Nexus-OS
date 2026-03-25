@@ -17,11 +17,12 @@ import TimelineTab from "@/components/project/TimelineTab";
 import FinancialTab from "@/components/project/FinancialTab";
 import { useLanguage } from "@/contexts/LanguageContext";
 import projectData from "@/data/projects";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();

@@ -9,8 +9,9 @@ import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
 import { homeProjects } from "@/data/homeProjects";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const ease = EASE_OUT;
 
 const Index = () => {
   return (

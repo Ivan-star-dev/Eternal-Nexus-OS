@@ -2,8 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight, BookOpen, FileText, Shield } from "lucide-react";
 import WhitepaperDownload from "./WhitepaperDownload";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 interface WPSection {
   num: string;

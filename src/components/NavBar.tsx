@@ -7,6 +7,7 @@ import { useScrollDirection } from "@/hooks/useScrollDirection";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const NavBar = () => {
   const location = useLocation();
@@ -35,7 +36,7 @@ const NavBar = () => {
       <motion.nav
         initial={{ y: 0 }}
         animate={{ y: visible ? 0 : -80 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.3, ease: EASE_OUT }}
         aria-label="Navegação principal"
         role="navigation"
         className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-300 ${

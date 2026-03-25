@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { HomeProject } from "@/data/homeProjects";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const statusColors: Record<string, string> = {
   ACTIVE: "bg-accent text-accent-foreground",
