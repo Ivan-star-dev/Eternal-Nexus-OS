@@ -185,6 +185,72 @@ Cada item da matriz regista os seguintes campos:
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
 
 > 🟢 V4 — SYSTEM BEHAVIOUR LIVE — ABERTO 2026-03-25 via AUTO-GATE
+> 🟢 CONSTELLATION ACTIVA — @claude (P1) · @cursor (P1) · @antigravity (P1)
+> Gate owner 2026-03-25: @cursor + @antigravity activados em V4
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-PROJECT-PAGE-001                                     │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ V4-ATLAS-001 (concluída)                                │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-PROJECT-PAGE-001-MECH                                │
+│ EVIDENCIA_MINIMA   │ ProjectPage data model · layout · session carryover · TS 0 │
+│ NOTAS              │ @claude: arch + data model + session carryover          │
+│                    │ @cursor enters after arch sealed                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-PROJECT-PAGE-001-MECH                                │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ bloqueada                                               │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ V4-PROJECT-PAGE-001 (@claude arch)                      │
+│ PODE_ENTRAR_SOZINHO│ não — aguarda V4-PROJECT-PAGE-001 concluída             │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ abre quando V4-PROJECT-PAGE-001 concluída               │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ Supabase queries · API wiring · TS 0                   │
+│ NOTAS              │ @cursor: Supabase + API mechanical layer                │
+│                    │ No arch decisions — pure implementation                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-MOTION-SURFACES-001                                  │
+│ PILAR              │ WorkVisual                                              │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @antigravity                                            │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ V4-NEXUS-001 · V4-ATLAS-001 (ambas concluídas)         │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto — owner gate 2026-03-25                         │
+│ NEXT_ACTOR         │ @antigravity                                            │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ ProposalCard motion · WorldBankBar entrance · TS 0     │
+│ NOTAS              │ @antigravity: animate V4 surfaces                      │
+│                    │ ProposalCard approve flow · WorldBankBar slide-in       │
+│                    │ SessionBoot restore pulse · TS 0                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

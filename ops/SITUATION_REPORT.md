@@ -65,7 +65,10 @@ V4 FILA ACTIVA
 V4-INTERACTION-002  WorkFunction  P1  ✅ DONE  ProjectFocusPanel (globe→panel)
 V4-SESSION-001      WorkFunction  P1  ✅ DONE  useSessionMemory · localStorage · persisted bus
 V4-NEXUS-001        WorkFunction  P1  ✅ DONE  AICouncil ParliamentProposal · ProposalLedger · localStorage
-V4-ATLAS-001        WorkFunction  P2  ✅ DONE  useWorldBankProject · WorldBankBar · GDP/POP/FDI live
+V4-ATLAS-001              WorkFunction  P2  ✅ DONE     useWorldBankProject · WorldBankBar · GDP/POP/FDI live
+V4-PROJECT-PAGE-001       WorkFunction  P1  🟡 elegível  @claude — arch + data model + session carryover
+V4-PROJECT-PAGE-001-MECH  WorkFunction  P1  🔒 bloqueada @cursor — aguarda arch sealed
+V4-MOTION-SURFACES-001    WorkVisual    P1  🟡 elegível  @antigravity — ProposalCard · WorldBankBar · SessionBoot
 
 ───────────────────────────────────────────────────────────────
 PILARES — ESTADO ESTRUTURAL

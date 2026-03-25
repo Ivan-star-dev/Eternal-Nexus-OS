@@ -28,10 +28,10 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | 🟢 V4 — SYSTEM BEHAVIOUR LIVE — ABERTO 2026-03-25 via AUTO-GATE |
+| **Fase ativa** | 🟢 V4 — SYSTEM BEHAVIOUR LIVE — CONSTELLATION 3 PIONEERS ACTIVOS |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | @claude — AUTO-GATE activo — execução autónoma |
-| **Frente ativa** | V4 WorkFunction — System Behaviour Live |
+| **Executor ativo** | CONSTELLATION: @claude (P1 WorkFunction) · @cursor (P1 WorkFunction) · @antigravity (P1 WorkVisual) |
+| **Frente ativa** | V4 — 3 frentes paralelas abertas por owner gate 2026-03-25 |
 | **Camada atual** | V4-INTERACTION-002 DONE: ProjectFocusPanel (globe hotspot → project detail slide-in) · CLAUDE.md v1.1 AUTO-GATE-LAW sealed · SEQUENCE_LAW V3 FECHADO |
 | **Estado geral** | AUTO-GATE: @claude abre gates quando critérios [✓] sem esperar owner · V3 100% closed · V4 queue: V4-INTERACTION-002 ✓ · V4-SESSION-001 elegível · V4-NEXUS-001 elegível · V4-ATLAS-001 elegível |
 | **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
