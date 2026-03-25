@@ -15,6 +15,7 @@ import { useState, useCallback, useEffect } from "react";
 import {
   generateProposal,
   getStubProposalInputs,
+  fetchSupabaseProjects,
   type ProposalInput,
 } from "@/lib/proposalGenerator";
 import type { ParliamentProposal } from "@/components/nexus/AICouncil";
@@ -60,18 +61,21 @@ export interface ProposalQueueState {
 
 export function useProposalQueue(): ProposalQueueState {
   const [queue, setQueue] = useState<ParliamentProposal[]>([]);
-  const [isLive] = useState(false); // stays false until V5-INFRA-SUPABASE-001
+  const [isLive, setIsLive] = useState(false);
 
-  const buildQueue = useCallback(() => {
-    // V5-INFRA-SUPABASE-001: replace getStubProposalInputs() with:
-    //   const inputs = await fetchSupabaseProjects(); // returns ProposalInput[]
-    const inputs: ProposalInput[] = getStubProposalInputs();
+  const buildQueue = useCallback(async () => {
+    // V5-INFRA-SUPABASE-001: try Supabase first, fall back to stubs
+    let inputs: ProposalInput[] = await fetchSupabaseProjects();
+    const fromLive = inputs.length > 0;
+    if (!fromLive) {
+      inputs = getStubProposalInputs();
+    }
+    setIsLive(fromLive);
+
     const seen = readSeenIds();
-
     const proposals = inputs
       .filter((input) => {
         const candidate = `auto-${input.projectId}`;
-        // Include if not yet seen today
         return ![...seen].some((id) => id.startsWith(candidate));
       })
       .map(generateProposal)

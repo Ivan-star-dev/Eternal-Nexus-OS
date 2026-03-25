@@ -1,8 +1,9 @@
-import { useRef, useState, useMemo, useCallback, Suspense } from "react";
+import { useRef, useState, useMemo, useCallback, Suspense, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useSoundManager } from "@/hooks/useSoundManager";
+import { audioEngine } from "@/lib/audioEngine";
 import ProjectInspector from "./ProjectInspector";
 import OscillatingGoldParticles from "./OscillatingGoldParticles";
 import RightClickPrompt from "./RightClickPrompt";
@@ -264,8 +265,8 @@ function ProjectIsland({ project, onSelect }: { project: GeoProject; onSelect: (
     <group position={pos}>
       <mesh
         ref={meshRef}
-        onClick={(e) => { e.stopPropagation(); sound.playNavigate(); onSelect(project); }}
-        onPointerOver={() => { sound.playHover(); document.body.style.cursor = "pointer"; }}
+        onClick={(e) => { e.stopPropagation(); audioEngine.play("projectClick"); onSelect(project); }}
+        onPointerOver={() => { audioEngine.play("globeHover"); document.body.style.cursor = "pointer"; }}
         onPointerOut={() => { document.body.style.cursor = "auto"; }}
       >
         <boxGeometry args={[isNPI ? 0.45 : 0.35, isNPI ? 0.22 : 0.18, isNPI ? 0.45 : 0.35]} />
@@ -435,6 +436,25 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
   const { activeEvents } = useGlobeEvents({ seedEarthquakes: true, simulate: true, simulationInterval: 5000 });
   const [rightClick, setRightClick] = useState<{ x: number; y: number } | null>(null);
   const sound = useSoundManager();
+  const audioInitRef = useRef(false);
+  const prevEventCountRef = useRef(0);
+
+  // V5-AUDIO-SYSTEM-001: init engine on first gesture + play seismic alerts
+  const initAudio = useCallback(() => {
+    if (audioInitRef.current) return;
+    audioInitRef.current = true;
+    audioEngine.init();
+    audioEngine.startAmbient();
+  }, []);
+
+  // Play seismic alert when a new SEISMIC event arrives
+  useEffect(() => {
+    const seismicCount = activeEvents.filter((e) => e.type === "SEISMIC").length;
+    if (seismicCount > prevEventCountRef.current && audioInitRef.current) {
+      audioEngine.play("seismicAlert");
+    }
+    prevEventCountRef.current = seismicCount;
+  }, [activeEvents]);
 
   const handleContextMenu = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -454,12 +474,12 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
     };
     setCustomProjects((prev) => [...prev, newProject]);
     setRightClick(null);
-    sound.playNavigate();
-  }, [sound]);
+    audioEngine.play("projectClick");
+  }, []);
 
   return (
     <>
-      <div className="absolute inset-0" style={{ zIndex: 0 }} onContextMenu={handleContextMenu}>
+      <div className="absolute inset-0" style={{ zIndex: 0 }} onContextMenu={handleContextMenu} onClick={initAudio}>
         <Canvas
           camera={{ position: [0, 2, 16], fov: 42 }}
           dpr={[2, 3]}

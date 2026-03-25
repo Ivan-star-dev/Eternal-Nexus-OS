@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Brain, Globe, Send, Users, HeartPulse, Cloud, DollarSign, Shield, Zap, CheckCircle2, Clock, AlertTriangle, Archive, Inbox } from "lucide-react";
 import { useProposalQueue } from "@/hooks/useProposalQueue";
+import { audioEngine } from "@/lib/audioEngine";
 
 // ═══ Agent definitions ═══
 interface Agent {
@@ -522,6 +523,8 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
 
   const approveAutoProposal = useCallback(() => {
     if (!autoProposal) return;
+    audioEngine.init();
+    audioEngine.play("uiConfirm");
     appendToProposalLedger(autoProposal);
     setLedgerVersion((v) => v + 1);
     onDecisionApproved?.(autoProposal.recommendation);
@@ -555,6 +558,8 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
       return `${agent?.role}: ${d.text}`;
     }).join("\n");
 
+    audioEngine.init();
+    audioEngine.play("projectClick");
     setMigrating(true);
     onDecisionApproved?.(decision);
 
@@ -767,7 +772,7 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
                       size="sm"
                       variant="ghost"
                       className="gap-1.5 font-mono text-[0.5rem] text-muted-foreground"
-                      onClick={() => setAutoProposal(null)}
+                      onClick={() => { audioEngine.init(); audioEngine.play("uiDismiss"); setAutoProposal(null); }}
                     >
                       Rejeitar
                     </Button>
