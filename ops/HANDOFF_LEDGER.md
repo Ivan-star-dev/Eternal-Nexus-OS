@@ -8,6 +8,42 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FULL-FORCE-3-WAVE │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GLOBE-3D-AURORA-001 — aurora fresnel rim shader (GLSL)
+            │   AuroraRimSphere: vertex+fragment shaders, uTime uniform,
+            │   teal↔gold animated fresnel, GLOBE_RADIUS*1.14, FrontSide
+            │   OrbitalChamber: focused prop → 4-sided aurora intensification
+            │   InteractiveGlobe+GlobeScene: onFocusChange propagation chain
+            │   ProductHero: globeFocused state → OrbitalChamber sync
+            │ NS-1-HERO-COMPOSITION-001 — sacred hero composition
+            │   TrinityRow: entries use DELAY.afterGlobe + stagger (no race)
+            │   ProductHero: TrinityRow wrapped in motion.div (afterGlobe delay)
+            │   Sacred thread: Trinity→FirstProof connector (gradient line +
+            │   gold-glow dot + fade tail) — transition feels deliberate
+            │   Spacing: Trinity pt-8 · thread pt-16/pb-4 · Proof pt-2 pb-32
+            │ NS-2-NAV-POLISH-001 — NavBar glass + active states
+            │   Glass: bg-background/80 + white/8 border + shadow when scrolled
+            │   atTop: faint white/4 border (not invisible)
+            │   Active link: gold gradient bottom bar + gold glow shadow
+            │   Mobile: glass bg hsl(216 50%5%/0.96) + active left-border +
+            │   bg-primary/5 + ACTIVE label + icon display per link
+            │   Mobile footer: structured border separators
+ALTERACAO_REAL │ sim — 6 ficheiros modificados · 196 additions · TS 0 errors
+IMPACTO     │ Globe has aurora rim shader — V3 visual identity sealed
+            │ OrbitalChamber responds to globe interaction state
+            │ Hero composition is sacred and temporally correct
+            │ NavBar glass polish complete · active states deliberate
+COMMIT      │ 76d3f93 · claude/rebuild-bastion-core-rihGX
+PROXIMO     │ Owner fecha V3 gate — todas as tasks @claude concluídas
+            │ V3 → 100% quando owner confirma visual close
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:WAVE-CLOSE-TASKS │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ HEAVEN_LAB_REFERENCE_SURFACE.md v1.0 — canonical surface law
