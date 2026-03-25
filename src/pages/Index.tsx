@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, lazy, Suspense } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, lazy, Suspense, useState } from "react";
 import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -33,6 +33,9 @@ const Index = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  // Reactive scroll value for GoldenAtlasScene ScrollCamera
+  const [scrollProg, setScrollProg] = useState(0);
+  useMotionValueEvent(scrollYProgress, "change", setScrollProg);
 
   return (
     <Layout>
@@ -44,7 +47,7 @@ const Index = () => {
             <Suspense fallback={
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
             }>
-              <GoldenAtlasScene scrollProgress={scrollYProgress.get()} />
+              <GoldenAtlasScene scrollProgress={scrollProg} />
             </Suspense>
           </OrganErrorBoundary>
 

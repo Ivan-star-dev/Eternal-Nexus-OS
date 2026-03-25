@@ -765,16 +765,16 @@ BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
 BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
 BEHAVIOUR-07  [ ] V4-PROJECT-PAGE-001-MECH — @cursor — Supabase mechanical layer
 BEHAVIOUR-08  [✓] V4-MOTION-SURFACES-001   — ProposalCard stagger + SessionBoot restore pulse + dialogue framer-motion DONE
-BEHAVIOUR-09  [ ] V4-LAPIDATION-001        — @copilot — polish + TS clean pass
+BEHAVIOUR-09  [✓] V4-LAPIDATION-001        — NexusPage header mobile overflow fixed · scrollYProgress reactivity fixed · TS 0 DONE
 BEHAVIOUR-10  [ ] CLUSTER-ORCHESTRATE-001  — @codex — wave sync + drift audit
 
 QUALITY-01    [✓] TS 0 errors
 QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
-QUALITY-03    [ ] All V4 surfaces mobile-responsive
-QUALITY-04    [ ] No silent errors in ErrorBoundary (OrganErrorBoundary non-silent)
+QUALITY-03    [✓] V4 surfaces mobile-responsive — NexusPage L1 header sm/md/lg breakpoints · FounderPage grid-cols-1 sm · ProjectPage responsive padding · AtlasPage fixed-position shell
+QUALITY-04    [✓] OrganErrorBoundary always logs in componentDidCatch (even when silent=true) — console non-silent confirmed
 
-V4-CLOSE-STATUS: 🟡 IN PROGRESS — 7/10 criteria [✓]
-ESTIMATED-CLOSE: when BEHAVIOUR-07 + BEHAVIOUR-09 [✓]
+V4-CLOSE-STATUS: 🟡 IN PROGRESS — 9/10 criteria [✓]
+ESTIMATED-CLOSE: when BEHAVIOUR-07 [✓] (owner .env) or owner waves BEHAVIOUR-07
 ═══════════════════════════════════════════════════════════════════════
 ```
 

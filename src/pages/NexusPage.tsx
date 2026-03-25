@@ -115,43 +115,43 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
     >
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
         {/* Identity + Phase */}
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <Link to="/" className="flex items-center gap-2 shrink-0">
             <Radio className="h-4 w-4 text-primary animate-pulse" />
             <span className="font-mono text-[0.6rem] tracking-[0.3em] text-primary uppercase font-bold">
               ETERNAL NEXUS
             </span>
           </Link>
-          <div className="w-px h-4 bg-border/50" />
-          <span className="font-mono text-[0.45rem] text-muted-foreground tracking-wider">WAR ROOM</span>
-          <div className="w-px h-4 bg-border/50" />
-          <span className="font-mono text-[0.4rem] text-primary/60 tracking-widest">{PHASE}</span>
-          <div className="w-px h-4 bg-border/50" />
-          <span className="font-mono text-[0.4rem] text-muted-foreground/60 tracking-widest">{BRANCH}</span>
+          <div className="w-px h-4 bg-border/50 hidden sm:block" />
+          <span className="font-mono text-[0.45rem] text-muted-foreground tracking-wider hidden sm:block">WAR ROOM</span>
+          <div className="w-px h-4 bg-border/50 hidden md:block" />
+          <span className="font-mono text-[0.4rem] text-primary/60 tracking-widest hidden md:block">{PHASE}</span>
+          <div className="w-px h-4 bg-border/50 hidden lg:block" />
+          <span className="font-mono text-[0.4rem] text-muted-foreground/60 tracking-widest hidden lg:block truncate max-w-[120px]">{BRANCH}</span>
         </div>
 
         {/* Nav + Executor State */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3 shrink-0">
           <Link to="/atlas">
-            <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
-              <Globe className="h-3 w-3" /> ATLAS
+            <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono px-2 sm:px-3">
+              <Globe className="h-3 w-3" /> <span className="hidden sm:inline">ATLAS</span>
             </Button>
           </Link>
           <Link to="/news">
-            <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
-              <Activity className="h-3 w-3" /> NEWS
+            <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono px-2 sm:px-3">
+              <Activity className="h-3 w-3" /> <span className="hidden sm:inline">NEWS</span>
             </Button>
           </Link>
-          <Link to="/tribunal">
+          <Link to="/tribunal" className="hidden sm:inline-flex">
             <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
               <Shield className="h-3 w-3" /> TRIBUNAL
             </Button>
           </Link>
-          <div className="w-px h-4 bg-border/50" />
+          <div className="w-px h-4 bg-border/50 hidden sm:block" />
           {/* Executor state badge — heartbeat pulse while SSE active (live-state) */}
           <ExecutorActiveBadge active={executorActive} />
           {userEmail && (
-            <span className="font-mono text-[0.4rem] text-muted-foreground">
+            <span className="font-mono text-[0.4rem] text-muted-foreground hidden md:block">
               {userEmail.split("@")[0]}
             </span>
           )}

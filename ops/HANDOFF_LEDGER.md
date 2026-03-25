@@ -6,6 +6,26 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V4-LAPIDATION-001 | claude-sonnet-4-6
+
+**TASK:** V4-LAPIDATION-001 — Polish pass on all V4 surfaces
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/Index.tsx` — scrollYProgress.get() bug fixed: added `useState(0)` + `useMotionValueEvent(scrollYProgress, "change", setScrollProg)` → GoldenAtlasScene ScrollCamera now reacts to scroll in real time
+- `src/pages/NexusPage.tsx` — L1CorporateHeader mobile overflow fixed: PHASE hidden below md, BRANCH hidden below lg (truncated), WAR ROOM hidden below sm, nav buttons collapse to icon-only on mobile (sm:inline), TRIBUNAL link hidden sm, userEmail hidden md
+- `ops/BASTION.md` — BEHAVIOUR-09 [✓] · QUALITY-03 [✓] · QUALITY-04 [✓] · V4-CLOSE-STATUS 7→9/10
+- `ops/LIVE_STATE.md` + `ops/HANDOFF_LEDGER.md` — updated
+
+**V4-CLOSE-GATE:** 9/10 [✓]
+**ONLY REMAINING BLOCKER:** BEHAVIOUR-07 — V4-PROJECT-PAGE-001-MECH (owner must provide .env with real Supabase credentials for @cursor)
+**OWNER NOTE:** If owner waves BEHAVIOUR-07, V4 can close and V5 gates open immediately
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V4-MOTION-SURFACES-001 | claude-sonnet-4-6
 
 **TASK:** V4-MOTION-SURFACES-001 — Animate V4 surfaces
