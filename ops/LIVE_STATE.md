@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | LINKEDIN_FINAL sealed · FOUNDER_MEDIA_SYSTEM complete (10+1 files) · PROTOCOL_CREDIT_FALLBACK sealed · RUBERRA 145 files committed · V4-PROJECT-PAGE-001 DONE
+**Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V4-PROJECT-PAGE-001 DONE — projectBridge + session carryover + Inspector CTA · V4-PROJECT-PAGE-001-MECH gate OPEN (@cursor elegível) · TS 0 · commit pending
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | FULL-FORCE-3-WAVE — GLOBE-3D-AURORA-001 ✓ · NS-1-HERO-COMPOSITION-001 ✓ · NS-2-NAV-POLISH-001 ✓ · TS 0 errors · V3 100% visual done · commit 76d3f93
