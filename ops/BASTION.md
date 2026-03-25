@@ -251,7 +251,7 @@ Cada item da matriz regista os seguintes campos:
 │ PILAR              │ WorkFunction                                            │
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │

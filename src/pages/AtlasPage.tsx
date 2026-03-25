@@ -20,6 +20,8 @@ import GrainOverlay from "@/components/GrainOverlay";
 import StreetViewMode from "@/components/atlas/StreetViewMode";
 import { Canvas } from "@react-three/fiber";
 import { useRealtimeData } from "@/hooks/useRealtimeData";
+import { useWorldBankProject } from "@/hooks/useWorldBankProject";
+import WorldBankBar from "@/components/atlas/WorldBankBar";
 
 // sacred flow — Atlas mode system
 import type { AtlasMode, QualityTier } from "@/lib/atlas/atlas-state";
@@ -85,6 +87,9 @@ export default function AtlasPage() {
   const cesiumRef = useRef<CesiumViewerHandle>(null);
   const sound = useSoundManager();
   const { user } = useAuth();
+
+  // V4-ATLAS-001: WorldBank macro data for selected project's country
+  const worldBankData = useWorldBankProject(selectedProject);
 
   // sacred flow — layer visibility (controlled by right panel)
   const [layers, setLayers] = useState({
@@ -233,6 +238,12 @@ export default function AtlasPage() {
               lon={selectedProject?.lon}
             />
           </div>
+
+          {/* V4-ATLAS-001 — WorldBank macro bar: GDP · population · FDI */}
+          <WorldBankBar
+            data={worldBankData}
+            projectName={selectedProject?.name ?? ""}
+          />
         </>
       )}
 

@@ -8,6 +8,31 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-ATLAS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useWorldBankProject hook — fetches GDP · population · FDI
+            │   PROJECT_COUNTRY_MAP[12 entries]: project id → ISO 2-letter code
+            │   Parallel fetch: NY.GDP.MKTP.CD · SP.POP.TOTL · BX.KLT.DINV.CD.WD
+            │   Graceful degradation: null on failure · cancelled flag on cleanup
+            │ WorldBankBar.tsx — fixed bottom-left overlay with AnimatePresence
+            │   Header: country name + ISO badge · 3-metric list (GDP/POP/FDI)
+            │   Loading state: spinner + "fetching indicators..."
+            │   Source badge: World Bank Open Data attribution
+            │   Motion: fade+slide-up on mount, fade on exit
+            │ AtlasPage — wired useWorldBankProject + WorldBankBar into render
+            │   Supabase globe_projects already wired (read + write) ✓
+            │   WorldBank now surfaces on every project selection ✓
+EVIDÊNCIA   │ src/hooks/useWorldBankProject.ts (new)
+            │ src/components/atlas/WorldBankBar.tsx (new)
+            │ src/pages/AtlasPage.tsx (wired)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001 (next in queue per BASTION)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-NEXUS-001 │ STATUS:done
 DATE    │ 2026-03-25
 ───────────────────────────────────────────────────────────────────────────
