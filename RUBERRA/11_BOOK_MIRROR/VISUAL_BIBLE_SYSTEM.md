@@ -1,0 +1,2 @@
+# VISUAL BIBLE SYSTEM
+_stub_
