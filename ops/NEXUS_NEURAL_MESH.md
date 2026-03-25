@@ -21,6 +21,7 @@ O NEURAL CORE é o núcleo de soberania do sistema.
 
 ```
 NEXUS_NEURAL_MESH_CORE ═══════════════════════════════════════════════════════
+FOUNDER_SIGNATURE│ origem humana da máquina — assinatura que atravessa todos os pilares
 SOBERANIA        │ owner — decisão final em qualquer nó
 DNA_PROTOCOL     │ protocolo-mãe — lei fractal do sistema
 BASTION          │ execução elegível — fonte única de trabalho real
@@ -31,6 +32,7 @@ AUTOFLOW         │ comportamento autônomo entre tasks
 CROSS_SUPPORT    │ polivalência controlada em hora morta
 OUTPUT_STANDARD  │ handoffs copiáveis — evidência obrigatória
 EVIDENCE_BLOCK   │ prova real — ALTERACAO_REAL em cada entrega
+FRACTAL_JUDGMENT │ critério canônico de julgamento — o que entra, o que sai, sentença única
 ══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -54,6 +56,7 @@ Cada nó tem função, tipo, estado e ligação canônica.
 NEURAL_NODE_MATRIX ═══════════════════════════════════════════════════════════
 NODE_ID   │ NOME                │ TIPO          │ ESTADO     │ ARTEFACTO
 ──────────┼─────────────────────┼───────────────┼────────────┼───────────────
+N-00      │ FOUNDER_SIGNATURE   │ origem humana │ ATIVO      │ FOUNDER_SIGNATURE_CANON
 N-01      │ SOVEREIGN_CORE      │ soberania     │ ATIVO      │ DNA_PROTOCOL
 N-02      │ EXECUTION_MATRIX    │ execução      │ ATIVO      │ BASTION
 N-03      │ FACTORY_LAYER       │ operacional   │ ATIVO      │ FOL
@@ -392,7 +395,9 @@ FUTURO: Stage 10 — Autonomia Total
 | Roteamento | `ops/FLOWMESH.md` |
 | Estado vivo | `ops/LIVE_STATE.md` |
 | Ledger de sessões | `ops/HANDOFF_LEDGER.md` |
+| Critério de julgamento | `ops/NEXUS_FRACTAL_JUDGMENT_CORE.md` |
 
 ---
 
 *NEXUS_NEURAL_MESH.md v1.0 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*NEXUS_NEURAL_MESH.md v1.1 — FRACTAL_JUDGMENT adicionado ao NEURAL_CORE + localização canônica — 2026-03-23 | claude-sonnet-4-6 | NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE*

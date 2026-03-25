@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { EASE_OUT } from "@/lib/motion/config";
@@ -55,8 +56,8 @@ const SectionHeader = ({
     custom={delay}
     variants={fadeUp}
   >
-    <span className="section-label">{label}</span>
-    <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mt-3 mb-2">
+    <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">{label}</span>
+    <h2 className="font-serif text-4xl md:text-5xl font-light text-paper mt-3 mb-2">
       {title}
     </h2>
     <div className="gold-rule mb-8" />
@@ -77,7 +78,7 @@ const Prose = ({
     viewport={{ once: true }}
     custom={delay}
     variants={fadeUp}
-    className="space-y-5 font-sans text-sm text-muted-foreground leading-[1.9]"
+    className="space-y-5 font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl"
   >
     {children}
   </motion.div>
@@ -97,9 +98,9 @@ const Callout = ({
     viewport={{ once: true }}
     custom={delay}
     variants={fadeUp}
-    className="callout-gold my-8"
+    className="border-l-2 border-gold/30 pl-6 font-serif italic text-paper/70 my-8"
   >
-    <p className="font-serif text-base md:text-lg text-foreground leading-[1.6] font-medium italic">
+    <p className="text-base md:text-lg leading-[1.6]">
       {children}
     </p>
   </motion.blockquote>
@@ -153,6 +154,10 @@ const PIONEERS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const FounderPage = () => {
+  useEffect(() => {
+    document.title = "Founder — Eternal Nexus OS";
+  }, []);
+
   return (
     <Layout>
       {/* ── HERO — The Architect ────────────────────────────────────────── */}
@@ -189,7 +194,7 @@ const FounderPage = () => {
             animate="visible"
             custom={0.3}
             variants={fadeIn}
-            className="section-label mb-6"
+            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-6"
           >
             FVL — Founder Vision Layer
           </motion.p>
@@ -199,7 +204,7 @@ const FounderPage = () => {
             animate="visible"
             custom={0.5}
             variants={fadeUp}
-            className="font-serif text-4xl md:text-6xl lg:text-[4.5rem] font-black text-foreground leading-[0.95]"
+            className="font-serif text-4xl md:text-5xl font-light text-paper leading-[0.95]"
           >
             The Architect
           </motion.h1>
@@ -217,7 +222,7 @@ const FounderPage = () => {
             animate="visible"
             custom={1.0}
             variants={fadeUp}
-            className="mt-8 max-w-[640px] space-y-4 font-sans text-sm text-muted-foreground leading-[1.9]"
+            className="mt-8 space-y-4 font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl"
           >
             <p>
               I am a founder. I build systems — not merely products.
@@ -242,7 +247,7 @@ const FounderPage = () => {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <span className="badge-status badge-active">Active build</span>
-            <span className="font-mono text-[0.6rem] tracking-[0.15em] text-muted-foreground">
+            <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase text-gold/70">
               Ivan · Founder + Architect
             </span>
           </motion.div>
@@ -588,16 +593,16 @@ const FounderPage = () => {
           variants={fadeUp}
           className="mt-12 pt-10 border-t border-border"
         >
-          <p className="font-sans text-sm text-muted-foreground leading-[1.9] mb-6">
+          <p className="font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl mb-6">
             I am not selling an idea. I am building a system that demonstrates
             the idea. The code is open. The protocol is documented. The history
             is recorded.
           </p>
-          <p className="font-sans text-sm text-muted-foreground leading-[1.9]">
+          <p className="font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl">
             If you arrive here and want to understand better — read everything.
             Form your own opinion.
           </p>
-          <p className="font-serif text-base text-foreground mt-6 font-medium">
+          <p className="font-serif text-base text-paper mt-6 font-light">
             — Ivan
           </p>
         </motion.div>

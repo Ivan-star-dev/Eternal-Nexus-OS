@@ -197,6 +197,10 @@ export default function GeopoliticsNarrative() {
   const [muted, setMuted] = useState(false);
   const { addVerdict } = useNexusState();
 
+  useEffect(() => {
+    document.title = "Tribunal Geopolítico — Eternal Nexus";
+  }, []);
+
   // Cycle through judges animation
   useEffect(() => {
     const iv = setInterval(() => {
@@ -267,7 +271,7 @@ export default function GeopoliticsNarrative() {
   return (
     <div className="min-h-screen bg-background">
       {/* ═══ TOP BAR ═══ */}
-      <div className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30">
+      <div className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-white/[0.04]">
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2">
@@ -276,7 +280,7 @@ export default function GeopoliticsNarrative() {
                 TRIBUNAL
               </span>
             </Link>
-            <div className="w-px h-4 bg-border/50" />
+            <div className="w-px h-4 bg-white/[0.04]" />
             <span className="font-mono text-[0.45rem] text-muted-foreground tracking-wider">
               GEOPOLITICS NARRATIVE · VERDADE ABSOLUTA
             </span>
@@ -305,9 +309,20 @@ export default function GeopoliticsNarrative() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
-        {/* ═══ HERO — 3D JUDGES ═══ */}
+        {/* ═══ HERO ═══ */}
+        <div className="mb-8">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-2">
+            Intelligence Briefing · Narrative Analysis
+          </span>
+          <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+            Tribunal Geopolítico
+          </h1>
+        </div>
+        <div className="border-t border-white/[0.04] mb-6" />
+
+        {/* ═══ JUDGES + STATS ═══ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-          <div className="bg-card border border-border/30 rounded-lg overflow-hidden">
+          <div className="bg-ink-medium/40 border border-white/[0.05] rounded-lg overflow-hidden">
             <div className="h-64 md:h-80 bg-background/50">
               <Canvas camera={{ position: [0, 2, 7], fov: 45 }} dpr={[1, 1.5]}>
                 <Suspense fallback={null}>
@@ -315,7 +330,7 @@ export default function GeopoliticsNarrative() {
                 </Suspense>
               </Canvas>
             </div>
-            <div className="px-4 py-3 border-t border-border/20">
+            <div className="px-4 py-3 border-t border-white/[0.04]">
               <div className="flex flex-wrap gap-1">
                 {JUDGES.map((j) => (
                   <span
@@ -335,7 +350,7 @@ export default function GeopoliticsNarrative() {
 
           {/* Stats */}
           <div className="space-y-3">
-            <div className="bg-card border border-border/30 rounded-lg p-4">
+            <div className="bg-ink-medium/40 border border-white/[0.05] rounded-lg p-4">
               <span className="font-mono text-[0.5rem] text-primary tracking-wider block mb-3">
                 PAINEL DE TRANSPARÊNCIA
               </span>
@@ -365,7 +380,7 @@ export default function GeopoliticsNarrative() {
               </div>
             </div>
 
-            <div className="bg-card border border-destructive/20 rounded-lg p-4">
+            <div className="bg-ink-medium/40 border border-destructive/20 rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="h-3 w-3 text-destructive" />
                 <span className="font-mono text-[0.5rem] text-destructive tracking-wider">PRINCÍPIO OPERACIONAL</span>
@@ -400,8 +415,8 @@ export default function GeopoliticsNarrative() {
               <div
                 key={ev.id}
                 onClick={() => selectEvent(ev)}
-                className={`bg-card border rounded-lg p-4 cursor-pointer transition-all hover:border-primary/30 ${
-                  selectedEvent?.id === ev.id ? "border-primary/50 ring-1 ring-primary/20" : "border-border/30"
+                className={`bg-ink-medium/40 border border-white/[0.05] rounded-lg p-4 cursor-pointer transition-all hover:border-primary/30 ${
+                  selectedEvent?.id === ev.id ? "border-primary/50 ring-1 ring-primary/20" : ""
                 } ${ev.manipulationDetected ? "border-l-4 border-l-destructive" : "border-l-4 border-l-green-500"}`}
               >
                 <div className="flex items-start gap-3">
@@ -416,21 +431,21 @@ export default function GeopoliticsNarrative() {
                           <AlertTriangle className="h-2.5 w-2.5" /> MANIPULAÇÃO
                         </span>
                       )}
-                      <span className="font-mono text-[0.4rem] text-muted-foreground ml-auto">
-                        {new Date(ev.date).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
+                      <span className="font-mono text-[0.4rem] text-gold/60 ml-auto tracking-[0.15em]">
+                        {new Date(ev.date).toISOString().slice(0, 16).replace("T", " ")}Z
                       </span>
                     </div>
 
-                    <h3 className="font-mono text-sm text-foreground font-semibold mb-2">{ev.title}</h3>
+                    <h3 className="font-serif text-sm text-paper font-light mb-2">{ev.title}</h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
                       <div className="bg-destructive/5 border border-destructive/20 rounded p-2">
                         <span className="font-mono text-[0.4rem] text-destructive block mb-1">NARRATIVA A</span>
-                        <span className="font-mono text-[0.48rem] text-muted-foreground">{ev.narrativeA}</span>
+                        <span className="font-serif text-sm leading-relaxed text-paper-dim/80">{ev.narrativeA}</span>
                       </div>
                       <div className="bg-green-500/5 border border-green-500/20 rounded p-2">
                         <span className="font-mono text-[0.4rem] text-green-400 block mb-1">NARRATIVA B</span>
-                        <span className="font-mono text-[0.48rem] text-muted-foreground">{ev.narrativeB}</span>
+                        <span className="font-serif text-sm leading-relaxed text-paper-dim/80">{ev.narrativeB}</span>
                       </div>
                     </div>
 
@@ -467,7 +482,7 @@ export default function GeopoliticsNarrative() {
           {/* ═══ ANALYSIS PANEL ═══ */}
           <div>
             {selectedEvent ? (
-              <div className="bg-card border border-border/30 rounded-lg p-4 sticky top-16">
+              <div className="bg-ink-medium/40 border border-white/[0.05] rounded-lg p-4 sticky top-16">
                 <div className="flex items-center gap-2 mb-3">
                   <Eye className="h-3.5 w-3.5 text-primary" />
                   <span className="font-mono text-[0.55rem] text-primary uppercase tracking-wider">
@@ -475,11 +490,12 @@ export default function GeopoliticsNarrative() {
                   </span>
                 </div>
 
-                <h3 className="font-mono text-sm text-foreground font-bold mb-3">{selectedEvent.title}</h3>
+                <h3 className="font-serif text-sm text-paper font-light mb-3">{selectedEvent.title}</h3>
+                <div className="border-t border-white/[0.04] mb-3" />
 
                 {/* Sources */}
                 <div className="mb-3">
-                  <span className="font-mono text-[0.4rem] text-muted-foreground block mb-1">FONTES PRIMÁRIAS:</span>
+                  <span className="font-mono text-[0.4rem] text-gold/60 tracking-[0.15em] block mb-1">FONTES PRIMÁRIAS</span>
                   <div className="space-y-1">
                     {selectedEvent.sources.map((s, i) => (
                       <span key={i} className="font-mono text-[0.45rem] text-primary/80 flex items-center gap-1">
@@ -513,7 +529,7 @@ export default function GeopoliticsNarrative() {
                 )}
               </div>
             ) : (
-              <div className="bg-card border border-border/30 rounded-lg p-6 text-center">
+              <div className="bg-ink-medium/40 border border-white/[0.05] rounded-lg p-6 text-center">
                 <Scale className="h-8 w-8 text-muted-foreground/30 mx-auto mb-2" />
                 <span className="font-mono text-[0.5rem] text-muted-foreground">
                   Selecione uma narrativa para análise dos juízes AI.

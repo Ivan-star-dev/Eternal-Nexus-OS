@@ -40,7 +40,7 @@ export default function DashboardKPIGrid({ metrics, progress }: DashboardKPIGrid
             </span>
           </div>
           <div className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-            <AnimatedCounter value={`${kpi.value}${kpi.suffix}`} />
+            <AnimatedCounter value={kpi.value} />{kpi.suffix}
           </div>
         </motion.div>
       ))}

@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation, type Variants } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSession } from "@/contexts/SessionContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -715,7 +716,12 @@ function L6HandoffChainBlock({ history }: L6HandoffChainBlockProps) {
 
 export default function NexusPage() {
   const { user } = useAuth();
+  const { session, startSession, updateFruit, updateReEntry } = useSession();
   const [prompt, setPrompt] = useState("");
+
+  useEffect(() => {
+    document.title = "Nexus War Room — Eternal Nexus";
+  }, []);
   const [loading, setLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
   const [result, setResult] = useState<SwarmResult | null>(null);
@@ -778,6 +784,8 @@ export default function NexusPage() {
     if (!prompt.trim() || !user) return;
     setLoading(true);
     setResult(null);
+    const isResume = !!session?.re_entry_point?.includes(prompt.trim().slice(0, 30));
+    if (!isResume) startSession(prompt.trim(), "global-swarm-synthesis");
     setStreamingMeta("");
     setActiveTab("synthesis");
     setAgentStatuses({ climate: "pending", economy: "pending", health: "pending", meta: "pending" });
@@ -889,6 +897,9 @@ export default function NexusPage() {
                   integrityHash: payload.integrityHash,
                   timestamp: payload.timestamp,
                 });
+                const synthText = agents.meta?.response ?? "";
+                if (synthText) updateFruit(synthText.slice(0, 120));
+                updateReEntry(`resume-swarm:${prompt.slice(0, 60)}`);
               } else if (eventType === "error") {
                 toast.error(payload.message || "Swarm error");
               }

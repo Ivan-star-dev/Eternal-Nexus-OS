@@ -108,9 +108,12 @@ export interface TribunalEscalationPayload {
 export interface AtlasMarkerPayload {
   label: string;
   category: string;
-  dataSource: string;
-  value: number;
+  dataSource?: string;
+  value?: number;
   unit?: string;
+  lat?: number;
+  lng?: number;
+  intensity?: number;
 }
 
 export interface AtlasLayerUpdatePayload {

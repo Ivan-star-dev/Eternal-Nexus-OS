@@ -52,6 +52,7 @@
     --teal-light: 172 48% 52%;
     --red-classified: 0 52% 32%;
     --ink-deep: 216 55% 3%;
+    --ink-dark: 220 15% 4%;
     --ink-medium: 216 45% 8%;
     --navy: 216 40% 11%;
     --navy-light: 216 35% 16%;
@@ -132,6 +133,7 @@
     --teal-light: 172 50% 30%;
     --red-classified: 0 60% 40%;
     --ink-deep: 210 15% 96%;
+    --ink-dark: 210 15% 94%;
     --ink-medium: 0 0% 100%;
     --navy: 210 14% 88%;
     --navy-light: 210 12% 82%;

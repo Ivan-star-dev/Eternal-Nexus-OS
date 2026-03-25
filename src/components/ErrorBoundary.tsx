@@ -33,27 +33,24 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center px-4">
+        <div className="min-h-[200px] flex flex-col items-center justify-center bg-ink-medium/40 border border-rose-500/10 rounded-sm p-8">
           <div className="text-center max-w-md w-full">
-            <div className="font-mono text-[0.55rem] tracking-[0.25em] text-red-500 uppercase mb-6">
-              ■ System Error
+            <div className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-4">
+              SYSTEM FAULT
             </div>
-            <h1 className="font-mono text-2xl text-white mb-3 tracking-tight">
-              Something went wrong
+            <h1 className="font-serif text-2xl font-light text-paper mb-3">
+              Something broke in the mesh.
             </h1>
-            <p className="font-mono text-[0.7rem] text-neutral-400 mb-8 leading-relaxed">
-              An unexpected error occurred. The organism detected a failure and isolated it.
-            </p>
             {import.meta.env.DEV && this.state.error && (
-              <pre className="text-left text-[0.6rem] font-mono text-red-400 bg-neutral-900 border border-red-900 rounded-lg p-4 mb-6 overflow-x-auto whitespace-pre-wrap break-all">
+              <pre className="font-mono text-[0.55rem] text-rose-400/70 mb-6 overflow-x-auto whitespace-pre-wrap break-all text-left">
                 {this.state.error.message}
               </pre>
             )}
             <button
               onClick={this.handleRetry}
-              className="font-mono text-[0.65rem] tracking-[0.2em] uppercase border border-amber-500/60 text-amber-400 px-6 py-2.5 rounded hover:border-amber-400 hover:text-amber-300 transition-colors duration-200"
+              className="border border-white/[0.12] text-paper-dim font-mono text-[0.55rem] tracking-[0.1em] uppercase px-4 py-2 hover:border-gold/40 hover:text-gold transition-all duration-200"
             >
-              Retry
+              RETRY
             </button>
           </div>
         </div>

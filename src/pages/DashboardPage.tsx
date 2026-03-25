@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import DashboardKPIGrid from "@/components/dashboard/DashboardKPIGrid";
@@ -21,6 +22,10 @@ import { EASE_OUT } from "@/lib/motion/config";
 const ease = EASE_OUT;
 
 const DashboardPage = () => {
+  useEffect(() => {
+    document.title = "Dashboard — Eternal Nexus OS";
+  }, []);
+
   const { data: metrics = [], isLoading: metricsLoading } = useProjectMetrics();
   const { data: activity = [], isLoading: activityLoading } = useActivityLog();
   const { data: services = [], isLoading: statusLoading } = useSystemStatus();
@@ -31,27 +36,30 @@ const DashboardPage = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="border-b border-border bg-card/50 backdrop-blur-sm px-4 sm:px-6 md:px-12 py-4">
+      <div className="border-b border-border bg-card/50 backdrop-blur-sm py-16 sm:py-20 px-4 sm:px-6 md:px-16">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <div>
-            <div className="flex items-center gap-3 mb-1">
-              <span className="font-mono text-[0.55rem] tracking-[0.2em] text-primary uppercase">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
                 MISSION CONTROL
               </span>
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-dot" />
-              <span className="font-mono text-[0.48rem] tracking-[0.1em] text-green-400 uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-emerald-400 uppercase">
                 LIVE
               </span>
             </div>
-            <h1 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
-              Realtime <span className="text-primary">Dashboard</span>
+            <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+              Realtime Dashboard
             </h1>
+            <p className="text-sm text-paper-dim/70 font-light mt-2">
+              Next Path Infra · Strategic Division
+            </p>
           </div>
           <div className="hidden md:block text-right">
-            <span className="font-mono text-[0.5rem] tracking-[0.1em] text-muted-foreground block">
+            <span className="font-mono text-[0.48rem] tracking-[0.2em] text-paper-dim/50 uppercase block">
               NEXT PATH INFRA · STRATEGIC DIVISION
             </span>
-            <span className="font-mono text-[0.48rem] tracking-[0.1em] text-muted-foreground/60 block">
+            <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 block mt-1">
               {new Date().toLocaleString("en-GB", {
                 day: "2-digit", month: "short", year: "numeric",
                 hour: "2-digit", minute: "2-digit", second: "2-digit",
@@ -61,13 +69,13 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-12 py-8 md:py-12">
+      <div className="px-4 sm:px-6 md:px-16 py-8 md:py-12">
         <div className="max-w-[1400px] mx-auto space-y-6">
           {isLoading ? (
             <div className="min-h-[400px] flex items-center justify-center">
               <div className="text-center">
-                <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                <span className="font-mono text-[0.58rem] tracking-[0.2em] text-muted-foreground uppercase">
+                <div className="w-8 h-8 border-2 border-gold/60 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                <span className="font-mono text-[0.48rem] tracking-[0.2em] text-paper-dim/50 uppercase">
                   Syncing realtime data…
                 </span>
               </div>
@@ -77,7 +85,8 @@ const DashboardPage = () => {
               {/* KPI Grid */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, ease }}
               >
                 <DashboardKPIGrid metrics={metrics} progress={progress} />
@@ -86,7 +95,8 @@ const DashboardPage = () => {
               {/* 30-Day Trend Chart */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.08, duration: 0.6, ease }}
               >
                 <MetricsChart />
@@ -95,7 +105,8 @@ const DashboardPage = () => {
               {/* Live Streaming Chart */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.1, duration: 0.6, ease }}
               >
                 <RealtimeStreamChart />
@@ -104,7 +115,8 @@ const DashboardPage = () => {
               {/* Canvas-based uPlot Stream (zero React overhead) */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.105, duration: 0.6, ease }}
               >
                 <UPlotStreamChart />
@@ -113,7 +125,8 @@ const DashboardPage = () => {
               {/* Frame Budget Monitor */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.11, duration: 0.6, ease }}
               >
                 <FrameBudgetMonitor />
@@ -122,14 +135,16 @@ const DashboardPage = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.12, duration: 0.6, ease }}
                 >
                   <ProjectMetricsBarChart metrics={metrics} />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.16, duration: 0.6, ease }}
                 >
                   <SystemRadarChart services={services} />
@@ -140,14 +155,16 @@ const DashboardPage = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.2, duration: 0.6, ease }}
                 >
                   <ProjectProgressGrid progress={progress} />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.24, duration: 0.6, ease }}
                 >
                   <ActivityFeed entries={activity} />
@@ -157,7 +174,8 @@ const DashboardPage = () => {
               {/* System Status */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.6, ease }}
               >
                 <SystemStatusGrid services={services} />

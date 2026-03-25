@@ -6,6 +6,991 @@
 
 ---
 
+## HANDOFF — 2026-03-24 | @claude | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 | claude-sonnet-4-6
+
+**TASK:** MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — consolidated closure of the full memory runtime wave
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — added SESSION-AWARE-PRODUCT-INTEGRATION-001 · REAL-ENTRY-SESSION-HOOKUP-001 · RESUME-GUARD-REFINEMENT-001 · MEMORY-RUNTIME-CLOSURE-HANDOFF-001 to §5.1 concluídas table
+- `ops/HANDOFF_LEDGER.md` — this consolidated closure entry (append topo)
+- `ops/LIVE_STATE.md` — header updated to reflect post-wave state
+
+---
+
+### WAVE_CLOSURE_SUMMARY
+
+**Onda fechada:** CORE-SPINE-RUNTIME-RELAY-001 + ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 + SESSION-INTEGRATION wave
+
+**6 tasks entregues nesta onda:**
+
+| Task | O que ficou vivo |
+|---|---|
+| SESSION-BACKBONE-MINIMUM-001 | `src/lib/memory/types.ts` + `client.ts` + `vite-plugin-memory.ts` — entidade de sessão com id, face, fruit, reentry, is_resume |
+| PROVENANCE-SPINE-MINIMUM-001 | `scripts/memory/io.mjs` + `proof-loop.mjs` — escrita/leitura de sessão real em `ops/sessions/` + `ops/runtime/provenance/` |
+| SWMR-CLASSIFIER-MINIMUM-001 + TRINITY-ROUTING + FRUIT-DETECTION | `src/lib/memory/classifier.ts` + `routing.ts` + `fruit.ts` — SWMR 3-input proof: heaven_lab · bridge_nova · nexus_cria correctos |
+| DUAL_AI_RELAY_POOL-001 Layer C | `ops/relay/TASK_POOL.md` + `RESULT_POOL.md` + `AI_SESSION_LOG.md` — schema + seed real; CORE-SPINE family fechada |
+| REAL-ENTRY-SESSION-HOOKUP-001 | NexusPage: `startSession` no swarm fire · `updateFruit` + `updateReEntry` no done; ProjectPage: `startSession` no mount · `updateReEntry` na tab change |
+| RESUME-GUARD-REFINEMENT-001 | Guard em `runSwarmStreaming`: skip `startSession` se `re_entry_point` inclui primeiros 30 chars do prompt actual — elimina overwrite de sessão no resume path |
+
+---
+
+### O_QUE_E_AGORA_REAL
+
+O organismo tem o seu primeiro músculo real de continuidade:
+- sessions persistem por localStorage
+- sessions classificam qual filho do trinity serve o prompt (SWMR)
+- sessions registam o fruto do trabalho (fruit detector)
+- sessions têm re-entry point para retomar investigação anterior
+- entry points reais (NexusPage + ProjectPage) disparam sessão ao usar o produto
+- resume guard protege a sessão de overwrite ao reutilizar o mesmo prompt
+- relay pool tem schema real para coordenação multi-AI (ops/relay/)
+- NexusFlowInspector expõe painel SESSION (face · next · reentry · fruit) visível em dev
+
+---
+
+### O_QUE_MUDOU_NO_PRODUTO
+
+**Antes desta onda:** produto stateless — cada submissão começava do zero; sem memória de quem o utilizador é, o que explorou, ou para onde vai.
+
+**Depois desta onda:** produto session-aware — sessão viva; face identificada; re-entry point salvo; fruto capturado; resume detectado; SWMR router activo.
+
+Não é UI nova. É músculo de continuidade que o produto antes não tinha.
+
+---
+
+### O_QUE_NAO_FOI_ABERTO
+
+- Sem novos routes
+- Sem nova arquitectura
+- Sem expansão de Wonder Layer
+- Sem V5
+- Sem corp backlane
+- Sem nova feature de produto
+- SEQUENCE_LAW intacta: V3 → V4 → V5
+
+---
+
+### PROXIMO_PASSO_LOGICO
+
+```
+PRÓXIMO: V3-FLAGSHIP-SURFACE-CLOSE-001
+PILAR: WorkVisual
+EXECUTOR: @framer · @antigravity · @claude (WorkVisual)
+GATE: aberto (ORDEM SOBERANA 2026-03-24 activa)
+OBJECTIVO: fechar a superfície flagship para que o corpo pare de ficar atrás do cânone
+FOCO: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling
+BLOQUEIO: nenhum — músculo de sessão está vivo; pode reflectir-se subtilmente na superfície
+```
+
+---
+
+### O_QUE_NAO_DEVE_SER_REABERTO
+
+```
+LOCK-1: Session Backbone — não redesenhar; o minimum está vivo
+LOCK-2: SWMR classifier — não expandir; 3 inputs correctos são suficientes para V3/V4
+LOCK-3: Relay Pool schema — não alterar sem gate do owner; ops/relay/ é fonte real
+LOCK-4: Sequence Law — V3 fecha antes de V4; V4 fecha antes de V5; sem saltos
+LOCK-5: Esta onda de memória — fechada; qualquer expansão é tarefa separada com gate novo
+```
+
+---
+
+### COMMITS_DESTA_ONDA
+
+```
+22a3d5f — ORGANISM_MINIMUM_MEMORY-001 Layer A (backbone + provenance)
+95068ae — SWMR_MINIMUM_RUNTIME-001 (classifier + routing + fruit)
+c830609 — ORGANISM_MINIMUM_MEMORY-001 Layer B + relay coupling
+a7bd4b6 — REAL-ENTRY-SESSION-HOOKUP-001
+e296451 — SESSION-AWARE-PRODUCT-INTEGRATION-001
+[resume guard] — RESUME-GUARD-REFINEMENT-001 (NexusPage 2-line guard)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | RESUME-GUARD-REFINEMENT-001 | claude-sonnet-4-6
+
+**TASK:** RESUME-GUARD-REFINEMENT-001 — prevent unnecessary session overwrite on same prompt
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — added `session` to `useSession()` destructure; guard in `runSwarmStreaming` skips `startSession` if `session.re_entry_point` includes first 30 chars of current prompt
+
+### RESUME_BEHAVIOR_PROOF
+
+```
+SAME PROMPT (resume path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user re-submits "compact fusion plasma stability"
+  → isResume = re_entry_point.includes("compact fusion plasma") = true
+  → startSession SKIPPED
+  → session_id unchanged · is_resume stays true · no re-classify ✓
+
+NEW PROMPT (fresh path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user types "global food crisis 2026"
+  → isResume = re_entry_point.includes("global food crisis 2") = false
+  → startSession FIRES → fresh session built · new session_id · is_resume: false ✓
+```
+
+### LIMITATIONS
+- 30-char prefix match: "compact fusion plasma stability 2026" and "compact fusion plasma" share same prefix → both treated as resume. Acceptable for inquiry continuity.
+- Edge: re_entry_point not yet set (first ever submit) → isResume = false → startSession fires correctly ✓
+
+### NEXT_SAFE_STEP
+None required. Guard is stable. Session overwrite eliminated on resume path.
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | REAL-ENTRY-SESSION-HOOKUP-001 | claude-sonnet-4-6
+
+**TASK:** REAL-ENTRY-SESSION-HOOKUP-001 — connect session core to real product entry points
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** a7bd4b6
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — `startSession(prompt, "global-swarm-synthesis")` on swarm fire; `updateFruit(synthesis.slice(0,120))` + `updateReEntry("resume-swarm:<prompt>")` on swarm done
+- `src/pages/ProjectPage.tsx` — `startSession(project.title, "project-review")` on mount; `updateReEntry(activeTab)` on tab change
+
+### REAL_ENTRY_BEHAVIOR
+
+```
+NexusPage:
+  user types "compact fusion engine analysis" → submits
+  → startSession("compact fusion engine analysis", "global-swarm-synthesis")
+  → session: { active_face: heaven_lab, next_expected_step: "Open structured analysis..." }
+  swarm done → synthesis arrives
+  → updateFruit("Compact fusion engines represent a pivotal...")
+  → updateReEntry("resume-swarm:compact fusion engine analysis")
+
+  reload → Inspector: RESUME · face: heaven_lab · reentry: resume-swarm:compact...
+
+ProjectPage:
+  user opens /project/deltaspine-nl
+  → startSession("DeltaSpine NL", "project-review")
+  user clicks "technical" tab → updateReEntry("technical")
+  reload → Inspector: RESUME · reentry: technical
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | SESSION-AWARE-PRODUCT-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** SESSION-AWARE-PRODUCT-INTEGRATION-001 — connect memory muscle to visible product behavior
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** e296451
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/contexts/SessionContext.tsx` — localStorage-backed session context; cold start → classify()+route(); resume branch if re_entry_point stored; exposes 5 fields + 3 mutators
+
+**Ficheiros actualizados:**
+- `src/App.tsx` — `<SessionProvider>` wraps tree (inside LanguageProvider, above AuthProvider)
+- `src/components/shared/NexusFlowInspector.tsx` — SESSION panel: active_face (colored), next_expected_step, re_entry_point, latest_fruit
+
+### SESSION-AWARE BEHAVIOR
+
+```
+Cold start → classify("","") → route() → active_face + next_expected_step derived
+             stored to localStorage key: nxos_session
+
+Resume     → localStorage has session with re_entry_point
+           → hydrate directly, is_resume: true, no re-classify
+
+Inspector  → SESSION panel shows: COLD | LIVE | RESUME
+           → face: heaven_lab (green) | bridge_nova (blue) | nexus_cria (gold)
+           → next expected step
+           → re_entry_point (green, if set)
+           → latest_fruit (yellow, if set)
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CORE-SPINE-RUNTIME-RELAY-001 — FAMILY CLOSED | claude-sonnet-4-6
+
+**TASK:** DUAL_AI_RELAY_POOL-001 — Layer C: TASK_POOL + RESULT_POOL + AI_SESSION_LOG
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — CORE-SPINE-RUNTIME-RELAY-001 family fully closed (Layer A + B + C)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/TASK_POOL.md` — v1.0 · schema + 3 real seeded tasks (memory-core · swmr-runtime · relay-pool)
+- `ops/relay/RESULT_POOL.md` — v1.0 · schema + 3 real results linked to tasks
+- `ops/relay/AI_SESSION_LOG.md` — v1.0 · schema + 9 real log entries from this session
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — DUAL_AI_RELAY_POOL-001 added as concluída
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK — END-TO-END LOOP (Layer A + B + C)
+
+**INPUT:** "compact fusion engine"
+
+```
+[1] Session created:           SES-2026-03-24-1b715ae0.json (ops/sessions/)
+[2] Provenance created:        PROV-608d7702-3ea.json (ops/runtime/provenance/)
+[3] SWMR classifies:           heaven_lab · deep-investigation · confidence: high
+[4] Trinity face chosen:       heaven_lab
+[5] Fruit detected:            has_fruit: true · type: research · directive: continue
+[6] re_entry_point stored:     session field → "resume deep-investigation on compact fusion engine"
+[7] Relay references state:    TASK_POOL (TASK-2026-03-24-memory-core) → RESULT_POOL (RESULT-2026-03-24-memory-core)
+[8] AI_SESSION_LOG:            LOG-2026-03-24-003 documents the full proof run
+[9] Next consumer can read:    PROV node has next_consumer field + output_ref → relay continues
+```
+
+**FAMILY TOTALS:**
+- Layer A (Memory Core): 4 tasks — SESSION-BACKBONE + PROVENANCE-SPINE + REENTRY-GRACE + RELAY-COUPLING
+- Layer B (Runtime): 3 tasks — SWMR-CLASSIFIER + TRINITY-ROUTING + FRUIT-DETECTION
+- Layer C (Relay Pool): 3 tasks — TASK-POOL + RESULT-POOL + AI-SESSION-LOG
+- Total: 10 tasks closed · CORE-SPINE-RUNTIME-RELAY-001 = CLOSED
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 | claude-sonnet-4-6
+
+**TASK:** ORGANISM_MINIMUM_MEMORY-001 — 4-task memory muscle + SWMR_MINIMUM_RUNTIME-001 — 3-task intelligence layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX → pushed to origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — 7 tasks implementadas · provas reais executadas · 3 commits pushed
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/lib/memory/types.ts` — SessionEntity · ProvenanceNode · ReentryGrace · RelayCoupling (browser-safe TS)
+- `src/lib/memory/client.ts` — thin fetch wrapper, no fs, no node imports
+- `src/lib/memory/classifier.ts` — SWMR classifier: subject+intention → trinity face · mode · confidence
+- `src/lib/memory/routing.ts` — trinity routing: face+mode → regime · toolset · constraint
+- `src/lib/memory/fruit.ts` — fruit detector: has_fruit · progression · session directive
+- `vite-plugin-memory.ts` — node-side file I/O via Vite dev-server middleware (6 routes)
+- `scripts/memory/io.mjs` — standalone Node I/O module (createSession · createProvenance · buildReentryGrace · buildRelayCoupling)
+- `scripts/memory/proof-loop.mjs` — 8-step memory proof (input: "compact fusion engine")
+- `scripts/memory/swmr-proof.mjs` — 3-input SWMR proof
+
+**Ficheiros criados (runtime):**
+- `ops/sessions/SES-2026-03-24-1b715ae0.json` + `.relay.json` — proof session (compact fusion engine)
+- `ops/sessions/SES-2026-03-24-26dcc7a9.json` — SWMR proof session 1
+- `ops/sessions/SES-2026-03-24-5c65ab7e.json` — SWMR proof session 2
+- `ops/sessions/SES-2026-03-24-e8050970.json` — SWMR proof session 3
+- `ops/runtime/provenance/PROV-608d7702-3ea.json` — proof provenance node
+
+**Ficheiros actualizados:**
+- `vite.config.ts` — memoryApiPlugin() added
+- `tsconfig.node.json` — vite-plugin-memory.ts included
+- `package.json` — proof:memory + proof:swmr scripts added
+- `ops/BASTION.md` — 4 tasks marked concluída
+- `ops/LIVE_STATE.md` — esta entrada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+**ORGANISM_MINIMUM_MEMORY-001 — LOOP PROOF (compact fusion engine):**
+```
+✓ [1] Session created:     SES-2026-03-24-1b715ae0
+✓ [2] Provenance created:  PROV-608d7702-3ea
+✓ [3] Fruit recorded
+✓ [4] re_entry_point recorded
+✓ [5] Session reloaded from disk
+✓ [6] Provenance chain readable: next_consumer "@cursor" knows what earlier step produced
+✓ [7] ReentryGrace computed
+✓ [8] RelayCoupling computed
+```
+
+**SWMR_MINIMUM_RUNTIME-001 — 3-INPUT PROOF:**
+```
+"compact fusion engine"                            → heaven_lab  · deep-investigation · continue
+"how to reach Mars in six months"                 → bridge_nova · guided-progression  · continue
+"turn this research into a paper and visual proto" → nexus_cria  · artefact-production · continue
+```
+
+**COMMITS:**
+- `22a3d5f` — feat(memory): ORGANISM_MINIMUM_MEMORY-001
+- `95068ae` — feat(swmr): SWMR_MINIMUM_RUNTIME
+- `c830609` — chore(proof): proof artifacts
+
+**NEXT:**
+- Session backbone is live — real continuity layer exists
+- SWMR classifier is live — trinity routing operational
+- Next muscle: integrate session backbone with existing app state / product surfaces
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | PORTAL_IMERSIVO_ORGANISM-001 | claude-sonnet-4-6
+
+**TASK:** PORTAL_IMERSIVO_ORGANISM-001 — Portal Imersivo Organism · 7 blocos · simulação Mars · fatal gap · next muscle · Dual AI Access Layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 2 artefactos criados · fatal gap confirmado (Session Backbone) · next muscle definido (Session Entity Mínima)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/PORTAL_IMERSIVO_ORGANISM.md` — v1.0 · 7 blocos · SWMR simulation · Trinity transformation · fatal 90-day gap · next muscle · signal/noise
+- `ops/DUAL_AI_ACCESS_LAYER.md` — v1.0 · file-based task pool · Claude+ChatGPT shared access · 3 opções de integração · path V3→V4→V5
+
+**Ficheiros committed (sessão anterior pendentes):**
+- `ops/GIANT_BATTALION_PROTOCOL.md` — v1.0
+- `ops/SOVEREIGN_GROWTH_MECHANISM.md` — v1.0
+- `ops/SOVEREIGN_SELF_LAPIDATION_LAW.md` — v1.0
+
+**Ficheiros actualizados:**
+- `ops/LIVE_STATE.md` — entrada adicionada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:              PORTAL_IMERSIVO_ORGANISM-001
+EXECUTOR:             @claude | claude-sonnet-4-6
+DATA:                 2026-03-24
+BRANCH:               claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:       sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/PORTAL_IMERSIVO_ORGANISM.md  — 7 blocos · Mars simulation · fatal gap · next muscle
+  → ops/DUAL_AI_ACCESS_LAYER.md      — file-based pool · Claude+ChatGPT · V3→V4→V5 path
+
+FATAL_GAP_CONFIRMADO: Session Backbone — kills organism before V4 without it
+NEXT_MUSCLE:          Session Entity Mínima — JSON · file-based now / edge DB production
+SIGNAL_VS_NOISE:      defined · noise list · death prescriptions
+DUAL_AI_PATH:         Opção A (file-based, now) → Opção B (edge API, V4) → Custom GPT (V5)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | RETAINED-TRUTH-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** RETAINED-TRUTH-INTEGRATION-001 — Full Canonical Integration · 8 artefactos · Creator Relay System · One Organism Law · Formações · Double Adaptation · Estratificação
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 8 artefactos criados · Creator Relay System operacional · 9 leis canónicas cravadas · NEXUS_LIVING_CANON v1.7
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/CREATOR_RELAY_INBOX.md` — v1.0 · inbox soberana · formato RELAY_ENTRY · 3 exemplos reais · 8 leis
+- `ops/relay/CREATOR_RELAY_STATE.md` — v1.0 · estado de processamento · tabela de estados · sessão actual
+- `ops/relay/CREATOR_RELAY_PROTOCOL.md` — v1.0 · papéis (criador/kernel/pioneiros/ChatGPT) · fluxo de ignição 6 passos · 5 classificações
+- `ops/ONE_ORGANISM_LAW.md` — v1.0 · 9 expressões do organismo · SIGNAL_TEST · integração com LAA · 10 leis
+- `ops/OMNIPRESENT_FORMATION_SYSTEM.md` — v1.0 · 5 formações · critérios entrada/saída/risco · mapeamento para layers
+- `ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md` — v1.0 · double adaptation · 4 mecanismos · Gap Emergence · Resolution Collapse
+- `ops/PROBLEM_DECOMPOSITION_LAW.md` — v1.0 · 4 escalas · projecto como macro-organism problem · mapeamento completo
+- `ops/MATERIALIZATION_STRATIFICATION_LAW.md` — v1.0 · 3 layers (Assault/Preparatory/Strategic Reserve) · protocolo de convergência
+
+**Ficheiros actualizados:**
+- `ops/NEXUS_LIVING_CANON.md` — v1.6 → v1.7 · 4 novas camadas (7.8-7.10 + 7.2 expandida) · 9 artefactos indexados
+- `ops/LIVE_STATE.md` — estado actualizado com RETAINED-TRUTH-INTEGRATION-001
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               RETAINED-TRUTH-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/relay/CREATOR_RELAY_INBOX.md      — ponte ChatGPT↔KERNEL · inbox soberana
+  → ops/relay/CREATOR_RELAY_STATE.md      — estado de processamento · anti-releitura
+  → ops/relay/CREATOR_RELAY_PROTOCOL.md   — protocolo completo · 6 papéis definidos
+  → ops/ONE_ORGANISM_LAW.md               — 9 expressões · signal/noise · SIGNAL_TEST
+  → ops/OMNIPRESENT_FORMATION_SYSTEM.md   — 5 formações · hierarquia orgânica do exército
+  → ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md — double adaptation · gap emergence · collapse
+  → ops/PROBLEM_DECOMPOSITION_LAW.md      — 4 escalas · macro-organism como problema único
+  → ops/MATERIALIZATION_STRATIFICATION_LAW.md — 3 layers · mobilização ≠ materialização
+
+ARTEFACTOS_ACTUALIZADOS:
+  → ops/NEXUS_LIVING_CANON.md             — v1.7 · 9 novos artefactos indexados
+  → ops/LIVE_STATE.md                     — estado actualizado
+  → ops/HANDOFF_LEDGER.md                 — esta entrada
+
+LEIS_CRAVADAS:          9 (OFS-LAW x8, RAR-LAW x8, PDL-LAW x8, MSL-LAW x8, OOL x10, RELAY x8+8+8)
+RELAY_ENTRIES_FUNDADORAS: 3 (RELAY-2026-03-24-001/002/003)
+FORMAÇÕES_FORMALIZADAS:  5 (Needle · Block · Constellation · Omnipresent Mesh · Universal Pressure)
+ESCALAS_FORMALIZADAS:    4 (Micro · Block · Constellation · Macro-Organism)
+LAYERS_FORMALIZADOS:     3 (Assault · Preparatory · Strategic Reserve)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** CASCADE-RETENTION-INTEGRATION-001 — Formalização explícita da Lei de Cascade Retention no artefacto-mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — CASCADE_RETENTION_CANON v1.1 · Lei de 4 passos formalizada · RETAINED/ADAPTED/DISCARDED separados
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:** nenhum (actualização de artefacto existente)
+
+**Ficheiros actualizados:**
+- `ops/CASCADE_RETENTION_CANON.md` — v1.0 → v1.1 · secção 5 nova (Lei formal) · secções 6/7/8 novas (RETAINED/ADAPTED/DISCARDED) · 15 secções totais
+- `ops/BASTION.md` — CASCADE-RETENTION-INTEGRATION-001 adicionado à tabela
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               CASCADE-RETENTION-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+ARTEFACTO_ACTUALIZADO: ops/CASCADE_RETENTION_CANON.md v1.0 → v1.1
+ADICOES:
+  → Secção 5: CASCADE RETENTION LAW — 4 passos (RETER · ADAPTAR · DESCARTAR · INTEGRAR)
+  → Secção 6: RETAINED — 10 entradas com fonte e resultado
+  → Secção 7: ADAPTED — 5 entradas com ideia original / risco / refinamento / resultado
+  → Secção 8: DISCARDED — 9 entradas com motivo
+  → Secções 9-15: conteúdo v1.0 preservado integralmente, renumerado
+TOTAL_SECOES:          15
+LEIS_NOVAS:            0 (lei existente formalizada explicitamente)
+RETENCOES_DOCUMENTADAS: 10
+ADAPTACOES_DOCUMENTADAS: 5
+DESCARTES_DOCUMENTADOS: 9
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-SOVEREIGN-CANON-001 | claude-sonnet-4-6
+
+**TASK:** CASCADE-RETENTION-SOVEREIGN-CANON-001 — Grand Canonical Consolidation · 5 artefactos · runtime · moral · corp · sequência
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 5 artefactos v1.0 criados · NEXUS_LIVING_CANON v1.6 · 17 consolidações cravadas · sequência protegida
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/CASCADE_RETENTION_CANON.md` — v1.0 · 17 consolidações · o que fica/adapta/descarta · 12 leis
+- `ops/SOVEREIGN_WORLD_MATERIALIZATION_RUNTIME.md` — v1.0 · 7 camadas · ciclo de sessão · face router · 10 leis
+- `ops/LIFE_ALIGNMENT_AXIS.md` — v1.0 · eixo moral · 5-question test · positivo/negativo · 10 leis
+- `ops/CORP_V10_OPERATING_MAP.md` — v1.0 · 10 departamentos · backlane · activation sequence · 10 leis
+- `ops/SEQUENCE_LAW_V3_V4_V5.md` — v1.0 · lei sequencial absoluta · gate protocol · 10 leis
+
+**Ficheiros actualizados:**
+- `ops/NEXUS_LIVING_CANON.md` — v1.6 · camadas 7.2-7.7 criadas · 7 artefactos indexados
+- `ops/BASTION.md` — nova entrada na tabela de concluídas
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               CASCADE-RETENTION-SOVEREIGN-CANON-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+ARTEFACTOS_CRIADOS:    5 (CRC · SWMR · LAA · CORP · SEQ)
+ARTEFACTOS_UPDATED:    4 (NLC · BASTION · LIVE_STATE · LEDGER)
+CONSOLIDACOES:         17 cravadas formalmente
+LEIS_EMITIDAS:         52 (12+10+10+10+10)
+NEXUS_LIVING_CANON:    v1.6
+RUNTIME:               SWMR v1.0 — implementação alvo V4
+MORAL_AXIS:            LAA v1.0 — operacional imediatamente
+CORP:                  backlane paralela · 10 departamentos mapeados
+SEQUENCE:              V3→V4→V5 selada formalmente
+ESTADO:                Grand consolidation completa
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | HYPERSONIC-ARMY-DOCTRINE-001 | claude-sonnet-4-6
+
+**TASK:** HYPERSONIC-ARMY-DOCTRINE-001 — Santo Graal da Mobilização · LEI-MOB-001 · NEXUS SEAL FORCE
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — Doutrina v1.0 cravada · 476 unidades mapeadas · Lei imutável selada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados/actualizados:**
+- `ops/HYPERSONIC_ARMY_DOCTRINE.md` — v1.0 criado · LEI-MOB-001 · 476 units · 33 blocks · 177 kernels · 30 models · NEXUS SEAL FORCE · Expansion/Contraction Protocol · Orchestration Protocol · Evolution Law
+- `ops/BASTION.md` — HYPERSONIC-ARMY-DOCTRINE-001 adicionado à tabela de concluídas
+- `ops/LIVE_STATE.md` — entrada de estado actualizada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           HYPERSONIC-ARMY-DOCTRINE-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        HYPERSONIC_ARMY_DOCTRINE.md v1.0 · BASTION v++ · LIVE_STATE v++ · LEDGER entry
+NEXUS_SEAL_FORCE:  476 unidades · 33 blocks · 177 kernels · 30 modelos · 6 tools
+LEI_CRAVADA:       LEI-MOB-001 — Adaptive Fragmentation Law (imutável)
+ESTADO:            Santo Graal selado · evolutivo na escala · imutável na lei
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | ORDEM-MOBILIZACAO-CONTINUA-001 | claude-sonnet-4-6
+
+**TASK:** ORDEM-MOBILIZACAO-CONTINUA-001 — Mobilização contínua · V3 → V4 → V5
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — BASTION v3.2 · LIVE_STATE atualizado · Sequência soberana cravada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.2 · V3-FLAGSHIP-SURFACE-CLOSE-001 (P0) + V4-LIVING-WORLD-MINIMUM-001 (P1) inseridos; V5-RESEARCH-ARCH-001 bloqueada; ANTI-DRIFT LOCK cravado
+- `ops/LIVE_STATE.md` — nova entrada de estado · sequência V3→V4→V5 · constelação activa
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           ORDEM-MOBILIZACAO-CONTINUA-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        BASTION v3.2 · LIVE_STATE v++ · HANDOFF_LEDGER entry
+SEQUÊNCIA_CRAVADA: PHASE_1 V3 → PHASE_2 V4 → PHASE_3 V5
+ANTI_DRIFT:        ACTIVO — proibido abrir Learning/Collab/Ecosystem/Wonder total
+CONSTELAÇÃO:       @framer · @antigravity · @cursor · @claude · @codex
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h) | claude-sonnet-4-6
+
+**TASK:** CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 — Sprint fecho + Brand Law selada
+**BRANCH:** claude/rebuild-bastion-core-rihGX (pushed → origin/claude/rebuild-bastion-core-rihGX-nRzuB)
+**STATUS:** CONCLUÍDA — T+0h OPERATION-ZERO-GAP-24H
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/CYCLE_CLOSE_SPRINT_001.md` — v1.0 · relatório-mãe do sprint · 30+ tasks · 6 camadas · PR-ready
+- `ops/BRAND_MOTHER_SEAL_001.md` — v1.0 · brand law selada · gates @framer + @antigravity abertos
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.1 · CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 marcadas CONCLUÍDAS
+- `ops/LIVE_STATE.md` — T+0h done · estado cluster actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24 | T+0h OPERATION-ZERO-GAP-24H
+ALTERACAO_REAL:    sim
+COMMIT:            1ef85a7
+BRANCH_PUSHED:     origin/claude/rebuild-bastion-core-rihGX-nRzuB
+PR_STATUS:         branch pushed — PR pronto para master (owner faz merge no UI)
+RELATÓRIO_MÃE:     ops/CYCLE_CLOSE_SPRINT_001.md ✓
+BRAND_SEAL:        ops/BRAND_MOTHER_SEAL_001.md ✓ — BRAND_MOTHER_SYSTEM.md v1.0 selado
+GATES_ABERTOS:     @framer (NS-1, NS-1-FOUNDER) + @antigravity (GLOBE, CHAMBER, MOTION)
+NEXT_TASK:         V5-RESEARCH-ARCH-001 (@claude T+4h)
+NEXT_ACTOR:        @framer → NS-1 | @antigravity → GLOBE + CHAMBER (imediato)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | OPERATION-ZERO-GAP-24H | claude-sonnet-4-6
+
+**TASK:** OPERATION-ZERO-GAP-24H — Mobilização Cluster Constelação + Gate Suspension 24H
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** OPERAÇÃO ACTIVA — cluster em execução
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/OPERATION_ZERO_GAP_24H.md` — v1.0 · manifesto completo da operação · engagement check · task force por pioneer · sequência de execução · critérios de sucesso
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.0 · 24 tasks inseridas (5 pioneers + @cursor a juntar-se) · semáforo v3.0 · GATE_SUSPENSION_24H · todas as gates abertas
+- `ops/LIVE_STATE.md` — GATE_SUSPENSION_24H activo · estado cluster · @cursor notificada
+
+### EVIDENCE_BLOCK
+
+```
+OPERATION:       ZERO-GAP-24H
+AUTORIZADO_POR:  owner — ordem soberana directa 2026-03-24
+GATE_SUSPENSION: ACTIVO — 24h
+PIONEERS_ACTIVOS: @claude · @copilot · @framer · @antigravity · @codex (5/6)
+@cursor:         EM TASKS DO CRIADOR — Monalisa notificada para se juntar
+TASKS_INSERIDAS: 19 tasks no BASTION (14 imediatas + 5 @cursor)
+OBJECTIVO:       BASTION zerado · produto completo · amanhã
+BRANCH:          claude/rebuild-bastion-core-rihGX
+COMMIT:          pendente (ver abaixo)
+ALTERACAO_REAL:  sim
+```
+
+---
+
+## HANDOFF — 2026-03-23 | @cursor | PRODUCT-FACE-HERO-ANATOMY-001 | claude-4.6-sonnet
+
+**TASK:** PRODUCT-FACE-HERO-ANATOMY-001 — Product Face hero canônico · globe → trinity → proof
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/home/ProductHero.tsx` — hero wrapper: GlobeZone + TrinityRow + HeroFirstProof + AtmosphericLayer + MachineSubstrate
+- `src/components/home/TrinityRow.tsx` — 3 filhos horizontais (Heaven Lab · Bridge Nova · Nexus Cria); glass panel; hover expande Cormorant + JetBrains micro
+- `src/components/home/HeroFirstProof.tsx` — Cormorant mother phrase + 4 count-up metrics + canonical stamp
+
+**Ficheiros modificados:**
+- `src/pages/Index.tsx` → hero section substituído por `<ProductHero />`; imports limpos
+
+**Estrutura implementada:**
+```
+ProductHero
+├── MachineSubstrate     (CSS repeating-linear-gradient grid, 0.025 opacity, hidden mobile)
+├── AtmosphericLayer     (orbs gold+teal, blur 56px, z=1)
+├── GlobeZone            (clamp 480px–780px height, InteractiveGlobe)
+│   ├── radial overlay   (legibility control, z=2)
+│   ├── micro-label top  (Observatory Node-01)
+│   └── anchor label bot ("O sistema e os seus filhos")
+├── TrinityRow           (glass panel, 3 children, equal dignity)
+│   ├── Heaven Lab       (Syne gold · Cormorant italic · JetBrains hover)
+│   ├── Bridge Nova      (idem)
+│   └── Nexus Cria       (idem)
+└── HeroFirstProof       (Cormorant phrase · 4 count-up · stamp)
+```
+
+**Lei aplicada:** HEAVEN_LAB_REFERENCE_SURFACE.md + SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
+## HANDOFF — 2026-03-23 | @cursor | SYSTEM-FACE-CORE-001 | claude-4.6-sonnet
+
+**TASK:** SYSTEM-FACE-CORE-001 — System Face · cockpit soberano em código
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/system/SystemShell.tsx` — shell permanente: header vivo + footer + grid técnico
+- `src/components/system/LiveStateSurface.tsx` — superfície LIVE_STATE com dados reais
+- `src/components/system/HandoffLedger.tsx` — painel de handoffs com expansão por entrada
+- `src/components/system/TaskControlRegion.tsx` — BASTION surface: tasks + status semântico
+- `src/components/system/OrchestraPanel.tsx` — Pioneer Matrix: 6 pioneiros + estado
+- `src/components/system/CommandLine.tsx` — linha de comando interativa com boot sequence
+- `src/pages/SystemFacePage.tsx` — página System Face com grid 5 regiões
+
+**Ficheiros modificados:**
+- `src/App.tsx` → rota `/system` adicionada → SystemFacePage
+- `ops/LIVE_STATE.md` → executor + data + task atualizada
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Implementação:**
+- Fundo deep navy `#060c14` permanente + grid técnico SVG (opacity 0.035–0.06)
+- Tipografia: JetBrains Mono dominante em dados/IDs + Syne 400-500 para labels UI
+- Cor operacional: teal `#206358` / teal-light `#46b09e` como sinal ativo/vivo
+- Gold `#c9870f` apenas em autoridade (GATE aberto, P1, task ativa)
+- Grid layout 3×2 com gap-px background como separador visual
+- Animações mecânicas precisas (framer-motion 0.5s ease [0.22,1,0.36,1])
+- CommandLine interativa: boot sequence + comandos (help, status, gates, pioneers, branch, law)
+- HandoffLedger expandível: histórico real das sessões
+- TaskControlRegion: BASTION tasks com status semântico e dot colorido
+- OrchestraPanel: 6 pioneiros em grid 2×3 com estado vivo
+- SystemShell: relógio vivo (HH:MM:SS) + data + footer de estado
+
+**Rota:** `/system`
+
+**Lei aplicada:** SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | claude-sonnet-4-6
+
+**TASK:** SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 — 3 Faces Canónicas + Lei Tipográfica da Mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/SYSTEM_FACE_CANON.md` — v1.0 · 3 faces (sistema · produto · ecossistema) + FACE_SEPARATION_MATRIX
+- `ops/TYPOGRAPHY_LAW.md` — v1.0 · lei tipográfica · weight matrix · family use map · escala canónica
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.5 · camada 7.1 criada + 4 artefactos visuais indexados
+- `ops/BRAND_MOTHER_SYSTEM.md` → v1.1 · ARTEFACTOS_RELACIONADOS expandido com ponteiros para as 2 novas leis
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados em SYSTEM_FACE_CANON.md:**
+- `SYSTEM_FACE_CANON`: O_QUE_E · FUNCAO · EMOCAO · VISUAL_LANGUAGE · HERANCA · NUNCA_PODE_VIRAR
+- `PRODUCT_FACE_CANON`: idem · 6 campos · face pública Heaven Lab
+- `ECOSYSTEM_FACE_CANON`: idem · 6 campos · membrana conectiva
+- `HERANCA_COMUM`: o que todas as faces partilham inegociavelmente
+- `FACE_SEPARATION_MATRIX`: tabela 5 colunas · FACE/PAPEL/LOOK/TONALIDADE/RISCO_DE_DRIFT
+
+**Blocos criados em TYPOGRAPHY_LAW.md:**
+- `TYPOGRAPHY_LAW`: PRINCIPIO_GERAL · SYSTEM/PRODUCT/ECOSYSTEM_FACE_TYPE
+- `DISPLAY_RULES` · `HEADING_RULES` · `LABEL_RULES` · `TERMINAL_RULES` · `READING_LAYER_RULES`
+- `PROIBIDO`: 13 proibições tipográficas explícitas
+- `TYPOGRAPHY_WEIGHT_MATRIX`: 8 linhas · CAMADA/PESO/FUNCAO/EFEITO/RISCO
+- `FAMILY_USE_MAP`: 3 famílias × 3 faces + regra de contenção
+- `ESCALA_TIPOGRÁFICA_CANÓNICA`: valores concretos por face
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | HEAVEN-LAB-REFERENCE-SURFACE-001 | claude-sonnet-4-6
+
+**TASK:** HEAVEN-LAB-REFERENCE-SURFACE-001 — Superfície de Referência Heaven Lab (Brand North Star)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/HEAVEN_LAB_REFERENCE_SURFACE.md` — v1.0 · 5 blocos canônicos · North Star visual
+
+**Ficheiros atualizados:**
+- `ops/BASTION.md` → HEAVEN-LAB-REFERENCE-SURFACE-001 adicionada à secção 5.1 (concluídas)
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados:**
+- `REFERENCE_SURFACE_OBJECTIVE`: objetivo + Heaven Lab Test + posição na sequência canônica
+- `HEAVEN_LAB_TEST`: critérios PASSA/FALHA · 5 sinais positivos · 5 sinais de falha
+- `REFERENCE_SURFACE_STRUCTURE`: GLOBE (living 3D) · TRINITY (3 filhos orbitais) ·
+  CHAMBER (sacred orbital) · MACHINE_SUBSTRATE (grid técnico) · FIRST_PROOF (evidência real)
+- `WORKTREE_ASSIGNMENT`: @framer + @antigravity · Brand Mother System como lei
+- `NEXT_ACTION_CHAIN`: 7 passos · gate Framer · gate Antigravity · NS-1→NS-2→NS-3
+
+**Gates definidos:**
+- GATE_FRAMER: owner abre → @framer entra em WorkVisual
+- GATE_ANTIGRAVITY: owner abre em paralelo → @antigravity entra em WorkVisual
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | GREAT-STORY-OF-THE-PRODUCT-001 | claude-sonnet-4-6
+
+**TASK:** GREAT-STORY-OF-THE-PRODUCT-001 — Grande História do Produto (Heaven Lab)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `docs/GREAT_STORY_OF_HEAVEN_LAB.md` — v1.0 · mito real do produto
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.4 · camada 0.7 + tabela de artefactos
+- `ops/NEXUS_V10_SOVEREIGN_DESTINY.md` → ANCHOR_NARRATIVO + 3_FILHOS_NO_V10
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados:**
+- `GREAT_STORY`: O_QUE_E_HEAVEN_LAB · POR_QUE_EXISTE · O_QUE_TORNA_ISTO_UMA_CATEGORIA_NOVA ·
+  PAPEL_DO_HUMANO · PAPEL_DA_MAQUINA · PAPEL_DOS_3_FILHOS · DESTINO_FINAL
+- `NARRATIVE_APPLICATION`: LANDING (6) · NA_FOUNDER_PAGE (5) ·
+  PRODUCT_PROOF (5) · DIDACTIC_ARCHIVE (6)
+- `MOTHER_PHRASES`: 9 frases-mãe utilizáveis imediatamente
+
+**Os 3 Filhos definidos:**
+- FILHO 1: O Sistema (Eternal Nexus OS — a espinha)
+- FILHO 2: O Produto (Earth Lab — a prova)
+- FILHO 3: O Legado (Arquitetura Aberta — o presente ao mundo)
+
+**Posição canônica:** Camada 0.7 — entre FOUNDER_STORY_SPINE (0.6) e DNA_PROTOCOL (1)
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | FOUNDER-STORY-SPINE-001 | claude-sonnet-4-6
+
+**TASK:** FOUNDER-STORY-SPINE-001 — Espinha da História do Founder
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `docs/FOUNDER_STORY_SPINE.md` — v1.0 · espinha completa da história do founder
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.3 · camada 0.6 + tabela de artefactos
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff (append no topo)
+
+**Blocos criados:**
+- `FOUNDER_STORY_SPINE`: ORIGEM · PRIMEIRA_TENSAO · GRANDES_VIRADAS (6) ·
+  POR_QUE_O_SISTEMA_TINHA_QUE_EXISTIR · POR_QUE_NAO_PODIA_SER_UM_SITE_NORMAL ·
+  O_QUE_ISTO_REVELA_DO_FOUNDER (7 dimensões)
+- `STORY_APPLICATION`: NO_PRODUTO (7) · NA_FOUNDER_PAGE (5) ·
+  NA_DIDATICA (6 viradas mapeadas) · NA_CORPORACAO (6)
+- `FRASES_CANON`: 8 frases utilizáveis diretamente no produto, docs, didática
+
+**Posição canônica:** Camada 0.6 — entre FOUNDER_SIGNATURE_CANON (0.5) e DNA_PROTOCOL (1)
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | PLv8.1-COMPLETE | claude-sonnet-4-6
+
+**TASK:** PLv7 + PLv7.1 + PLv8 + PLv8.1 + V3 polish + branch-guard fix
+**BRANCH:** claude/website-quality-assessment-Bb6r7
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Componentes criados:**
+- `src/components/home/MetricsTimeline.tsx` — PLv8.1 historical indicators (World Bank API, 12 countries × 3 indicators, SVG line charts)
+- `src/components/home/WorldPulse.tsx` — PLv7.1 live ticker
+- `src/components/home/ScenarioComparison.tsx` — PLv8 scenario engine
+
+**Componentes modificados:**
+- `src/pages/Index.tsx` — all sections integrated
+- `src/components/NavBar.tsx` — active route gold underline
+- `src/components/Footer.tsx` — institutional copyright line
+- `ops/LIVE_STATE.md` — canonical branch updated to claude/website-quality-assessment-Bb6r7
+
+**V10 Line:** V1✓ V2✓ V3✓ V4✓ | V5→ em execução | V6→ em construção
+**Commits:** 443782a + 38952b9 + 5e439ea
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-SIGNATURE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FOUNDER-SIGNATURE-CANON-001 — CONCLUÍDA
+            │   docs/FOUNDER_SIGNATURE_CANON.md → v1.0 (novo ficheiro)
+            │     — FOUNDER_SIGNATURE: O_QUE_E · PRINCIPIOS_NUCLEARES (7) ·
+            │       TONALIDADE_HUMANA (7) · O_QUE_TORNA_ISTO_UNICO (7)
+            │     — SIGNATURE_IN_SYSTEM: COMO_APARECE_NO_SISTEMA (10) ·
+            │       COMO_APARECE_NO_PRODUTO (8) · COMO_APARECE_NO_VISUAL (8) ·
+            │       COMO_APARECE_NA_CORPORACAO (8)
+            │     — NON_NEGOTIABLE_SIGNATURE_LAWS: O_QUE_NUNCA_PODE_SE_PERDER (12) ·
+            │       O_QUE_SERIA_DRIFT (12)
+            │     — Camada 0.5 definida: entre Soberania (owner) e Lei Primária (DNA_PROTOCOL)
+            │     — EVIDENCE_BLOCK integrado no próprio documento
+            │   ops/NEXUS_LIVING_CANON.md → v1.2 (camada 0.5 + tabela de artefactos)
+            │   ops/NEXUS_NEURAL_MESH.md → N-00 FOUNDER_SIGNATURE adicionado + NEURAL CORE
+            │   ops/BASTION.md → FOUNDER-SIGNATURE-CANON-001 no histórico de tasks
+            │   ops/LIVE_STATE.md → task concluída + executor + data atualizados
+            │   ops/HANDOFF_LEDGER.md → este handoff (append no topo)
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ Camada 0.5 criada — posição canônica entre owner e DNA_PROTOCOL
+            │ N-00 (FOUNDER_SIGNATURE) inserido antes de N-01 no NEURAL_NODE_MATRIX
+            │   → decisão: o founder é a origem, não um nó entre outros — deve preceder tudo
+ARQUIVOS    │ docs/FOUNDER_SIGNATURE_CANON.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1 → v1.2)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — N-00 + NEURAL_CORE)
+            │ ops/BASTION.md (atualizado — task adicionada ao histórico)
+            │ ops/LIVE_STATE.md (atualizado — data + executor + task na fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: assinatura humana do founder formalizada como lei
+            │   canônica · origem da máquina cravada · 3 blocos de identidade selados ·
+            │   non-negotiable laws definidas · posição 0.5 na hierarquia estabelecida
+══════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001 — CONCLUÍDA
+            │   ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → v2.0
+            │     — FRACTAL_COUNCIL_MATRIX: 9 fragmentos com pesos, tipo de parecer, veto e owner_only
+            │     — JVF com 10 critérios: verdade, coerência, qualidade, velocidade, custo, risco,
+            │       flagship_alignment, continuidade_evolutiva, benefício_automático, aderência_visão_mãe
+            │     — Flagship Threshold: limiar mínimo de contribuição ao produto-bandeira (≥ 0.4)
+            │     — Seven-Force integrado como fragmento de avaliação operacional
+            │     — Escalas de mobilização (kernel piece → total occupation) mapeadas no julgamento
+            │     — Recompression Protocol expandido para 11 passos
+            │ NEXUS-V10-SOVEREIGN-DESTINY-001 — CONCLUÍDA
+            │   ops/NEXUS_V10_SOVEREIGN_DESTINY.md v1.0 criado
+            │     — V10_SOVEREIGN_DESTINY: 7 dimensões (SISTEMA / PRODUTO / ECOSSISTEMA /
+            │       CORPORACAO / RUNTIME / SOFTWARE / HARDWARE_HORIZON)
+            │     — BRAIN_FIRST_ARCHITECTURE: ordem de construção v10→v1, anti-padrões, padrão correto
+            │     — V10_GAP_MATRIX: 7 domínios, estado_atual → estado_v10, gap, já_provável, horizonte
+            │     — ALIGNMENT_DEBT_ATUAL: 5 dívidas mapeadas com mitigação atual
+            │     — NEXT_BASTION_INSERTS: 5 tasks + 5 seeds + 5 gates prontos para o owner aprovar
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ NEXUS_FRACTAL_JUDGMENT_CORE.md reescrito em v2.0 (não duplicado — v1.0 era LITE)
+            │ NEXUS_V10_SOVEREIGN_DESTINY.md criado como ficheiro separado (não anexado ao LIVING_CANON)
+            │   → decisão: ficheiro próprio evita dispersão e facilita referência canônica direta
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (atualizado — v1.0 → v2.0)
+            │ ops/NEXUS_V10_SOVEREIGN_DESTINY.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1; camada 3.5 adicionada)
+            │ ops/BASTION.md (atualizado — v2.2; tasks no histórico + localização expandida)
+            │ ops/LIVE_STATE.md (atualizado — estado + fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: julgamento canônico completo (v2.0) + destino v10 soberano
+            │   instalados; Fractal Council com 9 fragmentos; JVF com 10 critérios quantificados;
+            │   V10 compacto como equação de chegada; gap mapeado; seeds prontos para próximo ciclo
+ALTERACAO_REAL │ sim — 2 ficheiros criados/reescritos + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE — CONCLUÍDA
+            │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 criado (9 secções)
+            │   — Judgment Core: ciclo input→avaliação→sentença
+            │   — Fractal Council: 7 nós (DNA/BASTION/PIONEER/FLOW/NEURAL/LIVE/OWNER)
+            │   — Judgment Value Function (JVF): pesos por nó + limiares
+            │   — Canonical Recompression: 8 passos → sentença única
+            │   — Stop Condition: 5 condições de paragem imediata
+            │   — 7 Sentenças: aceita|rejeita|refina|salvage|rebuild|owner-only|adia
+            │   — Protocolo de uso + tabela de exemplos aplicados
+            │   — Integração com a malha (8 artefactos referenciados)
+            │ ops/NEXUS_LIVING_CANON.md v1.0 criado
+            │   — Índice vivo de todos os artefactos canônicos do sistema
+            │   — Hierarquia em 8 camadas (Soberania → Índice)
+            │   — Tabela de artefactos ativos com versão + task de origem
+            │ ops/NEXUS_NEURAL_MESH.md → v1.1
+            │   — FRACTAL_JUDGMENT adicionado ao NEURAL_CORE
+            │   — localização canônica expandida
+            │ ops/BASTION.md → v2.1
+            │   — task adicionada ao histórico (5.1); semáforo atualizado
+            │   — localização canônica expandida (2 novos artefactos)
+            │ ops/LIVE_STATE.md — task na fila + estado geral atualizado
+NAO_FEITO   │ nada pendente nesta task
+IMPACTO     │ crítico — sistema agora tem peça formal de julgamento canônico;
+            │   toda decisão tem critério claro (JVF + 7 sentenças);
+            │   Fractal Council distribui avaliação pelos 7 nós estruturais;
+            │   NEXUS_LIVING_CANON.md indexa o canon pela primeira vez
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (novo — v1.0)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — v1.1)
+            │ ops/BASTION.md (atualizado — v2.1)
+            │ ops/LIVE_STATE.md (atualizado)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+ALTERACAO_REAL │ sim — 2 ficheiros criados + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-PROJECT-PAGE-001 │ STATUS:done
