@@ -39,10 +39,10 @@ const NavBar = () => {
         transition={{ duration: 0.3, ease: EASE_OUT }}
         aria-label="Navegação principal"
         role="navigation"
-        className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-500 ${
           atTop
-            ? "bg-transparent border-b border-transparent"
-            : "bg-background/60 backdrop-blur-2xl border-b border-border/50"
+            ? "bg-transparent border-b border-white/[0.04]"
+            : "bg-background/80 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_1px_0_0_rgba(255,255,255,0.04)]"
         }`}
       >
         {/* Logo */}
@@ -53,23 +53,36 @@ const NavBar = () => {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6 ml-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.path}
-              className={`font-mono text-[0.62rem] tracking-[0.12em] uppercase py-1 border-b transition-all duration-200 flex items-center gap-1.5 hover:scale-105 ${
-                location.pathname === link.path
-                  ? "text-primary border-primary link-glow-active"
-                  : "text-muted-foreground border-transparent hover:text-primary/80 hover:border-primary/30"
-              }`}
-            >
-              {link.icon && <link.icon className="w-3 h-3" />}
-              {link.label}
-              {link.live && (
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse ml-0.5" />
-              )}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.label}
+                to={link.path}
+                className={`relative font-mono text-[0.62rem] tracking-[0.12em] uppercase py-1 transition-all duration-300 flex items-center gap-1.5 hover:scale-105 ${
+                  isActive
+                    ? "text-primary link-glow-active"
+                    : "text-muted-foreground hover:text-primary/80"
+                }`}
+              >
+                {link.icon && <link.icon className="w-3 h-3" />}
+                {link.label}
+                {link.live && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse ml-0.5" />
+                )}
+                {/* Active indicator — bottom bar */}
+                {isActive && (
+                  <span
+                    className="absolute -bottom-[1px] left-0 right-0 h-px"
+                    style={{
+                      background: "linear-gradient(to right, transparent, hsl(42 78% 45% / 0.9), transparent)",
+                      boxShadow: "0 0 6px 0px hsl(42 78% 45% / 0.5)",
+                    }}
+                  />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Spacer */}
@@ -140,31 +153,43 @@ const NavBar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute top-14 left-0 right-0 bg-background/98 backdrop-blur-xl border-b border-border p-6 flex flex-col gap-4 md:hidden"
+              className="absolute top-14 left-0 right-0 backdrop-blur-2xl border-b border-white/[0.08] p-6 flex flex-col gap-1 md:hidden"
+              style={{ background: "hsl(216 50% 5% / 0.96)" }}
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.path}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.label}
+                    to={link.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={`font-mono text-[0.68rem] tracking-[0.12em] transition-all duration-200 py-2.5 px-3 flex items-center gap-2 ${
+                      isActive
+                        ? "text-primary bg-primary/5 border-l border-primary/60"
+                        : "text-muted-foreground hover:text-primary/80 border-l border-transparent"
+                    }`}
+                  >
+                    {link.icon && <link.icon className="w-3 h-3" />}
+                    {link.label}
+                    {link.live && <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />}
+                    {isActive && <span className="ml-auto font-mono text-[0.45rem] text-primary/50 tracking-[0.1em]">ACTIVE</span>}
+                  </Link>
+                );
+              })}
+              <div className="mt-2 pt-3 border-t border-white/[0.06] flex flex-col gap-1">
+                {isOwner && (
+                  <Link to="/owner" onClick={() => setMobileOpen(false)}
+                    className="font-mono text-[0.68rem] tracking-[0.12em] text-primary py-2 px-3 border-l border-primary/40 flex items-center gap-2">
+                    <Shield className="w-3 h-3" />
+                    OWNER DASHBOARD
+                  </Link>
+                )}
+                <Link to="/access" onClick={() => setMobileOpen(false)}
+                  className="font-mono text-[0.68rem] tracking-[0.12em] text-primary/70 hover:text-primary py-2 px-3 border-l border-transparent hover:border-primary/30 transition-all">
+                  {user ? profile?.institution : "ACCESS"}
                 </Link>
-              ))}
-              {isOwner && (
-                <Link to="/owner" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary">
-                  OWNER DASHBOARD
-                </Link>
-              )}
-              <Link
-                to="/access"
-                onClick={() => setMobileOpen(false)}
-                className="font-mono text-[0.68rem] tracking-[0.12em] text-primary"
-              >
-                {user ? profile?.institution : "ACCESS"}
-              </Link>
-              <div className="flex items-center gap-3">
+              </div>
+              <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-3 px-3">
                 <ThemeToggle />
                 <LanguageSwitcher />
               </div>

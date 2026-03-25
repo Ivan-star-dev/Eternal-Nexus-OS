@@ -6,6 +6,33 @@ import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
 import EarthquakeLayer from "./EarthquakeLayer";
 import ParticleFlow from "./ParticleFlow";
 
+// ── Aurora Rim Shaders ─────────────────────────────────────────────────────────
+const AURORA_VERT = /* glsl */`
+  varying vec3 vNormal;
+  varying vec3 vViewDir;
+  void main() {
+    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+    vNormal    = normalize(normalMatrix * normal);
+    vViewDir   = normalize(-mvPosition.xyz);
+    gl_Position = projectionMatrix * mvPosition;
+  }
+`;
+
+const AURORA_FRAG = /* glsl */`
+  uniform float uTime;
+  varying vec3 vNormal;
+  varying vec3 vViewDir;
+  void main() {
+    float facing  = max(dot(vNormal, vViewDir), 0.0);
+    float fresnel = pow(1.0 - facing, 3.2);
+    float band    = 0.5 + 0.5 * sin(uTime * 0.35 + vNormal.y * 3.8);
+    vec3 teal = vec3(0.14, 0.74, 0.60);
+    vec3 gold = vec3(0.82, 0.67, 0.22);
+    vec3 color = mix(teal, gold, band);
+    gl_FragColor = vec4(color * fresnel, fresnel * 0.55);
+  }
+`;
+
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
 const CONNECTION_DISTANCE = 2.6;
@@ -13,6 +40,7 @@ const CONNECTION_DISTANCE = 2.6;
 interface GlobeSceneProps {
   focusedProject: string | null;
   onHotspotClick: (id: string) => void;
+  onFocusChange?: (id: string | null) => void;
   showProjects?: boolean;
   showSeismic?: boolean;
 }
@@ -37,6 +65,32 @@ function AtmosphereSphere() {
         transparent
         opacity={0.06}
         side={THREE.BackSide}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+// Aurora rim — fresnel shader sphere: teal↔gold breathing at planet edge
+function AuroraRimSphere() {
+  const matRef = useRef<THREE.ShaderMaterial>(null);
+
+  useFrame(({ clock }) => {
+    if (matRef.current) {
+      matRef.current.uniforms.uTime.value = clock.getElapsedTime();
+    }
+  });
+
+  return (
+    <mesh>
+      <sphereGeometry args={[GLOBE_RADIUS * 1.14, 64, 32]} />
+      <shaderMaterial
+        ref={matRef}
+        vertexShader={AURORA_VERT}
+        fragmentShader={AURORA_FRAG}
+        uniforms={{ uTime: { value: 0 } }}
+        transparent
+        side={THREE.FrontSide}
         depthWrite={false}
       />
     </mesh>
@@ -120,9 +174,10 @@ function NetworkSphere() {
 }
 
 // Project hotspot markers
-function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, focused, onClick }: {
+function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, focused, onClick, onHover }: {
   id: string; lat: number; lng: number; title: string; subtitle: string;
-  number: string; color: string; status: string; focused: boolean; onClick: (id: string) => void;
+  number: string; color: string; status: string; focused: boolean;
+  onClick: (id: string) => void; onHover?: (id: string | null) => void;
 }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const focusRingRef = useRef<THREE.Mesh>(null);
@@ -150,8 +205,8 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
       <mesh
         ref={meshRef}
         onClick={(e) => { e.stopPropagation(); onClick(id); }}
-        onPointerOver={() => { setHovered(true); document.body.style.cursor = "pointer"; }}
-        onPointerOut={() => { setHovered(false); document.body.style.cursor = ""; }}
+        onPointerOver={() => { setHovered(true); document.body.style.cursor = "pointer"; onHover?.(id); }}
+        onPointerOut={() => { setHovered(false); document.body.style.cursor = ""; onHover?.(null); }}
       >
         <sphereGeometry args={[0.1, 12, 12]} />
         <meshBasicMaterial color={focused ? "#fff" : color} transparent opacity={hovered || focused ? 1 : 0.85} />
@@ -187,6 +242,7 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
 const GlobeScene = ({
   focusedProject,
   onHotspotClick,
+  onFocusChange,
   showProjects = true,
   showSeismic = true,
 }: GlobeSceneProps) => {
@@ -199,6 +255,7 @@ const GlobeScene = ({
       <hemisphereLight args={["#1a2a4a", "#0a0a14", 0.15]} />
 
       <AtmosphereSphere />
+      <AuroraRimSphere />
       <CoronaSphere />
       <NetworkSphere />
       {/* Canonical particle field — 2000 particles, orbital physics, mobile-responsive */}
@@ -217,6 +274,7 @@ const GlobeScene = ({
           status={p.status}
           focused={focusedProject === p.id}
           onClick={onHotspotClick}
+          onHover={onFocusChange}
         />
       ))}
 

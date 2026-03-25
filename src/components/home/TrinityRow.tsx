@@ -17,7 +17,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { EASE_OUT, DUR, STAGGER } from "@/lib/motion/config";
+import { EASE_OUT, DUR, STAGGER, DELAY } from "@/lib/motion/config";
 
 interface Child {
   id: string;
@@ -198,7 +198,7 @@ export default function TrinityRow() {
         }}
       >
         {TRINITY.map((child, i) => [
-          <ChildNode key={child.id} child={child} delay={STAGGER.base * i} />,
+          <ChildNode key={child.id} child={child} delay={DELAY.afterGlobe + STAGGER.base * i} />,
           i < TRINITY.length - 1 && <Divider key={`div-${i}`} />,
         ])}
       </div>

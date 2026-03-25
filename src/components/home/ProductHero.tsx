@@ -10,13 +10,13 @@
  * Law: SYSTEM_FACE_CANON.md · TYPOGRAPHY_LAW.md · BRAND_MOTHER_SYSTEM.md
  */
 
-import { lazy, Suspense, useRef } from "react";
+import { lazy, Suspense, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import OrbitalChamber from "@/components/orbital/OrbitalChamber";
 import TrinityRow from "./TrinityRow";
 import HeroFirstProof from "./HeroFirstProof";
-import { EASE_OUT, DUR } from "@/lib/motion/config";
+import { EASE_OUT, DUR, DELAY } from "@/lib/motion/config";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -65,7 +65,11 @@ function MachineSubstrate() {
 }
 
 // Globe presence — primary zone, large, centred, wrapped in OrbitalChamber
-function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }) {
+function GlobeZone({ onHotspotClick, onFocusChange, focused }: {
+  onHotspotClick?: (id: string) => void;
+  onFocusChange?: (id: string | null) => void;
+  focused?: boolean;
+}) {
   return (
     <div
       className="relative w-full"
@@ -82,7 +86,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
       />
 
       {/* Globe + OrbitalChamber */}
-      <OrbitalChamber className="absolute inset-0 z-[1]">
+      <OrbitalChamber className="absolute inset-0 z-[1]" focused={focused}>
         <OrganErrorBoundary organName="Globe" silent>
           <Suspense
             fallback={
@@ -97,7 +101,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
               </div>
             }
           >
-            <InteractiveGlobe onHotspotClick={onHotspotClick} />
+            <InteractiveGlobe onHotspotClick={onHotspotClick} onFocusChange={onFocusChange} />
           </Suspense>
         </OrganErrorBoundary>
       </OrbitalChamber>
@@ -141,11 +145,17 @@ interface ProductHeroProps {
 
 export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [globeFocused, setGlobeFocused] = useState(false);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
   const sectionOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
+  const handleFocusChange = useCallback((id: string | null) => {
+    setGlobeFocused(id !== null);
+  }, []);
 
   return (
     <motion.section
@@ -159,15 +169,36 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
       <AtmosphericLayer />
 
       {/* ── 1. GLOBE ZONE ─────────────────────────────────────────── */}
-      <GlobeZone onHotspotClick={onHotspotClick} />
+      <GlobeZone onHotspotClick={onHotspotClick} onFocusChange={handleFocusChange} focused={globeFocused} />
 
       {/* ── 2. TRINITY ROW ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-6">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: DELAY.afterGlobe, duration: DUR.slow, ease: EASE_OUT }}
+        className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-8"
+      >
         <TrinityRow />
-      </div>
+      </motion.div>
+
+      {/* ── SACRED THREAD — Trinity → First Proof ─────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, scaleY: 0 }}
+        animate={{ opacity: 1, scaleY: 1 }}
+        transition={{ delay: DELAY.afterGlobe + 0.6, duration: DUR.cinematic, ease: EASE_OUT }}
+        className="relative z-10 flex flex-col items-center origin-top pt-16 pb-4"
+        aria-hidden="true"
+      >
+        <div className="h-12 w-px" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.02))" }} />
+        <div
+          className="w-1 h-1 rounded-full"
+          style={{ background: "rgba(255,255,255,0.12)", boxShadow: "0 0 6px 1px hsl(42 78% 45% / 0.15)" }}
+        />
+        <div className="h-6 w-px mt-1" style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.04), transparent)" }} />
+      </motion.div>
 
       {/* ── 3. FIRST PROOF ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-20 pb-28">
+      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-2 pb-32">
         <HeroFirstProof />
       </div>
 

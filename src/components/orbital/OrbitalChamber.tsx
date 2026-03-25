@@ -21,6 +21,8 @@ interface OrbitalChamberProps {
   children: React.ReactNode;
   /** Size class applied to the outer ring. Default: fills parent. */
   className?: string;
+  /** When true (hotspot hovered/clicked), intensify the aurora rim. */
+  focused?: boolean;
 }
 
 /**
@@ -48,20 +50,27 @@ function OuterRing() {
 }
 
 /**
- * Aurora rim — very faint gold edge light, enters once on mount
+ * Aurora rim — gold/teal edge light. Intensifies when a hotspot is focused.
  */
-function AuroraRim() {
+function AuroraRim({ focused }: { focused?: boolean }) {
   return (
     <motion.div
       className="pointer-events-none absolute inset-0 rounded-full"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: DUR.cinematic, ease: EASE_OUT, delay: 0.8 }}
+      animate={{ opacity: focused ? 1 : 0.7 }}
+      transition={{ duration: focused ? DUR.fast : DUR.cinematic, ease: EASE_OUT, delay: focused ? 0 : 0.8 }}
       style={{
-        background: [
-          "radial-gradient(ellipse 90% 40% at 50% 0%, hsl(42 78% 45% / 0.04) 0%, transparent 70%)",
-          "radial-gradient(ellipse 60% 30% at 50% 100%, hsl(172 55% 28% / 0.03) 0%, transparent 70%)",
-        ].join(", "),
+        background: focused
+          ? [
+              "radial-gradient(ellipse 100% 50% at 50% 0%, hsl(42 78% 45% / 0.14) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 40% at 50% 100%, hsl(172 55% 28% / 0.10) 0%, transparent 70%)",
+              "radial-gradient(ellipse 50% 80% at 0% 50%, hsl(172 55% 40% / 0.06) 0%, transparent 60%)",
+              "radial-gradient(ellipse 50% 80% at 100% 50%, hsl(42 78% 45% / 0.06) 0%, transparent 60%)",
+            ].join(", ")
+          : [
+              "radial-gradient(ellipse 90% 40% at 50% 0%, hsl(42 78% 45% / 0.04) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 30% at 50% 100%, hsl(172 55% 28% / 0.03) 0%, transparent 70%)",
+            ].join(", "),
       }}
       aria-hidden="true"
     />
@@ -85,7 +94,7 @@ function InnerSanctum() {
   );
 }
 
-export default function OrbitalChamber({ children, className = "" }: OrbitalChamberProps) {
+export default function OrbitalChamber({ children, className = "", focused }: OrbitalChamberProps) {
   return (
     <div
       className={`relative ${className}`}
@@ -94,7 +103,7 @@ export default function OrbitalChamber({ children, className = "" }: OrbitalCham
       }}
     >
       <InnerSanctum />
-      <AuroraRim />
+      <AuroraRim focused={focused} />
 
       {/* Globe render — z-index above inner sanctum, below outer ring */}
       <div className="relative z-[1]">{children}</div>
