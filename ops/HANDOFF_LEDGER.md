@@ -8,6 +8,34 @@
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-SESSION-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useSessionMemory hook — localStorage nexus:session
+            │   SessionSnapshot: lastPage · lastGlobeFocus · lastProject
+            │   visitCount · updatedAt (ISO)
+            │   storageAvailable() guard (SSR + private-browsing safe)
+            │   readSessionSnapshot() exported for consumer access
+            │   tracks pathname on every navigation via useLocation
+            │   setGlobeFocus/setLastProject/getSnapshot exposed
+            │ SessionBoot.tsx — null-render, wired inside BrowserRouter
+            │ setDefaultBus() — setter added to bus.ts (no circular dep)
+            │ main.tsx — createPersistedBus({ devOnly: false }) boots first
+            │   event bus singleton now persists to localStorage (500 events)
+            │   events survive page reload, idempotent rehydration on boot
+EVIDÊNCIA   │ src/hooks/useSessionMemory.ts (new)
+            │ src/components/SessionBoot.tsx (new)
+            │ src/lib/events/bus.ts (setDefaultBus added)
+            │ src/lib/events/index.ts (setDefaultBus exported)
+            │ src/main.tsx (persisted bus boot)
+            │ src/App.tsx (<SessionBoot /> inside BrowserRouter)
+            │ TS 0 errors
+NEXT        │ V4-NEXUS-001 — NexusPage canonical · AI parliament
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:FULL-FORCE-3-WAVE │ STATUS:done
 DATE    │ 2026-03-25
 ───────────────────────────────────────────────────────────────────────────

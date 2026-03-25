@@ -15,6 +15,7 @@ import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
 import LoadingFallback from "./components/LoadingFallback";
 import ErrorBoundary from "./components/ErrorBoundary";
+import SessionBoot from "./components/SessionBoot";
 
 const Index = lazy(() => import("./pages/Index"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
@@ -56,6 +57,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <SessionBoot />
             <OrganTransitionParticles />
             <NexusFlowInspector />
             <CommandPalette />

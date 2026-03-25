@@ -6,7 +6,7 @@
  */
 
 // Bus
-export { createInMemoryBus, getDefaultBus, type NexusEventBus } from './bus';
+export { createInMemoryBus, getDefaultBus, setDefaultBus, type NexusEventBus } from './bus';
 
 // Client
 export { createNexusClient, type NexusClient, type NexusClientOptions } from './client';
