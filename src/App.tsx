@@ -68,7 +68,7 @@ const App = () => (
           <BrowserRouter>
             <SessionBoot />
             <OrganTransitionParticles />
-            <NexusFlowInspector />
+            <SystemAwareInspector />
             <CommandPalette />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
