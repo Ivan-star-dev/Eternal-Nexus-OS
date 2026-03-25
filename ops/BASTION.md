@@ -172,32 +172,11 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
 | MASTER-TOTAL-ARMY-WAVE-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | motion/config.ts · OrbitalChamber · TrinityRow · HeroFirstProof · ProductHero · Index wired · TS 0 errors |
 | GLOBE-3D-ATMOSPHERE-001 | Produto | WorkVisual | @claude | concluída | AtmosphereSphere+CoronaSphere+3-point lighting+focus pulse+EarthquakeLayer+GlobeLayerSelector · TS 0 errors |
+| MOTION-SWEEP-001 | Mecânico | WorkStructure | @claude | concluída | 32 files migrated · 0 hardcoded ease values in src/ · EASE_OUT canonical · TS 0 errors |
 
 ---
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│ TASK_ID            │ MOTION-SWEEP-001                                        │
-│ PILAR              │ Mecânico                                                │
-│ WORKTREE_ALIAS     │ WorkStructure                                           │
-│ DONO_PRINCIPAL     │ @cursor                                                 │
-│ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ nenhum                                                  │
-│ PODE_ENTRAR_SOZINHO│ sim                                                     │
-│ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @cursor                                                 │
-│ NEXT_TASK          │ @owner decide                                           │
-│ EVIDENCIA_MINIMA   │ files migrated + 0 hardcoded ease in components + commit│
-│ NOTAS_DO_OWNER     │ Replace [0.22,1,0.36,1] and [0.16,1,0.3,1] across all  │
-│                    │ components and pages — import EASE_OUT/EASE_IN_OUT from  │
-│                    │ @/lib/motion/config. ~32 files. Mechanical sweep.        │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

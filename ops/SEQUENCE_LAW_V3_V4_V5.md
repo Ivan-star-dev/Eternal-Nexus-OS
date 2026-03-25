@@ -81,7 +81,7 @@ SURFACE-12  [✓] HEAVEN_LAB_REFERENCE_SURFACE.md — CREATED NOW
 SURFACE-13  [ ] OrbitalChamber focus sync — PENDING (@antigravity: GLOBE-3D-AURORA-001)
 
 MOTION-01   [✓] GlobeConstructionSequence cinematic — EXISTS
-MOTION-02   [~] Most reveals use EASE_OUT · new components use config · old inline code pending
+MOTION-02   [✓] 32 files migrated by MOTION-SWEEP-001 — 0 hardcoded ease in src/ — DONE
 MOTION-03   [✓] TrinityRow uses STAGGER.base — DONE
 MOTION-04   [✓] Count-up hook in HeroFirstProof — DONE
 
@@ -91,7 +91,7 @@ SYSTEM-03   [✓] DossierCard — EXISTS
 SYSTEM-04   [✓] ContributionsSection — EXISTS
 ```
 
-**V3 status: ~90% — awaiting @antigravity (GLOBE-3D-AURORA-001) + @framer (NS-2-NAV-POLISH-001)**
+**V3 status: ~95% — MOTION-SWEEP-001 done · awaiting @antigravity (GLOBE-3D-AURORA-001) + @framer (NS-1-HERO-COMPOSITION-001 · NS-2-NAV-POLISH-001)**
 
 ### 2.3 Gate para fechar V3
 
