@@ -6,6 +6,26 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V4-MOTION-SURFACES-001 | claude-sonnet-4-6
+
+**TASK:** V4-MOTION-SURFACES-001 — Animate V4 surfaces
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/nexus/AICouncil.tsx` — framer-motion import; ProposalCard: motion.div with hidden/visible/exit variants + staggered inner rows (4 × 70ms delay); Dialogue bubbles: AnimatePresence + motion.div (x-slide entrance, replaces animate-fade-in CSS); ProposalLedger items: motion.div stagger (50ms/item)
+- `src/components/SessionBoot.tsx` — restore pulse: fixed top-right toast for visitCount ≥ 2, auto-dismisses 2.4s, gold pulse dot animation, AnimatePresence fade
+- `ops/BASTION.md` — BEHAVIOUR-08 [✓] · V4-CLOSE-STATUS 6→7/10
+- `ops/LIVE_STATE.md` — header updated
+- `ops/HANDOFF_LEDGER.md` — this entry
+
+**V4-CLOSE-GATE:** 7/10 [✓]
+**REMAINING:** BEHAVIOUR-07 (owner .env) · BEHAVIOUR-09 (@copilot lapidation) · BEHAVIOUR-10 (@codex) · QUALITY-03 · QUALITY-04
+
+---
+
 ## HANDOFF — 2026-03-24 | @claude | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 | claude-sonnet-4-6
 
 **TASK:** MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — consolidated closure of the full memory runtime wave

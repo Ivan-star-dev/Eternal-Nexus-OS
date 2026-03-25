@@ -5,6 +5,9 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V4-MOTION-SURFACES-001 DONE — ProposalCard stagger entrance + exit · dialogue bubbles framer-motion AnimatePresence · ProposalLedger stagger · SessionBoot restore pulse · V4 7/10 [✓] · TS 0
+
+**Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | FORCE-ACTIVATION-001 — ALL PIONEERS DISPATCHED · V4 6/10 criteria [✓] · GoldenAtlasScene scrollProgress wired · V5 gates sealed · hero restored · PR#164 conflicts resolved · build ✓ · TS 0
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | LINKEDIN_FINAL sealed · FOUNDER_MEDIA_SYSTEM complete (10+1 files) · PROTOCOL_CREDIT_FALLBACK sealed · RUBERRA 145 files committed · V4-PROJECT-PAGE-001 DONE

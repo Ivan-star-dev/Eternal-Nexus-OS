@@ -764,7 +764,7 @@ BEHAVIOUR-04  [✓] V4-ATLAS-001      — AtlasPage WorldBank wired DONE
 BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
 BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
 BEHAVIOUR-07  [ ] V4-PROJECT-PAGE-001-MECH — @cursor — Supabase mechanical layer
-BEHAVIOUR-08  [ ] V4-MOTION-SURFACES-001   — @antigravity — V4 surfaces animated
+BEHAVIOUR-08  [✓] V4-MOTION-SURFACES-001   — ProposalCard stagger + SessionBoot restore pulse + dialogue framer-motion DONE
 BEHAVIOUR-09  [ ] V4-LAPIDATION-001        — @copilot — polish + TS clean pass
 BEHAVIOUR-10  [ ] CLUSTER-ORCHESTRATE-001  — @codex — wave sync + drift audit
 
@@ -773,8 +773,8 @@ QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
 QUALITY-03    [ ] All V4 surfaces mobile-responsive
 QUALITY-04    [ ] No silent errors in ErrorBoundary (OrganErrorBoundary non-silent)
 
-V4-CLOSE-STATUS: 🟡 IN PROGRESS — 6/10 criteria [✓]
-ESTIMATED-CLOSE: when BEHAVIOUR-07 + BEHAVIOUR-08 + BEHAVIOUR-09 [✓]
+V4-CLOSE-STATUS: 🟡 IN PROGRESS — 7/10 criteria [✓]
+ESTIMATED-CLOSE: when BEHAVIOUR-07 + BEHAVIOUR-09 [✓]
 ═══════════════════════════════════════════════════════════════════════
 ```
 

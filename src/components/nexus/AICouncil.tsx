@@ -2,6 +2,7 @@ import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Brain, Globe, Send, Users, HeartPulse, Cloud, DollarSign, Shield, Zap, CheckCircle2, Clock, AlertTriangle, Archive } from "lucide-react";
 
@@ -142,9 +143,29 @@ function ProposalCard({ debateIndex, onApprove, migrating }: {
         ? "text-yellow-400 border-yellow-400/40 bg-yellow-400/5"
         : "text-accent-foreground border-accent/40 bg-accent/5";
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 14, scale: 0.97 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as number[] } },
+    exit: { opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.2 } },
+  };
+
+  const rowVariants = {
+    hidden: { opacity: 0, x: -6 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: 0.1 + i * 0.07, duration: 0.28, ease: "easeOut" },
+    }),
+  };
+
   return (
-    <div className="mt-3 border border-primary/20 rounded-lg bg-primary/5 p-3 space-y-2">
-      <div className="flex items-start justify-between gap-2">
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      animate={migrating ? "exit" : "visible"}
+      className="mt-3 border border-primary/20 rounded-lg bg-primary/5 p-3 space-y-2"
+    >
+      <motion.div variants={rowVariants} custom={0} initial="hidden" animate="visible" className="flex items-start justify-between gap-2">
         <div>
           <span className="font-mono text-[0.5rem] tracking-[0.2em] text-primary/60 uppercase block">
             PROPOSTA APROVÁVEL
@@ -156,22 +177,22 @@ function ProposalCard({ debateIndex, onApprove, migrating }: {
         <span className={`shrink-0 font-mono text-[0.4rem] px-1.5 py-0.5 rounded border ${riskColor}`}>
           {meta.impact.riskLevel}
         </span>
-      </div>
+      </motion.div>
 
-      <p className="font-mono text-[0.5rem] text-muted-foreground leading-relaxed border-l-2 border-primary/30 pl-2">
+      <motion.p variants={rowVariants} custom={1} initial="hidden" animate="visible" className="font-mono text-[0.5rem] text-muted-foreground leading-relaxed border-l-2 border-primary/30 pl-2">
         {meta.scenario}
-      </p>
+      </motion.p>
 
-      <div className="bg-background/60 border border-border/20 rounded p-2">
+      <motion.div variants={rowVariants} custom={2} initial="hidden" animate="visible" className="bg-background/60 border border-border/20 rounded p-2">
         <span className="font-mono text-[0.4rem] text-primary/60 uppercase tracking-widest block mb-1">
           Recomendação do Conselho
         </span>
         <span className="font-mono text-[0.5rem] text-foreground leading-relaxed">
           {meta.recommendation}
         </span>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-3 gap-1">
+      <motion.div variants={rowVariants} custom={3} initial="hidden" animate="visible" className="grid grid-cols-3 gap-1">
         <div className="bg-background/40 rounded p-1.5 text-center">
           <span className="font-mono text-[0.4rem] text-muted-foreground block">CUSTO</span>
           <span className="font-mono text-[0.5rem] text-foreground font-semibold">{meta.impact.cost}</span>
@@ -186,8 +207,8 @@ function ProposalCard({ debateIndex, onApprove, migrating }: {
             {Object.keys(meta.votes).length}/{AGENTS.length} ✓
           </span>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -211,8 +232,14 @@ function ProposalLedger() {
         </span>
       </div>
       <div className="space-y-1.5">
-        {proposals.map((p) => (
-          <div key={p.id} className="flex items-start gap-2 px-2 py-1.5 bg-card/50 border border-border/20 rounded">
+        {proposals.map((p, i) => (
+          <motion.div
+            key={p.id}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.05, duration: 0.25, ease: "easeOut" }}
+            className="flex items-start gap-2 px-2 py-1.5 bg-card/50 border border-border/20 rounded"
+          >
             <CheckCircle2 className="h-3 w-3 text-accent-foreground shrink-0 mt-0.5" />
             <div className="flex-1 min-w-0">
               <span className="font-mono text-[0.5rem] text-foreground font-medium block truncate">
@@ -236,7 +263,7 @@ function ProposalLedger() {
                 {new Date(p.approvedAt).toLocaleDateString("pt-BR")}
               </span>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
@@ -560,25 +587,34 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
                 </span>
               </div>
             )}
-            {activeDialogues.map((d, i) => {
-              const agent = AGENTS.find((a) => a.id === d.agentId);
-              return (
-                <div key={i} className="flex gap-2 animate-fade-in">
-                  <div
-                    className="w-2 h-2 rounded-full mt-1.5 shrink-0"
-                    style={{ backgroundColor: agent?.color }}
-                  />
-                  <div>
-                    <span className="font-mono text-[0.45rem] font-bold block" style={{ color: agent?.color }}>
-                      {agent?.role}
-                    </span>
-                    <span className="font-mono text-[0.5rem] text-foreground/90 leading-relaxed">
-                      {d.text}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+            <AnimatePresence initial={false}>
+              {activeDialogues.map((d, i) => {
+                const agent = AGENTS.find((a) => a.id === d.agentId);
+                return (
+                  <motion.div
+                    key={`${d.agentId}-${i}`}
+                    initial={{ opacity: 0, x: -10, y: 4 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="flex gap-2"
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full mt-1.5 shrink-0"
+                      style={{ backgroundColor: agent?.color }}
+                    />
+                    <div>
+                      <span className="font-mono text-[0.45rem] font-bold block" style={{ color: agent?.color }}>
+                        {agent?.role}
+                      </span>
+                      <span className="font-mono text-[0.5rem] text-foreground/90 leading-relaxed">
+                        {d.text}
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
             {debateActive && !debateComplete && (
               <div className="flex items-center gap-2 py-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -614,15 +650,17 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
           </div>
 
           {/* Structured proposal — appears when debate is complete */}
-          {debateComplete && (
-            <div className="px-3 pb-3">
-              <ProposalCard
-                debateIndex={debateIndex}
-                onApprove={approveAndMigrate}
-                migrating={migrating}
-              />
-            </div>
-          )}
+          <AnimatePresence>
+            {debateComplete && (
+              <div className="px-3 pb-3">
+                <ProposalCard
+                  debateIndex={debateIndex}
+                  onApprove={approveAndMigrate}
+                  migrating={migrating}
+                />
+              </div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
