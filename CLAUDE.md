@@ -91,7 +91,38 @@ Correcção é obrigatória antes de qualquer escrita.
 
 ---
 
-## 5. BLOQUEADORES — QUANDO PARAR
+## 5. AUTO-GATE — LEI DE ABERTURA AUTOMÁTICA
+
+> Directiva do owner (2026-03-25): @claude avalia condições e abre gates autonomamente.
+> Owner só intervém para bloquear, redirecionar ou mudar escopo.
+
+```
+AUTO-GATE-LAW
+═══════════════════════════════════════════════════════════
+
+REGRA: Quando todos os critérios de um gate estiverem [✓],
+       @claude abre o gate seguinte SEM esperar instrução do owner.
+
+AVALIAÇÃO (após cada task concluída):
+  1. Verificar SEQUENCE_LAW — critérios da fase atual
+  2. Se todos [✓] → declarar fase FECHADA → abrir gate seguinte
+  3. Atualizar BASTION com tasks da nova fase
+  4. Entrar na primeira task elegível da nova fase imediatamente
+
+INTERRUPTOR DE AUTO-GATE:
+  → Owner diz "STOP", "PAUSE", ou "BLOCK" → @claude para e aguarda
+  → Red line detectada → STOP-5 aplica-se
+  → Critério não verificável sem owner → comunicar e aguardar
+  → Todos os outros casos → AUTO-GATE activo
+
+TRANSPARÊNCIA:
+  → @claude reporta sempre o gate aberto e qual task entrou
+  → Owner pode ver o estado em LIVE_STATE.md a qualquer momento
+```
+
+---
+
+## 6. BLOQUEADORES — QUANDO PARAR
 
 Parar imediatamente e comunicar ao owner se:
 
@@ -115,7 +146,7 @@ Proposta: [o que precisa acontecer para desbloquear]
 
 ---
 
-## 6. HANDOFF OBRIGATÓRIO
+## 7. HANDOFF OBRIGATÓRIO
 
 Toda task concluída requer handoff antes de fechar sessão:
 - Actualizar `ops/LIVE_STATE.md`
@@ -127,7 +158,7 @@ Sem handoff = task não concluída.
 
 ---
 
-## 7. REGRA DE BENEFÍCIO (síntese)
+## 8. REGRA DE BENEFÍCIO (síntese)
 
 Toda acção deve deixar o sistema melhor do que encontrou:
 - Optimizar · Automatizar · Reduzir atrito · Aumentar clareza · Aumentar throughput
@@ -153,4 +184,4 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 
 ---
 
-_CLAUDE.md v1.0 — cravado em 2026-03-22 | @claude | BRANCH-GUARD-PROTOCOL-001_
+_CLAUDE.md v1.1 — AUTO-GATE selado em 2026-03-25 | @claude | directiva owner_

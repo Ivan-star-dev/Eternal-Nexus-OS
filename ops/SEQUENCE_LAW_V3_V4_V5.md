@@ -91,7 +91,7 @@ SYSTEM-03   [✓] DossierCard — EXISTS
 SYSTEM-04   [✓] ContributionsSection — EXISTS
 ```
 
-**V3 status: ~95% — MOTION-SWEEP-001 done · awaiting @antigravity (GLOBE-3D-AURORA-001) + @framer (NS-1-HERO-COMPOSITION-001 · NS-2-NAV-POLISH-001)**
+**V3 status: ✅ FECHADO — 2026-03-25 · todos os critérios [✓] · AUTO-GATE abriu V4**
 
 ### 2.3 Gate para fechar V3
 

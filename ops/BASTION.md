@@ -177,13 +177,92 @@ Cada item da matriz regista os seguintes campos:
 | NS-1-HERO-COMPOSITION-001 | Visual | WorkVisual | @claude | concluída | Sacred thread Trinity→Proof · DELAY.afterGlobe stagger · motion.div wrapper · spacing sealed · TS 0 errors |
 | NS-2-NAV-POLISH-001 | Visual | WorkVisual | @claude | concluída | Glass bg/80 + white/8 border · active gold gradient bar · mobile left-border active state · TS 0 errors |
 
-> ✅ V3 GATE FECHADO PELO OWNER — 2026-03-25
-> Todas as tasks V3 concluídas por @claude. Owner confirmou gate.
-> Próxima fase: V4 — aguarda gate soberano para abertura.
+> ✅ V3 GATE FECHADO — 2026-03-25 · AUTO-GATE abriu V4 imediatamente
+> Lei: CLAUDE.md §5 AUTO-GATE-LAW — @claude avalia e abre gate quando critérios [✓]
 
 ---
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
+
+> 🟢 V4 — SYSTEM BEHAVIOUR LIVE — ABERTO 2026-03-25 via AUTO-GATE
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-INTERACTION-002                                      │
+│ PILAR              │ WorkFunction + WorkVisual                               │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ em execução                                             │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ GLOBE-3D-AURORA-001 (concluída)                         │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-SESSION-001                                          │
+│ EVIDENCIA_MINIMA   │ ProjectFocusPanel · slide-in · click wired · TS 0      │
+│ NOTAS              │ Globe hotspot click → project detail panel slide-in     │
+│                    │ First real "system behaviour" moment of V4              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-SESSION-001                                          │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-NEXUS-001                                            │
+│ EVIDENCIA_MINIMA   │ session memory hook · localStorage · TS 0              │
+│ NOTAS              │ Eternal Memory OS — user session persists across visits │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-NEXUS-001                                            │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-ATLAS-001                                            │
+│ EVIDENCIA_MINIMA   │ NexusPage canonical surface · AI parliament · TS 0     │
+│ NOTAS              │ NexusPage: canonical AI parliament with real proposals  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-ATLAS-001                                            │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude · @cursor                                       │
+│ NEXT_TASK          │ V4-PROJECT-PAGE-001                                     │
+│ EVIDENCIA_MINIMA   │ AtlasPage Supabase wired · WorldBank API · TS 0        │
+│ NOTAS              │ AtlasPage fully wired to Supabase globe_projects        │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐

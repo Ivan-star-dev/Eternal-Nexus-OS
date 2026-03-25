@@ -16,6 +16,8 @@ import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import OrbitalChamber from "@/components/orbital/OrbitalChamber";
 import TrinityRow from "./TrinityRow";
 import HeroFirstProof from "./HeroFirstProof";
+import ProjectFocusPanel from "./ProjectFocusPanel";
+import projectLocations from "@/data/projectLocations";
 import { EASE_OUT, DUR, DELAY } from "@/lib/motion/config";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
@@ -146,6 +148,7 @@ interface ProductHeroProps {
 export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [globeFocused, setGlobeFocused] = useState(false);
+  const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -155,7 +158,18 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
 
   const handleFocusChange = useCallback((id: string | null) => {
     setGlobeFocused(id !== null);
+    setFocusedProjectId(id);
   }, []);
+
+  const handleHotspotClick = useCallback((id: string) => {
+    setFocusedProjectId(id);
+    setGlobeFocused(true);
+    onHotspotClick?.(id);
+  }, [onHotspotClick]);
+
+  const focusedProject = focusedProjectId
+    ? projectLocations.find((p) => p.id === focusedProjectId) ?? null
+    : null;
 
   return (
     <motion.section
@@ -169,7 +183,15 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
       <AtmosphericLayer />
 
       {/* ── 1. GLOBE ZONE ─────────────────────────────────────────── */}
-      <GlobeZone onHotspotClick={onHotspotClick} onFocusChange={handleFocusChange} focused={globeFocused} />
+      <GlobeZone onHotspotClick={handleHotspotClick} onFocusChange={handleFocusChange} focused={globeFocused} />
+
+      {/* ── PROJECT FOCUS PANEL — V4 INTERACTION-002 ──────────────── */}
+      <div className="absolute inset-0 z-[6] pointer-events-none" style={{ height: "clamp(480px, 68vw, 780px)" }}>
+        <ProjectFocusPanel
+          project={focusedProject}
+          onClose={() => { setFocusedProjectId(null); setGlobeFocused(false); }}
+        />
+      </div>
 
       {/* ── 2. TRINITY ROW ────────────────────────────────────────── */}
       <motion.div
