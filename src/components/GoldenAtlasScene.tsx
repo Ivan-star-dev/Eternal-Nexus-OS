@@ -9,6 +9,7 @@ import OscillatingGoldParticles from "./OscillatingGoldParticles";
 import RightClickPrompt from "./RightClickPrompt";
 import { continentCoastlines } from "@/data/continentCoastlines";
 import { useGlobeEvents } from "@/hooks/useGlobeEvents";
+import { useGlobeRealtime } from "@/hooks/useGlobeRealtime";
 import type { GlobeEvent } from "@/lib/eventBus";
 
 // ═══ Project data — original + Next Path Infra hubs ═══
@@ -131,12 +132,78 @@ const beamFragment = `
   }
 `;
 
-// ═══ Scroll-driven camera ═══
-function ScrollCamera({ scrollProgress }: { scrollProgress: number }) {
-  useFrame((state) => {
-    const targetZ = THREE.MathUtils.lerp(16, -55, scrollProgress);
-    state.camera.position.z = THREE.MathUtils.lerp(state.camera.position.z, targetZ, 0.05);
+// ═══ Camera easing ═══
+function easeInOutCubic(t: number): number {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+// ═══ Unified Camera Controller (scroll + cinematic fly) ═══
+// V5-CAMERA-FLY-001: handles scroll-driven orbit AND cinematic fly-to-project
+function CameraController({
+  scrollProgress,
+  flyTarget,
+  onLanded,
+}: {
+  scrollProgress: number;
+  flyTarget: THREE.Vector3 | null;
+  onLanded: () => void;
+}) {
+  const progressRef     = useRef(0);
+  const phaseRef        = useRef<"scroll" | "flying" | "returning">("scroll");
+  const startPosRef     = useRef(new THREE.Vector3(0, 2, 16));
+  const landedRef       = useRef(false);
+  const flyIdRef        = useRef<THREE.Vector3 | null>(null);
+  const returnTargetRef = useRef(new THREE.Vector3(0, 2, 16));
+
+  useFrame((state, delta) => {
+    const cam = state.camera;
+
+    if (flyTarget) {
+      // ── New fly target detected ──
+      if (flyIdRef.current !== flyTarget) {
+        flyIdRef.current = flyTarget;
+        startPosRef.current.copy(cam.position);
+        progressRef.current = 0;
+        phaseRef.current = "flying";
+        landedRef.current = false;
+      }
+
+      // Advance: ~1.5s total flight
+      progressRef.current = Math.min(1, progressRef.current + delta * 0.68);
+      const t = easeInOutCubic(progressRef.current);
+      cam.position.lerpVectors(startPosRef.current, flyTarget, t);
+      cam.lookAt(0, 0, 0);
+
+      if (progressRef.current >= 0.98 && !landedRef.current) {
+        landedRef.current = true;
+        onLanded();
+      }
+    } else if (phaseRef.current !== "scroll") {
+      // ── Return to scroll position ──
+      if (flyIdRef.current !== null) {
+        startPosRef.current.copy(cam.position);
+        progressRef.current = 0;
+        phaseRef.current = "returning";
+        flyIdRef.current = null;
+        landedRef.current = false;
+      }
+
+      const targetZ = THREE.MathUtils.lerp(16, -55, scrollProgress);
+      returnTargetRef.current.set(0, 2, targetZ);
+
+      progressRef.current = Math.min(1, progressRef.current + delta * 0.85); // ~1.2s
+      const t = easeInOutCubic(progressRef.current);
+      cam.position.lerpVectors(startPosRef.current, returnTargetRef.current, t);
+      cam.lookAt(0, 0, 0);
+
+      if (progressRef.current >= 1) phaseRef.current = "scroll";
+    } else {
+      // ── Normal scroll orbit ──
+      const targetZ = THREE.MathUtils.lerp(16, -55, scrollProgress);
+      cam.position.z = THREE.MathUtils.lerp(cam.position.z, targetZ, 0.05);
+    }
   });
+
   return null;
 }
 
@@ -387,11 +454,15 @@ function AtlasSceneContent({
   customProjects,
   scrollProgress,
   activeEvents,
+  flyTarget,
+  onLanded,
 }: {
   onSelectProject: (p: GeoProject) => void;
   customProjects: GeoProject[];
   scrollProgress: number;
   activeEvents: GlobeEvent[];
+  flyTarget: THREE.Vector3 | null;
+  onLanded: () => void;
 }) {
   const npiBeams = useMemo(() => {
     return geoProjects
@@ -408,7 +479,7 @@ function AtlasSceneContent({
       <pointLight position={[-10, -15, 8]} intensity={0.6} color="#D4AF37" />
       <pointLight position={[0, 0, 20]} intensity={0.3} color="#fff8e1" />
 
-      <ScrollCamera scrollProgress={scrollProgress} />
+      <CameraController scrollProgress={scrollProgress} flyTarget={flyTarget} onLanded={onLanded} />
       <GlobeSphere />
       <GlobeContinents />
       <GlobeGrid />
@@ -431,9 +502,13 @@ function AtlasSceneContent({
 // ═══ Main exported component ═══
 export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgress?: number }) {
   const [selectedProject, setSelectedProject] = useState<GeoProject | null>(null);
-  const [customProjects, setCustomProjects] = useState<GeoProject[]>([]);
+  const [flyProject, setFlyProject]           = useState<GeoProject | null>(null);
+  const [flyTarget, setFlyTarget]             = useState<THREE.Vector3 | null>(null);
+  const [customProjects, setCustomProjects]   = useState<GeoProject[]>([]);
   // V5-EVENT-STREAM-001: seed with live earthquake data; enable simulation for demo
   const { activeEvents } = useGlobeEvents({ seedEarthquakes: true, simulate: true, simulationInterval: 5000 });
+  // V5-LIVE-DATA-001: Supabase realtime → live project hotspots
+  const { liveProjects, isConnected } = useGlobeRealtime();
   const [rightClick, setRightClick] = useState<{ x: number; y: number } | null>(null);
   const sound = useSoundManager();
   const audioInitRef = useRef(false);
@@ -455,6 +530,44 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
     }
     prevEventCountRef.current = seismicCount;
   }, [activeEvents]);
+
+  // V5-CAMERA-FLY-001: click → fly → land → show inspector
+  const handleProjectSelect = useCallback((project: GeoProject) => {
+    const [px, py, pz] = latLonToPos(project.lat, project.lon, 6.4);
+    // Camera lands ~11 units from centre, directly above the hotspot
+    const pos = new THREE.Vector3(px, py, pz).normalize().multiplyScalar(11);
+    setFlyProject(project);
+    setFlyTarget(pos);
+  }, []);
+
+  // Called by CameraController when camera reaches target
+  const handleCameraLanded = useCallback(() => {
+    setSelectedProject(flyProject);
+  }, [flyProject]);
+
+  const handleProjectClose = useCallback(() => {
+    setSelectedProject(null);
+    setFlyProject(null);
+    setFlyTarget(null); // CameraController returns to scroll mode
+  }, []);
+
+  // Merge Supabase live projects with custom (right-click) projects
+  // Live projects override static geoProjects of the same name
+  const mergedCustomProjects = useCallback(() => {
+    const supabaseHotspots: GeoProject[] = liveProjects.map((p, i) => ({
+      id: 1000 + i, // avoid collision with static ids 1-12
+      name: p.name,
+      lat: p.lat,
+      lon: p.lon,
+      color: p.color,
+      desc: p.description ?? p.name,
+      status: p.status,
+    }));
+    // Deduplicate: drop static entries if Supabase has a project with the same name
+    const supabaseNames = new Set(liveProjects.map((p) => p.name));
+    const filtered = customProjects.filter((c) => !supabaseNames.has(c.name));
+    return [...supabaseHotspots, ...filtered];
+  }, [liveProjects, customProjects]);
 
   const handleContextMenu = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -494,10 +607,12 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
         >
           <Suspense fallback={null}>
             <AtlasSceneContent
-              onSelectProject={setSelectedProject}
-              customProjects={customProjects}
+              onSelectProject={handleProjectSelect}
+              customProjects={mergedCustomProjects()}
               scrollProgress={scrollProgress}
               activeEvents={activeEvents}
+              flyTarget={flyTarget}
+              onLanded={handleCameraLanded}
             />
           </Suspense>
         </Canvas>
@@ -512,10 +627,24 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
         />
       )}
 
+      {/* V5-LIVE-DATA-001: realtime status badge */}
+      <div className="absolute bottom-4 left-4 flex items-center gap-1.5 pointer-events-none" style={{ zIndex: 10 }}>
+        <span
+          className="w-1.5 h-1.5 rounded-full"
+          style={{
+            background: isConnected ? "#22c55e" : "#f5c24a",
+            boxShadow: isConnected ? "0 0 6px #22c55e" : "0 0 6px #f5c24a",
+          }}
+        />
+        <span className="font-mono text-[0.38rem] text-white/40 uppercase tracking-widest">
+          {isConnected ? `LIVE · ${liveProjects.length} PROJECTS` : "CONNECTING"}
+        </span>
+      </div>
+
       {selectedProject && (
         <ProjectInspector
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={handleProjectClose}
         />
       )}
     </>
