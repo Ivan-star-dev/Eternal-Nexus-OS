@@ -4,7 +4,8 @@ import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Brain, Globe, Send, Users, HeartPulse, Cloud, DollarSign, Shield, Zap, CheckCircle2, Clock, AlertTriangle, Archive } from "lucide-react";
+import { Brain, Globe, Send, Users, HeartPulse, Cloud, DollarSign, Shield, Zap, CheckCircle2, Clock, AlertTriangle, Archive, Inbox } from "lucide-react";
+import { useProposalQueue } from "@/hooks/useProposalQueue";
 
 // ═══ Agent definitions ═══
 interface Agent {
@@ -458,7 +459,11 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
   const [migrating, setMigrating] = useState(false);
   const [debateActive, setDebateActive] = useState(false);
   const [ledgerVersion, setLedgerVersion] = useState(0);
+  const [autoProposal, setAutoProposal] = useState<ParliamentProposal | null>(null);
   const dialoguesRef = useRef<HTMLDivElement>(null);
+
+  // V5-AI-PROPOSALS-001: auto-generated proposals from project registry
+  const { pendingCount, dequeue, isLive } = useProposalQueue();
 
   const currentScript = DEBATE_SCRIPTS[debateIndex % DEBATE_SCRIPTS.length];
 
@@ -499,7 +504,30 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
     setSpeakingAgent(null);
     setMigrating(false);
     setDebateActive(true);
+    setAutoProposal(null);
   }, []);
+
+  // V5-AI-PROPOSALS-001: pull next auto-generated proposal from queue
+  const loadAutoProposal = useCallback(() => {
+    const p = dequeue();
+    if (p) {
+      setAutoProposal(p);
+      setActiveDialogues([]);
+      setDialogueStep(0);
+      setSpeakingAgent(null);
+      setMigrating(false);
+      setDebateActive(false);
+    }
+  }, [dequeue]);
+
+  const approveAutoProposal = useCallback(() => {
+    if (!autoProposal) return;
+    appendToProposalLedger(autoProposal);
+    setLedgerVersion((v) => v + 1);
+    onDecisionApproved?.(autoProposal.recommendation);
+    setAutoProposal(null);
+    setTimeout(() => onMigrateToAtlas?.(), 2000);
+  }, [autoProposal, onDecisionApproved, onMigrateToAtlas]);
 
   const approveAndMigrate = useCallback(() => {
     const meta = PROPOSAL_METADATA[debateIndex % PROPOSAL_METADATA.length];
@@ -546,9 +574,31 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
         <span className="font-mono text-[0.6rem] tracking-[0.2em] text-primary uppercase">
           AI Council — Parlamento Digital
         </span>
-        <span className="font-mono text-[0.4rem] text-muted-foreground ml-auto">
-          {AGENTS.length} ministros ativos
-        </span>
+        <div className="ml-auto flex items-center gap-2">
+          {/* V5: auto-proposal queue badge */}
+          {pendingCount > 0 && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              onClick={loadAutoProposal}
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-primary/30 bg-primary/8 hover:bg-primary/15 transition-colors cursor-pointer"
+              title="Carregar proposta automática do registo de projetos"
+            >
+              <Inbox className="h-2.5 w-2.5 text-primary/70" />
+              <span className="font-mono text-[0.38rem] text-primary/70 tracking-widest">
+                {pendingCount} AUTO
+              </span>
+              {!isLive && (
+                <span className="font-mono text-[0.3rem] text-muted-foreground/50 ml-0.5">
+                  stub
+                </span>
+              )}
+            </motion.button>
+          )}
+          <span className="font-mono text-[0.4rem] text-muted-foreground">
+            {AGENTS.length} ministros ativos
+          </span>
+        </div>
       </div>
 
       <div className="flex flex-col md:flex-row">
@@ -651,7 +701,7 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
 
           {/* Structured proposal — appears when debate is complete */}
           <AnimatePresence>
-            {debateComplete && (
+            {debateComplete && !autoProposal && (
               <div className="px-3 pb-3">
                 <ProposalCard
                   debateIndex={debateIndex}
@@ -659,6 +709,74 @@ export default function AICouncil({ onDecisionApproved, onMigrateToAtlas }: AICo
                   migrating={migrating}
                 />
               </div>
+            )}
+          </AnimatePresence>
+
+          {/* V5: Auto-generated proposal from project registry */}
+          <AnimatePresence>
+            {autoProposal && (
+              <motion.div
+                initial={{ opacity: 0, y: 14, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="px-3 pb-3"
+              >
+                <div className="mt-3 border border-primary/30 rounded-lg bg-primary/8 p-3 space-y-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="font-mono text-[0.4rem] tracking-[0.2em] text-primary/50 uppercase block">
+                        PROPOSTA AUTOMÁTICA · {isLive ? "SUPABASE LIVE" : "REGISTO ESTÁTICO"}
+                      </span>
+                      <span className="font-mono text-[0.65rem] text-foreground font-semibold leading-tight block mt-0.5">
+                        {autoProposal.title}
+                      </span>
+                    </div>
+                    <span className={`shrink-0 font-mono text-[0.4rem] px-1.5 py-0.5 rounded border ${
+                      autoProposal.impact.riskLevel === "CRÍTICO"
+                        ? "text-destructive border-destructive/40 bg-destructive/5"
+                        : autoProposal.impact.riskLevel === "ALTO"
+                          ? "text-orange-400 border-orange-400/40 bg-orange-400/5"
+                          : "text-yellow-400 border-yellow-400/40 bg-yellow-400/5"
+                    }`}>
+                      {autoProposal.impact.riskLevel}
+                    </span>
+                  </div>
+                  <p className="font-mono text-[0.5rem] text-muted-foreground leading-relaxed border-l-2 border-primary/30 pl-2">
+                    {autoProposal.scenario}
+                  </p>
+                  <div className="bg-background/60 border border-border/20 rounded p-2">
+                    <span className="font-mono text-[0.4rem] text-primary/60 uppercase tracking-widest block mb-1">
+                      Recomendação
+                    </span>
+                    <span className="font-mono text-[0.5rem] text-foreground leading-relaxed">
+                      {autoProposal.recommendation}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 pt-1">
+                    <Button
+                      size="sm"
+                      variant="default"
+                      className="gap-1.5 font-mono text-[0.5rem]"
+                      onClick={approveAutoProposal}
+                    >
+                      <CheckCircle2 className="h-3 w-3" />
+                      Ratificar → Ledger
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="gap-1.5 font-mono text-[0.5rem] text-muted-foreground"
+                      onClick={() => setAutoProposal(null)}
+                    >
+                      Rejeitar
+                    </Button>
+                    <span className="font-mono text-[0.38rem] text-muted-foreground/50 ml-auto">
+                      {autoProposal.impact.cost} · {autoProposal.impact.roi}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>

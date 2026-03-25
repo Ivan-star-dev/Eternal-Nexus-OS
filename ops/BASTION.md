@@ -932,12 +932,11 @@ TASKS (elegíveis quando V4 fechar):
 └─────────────────────────────────────────────────────────────────────┘
 
 V5-GATE-STATUS : 🟢 OPEN — V4 closed by owner 2026-03-25
-V5-EXECUTING   : V5-EVENT-STREAM-001 (@claude — ✅ DONE 2026-03-25)
-V5-QUEUE       : V5-LIVE-DATA-001 (@cursor, BLOCKED on V5-INFRA-SUPABASE-001)
-                 V5-AUDIO-SYSTEM-001 (@antigravity)
-                 V5-AI-PROPOSALS-001 (@claude, arch layer — stub only until Supabase wired)
+V5-DONE        : V5-EVENT-STREAM-001 ✅ · V5-AI-PROPOSALS-001 ✅ (arch stub, Supabase-ready)
+V5-QUEUE       : V5-AUDIO-SYSTEM-001 (@antigravity — next)
                  V5-CAMERA-FLY-001 (@antigravity)
                  V5-MOBILE-IMMERSION-001 (@copilot)
+                 V5-LIVE-DATA-001 (@cursor, BLOCKED on V5-INFRA-SUPABASE-001)
                  V5-INFRA-SUPABASE-001 (@cursor + owner, BLOCKED on .env)
 ═══════════════════════════════════════════════════════════════════════
 ```
