@@ -23,7 +23,7 @@
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | MASTER-TOTAL-ARMY-WAVE-001 — PHASE_1: V3-FLAGSHIP-SURFACE-CLOSE-001 |
+| **Fase ativa** | V3 FECHADO ✅ — owner gate confirmado 2026-03-25 · aguarda V4 gate soberano |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
 | **Executor ativo** | CONSTELLATION: @claude · @antigravity · @framer · @cursor · @copilot · @codex |
 | **Frente ativa** | Front A (Visual Incarnation) · Front B (Surface Close) · Front C (Polish+Anti-Drift) · Front D (State+Handoff) |
