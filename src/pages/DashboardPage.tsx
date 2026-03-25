@@ -11,8 +11,8 @@ import UPlotStreamChart from "@/components/dashboard/UPlotStreamChart";
 import FrameBudgetMonitor from "@/components/dashboard/FrameBudgetMonitor";
 import ProjectMetricsBarChart from "@/components/dashboard/ProjectMetricsBarChart";
 import SystemRadarChart from "@/components/dashboard/SystemRadarChart";
-import {
 import { EASE_OUT } from "@/lib/motion/config";
+import {
   useProjectMetrics,
   useActivityLog,
   useSystemStatus,

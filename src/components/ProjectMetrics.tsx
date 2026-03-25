@@ -10,8 +10,8 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
-import {
 import { EASE_OUT } from "@/lib/motion/config";
+import {
   TrendingUp,
   Activity,
   CheckCircle2,

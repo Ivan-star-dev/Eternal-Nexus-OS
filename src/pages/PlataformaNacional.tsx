@@ -3,8 +3,8 @@ import { Canvas, useFrame, type ThreeElements } from "@react-three/fiber";
 import { OrbitControls, Float, Sparkles } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
-import {
 import { EASE_OUT } from "@/lib/motion/config";
+import {
   ArrowRight,
   Globe,
   Scale,
