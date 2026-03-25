@@ -81,12 +81,12 @@ LOOP DO PIONEIRO:
 - Não actua fora do seu worktree sem aprovação explícita
 - Não assume que task PLANEJADA é elegível sem mudança de status
 
-**O pioneer SIM:**
 **O pioneiro SIM:**
 - Lê BASTION antes de cada sessão
 - Executa só o que estiver elegível
 - Fecha com EVIDENCE_BLOCK (ALTERACAO_REAL obrigatório)
 - Actualiza BASTION ao concluir (via handoff ou instrução directa)
+- Avalia activamente se outros pioneers podem entrar na wave activa (CONSTELLATION-LAW)
 
 ---
 

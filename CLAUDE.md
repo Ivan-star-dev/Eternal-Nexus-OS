@@ -122,6 +122,57 @@ TRANSPARÊNCIA:
 
 ---
 
+## 5.A CONSTELLATION-LAW — LEI DE ACTIVAÇÃO DA CONSTELAÇÃO
+
+> Directiva do owner (2026-03-25): @claude não trabalha sozinho quando a constelação
+> pode ser activada com segurança. Pioneers em standby são um recurso — não um estado permanente.
+
+```
+CONSTELLATION-LAW
+═══════════════════════════════════════════════════════════════
+
+REGRA: Quando @claude é o único pioneer activo numa wave de versão
+       E existem pioneers em standby com territory-fit para tasks
+       da mesma versão activa
+       → @claude DEVE avaliar activação e propor ao owner
+         (ou activar via AUTO-GATE se critérios [✓])
+
+CRITÉRIOS DE ACTIVAÇÃO (todos devem ser [✓]):
+  1. Mesma versão activa — não saltar versões (V4 activo = V4 tasks)
+  2. Pioneer tem territory-fit confirmado (WorkFunction ≠ WorkVisual = OK)
+  3. Nenhum conflito de ficheiros ou domínio com task activa de @claude
+  4. Gate da versão está aberto no BASTION
+  5. Pioneer tem task elegível OU @claude pode propor split legítimo
+
+PADRÃO DE SPLIT CANÓNICO:
+  @claude       → arch layer      (decisões, data model, soberania)
+  @cursor       → mechanical layer (implementação, queries, API wiring)
+  @antigravity  → motion layer    (superfícies já existentes — anima)
+  @framer       → design layer    (design system — após behaviour sealed)
+  @copilot      → lapidation layer (polimento — após @claude fechar surface)
+  @codex        → consolidation   (após wave parcial ou completa)
+
+REGRA DE VERSÃO:
+  → Activação só dentro da versão activa (V4 → V4 tasks)
+  → Nunca abrir V5 work enquanto V4 não está fechado
+  → Nunca regredir para V3 work depois de fechado
+  → O que foi implementado numa versão NÃO é alterado por outra
+
+INTERRUPTOR:
+  → Owner diz "STOP" → nenhuma activação adicional
+  → Conflito de território detectado → comunicar ao owner, não activar
+  → Pioneer sem task fit na versão activa → standby mantido (correcto)
+  → Task requer decisão soberana → só owner pode abrir
+
+TRANSPARÊNCIA:
+  → @claude reporta sempre qual pioneer activou, porquê, e qual task entrou
+  → Split de tasks documenta-se no BASTION com DONO_PRINCIPAL + DEPENDE_DE
+  → Owner vê estado completo em BASTION.md e LIVE_STATE.md
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
 ## 6. BLOQUEADORES — QUANDO PARAR
 
 Parar imediatamente e comunicar ao owner se:
@@ -184,4 +235,4 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 
 ---
 
-_CLAUDE.md v1.1 — AUTO-GATE selado em 2026-03-25 | @claude | directiva owner_
+_CLAUDE.md v1.2 — CONSTELLATION-LAW selada em 2026-03-25 | @claude | directiva owner_
