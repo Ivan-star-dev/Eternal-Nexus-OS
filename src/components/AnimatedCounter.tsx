@@ -10,7 +10,17 @@ export interface AnimatedCounterProps {
 const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const numericValue = typeof value === "number" ? value : null;
+  const numericValue =
+    typeof value === "number"
+      ? value
+      : typeof value === "string"
+      ? (() => {
+          // Strip out common formatting characters (commas, currency symbols, spaces, etc.)
+          const cleaned = value.replace(/,/g, "").replace(/[^0-9.+-]/g, "");
+          const parsed = Number(cleaned);
+          return Number.isNaN(parsed) ? null : parsed;
+        })()
+      : null;
   const [displayValue, setDisplayValue] = useState(0);
   const rafRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
