@@ -78,18 +78,11 @@ const Footer = () => {
             <span key={link.path} className="flex items-center gap-5">
               <Link
                 to={link.path}
-                className="font-mono transition-colors duration-200"
+                className="font-mono transition-colors duration-200 text-[rgba(228,235,240,0.16)] hover:text-[rgba(228,235,240,0.45)]"
                 style={{
                   fontFamily: "JetBrains Mono, monospace",
                   fontSize: "8px",
                   letterSpacing: "0.1em",
-                  color: "rgba(228,235,240,0.16)",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.45)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.16)";
                 }}
               >
                 {link.label}
