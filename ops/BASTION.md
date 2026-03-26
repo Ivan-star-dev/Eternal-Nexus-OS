@@ -1026,9 +1026,9 @@ TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
 V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
 V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
                  V6-PROJECT-DETAIL-001 (P1 — ✅ DONE 2026-03-26 @claude)
-                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor · NEXT)
-                 V6-COUNCIL-LIVE-001 (P2 — @claude)
-                 V6-RUBERRA-SURFACE-001 (P2 — @claude)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — ✅ DONE 2026-03-26 @claude · PR#175)
+                 V6-COUNCIL-LIVE-001 (P2 — ✅ DONE 2026-03-26 @claude · PR#176)
+                 V6-RUBERRA-SURFACE-001 (P2 — 🔄 IN PROGRESS @claude)
 
 V6-AUTH-001-CLOSE:
   ✅ ProtectedRoute component (auth guard + ownerOnly variant)
@@ -1036,6 +1036,26 @@ V6-AUTH-001-CLOSE:
   ✅ useCurrentUser hook — flat identity surface for all V6 components
   ✅ GovAuth post-login redirect honours location.state.from
   ✅ TS 0 · commit 0fd720a · pushed
+
+V6-PORTFOLIO-DASHBOARD-001-CLOSE:
+  ✅ usePortfolioData hook — globe_projects + project_metrics aggregate
+  ✅ metric_key contracts: investment_usd · co2_tonnes · jobs_created · sdg_score
+  ✅ Real-time: postgres_changes on both tables
+  ✅ PortfolioMetricsPanel — animated KPI cards · LIVE badge · status bar
+  ✅ Wired at top of DashboardPage (/dashboard)
+  ✅ Build ✓ · PR#175 → main 8dc6b00
+
+V6-COUNCIL-LIVE-001-CLOSE:
+  ✅ useProposalQueue: real-time subscription to globe_projects added
+  ✅ Queue auto-rebuilds on globe_projects INSERT/UPDATE/DELETE
+  ✅ isLive: true when fetchSupabaseProjects() returns real rows
+  ✅ appendToProposalLedger: Supabase upsert to proposal_ledger added
+  ✅ Graceful fallback when proposal_ledger table doesn't exist yet
+  ✅ SQL migration documented in PR#176
+  ✅ Build ✓ · PR#176 → main d3e10b0
+
+V6-RUBERRA-SURFACE-001-CLOSE:
+  🔄 IN PROGRESS — filling stubs 03-10
 ═══════════════════════════════════════════════════════════════════════
 ```
 
