@@ -15,7 +15,7 @@ const NavBar = () => {
 
   const navLinks = [
     { label: "SCHOOL", path: "/school", live: false },
-    { label: "LAB", path: "/atlas", live: false },
+    { label: "LAB", path: "/lab", live: false },
     { label: "CREATION HUB", path: "/projects", live: false },
     { label: "PROJECTS", path: "/projects", live: false },
     { label: "GEOPOLITICS", path: "/geopolitics", live: false },

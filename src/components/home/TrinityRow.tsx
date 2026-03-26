@@ -55,7 +55,7 @@ const PORTALS: Portal[] = [
     regimeWord: "Present",
     identity: "Where reality is placed under examination.",
     tags: "observe · investigate · model",
-    path: "/atlas",
+    path: "/lab",
     glowColor: "hsl(200 65% 40% / 0.08)",
     name: "Bridge Nova",
   },
