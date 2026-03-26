@@ -5,7 +5,9 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-26
-**Atualizado por:** @claude | claude-sonnet-4-6 | V5-TOUCH-RESPONSE 5/5 ✅ (TOUCH-001→005 wired: focusedProjectId · ProjectBottomSheet · justSelectedRef · handleCanvasClick · touchMode) + V6-AUTH-001 ✅ (ProtectedRoute · useCurrentUser · /owner+/dashboard protected · post-login redirect) · TS 0 · commits 16d0a58 + 0fd720a · NEXT: V6-PROJECT-DETAIL-001 @cursor
+**Atualizado por:** @claude | claude-sonnet-4-6 | V6-PROJECT-DETAIL-001 ✅ useProjectData hook · Supabase overlay · live status + LIVE badge · TS 0 · e94efbe · NEXT: V6-PORTFOLIO-DASHBOARD-001 + merge PR#167 into main ✅
+**Última atualização:** 2026-03-26
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-TOUCH-RESPONSE 5/5 ✅ (TOUCH-001→005 wired: focusedProjectId · ProjectBottomSheet · justSelectedRef · handleCanvasClick · touchMode) + V6-AUTH-001 ✅ (ProtectedRoute · useCurrentUser · /owner+/dashboard protected · post-login redirect) · TS 0 · commits 16d0a58 + 0fd720a
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V6 GATE ABERTO via AUTO-GATE — CODEX_V5_AUDIT.md emitido · V6 theme: "User Sovereignty Layer" · 5 tasks definidas · @cursor + @claude + @copilot activados
 **Última atualização:** 2026-03-25

@@ -18,8 +18,8 @@ import TimelineTab from "@/components/project/TimelineTab";
 import FinancialTab from "@/components/project/FinancialTab";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSession } from "@/contexts/SessionContext";
-import projectData from "@/data/projects";
 import { EASE_OUT } from "@/lib/motion/config";
+import { useProjectData } from "@/hooks/useProjectData";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
@@ -36,7 +36,8 @@ const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
   const { startSession, updateReEntry } = useSession();
-  const project = id ? projectData[id] : null;
+  // V6-PROJECT-DETAIL-001: live data from Supabase overlaid on static shell
+  const { project, liveRow, isLive } = useProjectData(id);
   const [activeTab, setActiveTab] = useState("overview");
 
   // V4-PROJECT-PAGE-001 — session carryover: persist last project + detect returning visitor
@@ -102,9 +103,17 @@ const ProjectPage = () => {
               RESUME
             </motion.span>
           )}
-          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[(project.status ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
-            {project.status ?? "ACTIVE"}
+          {/* V6: show live status from Supabase when available */}
+          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[((liveRow?.status ?? project.status) ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
+            {liveRow?.status ?? project.status ?? "ACTIVE"}
           </span>
+          {isLive && (
+            <span className="hidden sm:flex items-center gap-1 font-mono text-[0.4rem] tracking-[0.14em] uppercase px-1.5 py-0.5"
+              style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.3)", color: "#22c55e" }}>
+              <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
+              LIVE
+            </span>
+          )}
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>
         </div>
       </motion.div>
@@ -148,9 +157,9 @@ const ProjectPage = () => {
             {project.subtitle}
           </motion.p>
 
-          {/* V3: body — font-serif text-sm text-paper-dim/80 leading-relaxed */}
+          {/* V6: live description from Supabase overlays static summary when available */}
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="font-serif text-sm text-paper-dim/80 leading-relaxed max-w-xl mb-8 sm:mb-10">
-            {project.summary.slice(0, 200)}…
+            {liveRow?.description ?? project.summary.slice(0, 200) + "…"}
           </motion.p>
 
           {/* KPI Row with Animated Counters */}

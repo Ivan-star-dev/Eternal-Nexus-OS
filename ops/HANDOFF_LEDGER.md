@@ -6,6 +6,25 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | V6-PROJECT-DETAIL-001 + merge PR#167 | claude-sonnet-4-6
+
+**TASK:** V6-PROJECT-DETAIL-001 + merge conflict resolution + PR#167 → main
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useProjectData.ts` — NEW — PROJECT_KEY_TO_NAME map · Supabase globe_projects.maybeSingle() · dynamic import · isLive flag · static fallback
+- `src/pages/ProjectPage.tsx` — MODIFIED — useProjectData wired · live status + LIVE badge · liveRow.description overlay
+
+**MERGE:** 8 conflicts resolved (ours) · merge commit 4cfbdbf · PR #167 merged → main `0c25453`
+**COMMITS:** 4cfbdbf · e94efbe | **TS:** 0
+
+**PRÓXIMO:** V6-PORTFOLIO-DASHBOARD-001
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | V5-TOUCH-RESPONSE · V6-AUTH-001 | claude-sonnet-4-6
 
 **TASKS:** V5-TOUCH-001/002/003/004/005 (full touch-response stack) + V6-AUTH-001
