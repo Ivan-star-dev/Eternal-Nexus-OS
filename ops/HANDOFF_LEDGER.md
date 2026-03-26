@@ -6,6 +6,35 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | RUBERRA-VISUAL-MOTHER-ID-001 | claude-sonnet-4-6
+
+**TASK:** RUBERRA Visual Mother ID + Immersive Site Vision — full surface organism upgrade
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/LIVE_STATE.md` — canonical branch updated to claude/setup-ruberra-nexus-IL7Tg
+- `CLAUDE.md` — BRANCH ATIVO updated to match
+- `src/index.css` — petroleum-blue, abyssal, depth-1/2/3, burnt-gold, glow-gold/teal, surface-glass, amber tokens added
+- `tailwind.config.ts` — abyssal, petroleum-blue, depth-1/2/3, burnt-gold, amber colors; glow-gold/teal/depth shadows
+- `src/components/NavBar.tsx` — RUBERRA · ETERNAL NEXUS OS signature; School/Lab/Creation Hub/Geopolitics/Investor Briefing/About links; 48px, glass abyssal treatment
+- `src/components/home/ProductHero.tsx` — globe 640px, atmospheric rings, deeper vignettes/fade; "ETERNAL NEXUS OS · Planetary Interface" label; SovereignText block with headline + sub-line + square CTAs
+- `src/components/home/TrinityRow.tsx` — full rewrite as 3 monumental portals (500px min-height); Past/Present/Future regime words; unique atmospheric backgrounds; portal CTAs
+- `src/components/home/DossierCard.tsx` — trinity pillar badge (SCHOOL/LAB/CREATION HUB) per card; left border accent by state color
+- `src/components/home/StrategicLayer.tsx` — NEW: 3-column editorial (Geopolitics · Investor Briefing · Founder Truth); glass surface
+- `src/pages/Index.tsx` — StrategicLayer import + placement; "PROJETOS VIVOS" orbital label; grid-cols-2 xl:grid-cols-3
+- `src/components/Footer.tsx` — full rebuild as Final Chamber; sparse centered, bg-abyssal, ~130px, 3 links only
+
+### COMMITS
+- `f04cedd` feat(ruberra): Visual Mother ID + Immersive Site Vision — full surface upgrade
+
+### PILLAR: WorkVisual + WorkStructure (branch governance)
+### PIONEER: @claude
+
+---
+
 ## HANDOFF — 2026-03-24 | @cursor | FLAGSHIP-ENTRY-LOGIC-HARDENING-001 | claude-4.6-sonnet
 
 **TASK:** FLAGSHIP-ENTRY-LOGIC-HARDENING-001 — harden entry logic, prevent continuity breaks under reload/return/project-visit
