@@ -80,13 +80,13 @@ GATE_SUSPENSION_24H ════════════════════
 | Dimensão | Valor atual |
 |---|---|
 | **Fase ativa** | ORDEM-MOBILIZAÇÃO-CONTÍNUA — PHASE_1: V3-FLAGSHIP-SURFACE-CLOSE-001 · PHASE_2: V4-LIVING-WORLD-MINIMUM-001 |
-| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Branch canônico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Executor ativo** | CONSTELLATION: @framer · @antigravity · @cursor · @claude · @codex |
 | **Frente ativa** | WorkVisual P0 (V3 close) → WorkFunction P1 (V4 min) → WorkFunction P3 (V5 depois) |
 | **Camada atual** | PHASE_1 CRÍTICA: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling |
 | **Estado geral** | ORDEM SOBERANA 2026-03-24: mobilização contínua com convergência máxima. SEQUÊNCIA IMUTÁVEL: V3→V4→V5. V3 = NS-1+GLOBE-3D+ORBITAL+MOTION+NS-2+GLOBE-IMPL. V4 = V4-WORLD-FEATURES+NS-3(breathing+world pulse). V5-RESEARCH-ARCH-001 BLOQUEADA até V3+V4 done. ANTI-DRIFT LOCK activo. BASTION v3.2. |
 | **Fase ativa** | OPERATION ZERO-GAP — Cluster Constelação 24H · T+0h CONCLUÍDO |
-| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Branch canônico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Executor ativo** | TODOS os pioneiros (cluster activo) — @cursor notificada |
 | **Frente ativa** | WorkStructure + WorkFunction + WorkVisual em paralelo |
 | **Camada atual** | T+0h: CYCLE-CLOSE-001 ✓ + BRAND-MOTHER-SEAL-001 ✓ → aguarda T+4h (V5-ARCH + NS-1 + GLOBE) |
@@ -194,7 +194,7 @@ GATE_SUSPENSION_24H ════════════════════
 SEMÁFORO:
 🟢 CHAT: mesmo
 🟢 BRANCH: claude/website-quality-assessment-Bb6r7
-🟢 BRANCH: claude/rebuild-bastion-core-rihGX
+🟢 BRANCH: claude/setup-ruberra-nexus-IL7Tg
 🟢 WORKTREE: WorkStructure
 NATUREZA: mecânico / backlog do @cursor completado
 EXECUTOR: @cursor (BULK-01.3-a/b/c done)
@@ -371,7 +371,7 @@ Ao final de cada sessão com handoff:
 
 | Campo | Valor |
 |-------|-------|
-| **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
+| **Branch canônico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Executor ativo** | TODOS OS PIONEERS — sprint final |
 | **Fase ativa** | FECHAMENTO DE CICLO — gates abertos pelo owner em 2026-03-22 |
 | **Camada atual** | Pilar 1 ✓ · Pilar 2 ✓ · Pilar 3 ✓ · Pilar 4 ✓ · Bastião Zero → em curso |
@@ -419,7 +419,7 @@ Ao final de cada sessão com handoff:
 ## 3. Estado de Canalização
 
 ```
-BRANCH: claude/rebuild-bastion-core-rihGX
+BRANCH: claude/setup-ruberra-nexus-IL7Tg
 ESTADO: SPRINT FINAL — todos os gates abertos pelo owner — fechamento de ciclo ativo
 PILARES: 1✓ 2✓ 3✓ 4✓
 GATES: PLv6.2-b ABERTO | FVL-IMPL-001 ABERTO | CYCLE-CLOSE-001 ABERTO
