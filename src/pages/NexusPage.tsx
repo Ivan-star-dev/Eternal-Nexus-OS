@@ -110,8 +110,9 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
     <motion.div
       className="sticky top-0 z-50 backdrop-blur-2xl border-b"
       style={{
-        background: "rgba(6,12,20,0.88)",
-        borderColor: "rgba(200,164,78,0.08)",
+        background: "rgba(6,12,20,0.92)",
+        borderColor: "rgba(200,164,78,0.12)",
+        boxShadow: "0 1px 24px rgba(0,0,0,0.5)",
       }}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -146,9 +147,9 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
               <Activity className="h-3 w-3" /> NEWS
             </Button>
           </Link>
-          <Link to="/atlas">
+          <Link to="/system">
             <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
-              <Globe className="h-3 w-3" /> ATLAS
+              <Database className="h-3 w-3" /> SYSTEM
             </Button>
           </Link>
           <div className="w-px h-4 bg-border/50" />

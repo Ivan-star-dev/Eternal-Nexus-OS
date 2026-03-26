@@ -21,10 +21,10 @@ const Footer = () => {
       className="relative"
       style={{ background: "hsl(216 60% 4%)" }}
     >
-      {/* Top separator */}
+      {/* Top separator — gold accent */}
       <div
         className="absolute top-0 left-0 right-0"
-        style={{ height: "0.5px", background: "rgba(255,255,255,0.05)" }}
+        style={{ height: "0.5px", background: "linear-gradient(to right, transparent, rgba(200,164,78,0.15), transparent)" }}
         aria-hidden="true"
       />
 
@@ -37,7 +37,7 @@ const Footer = () => {
               fontFamily: "Syne, system-ui, sans-serif",
               fontSize: "9px",
               letterSpacing: "0.22em",
-              color: "rgba(228,235,240,0.22)",
+              color: "rgba(200,164,78,0.35)",
             }}
           >
             RUBERRA

@@ -49,42 +49,42 @@ export default function GlobalBackground() {
     window.addEventListener("resize", onResize);
 
     // ── Gold particles ─────────────────────────────────────
-    const PARTICLE_COUNT = 180;
+    const PARTICLE_COUNT = 240;
     const particles: GoldParticle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.15,
-      vy: -Math.random() * 0.2 - 0.05,
-      size: Math.random() * 1.6 + 0.3,
-      alpha: Math.random() * 0.35 + 0.05,
+      vx: (Math.random() - 0.5) * 0.18,
+      vy: -Math.random() * 0.22 - 0.05,
+      size: Math.random() * 1.8 + 0.3,
+      alpha: Math.random() * 0.42 + 0.06,
       phase: Math.random() * Math.PI * 2,
-      pulse: Math.random() * 0.02 + 0.005,
+      pulse: Math.random() * 0.022 + 0.005,
     }));
 
     // ── Meteors ────────────────────────────────────────────
     const meteors: Meteor[] = [];
-    const METEOR_MAX = 6;
+    const METEOR_MAX = 8;
 
     function spawnMeteor() {
       if (meteors.length >= METEOR_MAX) return;
-      const angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4; // ~45° diagonal
-      const speed = Math.random() * 6 + 7;
+      const angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4;
+      const speed = Math.random() * 7 + 7;
       const startX = Math.random() * W * 1.2 - W * 0.1;
       meteors.push({
         x: startX,
         y: -20,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-        len: Math.random() * 140 + 80,
+        len: Math.random() * 160 + 90,
         alpha: 1,
         life: 0,
-        maxLife: Math.random() * 60 + 50,
-        hue: Math.random() * 25 + 35, // gold 35–60°
+        maxLife: Math.random() * 65 + 50,
+        hue: Math.random() * 25 + 35,
       });
     }
 
     let spawnTimer = 0;
-    const SPAWN_INTERVAL = 45; // frames
+    const SPAWN_INTERVAL = 38; // frames
 
     let t = 0;
 
@@ -185,7 +185,7 @@ export default function GlobalBackground() {
         height: "100%",
         pointerEvents: "none",
         zIndex: 0,
-        opacity: 0.7,
+        opacity: 0.85,
       }}
       aria-hidden="true"
     />

@@ -217,16 +217,17 @@ function SovereignText() {
     >
       {/* Headline */}
       <h1
-        className="font-serif font-[300] italic leading-[1.15] mb-5"
+        className="font-serif font-[300] italic leading-[1.1] mb-6"
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(32px, 4.5vw, 58px)",
-          color: "rgba(228,235,240,0.88)",
-          maxWidth: "820px",
+          fontSize: "clamp(40px, 5.5vw, 72px)",
+          color: "rgba(228,238,248,0.92)",
+          maxWidth: "860px",
+          letterSpacing: "-0.01em",
         }}
       >
         The world, studied.{" "}
-        <span style={{ color: "rgba(200,164,78,0.75)" }}>The future, built.</span>
+        <span style={{ color: "hsl(42 78% 62%)" }}>The future, built.</span>
       </h1>
 
       {/* Sub-line */}
@@ -234,11 +235,11 @@ function SovereignText() {
         className="font-sans font-[400] mb-10"
         style={{
           fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "11px",
-          letterSpacing: "0.18em",
-          color: "rgba(228,235,240,0.38)",
+          fontSize: "10.5px",
+          letterSpacing: "0.2em",
+          color: "rgba(200,218,232,0.42)",
           maxWidth: "560px",
-          lineHeight: "1.8",
+          lineHeight: "1.9",
           textTransform: "uppercase",
         }}
       >
