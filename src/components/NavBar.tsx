@@ -14,7 +14,7 @@ const NavBar = () => {
   const { visible, atTop } = useScrollDirection();
 
   const navLinks = [
-    { label: "SCHOOL", path: "/nexus", live: false },
+    { label: "SCHOOL", path: "/school", live: false },
     { label: "LAB", path: "/atlas", live: false },
     { label: "CREATION HUB", path: "/projects", live: false },
     { label: "PROJECTS", path: "/projects", live: false },

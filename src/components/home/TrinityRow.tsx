@@ -43,7 +43,7 @@ const PORTALS: Portal[] = [
     regimeWord: "Past",
     identity: "Where memory becomes understanding.",
     tags: "study · understand · remember",
-    path: "/nexus",
+    path: "/school",
     glowColor: "hsl(42 78% 45% / 0.08)",
     name: "Heaven Lab",
   },

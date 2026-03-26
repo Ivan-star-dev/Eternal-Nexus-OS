@@ -49,6 +49,7 @@ const FounderPage = lazy(() => import("./pages/FounderPage"));
 const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
+const SchoolPage = lazy(() => import("./pages/SchoolPage"));
 
 const queryClient = new QueryClient();
 
@@ -86,6 +87,7 @@ const App = () => (
                     </Suspense>
                   </OrganErrorBoundary>
                 } />
+                <Route path="/school" element={<SchoolPage />} />
                 <Route path="/nexus" element={<NexusPage />} />
                 <Route path="/news" element={
                   <OrganErrorBoundary organName="News">
