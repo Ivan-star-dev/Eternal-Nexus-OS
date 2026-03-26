@@ -38,24 +38,27 @@ function SystemHeader() {
   const dateStr = `${time.getFullYear()}-${pad(time.getMonth() + 1)}-${pad(time.getDate())}`;
 
   return (
-    <header className="relative z-10 flex items-center justify-between border-b border-white/[0.06] px-6 py-3">
+    <header
+      className="relative z-10 flex items-center justify-between px-6 py-3"
+      style={{ borderBottom: "0.5px solid rgba(200,164,78,0.1)" }}
+    >
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
-          <span className="block h-1.5 w-1.5 rounded-full bg-teal" />
-          <span className="font-mono text-[10px] tracking-[0.2em] text-paper-dim uppercase">
+          <span className="block h-1.5 w-1.5 rounded-full" style={{ background: "hsl(172 48% 52%)" }} />
+          <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(200,218,232,0.5)" }}>
             ETERNAL NEXUS OS
           </span>
         </div>
         <div className="h-3 w-px bg-white/10" />
-        <span className="font-mono text-[10px] tracking-[0.15em] text-paper-dim/50 uppercase">
-          SYSTEM FACE · v1.0
+        <span className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(200,164,78,0.4)" }}>
+          SYSTEM FACE · v3 · Antigravity
         </span>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-mono text-[10px] tracking-[0.12em] text-paper-dim/50">
+        <span className="font-mono text-[10px] tracking-[0.12em]" style={{ color: "rgba(200,218,232,0.25)" }}>
           {dateStr}
         </span>
-        <span className="font-mono text-[10px] tabular-nums tracking-[0.12em] text-teal-light">
+        <span className="font-mono text-[10px] tabular-nums tracking-[0.12em]" style={{ color: "hsl(172 48% 52%)" }}>
           {timeStr}
         </span>
       </div>
@@ -65,17 +68,20 @@ function SystemHeader() {
 
 function SystemFooter() {
   return (
-    <footer className="relative z-10 flex items-center justify-between border-t border-white/[0.06] px-6 py-2">
-      <span className="font-mono text-[9px] tracking-[0.18em] text-paper-dim/30 uppercase">
-        SYSTEM BRANCH: cursor/system-face-core-d9db
+    <footer
+      className="relative z-10 flex items-center justify-between px-6 py-2"
+      style={{ borderTop: "0.5px solid rgba(200,164,78,0.08)" }}
+    >
+      <span className="font-mono text-[9px] tracking-[0.18em] uppercase" style={{ color: "rgba(200,218,232,0.2)" }}>
+        BRANCH: claude/rebuild-bastion-core · Antigravity
       </span>
       <div className="flex items-center gap-3">
-        <span className="block h-1 w-1 rounded-full bg-teal/60" />
-        <span className="font-mono text-[9px] tracking-[0.15em] text-paper-dim/30 uppercase">
+        <span className="block h-1 w-1 rounded-full" style={{ background: "hsl(172 48% 52% / 0.7)" }} />
+        <span className="font-mono text-[9px] tracking-[0.15em] uppercase" style={{ color: "rgba(200,218,232,0.2)" }}>
           IGNIÇÃO_ATIVA
         </span>
-        <span className="block h-1 w-1 rounded-full bg-teal/60" />
-        <span className="font-mono text-[9px] tracking-[0.15em] text-paper-dim/30 uppercase">
+        <span className="block h-1 w-1 rounded-full" style={{ background: "hsl(172 48% 52% / 0.7)" }} />
+        <span className="font-mono text-[9px] tracking-[0.15em] uppercase" style={{ color: "rgba(200,218,232,0.2)" }}>
           MODO_AUTO · ON
         </span>
       </div>

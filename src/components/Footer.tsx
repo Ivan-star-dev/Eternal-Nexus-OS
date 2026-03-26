@@ -71,9 +71,9 @@ const Footer = () => {
         {/* Essential links only */}
         <div className="flex items-center gap-5 mb-4">
           {[
+            { label: "Founder", path: "/founder" },
             { label: "Privacy", path: "/privacy" },
             { label: "Terms", path: "/terms" },
-            { label: "About", path: "/about" },
           ].map((link, i) => (
             <span key={link.path} className="flex items-center gap-5">
               <Link
