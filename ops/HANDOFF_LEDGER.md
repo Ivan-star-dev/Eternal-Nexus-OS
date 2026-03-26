@@ -6,6 +6,38 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | DRIFT-AUDIT + GLOBE-ROUTING | claude-sonnet-4-6
+
+**TASK:** Full drift audit + all fixes + PR #168 + PR #169 → main
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**DRIFT FOUND AND FIXED:**
+- console.log removed from Index.tsx (hero InteractiveGlobe callback)
+- GoldenAtlasScene was completely orphaned (not on any route after homepage revert) → all V5 work inaccessible
+- Homepage was showing yellow gold blob (GoldenAtlasScene) instead of constellation globe
+
+**FILES:**
+- `src/pages/Index.tsx` — console.log removed; GoldenAtlasScene → InteractiveGlobe (PR #168)
+- `src/pages/GlobePage.tsx` — NEW — full-screen /globe route for GoldenAtlasScene
+- `src/App.tsx` — /globe route registered + GlobePage lazy import
+- `src/components/NavBar.tsx` — GLOBE nav link added pointing to /globe
+
+**ARCHITECTURE AFTER FIX:**
+  /         → InteractiveGlobe (lightweight constellation homepage hero)
+  /globe    → GoldenAtlasScene (V5: touch, audio, realtime, camera fly)
+  /atlas    → CesiumViewer (terrain, satellite, geospatial data)
+
+**PR #168 merged** → main `44836a9` (homepage fix)
+**PR #169 merged** → main `41be90c` (drift audit + globe routing)
+**TS:** 0 errors
+
+**PRÓXIMO:** V6-PORTFOLIO-DASHBOARD-001
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | V6-PROJECT-DETAIL-001 + merge PR#167 | claude-sonnet-4-6
 
 **TASK:** V6-PROJECT-DETAIL-001 + merge conflict resolution + PR#167 → main
