@@ -940,7 +940,95 @@ V5-DONE        : V5-EVENT-STREAM-001 ✅
                  V5-LIVE-DATA-001 ✅ — useGlobeRealtime · Supabase realtime · INSERT/UPDATE/DELETE · PROJECT_UPDATE → EventPulseRing · live badge
                  V5-MOBILE-IMMERSION-001 ✅ — useTouchGlobe · swipe-orbit · pinch-zoom · tap-to-inspect · momentum decay · DPR mobile cap
 V5-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — 7/7 tasks done
-V5-QUEUE       : CLUSTER-ORCHESTRATE-001 (@codex — wave audit · open V6 gate)
+CLUSTER-ORCHESTRATE-001: ✅ briefing emitido → ops/CODEX_V5_AUDIT.md
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 9. V6 GATE — USER SOVEREIGNTY LAYER
+
+> Gate aberto por: @claude · 2026-03-25 · AUTO-GATE-LAW (CLAUDE.md §5)
+> V5 7/7 [✓] → critérios satisfeitos → V6 abre automaticamente
+> Owner pode bloquear dizendo "STOP", "PAUSE", ou "BLOCK"
+
+```
+V6-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "O utilizador tem voz — identidade, workspace, soberania pessoal"
+
+CONSTELLATION PARA V6:
+  @claude      → arch + governança + decisões soberanas
+  @cursor      → implementação mecânica (queries, API wiring)
+  @copilot     → lapidação + polish de superfícies V6
+  @antigravity → motion layer das novas superfícies
+
+TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-AUTH-001                                             │
+│ DONO      │ @claude (arch) + @cursor (mech)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Full auth flow — Supabase Auth (email/magic link)       │
+│           │ onboarding screen · user profile · session persistence  │
+│           │ gate-protected routes (Atlas, Nexus, ProjectPage)       │
+│ EVIDENCE  │ Login funcional · rotas protegidas · TS 0               │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PROJECT-DETAIL-001                                   │
+│ DONO      │ @cursor (mech layer)                                    │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ ProjectPage wired to real Supabase data                 │
+│           │ globe_projects query · metrics · timeline · status      │
+│           │ Completes V4-PROJECT-PAGE-001-MECH (outstanding)        │
+│ EVIDENCE  │ Real project data loads · no placeholder · TS 0         │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PORTFOLIO-DASHBOARD-001                              │
+│ DONO      │ @claude (arch) + @cursor (data)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Portfolio aggregate view                                │
+│           │ Total investment · CO₂ impact · jobs · SDG score        │
+│           │ Live metrics from globe_projects + project_metrics      │
+│           │ New route /portfolio or embedded in AtlasPage           │
+│ EVIDENCE  │ Aggregate numbers visible · update on Supabase change   │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-COUNCIL-LIVE-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ AICouncil proposals fully live from Supabase            │
+│           │ fetchSupabaseProjects() returns rows → isLive:true      │
+│           │ AUTO badge shows "LIVE" not "stub"                      │
+│           │ Proposals persist to Supabase proposal_ledger table     │
+│ EVIDENCE  │ isLive:true confirmed · proposals from real data · TS 0 │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-RUBERRA-SURFACE-001                                  │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkStructure + WorkVisual                              │
+│ TASK      │ RUBERRA corp stubs 02-10 with real content structure    │
+│           │ Corp structure · product · system spine · defense       │
+│           │ governance · forja · marketing · didactic · ecosystem   │
+│ EVIDENCE  │ 9 stubs with real section structure · TS 0              │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
+V6-QUEUE       : V6-AUTH-001 (P1 — @claude arch · @cursor mech · NEXT)
+                 V6-PROJECT-DETAIL-001 (P1 — @cursor)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor)
+                 V6-COUNCIL-LIVE-001 (P2 — @claude)
+                 V6-RUBERRA-SURFACE-001 (P2 — @claude)
 ═══════════════════════════════════════════════════════════════════════
 ```
 

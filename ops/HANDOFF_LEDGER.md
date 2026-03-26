@@ -6,6 +6,25 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | CLUSTER-ORCHESTRATE-001 · V6 GATE OPEN | claude-sonnet-4-6
+
+**TASK:** CLUSTER-ORCHESTRATE-001 (Codex briefing) + AUTO-GATE V6
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `ops/CODEX_V5_AUDIT.md` — NEW — @codex briefing: task audit table · 7 files created · 5 modified · checklist 4 dimensões · relatório-mãe template · loose ends mapeados
+- `ops/BASTION.md` — V6 GATE seção 9: 5 tasks definidas · constellation activada · V6-GATE-STATUS 🟢 OPEN
+- `ops/LIVE_STATE.md` — V6 aberto · codex briefing emitido
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**AUTO-GATE:** V5 7/7 [✓] → CLAUDE.md §5 → V6 abre sem instrução do owner
+**PRÓXIMO:** V6-AUTH-001 — Supabase Auth full flow + rotas protegidas
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V5-MOBILE-IMMERSION-001 · V5 CLOSED | claude-sonnet-4-6
 
 **TASK:** V5-MOBILE-IMMERSION-001 (touch gestures) — V5 phase closure
