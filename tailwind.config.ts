@@ -92,6 +92,21 @@ export default {
           terracotta: "hsl(var(--morabeza-terracotta))",
           ocean: "hsl(var(--morabeza-ocean))",
         },
+        abyssal: "hsl(var(--abyssal))",
+        "petroleum-blue": "hsl(var(--petroleum-blue))",
+        "depth-1": "hsl(var(--depth-1))",
+        "depth-2": "hsl(var(--depth-2))",
+        "depth-3": "hsl(var(--depth-3))",
+        "burnt-gold": {
+          DEFAULT: "hsl(var(--burnt-gold))",
+          light: "hsl(var(--burnt-gold-light))",
+        },
+        amber: "hsl(var(--amber))",
+      },
+      boxShadow: {
+        "glow-gold": "var(--glow-gold)",
+        "glow-teal": "var(--glow-teal)",
+        "depth": "0 24px 80px -16px hsl(0 0% 0% / 0.8)",
       },
       borderRadius: {
         lg: "var(--radius)",
