@@ -10,6 +10,7 @@ import RightClickPrompt from "./RightClickPrompt";
 import { continentCoastlines } from "@/data/continentCoastlines";
 import { useGlobeEvents } from "@/hooks/useGlobeEvents";
 import { useGlobeRealtime } from "@/hooks/useGlobeRealtime";
+import { useTouchGlobe } from "@/hooks/useTouchGlobe";
 import type { GlobeEvent } from "@/lib/eventBus";
 
 // ═══ Project data — original + Next Path Infra hubs ═══
@@ -137,16 +138,20 @@ function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-// ═══ Unified Camera Controller (scroll + cinematic fly) ═══
-// V5-CAMERA-FLY-001: handles scroll-driven orbit AND cinematic fly-to-project
+// ═══ Unified Camera Controller (scroll + orbit + cinematic fly) ═══
+// V5-CAMERA-FLY-001 + V5-MOBILE-IMMERSION-001
 function CameraController({
   scrollProgress,
   flyTarget,
   onLanded,
+  orbitTheta,
+  zoomDelta,
 }: {
   scrollProgress: number;
   flyTarget: THREE.Vector3 | null;
   onLanded: () => void;
+  orbitTheta: React.MutableRefObject<number>;
+  zoomDelta: React.MutableRefObject<number>;
 }) {
   const progressRef     = useRef(0);
   const phaseRef        = useRef<"scroll" | "flying" | "returning">("scroll");
@@ -191,16 +196,26 @@ function CameraController({
       const targetZ = THREE.MathUtils.lerp(16, -55, scrollProgress);
       returnTargetRef.current.set(0, 2, targetZ);
 
-      progressRef.current = Math.min(1, progressRef.current + delta * 0.85); // ~1.2s
+      progressRef.current = Math.min(1, progressRef.current + delta * 0.85);
       const t = easeInOutCubic(progressRef.current);
       cam.position.lerpVectors(startPosRef.current, returnTargetRef.current, t);
       cam.lookAt(0, 0, 0);
 
       if (progressRef.current >= 1) phaseRef.current = "scroll";
     } else {
-      // ── Normal scroll orbit ──
-      const targetZ = THREE.MathUtils.lerp(16, -55, scrollProgress);
-      cam.position.z = THREE.MathUtils.lerp(cam.position.z, targetZ, 0.05);
+      // ── Scroll + touch orbit + pinch zoom ──
+      const baseZ  = THREE.MathUtils.lerp(16, -55, scrollProgress);
+      const radius = Math.max(8, Math.abs(baseZ) + zoomDelta.current);
+      const theta  = orbitTheta.current;
+
+      // Orbit around Y axis — camera looks at origin
+      const targetX = radius * Math.sin(theta);
+      const targetZ = radius * Math.cos(theta) * (baseZ < 0 ? -1 : 1);
+
+      cam.position.x = THREE.MathUtils.lerp(cam.position.x, targetX, 0.06);
+      cam.position.y = THREE.MathUtils.lerp(cam.position.y, 2,       0.06);
+      cam.position.z = THREE.MathUtils.lerp(cam.position.z, targetZ, 0.06);
+      cam.lookAt(0, 0, 0);
     }
   });
 
@@ -456,6 +471,8 @@ function AtlasSceneContent({
   activeEvents,
   flyTarget,
   onLanded,
+  orbitTheta,
+  zoomDelta,
 }: {
   onSelectProject: (p: GeoProject) => void;
   customProjects: GeoProject[];
@@ -463,6 +480,8 @@ function AtlasSceneContent({
   activeEvents: GlobeEvent[];
   flyTarget: THREE.Vector3 | null;
   onLanded: () => void;
+  orbitTheta: React.MutableRefObject<number>;
+  zoomDelta: React.MutableRefObject<number>;
 }) {
   const npiBeams = useMemo(() => {
     return geoProjects
@@ -479,7 +498,13 @@ function AtlasSceneContent({
       <pointLight position={[-10, -15, 8]} intensity={0.6} color="#D4AF37" />
       <pointLight position={[0, 0, 20]} intensity={0.3} color="#fff8e1" />
 
-      <CameraController scrollProgress={scrollProgress} flyTarget={flyTarget} onLanded={onLanded} />
+      <CameraController
+        scrollProgress={scrollProgress}
+        flyTarget={flyTarget}
+        onLanded={onLanded}
+        orbitTheta={orbitTheta}
+        zoomDelta={zoomDelta}
+      />
       <GlobeSphere />
       <GlobeContinents />
       <GlobeGrid />
@@ -505,6 +530,9 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
   const [flyProject, setFlyProject]           = useState<GeoProject | null>(null);
   const [flyTarget, setFlyTarget]             = useState<THREE.Vector3 | null>(null);
   const [customProjects, setCustomProjects]   = useState<GeoProject[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // V5-MOBILE-IMMERSION-001: touch orbit + pinch zoom
+  const { orbitTheta, zoomDelta } = useTouchGlobe(containerRef);
   // V5-EVENT-STREAM-001: seed with live earthquake data; enable simulation for demo
   const { activeEvents } = useGlobeEvents({ seedEarthquakes: true, simulate: true, simulationInterval: 5000 });
   // V5-LIVE-DATA-001: Supabase realtime → live project hotspots
@@ -592,10 +620,16 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
 
   return (
     <>
-      <div className="absolute inset-0" style={{ zIndex: 0 }} onContextMenu={handleContextMenu} onClick={initAudio}>
+      <div
+        ref={containerRef}
+        className="absolute inset-0"
+        style={{ zIndex: 0, touchAction: "pan-y" }}
+        onContextMenu={handleContextMenu}
+        onClick={initAudio}
+      >
         <Canvas
           camera={{ position: [0, 2, 16], fov: 42 }}
-          dpr={[2, 3]}
+          dpr={typeof window !== "undefined" && window.innerWidth < 768 ? [1, 2] : [2, 3]}
           gl={{
             antialias: true,
             alpha: true,
@@ -613,6 +647,8 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
               activeEvents={activeEvents}
               flyTarget={flyTarget}
               onLanded={handleCameraLanded}
+              orbitTheta={orbitTheta}
+              zoomDelta={zoomDelta}
             />
           </Suspense>
         </Canvas>
