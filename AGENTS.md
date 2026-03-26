@@ -66,3 +66,23 @@ Sem os dois blocos, o fechamento está incompleto e a sessão não existe para o
 ## Regra de drift
 - Se uma solicitação conflitar com as invariantes acima, responder exatamente:
   **"Isso quebra o organismo vivo. Quer manter?"**
+
+## Cursor Cloud specific instructions
+
+### Project overview
+Eternal Nexus is a single-package Vite + React 18 SPA (not a monorepo). The only required service is the **Vite dev server** on port 8080. Supabase, CesiumJS Ion, and ElevenLabs are cloud-hosted optional services configured via env vars; the app gracefully degrades without them.
+
+### Running the dev environment
+- `npm run dev` — starts Vite on `http://localhost:8080` (bound to `0.0.0.0`).
+- Copy `.env.example` to `.env` for placeholder env vars; the app works without real API keys.
+
+### Lint, typecheck, test
+- `npm run lint` — ESLint (flat config). Pre-existing warnings (~149) and 3 errors in baseline code.
+- `npm run typecheck` — runs `tsc --noEmit` against both `tsconfig.app.json` and `tsconfig.node.json`. Baseline has ~15 implicit-any errors.
+- `npm test` — Vitest in browser mode (Playwright/Chromium). Requires `npx playwright install chromium` first. 10 test files, 84+ tests pass.
+
+### Gotchas
+- `src/setupTests.ts` is referenced in `vite.config.ts` but does not exist; Vitest still runs fine because it silently skips missing setup files.
+- `playwright.config.ts` uses `baseURL: 'http://localhost:5173'` (default Vite port) but the actual dev server runs on port **8080** (configured in `vite.config.ts`). If running Playwright perf tests (`npm run test:perf`), either update the config or start Vite on 5173.
+- The project uses Node.js 22 and npm (lockfile: `package-lock.json`).
+- Protected files that require owner handoff before editing: `vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`.
