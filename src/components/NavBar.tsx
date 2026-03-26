@@ -17,8 +17,9 @@ const NavBar = () => {
     { label: "SCHOOL", path: "/nexus", live: false },
     { label: "LAB", path: "/atlas", live: false },
     { label: "CREATION HUB", path: "/projects", live: false },
+    { label: "PROJECTS", path: "/projects", live: false },
     { label: "GEOPOLITICS", path: "/geopolitics", live: false },
-    { label: "INVESTOR BRIEFING", path: "/investor-briefing", live: false },
+    { label: "INVESTOR BRIEFING", path: "/investor/deltaspine-nl", live: false },
     { label: t("nav_about"), path: "/about", live: false },
   ];
 

@@ -44,7 +44,7 @@ const PORTALS: Portal[] = [
     identity: "Where memory becomes understanding.",
     tags: "study · understand · remember",
     path: "/nexus",
-    glowColor: "hsl(42 78% 45% / 0.06)",
+    glowColor: "hsl(42 78% 45% / 0.08)",
     name: "Heaven Lab",
   },
   {
@@ -56,7 +56,7 @@ const PORTALS: Portal[] = [
     identity: "Where reality is placed under examination.",
     tags: "observe · investigate · model",
     path: "/atlas",
-    glowColor: "hsl(172 55% 28% / 0.06)",
+    glowColor: "hsl(200 65% 40% / 0.08)",
     name: "Bridge Nova",
   },
   {
@@ -68,7 +68,7 @@ const PORTALS: Portal[] = [
     identity: "Where systems gain form and authorship takes root.",
     tags: "design · build · ship",
     path: "/projects",
-    glowColor: "hsl(38 80% 42% / 0.06)",
+    glowColor: "hsl(38 80% 42% / 0.07)",
     name: "Nexus Cria",
   },
 ];
@@ -84,146 +84,92 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
   const lit = hovered || isActive;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay, duration: 0.85, ease: EASE }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative flex flex-col px-8 md:px-12 py-14 select-none"
-      style={{ minHeight: "500px" }}
-    >
-      {/* Unique atmospheric background glow */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
+    <Link to={portal.path} className="block flex-1" style={{ textDecoration: "none" }}>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ delay, duration: 1.0, ease: EASE }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="relative flex flex-col items-center justify-end text-center select-none overflow-hidden"
         style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${portal.glowColor} 0%, transparent 65%)`,
-          opacity: lit ? 1.6 : 1,
+          minHeight: "340px",
+          borderRadius: "50% 50% 0 0 / 20% 20% 0 0",
+          cursor: "pointer",
         }}
-        aria-hidden="true"
-      />
-
-      {/* Active-face ring */}
-      {isActive && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="absolute inset-0 pointer-events-none"
-          style={{ border: "0.5px solid rgba(200,164,78,0.2)" }}
+      >
+        {/* Atmospheric chamber glow — rising from below like a world peeking up */}
+        <div
+          className="pointer-events-none absolute inset-0 transition-all duration-700"
+          style={{
+            background: `
+              radial-gradient(ellipse at 50% 80%, ${portal.glowColor.replace(/[\d.]+\)$/, (m) => `${parseFloat(m) * (lit ? 2.5 : 1.5)})`)} 0%, transparent 70%),
+              radial-gradient(ellipse at 50% 100%, rgba(6,12,20,0.3) 0%, transparent 50%)
+            `,
+          }}
           aria-hidden="true"
         />
-      )}
 
-      {/* Orbital index + name header */}
-      <div className="relative z-10 flex items-center gap-3 mb-4">
-        <span
-          className="font-mono text-[9px] tabular-nums"
-          style={{ color: "rgba(200,164,78,0.3)", letterSpacing: "0.1em" }}
-        >
-          {String(portal.index).padStart(2, "0")}
-        </span>
-        <motion.span
-          animate={{ color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 42% / 0.8)" }}
-          transition={{ duration: 0.35 }}
-          className="font-sans font-[500] uppercase"
+        {/* Fine arc border at top — architectural arc */}
+        <div
+          className="pointer-events-none absolute top-0 left-[10%] right-[10%] transition-opacity duration-500"
           style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "11px",
-            letterSpacing: "0.22em",
+            height: "1px",
+            background: `linear-gradient(to right, transparent, ${lit ? "rgba(200,164,78,0.3)" : "rgba(200,164,78,0.1)"}, transparent)`,
+            borderRadius: "50%",
           }}
-        >
-          {portal.pillarName}
-        </motion.span>
-      </div>
+          aria-hidden="true"
+        />
 
-      {/* Thin separator under header */}
-      <div
-        className="relative z-10 mb-10"
-        style={{
-          height: "0.5px",
-          background: `linear-gradient(to right, rgba(200,164,78,${lit ? "0.3" : "0.15"}), transparent)`,
-          transition: "background 0.4s",
-        }}
-      />
+        {/* Active-face subtle ring */}
+        {isActive && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              border: "0.5px solid rgba(200,164,78,0.15)",
+              borderRadius: "50% 50% 0 0 / 20% 20% 0 0",
+            }}
+            aria-hidden="true"
+          />
+        )}
 
-      {/* Regime word — the temporal axis */}
-      <motion.span
-        animate={{ opacity: lit ? 0.5 : 0.28 }}
-        transition={{ duration: 0.4 }}
-        className="relative z-10 block font-serif font-[300] italic leading-none mb-8"
-        style={{
-          fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(34px, 4vw, 48px)",
-          color: "#e4ebf0",
-        }}
-      >
-        {portal.regimeWord}
-      </motion.span>
+        {/* Content — positioned at bottom third */}
+        <div className="relative z-10 pb-10 pt-24 px-6">
+          {/* Pillar name — golden uppercase, bold */}
+          <motion.h3
+            animate={{ color: lit ? "hsl(42 78% 55%)" : "hsl(42 78% 45% / 0.85)" }}
+            transition={{ duration: 0.35 }}
+            className="font-sans font-[600] uppercase mb-1"
+            style={{
+              fontFamily: "Syne, system-ui, sans-serif",
+              fontSize: "14px",
+              letterSpacing: "0.2em",
+            }}
+          >
+            {portal.pillarName}
+          </motion.h3>
 
-      {/* Identity line */}
-      <motion.p
-        animate={{ opacity: lit ? 0.72 : 0.5 }}
-        transition={{ duration: 0.35 }}
-        className="relative z-10 font-sans font-[400] leading-relaxed mb-8"
-        style={{
-          fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "13px",
-          color: "#e4ebf0",
-          maxWidth: "280px",
-        }}
-      >
-        {portal.identity}
-      </motion.p>
-
-      {/* Regime tags */}
-      <span
-        className="relative z-10 block font-mono"
-        style={{
-          fontFamily: "JetBrains Mono, monospace",
-          fontSize: "9px",
-          letterSpacing: "0.18em",
-          color: "hsl(172 48% 52% / 0.45)",
-          marginBottom: "auto",
-        }}
-      >
-        {portal.tags}
-      </span>
-
-      {/* Portal CTA — bottom */}
-      <motion.div
-        animate={{ opacity: lit ? 1 : 0.4, x: lit ? 4 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="relative z-10 mt-12"
-      >
-        <Link
-          to={portal.path}
-          className="inline-flex items-center gap-2 font-sans font-[400] transition-colors"
-          style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.55)",
-          }}
-        >
-          <span>→</span>
-          <span>Enter {portal.pillarName === "CREATION HUB" ? "Creation Hub" : portal.pillarName.charAt(0) + portal.pillarName.slice(1).toLowerCase()}</span>
-        </Link>
+          {/* Regime word — temporal axis */}
+          <motion.span
+            animate={{ opacity: lit ? 0.6 : 0.35 }}
+            transition={{ duration: 0.4 }}
+            className="block font-sans font-[400] uppercase mb-0"
+            style={{
+              fontFamily: "Syne, system-ui, sans-serif",
+              fontSize: "11px",
+              letterSpacing: "0.16em",
+              color: "#e4ebf0",
+            }}
+          >
+            {portal.regimeWord}
+          </motion.span>
+        </div>
       </motion.div>
-    </motion.div>
-  );
-}
-
-// Vertical divider between portals
-function PortalDivider() {
-  return (
-    <div
-      className="hidden md:block flex-shrink-0 self-stretch"
-      style={{ width: "0.5px", background: "rgba(255,255,255,0.05)" }}
-      aria-hidden="true"
-    />
+    </Link>
   );
 }
 
@@ -233,56 +179,16 @@ interface TrinityRowProps {
 
 export default function TrinityRow({ activeFace }: TrinityRowProps) {
   return (
-    <div>
-      {/* Section orbital label */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.0 }}
-        className="mb-8 flex items-center justify-center gap-5"
-      >
-        <motion.span
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
-          className="block h-px origin-right"
-          style={{ width: "80px", background: "linear-gradient(to right, transparent, rgba(200,164,78,0.25))" }}
-        />
-        <span
-          className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
-          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.4)" }}
-        >
-          OS TRÊS PILARES
-        </span>
-        <motion.span
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
-          className="block h-px origin-left"
-          style={{ width: "80px", background: "linear-gradient(to left, transparent, rgba(200,164,78,0.25))" }}
-        />
-      </motion.div>
-
-      {/* Monumental portals — 3 columns separated by fine dividers */}
-      <div
-        className="relative flex flex-col md:flex-row w-full overflow-hidden"
-        style={{
-          background: "linear-gradient(180deg, rgba(6,12,20,0) 0%, rgba(6,12,20,0.4) 100%)",
-          border: "0.5px solid rgba(255,255,255,0.04)",
-        }}
-      >
+    <div className="relative">
+      {/* Three arc-shaped chambers — worlds peeking up through the page */}
+      <div className="relative flex flex-col md:flex-row w-full gap-3 md:gap-5">
         {PORTALS.map((portal, i) => (
-          <div key={portal.id} className="flex-1 flex flex-col md:flex-row">
-            <PortalNode
-              portal={portal}
-              delay={0.12 * i}
-              isActive={activeFace ? portal.face === activeFace : false}
-            />
-            {i < PORTALS.length - 1 && <PortalDivider />}
-          </div>
+          <PortalNode
+            key={portal.id}
+            portal={portal}
+            delay={0.15 * i}
+            isActive={activeFace ? portal.face === activeFace : false}
+          />
         ))}
       </div>
     </div>

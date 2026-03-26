@@ -17,7 +17,6 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import { useSession } from "@/contexts/SessionContext";
 import TrinityRow from "./TrinityRow";
-import HeroFirstProof from "./HeroFirstProof";
 
 const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
@@ -73,12 +72,12 @@ function MachineSubstrate() {
   );
 }
 
-// Globe presence — primary zone, dominates
+// Globe presence — fills entire viewport, the Earth IS the page
 function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }) {
   return (
     <div
       className="relative w-full"
-      style={{ height: "clamp(640px, 82vw, 920px)" }}
+      style={{ height: "100vh" }}
     >
       {/* Atmospheric concentric rings — behind globe, barely visible */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center" aria-hidden="true">
@@ -179,116 +178,117 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         </span>
       </motion.div>
 
-      {/* Globe anchor label — center bottom, transitions reader to trinity */}
+      {/* Scroll hint — minimal, bottom center */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.0, duration: 1.2, ease: EASE }}
-        className="absolute bottom-12 left-0 right-0 z-[3] flex flex-col items-center gap-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 1.5 }}
+        className="absolute bottom-8 left-0 right-0 z-[3] flex justify-center"
       >
         <motion.div
-          animate={{ opacity: [0.25, 0.55, 0.25], scaleX: [0.8, 1.1, 0.8] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 6, 0], opacity: [0.2, 0.45, 0.2] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            width: "36px",
-            height: "0.5px",
-            background: "rgba(200,164,78,0.55)",
+            width: "1px",
+            height: "24px",
+            background: "linear-gradient(to bottom, rgba(228,235,240,0.3), transparent)",
           }}
         />
-        <span
-          className="font-sans text-[10px] font-[400] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(228,235,240,0.3)" }}
-        >
-          O sistema e os seus filhos
-        </span>
       </motion.div>
     </div>
   );
 }
 
-// Sovereign text block — between globe and trinity
+// Sovereign text — floats OVER the globe, not below it
 function SovereignText() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8, duration: 1.1, ease: EASE }}
-      className="relative z-10 flex flex-col items-center text-center px-6 pt-4 pb-16"
+      transition={{ delay: 0.9, duration: 1.2, ease: EASE }}
+      className="absolute inset-0 z-[5] flex flex-col items-center justify-center text-center px-6 pointer-events-none"
     >
-      {/* Headline */}
+      {/* Headline — sovereign declaration over the globe */}
       <h1
-        className="font-serif font-[300] italic leading-[1.15] mb-5"
+        className="font-serif font-[300] italic leading-[1.2] mb-4 pointer-events-auto"
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(32px, 4.5vw, 58px)",
-          color: "rgba(228,235,240,0.88)",
-          maxWidth: "820px",
+          fontSize: "clamp(26px, 3.8vw, 50px)",
+          color: "rgba(228,235,240,0.92)",
+          maxWidth: "720px",
+          textShadow: "0 2px 40px rgba(6,12,20,0.7)",
         }}
       >
-        The world, studied.{" "}
-        <span style={{ color: "rgba(200,164,78,0.75)" }}>The future, built.</span>
+        A sovereign operating environment
+        <br />
+        for learning, investigation, and creation
       </h1>
 
       {/* Sub-line */}
       <p
-        className="font-sans font-[400] mb-10"
+        className="font-sans font-[400] mb-8 pointer-events-auto"
         style={{
           fontFamily: "Syne, system-ui, sans-serif",
           fontSize: "11px",
-          letterSpacing: "0.18em",
-          color: "rgba(228,235,240,0.38)",
-          maxWidth: "560px",
+          letterSpacing: "0.14em",
+          color: "rgba(228,235,240,0.45)",
+          maxWidth: "520px",
           lineHeight: "1.8",
-          textTransform: "uppercase",
         }}
       >
-        A sovereign operating system for perceiving, investigating, and creating at planetary scale.
+        See the world. Study the past. Investigate the present. Create the future.
       </p>
 
-      {/* CTAs */}
-      <div className="flex items-center gap-4 flex-wrap justify-center">
+      {/* CTAs — bordered, side by side */}
+      <div className="flex items-center gap-4 flex-wrap justify-center pointer-events-auto">
         <Link
-          to="/access"
-          className="font-sans font-[500] transition-colors duration-200"
+          to="/nexus"
+          className="font-sans font-[500] transition-all duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "hsl(36 65% 50%)",
-            border: "1px solid hsl(36 65% 38% / 0.5)",
-            padding: "13px 28px",
+            fontSize: "11px",
+            letterSpacing: "0.08em",
+            color: "rgba(228,235,240,0.9)",
+            border: "1px solid rgba(228,235,240,0.25)",
+            padding: "12px 32px",
             borderRadius: 0,
             display: "inline-block",
+            backdropFilter: "blur(8px)",
+            background: "rgba(6,12,20,0.3)",
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.background = "hsl(36 65% 38% / 0.1)";
-            (e.currentTarget as HTMLElement).style.borderColor = "hsl(36 65% 50% / 0.7)";
+            (e.currentTarget as HTMLElement).style.borderColor = "rgba(228,235,240,0.5)";
+            (e.currentTarget as HTMLElement).style.background = "rgba(228,235,240,0.08)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.background = "transparent";
-            (e.currentTarget as HTMLElement).style.borderColor = "hsl(36 65% 38% / 0.5)";
+            (e.currentTarget as HTMLElement).style.borderColor = "rgba(228,235,240,0.25)";
+            (e.currentTarget as HTMLElement).style.background = "rgba(6,12,20,0.3)";
           }}
         >
-          Enter the System
+          Enter World
         </Link>
         <Link
           to="/projects"
-          className="font-sans font-[400] transition-colors duration-200"
+          className="font-sans font-[500] transition-all duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "rgba(228,235,240,0.35)",
-            padding: "13px 28px",
+            fontSize: "11px",
+            letterSpacing: "0.08em",
+            color: "rgba(228,235,240,0.9)",
+            border: "1px solid rgba(228,235,240,0.25)",
+            padding: "12px 32px",
             borderRadius: 0,
+            display: "inline-block",
+            backdropFilter: "blur(8px)",
+            background: "rgba(6,12,20,0.3)",
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.75)";
+            (e.currentTarget as HTMLElement).style.borderColor = "rgba(228,235,240,0.5)";
+            (e.currentTarget as HTMLElement).style.background = "rgba(228,235,240,0.08)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
+            (e.currentTarget as HTMLElement).style.borderColor = "rgba(228,235,240,0.25)";
+            (e.currentTarget as HTMLElement).style.background = "rgba(6,12,20,0.3)";
           }}
         >
           Explore Projects
@@ -410,29 +410,22 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
       ref={sectionRef}
       style={{ opacity: sectionOpacity, y: sectionY, background: "#060c14" }}
       className="relative w-full overflow-hidden"
-      aria-label="Heaven Lab — sistema e filhos"
+      aria-label="Ruberra — sovereign living surface"
       role="banner"
     >
       <MachineSubstrate />
       <AtmosphericLayer />
 
-      {/* ── 1. GLOBE ZONE ─────────────────────────────────────────── */}
-      <div className="relative">
+      {/* ── 1. GLOBE ZONE — fills viewport, sovereign text floats over it ── */}
+      <div className="relative" style={{ minHeight: "100vh" }}>
         <GlobeZone onHotspotClick={onHotspotClick} />
+        <SovereignText />
         <SessionPulse />
       </div>
 
-      {/* ── 2. SOVEREIGN TEXT + CTAs ─────────────────────────────── */}
-      <SovereignText />
-
-      {/* ── 3. TRINITY ROW ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-0">
+      {/* ── 2. TRINITY PORTALS — arc-shaped chambers peeking from below the fold ── */}
+      <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-16 pb-0" style={{ marginTop: "-120px" }}>
         <TrinityRowWithSession />
-      </div>
-
-      {/* ── 4. FIRST PROOF ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-16 pb-32">
-        <HeroFirstProof />
       </div>
 
       {/* Gradient fade to rest of page */}
