@@ -17,9 +17,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 // Minimal face-to-route mapping — no new logic, uses existing routing data
 const FACE_ENTRY: Record<TrinityFace, { path: string; label: string }> = {
-  heaven_lab:  { path: "/nexus",    label: "Heaven Lab — Retomar" },
-  bridge_nova: { path: "/nexus",    label: "Bridge Nova — Retomar" },
-  nexus_cria:  { path: "/nexus",    label: "Nexus Cria — Retomar" },
+  heaven_lab:  { path: "/lab",      label: "Heaven Lab — Retomar" },
+  bridge_nova: { path: "/school",   label: "Bridge Nova — Retomar" },
+  nexus_cria:  { path: "/workshop", label: "Nexus Cria — Retomar" },
 };
 
 // Session-aware CTA footer — primary entry changes when a resumable session exists.
