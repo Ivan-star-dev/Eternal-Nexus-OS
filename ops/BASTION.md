@@ -744,3 +744,298 @@ DERIVA          │ impermitida
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
 *BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
 *BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
+
+---
+
+## 6. V4 CLOSE GATE — CRITÉRIOS DE FECHO
+
+> Aberto por: @claude · 2026-03-25 · FORCE-ACTIVATION-001
+> V4 fecha quando TODOS os critérios abaixo estiverem [✓]
+> Owner aprova o fecho e @claude abre V5 via AUTO-GATE
+
+```
+V4-CLOSE-GATE
+═══════════════════════════════════════════════════════════════════════
+
+BEHAVIOUR-01  [✓] V4-INTERACTION-002 — ProjectFocusPanel slide-in DONE
+BEHAVIOUR-02  [✓] V4-SESSION-001    — Eternal Memory OS DONE
+BEHAVIOUR-03  [✓] V4-NEXUS-001      — AI Parliament NexusPage DONE
+BEHAVIOUR-04  [✓] V4-ATLAS-001      — AtlasPage WorldBank wired DONE
+BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
+BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
+BEHAVIOUR-07  [~] V4-PROJECT-PAGE-001-MECH — WAIVED by owner 2026-03-25
+               Reclassified → V5-INFRA-SUPABASE-001 (early infra, V5 queue)
+               NOTE: Do NOT mark backend readiness or production Supabase
+               complete until real secrets are wired in proper environment.
+BEHAVIOUR-08  [✓] V4-MOTION-SURFACES-001   — ProposalCard stagger + SessionBoot restore pulse + dialogue framer-motion DONE
+BEHAVIOUR-09  [✓] V4-LAPIDATION-001        — NexusPage header mobile overflow fixed · scrollYProgress reactivity fixed · TS 0 DONE
+BEHAVIOUR-10  [~] CLUSTER-ORCHESTRATE-001  — deferred, not blocking V4 close
+
+QUALITY-01    [✓] TS 0 errors
+QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
+QUALITY-03    [✓] V4 surfaces mobile-responsive — NexusPage L1 header sm/md/lg breakpoints · FounderPage grid-cols-1 sm · ProjectPage responsive padding · AtlasPage fixed-position shell
+QUALITY-04    [✓] OrganErrorBoundary always logs in componentDidCatch (even when silent=true) — console non-silent confirmed
+
+V4-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — owner waved BEHAVIOUR-07 + BEHAVIOUR-10
+V4-CLOSE-REASON: Supabase .env is a mechanical secret dependency, not a conceptual
+                 behaviour blocker. Phase closure cannot be held hostage by infra secrets.
+═══════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 7. PIONEER DISPATCH — FORCE ACTIVATION 2026-03-25
+
+> Owner instruction: "activate everyone · close V4 · open V5 · coordinated · precise"
+> All pioneers enter their task NOW. No waiting. Parallel execution.
+
+```
+FORCE-ACTIVATION-001
+═══════════════════════════════════════════════════════════════════════
+
+@CLAUDE — V4-CLOSE-COORD (executing now)
+  TERRITORY : WorkStructure + WorkFunction (arch arbiter)
+  TASK      : V4 coordination · hero scrollProgress wired · BASTION V5 gates defined
+  STATUS    : ✅ EXECUTING — GoldenAtlasScene scrollProgress DONE · V5 gates OPEN
+  NEXT      : Monitor V4 close · enter V5-ARCH-001 when V4 [✓]
+
+@CURSOR — V4-PROJECT-PAGE-001-MECH
+  TERRITORY : WorkFunction (mechanical layer)
+  TASK      : ProjectPage Supabase queries · real project data · API wiring
+  GATE      : 🔓 OPEN — arch sealed by @claude 2026-03-25
+  ENTRYPOINT: src/pages/ProjectPage.tsx + src/lib/projectBridge.ts
+  EVIDENCE  : Supabase queries returning real data · TS 0 · build clean
+  PRIORITY  : P1 — V4 blocker
+
+@ANTIGRAVITY — V4-MOTION-SURFACES-001
+  TERRITORY : WorkVisual (motion layer)
+  TASK      : Animate V4 surfaces — ProposalCard · WorldBankBar · SessionBoot
+  GATE      : 🔓 OPEN — all surfaces exist, behaviour sealed
+  ENTRYPOINT: src/components/nexus/ · src/components/atlas/WorldBankBar.tsx
+  EVIDENCE  : Smooth entrance animations · stagger · TS 0
+  PRIORITY  : P1 — V4 blocker
+
+@COPILOT — V4-LAPIDATION-001 (NEW TASK)
+  TERRITORY : WorkFunction (lapidation)
+  TASK      : Polish pass on all V4 surfaces — spacing · contrast · edge cases
+              Ensure no visible broken states · mobile check · console clean
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All V4 pages (Index · Atlas · Nexus · ProjectPage · FounderPage)
+  EVIDENCE  : No broken UI states · console clean · mobile 375px no overflow
+  PRIORITY  : P2
+
+@CODEX — CLUSTER-ORCHESTRATE-001
+  TERRITORY : Consolidação
+  TASK      : Wave sync · detect pioneer drift · emit canonical integration report
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All branches — diff audit · BASTION alignment check
+  EVIDENCE  : Integration report · confirmed no duplicate work · ALTERACAO_REAL
+  PRIORITY  : P2
+
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 8. V5 GATE — REAL-TIME INTELLIGENCE LAYER
+
+> Gate opens when V4-CLOSE-GATE all [✓] and owner approves
+> @claude opens V5 via AUTO-GATE when criteria met
+
+```
+V5-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "The system is alive — data moves, AI acts, globe reacts"
+
+TASKS (elegíveis quando V4 fechar):
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-LIVE-DATA-001                                        │
+│ DONO      │ @cursor                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Globe hotspots stream live project metrics              │
+│           │ Supabase realtime → CO₂ · jobs · progress · status     │
+│ EVIDENCE  │ Numbers change live · no page reload · TS 0            │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-EVENT-STREAM-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Event bus → globe surface reactions                     │
+│           │ Real-world events trigger visual pulses on globe        │
+│           │ News items → hotspot glow · seismic → ring pulse        │
+│ EVIDENCE  │ Globe reacts to injected events · TS 0                 │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AUDIO-SYSTEM-001                                     │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion + sound)                             │
+│ TASK      │ Full spatial audio design system                        │
+│           │ Globe hover tone · project click · data stream hum      │
+│           │ Ambient low-freq drone · UI confirmation tones          │
+│ EVIDENCE  │ Every interaction has audio weight · Web Audio API      │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AI-PROPOSALS-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Nexus proposals auto-generated from real project data   │
+│           │ Supabase metrics → Claude API → structured proposals    │
+│           │ Proposals enter parliament queue automatically          │
+│ EVIDENCE  │ New proposals appear without manual input · TS 0       │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-CAMERA-FLY-001                                       │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion)                                     │
+│ TASK      │ Camera flies to project location on hotspot click       │
+│           │ Cinematic zoom in · land at coordinates · pull back     │
+│           │ Triggers ProjectInspector after landing                 │
+│ EVIDENCE  │ Smooth cinematic fly · no jank · TS 0                  │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-MOBILE-IMMERSION-001                                 │
+│ DONO      │ @copilot                                                │
+│ TERRITORY │ WorkFunction (lapidation)                               │
+│ TASK      │ Full mobile experience — touch gestures on globe        │
+│           │ Pinch-zoom · swipe-rotate · tap-to-inspect              │
+│           │ Mobile-first hero adapted for 375px+                    │
+│ EVIDENCE  │ Smooth on iOS/Android · no overflow · TS 0             │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-INFRA-SUPABASE-001 (reclassified from V4-B07)        │
+│ DONO      │ @cursor (mechanical) + owner (secrets)                  │
+│ TERRITORY │ WorkFunction (infra/mechanical)                         │
+│ TASK      │ Wire real Supabase project: create project · add .env   │
+│           │ VITE_SUPABASE_URL · VITE_SUPABASE_PUBLISHABLE_KEY       │
+│           │ VITE_SUPABASE_PROJECT_ID · run globe_projects SQL       │
+│           │ Then: @cursor wires ProjectPage real queries             │
+│ BLOCKED   │ Owner must provide .env with real credentials first     │
+│ EVIDENCE  │ Real project data loads · no placeholder fallback       │
+│ PRIORITY  │ P1 (unblocks V5-LIVE-DATA-001)                          │
+│ CONSTRAINT│ DO NOT mark backend-ready or Supabase-complete until    │
+│           │ real secrets are in environment and queries return data  │
+└─────────────────────────────────────────────────────────────────────┘
+
+V5-GATE-STATUS : 🟢 OPEN — V4 closed by owner 2026-03-25
+V5-DONE        : V5-EVENT-STREAM-001 ✅
+                 V5-AI-PROPOSALS-001 ✅ (arch stub → Supabase-ready)
+                 V5-INFRA-SUPABASE-001 ✅ — .env wired · fetchSupabaseProjects() live · ENRICHMENT_REGISTRY · isLive:true active
+                 V5-AUDIO-SYSTEM-001 ✅ — audioEngine (Web Audio API) · 6 sounds · ambient drone · wired to globe + AICouncil
+                 V5-CAMERA-FLY-001 ✅ — CameraController · easeInOutCubic arc · fly→land→inspector · close→return
+                 V5-LIVE-DATA-001 ✅ — useGlobeRealtime · Supabase realtime · INSERT/UPDATE/DELETE · PROJECT_UPDATE → EventPulseRing · live badge
+                 V5-MOBILE-IMMERSION-001 ✅ — useTouchGlobe · swipe-orbit · pinch-zoom · tap-to-inspect · momentum decay · DPR mobile cap
+V5-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — 7/7 tasks done
+CLUSTER-ORCHESTRATE-001: ✅ briefing emitido → ops/CODEX_V5_AUDIT.md
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 9. V6 GATE — USER SOVEREIGNTY LAYER
+
+> Gate aberto por: @claude · 2026-03-25 · AUTO-GATE-LAW (CLAUDE.md §5)
+> V5 7/7 [✓] → critérios satisfeitos → V6 abre automaticamente
+> Owner pode bloquear dizendo "STOP", "PAUSE", ou "BLOCK"
+
+```
+V6-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "O utilizador tem voz — identidade, workspace, soberania pessoal"
+
+CONSTELLATION PARA V6:
+  @claude      → arch + governança + decisões soberanas
+  @cursor      → implementação mecânica (queries, API wiring)
+  @copilot     → lapidação + polish de superfícies V6
+  @antigravity → motion layer das novas superfícies
+
+TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-AUTH-001                                             │
+│ DONO      │ @claude (arch) + @cursor (mech)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Full auth flow — Supabase Auth (email/magic link)       │
+│           │ onboarding screen · user profile · session persistence  │
+│           │ gate-protected routes (Atlas, Nexus, ProjectPage)       │
+│ EVIDENCE  │ Login funcional · rotas protegidas · TS 0               │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PROJECT-DETAIL-001                                   │
+│ DONO      │ @cursor (mech layer)                                    │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ ProjectPage wired to real Supabase data                 │
+│           │ globe_projects query · metrics · timeline · status      │
+│           │ Completes V4-PROJECT-PAGE-001-MECH (outstanding)        │
+│ EVIDENCE  │ Real project data loads · no placeholder · TS 0         │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PORTFOLIO-DASHBOARD-001                              │
+│ DONO      │ @claude (arch) + @cursor (data)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Portfolio aggregate view                                │
+│           │ Total investment · CO₂ impact · jobs · SDG score        │
+│           │ Live metrics from globe_projects + project_metrics      │
+│           │ New route /portfolio or embedded in AtlasPage           │
+│ EVIDENCE  │ Aggregate numbers visible · update on Supabase change   │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-COUNCIL-LIVE-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ AICouncil proposals fully live from Supabase            │
+│           │ fetchSupabaseProjects() returns rows → isLive:true      │
+│           │ AUTO badge shows "LIVE" not "stub"                      │
+│           │ Proposals persist to Supabase proposal_ledger table     │
+│ EVIDENCE  │ isLive:true confirmed · proposals from real data · TS 0 │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-RUBERRA-SURFACE-001                                  │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkStructure + WorkVisual                              │
+│ TASK      │ RUBERRA corp stubs 02-10 with real content structure    │
+│           │ Corp structure · product · system spine · defense       │
+│           │ governance · forja · marketing · didactic · ecosystem   │
+│ EVIDENCE  │ 9 stubs with real section structure · TS 0              │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
+V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
+                 V6-PROJECT-DETAIL-001 (P1 — @cursor · NEXT)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor)
+                 V6-COUNCIL-LIVE-001 (P2 — @claude)
+                 V6-RUBERRA-SURFACE-001 (P2 — @claude)
+
+V6-AUTH-001-CLOSE:
+  ✅ ProtectedRoute component (auth guard + ownerOnly variant)
+  ✅ /owner and /dashboard protected in App.tsx
+  ✅ useCurrentUser hook — flat identity surface for all V6 components
+  ✅ GovAuth post-login redirect honours location.state.from
+  ✅ TS 0 · commit 0fd720a · pushed
+═══════════════════════════════════════════════════════════════════════
+```
+

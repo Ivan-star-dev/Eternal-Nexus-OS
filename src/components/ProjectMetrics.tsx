@@ -10,6 +10,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
+import { EASE_OUT } from "@/lib/motion/config";
 import {
 import { EASE_OUT } from "@/lib/motion/config";
   TrendingUp,

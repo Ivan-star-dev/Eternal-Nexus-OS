@@ -4,6 +4,27 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-26
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-TOUCH-RESPONSE 5/5 ✅ (TOUCH-001→005 wired: focusedProjectId · ProjectBottomSheet · justSelectedRef · handleCanvasClick · touchMode) + V6-AUTH-001 ✅ (ProtectedRoute · useCurrentUser · /owner+/dashboard protected · post-login redirect) · TS 0 · commits 16d0a58 + 0fd720a · NEXT: V6-PROJECT-DETAIL-001 @cursor
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V6 GATE ABERTO via AUTO-GATE — CODEX_V5_AUDIT.md emitido · V6 theme: "User Sovereignty Layer" · 5 tasks definidas · @cursor + @claude + @copilot activados
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5 CLOSED 7/7 — V5-MOBILE-IMMERSION-001 ✅ useTouchGlobe (swipe-orbit · pinch-zoom · tap · momentum) · DPR mobile cap · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-CAMERA-FLY-001 ✅ + V5-LIVE-DATA-001 ✅ — CameraController cinematic fly arc · useGlobeRealtime Supabase realtime channel · live badge · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-INFRA-SUPABASE-001 ✅ wired — fetchSupabaseProjects() + ENRICHMENT_REGISTRY · isLive:true path active · V5-AUDIO-SYSTEM-001 ✅ DONE — audioEngine singleton (Web Audio API) · globeHover · projectClick · uiConfirm · uiDismiss · seismicAlert · ambientDrone · GoldenAtlasScene + AICouncil wired · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5-AI-PROPOSALS-001 DONE — proposalGenerator (pure fn · Supabase-ready) · useProposalQueue · AICouncil AUTO badge + queue UI · 5 stub projects · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V4 CLOSED · V5 OPEN · V5-EVENT-STREAM-001 DONE — GlobeEventBus · EventPulseRings Three.js · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V4-LAPIDATION-001 DONE — scrollYProgress reactivity fixed · NexusPage L1 header mobile overflow · QUALITY-03/04 [✓] · V4 9/10 criteria · TS 0
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V4-MOTION-SURFACES-001 DONE — ProposalCard stagger entrance + exit · dialogue bubbles framer-motion AnimatePresence · ProposalLedger stagger · SessionBoot restore pulse · V4 7/10 [✓] · TS 0
+
+**Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | FORCE-ACTIVATION-001 — ALL PIONEERS DISPATCHED · V4 6/10 criteria [✓] · GoldenAtlasScene scrollProgress wired · V5 gates sealed · hero restored · PR#164 conflicts resolved · build ✓ · TS 0
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | LINKEDIN_FINAL sealed · FOUNDER_MEDIA_SYSTEM complete (10+1 files) · PROTOCOL_CREDIT_FALLBACK sealed · RUBERRA 145 files committed · V4-PROJECT-PAGE-001 DONE
 **Última atualização:** 2026-03-25

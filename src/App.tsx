@@ -11,6 +11,7 @@ import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
 import CommandPalette from "@/components/CommandPalette";
 import { lazy, Suspense } from "react";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
 import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
@@ -68,7 +69,7 @@ const App = () => (
           <BrowserRouter>
             <SessionBoot />
             <OrganTransitionParticles />
-            <NexusFlowInspector />
+            <SystemAwareInspector />
             <CommandPalette />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
@@ -79,8 +80,8 @@ const App = () => (
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/access" element={<GovAuth />} />
-                <Route path="/owner" element={<OwnerDashboard />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/owner" element={<ProtectedRoute ownerOnly><OwnerDashboard /></ProtectedRoute>} />
+                <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
                 <Route path="/geopolitics" element={<Geopolitics />} />
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/atlas" element={
