@@ -16,14 +16,12 @@ const NavBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { visible, atTop } = useScrollDirection();
 
+  // Clean nav — post-purge 2026-03-26
+  // V7: LAB / SCHOOL / WORKSHOP added when trinity surfaces are live
   const navLinks = [
-    { label: "PROJECTS", path: "/projects", icon: null as any, live: false },
     { label: "GLOBE", path: "/globe", icon: Globe, live: true },
-    { label: "ATLAS", path: "/atlas", icon: null as any, live: true },
     { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
-    { label: "GALLERY", path: "/gallery", icon: null as any, live: false },
     { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
-    { label: t("nav_about"), path: "/about", icon: null as any, live: false },
   ];
 
   // Open command palette via keyboard shortcut hint
