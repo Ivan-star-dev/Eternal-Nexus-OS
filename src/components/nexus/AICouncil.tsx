@@ -115,14 +115,35 @@ function readProposalLedger(): ParliamentProposal[] {
 }
 
 function appendToProposalLedger(proposal: ParliamentProposal): void {
+  // localStorage — always works
   try {
     const existing = readProposalLedger();
-    // Deduplicate by id
     const next = [proposal, ...existing.filter((p) => p.id !== proposal.id)].slice(0, 10);
     localStorage.setItem(PARLIAMENT_LEDGER_KEY, JSON.stringify(next));
-  } catch {
-    // quota exceeded — fail silently
-  }
+  } catch { /* quota — fail silently */ }
+
+  // Supabase — V6-COUNCIL-LIVE-001: persist to proposal_ledger table
+  // Graceful: if table doesn't exist yet, fails silently
+  import("@/integrations/supabase/client").then(({ supabase }) => {
+    supabase
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .from("proposal_ledger" as any)
+      .upsert({
+        id: proposal.id,
+        title: proposal.title,
+        proposal_text: proposal.proposalText,
+        risk_level: proposal.impact.riskLevel,
+        roi: proposal.impact.roi,
+        timeline: proposal.impact.timeline,
+        approved_at: new Date().toISOString(),
+      }, { onConflict: "id" })
+      .then(({ error }) => {
+        if (error && !error.message?.includes("does not exist")) {
+          // Only log unexpected errors — missing table is expected until migration runs
+          console.warn("[AICouncil] proposal_ledger upsert:", error.message);
+        }
+      });
+  }).catch(() => { /* module load fail — silent */ });
 }
 
 function makeProposalId(debateIndex: number, ts: string): string {
