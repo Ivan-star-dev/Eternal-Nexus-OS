@@ -8,7 +8,7 @@ interface LayerState {
 
 interface GlobeLayerSelectorProps {
   layers: LayerState;
-  onToggle: (layer: string) => void;
+  onToggle: (layer: keyof LayerState) => void;
 }
 
 interface LayerButtonProps {
