@@ -6,6 +6,8 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { motion, AnimatePresence } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const NavBar = () => {
   const location = useLocation();
   const { t } = useLanguage();
@@ -25,16 +27,25 @@ const NavBar = () => {
   return (
     <AnimatePresence>
       <motion.nav
-        initial={{ y: 0 }}
-        animate={{ y: visible ? 0 : -80 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: -8 }}
+        animate={{
+          opacity: 1,
+          y: visible ? 0 : -56,
+        }}
+        transition={{
+          opacity: { delay: 0.4, duration: 1.4, ease: EASE },
+          y: { duration: 0.45, ease: EASE },
+        }}
         aria-label="Navegação principal"
         role="navigation"
-        className={`fixed top-0 left-0 right-0 z-[999] h-12 flex items-center px-5 md:px-8 transition-all duration-300 border-b ${
+        className={`fixed top-0 left-0 right-0 z-[999] h-12 flex items-center px-5 md:px-8 border-b ${
           atTop
-            ? "bg-abyssal/50 backdrop-blur-md border-white/[0.04]"
-            : "bg-abyssal/80 backdrop-blur-xl border-white/[0.06]"
+            ? "bg-abyssal/40 backdrop-blur-sm border-white/[0.03]"
+            : "bg-abyssal/85 backdrop-blur-xl border-white/[0.055]"
         }`}
+        style={{
+          transition: "background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease",
+        }}
       >
         {/* Signature */}
         <Link to="/" className="flex-shrink-0 relative inline-flex items-center gap-1.5 select-none">
@@ -109,10 +120,11 @@ const NavBar = () => {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="absolute top-12 left-0 right-0 bg-abyssal/96 backdrop-blur-xl border-b border-white/[0.06] p-6 flex flex-col gap-5 md:hidden"
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.35, ease: EASE }}
+              className="absolute top-12 left-0 right-0 bg-abyssal/96 backdrop-blur-xl border-b border-white/[0.05] p-6 flex flex-col gap-5 md:hidden"
             >
               {navLinks.map((link) => (
                 <Link

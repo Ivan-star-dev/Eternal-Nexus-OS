@@ -85,21 +85,22 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay, duration: 0.85, ease: EASE }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ delay, duration: 1.1, ease: EASE }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="relative flex flex-col px-8 md:px-12 py-14 select-none"
       style={{ minHeight: "500px" }}
     >
-      {/* Unique atmospheric background glow */}
-      <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
+      {/* Unique atmospheric background glow — breathes with hover */}
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        animate={{ opacity: lit ? 1.5 : 1 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${portal.glowColor} 0%, transparent 65%)`,
-          opacity: lit ? 1.6 : 1,
+          background: `radial-gradient(ellipse at 50% 38%, ${portal.glowColor} 0%, transparent 62%)`,
         }}
         aria-hidden="true"
       />
@@ -191,10 +192,10 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
         {portal.tags}
       </span>
 
-      {/* Portal CTA — bottom */}
+      {/* Portal CTA — bottom, sovereign arrow only moves on intent */}
       <motion.div
-        animate={{ opacity: lit ? 1 : 0.4, x: lit ? 4 : 0 }}
-        transition={{ duration: 0.3 }}
+        animate={{ opacity: lit ? 1 : 0.38, x: lit ? 3 : 0 }}
+        transition={{ duration: 0.55, ease: EASE }}
         className="relative z-10 mt-12"
       >
         <Link
@@ -234,25 +235,25 @@ interface TrinityRowProps {
 export default function TrinityRow({ activeFace }: TrinityRowProps) {
   return (
     <div>
-      {/* Section orbital label */}
+      {/* Section orbital label — quiet emergence, not announcement */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.0 }}
+        transition={{ duration: 1.2, ease: EASE }}
         className="mb-8 flex items-center justify-center gap-5"
       >
         <motion.span
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          transition={{ delay: 0.25, duration: 1.1, ease: EASE }}
           className="block h-px origin-right"
-          style={{ width: "80px", background: "linear-gradient(to right, transparent, rgba(200,164,78,0.25))" }}
+          style={{ width: "80px", background: "linear-gradient(to right, transparent, rgba(200,164,78,0.22))" }}
         />
         <span
           className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
-          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.4)" }}
+          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.35)" }}
         >
           OS TRÊS PILARES
         </span>
@@ -260,9 +261,9 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          transition={{ delay: 0.25, duration: 1.1, ease: EASE }}
           className="block h-px origin-left"
-          style={{ width: "80px", background: "linear-gradient(to left, transparent, rgba(200,164,78,0.25))" }}
+          style={{ width: "80px", background: "linear-gradient(to left, transparent, rgba(200,164,78,0.22))" }}
         />
       </motion.div>
 

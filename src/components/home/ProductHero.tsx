@@ -23,37 +23,62 @@ const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// Subtle atmospheric orbs — subordinate to globe, never competing
+// Atmospheric breath layer — sovereign depth, not decoration
 function AtmosphericLayer() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden="true">
-      {/* Gold warmth — top right, very faint */}
+    <motion.div
+      className="pointer-events-none absolute inset-0 z-[1]"
+      aria-hidden="true"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 3.5, ease: "easeOut" }}
+    >
+      {/* Gold warmth — upper right, very faint, breathes slowly */}
+      <motion.div
+        className="absolute"
+        animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.04, 1] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          top: "-5%",
+          right: "-8%",
+          width: "64vw",
+          height: "64vw",
+          background:
+            "radial-gradient(ellipse at center, hsl(42 78% 45% / 0.05) 0%, transparent 55%)",
+          filter: "blur(88px)",
+        }}
+      />
+      {/* Teal depth — lower left, counter-phase breath */}
+      <motion.div
+        className="absolute"
+        animate={{ opacity: [1, 0.65, 1], scale: [1.04, 1, 1.04] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          bottom: "0%",
+          left: "-10%",
+          width: "56vw",
+          height: "56vw",
+          background:
+            "radial-gradient(ellipse at center, hsl(172 55% 28% / 0.038) 0%, transparent 54%)",
+          filter: "blur(96px)",
+        }}
+      />
+      {/* Deep navy center depth — very subtle, global immersion */}
       <div
         className="absolute"
         style={{
-          top: "0%",
-          right: "-5%",
-          width: "60vw",
-          height: "60vw",
+          top: "20%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "80vw",
+          height: "80vw",
           background:
-            "radial-gradient(ellipse at center, hsl(42 78% 45% / 0.055) 0%, transparent 58%)",
-          filter: "blur(72px)",
+            "radial-gradient(ellipse at center, hsl(216 50% 5% / 0.0) 0%, hsl(216 50% 5% / 0.12) 100%)",
+          filter: "blur(40px)",
+          pointerEvents: "none",
         }}
       />
-      {/* Teal depth — bottom left */}
-      <div
-        className="absolute"
-        style={{
-          bottom: "5%",
-          left: "-8%",
-          width: "52vw",
-          height: "52vw",
-          background:
-            "radial-gradient(ellipse at center, hsl(172 55% 28% / 0.04) 0%, transparent 56%)",
-          filter: "blur(80px)",
-        }}
-      />
-    </div>
+    </motion.div>
   );
 }
 
@@ -80,20 +105,36 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
       className="relative w-full"
       style={{ height: "clamp(640px, 82vw, 920px)" }}
     >
-      {/* Atmospheric concentric rings — behind globe, barely visible */}
+      {/* Atmospheric concentric rings — slow orbital presence behind globe */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center" aria-hidden="true">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
+          style={{
+            width: "clamp(380px, 52vw, 700px)",
+            height: "clamp(380px, 52vw, 700px)",
+            borderRadius: "50%",
+            border: "0.5px solid rgba(200,164,78,0.045)",
+            position: "absolute",
+          }}
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 260, repeat: Infinity, ease: "linear" }}
+          style={{
+            width: "clamp(500px, 70vw, 920px)",
+            height: "clamp(500px, 70vw, 920px)",
+            borderRadius: "50%",
+            border: "0.5px solid rgba(200,164,78,0.02)",
+            position: "absolute",
+          }}
+        />
+        {/* Outermost ring — nearly invisible, spatial anchor */}
         <div style={{
-          width: "clamp(380px, 52vw, 700px)",
-          height: "clamp(380px, 52vw, 700px)",
+          width: "clamp(600px, 86vw, 1100px)",
+          height: "clamp(600px, 86vw, 1100px)",
           borderRadius: "50%",
-          border: "0.5px solid rgba(200,164,78,0.04)",
-          position: "absolute",
-        }} />
-        <div style={{
-          width: "clamp(480px, 66vw, 880px)",
-          height: "clamp(480px, 66vw, 880px)",
-          borderRadius: "50%",
-          border: "0.5px solid rgba(200,164,78,0.025)",
+          border: "0.5px solid rgba(200,164,78,0.01)",
           position: "absolute",
         }} />
       </div>
@@ -152,13 +193,13 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         </OrganErrorBoundary>
       </div>
 
-      {/* Institutional micro-label — authority stamp, top bar */}
+      {/* Institutional micro-label — sovereign stamp, emerges quietly */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1.6 }}
+        transition={{ delay: 0.7, duration: 2.2, ease: "easeOut" }}
         className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-between px-6 py-4 md:px-14 border-b"
-        style={{ borderColor: "rgba(200,164,78,0.05)" }}
+        style={{ borderColor: "rgba(200,164,78,0.04)" }}
       >
         <span className="font-mono text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(200,164,78,0.32)" }}>
           ETERNAL NEXUS OS · Planetary Interface
@@ -179,40 +220,42 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         </span>
       </motion.div>
 
-      {/* Globe anchor label — center bottom, transitions reader to trinity */}
+      {/* Globe anchor label — sovereign declaration, rises from depth */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.0, duration: 1.2, ease: EASE }}
+        transition={{ delay: 1.8, duration: 1.6, ease: EASE }}
         className="absolute bottom-12 left-0 right-0 z-[3] flex flex-col items-center gap-3"
       >
         <motion.div
-          animate={{ opacity: [0.25, 0.55, 0.25], scaleX: [0.8, 1.1, 0.8] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ opacity: [0.2, 0.45, 0.2], scaleX: [0.7, 1.0, 0.7] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            width: "36px",
+            width: "40px",
             height: "0.5px",
-            background: "rgba(200,164,78,0.55)",
+            background: "rgba(200,164,78,0.6)",
           }}
         />
-        <span
+        <motion.span
+          animate={{ opacity: [0.22, 0.38, 0.22] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="font-sans text-[10px] font-[400] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(228,235,240,0.3)" }}
+          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(228,235,240,0.35)" }}
         >
           O sistema e os seus filhos
-        </span>
+        </motion.span>
       </motion.div>
     </div>
   );
 }
 
-// Sovereign text block — between globe and trinity
+// Sovereign text block — declaration, not marketing
 function SovereignText() {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8, duration: 1.1, ease: EASE }}
+      transition={{ delay: 1.2, duration: 1.4, ease: EASE }}
       className="relative z-10 flex flex-col items-center text-center px-6 pt-4 pb-16"
     >
       {/* Headline */}
@@ -426,9 +469,15 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
       <SovereignText />
 
       {/* ── 3. TRINITY ROW ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-0">
+      {/* Bottom-fold peek: trinity worlds rise from below — not cards appearing */}
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.6, duration: 1.4, ease: EASE }}
+        className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-0"
+      >
         <TrinityRowWithSession />
-      </div>
+      </motion.div>
 
       {/* ── 4. FIRST PROOF ────────────────────────────────────────── */}
       <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-16 pb-32">
