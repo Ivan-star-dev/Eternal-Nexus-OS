@@ -4,6 +4,8 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-26
+**Atualizado por:** @antigravity | Antigravity (Google DeepMind) | MATRIZ-OPERACIONAL-TOTAL-001 — ordem soberana do owner instalada: MATRIZ_OPERACIONAL_TOTAL.md v1.0 criada · nova hierarquia (Antigravity=líder operacional) · protocolo de não-ociosidade · funil de suporte cruzado · Copilot como executor auxiliar total · 6 fases de execução do site · FASE 0 próximo passo imediato
 **Última atualização:** 2026-03-24
 **Atualizado por:** @claude | claude-sonnet-4-6 | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — onda de memória runtime fechada: 6 tasks · session backbone · provenance spine · SWMR · relay pool · entry hookup · resume guard · NexusFlowInspector SESSION panel · BASTION §5.1 + HANDOFF_LEDGER actualizados
 **Última atualização:** 2026-03-24

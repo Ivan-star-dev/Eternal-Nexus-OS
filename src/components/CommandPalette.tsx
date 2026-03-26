@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
-import { Search, FileText, Globe, Shield, Info, Scale, BarChart3, Brain, Radio, Newspaper, Zap } from "lucide-react";
+import { Search, FileText, Globe, Shield, Scale, BarChart3, Brain, Radio, Newspaper, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface SearchResult {
@@ -15,20 +15,28 @@ interface SearchResult {
 }
 
 const pages: SearchResult[] = [
-  { label: "Portfolio — Active Dossiers", path: "/", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["home", "index", "portfolio", "dossiers", "projects"] },
-  { label: "DeltaSpine NL — NPI-001", path: "/project/deltaspine-nl", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["deltaspine", "netherlands", "infrastructure", "coastal"] },
-  { label: "GeoCore Power — NPI-002", path: "/project/geocore-power", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["geocore", "geothermal", "energy", "volcanic"] },
-  { label: "Terra Lenta — NPI-003", path: "/project/terra-lenta", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["terra", "lenta", "seismic", "earthquake"] },
-  { label: "Fusion Core — NPI-004", path: "/project/fusion-core", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["fusion", "nuclear", "reactor", "energy"] },
-  { label: "Chip Fold — NPI-005", path: "/project/chip-fold", icon: FileText, organ: "ROSTO", organColor: "#D4AF37", keywords: ["chip", "fold", "semiconductor", "computing"] },
-  { label: "NEXUS — Parlamento AI", path: "/nexus", icon: Brain, organ: "CÉREBRO", organColor: "#22ffaa", keywords: ["nexus", "brain", "ai", "council", "parliament", "crisis"] },
-  { label: "ATLAS — Globo 3D", path: "/atlas", icon: Globe, organ: "CORAÇÃO", organColor: "#4a90e2", keywords: ["atlas", "globe", "map", "3d", "earth", "projects"] },
-  { label: "NEWS — Echo-Vox Broadcast", path: "/news", icon: Radio, organ: "BOCA", organColor: "#ff4444", keywords: ["news", "broadcast", "echo", "vox", "reports"] },
-  { label: "Geopolitical Strategy", path: "/geopolitics", icon: Globe, organ: "OLHOS", organColor: "#e24a6f", keywords: ["geopolitics", "strategy", "energy", "flows"] },
-  { label: "Investor Briefing — DeltaSpine", path: "/investor/deltaspine-nl", icon: BarChart3, organ: "SANGUE", organColor: "#ffaa22", keywords: ["investor", "briefing", "investment", "portfolio"] },
-  { label: "About Next Path Infra", path: "/about", icon: Info, organ: "INFO", organColor: "#D4AF37", keywords: ["about", "mission", "team"] },
-  { label: "Government Access", path: "/access", icon: Shield, organ: "SEGURANÇA", organColor: "#cc44ff", keywords: ["government", "access", "clearance", "auth"] },
-  { label: "Terms & Legal", path: "/terms", icon: Scale, organ: "LEGAL", organColor: "#D4AF37", keywords: ["terms", "legal", "privacy"] },
+  // ── HOME ──
+  { label: "Home — Eternal Nexus OS", path: "/", icon: FileText, organ: "HOME", organColor: "#D4AF37", keywords: ["home", "index", "start", "hero", "globe"] },
+  // ── SACRED FLOW ──
+  { label: "ATLAS — Investigação Global", path: "/atlas", icon: Globe, organ: "SACRED FLOW", organColor: "#4a90e2", keywords: ["atlas", "globe", "map", "3d", "earth", "investigation"] },
+  { label: "NEWS — Echo-Vox Broadcast", path: "/news", icon: Radio, organ: "SACRED FLOW", organColor: "#ff4444", keywords: ["news", "broadcast", "echo", "vox", "reports"] },
+  // ── PRODUCT FACES ──
+  { label: "NEXUS — War Room / Heaven Lab", path: "/nexus", icon: Brain, organ: "PRODUCT", organColor: "#22ffaa", keywords: ["nexus", "brain", "ai", "council", "swarm", "war room"] },
+  { label: "SYSTEM — Cockpit Soberano", path: "/system", icon: Shield, organ: "PRODUCT", organColor: "#cc44ff", keywords: ["system", "cockpit", "sovereign", "os", "command"] },
+  { label: "FUNDADOR — Vision Layer", path: "/founder", icon: Newspaper, organ: "PRODUCT", organColor: "#D4AF37", keywords: ["founder", "vision", "creation hub", "nexus cria"] },
+  // ── PROJECTS ──
+  { label: "Projects — Galeria", path: "/projects", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["projects", "portfolio", "gallery"] },
+  { label: "DeltaSpine NL — NPI-001", path: "/project/deltaspine-nl", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["deltaspine", "netherlands", "infrastructure", "coastal"] },
+  { label: "GeoCore Power — NPI-002", path: "/project/geocore-power", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["geocore", "geothermal", "energy"] },
+  { label: "Terra Lenta — NPI-003", path: "/project/terra-lenta", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["terra", "lenta", "seismic"] },
+  { label: "Fusion Core — NPI-004", path: "/project/fusion-core", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["fusion", "nuclear", "reactor"] },
+  { label: "Chip Fold — NPI-005", path: "/project/chip-fold", icon: FileText, organ: "ECOSYSTEM", organColor: "#D4AF37", keywords: ["chip", "fold", "semiconductor"] },
+  // ── INTERNAL ──
+  { label: "Dashboard — Painel Interno", path: "/dashboard", icon: BarChart3, organ: "INTERNAL", organColor: "#888", keywords: ["dashboard", "internal", "panel"] },
+  { label: "Owner — Cockpit Soberano", path: "/owner", icon: Shield, organ: "INTERNAL", organColor: "#cc44ff", keywords: ["owner", "admin", "sovereign"] },
+  // ── LEGAL ──
+  { label: "Terms & Legal", path: "/terms", icon: Scale, organ: "LEGAL", organColor: "#D4AF37", keywords: ["terms", "legal"] },
+  { label: "Privacy Policy", path: "/privacy", icon: Scale, organ: "LEGAL", organColor: "#D4AF37", keywords: ["privacy", "policy", "gdpr"] },
 ];
 
 function fuzzyMatch(query: string, target: string): boolean {

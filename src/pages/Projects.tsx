@@ -247,43 +247,57 @@ const Projects = () => {
     <Layout>
       <PageTransition>
         {/* ═══ HEADER ═══ */}
-        <section className="relative pt-28 pb-16 px-4 sm:px-6 md:px-16 lg:px-20 border-b border-border bg-card/30">
-          <div className="absolute inset-0 engineering-grid pointer-events-none opacity-20" />
+        <section className="relative pt-32 pb-20 px-4 sm:px-6 md:px-16 lg:px-20 overflow-hidden" style={{ background: "#060c14" }}>
+          <div className="absolute inset-0 engineering-grid pointer-events-none" style={{ opacity: 0.035 }} />
+          {/* Gold atmospheric orb */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 65% 55% at 65% 35%, hsl(42 78% 45% / 0.11) 0%, transparent 65%)" }} />
+          {/* Teal depth orb */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 45% 50% at 10% 80%, hsl(172 55% 30% / 0.08) 0%, transparent 60%)" }} />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style={{ background: "linear-gradient(to top, #060c14, transparent)" }} />
+
           <div className="relative max-w-[1200px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease }}
             >
-              {/* V3: section label — font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase */}
-              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+              <span className="font-mono text-[0.48rem] tracking-[0.32em] uppercase" style={{ color: "rgba(200,164,78,0.55)" }}>
                 PROJECT PORTFOLIO
               </span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.9, ease }}
-              className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-[0.9] mt-4"
+              transition={{ delay: 0.15, duration: 1.0, ease }}
+              className="font-serif font-light leading-[0.9] mt-4"
+              style={{
+                fontFamily: "Cormorant Garamond, Georgia, serif",
+                fontSize: "clamp(56px, 8vw, 96px)",
+                color: "#e8eef4",
+                letterSpacing: "-0.02em",
+              }}
             >
-              Projects<span className="text-primary">.</span>
+              Projects<span style={{ color: "hsl(42 78% 55%)" }}>.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8, ease }}
-              className="font-serif text-lg text-muted-foreground italic font-light mt-4 max-w-xl leading-relaxed"
+              className="font-serif italic font-light mt-6 max-w-xl leading-relaxed"
+              style={{ fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(200,218,232,0.6)" }}
             >
               Portfolio of mega-projects and field operations — built by humans + AI, validated by real data.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="gold-rule mt-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="origin-left mt-8"
+              style={{ width: 80, height: "0.5px", background: "rgba(200,164,78,0.4)" }}
             />
           </div>
         </section>

@@ -108,7 +108,11 @@ interface L1CorporateHeaderProps {
 function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps) {
   return (
     <motion.div
-      className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30"
+      className="sticky top-0 z-50 backdrop-blur-2xl border-b"
+      style={{
+        background: "rgba(6,12,20,0.88)",
+        borderColor: "rgba(200,164,78,0.08)",
+      }}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -142,9 +146,9 @@ function L1CorporateHeader({ userEmail, executorActive }: L1CorporateHeaderProps
               <Activity className="h-3 w-3" /> NEWS
             </Button>
           </Link>
-          <Link to="/tribunal">
+          <Link to="/atlas">
             <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-[0.55rem] font-mono">
-              <Shield className="h-3 w-3" /> TRIBUNAL
+              <Globe className="h-3 w-3" /> ATLAS
             </Button>
           </Link>
           <div className="w-px h-4 bg-border/50" />
@@ -274,7 +278,11 @@ function L2ContextRail({
 
   return (
     <motion.section
-      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      className="mb-4 border rounded-lg"
+      style={{
+        background: "rgba(255,255,255,0.025)",
+        borderColor: "rgba(200,164,78,0.1)",
+      }}
       initial={{ x: -16, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: "easeOut", delay: 0.1, staggerChildren: 0.05 }}
@@ -393,7 +401,11 @@ function L3LongReadCore({
 
   return (
     <motion.section
-      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      className="mb-4 border rounded-lg"
+      style={{
+        background: "rgba(255,255,255,0.025)",
+        borderColor: "rgba(200,164,78,0.1)",
+      }}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
@@ -502,7 +514,11 @@ function L4ExecutionDeck({
 
   return (
     <motion.section
-      className="mb-4 border border-border/20 rounded-lg bg-card/40"
+      className="mb-4 border rounded-lg"
+      style={{
+        background: "rgba(255,255,255,0.025)",
+        borderColor: "rgba(200,164,78,0.1)",
+      }}
       initial={{ scale: 0.98, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
@@ -545,7 +561,7 @@ function L4ExecutionDeck({
             <span className="font-mono text-xs text-muted-foreground block mb-2">
               Autenticação necessária para ativar o swarm
             </span>
-            <Link to="/access">
+            <Link to="/owner">
               <Button variant="default" size="sm" className="font-mono text-xs">Login / Signup</Button>
             </Link>
           </div>
@@ -979,7 +995,7 @@ export default function NexusPage() {
   const healthCount = Object.values(healthSources).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "#060c14" }}>
       {/* ═══════════════════════════════════════════
           L1 — CORPORATE HEADER
           Identity, phase, branch, executor state

@@ -6,6 +6,51 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @antigravity | MATRIZ-OPERACIONAL-TOTAL-001 | Antigravity (Google DeepMind)
+
+**TASK:** MATRIZ-OPERACIONAL-TOTAL-001 — Instalação da Matriz Operacional Total por ordem soberana do owner
+**BRANCH:** `claude/rebuild-bastion-core-rihGX`
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/MATRIZ_OPERACIONAL_TOTAL.md` — v1.0 · hierarquia oficial · 6 papéis · 7 fases · protocolo de não-ociosidade · funil de suporte cruzado · prompt-matriz Copilot · prompt-matriz todos os pioneiros · 3 opções estratégicas
+
+**Ficheiros atualizados:**
+- `ops/LIVE_STATE.md` — nova entrada no topo com estado atual
+- `ops/HANDOFF_LEDGER.md` — esta entrada (append)
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:              MATRIZ-OPERACIONAL-TOTAL-001
+EXECUTOR:             @antigravity | Antigravity (Google DeepMind)
+DATA:                 2026-03-26
+BRANCH:               claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:       sim
+
+ARTEFACTO_CRIADO:     ops/MATRIZ_OPERACIONAL_TOTAL.md v1.0
+
+HIERARQUIA_INSTALADA:
+  ANTIGRAVITY  = LÍDER OPERACIONAL CENTRAL
+  CLAUDE/CLOUD = GUARDIÃO ESTRUTURAL E CONTRATUAL
+  CURSOR       = EXECUTOR TÉCNICO PRINCIPAL
+  FRAMER       = EXECUTOR VISUAL E EXPERIENCIAL
+  CODEX        = CIRURGIA TÉCNICA / PRECISÃO
+  COPILOT      = EXECUTOR AUXILIAR TOTAL / CONTÍNUO
+
+FASES_DEFINIDAS:      0 (diagnóstico) → 1 (canon) → 2 (esqueleto) → 3 (experiência) → 4 (profundidade) → 5 (cirurgia) → 6 (polish)
+PROTOCOLO_NAO_OCIOSIDADE: instalado — 5 níveis de funil automático
+SUPORTE_CRUZADO:      instalado — tabela por executor central
+PROMPT_COPILOT:       instalado — macro-regra permanente sem micro-ordens
+PROMPT_TODOS:         instalado — lei operacional de todos os pioneiros
+OPCAO_ESTRATEGICA:    B recomendada (branch limpa + ativos preservados + matriz nova)
+PROXIMO_PASSO:        FASE 0 — Antigravity executa diagnóstico do site
+```
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | RUBERRA-VISUAL-MOTHER-ID-001 | claude-sonnet-4-6
 
 **TASK:** RUBERRA Visual Mother ID + Immersive Site Vision — full surface organism upgrade

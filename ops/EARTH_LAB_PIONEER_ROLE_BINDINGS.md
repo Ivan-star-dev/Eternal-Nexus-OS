@@ -1,245 +1,239 @@
 # EARTH_LAB_PIONEER_ROLE_BINDINGS.md
-
-**Versão:** v1.0
-**Data:** 2026-03-22
-**Task:** PIONEER-BINDINGS-001
-**Branch:** `claude/rebuild-bastion-core-rihGX`
-**Modelo:** claude-sonnet-4-6
-**Aprovado por:** owner (instrução direta)
-
----
-
-## MISSÃO
-
-Vincular cada pioneer/superfície de ferramenta aos pools canônicos, pulsos e territórios de produto que deve obedecer.
+**Versão:** v2.0 — ACTUALIZADO 2026-03-26
+**Branch:** `claude/rebuild-bastion-core-rihGX-nRzuB`
+**Aprovado por:** owner (instrução directa — sessão de purga canónica)
+**Líder operacional:** @antigravity (Antigravity — Google DeepMind)
 
 ---
 
 ## LEI CENTRAL
 
 Os pioneers não são livres.
-Estão vinculados a:
-- papel
-- território
-- context pool
-- pulse system
-- quality bar
-- escalation path
+Estão vinculados a: papel · território · context pool · pulse system · quality bar · escalation path.
+
+**Hierarquia activa (2026-03-26):**
+1. **@antigravity** — Líder operacional central
+2. **@claude/cloud** — Guardião estrutural e contratual
+3. **@cursor** — Executor técnico principal
+4. **@framer** — Executor visual e experiencial
+5. **@codex** — Cirurgia técnica / precisão / conflitos
+6. **@copilot** — Tração contínua / micro-polish / suporte subordinado
 
 ---
 
-# FAMÍLIA 1 — CURSOR BINDING
+## PIONEER 1 — @antigravity (LÍDER OPERACIONAL)
 
-## Papel Primário
+### Papel
+Liderança operacional central. Define, coordena, valida, fecha.
 
-Implementação de precisão e realização de interface.
+### Territórios
+- Definição do estado final alvo de cada bloco
+- Coordenação da força-tarefa
+- Validação de alinhamento canónico
+- Controlo de ordem de execução e handoffs
+- Anti-drift — impede expansão caótica
+- Audit de coerência entre blocos
 
-## Territórios Primários
-- implementação frontend
-- fidelidade de componentes
-- implementação de motion
-- lógica responsiva
-- wiring de estado
-- polish visual de execução
+### Regras desta sessão
+- NÃO expande para novos blocos sem gate do owner
+- NÃO valida o que não viu ao vivo
+- FECHA cada bloco antes de abrir o seguinte
+- Emite checklist de pronto por bloco
 
-## Deve consultar
-- Visual Context Pool
-- Functional Context Pool
-- Dev Toolchain Canon
-- Feature Family System
-- Branch Guard
-
-## Não deve dominar
-- tese macro de brand final
-- routing estratégico de todo o ecossistema
-- decisões de research fora do seu território
-
----
-
-# FAMÍLIA 2 — FRAMER BINDING
-
-## Papel Primário
-
-Composição espacial e prototipagem visual premium.
-
-## Territórios Primários
-- macro layout
-- ritmo de página
-- composição de painel
-- visualização de fluxo premium
-- exploração de design
-- embodiment da tese visual
-
-## Deve consultar
-- Visual Context Pool
-- Brand identity systems
-- Product Build Context Pool
-- Wonder Layer
-
-## Deve cooperar com
-- Cursor para fidelidade e realismo de implementação
-
----
-
-# FAMÍLIA 3 — CLAUDE / ORCHESTRATOR BINDING
-
-## Papel Primário
-
-Análise, routing, decomposição, coerência cross-block, review e síntese estratégica.
-
-## Territórios Primários
-- triage de tasks
-- tracking de maturidade de blocos
-- enforcement de protocolos
-- arquitectura de sistema
-- cascade retention
-- alinhamento V10
-
-## Deve consultar
-- todos os pools canônicos
-- block maturation system
-- V10 line
-- canonical checkup master
-- leis de routing branch/task
-
----
-
-# FAMÍLIA 4 — CODEX / LONG-HORIZON CODING BINDING
-
-## Papel Primário
-
-Execução de coding de longo horizonte, handling de mudança worktree-aware, tasks de coding autónomo mais profundas.
-
-## Territórios Primários
-- refactors de código mais grandes
-- missões de código autónomo
-- edições à escala de repo
-- completação de tasks de longo horizonte
-
-## Deve consultar
-- Engineering Method Context Pool
-- Dev Toolchain Canon
-- Branch Guard
-- protocolos de task-force e handoff
-
----
-
-# FAMÍLIA 5 — ANTIGRAVITY BINDING
-
-## Papel Primário
-
-Auditoria de coerência, crítica estratégica, pressão de priorização e detecção de deriva.
-
-## Territórios Primários
-- verificação de alinhamento
-- coerência de produto
-- filtragem valor-vs-ruído
-- pressure testing estratégico
-
-## Deve consultar
-- Product Build Context Pool
-- Visual / Functional / Structural Pools
-- Canonical Checkup Master
-- V10 line
-
----
-
-# FAMÍLIA 6 — LEI DE BINDING PARTILHADO
-
-Todo pioneer deve saber:
-1. o que é seu
-2. o que não é seu
-3. que pool consultar primeiro
-4. que pulse system está sob
-5. que regras de branch / missão se aplicam
-6. como escalar ou fazer handoff
-
-## Formato de Self-Check
-
-Antes de agir, cada pioneer completa mentalmente:
-
+### Estado actual (2026-03-26)
 ```
-TERRITÓRIO: [o que é meu aqui?]
-POOL: [qual consulto?]
-PULSE: [qual é relevante?]
-QUALIDADE: [que barra se aplica?]
-ESCOPO: [local ou multi-bloco?]
-ACÇÃO: [executo / coopero / routo?]
+✅ Purga canónica executada (24 componentes + 15 páginas)
+✅ Mapa de navegação fechado
+✅ Núcleo congelado (PLANO_REBUILD_CONGELADO.md)
+✅ TrinityRow monumental v2 definida e fechada
+✅ NexusPage surface elevated
+✅ Auditoria completa entregue (AUDITORIA_COMPLETA_001.md)
+⏳ Aguarda gate do owner (validação visual ao vivo)
 ```
 
 ---
 
-# FAMÍLIA 7 — PADRÃO DE COOPERAÇÃO
+## PIONEER 2 — @claude / @cloud (GUARDIÃO ESTRUTURAL)
 
-## Regra
+### Papel
+Guardião estrutural e contratual. Mantém leis do NEXUS_OS.md.
 
-Nenhum pioneer deve resolver o problema inteiro sozinho quando é necessária uma resposta multi-bloco ou multi-território.
+### Territórios
+- Implementação de código e lógica
+- Manutenção dos contratos entre camadas
+- Auditoria de rotas, imports, tipos
+- Enforcement dos protocolos canónicos
+- Execução das ordens do @antigravity
 
-## Exemplos Canônicos de Cooperação
+### Regras activas
+- Respeita o fluxo sagrado: Tribunal → Atlas → Index → News
+- Não altera ficheiros protegidos sem handoff explícito
+- Não refactora especulativamente
+- Fecha cada bug antes de abrir novo bloco
 
-| Situação | Padrão |
-|----------|--------|
-| Composição → implementação | Framer define, Cursor realiza |
-| Routing + execução longa | Claude routes and audits, Codex executes |
-| Coerência + refinamento | Antigravity critica, tools de implementação refinam |
-| Estratégia + feature build | Claude architecture, Cursor/Codex build |
-
----
-
-# FAMÍLIA 8 — REGRA DE ESCALAÇÃO
-
-Se uma task toca:
-- múltiplos blocos
-- múltiplas famílias
-- múltiplos branches
-- estratégia + implementação ao mesmo tempo
-
-deve ser escalada através de orquestração em vez de resolvida localmente.
-
-## Formato de Escalação
-
+### Estado actual (2026-03-26)
 ```
-ESCALAÇÃO NECESSÁRIA
-Task: [nome]
-Motivo: [multi-bloco / multi-território / estratégia+impl]
-Pioneer actual: [quem recebeu]
-Proposta: [quem deve orquestrar]
+✅ App.tsx reescrito — 13 rotas canónicas
+✅ NexusPage bugs corrigidos (/tribunal → /atlas, /access → /owner)
+✅ CommandPalette canonical rebuild
+✅ GlobeScene elevated (luzes, anéis, partículas)
+🔴 WhitepaperDownload.tsx — /access ainda presente (linha 154)
+🔴 OrganTransitionParticles.tsx — /tribunal no mapa de cores
+🟡 TS baseline errors (~15 implicit any) — não resolvidos
 ```
 
 ---
 
-# FAMÍLIA 9 — CHECKLIST DO PIONEER
+## PIONEER 3 — @cursor (EXECUTOR TÉCNICO PRINCIPAL)
 
-Antes de agir, cada pioneer pergunta:
-1. Este é o meu território?
-2. Que canonical pool deve guiar isto?
-3. Que pulse é relevante?
-4. Que quality bar se aplica?
-5. É trabalho local ou multi-bloco?
-6. Executo, coopero, ou routo?
+### Papel
+Implementação, estabilidade, responsividade, performance.
 
----
+### Territórios
+- Implementação de componentes ao nível de código
+- Garantia de performance e estabilidade visual
+- Responsividade de todos os blocos
+- Integração técnica limpa
+- Testes de runtime
 
-# FAMÍLIA 10 — TABELA RÁPIDA DE BINDINGS
-
-| Pioneer | Papel Core | Pool Principal | Não deve fazer |
-|---------|-----------|----------------|----------------|
-| **Cursor** | Implementação / fidelidade / UI execution | Visual + Functional + Toolchain | Macro brand thesis · eco routing |
-| **Framer** | Composição / spatial design / visual thesis | Visual + Brand + Product Build | Engineering decisions · data layer |
-| **Claude/Orchestrator** | Triage · routing · coherence · strategy | Todos os pools canônicos | Execução mecânica longa |
-| **Codex** | Long-horizon coding · repo-scale edits | Engineering Method + Toolchain | Product strategy · design decisions |
-| **Antigravity** | Coherence audit · anti-drift · prioritization | Product Build + Checkup Master | Coding · layout composition |
-
----
-
+### Próximas tarefas atribuídas
 ```
-earth_lab_pioneer_role_bindings_initialized   ✓
-5_pioneers_vinculados                         ✓
-lei_de_binding_partilhado_definida            ✓
-padrao_de_cooperacao_e_escalacao_definido     ✓
-tabela_rapida_de_bindings_disponivel          ✓
+IMEDIATO (sem gate):
+  → Verificar TrinityRow mobile (portais empilhados — min-height mobile)
+  → Verificar GlobeScene fallback mobile (MobileGlobeMap.tsx)
+
+APÓS GATE DO OWNER:
+  → SystemFacePage surface elevation (#060c14 + dark glass)
+  → AtlasPage auditoria técnica + surface
+  → TS errors hardening (implicit any)
 ```
 
+### Não deve
+- Abrir novos blocos visuais sem ordem do @antigravity
+- Alterar Globe engine sem consulta ao owner
+
 ---
 
-_EARTH_LAB_PIONEER_ROLE_BINDINGS v1.0 — cravado em 2026-03-22 | @claude | PIONEER-BINDINGS-001_
+## PIONEER 4 — @framer (EXECUTOR VISUAL E EXPERIENCIAL)
+
+### Papel
+Composição espacial, presença visual, motion language, feel premium.
+
+### Territórios
+- Macro layout e ritmo de página
+- Atmosfera, textura, profundidade visual
+- Motion language e transições
+- Embodiment da tese visual canónica
+
+### Próximas tarefas atribuídas
+```
+APÓS GATE DO OWNER:
+  → FounderPage — visual identity layer (FVL canónica)
+  → SystemFacePage — visual elevation e composição
+  → Validação de motion em TrinityRow mobile
+```
+
+### Não deve
+- Alterar Globe engine
+- Introduzir identidade visual paralela (a hero é o DNA — tudo herda dela)
+- Expandir para páginas não atribuídas
+
+---
+
+## PIONEER 5 — @codex (CIRURGIA TÉCNICA)
+
+### Papel
+Execução de coding de longo horizonte, missões de precisão, conflitos.
+
+### Territórios
+- Refactors a escala de repo
+- Resolução de conflitos de merge
+- Missões de código autónomo mais profundas
+- Handling de worktree-aware changes
+
+### Próximas tarefas atribuídas
+```
+QUANDO ATRIBUÍDO:
+  → Branch cleanup sprint (70+ branches remotas mortas → git push origin --delete)
+  → TS hardening — resolver implicit any em AuthContext.tsx, AtlasPage.tsx
+  → AtlasPage auditoria técnica profunda (13KB de componentes)
+```
+
+### Não deve
+- Alterar ficheiros protegidos (vite.config.ts, src/types/index.ts, data/projects.ts, tailwind.config.ts)
+- Abrir novas features não pedidas
+
+---
+
+## PIONEER 6 — @copilot (TRAÇÃO CONTÍNUA E MICRO-POLISH)
+
+### Papel
+Apoio subordinado contínuo. Fecha arestas. Completa detalhes. Não lidera.
+
+### Territórios
+- Microajustes e micro-polish
+- Limpeza de detalhes residuais
+- Consistência local
+- Preparação de follow-ups úteis
+- Apoio total ao executor principal do momento
+
+### Próximas tarefas atribuídas
+```
+IMEDIATO (sem gate):
+  → Corrigir /access em WhitepaperDownload.tsx linha 154 → /owner
+  → Corrigir /tribunal em OrganTransitionParticles.tsx → remover da palette
+
+SUPORTE CONTÍNUO:
+  → Micro-arestas em qualquer bloco em execução
+  → Nomeação e consistência de classes
+  → Remover ruído residual quando encontrado
+```
+
+### Não deve
+- Liderar decisões de design
+- Abrir novos blocos
+- Esperar por micro-ordens para tarefas óbvias de limpeza
+
+---
+
+## TABELA RÁPIDA DE ESTADO (2026-03-26 21:00)
+
+| Pioneer | Papel | Estado | Próxima acção |
+|---|---|---|---|
+| **@antigravity** | Líder operacional | ✅ Activo | Aguarda gate do owner |
+| **@claude/cloud** | Guardião estrutural | ✅ Activo | Fix WhitepaperDownload + OrganTransitions |
+| **@cursor** | Executor técnico | ⏳ Standby | Mobile check TrinityRow + Globe fallback |
+| **@framer** | Executor visual | ⏳ Standby gate | FounderPage + SystemFacePage surface |
+| **@codex** | Cirurgia técnica | ⏳ Standby | Branch cleanup + TS hardening |
+| **@copilot** | Micro-polish | 🔴 Tarefa imediata | /access + /tribunal fix |
+
+---
+
+## REGRA DE ANTI-OCIOSIDADE
+
+```
+Quando um pioneer termina a sua tarefa principal:
+  → @cursor entra em suporte a @framer ou testa mobile
+  → @framer prepara spec do próximo bloco visual
+  → @codex audita TS errors ou branches
+  → @copilot faz varredura de ruído residual
+  → Ninguém espera sem ter tarefa de suporte útil
+```
+
+---
+
+## PROIBIÇÕES ABSOLUTAS (todos os pioneers)
+
+```
+❌ Abrir páginas novas sem gate do owner
+❌ Introduzir rotas não canónicas
+❌ Alterar globe engine sem consulta
+❌ Reintroduzir ruído purgado
+❌ Polir vários blocos ao mesmo tempo
+❌ Expandir escopo de forma especulativa
+❌ Alterar ficheiros protegidos sem handoff
+```
+
+---
+
+_EARTH_LAB_PIONEER_ROLE_BINDINGS v2.0 — 2026-03-26 | @antigravity | ACTUALIZADO_

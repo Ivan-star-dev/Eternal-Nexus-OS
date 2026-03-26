@@ -11,13 +11,9 @@ import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
 import CommandPalette from "@/components/CommandPalette";
 import { lazy, Suspense } from "react";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
-import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
 import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
-import LoadingFallback from "./components/LoadingFallback";
 import ErrorBoundary from "./components/ErrorBoundary";
-import SessionBoot from "./components/SessionBoot";
+import LoadingFallback from "./components/LoadingFallback";
 
 function SystemAwareInspector() {
   const location = useLocation();
@@ -25,23 +21,22 @@ function SystemAwareInspector() {
   return <NexusFlowInspector />;
 }
 
-// ─── Active routes — clean organism post-purge 2026-03-26 ─────────────────────
+// ─── Active routes — canonical organism post-purge 2026-03-26 ────────────────
+// Sacred flow: Tribunal → Atlas → Index → News (NEXUS_OS.md Law 3)
+// Faces: System · Product (Nexus) · Ecosystem (Atlas)
 const Index = lazy(() => import("./pages/Index"));
-const ProjectPage = lazy(() => import("./pages/ProjectPage"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Terms = lazy(() => import("./pages/Terms"));
-const GovAuth = lazy(() => import("./pages/GovAuth"));
-const InvestorBriefing = lazy(() => import("./pages/InvestorBriefing"));
-const OwnerDashboard = lazy(() => import("./pages/OwnerDashboard"));
-const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const FounderPage = lazy(() => import("./pages/FounderPage"));
-const NotFound = lazy(() => import("./pages/NotFound"));
 const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
-const GlobePage = lazy(() => import("./pages/GlobePage"));
-const LabPage = lazy(() => import("./pages/LabPage"));
-const SchoolPage = lazy(() => import("./pages/SchoolPage"));
-const WorkshopPage = lazy(() => import("./pages/WorkshopPage"));
+const AtlasPage = lazy(() => import("./pages/AtlasPage"));
+const Projects = lazy(() => import("./pages/Projects"));
+const ProjectPage = lazy(() => import("./pages/ProjectPage"));
+const DashboardPage = lazy(() => import("./pages/DashboardPage"));
+const OwnerDashboard = lazy(() => import("./pages/OwnerDashboard"));
+const NewsPortal = lazy(() => import("./pages/NewsPortal"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -57,27 +52,36 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <SessionBoot />
             <OrganTransitionParticles />
             <SystemAwareInspector />
             <CommandPalette />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
+                {/* ── HOME ── */}
                 <Route path="/" element={<Index />} />
-                <Route path="/project/:id" element={<ProjectPage />} />
-                <Route path="/globe" element={<GlobePage />} />
+
+                {/* ── SACRED FLOW: Tribunal → Atlas → Index → News ── */}
+                <Route path="/atlas" element={<AtlasPage />} />
+                <Route path="/news" element={<NewsPortal />} />
+
+                {/* ── PRODUCT FACES ── */}
                 <Route path="/nexus" element={<NexusPage />} />
-                <Route path="/founder" element={<FounderPage />} />
-                <Route path="/lab" element={<LabPage />} />
-                <Route path="/school" element={<SchoolPage />} />
-                <Route path="/workshop" element={<WorkshopPage />} />
-                <Route path="/access" element={<GovAuth />} />
-                <Route path="/owner" element={<ProtectedRoute ownerOnly><OwnerDashboard /></ProtectedRoute>} />
-                <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-                <Route path="/investor/deltaspine-nl" element={<InvestorBriefing />} />
                 <Route path="/system" element={<SystemFacePage />} />
+                <Route path="/founder" element={<FounderPage />} />
+
+                {/* ── PROJECTS ECOSYSTEM ── */}
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/project/:id" element={<ProjectPage />} />
+
+                {/* ── INTERNAL / OWNER ── */}
+                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/owner" element={<OwnerDashboard />} />
+
+                {/* ── LEGAL ── */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<Terms />} />
+
+                {/* ── FALLBACK ── */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

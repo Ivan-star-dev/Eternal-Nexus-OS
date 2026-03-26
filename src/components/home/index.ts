@@ -1,18 +1,7 @@
-export { default as WorldPulse } from './WorldPulse';
-export { default as ScenarioComparison } from './ScenarioComparison';
-export { default as MetricsTimeline } from './MetricsTimeline';
-export { default as ContributionsSection } from './ContributionsSection';
-export { default as DossierCard } from './DossierCard';
-export { default as OrganStatusGrid } from './OrganStatusGrid';
-export { default as ProjectsLiveSection } from './ProjectsLiveSection';
-export { default as CollaborationHub } from './CollaborationHub';
-export { default as EarthLab } from './EarthLab';
-export { default as LearningPathway } from './LearningPathway';
-export { default as EcosystemMap } from './EcosystemMap';
-export { default as ManifestoSection } from './ManifestoSection';
-export { default as V10Proof } from './V10Proof';
-export { default as WorldClock } from './WorldClock';
-export { default as RoadmapTimeline } from './RoadmapTimeline';
-export { default as PlatformStats } from './PlatformStats';
-export { default as ResearchCallout } from './ResearchCallout';
-export { default as QuoteBlock } from './QuoteBlock';
+// src/components/home/index.ts — Canonical barrel
+// PRESERVED: Globe ecosystem (ProductHero, TrinityRow, HeroFirstProof)
+// PURGED: All noise sections that were below the level of the hero
+
+export { default as ProductHero } from "./ProductHero";
+export { default as TrinityRow } from "./TrinityRow";
+export { default as HeroFirstProof } from "./HeroFirstProof";

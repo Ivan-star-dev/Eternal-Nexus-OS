@@ -39,7 +39,7 @@ const OwnerDashboard = () => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
   useEffect(() => {
-    document.title = "Owner Dashboard — Eternal Nexus OS";
+    document.title = "Owner Dashboard — Sovereign Cockpit · Eternal Nexus OS";
   }, []);
 
   useEffect(() => {
@@ -100,7 +100,8 @@ const OwnerDashboard = () => {
         {/* Sidebar */}
         <aside className="w-64 bg-[#08081a] border-r border-white/[0.06] flex-shrink-0 hidden md:block">
           <div className="p-5 border-b border-white/[0.06]">
-            <span className="font-mono text-[0.55rem] tracking-[0.2em] uppercase text-paper/70">Owner Workspace</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] uppercase" style={{ color: "rgba(200,164,78,0.5)" }}>Owner Workspace</span>
+            <div className="mt-1" style={{ height: "0.5px", background: "rgba(200,164,78,0.15)", width: "40px" }} />
           </div>
           <div className="p-5 border-b border-white/[0.06]">
             <div className="font-mono text-[0.6rem] text-paper-dim leading-relaxed">

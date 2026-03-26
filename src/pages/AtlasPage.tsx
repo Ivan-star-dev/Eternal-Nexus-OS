@@ -4,7 +4,6 @@ import { useRef, useState, useMemo, useCallback, useEffect } from "react";
 import type { CesiumWidget } from "cesium";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import ProjectInspector from "@/components/ProjectInspector";
-import RightClickPrompt from "@/components/RightClickPrompt";
 import type { LODLevel } from "@/components/atlas/ZoomController";
 import WeatherOverlay from "@/components/atlas/WeatherOverlay";
 import EnvironmentPanel from "@/components/atlas/EnvironmentPanel";
@@ -66,7 +65,7 @@ function altitudeToLOD(height: number): LODLevel {
 export default function AtlasPage() {
   // V3 — document title
   useEffect(() => {
-    document.title = "Atlas — Eternal Nexus OS";
+    document.title = "Atlas — Sacred Flow · Intelligence Engine · Eternal Nexus OS";
   }, []);
 
   // sacred flow — mode system state
@@ -153,7 +152,7 @@ export default function AtlasPage() {
         .order("created_at", { ascending: false });
       if (data) {
         setCustomProjects(
-          data.map((p) => ({
+          data.map((p: Record<string, unknown>) => ({
             id: typeof p.id === "string" ? parseInt(p.id.replace(/-/g, "").slice(0, 8), 16) : 0,
             name: p.name,
             lat: Number(p.lat),
@@ -210,7 +209,7 @@ export default function AtlasPage() {
   );
 
   return (
-    <div className="fixed inset-0 bg-background">
+    <div className="fixed inset-0" style={{ background: "#060c14" }}>
       {/* sacred flow — CSS overlays (cinematic vignette + grain) */}
       <VignetteOverlay />
       <GrainOverlay />
@@ -240,7 +239,7 @@ export default function AtlasPage() {
 
           <AgentStatusOverlay />
           
-          <div className="fixed bottom-4 left-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
+          <div className="fixed bottom-4 left-4 z-40 rounded-sm p-4" style={{ background: "rgba(6,12,20,0.85)", border: "0.5px solid rgba(200,164,78,0.1)", backdropFilter: "blur(12px)" }}>
             <WeatherOverlay
               projectName={selectedProject?.name}
               lat={selectedProject?.lat}
@@ -298,17 +297,24 @@ export default function AtlasPage() {
 
       {/* sacred flow — right-click project creation */}
       {rightClick && !isFlyMode && (
-        <RightClickPrompt
-          x={rightClick.x}
-          y={rightClick.y}
-          onSubmit={handleAddProject}
-          onCancel={() => setRightClick(null)}
-        />
+        <div
+          className="fixed z-50 flex flex-col gap-2 rounded-sm p-3"
+          style={{ left: rightClick.x, top: rightClick.y, background: "rgba(6,12,20,0.92)", border: "0.5px solid rgba(200,164,78,0.2)", backdropFilter: "blur(16px)" }}
+        >
+          <span className="font-mono text-[9px] tracking-[0.2em] text-gold/60 uppercase">Add Project</span>
+          <form onSubmit={(e) => { e.preventDefault(); const v = (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value; if (v.trim()) handleAddProject(v.trim()); }}>
+            <input name="name" autoFocus placeholder="Project name…" className="block w-full bg-transparent border-b border-white/10 text-white font-mono text-xs py-1 outline-none focus:border-gold/40" />
+            <div className="flex gap-2 mt-2">
+              <button type="submit" className="font-mono text-[9px] tracking-widest text-gold/70 hover:text-gold">CONFIRM</button>
+              <button type="button" onClick={() => setRightClick(null)} className="font-mono text-[9px] tracking-widest text-white/30 hover:text-white/60">CANCEL</button>
+            </div>
+          </form>
+        </div>
       )}
 
       {/* sacred flow — project detail panels */}
       {selectedProject && !isFlyMode && (
-        <div className="fixed bottom-4 right-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
+        <div className="fixed bottom-4 right-4 z-40 rounded-sm p-4" style={{ background: "rgba(6,12,20,0.85)", border: "0.5px solid rgba(200,164,78,0.1)", backdropFilter: "blur(12px)" }}>
           <EnvironmentPanel project={selectedProject} />
         </div>
       )}

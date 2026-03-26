@@ -76,12 +76,12 @@ const ORGAN_COLORS: Record<string, string> = {
   "/": "#D4AF37",
   "/nexus": "#22ffaa",
   "/atlas": "#4a90e2",
-  "/tribunal": "#cc44ff",
+  "/system": "#cc44ff",
+  "/founder": "#D4AF37",
   "/news": "#ff4444",
-  "/investor/deltaspine-nl": "#ffaa22",
-  "/geopolitics": "#e24a6f",
+  "/projects": "#D4AF37",
   "/dashboard": "#4a90e2",
-  "/gallery": "#D4AF37",
+  "/owner": "#cc44ff",
 };
 
 interface Particle {

@@ -70,32 +70,37 @@ interface MetricCellProps {
 }
 
 function MetricCell({ metric, delay, active }: MetricCellProps) {
-  const count = useCountUp(metric.value, 1400, active);
+  const count = useCountUp(metric.value, 1600, active);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={active ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay, duration: 0.6, ease: EASE }}
+      transition={{ delay, duration: 0.7, ease: EASE }}
       className="flex flex-col items-center text-center"
     >
       <span
-        className="font-mono text-[28px] font-[400] tabular-nums leading-none"
+        className="font-mono tabular-nums leading-none"
         style={{
-          color: "hsl(172 48% 52%)",
+          fontSize: "clamp(32px, 3.5vw, 44px)",
+          fontWeight: 400,
+          color: "hsl(172 52% 58%)",
           fontFamily: "JetBrains Mono, monospace",
-          letterSpacing: "-0.02em",
+          letterSpacing: "-0.03em",
+          textShadow: "0 0 32px hsl(172 52% 58% / 0.25)",
         }}
       >
         {count}
         {metric.suffix ?? ""}
       </span>
       <span
-        className="mt-2 font-sans text-[10px] font-[400] uppercase"
+        className="mt-3 uppercase"
         style={{
           fontFamily: "Syne, system-ui, sans-serif",
-          color: "rgba(255,255,255,0.35)",
-          letterSpacing: "0.18em",
+          fontSize: "9px",
+          fontWeight: 500,
+          color: "rgba(255,255,255,0.32)",
+          letterSpacing: "0.22em",
         }}
       >
         {metric.label}
@@ -153,11 +158,12 @@ export default function HeroFirstProof() {
         className="font-serif italic leading-[1.7]"
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(19px, 2.5vw, 26px)",
+          fontSize: "clamp(22px, 3vw, 32px)",
           fontWeight: 300,
-          color: "rgba(228,235,240,0.8)",
-          maxWidth: "640px",
+          color: "rgba(228,238,248,0.85)",
+          maxWidth: "680px",
           margin: "0 auto",
+          lineHeight: 1.65,
         }}
       >
         {MOTHER_PHRASE}
@@ -170,9 +176,11 @@ export default function HeroFirstProof() {
         transition={{ delay: 0.3, duration: 0.9, ease: EASE }}
         className="mt-14 relative"
         style={{
-          padding: "40px 32px",
-          background: "linear-gradient(135deg, rgba(200,164,78,0.025) 0%, rgba(26,107,90,0.025) 100%)",
-          border: "0.5px solid rgba(200,164,78,0.1)",
+          padding: "44px 40px",
+          background: "linear-gradient(135deg, rgba(200,164,78,0.04) 0%, rgba(26,107,90,0.035) 100%)",
+          border: "0.5px solid rgba(200,164,78,0.15)",
+          boxShadow: "0 0 60px rgba(200,164,78,0.04), inset 0 0 40px rgba(26,107,90,0.03)",
+          backdropFilter: "blur(4px)",
         }}
       >
         {/* Corner marks */}

@@ -5,6 +5,7 @@ import GlobeScene from "./GlobeScene";
 import MobileGlobeMap from "./MobileGlobeMap";
 import GlobeConstructionSequence from "./GlobeConstructionSequence";
 import GlobeLayerSelector from "./GlobeLayerSelector";
+import CosmicSpaceBackground from "./CosmicSpaceBackground";
 
 interface InteractiveGlobeProps {
   onHotspotClick?: (projectId: string) => void;
@@ -34,16 +35,22 @@ const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
         <Suspense fallback={
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="font-mono text-[0.55rem] tracking-[0.2em] text-muted-foreground animate-pulse uppercase">
-              LOADING GLOBE…
+              LOADING COSMOS…
             </span>
           </div>
         }>
           <Canvas
             camera={{ position: [0, 0, 14], fov: 42 }}
-            dpr={[2, 3]}
-            gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-            style={{ background: "transparent" }}
+            dpr={[2, 4]}
+            gl={{
+              antialias: true,
+              alpha: false,
+              powerPreference: "high-performance",
+              toneMapping: 1, // THREE.ACESFilmicToneMapping
+              toneMappingExposure: 0.95,
+            }}
           >
+            <CosmicSpaceBackground />
             <GlobeScene
               focusedProject={focusedProject}
               onHotspotClick={handleClick}

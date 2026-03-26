@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Globe, Brain } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Brain } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
-import { EASE_OUT } from "@/lib/motion/config";
+
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 const NavBar = () => {
   const location = useLocation();
@@ -17,9 +18,14 @@ const NavBar = () => {
   const { visible, atTop } = useScrollDirection();
 
   const navLinks = [
-    { label: "GLOBE", path: "/globe", icon: Globe, live: true },
-    { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
-    { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
+    { label: "NEXUS",   path: "/nexus",   icon: Brain,    live: true  },
+    { label: "SYSTEM",  path: "/system",  icon: BarChart3, live: true  },
+  ];
+
+  const secondaryLinks = [
+    { label: "ATLAS",   path: "/atlas"   },
+    { label: "NEWS",    path: "/news"    },
+    { label: "FOUNDER", path: "/founder" },
   ];
 
   const triggerCmdK = () => {
@@ -42,7 +48,7 @@ const NavBar = () => {
           <span className="font-serif text-sm font-bold text-foreground tracking-wide">NEXT PATH</span>
           <sup className="font-mono text-[0.48rem] text-primary tracking-[0.18em] ml-1 align-super">INFRA</sup>
         </Link>
-        <div className="hidden md:flex items-center gap-6 ml-8">
+        <div className="hidden md:flex items-center gap-5 ml-8">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -54,6 +60,20 @@ const NavBar = () => {
                 {link.label}
                 {link.live && <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse ml-0.5" />}
                 {isActive && <span className="absolute -bottom-[1px] left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, hsl(42 78% 45% / 0.9), transparent)" }} />}
+              </Link>
+            );
+          })}
+          {/* Divider */}
+          <div className="h-3 w-px bg-white/[0.08]" />
+          {secondaryLinks.map((link) => {
+            const isActive = location.pathname.startsWith(link.path);
+            return (
+              <Link key={link.label} to={link.path}
+                className={`relative font-mono text-[0.58rem] tracking-[0.1em] uppercase py-1 transition-all duration-300 hover:scale-105 ${
+                  isActive ? "text-gold/90" : "text-muted-foreground/60 hover:text-muted-foreground"
+                }`}>
+                {link.label}
+                {isActive && <span className="absolute -bottom-[1px] left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(200,164,78,0.7), transparent)" }} />}
               </Link>
             );
           })}
@@ -78,9 +98,9 @@ const NavBar = () => {
               <button onClick={() => signOut()} className="text-muted-foreground hover:text-destructive transition-colors"><LogOut className="w-3 h-3" /></button>
             </div>
           ) : (
-            <Link to="/access" className="font-mono text-[0.55rem] tracking-[0.1em] text-primary border border-primary/60 px-3 py-1.5 hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5">
-              <LogIn className="w-3 h-3" /> ACCESS
-            </Link>
+            <div className="font-mono text-[0.55rem] tracking-[0.1em] text-primary/60 px-3 py-1.5 flex items-center gap-1.5">
+              <LogIn className="w-3 h-3" /> NO ACCESS
+            </div>
           )}
           <div className="flex items-center gap-1.5 ml-1">
             <div className="w-1.5 h-1.5 rounded-full bg-teal-light animate-pulse-dot" />
@@ -110,7 +130,6 @@ const NavBar = () => {
               })}
               <div className="mt-2 pt-3 border-t border-white/[0.06] flex flex-col gap-1">
                 {isOwner && (<Link to="/owner" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary py-2 px-3 border-l border-primary/40 flex items-center gap-2"><Shield className="w-3 h-3" /> OWNER DASHBOARD</Link>)}
-                <Link to="/access" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary/70 hover:text-primary py-2 px-3">{user ? profile?.institution : "ACCESS"}</Link>
               </div>
               <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-3 px-3"><ThemeToggle /><LanguageSwitcher /></div>
             </motion.div>

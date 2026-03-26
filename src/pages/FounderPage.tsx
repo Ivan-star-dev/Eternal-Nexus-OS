@@ -32,7 +32,8 @@ const Section = ({
 }) => (
   <section
     id={id}
-    className={`border-t border-border py-20 md:py-28 px-6 md:px-20 ${className}`}
+    className={`py-20 md:py-28 px-6 md:px-20 ${className}`}
+    style={{ borderTop: "0.5px solid rgba(200,164,78,0.12)" }}
   >
     <div className="max-w-[760px] mx-auto">{children}</div>
   </section>
@@ -160,50 +161,65 @@ const FounderPage = () => {
   return (
     <Layout>
       {/* ── HERO — The Architect ────────────────────────────────────────── */}
-      <section className="relative min-h-[65vh] flex flex-col justify-end overflow-hidden bg-ink-deep">
-        {/* Engineering grid — structural layer */}
-        <div className="absolute inset-0 engineering-grid opacity-[0.55] pointer-events-none" />
+      <section className="relative flex flex-col justify-end overflow-hidden" style={{ background: "#060c14", minHeight: "85vh" }}>
+        {/* Engineering grid */}
+        <div className="absolute inset-0 engineering-grid opacity-[0.45] pointer-events-none" />
 
-        {/* Atmospheric orbs */}
+        {/* Primary gold atmospheric orb */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 72% 38%, hsl(42 78% 45% / 0.055) 0%, transparent 60%)",
+              "radial-gradient(ellipse 70% 70% at 75% 30%, hsl(42 78% 45% / 0.14) 0%, transparent 60%)",
           }}
         />
+        {/* Secondary teal orb */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 18% 65%, hsl(220 70% 50% / 0.04) 0%, transparent 55%)",
+              "radial-gradient(ellipse 50% 60% at 15% 70%, hsl(172 55% 35% / 0.1) 0%, transparent 55%)",
+          }}
+        />
+        {/* Crimson accent — subtle */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 40% 40% at 95% 85%, hsl(0 60% 35% / 0.05) 0%, transparent 60%)",
           }}
         />
         {/* Deep bottom fade */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none"
           style={{
-            background: "linear-gradient(to top, hsl(var(--background)), transparent)",
+            background: "linear-gradient(to top, #060c14 0%, #060c14 10%, transparent 100%)",
           }}
         />
 
-        <div className="relative z-10 px-6 md:px-20 pb-16 max-w-[900px]">
+        <div className="relative z-10 px-6 md:px-20 pb-20 max-w-[1000px]">
           <motion.p
             initial="hidden"
             animate="visible"
-            custom={0.3}
+            custom={0.2}
             variants={fadeIn}
-            className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-6"
+            className="font-mono text-[0.48rem] tracking-[0.32em] uppercase mb-8"
+            style={{ color: "rgba(200,164,78,0.5)" }}
           >
             FVL — Founder Vision Layer
           </motion.p>
 
           <motion.h1
-            initial="hidden"
-            animate="visible"
-            custom={0.5}
-            variants={fadeUp}
-            className="font-serif text-4xl md:text-5xl font-light text-paper leading-[0.95]"
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="font-serif font-light leading-[0.92]"
+            style={{
+              fontFamily: "Cormorant Garamond, Georgia, serif",
+              fontSize: "clamp(52px, 7vw, 88px)",
+              color: "#e8eef4",
+              letterSpacing: "-0.02em",
+            }}
           >
             The Architect
           </motion.h1>
@@ -211,42 +227,37 @@ const FounderPage = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ delay: 0.85, duration: 0.7 }}
-            className="gold-rule mt-8 origin-left"
-            style={{ width: 64 }}
+            transition={{ delay: 0.85, duration: 0.8 }}
+            className="origin-left mt-8"
+            style={{ width: 80, height: "0.5px", background: "rgba(200,164,78,0.5)" }}
           />
 
           <motion.div
-            initial="hidden"
-            animate="visible"
-            custom={1.0}
-            variants={fadeUp}
-            className="mt-8 space-y-4 font-serif text-base text-paper-dim/80 leading-relaxed max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-10 space-y-4 max-w-2xl"
+            style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "clamp(14px, 1.5vw, 17px)", color: "rgba(200,218,232,0.72)", lineHeight: 1.85 }}
           >
-            <p>
-              I am a founder. I build systems — not merely products.
-            </p>
+            <p>I am a founder. I build systems — not merely products.</p>
             <p>
               The distinction matters. A product resolves a problem. A system
               governs the resolution of problems across time, across sessions,
-              across states of incompleteness. A product can be assembled in a
-              sprint. A system demands architecture.
+              across states of incompleteness.
             </p>
-            <p>
-              I am building both, simultaneously, and the one is the proof of
-              the other.
+            <p style={{ color: "rgba(200,218,232,0.55)" }}>
+              I am building both, simultaneously, and the one is the proof of the other.
             </p>
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            animate="visible"
-            custom={1.2}
-            variants={fadeIn}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mt-12 flex flex-wrap items-center gap-4"
           >
             <span className="badge-status badge-active">Active build</span>
-            <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase text-gold/70">
+            <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase" style={{ color: "rgba(200,164,78,0.65)" }}>
               Ivan · Founder + Architect
             </span>
           </motion.div>
@@ -290,7 +301,7 @@ const FounderPage = () => {
       </Section>
 
       {/* ── SECTION 3 — The Thesis ──────────────────────────────────────── */}
-      <Section id="the-thesis" className="bg-card">
+      <Section id="the-thesis">
         <SectionHeader
           label="Section 03 — The Central Idea"
           title={
@@ -405,7 +416,7 @@ const FounderPage = () => {
       </Section>
 
       {/* ── SECTION 4.5 — The System Architects ─────────────────────────── */}
-      <Section id="system-architects" className="bg-card">
+      <Section id="system-architects">
         <SectionHeader
           label="Section 04.5 — The Builders"
           title={
@@ -550,7 +561,7 @@ const FounderPage = () => {
       </Section>
 
       {/* ── SECTION 6 — The Vision + Call ───────────────────────────────── */}
-      <Section id="the-vision" className="bg-card">
+      <Section id="the-vision">
         <SectionHeader
           label="Section 06 — Direction"
           title={

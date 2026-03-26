@@ -22,7 +22,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 const DashboardPage = () => {
   useEffect(() => {
-    document.title = "Dashboard — Eternal Nexus OS";
+    document.title = "Dashboard — Mission Control · Eternal Nexus OS";
   }, []);
 
   const { data: metrics = [], isLoading: metricsLoading } = useProjectMetrics();
@@ -35,34 +35,43 @@ const DashboardPage = () => {
   return (
     <Layout>
       {/* Header */}
-      <div className="border-b border-border bg-card/50 backdrop-blur-sm py-16 sm:py-20 px-4 sm:px-6 md:px-16">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+      <div
+        className="relative border-b py-20 sm:py-24 px-4 sm:px-6 md:px-16 overflow-hidden"
+        style={{ background: "#060c14", borderColor: "rgba(200,164,78,0.1)" }}
+      >
+        {/* Grid substrate */}
+        <div className="absolute inset-0 engineering-grid pointer-events-none" style={{ opacity: 0.035 }} />
+        {/* Gold orb */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 55% at 80% 40%, hsl(42 78% 45% / 0.1) 0%, transparent 65%)" }} />
+        {/* Teal orb */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 45% at 5% 70%, hsl(172 55% 30% / 0.07) 0%, transparent 60%)" }} />
+
+        <div className="relative max-w-[1400px] mx-auto flex items-end justify-between gap-8">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
-                MISSION CONTROL
-              </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-emerald-400 uppercase">
-                LIVE
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-mono text-[0.48rem] tracking-[0.32em] uppercase" style={{ color: "rgba(200,164,78,0.5)" }}>MISSION CONTROL</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-mono text-[0.48rem] tracking-[0.2em] uppercase" style={{ color: "rgba(52,211,153,0.8)" }}>LIVE</span>
             </div>
-            <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
+            <h1
+              className="font-serif font-light leading-[0.9]"
+              style={{
+                fontFamily: "Cormorant Garamond, Georgia, serif",
+                fontSize: "clamp(40px, 5vw, 64px)",
+                color: "#e8eef4",
+                letterSpacing: "-0.02em",
+              }}
+            >
               Realtime Dashboard
             </h1>
-            <p className="text-sm text-paper-dim/70 font-light mt-2">
+            <p className="mt-3 font-sans text-sm font-light" style={{ color: "rgba(200,218,232,0.5)" }}>
               Next Path Infra · Strategic Division
             </p>
           </div>
-          <div className="hidden md:block text-right">
-            <span className="font-mono text-[0.48rem] tracking-[0.2em] text-paper-dim/50 uppercase block">
-              NEXT PATH INFRA · STRATEGIC DIVISION
-            </span>
-            <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 block mt-1">
-              {new Date().toLocaleString("en-GB", {
-                day: "2-digit", month: "short", year: "numeric",
-                hour: "2-digit", minute: "2-digit", second: "2-digit",
-              })}
+          <div className="hidden md:block text-right shrink-0">
+            <span className="font-mono text-[0.48rem] tracking-[0.2em] uppercase block" style={{ color: "rgba(200,218,232,0.3)" }}>NEXT PATH INFRA · STRATEGIC</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.1em] block mt-1" style={{ color: "rgba(200,218,232,0.2)" }}>
+              {new Date().toLocaleString("en-GB", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit" })}
             </span>
           </div>
         </div>

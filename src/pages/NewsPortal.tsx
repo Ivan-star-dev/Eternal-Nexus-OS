@@ -287,30 +287,50 @@ export default function NewsPortal() {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-background" role="main" aria-label="Nexus News Portal">
-      {/* ═══ HEADPHONES ADVISORY — Planetoño-style ═══ */}
-      <div className="bg-gradient-to-r from-card via-secondary/50 to-card border-b border-border/20 py-2 px-4 text-center" role="status">
-        <span className="font-mono text-[0.5rem] tracking-[0.2em] text-morabeza uppercase inline-flex items-center gap-2">
-          <span className="text-base">🎧</span>
+    <div className="min-h-screen" style={{ background: "#060c14" }} role="main" aria-label="Nexus News Portal">
+      {/* ═══ HEADPHONES ADVISORY ═══ */}
+      <div
+        className="border-b py-2 px-4 text-center"
+        style={{
+          background: "rgba(6,12,20,0.95)",
+          borderColor: "rgba(200,164,78,0.12)",
+          boxShadow: "0 1px 0 rgba(200,164,78,0.04)",
+        }}
+        role="status"
+      >
+        <span className="font-mono text-[0.48rem] tracking-[0.22em] uppercase inline-flex items-center gap-2" style={{ color: "rgba(200,164,78,0.7)" }}>
+          <span className="text-sm">🎧</span>
           Use headphones para experiência imersiva com áudio espacial Echo-Vox
-          <span className="text-base">🎧</span>
+          <span className="text-sm">🎧</span>
         </span>
       </div>
 
       {/* ═══ TOP BAR ═══ */}
-      <nav className="sticky top-0 z-50 bg-card/95 backdrop-blur-xl border-b border-border/30" aria-label="News navigation">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <nav
+        className="sticky top-0 z-50 backdrop-blur-2xl border-b"
+        style={{
+          background: "rgba(6,12,20,0.92)",
+          borderColor: "rgba(200,164,78,0.1)",
+          boxShadow: "0 1px 24px rgba(0,0,0,0.4)",
+        }}
+        aria-label="News navigation"
+      >
+        <div className="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2" aria-label="Voltar à página principal">
-              <Radio className="h-4 w-4 text-destructive animate-pulse" aria-hidden="true" />
-              <span className="font-mono text-[0.6rem] tracking-[0.3em] text-primary uppercase font-bold">
+              <Radio className="h-3.5 w-3.5 animate-pulse" style={{ color: "hsl(0 75% 55%)" }} aria-hidden="true" />
+              <span className="font-mono font-bold tracking-[0.25em] uppercase" style={{ fontSize: "0.6rem", color: "hsl(42 78% 58%)" }}>
                 NEXUS NEWS
               </span>
             </Link>
-            <div className="w-px h-4 bg-border/50" aria-hidden="true" />
-            <Newspaper className="h-3 w-3 text-muted-foreground" aria-hidden="true" />
-            <span className="font-mono text-[0.45rem] text-muted-foreground tracking-wider">
-              AI DAILY BRIEF — {new Date().toLocaleDateString("pt-BR")}
+            <div className="w-px h-3.5 bg-white/[0.08]" aria-hidden="true" />
+            <span className="font-mono tracking-wider" style={{ fontSize: "0.45rem", color: "rgba(255,255,255,0.3)" }}>
+              AI DAILY BRIEF · {new Date().toLocaleDateString("pt-BR")}
+            </span>
+            {/* Live dot */}
+            <span className="inline-flex items-center gap-1">
+              <span className="w-1 h-1 rounded-full bg-red-500 animate-pulse" />
+              <span className="font-mono" style={{ fontSize: "0.42rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.15em" }}>LIVE</span>
             </span>
           </div>
           <div className="flex items-center gap-2">

@@ -8,7 +8,7 @@ import CommandLine from "@/components/system/CommandLine";
 
 export default function SystemFacePage() {
   useEffect(() => {
-    document.title = "System Face — Eternal Nexus OS";
+    document.title = "System Face — Eternal Nexus OS · Cockpit Soberano";
   }, []);
 
   return (

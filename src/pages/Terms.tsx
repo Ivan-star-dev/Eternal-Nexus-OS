@@ -22,16 +22,30 @@ const Terms = () => {
 
   return (
     <Layout>
+      {/* Hero */}
+      <section
+        className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden"
+        style={{ background: "#060c14", borderBottom: "0.5px solid rgba(200,164,78,0.1)" }}
+      >
+        <div className="absolute inset-0 engineering-grid pointer-events-none" style={{ opacity: 0.035 }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 30% 35%, hsl(172 55% 28% / 0.08) 0%, transparent 65%)" }} />
+        <div className="max-w-[800px] mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
+            <span className="font-mono text-[0.48rem] tracking-[0.32em] uppercase" style={{ color: "rgba(200,164,78,0.5)" }}>{t("legal_doc")}</span>
+            <h1
+              className="font-serif font-light leading-[0.92] mt-3 mb-4"
+              style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "clamp(40px, 5.5vw, 72px)", color: "#e8eef4", letterSpacing: "-0.02em" }}
+            >
+              {t("terms_title")} <span style={{ fontStyle: "italic", color: "rgba(200,218,232,0.45)" }}>of Use</span>
+            </h1>
+            <div style={{ width: 64, height: "0.5px", background: "rgba(200,164,78,0.4)", marginBottom: "16px" }} />
+            <p className="font-mono text-[0.62rem] tracking-[0.15em]" style={{ color: "rgba(200,218,232,0.3)" }}>{t("legal_updated")}</p>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24 px-6 md:px-20">
         <div className="max-w-[800px] mx-auto">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-            <span className="font-mono text-[0.48rem] tracking-[0.25em] uppercase text-paper-dim/40">{t("legal_doc")}</span>
-            <h1 className="font-serif text-3xl md:text-5xl font-light text-paper mt-3 mb-2">
-              {t("terms_title")} <span className="text-paper-dim/50">of Use</span>
-            </h1>
-            <div className="gold-rule mb-4" />
-            <p className="font-mono text-[0.62rem] tracking-[0.15em] text-paper-dim/40 mb-12">{t("legal_updated")}</p>
-          </motion.div>
 
           <div className="space-y-12">
             {sections.map((section, i) => (

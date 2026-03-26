@@ -248,7 +248,7 @@ function SovereignText() {
       {/* CTAs */}
       <div className="flex items-center gap-4 flex-wrap justify-center">
         <Link
-          to="/access"
+          to="/nexus"
           className="font-sans font-[500] transition-colors duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
@@ -273,7 +273,7 @@ function SovereignText() {
           Enter the System
         </Link>
         <Link
-          to="/projects"
+          to="/founder"
           className="font-sans font-[400] transition-colors duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
@@ -291,7 +291,7 @@ function SovereignText() {
             (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
           }}
         >
-          Explore Projects
+          The Foundation
         </Link>
       </div>
     </motion.div>

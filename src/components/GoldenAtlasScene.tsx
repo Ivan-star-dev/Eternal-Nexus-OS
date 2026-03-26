@@ -4,8 +4,6 @@ import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import ProjectInspector from "./ProjectInspector";
-import OscillatingGoldParticles from "./OscillatingGoldParticles";
-import RightClickPrompt from "./RightClickPrompt";
 import { continentCoastlines } from "@/data/continentCoastlines";
 
 // ═══ Project data — original + Next Path Infra hubs ═══
@@ -340,7 +338,6 @@ function AtlasSceneContent({
       <GlobeSphere />
       <GlobeContinents />
       <GlobeGrid />
-      <OscillatingGoldParticles />
 
       {npiBeams.map((beam) => (
         <NPIBeam key={beam.id} position={beam.position} color={beam.color} id={beam.id} />
@@ -409,12 +406,19 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
       </div>
 
       {rightClick && (
-        <RightClickPrompt
-          x={rightClick.x}
-          y={rightClick.y}
-          onSubmit={handleAddProject}
-          onCancel={() => setRightClick(null)}
-        />
+        <div
+          className="fixed z-50 flex flex-col gap-2 rounded-sm p-3"
+          style={{ left: rightClick.x, top: rightClick.y, background: "rgba(6,12,20,0.92)", border: "0.5px solid rgba(200,164,78,0.2)", backdropFilter: "blur(16px)" }}
+        >
+          <span className="font-mono text-[9px] tracking-[0.2em] text-gold/60 uppercase">Add Project</span>
+          <form onSubmit={(e) => { e.preventDefault(); const v = (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value; if (v.trim()) handleAddProject(v.trim()); }}>
+            <input name="name" autoFocus placeholder="Project name…" className="block w-full bg-transparent border-b border-white/10 text-white font-mono text-xs py-1 outline-none focus:border-gold/40" />
+            <div className="flex gap-2 mt-2">
+              <button type="submit" className="font-mono text-[9px] tracking-widest text-gold/70 hover:text-gold">CONFIRM</button>
+              <button type="button" onClick={() => setRightClick(null)} className="font-mono text-[9px] tracking-widest text-white/30 hover:text-white/60">CANCEL</button>
+            </div>
+          </form>
+        </div>
       )}
 
       {selectedProject && (

@@ -151,7 +151,7 @@ const WhitepaperDownload = ({ projectId, documentName }: WhitepaperDownloadProps
                 </span>
               </div>
               <Link
-                to="/access"
+                to="/owner"
                 className="inline-block py-2.5 px-5 border border-primary text-primary font-mono text-[0.65rem] tracking-[0.12em] hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 {t("nav_login")}

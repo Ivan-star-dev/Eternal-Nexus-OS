@@ -5,7 +5,6 @@ import { ArrowLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
 import ProjectNotes from "@/components/ProjectNotes";
-import GovernmentBids from "@/components/GovernmentBids";
 import WhitepaperViewer from "@/components/WhitepaperViewer";
 import ProjectChat from "@/components/ProjectChat";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -90,18 +89,17 @@ const ProjectPage = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="border-b border-border bg-secondary/50 backdrop-blur-sm px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
+        className="border-b backdrop-blur-sm px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
+        style={{ background: "rgba(6,12,20,0.92)", borderColor: "rgba(200,164,78,0.1)" }}
       >
-        {/* V3: breadcrumb meta — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
-        <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">
+        <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase" style={{ color: "rgba(200,218,232,0.35)" }}>
           <Link to="/" className="hover:text-primary transition-colors hidden sm:inline">NPI REGISTRY</Link>
           <ChevronRight className="w-3 h-3 opacity-40 hidden sm:inline" />
-          <span className="text-primary">{project.number}</span>
+          <span style={{ color: "hsl(42 78% 55%)" }}>{project.number}</span>
           <ChevronRight className="w-3 h-3 opacity-40" />
-          <span className="text-paper">{project.title}</span>
+          <span style={{ color: "rgba(232,238,244,0.7)" }}>{project.title}</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* V3: status badge — active=gold, completed=emerald, in-progress=blue */}
           <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[(project.status ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
             {project.status ?? "ACTIVE"}
           </span>
@@ -139,9 +137,21 @@ const ProjectPage = () => {
             <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">© 2026 Ivanildo Michel Monteiro Fernandes</span>
           </motion.div>
 
-          {/* V3: hero title — font-serif font-light text-paper */}
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper leading-[0.92] mb-3">
-            {project.title.split(" ").slice(0, -1).join(" ")}<span className="text-primary">{project.title.split(" ").slice(-1)}</span>
+          {/* Hero title — Cormorant Garamond, large */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 1, ease }}
+            className="font-serif font-light leading-[0.92] mb-3"
+            style={{
+              fontFamily: "Cormorant Garamond, Georgia, serif",
+              fontSize: "clamp(44px, 6vw, 80px)",
+              color: "#e8eef4",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {project.title.split(" ").slice(0, -1).join(" ")}
+            <span style={{ color: "hsl(42 78% 58%)" }}>{" "}{project.title.split(" ").slice(-1)}</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8, ease }} className="font-serif text-base sm:text-lg md:text-xl font-light italic text-muted-foreground max-w-2xl leading-relaxed mb-3">
@@ -230,7 +240,6 @@ const ProjectPage = () => {
 
             <TabsContent value="documents" className="mt-0 animate-fade-in">
               <WhitepaperViewer projectId={id!} documentName={project.whitepaperName} />
-              <GovernmentBids projectId={id!} />
 
               <section className="border-t border-border py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-20">
                 <div className="max-w-[1200px] mx-auto">

@@ -1,8 +1,6 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import CommandPalette from "@/components/CommandPalette";
-import AmbientParticles from "@/components/AmbientParticles";
-import NeuralBridge from "@/components/NeuralBridge";
+import GlobalBackground from "@/components/GlobalBackground";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,15 +8,13 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-background">
-      <AmbientParticles />
-      <NavBar />
-      <CommandPalette />
-      <NeuralBridge />
-      <main>
-        {children}
-      </main>
-      <Footer />
+    <div className="min-h-screen relative" style={{ background: "#060c14" }}>
+      <GlobalBackground />
+      <div className="relative" style={{ zIndex: 1 }}>
+        <NavBar />
+        <main>{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };
