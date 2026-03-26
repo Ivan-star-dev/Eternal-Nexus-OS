@@ -13,7 +13,6 @@ import ProjectMetricsBarChart from "@/components/dashboard/ProjectMetricsBarChar
 import SystemRadarChart from "@/components/dashboard/SystemRadarChart";
 import { EASE_OUT } from "@/lib/motion/config";
 import {
-import { EASE_OUT } from "@/lib/motion/config";
   useProjectMetrics,
   useActivityLog,
   useSystemStatus,

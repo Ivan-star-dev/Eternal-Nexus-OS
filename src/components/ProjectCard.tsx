@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { EASE_OUT } from "@/lib/motion/config";
-import { EASE_OUT } from "@/lib/motion/config";
 
 interface ProjectCardProps {
   id: string;

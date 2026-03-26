@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Shield, Zap } from "lucide-react";
 import heroBannerBg from "@/assets/hero-banner-bg.jpg";
 import { EASE_OUT } from "@/lib/motion/config";
-import { EASE_OUT } from "@/lib/motion/config";
 
 const easeOutExpo = EASE_OUT;
 
