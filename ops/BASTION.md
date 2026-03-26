@@ -1026,9 +1026,9 @@ TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
 V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
 V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
                  V6-PROJECT-DETAIL-001 (P1 — ✅ DONE 2026-03-26 @claude)
-                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor · NEXT)
-                 V6-COUNCIL-LIVE-001 (P2 — @claude)
-                 V6-RUBERRA-SURFACE-001 (P2 — @claude)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — ✅ DONE 2026-03-26 @claude · PR#175)
+                 V6-COUNCIL-LIVE-001 (P2 — ✅ DONE 2026-03-26 @claude · PR#176)
+                 V6-RUBERRA-SURFACE-001 (P2 — 🔄 IN PROGRESS @claude)
 
 V6-AUTH-001-CLOSE:
   ✅ ProtectedRoute component (auth guard + ownerOnly variant)
@@ -1036,6 +1036,43 @@ V6-AUTH-001-CLOSE:
   ✅ useCurrentUser hook — flat identity surface for all V6 components
   ✅ GovAuth post-login redirect honours location.state.from
   ✅ TS 0 · commit 0fd720a · pushed
+
+V6-PORTFOLIO-DASHBOARD-001-CLOSE:
+  ✅ usePortfolioData hook — globe_projects + project_metrics aggregate
+  ✅ metric_key contracts: investment_usd · co2_tonnes · jobs_created · sdg_score
+  ✅ Real-time: postgres_changes on both tables
+  ✅ PortfolioMetricsPanel — animated KPI cards · LIVE badge · status bar
+  ✅ Wired at top of DashboardPage (/dashboard)
+  ✅ Build ✓ · PR#175 → main 8dc6b00
+
+V6-COUNCIL-LIVE-001-CLOSE:
+  ✅ useProposalQueue: real-time subscription to globe_projects added
+  ✅ Queue auto-rebuilds on globe_projects INSERT/UPDATE/DELETE
+  ✅ isLive: true when fetchSupabaseProjects() returns real rows
+  ✅ appendToProposalLedger: Supabase upsert to proposal_ledger added
+  ✅ Graceful fallback when proposal_ledger table doesn't exist yet
+  ✅ SQL migration documented in PR#176
+  ✅ Build ✓ · PR#176 → main d3e10b0
+
+V6-RUBERRA-SURFACE-001-CLOSE:
+  ✅ PRODUCT_MAP.md — surfaces, routes, faces, session tracking (128 lines)
+  ✅ PRODUCT_VISION.md — product vision, principles, evolution
+  ✅ RUNTIME.md — stack, boot sequence, realtime flows, perf budgets (184 lines)
+  ✅ DATA_AND_CONTROL_FLOWS.md — data architecture, control flows (217 lines)
+  ✅ GOVERNANCE_MODEL.md — decision classes, protocols (216 lines)
+  ✅ CURRENT_STACK.md — full tech inventory, CI/CD, branch model (150 lines)
+  ✅ DEPLOY_MODEL.md — pipeline, rollback, env vars, sprint cycle (198 lines)
+  ✅ BRAND_CORE.md — identity, voice, visual language, positioning (212 lines)
+  ✅ KNOWLEDGE_TRANSFER.md — onboarding layers, handoff law, glossary (110 lines)
+  ✅ commit 5399df5 · pushed · 1627 insertions
+V6-GATE-CLOSE: V6 wave complete — all P1+P2 tasks done
 ═══════════════════════════════════════════════════════════════════════
 ```
+
+## V7 — GATE STATUS
+
+V7-GATE-STATUS : 🔴 SEALED — awaiting owner gate
+V7-NEXT-TASKS  : School surface (/school) · Workshop surface (/workshop)
+                 Bridge Nova face activation · Nexus Cria full surface
+                 Owner gate required to open V7 wave
 
