@@ -35,10 +35,20 @@ const ease = EASE_OUT;
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
-  const { startSession, updateReEntry } = useSession();
+  const { session, startSession, updateReEntry, updateFruit } = useSession();
   // V6-PROJECT-DETAIL-001: live data from Supabase overlaid on static shell
   const { project, liveRow, isLive } = useProjectData(id);
-  const [activeTab, setActiveTab] = useState("overview");
+
+  // Restore last tab from session if the session subject matches this project.
+  const VALID_TABS = new Set(["overview", "simulation", "technical", "financial", "risk", "timeline", "documents"]);
+  const restoredTab = (
+    session?.subject?.toLowerCase() === project?.title?.toLowerCase() &&
+    session?.re_entry_point &&
+    VALID_TABS.has(session.re_entry_point)
+  ) ? session.re_entry_point : "overview";
+
+  const [activeTab, setActiveTab] = useState(restoredTab);
+  const [tabUserChanged, setTabUserChanged] = useState(false);
 
   // V4-PROJECT-PAGE-001 — session carryover: persist last project + detect returning visitor
   const { setLastProject } = useSessionMemory();
@@ -60,6 +70,21 @@ const ProjectPage = () => {
     document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
     return () => { document.title = "Eternal Nexus OS"; };
   }, [project]);
+
+  // Session hookup: start session with real project context on mount
+  useEffect(() => {
+    if (project) startSession(project.title, "project-review");
+  }, [project]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Track tab navigation: re_entry_point + fruit (what the user last read).
+  // Guard: only update re_entry_point when the user actively changed the tab.
+  // On initial mount, a Nexus session's re_entry_point (resume-swarm:...) must
+  // not be overwritten by the default "overview" tab value.
+  useEffect(() => {
+    if (!tabUserChanged) return;
+    updateReEntry(activeTab);
+    if (project) updateFruit(`${project.title} · ${activeTab}`);
+  }, [activeTab, tabUserChanged]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!project) {
     return (
@@ -181,7 +206,7 @@ const ProjectPage = () => {
       {/* ═══ TABBED NAVIGATION ═══ */}
       <div className="border-t border-border sticky top-14 z-40 bg-background/95 backdrop-blur-xl">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-16 lg:px-20">
-          <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setTabUserChanged(true); }}>
             <TabsList className="bg-transparent h-auto p-0 gap-0 w-full justify-start border-b border-border rounded-none overflow-x-auto">
               {[
                 { value: "overview", label: "OVERVIEW" },
