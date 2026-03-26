@@ -71,9 +71,16 @@ export default function AtlasRightPanel({
     <>
       {/* Toggle button */}
       {!isOpen && (
-        <button
+      <button
           onClick={() => setIsOpen(true)}
-          className="fixed top-4 right-4 z-50 h-9 w-9 flex items-center justify-center bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg text-white/60 hover:text-white/90 transition-colors"
+          className="fixed top-4 right-4 z-50 h-9 w-9 flex items-center justify-center backdrop-blur-xl transition-colors"
+          style={{
+            background: "rgba(6,12,20,0.88)",
+            border: "0.5px solid rgba(200,164,78,0.15)",
+            color: "rgba(200,218,232,0.5)",
+          }}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,164,78,0.8)"}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,218,232,0.5)"}
         >
           <PanelRight size={16} />
         </button>
@@ -81,22 +88,29 @@ export default function AtlasRightPanel({
 
       {/* Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 z-50 bg-black/60 backdrop-blur-2xl border-l border-white/10 transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-80 z-50 backdrop-blur-2xl transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{
+          background: "rgba(6,12,20,0.96)",
+          borderLeft: "0.5px solid rgba(200,164,78,0.12)",
+        }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+        <div
+          className="flex items-center justify-between px-4 py-3"
+          style={{ borderBottom: "0.5px solid rgba(200,164,78,0.1)" }}
+        >
           <div className="flex items-center gap-1">
             {TABS.map(({ key, label, icon: Icon }) => (
               <button
                 key={key}
                 onClick={() => setTab(key)}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded text-[10px] font-mono tracking-wide transition-colors ${
-                  tab === key
-                    ? "bg-white/10 text-[#f5c24a]"
-                    : "text-white/40 hover:text-white/70"
-                }`}
+                className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-mono tracking-wide transition-colors"
+                style={{
+                  background: tab === key ? "rgba(200,164,78,0.1)" : "transparent",
+                  color: tab === key ? "hsl(42 78% 62%)" : "rgba(200,218,232,0.3)",
+                }}
               >
                 <Icon size={11} />
                 {label}
@@ -105,7 +119,10 @@ export default function AtlasRightPanel({
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-white/40 hover:text-white/80 transition-colors"
+            className="transition-colors"
+            style={{ color: "rgba(200,218,232,0.3)" }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,164,78,0.8)"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,218,232,0.3)"}
           >
             <X size={14} />
           </button>

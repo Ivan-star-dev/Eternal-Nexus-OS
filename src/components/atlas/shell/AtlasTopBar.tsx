@@ -39,9 +39,19 @@ export default function AtlasTopBar({ mode, lod, isMoving }: AtlasTopBarProps) {
   }, []);
 
   return (
-    <div className="fixed top-4 left-4 z-50 flex items-center gap-3 px-4 py-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg font-mono text-xs select-none">
+    <div
+      className="fixed top-4 left-4 z-50 flex items-center gap-3 px-4 py-2 backdrop-blur-xl font-mono text-xs select-none"
+      style={{
+        background: "rgba(6,12,20,0.88)",
+        border: "0.5px solid rgba(200,164,78,0.15)",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.5)",
+      }}
+    >
       {/* Identity */}
-      <span className="text-white/90 font-bold tracking-[0.2em] text-sm">ATLAS</span>
+      <span
+        className="font-mono font-bold tracking-[0.2em] text-sm"
+        style={{ color: "hsl(42 78% 58%)" }}
+      >ATLAS</span>
 
       {/* LIVE dot */}
       <span className="relative flex items-center gap-1.5">
@@ -49,28 +59,28 @@ export default function AtlasTopBar({ mode, lod, isMoving }: AtlasTopBarProps) {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
         </span>
-        <span className="text-emerald-400/80 text-[10px]">LIVE</span>
+        <span className="text-[10px]" style={{ color: "rgba(52,211,153,0.8)" }}>LIVE</span>
       </span>
 
       {/* Separator */}
-      <span className="w-px h-4 bg-white/10" />
+      <span className="w-px h-4" style={{ background: "rgba(200,164,78,0.15)" }} />
 
       {/* Mode label */}
-      <span className="text-[#f5c24a]/80 tracking-widest text-[10px]">{MODE_LABELS[mode]}</span>
+      <span className="tracking-widest text-[10px]" style={{ color: "rgba(200,164,78,0.7)" }}>{MODE_LABELS[mode]}</span>
 
       {/* Separator */}
-      <span className="w-px h-4 bg-white/10" />
+      <span className="w-px h-4" style={{ background: "rgba(200,164,78,0.15)" }} />
 
       {/* LOD badge */}
-      <span className="text-white/40 uppercase text-[10px]">{lod}</span>
+      <span className="uppercase text-[10px]" style={{ color: "rgba(200,218,232,0.35)" }}>{lod}</span>
 
       {/* Motion indicator */}
       {isMoving && (
-        <span className="text-sky-400/60 text-[10px]">MOVING</span>
+        <span className="text-[10px]" style={{ color: "rgba(56,189,248,0.6)" }}>MOVING</span>
       )}
 
       {/* FPS */}
-      <span className={`text-[10px] ${fps >= 50 ? "text-emerald-400/40" : "text-red-400/60"}`}>
+      <span className={`text-[10px] ${fps >= 50 ? "" : ""}`} style={{ color: fps >= 50 ? "rgba(52,211,153,0.4)" : "rgba(248,113,113,0.6)" }}>
         {fps} FPS
       </span>
     </div>
