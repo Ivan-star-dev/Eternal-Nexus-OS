@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { useRef, lazy, Suspense, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, lazy, Suspense } from "react";
 import { Globe, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -12,7 +12,7 @@ import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import { homeProjects } from "@/data/homeProjects";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
-const GoldenAtlasScene = lazy(() => import("@/components/GoldenAtlasScene"));
+const InteractiveGlobe = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -33,21 +33,17 @@ const Index = () => {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  // Reactive scroll value for GoldenAtlasScene ScrollCamera
-  const [scrollProg, setScrollProg] = useState(0);
-  useMotionValueEvent(scrollYProgress, "change", setScrollProg);
-
   return (
     <Layout>
       <PageTransition>
-        {/* ═══ HERO — Strategic Observatory · GoldenAtlasScene ═══ */}
+        {/* ═══ HERO — Strategic Observatory ═══ */}
         <section ref={heroRef} className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden" aria-label="Eternal Nexus — Visão estratégica global" role="banner">
-          {/* GoldenAtlasScene — wireframe globe + planet hotspots + gold particles */}
+          {/* InteractiveGlobe — constellation dots + project hotspots */}
           <OrganErrorBoundary organName="Globe" silent>
             <Suspense fallback={
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
             }>
-              <GoldenAtlasScene scrollProgress={scrollProg} />
+              <InteractiveGlobe onHotspotClick={(id) => console.log("hotspot", id)} />
             </Suspense>
           </OrganErrorBoundary>
 
