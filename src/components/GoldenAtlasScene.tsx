@@ -8,10 +8,12 @@ import ProjectInspector from "./ProjectInspector";
 import OscillatingGoldParticles from "./OscillatingGoldParticles";
 import RightClickPrompt from "./RightClickPrompt";
 import { continentCoastlines } from "@/data/continentCoastlines";
+import { AnimatePresence } from "framer-motion";
 import { useGlobeEvents } from "@/hooks/useGlobeEvents";
 import { useGlobeRealtime } from "@/hooks/useGlobeRealtime";
 import { useTouchGlobe } from "@/hooks/useTouchGlobe";
 import type { GlobeEvent } from "@/lib/eventBus";
+import ProjectBottomSheet, { type TouchMode } from "@/components/ProjectBottomSheet";
 
 // ═══ Project data — original + Next Path Infra hubs ═══
 const geoProjects = [
@@ -329,39 +331,109 @@ function NPIBeam({ position, color, id }: { position: [number, number, number]; 
   );
 }
 
-// ═══ Project hotspot island ═══
-function ProjectIsland({ project, onSelect }: { project: GeoProject; onSelect: (p: GeoProject) => void }) {
-  const isNPI = project.status === "Ω CLEARANCE";
-  const pos = useMemo(() => latLonToPos(project.lat, project.lon, 6.4), [project.lat, project.lon]);
-  const sound = useSoundManager();
+// ═══ Project hotspot island — V5-TOUCH-001 + V5-TOUCH-002 ═══
+function ProjectIsland({
+  project,
+  onSelect,
+  focused,
+  dimmed,
+}: {
+  project: GeoProject;
+  onSelect: (p: GeoProject) => void;
+  focused: boolean;
+  dimmed: boolean;
+}) {
+  const isNPI   = project.status === "Ω CLEARANCE";
+  const pos     = useMemo(() => latLonToPos(project.lat, project.lon, 6.4), [project.lat, project.lon]);
   const meshRef = useRef<THREE.Mesh>(null);
+  const matRef  = useRef<THREE.MeshStandardMaterial>(null);
+  const scaleRef = useRef(1);
+  const baseEmissive = isNPI ? 0.7 : 0.4;
 
   useFrame((state) => {
-    if (meshRef.current) {
+    if (!meshRef.current || !matRef.current) return;
+
+    let targetScale: number;
+    let targetEmissive: number;
+
+    if (focused) {
+      // V5-TOUCH-001: immediate highlight on focus
+      targetScale    = 1.55;
+      targetEmissive = 1.5;
+    } else if (dimmed) {
+      // V5-TOUCH-002: other projects recede
+      targetScale    = 0.62;
+      targetEmissive = 0.04;
+    } else {
+      // Normal idle pulse
       const pulse = isNPI ? 0.14 : 0.08;
-      meshRef.current.scale.setScalar(1 + Math.sin(state.clock.elapsedTime * 2 + project.id) * pulse);
+      targetScale    = 1 + Math.sin(state.clock.elapsedTime * 2 + project.id) * pulse;
+      targetEmissive = baseEmissive;
     }
+
+    scaleRef.current = THREE.MathUtils.lerp(scaleRef.current, targetScale, 0.1);
+    meshRef.current.scale.setScalar(scaleRef.current);
+    matRef.current.emissiveIntensity = THREE.MathUtils.lerp(
+      matRef.current.emissiveIntensity,
+      targetEmissive,
+      0.08,
+    );
   });
 
   return (
     <group position={pos}>
+      {/* V5-TOUCH-001: focus ring — appears only when this project is active */}
+      {focused && (
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[0.62, 0.84, 32]} />
+          <meshBasicMaterial
+            color={project.color}
+            transparent
+            opacity={0.72}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+            depthWrite={false}
+          />
+        </mesh>
+      )}
+
       <mesh
         ref={meshRef}
-        onClick={(e) => { e.stopPropagation(); audioEngine.play("projectClick"); onSelect(project); }}
-        onPointerOver={() => { audioEngine.play("globeHover"); document.body.style.cursor = "pointer"; }}
+        onClick={(e) => {
+          e.stopPropagation();
+          audioEngine.play("projectClick");
+          onSelect(project);
+        }}
+        onPointerOver={() => {
+          if (!dimmed) {
+            audioEngine.play("globeHover");
+            document.body.style.cursor = "pointer";
+          }
+        }}
         onPointerOut={() => { document.body.style.cursor = "auto"; }}
       >
         <boxGeometry args={[isNPI ? 0.45 : 0.35, isNPI ? 0.22 : 0.18, isNPI ? 0.45 : 0.35]} />
-        <meshStandardMaterial color={project.color} metalness={0.92} roughness={0.12} emissive={project.color} emissiveIntensity={isNPI ? 0.7 : 0.4} />
+        <meshStandardMaterial
+          ref={matRef}
+          color={project.color}
+          metalness={0.92}
+          roughness={0.12}
+          emissive={project.color}
+          emissiveIntensity={baseEmissive}
+        />
       </mesh>
+
+      {/* Beacon sphere */}
       <mesh position={[0, 0.25, 0]}>
         <sphereGeometry args={[isNPI ? 0.1 : 0.06, 12, 12]} />
-        <meshBasicMaterial color={project.color} transparent opacity={0.9} />
+        <meshBasicMaterial color={project.color} transparent opacity={dimmed ? 0.15 : 0.9} />
       </mesh>
-      {isNPI && (
+
+      {/* NPI orbital ring — hidden when dimmed */}
+      {isNPI && !dimmed && (
         <mesh position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
           <torusGeometry args={[0.4, 0.018, 12, 48]} />
-          <meshBasicMaterial color="#ffd700" transparent opacity={0.5} />
+          <meshBasicMaterial color="#ffd700" transparent opacity={focused ? 0.9 : 0.5} />
         </mesh>
       )}
     </group>
@@ -473,6 +545,7 @@ function AtlasSceneContent({
   onLanded,
   orbitTheta,
   zoomDelta,
+  focusedProjectId,
 }: {
   onSelectProject: (p: GeoProject) => void;
   customProjects: GeoProject[];
@@ -482,6 +555,7 @@ function AtlasSceneContent({
   onLanded: () => void;
   orbitTheta: React.MutableRefObject<number>;
   zoomDelta: React.MutableRefObject<number>;
+  focusedProjectId: number | null;
 }) {
   const npiBeams = useMemo(() => {
     return geoProjects
@@ -516,7 +590,13 @@ function AtlasSceneContent({
       ))}
 
       {allProjects.map((proj) => (
-        <ProjectIsland key={proj.id} project={proj} onSelect={onSelectProject} />
+        <ProjectIsland
+          key={proj.id}
+          project={proj}
+          onSelect={onSelectProject}
+          focused={focusedProjectId === proj.id}
+          dimmed={focusedProjectId !== null && focusedProjectId !== proj.id}
+        />
       ))}
 
       <CursorAvatar />
@@ -525,11 +605,21 @@ function AtlasSceneContent({
 }
 
 // ═══ Main exported component ═══
-export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgress?: number }) {
-  const [selectedProject, setSelectedProject] = useState<GeoProject | null>(null);
-  const [flyProject, setFlyProject]           = useState<GeoProject | null>(null);
-  const [flyTarget, setFlyTarget]             = useState<THREE.Vector3 | null>(null);
-  const [customProjects, setCustomProjects]   = useState<GeoProject[]>([]);
+export default function GoldenAtlasScene({
+  scrollProgress = 0,
+  touchMode = "explorer",
+}: {
+  scrollProgress?: number;
+  touchMode?: TouchMode;
+}) {
+  const [selectedProject, setSelectedProject]   = useState<GeoProject | null>(null);
+  const [flyProject, setFlyProject]             = useState<GeoProject | null>(null);
+  const [flyTarget, setFlyTarget]               = useState<THREE.Vector3 | null>(null);
+  const [customProjects, setCustomProjects]     = useState<GeoProject[]>([]);
+  // V5-TOUCH-002: single focused project — others dim
+  const [focusedProjectId, setFocusedProjectId] = useState<number | null>(null);
+  // Prevents tap-outside from immediately clearing the focus we just set
+  const justSelectedRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
   // V5-MOBILE-IMMERSION-001: touch orbit + pinch zoom
   const { orbitTheta, zoomDelta } = useTouchGlobe(containerRef);
@@ -559,9 +649,12 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
     prevEventCountRef.current = seismicCount;
   }, [activeEvents]);
 
-  // V5-CAMERA-FLY-001: click → fly → land → show inspector
+  // V5-CAMERA-FLY-001 + V5-TOUCH-002: click → immediate focus → fly → land → show inspector
   const handleProjectSelect = useCallback((project: GeoProject) => {
     const [px, py, pz] = latLonToPos(project.lat, project.lon, 6.4);
+    // V5-TOUCH-002: focus immediately so others dim during flight
+    setFocusedProjectId(project.id);
+    justSelectedRef.current = true;
     // Camera lands ~11 units from centre, directly above the hotspot
     const pos = new THREE.Vector3(px, py, pz).normalize().multiplyScalar(11);
     setFlyProject(project);
@@ -577,7 +670,20 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
     setSelectedProject(null);
     setFlyProject(null);
     setFlyTarget(null); // CameraController returns to scroll mode
+    setFocusedProjectId(null); // V5-TOUCH-005: all hotspots return to normal
   }, []);
+
+  // V5-TOUCH-005: tap on blank canvas area → unfocus (return to globe)
+  const handleCanvasClick = useCallback(() => {
+    if (justSelectedRef.current) {
+      justSelectedRef.current = false;
+      return; // skip — this click originated from a hotspot select
+    }
+    if (focusedProjectId !== null) {
+      audioEngine.play("uiDismiss");
+      handleProjectClose();
+    }
+  }, [focusedProjectId, handleProjectClose]);
 
   // Merge Supabase live projects with custom (right-click) projects
   // Live projects override static geoProjects of the same name
@@ -625,7 +731,7 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
         className="absolute inset-0"
         style={{ zIndex: 0, touchAction: "pan-y" }}
         onContextMenu={handleContextMenu}
-        onClick={initAudio}
+        onClick={(e) => { initAudio(); handleCanvasClick(); }}
       >
         <Canvas
           camera={{ position: [0, 2, 16], fov: 42 }}
@@ -649,6 +755,7 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
               onLanded={handleCameraLanded}
               orbitTheta={orbitTheta}
               zoomDelta={zoomDelta}
+              focusedProjectId={focusedProjectId}
             />
           </Suspense>
         </Canvas>
@@ -677,12 +784,32 @@ export default function GoldenAtlasScene({ scrollProgress = 0 }: { scrollProgres
         </span>
       </div>
 
+      {/* Desktop inspector — hidden on mobile */}
       {selectedProject && (
-        <ProjectInspector
-          project={selectedProject}
-          onClose={handleProjectClose}
-        />
+        <div className="hidden sm:block">
+          <ProjectInspector
+            project={selectedProject}
+            onClose={handleProjectClose}
+          />
+        </div>
       )}
+
+      {/* V5-TOUCH-003/004/005: mobile bottom sheet — sm:hidden inside component */}
+      <AnimatePresence>
+        {focusedProjectId !== null && (() => {
+          const proj = [...geoProjects, ...mergedCustomProjects()].find(
+            (p) => p.id === focusedProjectId,
+          );
+          return proj ? (
+            <ProjectBottomSheet
+              key={focusedProjectId}
+              project={proj}
+              mode={touchMode}
+              onClose={handleProjectClose}
+            />
+          ) : null;
+        })()}
+      </AnimatePresence>
     </>
   );
 }
