@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Globe, Brain } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
-import LanguageSwitcher from "./LanguageSwitcher";
-import ThemeToggle from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NavBar = () => {
@@ -16,19 +14,13 @@ const NavBar = () => {
   const { visible, atTop } = useScrollDirection();
 
   const navLinks = [
-    { label: "PROJECTS", path: "/projects", icon: null as any, live: false },
-    { label: "ATLAS", path: "/atlas", icon: Globe, live: true },
-    { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
-    { label: "GALLERY", path: "/gallery", icon: null as any, live: false },
-    { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
-    { label: "GEOPOLÍTICA", path: "/geopolitics", icon: null as any, live: false },
-    { label: t("nav_about"), path: "/about", icon: null as any, live: false },
+    { label: "SCHOOL", path: "/nexus", live: false },
+    { label: "LAB", path: "/atlas", live: false },
+    { label: "CREATION HUB", path: "/projects", live: false },
+    { label: "GEOPOLITICS", path: "/geopolitics", live: false },
+    { label: "INVESTOR BRIEFING", path: "/investor-briefing", live: false },
+    { label: t("nav_about"), path: "/about", live: false },
   ];
-
-  // Open command palette via keyboard shortcut hint
-  const triggerCmdK = () => {
-    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }));
-  };
 
   return (
     <AnimatePresence>
@@ -38,35 +30,32 @@ const NavBar = () => {
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Navegação principal"
         role="navigation"
-        className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-300 border-b backdrop-blur-md ${
+        className={`fixed top-0 left-0 right-0 z-[999] h-12 flex items-center px-5 md:px-8 transition-all duration-300 border-b ${
           atTop
-            ? "bg-transparent border-white/[0.04]"
-            : "bg-background/60 backdrop-blur-2xl border-border/50"
+            ? "bg-abyssal/50 backdrop-blur-md border-white/[0.04]"
+            : "bg-abyssal/80 backdrop-blur-xl border-white/[0.06]"
         }`}
       >
-        {/* Logo */}
-        <Link to="/" className="flex-shrink-0 logo-shimmer relative inline-flex items-baseline">
-          <span className="font-serif text-sm font-bold text-foreground tracking-wide">NEXT PATH</span>
-          <sup className="font-mono text-[0.48rem] text-primary tracking-[0.18em] ml-1 align-super">INFRA</sup>
+        {/* Signature */}
+        <Link to="/" className="flex-shrink-0 relative inline-flex items-center gap-1.5 select-none">
+          <span className="font-sans text-[0.6rem] font-medium text-paper/40 tracking-[0.22em] uppercase">RUBERRA</span>
+          <span className="text-paper/15 text-[0.5rem]">·</span>
+          <span className="font-mono text-[0.52rem] text-paper/25 tracking-[0.16em] uppercase">ETERNAL NEXUS OS</span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6 ml-8">
+        <div className="hidden md:flex items-center gap-5 ml-10">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               to={link.path}
-              className={`font-mono text-[0.62rem] tracking-[0.12em] uppercase py-1 border-b transition-all duration-200 flex items-center gap-1.5 hover:scale-105 ${
+              className={`font-sans text-[0.6rem] tracking-[0.1em] uppercase transition-colors duration-200 ${
                 location.pathname === link.path
-                  ? "text-gold border-gold/60 link-glow-active"
-                  : "text-muted-foreground border-transparent hover:text-primary/80 hover:border-primary/30"
+                  ? "text-paper/90"
+                  : "text-paper/35 hover:text-paper/80"
               }`}
             >
-              {link.icon && <link.icon className="w-3 h-3" />}
               {link.label}
-              {link.live && (
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse ml-0.5" />
-              )}
             </Link>
           ))}
         </div>
@@ -74,57 +63,41 @@ const NavBar = () => {
         {/* Spacer */}
         <div className="flex-1" />
 
-        {/* Cmd+K search trigger */}
-        <button
-          onClick={triggerCmdK}
-          className="hidden md:flex items-center gap-2 border border-border/50 bg-secondary/30 hover:bg-secondary/60 transition-colors px-3 py-1.5 mr-4"
-        >
-          <Search className="w-3 h-3 text-muted-foreground" />
-          <span className="font-mono text-[0.55rem] text-muted-foreground">Search…</span>
-          <kbd className="font-mono text-[0.45rem] text-muted-foreground/60 bg-background/50 border border-border/30 px-1 py-0.5 rounded-sm">⌘K</kbd>
-        </button>
+        <div className="hidden md:flex items-center gap-4">
+          {isOwner && (
+            <Link
+              to="/owner"
+              className="font-mono text-[0.52rem] tracking-[0.1em] text-burnt-gold/70 border border-burnt-gold/30 px-2 py-1 hover:border-burnt-gold/60 transition-colors flex items-center gap-1"
+            >
+              <Shield className="w-2.5 h-2.5" />
+              OWNER
+            </Link>
+          )}
 
-        <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
-          <LanguageSwitcher />
+          <div className="w-px h-4 bg-white/8" />
 
           {user ? (
-            <div className="flex items-center gap-2.5">
-              {isOwner && (
-                <Link
-                  to="/owner"
-                  className="font-mono text-[0.52rem] tracking-[0.1em] text-primary border border-primary/50 px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
-                >
-                  <Shield className="w-2.5 h-2.5" />
-                  OWNER
-                </Link>
-              )}
+            <div className="flex items-center gap-3">
               {profile && (
-                <span className="font-mono text-[0.48rem] tracking-[0.08em] text-muted-foreground max-w-[100px] truncate">
+                <span className="font-mono text-[0.48rem] tracking-[0.08em] text-paper/25 max-w-[100px] truncate">
                   {profile.institution}
                 </span>
               )}
               <button
                 onClick={() => signOut()}
-                className="text-muted-foreground hover:text-destructive transition-colors"
+                className="font-mono text-[0.52rem] tracking-[0.1em] text-paper/30 hover:text-paper/60 transition-colors"
               >
-                <LogOut className="w-3 h-3" />
+                EXIT
               </button>
             </div>
           ) : (
             <Link
               to="/access"
-              className="font-mono text-[0.55rem] tracking-[0.1em] text-primary border border-primary/60 px-3 py-1.5 hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1.5"
+              className="font-mono text-[0.52rem] tracking-[0.12em] text-paper/40 hover:text-paper/80 transition-colors"
             >
-              <LogIn className="w-3 h-3" />
-              ACCESS
+              ENTER
             </Link>
           )}
-
-          <div className="flex items-center gap-1.5 ml-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-teal-light animate-pulse-dot" />
-            <span className="font-mono text-[0.5rem] text-teal-light">{t("nav_secure")}</span>
-          </div>
         </div>
 
         {/* Mobile toggle */}
@@ -139,34 +112,26 @@ const NavBar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute top-14 left-0 right-0 bg-background/98 backdrop-blur-xl border-b border-border p-6 flex flex-col gap-4 md:hidden"
+              className="absolute top-12 left-0 right-0 bg-abyssal/96 backdrop-blur-xl border-b border-white/[0.06] p-6 flex flex-col gap-5 md:hidden"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   to={link.path}
                   onClick={() => setMobileOpen(false)}
-                  className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground hover:text-primary transition-colors"
+                  className="font-sans text-[0.65rem] tracking-[0.12em] uppercase text-paper/40 hover:text-paper/80 transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
-              {isOwner && (
-                <Link to="/owner" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary">
-                  OWNER DASHBOARD
-                </Link>
-              )}
+              <div className="h-px bg-white/6 my-1" />
               <Link
                 to="/access"
                 onClick={() => setMobileOpen(false)}
-                className="font-mono text-[0.68rem] tracking-[0.12em] text-primary"
+                className="font-mono text-[0.6rem] tracking-[0.12em] text-paper/40 hover:text-paper/80 transition-colors"
               >
-                {user ? profile?.institution : "ACCESS"}
+                {user ? (profile?.institution ?? "ACCOUNT") : "ENTER"}
               </Link>
-              <div className="flex items-center gap-3">
-                <ThemeToggle />
-                <LanguageSwitcher />
-              </div>
             </motion.div>
           )}
         </AnimatePresence>

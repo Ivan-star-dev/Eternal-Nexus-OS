@@ -12,6 +12,13 @@ const statusColors: Record<string, string> = {
   PLANNING: "bg-secondary text-secondary-foreground",
 };
 
+// Maps project status to Ruberra trinity pillar
+const trinityPillar: Record<string, { label: string; color: string; borderColor: string }> = {
+  ACTIVE:   { label: "LAB",          color: "hsl(172 48% 52% / 0.7)", borderColor: "hsl(172 55% 28% / 0.55)" },
+  RESEARCH: { label: "SCHOOL",       color: "hsl(42 78% 52% / 0.7)",  borderColor: "hsl(42 78% 38% / 0.55)"  },
+  PLANNING: { label: "CREATION HUB", color: "hsl(38 80% 55% / 0.7)",  borderColor: "hsl(38 80% 42% / 0.55)"  },
+};
+
 interface Props {
   project: HomeProject;
   index: number;
@@ -33,8 +40,8 @@ function useIsSessionProject(project: HomeProject): boolean {
 function DossierCard({ project, index }: Props) {
   const isSessionProject = useIsSessionProject(project);
   const { session } = useSession();
-  // Only show continuity signal when there's real prior momentum (tab recorded)
   const hasPriorMomentum = isSessionProject && !!session?.latest_fruit;
+  const pillar = trinityPillar[project.status] ?? trinityPillar.ACTIVE;
 
   return (
     <motion.div
@@ -51,6 +58,7 @@ function DossierCard({ project, index }: Props) {
             borderColor: isSessionProject
               ? "rgba(200,164,78,0.28)"
               : "hsl(var(--border))",
+            borderLeft: `2px solid ${pillar.borderColor}`,
           }}
         >
           {/* Gold top-border glow — stronger on session project */}
@@ -75,6 +83,14 @@ function DossierCard({ project, index }: Props) {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+            {/* Trinity pillar badge — top left */}
+            <span
+              className="absolute top-3 left-3 font-mono text-[0.45rem] tracking-[0.18em] px-2 py-0.5 uppercase"
+              style={{ color: pillar.color, background: "rgba(6,12,20,0.7)", backdropFilter: "blur(6px)" }}
+            >
+              {pillar.label}
+            </span>
+            {/* Status badge — top right */}
             <span className={`absolute top-3 right-3 font-mono text-[0.5rem] tracking-[0.15em] px-2 py-1 uppercase ${statusColors[project.status] || statusColors.ACTIVE}`}>
               {project.status}
             </span>

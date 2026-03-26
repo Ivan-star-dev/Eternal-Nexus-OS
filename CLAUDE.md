@@ -16,7 +16,7 @@ Antes de executar qualquer task, ler na seguinte ordem:
 ## 1. BRANCH CANÓNICO ATIVO
 
 ```
-BRANCH ATIVO: claude/rebuild-bastion-core-rihGX
+BRANCH ATIVO: claude/setup-ruberra-nexus-IL7Tg
 FONTE DA VERDADE: ops/LIVE_STATE.md (campo "Branch canônico")
 ```
 

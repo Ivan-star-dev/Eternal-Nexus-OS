@@ -12,6 +12,7 @@
  */
 
 import { lazy, Suspense, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 import { useSession } from "@/contexts/SessionContext";
@@ -77,26 +78,41 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
   return (
     <div
       className="relative w-full"
-      style={{
-        // Globe dominates — 80vw on mid screens, caps at 900px
-        height: "clamp(540px, 80vw, 900px)",
-      }}
+      style={{ height: "clamp(640px, 82vw, 920px)" }}
     >
-      {/* Bottom fade — smooth transition to trinity below */}
+      {/* Atmospheric concentric rings — behind globe, barely visible */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center" aria-hidden="true">
+        <div style={{
+          width: "clamp(380px, 52vw, 700px)",
+          height: "clamp(380px, 52vw, 700px)",
+          borderRadius: "50%",
+          border: "0.5px solid rgba(200,164,78,0.04)",
+          position: "absolute",
+        }} />
+        <div style={{
+          width: "clamp(480px, 66vw, 880px)",
+          height: "clamp(480px, 66vw, 880px)",
+          borderRadius: "50%",
+          border: "0.5px solid rgba(200,164,78,0.025)",
+          position: "absolute",
+        }} />
+      </div>
+
+      {/* Bottom fade — deeper spatial transition */}
       <div
         className="pointer-events-none absolute bottom-0 left-0 right-0 z-[2]"
         style={{
-          height: "42%",
+          height: "60%",
           background:
-            "linear-gradient(to bottom, transparent 0%, hsl(216 50% 5% / 0.3) 50%, hsl(216 50% 5% / 0.72) 78%, hsl(216 50% 5%) 100%)",
+            "linear-gradient(to bottom, transparent 0%, hsl(216 50% 5% / 0.2) 35%, hsl(216 50% 5% / 0.65) 68%, hsl(216 50% 5%) 100%)",
         }}
         aria-hidden="true"
       />
-      {/* Edge vignette — left/right, lets globe breathe without bleeding */}
+      {/* Edge vignette — wider for deeper immersion */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-[2]"
         style={{
-          width: "12%",
+          width: "18%",
           background: "linear-gradient(to right, hsl(216 50% 5%) 0%, transparent 100%)",
         }}
         aria-hidden="true"
@@ -104,7 +120,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
       <div
         className="pointer-events-none absolute inset-y-0 right-0 z-[2]"
         style={{
-          width: "12%",
+          width: "18%",
           background: "linear-gradient(to left, hsl(216 50% 5%) 0%, transparent 100%)",
         }}
         aria-hidden="true"
@@ -142,12 +158,12 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1.6 }}
         className="absolute top-0 left-0 right-0 z-[3] flex items-center justify-between px-6 py-4 md:px-14 border-b"
-        style={{ borderColor: "rgba(200,164,78,0.06)" }}
+        style={{ borderColor: "rgba(200,164,78,0.05)" }}
       >
-        <span className="font-mono text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(200,164,78,0.38)" }}>
-          Heaven Lab · Observatory Node-01
+        <span className="font-mono text-[9px] tracking-[0.28em] uppercase" style={{ color: "rgba(200,164,78,0.32)" }}>
+          ETERNAL NEXUS OS · Planetary Interface
         </span>
-        <span className="hidden sm:flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(228,235,240,0.2)" }}>
+        <span className="hidden sm:flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] uppercase" style={{ color: "rgba(228,235,240,0.18)" }}>
           <motion.span
             animate={{ opacity: [0.4, 0.9, 0.4] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -159,7 +175,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
               background: "hsl(172 48% 52%)",
             }}
           />
-          2026 · Active
+          LIVE · 2026
         </span>
       </motion.div>
 
@@ -187,6 +203,98 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         </span>
       </motion.div>
     </div>
+  );
+}
+
+// Sovereign text block — between globe and trinity
+function SovereignText() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8, duration: 1.1, ease: EASE }}
+      className="relative z-10 flex flex-col items-center text-center px-6 pt-4 pb-16"
+    >
+      {/* Headline */}
+      <h1
+        className="font-serif font-[300] italic leading-[1.15] mb-5"
+        style={{
+          fontFamily: "Cormorant Garamond, Georgia, serif",
+          fontSize: "clamp(32px, 4.5vw, 58px)",
+          color: "rgba(228,235,240,0.88)",
+          maxWidth: "820px",
+        }}
+      >
+        The world, studied.{" "}
+        <span style={{ color: "rgba(200,164,78,0.75)" }}>The future, built.</span>
+      </h1>
+
+      {/* Sub-line */}
+      <p
+        className="font-sans font-[400] mb-10"
+        style={{
+          fontFamily: "Syne, system-ui, sans-serif",
+          fontSize: "11px",
+          letterSpacing: "0.18em",
+          color: "rgba(228,235,240,0.38)",
+          maxWidth: "560px",
+          lineHeight: "1.8",
+          textTransform: "uppercase",
+        }}
+      >
+        A sovereign operating system for perceiving, investigating, and creating at planetary scale.
+      </p>
+
+      {/* CTAs */}
+      <div className="flex items-center gap-4 flex-wrap justify-center">
+        <Link
+          to="/access"
+          className="font-sans font-[500] transition-colors duration-200"
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            fontSize: "10px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "hsl(36 65% 50%)",
+            border: "1px solid hsl(36 65% 38% / 0.5)",
+            padding: "13px 28px",
+            borderRadius: 0,
+            display: "inline-block",
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLElement).style.background = "hsl(36 65% 38% / 0.1)";
+            (e.currentTarget as HTMLElement).style.borderColor = "hsl(36 65% 50% / 0.7)";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLElement).style.background = "transparent";
+            (e.currentTarget as HTMLElement).style.borderColor = "hsl(36 65% 38% / 0.5)";
+          }}
+        >
+          Enter the System
+        </Link>
+        <Link
+          to="/projects"
+          className="font-sans font-[400] transition-colors duration-200"
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            fontSize: "10px",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "rgba(228,235,240,0.35)",
+            padding: "13px 28px",
+            borderRadius: 0,
+          }}
+          onMouseEnter={e => {
+            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.75)";
+          }}
+          onMouseLeave={e => {
+            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
+          }}
+        >
+          Explore Projects
+        </Link>
+      </div>
+    </motion.div>
   );
 }
 
@@ -314,13 +422,16 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
         <SessionPulse />
       </div>
 
-      {/* ── 2. TRINITY ROW ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-8">
+      {/* ── 2. SOVEREIGN TEXT + CTAs ─────────────────────────────── */}
+      <SovereignText />
+
+      {/* ── 3. TRINITY ROW ────────────────────────────────────────── */}
+      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-0 pt-0">
         <TrinityRowWithSession />
       </div>
 
-      {/* ── 3. FIRST PROOF ────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-32">
+      {/* ── 4. FIRST PROOF ────────────────────────────────────────── */}
+      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-16 pb-32">
         <HeroFirstProof />
       </div>
 
