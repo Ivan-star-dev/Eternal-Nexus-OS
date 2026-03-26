@@ -6,6 +6,28 @@
 
 ---
 
+## HANDOFF — 2026-03-25 | @claude | V5-MOBILE-IMMERSION-001 · V5 CLOSED | claude-sonnet-4-6
+
+**TASK:** V5-MOBILE-IMMERSION-001 (touch gestures) — V5 phase closure
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — V5 FECHADA 7/7
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useTouchGlobe.ts` — NEW — touch system: 1-finger swipe → orbitTheta ref · 2-finger pinch → zoomDelta ref · tap detection (<250ms, <12px) → synthetic pointermove · momentum rAF loop (0.93 friction) · passive:false only when dragging
+- `src/components/GoldenAtlasScene.tsx` — CameraController + orbitTheta + zoomDelta; scroll mode applies orbit Y rotation + zoom; containerRef attached; DPR [1,2] mobile / [2,3] desktop; touchAction pan-y
+
+**COMMIT:** 75d3929
+
+**V5 CLOSE EVIDENCE (7/7):**
+- V5-EVENT-STREAM-001 ✅ · V5-AI-PROPOSALS-001 ✅ · V5-INFRA-SUPABASE-001 ✅
+- V5-AUDIO-SYSTEM-001 ✅ · V5-CAMERA-FLY-001 ✅ · V5-LIVE-DATA-001 ✅
+- V5-MOBILE-IMMERSION-001 ✅
+- TS 0 errors throughout
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | V5-CAMERA-FLY-001 + V5-LIVE-DATA-001 | claude-sonnet-4-6
 
 **TASK:** V5-CAMERA-FLY-001 (cinematic fly) + V5-LIVE-DATA-001 (Supabase realtime)

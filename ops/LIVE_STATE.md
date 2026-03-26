@@ -5,6 +5,8 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-25
+**Atualizado por:** @claude | claude-sonnet-4-6 | V5 CLOSED 7/7 — V5-MOBILE-IMMERSION-001 ✅ useTouchGlobe (swipe-orbit · pinch-zoom · tap · momentum) · DPR mobile cap · TS 0
+**Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V5-CAMERA-FLY-001 ✅ + V5-LIVE-DATA-001 ✅ — CameraController cinematic fly arc · useGlobeRealtime Supabase realtime channel · live badge · TS 0
 **Última atualização:** 2026-03-25
 **Atualizado por:** @claude | claude-sonnet-4-6 | V5-INFRA-SUPABASE-001 ✅ wired — fetchSupabaseProjects() + ENRICHMENT_REGISTRY · isLive:true path active · V5-AUDIO-SYSTEM-001 ✅ DONE — audioEngine singleton (Web Audio API) · globeHover · projectClick · uiConfirm · uiDismiss · seismicAlert · ambientDrone · GoldenAtlasScene + AICouncil wired · TS 0

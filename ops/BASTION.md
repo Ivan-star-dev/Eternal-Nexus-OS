@@ -938,8 +938,9 @@ V5-DONE        : V5-EVENT-STREAM-001 ✅
                  V5-AUDIO-SYSTEM-001 ✅ — audioEngine (Web Audio API) · 6 sounds · ambient drone · wired to globe + AICouncil
                  V5-CAMERA-FLY-001 ✅ — CameraController · easeInOutCubic arc · fly→land→inspector · close→return
                  V5-LIVE-DATA-001 ✅ — useGlobeRealtime · Supabase realtime · INSERT/UPDATE/DELETE · PROJECT_UPDATE → EventPulseRing · live badge
-V5-QUEUE       : V5-MOBILE-IMMERSION-001 (@copilot — NEXT)
-                 CLUSTER-ORCHESTRATE-001 (@codex — wave audit)
+                 V5-MOBILE-IMMERSION-001 ✅ — useTouchGlobe · swipe-orbit · pinch-zoom · tap-to-inspect · momentum decay · DPR mobile cap
+V5-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — 7/7 tasks done
+V5-QUEUE       : CLUSTER-ORCHESTRATE-001 (@codex — wave audit · open V6 gate)
 ═══════════════════════════════════════════════════════════════════════
 ```
 
