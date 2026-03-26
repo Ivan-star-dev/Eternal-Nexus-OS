@@ -6,6 +6,38 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | V6-RUBERRA-SURFACE-001 CLOSE + V6 WAVE COMPLETE | claude-sonnet-4-6
+
+**TASK:** V6-RUBERRA-SURFACE-001 — Fill RUBERRA corp stubs 03-10 with canonical content
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA ✅ | COMMIT: 5399df5
+
+### ALTERACAO_REAL: sim
+
+**FILES CREATED/MODIFIED:**
+- `RUBERRA/03_PRODUCT/PRODUCT_MAP.md` — surface routing, faces, session tracking (128 lines)
+- `RUBERRA/03_PRODUCT/PRODUCT_VISION.md` — product vision, principles, evolution
+- `RUBERRA/04_SYSTEM_SPINE/RUNTIME.md` — stack, boot sequence, realtime flows, perf budgets (184 lines)
+- `RUBERRA/04_SYSTEM_SPINE/DATA_AND_CONTROL_FLOWS.md` — data architecture, control flows (217 lines)
+- `RUBERRA/06_CODICE/GOVERNANCE_MODEL.md` — decision classes, protocols (216 lines)
+- `RUBERRA/07_FORJA/CURRENT_STACK.md` — full tech inventory, CI/CD, branch model (150 lines)
+- `RUBERRA/07_FORJA/DEPLOY_MODEL.md` — pipeline, rollback, env vars, sprint cycle (198 lines)
+- `RUBERRA/08_MARKETING_AND_NARRATIVE/BRAND_CORE.md` — identity, voice, visual language (212 lines)
+- `RUBERRA/09_DIDACTIC_AND_RESEARCH/KNOWLEDGE_TRANSFER.md` — onboarding, handoff law, glossary (110 lines)
+- `ops/BASTION.md` — V6-RUBERRA-SURFACE-001 closed + V7 gate declared sealed
+- `ops/LIVE_STATE.md` — V6 wave complete entry added
+
+**V6 WAVE STATUS — ALL TASKS CLOSED:**
+- V6-AUTH-001 ✅ (ProtectedRoute · useCurrentUser)
+- V6-PROJECT-DETAIL-001 ✅ (useProjectData · Supabase overlay)
+- V6-PORTFOLIO-DASHBOARD-001 ✅ (usePortfolioData · PortfolioMetricsPanel · PR#175)
+- V6-COUNCIL-LIVE-001 ✅ (useProposalQueue realtime · proposal_ledger · PR#176)
+- V6-RUBERRA-SURFACE-001 ✅ (9 stubs → canonical content · commit 5399df5)
+
+**NEXT GATE:** V7 — SEALED — awaiting owner instruction to open School/Workshop surfaces
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | DRIFT-AUDIT + GLOBE-ROUTING | claude-sonnet-4-6
 
 **TASK:** Full drift audit + all fixes + PR #168 + PR #169 → main

@@ -5,6 +5,9 @@
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
 **Última atualização:** 2026-03-26
+**Atualizado por:** @claude | claude-sonnet-4-6 | V6 WAVE COMPLETE ✅ — V6-RUBERRA-SURFACE-001 ✅ 9 RUBERRA stubs filled (PRODUCT_MAP · PRODUCT_VISION · RUNTIME · DATA_AND_CONTROL_FLOWS · GOVERNANCE_MODEL · CURRENT_STACK · DEPLOY_MODEL · BRAND_CORE · KNOWLEDGE_TRANSFER) · 1627 insertions · commit 5399df5 · V6 fully closed · V7 gate SEALED — awaiting owner
+
+**Última atualização:** 2026-03-26
 **Atualizado por:** @claude | claude-sonnet-4-6 | DRIFT-AUDIT ✅ — GoldenAtlasScene un-orphaned → /globe · console.log removed · InteractiveGlobe on homepage · PR#168+#169→main · /=hero /globe=V5 /atlas=Cesium · TS 0 · NEXT: V6-PORTFOLIO-DASHBOARD-001
 **Última atualização:** 2026-03-26
 **Atualizado por:** @claude | claude-sonnet-4-6 | V6-PROJECT-DETAIL-001 ✅ useProjectData hook · Supabase overlay · live status + LIVE badge · TS 0 · e94efbe

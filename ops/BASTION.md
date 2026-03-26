@@ -1055,7 +1055,24 @@ V6-COUNCIL-LIVE-001-CLOSE:
   ✅ Build ✓ · PR#176 → main d3e10b0
 
 V6-RUBERRA-SURFACE-001-CLOSE:
-  🔄 IN PROGRESS — filling stubs 03-10
+  ✅ PRODUCT_MAP.md — surfaces, routes, faces, session tracking (128 lines)
+  ✅ PRODUCT_VISION.md — product vision, principles, evolution
+  ✅ RUNTIME.md — stack, boot sequence, realtime flows, perf budgets (184 lines)
+  ✅ DATA_AND_CONTROL_FLOWS.md — data architecture, control flows (217 lines)
+  ✅ GOVERNANCE_MODEL.md — decision classes, protocols (216 lines)
+  ✅ CURRENT_STACK.md — full tech inventory, CI/CD, branch model (150 lines)
+  ✅ DEPLOY_MODEL.md — pipeline, rollback, env vars, sprint cycle (198 lines)
+  ✅ BRAND_CORE.md — identity, voice, visual language, positioning (212 lines)
+  ✅ KNOWLEDGE_TRANSFER.md — onboarding layers, handoff law, glossary (110 lines)
+  ✅ commit 5399df5 · pushed · 1627 insertions
+V6-GATE-CLOSE: V6 wave complete — all P1+P2 tasks done
 ═══════════════════════════════════════════════════════════════════════
 ```
+
+## V7 — GATE STATUS
+
+V7-GATE-STATUS : 🔴 SEALED — awaiting owner gate
+V7-NEXT-TASKS  : School surface (/school) · Workshop surface (/workshop)
+                 Bridge Nova face activation · Nexus Cria full surface
+                 Owner gate required to open V7 wave
 
