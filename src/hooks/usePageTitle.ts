@@ -7,9 +7,11 @@ import { useEffect } from 'react';
 export function usePageTitle(title: string): void {
   useEffect(() => {
     const suffix = ' — Eternal Nexus OS';
+    const previousTitle = document.title;
     document.title = title.endsWith(suffix) ? title : `${title}${suffix}`;
+
     return () => {
-      document.title = 'Eternal Nexus OS';
+      document.title = previousTitle;
     };
   }, [title]);
 }
