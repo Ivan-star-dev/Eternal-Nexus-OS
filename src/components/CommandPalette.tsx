@@ -93,7 +93,7 @@ const CommandPalette = () => {
       {/* Header */}
       <div className="flex items-center gap-2 px-4 pt-3 pb-1">
         <Zap className="w-3.5 h-3.5 text-gold animate-pulse" />
-        <span className="font-mono text-[0.42rem] tracking-[0.28em] uppercase text-paper-dim/30">
+        <span className="font-mono text-[0.42rem] tracking-[0.28em] uppercase" style={{ color: "rgba(200,164,78,0.5)" }}>
           NEURAL SEARCH — TODOS OS ÓRGÃOS
         </span>
       </div>
@@ -165,12 +165,17 @@ const CommandPalette = () => {
       </CommandList>
 
       {/* Footer */}
-      <div className="border-t border-white/[0.08] px-4 py-2 flex items-center justify-between">
-        <span className="font-mono text-[0.42rem] text-paper-dim/30">
+      <div
+        className="px-4 py-2 flex items-center justify-between"
+        style={{ borderTop: "0.5px solid rgba(200,164,78,0.1)" }}
+      >
+        <span className="font-mono text-[0.42rem]" style={{ color: "rgba(200,218,232,0.25)" }}>
           {filtered.length} resultados
         </span>
-        {/* Keyboard shortcut badge — V3 */}
-        <span className="font-mono text-[0.42rem] border border-white/[0.08] px-1.5 py-0.5 text-paper-dim/40">
+        <span
+          className="font-mono text-[0.42rem] px-1.5 py-0.5"
+          style={{ border: "0.5px solid rgba(200,164,78,0.2)", color: "rgba(200,164,78,0.45)" }}
+        >
           ⌘K
         </span>
       </div>
