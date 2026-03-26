@@ -1071,8 +1071,92 @@ V6-GATE-CLOSE: V6 wave complete — all P1+P2 tasks done
 
 ## V7 — GATE STATUS
 
-V7-GATE-STATUS : 🔴 SEALED — awaiting owner gate
-V7-NEXT-TASKS  : School surface (/school) · Workshop surface (/workshop)
-                 Bridge Nova face activation · Nexus Cria full surface
-                 Owner gate required to open V7 wave
+V7-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-26
+V7-CONTRACT    : ops/V7_TRINITY_CONTRACT.md — SEALED ✅
+
+```
+V7-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+VERSÃO        : V7 — Trinity Surfaces
+TEMA          : Visible Species Incarnation — Lab / School / Workshop
+GATE ABERTO   : 2026-03-26 | AUTO-GATE | @claude
+CONTRATO      : ops/V7_TRINITY_CONTRACT.md
+FECHADO QUANDO: Todos os critérios das 3 superfícies [✓] em V7_TRINITY_CONTRACT.md
+═══════════════════════════════════════════════════════════════════════
+```
+
+### V7-LAB-SURFACE-001
+
+```
+TASK          : V7-LAB-SURFACE-001
+DESCRICAO     : Construir Lab surface completa — /lab · heaven_lab face · 3 zonas · useLabState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P1
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/LabPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useLabState.ts (criar)
+  - Componentes: src/components/lab/ (criar directório + módulos)
+  - Módulos obrigatórios: HypothesisBoard · EvidencePanel · ProjectProbe · IntelFeed · GeoLayer · AIProbe
+  - State key: nxos_lab_state
+  - Entry vector mínimo: direct nav /lab com restore de estado
+  - Exit vector mínimo: "Build on this" → /workshop com contexto
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+```
+
+### V7-SCHOOL-SURFACE-001
+
+```
+TASK          : V7-SCHOOL-SURFACE-001
+DESCRICAO     : Construir School surface completa — /school · bridge_nova face · 3 zonas · useSchoolState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P2
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/SchoolPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useSchoolState.ts (criar)
+  - Componentes: src/components/school/ (criar directório + módulos)
+  - Módulos obrigatórios: MasteryMap · LearningModule · AITutor · CaseArchive · ProgressEngine
+  - State key: nxos_school_state
+  - Entry vector mínimo: direct nav /school com restore de estado
+  - Exit vector mínimo: módulo completo → updateFruit() · "Test in Lab" → /lab
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 2 — SCHOOL
+```
+
+### V7-WORKSHOP-SURFACE-001
+
+```
+TASK          : V7-WORKSHOP-SURFACE-001
+DESCRICAO     : Construir Workshop surface completa — /workshop · nexus_cria face · 3 zonas · useWorkshopState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P2
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/WorkshopPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useWorkshopState.ts (criar)
+  - Componentes: src/components/workshop/ (criar directório + módulos)
+  - Módulos obrigatórios: CreationCanvas · AICoCreator · ArtefactLibrary · OrganismBuilder · WorkflowEngine · OutputBridge
+  - State key: nxos_workshop_state
+  - Entry vector mínimo: direct nav /workshop com restore · Lab finding → "Build on this"
+  - Exit vector mínimo: OutputBridge → Projects layer
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 3 — CREATION HUB / WORKSHOP
+```
 

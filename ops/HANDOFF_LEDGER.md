@@ -6,6 +6,36 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | V7 GATE OPEN + TRINITY CONTRACT SEALED | claude-sonnet-4-6
+
+**TASK:** V7 Gate Open — Write V7_TRINITY_CONTRACT.md + open BASTION V7 tasks
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**FILES CREATED/MODIFIED:**
+- `ops/V7_TRINITY_CONTRACT.md` — CRIADO · contrato estrutural completo para Lab/School/Workshop × 8 dimensões cada (240+ linhas)
+- `ops/BASTION.md` — EDITADO · V7 gate aberto 🟢 + 3 tasks elegíveis definidas (V7-LAB-001, V7-SCHOOL-001, V7-WORKSHOP-001)
+- `ops/LIVE_STATE.md` — EDITADO · entrada V7 gate open + @cursor/@framer elegíveis
+- `ops/HANDOFF_LEDGER.md` — EDITADO · esta entrada
+
+**DECISÕES TOMADAS:**
+- V7 aberto via AUTO-GATE (owner confirmou "yes boy lets go" — gate aberto por directiva do owner)
+- Contrato cobre 8 dimensões por superfície: role · spatial · modules · project movement · state · podium · visible/internal · drift prevention
+- Loop canónico Lab→School→Workshop documentado explicitamente
+- Drift prevention explícita para cada superfície (o que NÃO deve entrar)
+- AIProbe/AITutor/AICoCreator: contractados para servir a superfície — não dominar (lei anti-chatbot)
+
+**PRÓXIMAS TASKS ELEGÍVEIS:**
+- V7-LAB-SURFACE-001 (P1) → @cursor + @framer
+- V7-SCHOOL-SURFACE-001 (P2) → @cursor + @framer
+- V7-WORKSHOP-SURFACE-001 (P2) → @cursor + @framer
+
+**EVIDENCE_BLOCK:** branch: claude/rebuild-bastion-core-rihGX → PR pendente
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | V6-RUBERRA-SURFACE-001 CLOSE + V6 WAVE COMPLETE | claude-sonnet-4-6
 
 **TASK:** V6-RUBERRA-SURFACE-001 — Fill RUBERRA corp stubs 03-10 with canonical content
