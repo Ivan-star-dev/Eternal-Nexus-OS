@@ -465,6 +465,7 @@ interface L4ExecutionDeckProps {
   onToggleVoice: () => void;
   onDeploy: () => void;
   dataOcean: DataOceanResult | null;
+  latestFruit?: string;
 }
 
 function L4ExecutionDeck({
@@ -478,6 +479,7 @@ function L4ExecutionDeck({
   onToggleVoice,
   onDeploy,
   dataOcean,
+  latestFruit,
 }: L4ExecutionDeckProps) {
   // Track dataOcean identity to trigger chart nudge on new data arrival
   const prevDataOceanRef = useRef<DataOceanResult | null>(null);
@@ -548,61 +550,79 @@ function L4ExecutionDeck({
             </Link>
           </div>
         ) : (
-          <motion.div
-            className="flex gap-2 rounded-lg"
-            animate={
-              loading
-                ? {
-                    boxShadow: [
-                      "0 0 0 1px hsl(var(--primary) / 0.3)",
-                      "0 0 0 2px hsl(var(--primary) / 0.15)",
-                      "0 0 0 1px hsl(var(--primary) / 0.3)",
-                    ],
-                  }
-                : { boxShadow: "0 0 0 0px transparent" }
-            }
-            transition={
-              loading
-                ? { duration: 1.4, repeat: Infinity, ease: "easeInOut" }
-                : { duration: 0.3 }
-            }
-          >
-            <Input
-              value={prompt}
-              onChange={(e) => onPromptChange(e.target.value)}
-              onKeyDown={onKeyDown}
-              placeholder="Simule crise hídrica global, 100 anos, otimize com tech atual + inovações..."
-              className="font-mono text-sm bg-background/50 border-border/30"
-              disabled={loading}
-            />
-            {voiceSupported && (
-              <Button
-                variant={listening ? "destructive" : "outline"}
-                size="icon"
-                className="shrink-0"
-                onClick={onToggleVoice}
-                disabled={loading}
+          <>
+            {/* Latest fruit context — one line, only when a prior session produced output */}
+            {latestFruit && (
+              <motion.div
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="mb-2 flex items-start gap-2 px-1"
               >
-                {listening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
-              </Button>
+                <span className="font-mono text-[0.42rem] tracking-[0.18em] uppercase shrink-0 mt-px" style={{ color: "hsl(172 48% 52% / 0.7)" }}>
+                  last output ·
+                </span>
+                <span className="font-mono text-[0.42rem] text-muted-foreground/60 leading-relaxed line-clamp-1 italic">
+                  {latestFruit}
+                </span>
+              </motion.div>
             )}
-            <Button
-              onClick={onDeploy}
-              disabled={loading || !prompt.trim()}
-              className="gap-2 font-mono text-xs tracking-wider px-6"
+            <motion.div
+              className="flex gap-2 rounded-lg"
+              animate={
+                loading
+                  ? {
+                      boxShadow: [
+                        "0 0 0 1px hsl(var(--primary) / 0.3)",
+                        "0 0 0 2px hsl(var(--primary) / 0.15)",
+                        "0 0 0 1px hsl(var(--primary) / 0.3)",
+                      ],
+                    }
+                  : { boxShadow: "0 0 0 0px transparent" }
+              }
+              transition={
+                loading
+                  ? { duration: 1.4, repeat: Infinity, ease: "easeInOut" }
+                  : { duration: 0.3 }
+              }
             >
-              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-              {loading ? "STREAMING" : "DEPLOY SWARM"}
-            </Button>
-          </motion.div>
-        )}
+              <Input
+                value={prompt}
+                onChange={(e) => onPromptChange(e.target.value)}
+                onKeyDown={onKeyDown}
+                placeholder="Simule crise hídrica global, 100 anos, otimize com tech atual + inovações..."
+                className="font-mono text-sm bg-background/50 border-border/30"
+                disabled={loading}
+              />
+              {voiceSupported && (
+                <Button
+                  variant={listening ? "destructive" : "outline"}
+                  size="icon"
+                  className="shrink-0"
+                  onClick={onToggleVoice}
+                  disabled={loading}
+                >
+                  {listening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                </Button>
+              )}
+              <Button
+                onClick={onDeploy}
+                disabled={loading || !prompt.trim()}
+                className="gap-2 font-mono text-xs tracking-wider px-6"
+              >
+                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                {loading ? "STREAMING" : "DEPLOY SWARM"}
+              </Button>
+            </motion.div>
 
-        {/* Voice indicator */}
-        {listening && (
-          <div className="mt-2 flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-destructive animate-pulse" />
-            <span className="font-mono text-[0.5rem] text-destructive">ESCUTANDO... fale seu prompt</span>
-          </div>
+            {/* Voice indicator */}
+            {listening && (
+              <div className="mt-2 flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-destructive animate-pulse" />
+                <span className="font-mono text-[0.5rem] text-destructive">ESCUTANDO... fale seu prompt</span>
+              </div>
+            )}
+          </>
         )}
       </div>
     </motion.section>
@@ -735,6 +755,18 @@ export default function NexusPage() {
   const [earthquakeContext, setEarthquakeContext] = useState<EarthquakePoint[]>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  // ═══ RESUME: pre-fill prompt with next_expected_step on session resume ═══
+  // Only runs once on mount. If the user already typed something, skip.
+  useEffect(() => {
+    const nextExpectedStep =
+      typeof session?.next_expected_step === "string" ? session.next_expected_step : "";
+
+    if (session?.is_resume && session?.re_entry_point && nextExpectedStep) {
+      setPrompt((prev) => (prev.trim() ? prev : nextExpectedStep));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally empty — run once on mount only
+
   // ═══ VOICE INPUT ═══
   const { listening, toggle: toggleVoice, supported: voiceSupported } = useVoiceInput(
     useCallback((text: string) => setPrompt((prev) => (prev ? prev + " " + text : text)), [])
@@ -784,7 +816,9 @@ export default function NexusPage() {
     if (!prompt.trim() || !user) return;
     setLoading(true);
     setResult(null);
-    const isResume = !!session?.re_entry_point?.includes(prompt.trim().slice(0, 30));
+    // Treat as resume only when the stored re_entry_point is a Nexus swarm marker.
+    // A project tab value ("technical", "overview") must never block startSession here.
+    const isResume = !!session?.re_entry_point?.startsWith('resume-swarm:');
     if (!isResume) startSession(prompt.trim(), "global-swarm-synthesis");
     setStreamingMeta("");
     setActiveTab("synthesis");
@@ -1006,6 +1040,7 @@ export default function NexusPage() {
           onToggleVoice={toggleVoice}
           onDeploy={runSwarmStreaming}
           dataOcean={dataOcean}
+          latestFruit={session?.latest_fruit || undefined}
         />
 
         {/* Sub-panels housed in the Execution Deck layer */}

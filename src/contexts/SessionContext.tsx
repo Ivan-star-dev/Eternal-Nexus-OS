@@ -87,11 +87,23 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
 
   const startSession = (subject: string, intention: string): SessionState => {
     const stored = loadFromStorage();
-    if (stored && stored.re_entry_point && stored.subject === subject) {
-      // Resume existing session for same subject
-      const resumed: SessionState = { ...stored, is_resume: true };
-      setSession(resumed);
-      return resumed;
+    if (stored) {
+      // Same-subject resume — restore continuity
+      if (stored.re_entry_point && stored.subject === subject) {
+        const resumed: SessionState = { ...stored, is_resume: true };
+        setSession(resumed);
+        return resumed;
+      }
+
+      // A live Nexus swarm session is active — a project-review call must not
+      // overwrite it. Preserve the Nexus session and only note the new subject.
+      const isNexusSessionLive = stored.re_entry_point.startsWith('resume-swarm:');
+      if (isNexusSessionLive && intention === 'project-review') {
+        // Carry Nexus session forward; update subject so DossierCard can match
+        const preserved: SessionState = { ...stored, subject, is_resume: stored.is_resume };
+        setSession(preserved);
+        return preserved;
+      }
     }
     const fresh = buildFreshSession(subject, intention);
     setSession(fresh);
@@ -109,7 +121,9 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   const updateReEntry = (point: string) => {
     setSession(prev => {
       if (!prev) return prev;
-      const updated = { ...prev, re_entry_point: point, is_resume: false };
+      // Do NOT touch is_resume here. Re-entry tracking records position,
+      // it does not change session type. is_resume is only set by startSession.
+      const updated = { ...prev, re_entry_point: point };
       return updated;
     });
   };
