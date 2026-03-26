@@ -34,7 +34,20 @@ interface SessionContextValue {
 const SessionContext = createContext<SessionContextValue | null>(null);
 
 function generateId(): string {
-  // Prefer cryptographically secure randomness for session IDs
+  // Prefer Web Crypto for session IDs to reduce collision risk.
+  if (typeof crypto !== 'undefined') {
+    if (typeof (crypto as Crypto).randomUUID === 'function') {
+      return (crypto as Crypto).randomUUID();
+    }
+    if (typeof (crypto as Crypto).getRandomValues === 'function') {
+      const bytes = new Uint8Array(16);
+      (crypto as Crypto).getRandomValues(bytes);
+      return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
+    }
+  }
+
+  // Last-resort fallback: combine timestamp with Math.random for extra entropy.
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const cryptoObj = (typeof globalThis !== 'undefined' && (globalThis as any).crypto) || undefined;
 
   if (cryptoObj?.randomUUID) {
