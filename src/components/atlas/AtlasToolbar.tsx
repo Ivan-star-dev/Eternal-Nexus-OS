@@ -76,7 +76,7 @@ export default function AtlasToolbar({
       <div className="flex items-center gap-2 bg-card/90 backdrop-blur-2xl border rounded-lg px-4 py-1.5" style={{ borderImage: 'linear-gradient(90deg, hsl(var(--primary) / 0.25), hsl(var(--primary) / 0.08)) 1' }}>
         <Radio className="h-3 w-3 text-primary animate-pulse" />
         <span className="font-mono text-[0.5rem] tracking-[0.3em] text-primary uppercase font-bold">
-          ETERNAL NEXUS 2.0
+          ETERNAL NEXUS v3
         </span>
         <div className="w-px h-3 bg-border/50" />
         <ShieldCheck className="h-3 w-3 text-accent-foreground" />
