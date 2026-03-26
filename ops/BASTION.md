@@ -1024,11 +1024,18 @@ TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
 └─────────────────────────────────────────────────────────────────────┘
 
 V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
-V6-QUEUE       : V6-AUTH-001 (P1 — @claude arch · @cursor mech · NEXT)
-                 V6-PROJECT-DETAIL-001 (P1 — @cursor)
+V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
+                 V6-PROJECT-DETAIL-001 (P1 — @cursor · NEXT)
                  V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor)
                  V6-COUNCIL-LIVE-001 (P2 — @claude)
                  V6-RUBERRA-SURFACE-001 (P2 — @claude)
+
+V6-AUTH-001-CLOSE:
+  ✅ ProtectedRoute component (auth guard + ownerOnly variant)
+  ✅ /owner and /dashboard protected in App.tsx
+  ✅ useCurrentUser hook — flat identity surface for all V6 components
+  ✅ GovAuth post-login redirect honours location.state.from
+  ✅ TS 0 · commit 0fd720a · pushed
 ═══════════════════════════════════════════════════════════════════════
 ```
 

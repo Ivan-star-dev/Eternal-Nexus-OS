@@ -6,6 +6,29 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | V5-TOUCH-RESPONSE · V6-AUTH-001 | claude-sonnet-4-6
+
+**TASKS:** V5-TOUCH-001/002/003/004/005 (full touch-response stack) + V6-AUTH-001
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/components/GoldenAtlasScene.tsx` — MODIFIED — focusedProjectId state · focused/dimmed props wired · justSelectedRef · handleCanvasClick · ProjectBottomSheet rendered via AnimatePresence · touchMode prop · ProjectInspector hidden on mobile (sm:block) · focusedProjectId passed to AtlasSceneContent
+- `src/components/ProjectBottomSheet.tsx` — NEW — mobile bottom sheet (sm:hidden) · TouchMode type · MODE_CONFIG (explorer/lab/school) · drag="y" swipe-to-dismiss · onDragEnd offset > 72 → close · AnimatePresence animation y:100%→0%
+- `src/components/ProtectedRoute.tsx` — NEW — auth guard component · loading state returns null · unauthenticated redirects to /access with from state · ownerOnly redirects non-owners to /dashboard
+- `src/hooks/useCurrentUser.ts` — NEW — flat identity surface for V6 · CurrentUser shape: id/email/displayName/institution/country/position/isOwner/isVerified/verificationStatus
+- `src/App.tsx` — MODIFIED — ProtectedRoute import · /owner (ownerOnly) + /dashboard protected
+- `src/pages/GovAuth.tsx` — MODIFIED — post-login redirect honours location.state.from · falls back to /dashboard
+
+**COMMITS:** 16d0a58 (V5-TOUCH) · 0fd720a (V6-AUTH-001)
+**TS:** 0 erros em ambos os commits
+
+**PRÓXIMO:** V6-PROJECT-DETAIL-001 (@cursor — ProjectPage wired to real Supabase globe_projects)
+
+---
+
 ## HANDOFF — 2026-03-25 | @claude | CLUSTER-ORCHESTRATE-001 · V6 GATE OPEN | claude-sonnet-4-6
 
 **TASK:** CLUSTER-ORCHESTRATE-001 (Codex briefing) + AUTO-GATE V6
