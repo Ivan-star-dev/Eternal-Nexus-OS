@@ -12,6 +12,7 @@ import FrameBudgetMonitor from "@/components/dashboard/FrameBudgetMonitor";
 import ProjectMetricsBarChart from "@/components/dashboard/ProjectMetricsBarChart";
 import SystemRadarChart from "@/components/dashboard/SystemRadarChart";
 import { EASE_OUT } from "@/lib/motion/config";
+import PortfolioMetricsPanel from "@/components/portfolio/PortfolioMetricsPanel";
 import {
   useProjectMetrics,
   useActivityLog,
@@ -82,6 +83,9 @@ const DashboardPage = () => {
             </div>
           ) : (
             <>
+              {/* Portfolio Impact — aggregate KPIs from Supabase */}
+              <PortfolioMetricsPanel />
+
               {/* KPI Grid */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
