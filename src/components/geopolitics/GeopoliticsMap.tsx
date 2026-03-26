@@ -397,8 +397,7 @@ const GeopoliticsMap = memo(function GeopoliticsMap({
       maxZoom: 16,
       attributionControl: false,
       fadeDuration: 0,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any);
+    } as maplibregl.MapOptions);
 
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
     map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), 'top-right');
