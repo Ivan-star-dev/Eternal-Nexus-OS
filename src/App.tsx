@@ -52,6 +52,7 @@ const FounderPage = lazy(() => import("./pages/FounderPage"));
 const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
+const GlobePage = lazy(() => import("./pages/GlobePage"));
 
 const queryClient = new QueryClient();
 
@@ -123,6 +124,7 @@ const App = () => (
                 <Route path="/founder" element={<FounderPage />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/system" element={<SystemFacePage />} />
+                <Route path="/globe" element={<GlobePage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

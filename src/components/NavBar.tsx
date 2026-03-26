@@ -18,11 +18,11 @@ const NavBar = () => {
 
   const navLinks = [
     { label: "PROJECTS", path: "/projects", icon: null as any, live: false },
-    { label: "ATLAS", path: "/atlas", icon: Globe, live: true },
+    { label: "GLOBE", path: "/globe", icon: Globe, live: true },
+    { label: "ATLAS", path: "/atlas", icon: null as any, live: true },
     { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
     { label: "GALLERY", path: "/gallery", icon: null as any, live: false },
     { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
-    { label: "GEOPOLÍTICA", path: "/geopolitics", icon: null as any, live: false },
     { label: t("nav_about"), path: "/about", icon: null as any, live: false },
   ];
 

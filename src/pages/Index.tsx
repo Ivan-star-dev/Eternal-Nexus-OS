@@ -43,7 +43,7 @@ const Index = () => {
             <Suspense fallback={
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.05)_0%,transparent_70%)]" />
             }>
-              <InteractiveGlobe onHotspotClick={(id) => console.log("hotspot", id)} />
+              <InteractiveGlobe onHotspotClick={(_id) => {}} />
             </Suspense>
           </OrganErrorBoundary>
 
