@@ -14,20 +14,28 @@ const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterP
   // Parse numeric value from both number and string inputs, preserving format metadata
   const { numericValue, formatDisplay } = (() => {
     if (typeof value === "number") {
+      // Preserve decimal places present in the original numeric value
+      const decimalStr = value.toString().split(".")[1];
+      const decimalPlaces = decimalStr ? decimalStr.length : 0;
       return {
         numericValue: value,
-        formatDisplay: (n: number) => String(Math.round(n)),
+        formatDisplay: (n: number) =>
+          decimalPlaces > 0 ? n.toFixed(decimalPlaces) : String(Math.round(n)),
       };
     }
     if (typeof value === "string") {
       // Extract optional non-numeric prefix (e.g. "$", "€") and suffix
-      const prefixMatch = value.match(/^([^0-9]*)[\d]/);
-      const suffixMatch = value.match(/[\d]([^0-9]*)$/);
+      const prefixMatch = value.match(/^([^0-9]*)\d/);
+      const suffixMatch = value.match(/\d([^0-9]*)$/);
       const prefix = prefixMatch ? prefixMatch[1] : "";
       const suffix = suffixMatch ? suffixMatch[1] : "";
 
       // Strip formatting characters to get the raw numeric string
       const cleaned = value.replace(/,/g, "").replace(/[^0-9.+-]/g, "");
+      // Return null for strings with no numeric content (e.g. "N/A", "$")
+      if (cleaned === "" || cleaned === "." || cleaned === "+" || cleaned === "-") {
+        return { numericValue: null, formatDisplay: () => value };
+      }
       const parsed = Number(cleaned);
       if (Number.isNaN(parsed)) {
         return { numericValue: null, formatDisplay: () => value };
@@ -41,14 +49,14 @@ const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterP
       return {
         numericValue: parsed,
         formatDisplay: (n: number) => {
-          const rounded = decimalPlaces > 0 ? n : Math.round(n);
+          const processedValue = decimalPlaces > 0 ? n : Math.round(n);
           const formatted = useCommas
-            ? rounded.toLocaleString("en-US", {
+            ? processedValue.toLocaleString("en-US", {
                 minimumFractionDigits: decimalPlaces,
                 maximumFractionDigits: decimalPlaces,
               })
             : decimalPlaces > 0
-            ? rounded.toFixed(decimalPlaces)
+            ? processedValue.toFixed(decimalPlaces)
             : String(Math.round(n));
           return `${prefix}${formatted}${suffix}`;
         },
