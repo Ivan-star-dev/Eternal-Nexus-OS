@@ -68,6 +68,20 @@
     --morabeza-terracotta: 12 55% 42%;
     --morabeza-ocean: 195 55% 38%;
 
+    /* ═══ RUBERRA DEPTH SYSTEM ═══ */
+    --petroleum-blue: hsl(210 65% 8%);
+    --abyssal: hsl(216 60% 4%);
+    --depth-1: hsl(216 55% 6%);
+    --depth-2: hsl(216 50% 8%);
+    --depth-3: hsl(216 45% 10%);
+    --burnt-gold: hsl(36 65% 38%);
+    --burnt-gold-light: hsl(36 60% 50%);
+    --glow-gold: 0 0 60px -10px hsl(42 78% 45% / 0.18);
+    --glow-teal: 0 0 40px -8px hsl(172 55% 28% / 0.2);
+    --surface-glass: hsl(216 40% 8% / 0.6);
+    --haze: hsl(216 50% 5% / 0.85);
+    --amber: hsl(38 80% 42%);
+
     /* Fonts */
     --font-display: 'Syne', system-ui, sans-serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
