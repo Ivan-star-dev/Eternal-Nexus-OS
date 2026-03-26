@@ -1025,8 +1025,8 @@ TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
 
 V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
 V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
-                 V6-PROJECT-DETAIL-001 (P1 — @cursor · NEXT)
-                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor)
+                 V6-PROJECT-DETAIL-001 (P1 — ✅ DONE 2026-03-26 @claude)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — @claude + @cursor · NEXT)
                  V6-COUNCIL-LIVE-001 (P2 — @claude)
                  V6-RUBERRA-SURFACE-001 (P2 — @claude)
 
