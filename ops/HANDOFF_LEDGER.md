@@ -6,6 +6,29 @@
 
 ---
 
+## HANDOFF — 2026-03-26 | @claude | ANTI-LOOP-LAW-QWGUU | claude-sonnet-4-6
+
+**TASK:** Cravar ANTI_LOOP_LAW canónica — 7 regras anti-loop, diagnóstico de deriva, activação permanente
+**BRANCH:** claude/anti-loop-law-QWGUU
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/ANTI_LOOP_LAW.md` — CRIADO · v1.0 · 7 regras + tabela diagnóstico + referência cruzada
+- `CLAUDE.md` — v1.1 · ANTI_LOOP_LAW.md adicionado à tabela de artefactos canónicos
+- `ops/LIVE_STATE.md` — branch canónico actualizado para claude/anti-loop-law-QWGUU · entrada handoff adicionada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### DECISOES_SELADAS:
+- ANTI_LOOP_LAW v1.0 é canónica e está activa em todas as sessões sem gate
+- Branch canónico deste sprint: claude/anti-loop-law-QWGUU
+
+### PROXIMA_TASK_UNICA:
+- Commit + push desta sessão para origin/claude/anti-loop-law-QWGUU
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | RUBERRA-VISUAL-MOTHER-ID-001 | claude-sonnet-4-6
 
 **TASK:** RUBERRA Visual Mother ID + Immersive Site Vision — full surface organism upgrade

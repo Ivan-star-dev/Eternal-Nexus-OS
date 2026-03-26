@@ -150,7 +150,8 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 | `ops/V10_PROJECT_LINE_SYSTEM.md` | Linha V1→V10 — fases, diagnóstico, Phase Tracker, Gap Auditor |
 | `ops/BLOCK_MATURATION_OS.md` | Maturação por blocos — 7 blocos, 5 leis, Cross-Block Connector, Consistency Guard |
 | `ops/PROJECT_CANONICAL_CHECKUP_MASTER.md` | Auditoria mestre — 12 famílias, checkup definido/implementado/a-construir, gaps abertos |
+| `ops/ANTI_LOOP_LAW.md` | Lei anti-loop — 7 regras, diagnóstico de deriva, activação permanente |
 
 ---
 
-_CLAUDE.md v1.0 — cravado em 2026-03-22 | @claude | BRANCH-GUARD-PROTOCOL-001_
+_CLAUDE.md v1.1 — actualizado em 2026-03-26 | @claude | ANTI-LOOP-LAW-QWGUU_
