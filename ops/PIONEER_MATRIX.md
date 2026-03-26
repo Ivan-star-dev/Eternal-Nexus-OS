@@ -525,11 +525,44 @@ Esta task está concluída quando o owner conseguir dizer:
 
 ## CHANGELOG
 
+---
+
+## PARTE 9 — CONSTELLATION-LAW (complemento ao CLAUDE.md §5.A)
+
+> Directiva owner 2026-03-25. Complementa — não substitui — as regras existentes.
+
+```
+STANDBY NÃO É ESTADO PERMANENTE
+
+Pioneer em standby = recurso disponível, não recurso inactivo.
+@claude avalia activamente se pioneers em standby podem entrar
+na wave de versão activa sem violar território ou soberania.
+
+REGRA OPERACIONAL:
+  Se @claude é o único pioneer activo E versão tem múltiplas
+  camadas (WorkFunction + WorkVisual + mechanical) →
+  @claude propõe ou activa split dentro da mesma versão.
+
+SPLIT CANÓNICO POR CAMADA:
+  arch/decisão     → @claude       (sempre)
+  mechanical/API   → @cursor       (após arch sealed)
+  motion/3D        → @antigravity  (após surfaces existirem)
+  design system    → @framer       (após behaviour sealed)
+  lapidação        → @copilot      (após surface fechada)
+  consolidação     → @codex        (após wave parcial/completa)
+
+REGRA DE VERSÃO — INVIOLÁVEL:
+  Activação de pioneer = dentro da versão activa APENAS
+  V4 activo → V4 tasks · nunca V5 · nunca alterar V3 fechado
+  O que foi selado numa versão não é tocado por outra
+```
+
 ```
 PIONEER_MATRIX.md v1 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001
 Gate aberto por owner — 2026-03-21
 6 pioneiros cravados | regra dos 3 chats | 3 pilares | aplicação dupla | regra de benefício
 PIONEER_MATRIX.md v1.1 — erro gramatical 'cravar'→'crava' corrigido — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
+PIONEER_MATRIX.md v1.2 — CONSTELLATION-LAW adicionada (complemento CLAUDE.md §5.A) — 2026-03-25 | claude-sonnet-4-6 | directiva owner
 ```
 
 ---

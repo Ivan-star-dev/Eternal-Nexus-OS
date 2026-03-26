@@ -10,6 +10,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
+import { EASE_OUT } from "@/lib/motion/config";
 import {
   TrendingUp,
   Activity,
@@ -150,7 +151,7 @@ function StatusDonut({ active, pilot, planning, total }: StatusDonutProps) {
               style={{ width: `${pct}%` }}
               initial={{ scaleX: 0, originX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: EASE_OUT }}
             />
           ) : null;
         })}
@@ -318,7 +319,7 @@ export default function ProjectMetrics({ projects }: ProjectMetricsProps) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: EASE_OUT }}
       className="space-y-4"
     >
       {/* ── Section header ── */}

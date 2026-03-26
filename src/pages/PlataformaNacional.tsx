@@ -3,6 +3,7 @@ import { Canvas, useFrame, type ThreeElements } from "@react-three/fiber";
 import { OrbitControls, Float, Sparkles } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
 import {
   ArrowRight,
   Globe,
@@ -497,7 +498,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.6, ease: EASE_OUT },
   },
 };
 

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { Shield, ChevronRight, Zap, Truck, Droplets, Activity, Database } from "lucide-react";
 import type { ProjectData } from "@/data/projects";
 import ProjectGallery from "@/components/ProjectGallery";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 const pillarIcons = [Zap, Truck, Droplets, Activity, Database];
 
 interface OverviewTabProps {

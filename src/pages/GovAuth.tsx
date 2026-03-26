@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import { Shield, Lock, Fingerprint, ChevronRight, AlertTriangle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
 const govIdTypes = [
@@ -35,6 +35,9 @@ const GovAuth = () => {
   const { t } = useLanguage();
   const { signUp, signIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  // Redirect to the page the user was trying to reach, or fall back to /dashboard
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? "/dashboard";
 
   useEffect(() => {
     document.title = "Government Authentication — Eternal Nexus";
@@ -82,7 +85,7 @@ const GovAuth = () => {
       } else {
         await signIn(form.email, form.password);
         toast({ title: "Authenticated", description: "Access granted." });
-        navigate("/");
+        navigate(from, { replace: true });
       }
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });

@@ -16,7 +16,7 @@ Antes de executar qualquer task, ler na seguinte ordem:
 ## 1. BRANCH CANÓNICO ATIVO
 
 ```
-BRANCH ATIVO: ver ops/LIVE_STATE.md (campo "Branch canônico")
+BRANCH ATIVO: claude/setup-ruberra-nexus-IL7Tg
 FONTE DA VERDADE: ops/LIVE_STATE.md (campo "Branch canônico")
 ```
 
@@ -91,7 +91,89 @@ Correcção é obrigatória antes de qualquer escrita.
 
 ---
 
-## 5. BLOQUEADORES — QUANDO PARAR
+## 5. AUTO-GATE — LEI DE ABERTURA AUTOMÁTICA
+
+> Directiva do owner (2026-03-25): @claude avalia condições e abre gates autonomamente.
+> Owner só intervém para bloquear, redirecionar ou mudar escopo.
+
+```
+AUTO-GATE-LAW
+═══════════════════════════════════════════════════════════
+
+REGRA: Quando todos os critérios de um gate estiverem [✓],
+       @claude abre o gate seguinte SEM esperar instrução do owner.
+
+AVALIAÇÃO (após cada task concluída):
+  1. Verificar SEQUENCE_LAW — critérios da fase atual
+  2. Se todos [✓] → declarar fase FECHADA → abrir gate seguinte
+  3. Atualizar BASTION com tasks da nova fase
+  4. Entrar na primeira task elegível da nova fase imediatamente
+
+INTERRUPTOR DE AUTO-GATE:
+  → Owner diz "STOP", "PAUSE", ou "BLOCK" → @claude para e aguarda
+  → Red line detectada → STOP-5 aplica-se
+  → Critério não verificável sem owner → comunicar e aguardar
+  → Todos os outros casos → AUTO-GATE activo
+
+TRANSPARÊNCIA:
+  → @claude reporta sempre o gate aberto e qual task entrou
+  → Owner pode ver o estado em LIVE_STATE.md a qualquer momento
+```
+
+---
+
+## 5.A CONSTELLATION-LAW — LEI DE ACTIVAÇÃO DA CONSTELAÇÃO
+
+> Directiva do owner (2026-03-25): @claude não trabalha sozinho quando a constelação
+> pode ser activada com segurança. Pioneers em standby são um recurso — não um estado permanente.
+
+```
+CONSTELLATION-LAW
+═══════════════════════════════════════════════════════════════
+
+REGRA: Quando @claude é o único pioneer activo numa wave de versão
+       E existem pioneers em standby com territory-fit para tasks
+       da mesma versão activa
+       → @claude DEVE avaliar activação e propor ao owner
+         (ou activar via AUTO-GATE se critérios [✓])
+
+CRITÉRIOS DE ACTIVAÇÃO (todos devem ser [✓]):
+  1. Mesma versão activa — não saltar versões (V4 activo = V4 tasks)
+  2. Pioneer tem territory-fit confirmado (WorkFunction ≠ WorkVisual = OK)
+  3. Nenhum conflito de ficheiros ou domínio com task activa de @claude
+  4. Gate da versão está aberto no BASTION
+  5. Pioneer tem task elegível OU @claude pode propor split legítimo
+
+PADRÃO DE SPLIT CANÓNICO:
+  @claude       → arch layer      (decisões, data model, soberania)
+  @cursor       → mechanical layer (implementação, queries, API wiring)
+  @antigravity  → motion layer    (superfícies já existentes — anima)
+  @framer       → design layer    (design system — após behaviour sealed)
+  @copilot      → lapidation layer (polimento — após @claude fechar surface)
+  @codex        → consolidation   (após wave parcial ou completa)
+
+REGRA DE VERSÃO:
+  → Activação só dentro da versão activa (V4 → V4 tasks)
+  → Nunca abrir V5 work enquanto V4 não está fechado
+  → Nunca regredir para V3 work depois de fechado
+  → O que foi implementado numa versão NÃO é alterado por outra
+
+INTERRUPTOR:
+  → Owner diz "STOP" → nenhuma activação adicional
+  → Conflito de território detectado → comunicar ao owner, não activar
+  → Pioneer sem task fit na versão activa → standby mantido (correcto)
+  → Task requer decisão soberana → só owner pode abrir
+
+TRANSPARÊNCIA:
+  → @claude reporta sempre qual pioneer activou, porquê, e qual task entrou
+  → Split de tasks documenta-se no BASTION com DONO_PRINCIPAL + DEPENDE_DE
+  → Owner vê estado completo em BASTION.md e LIVE_STATE.md
+═══════════════════════════════════════════════════════════════
+```
+
+---
+
+## 6. BLOQUEADORES — QUANDO PARAR
 
 Parar imediatamente e comunicar ao owner se:
 
@@ -115,7 +197,7 @@ Proposta: [o que precisa acontecer para desbloquear]
 
 ---
 
-## 6. HANDOFF OBRIGATÓRIO
+## 7. HANDOFF OBRIGATÓRIO
 
 Toda task concluída requer handoff antes de fechar sessão:
 - Actualizar `ops/LIVE_STATE.md`
@@ -127,7 +209,7 @@ Sem handoff = task não concluída.
 
 ---
 
-## 7. REGRA DE BENEFÍCIO (síntese)
+## 8. REGRA DE BENEFÍCIO (síntese)
 
 Toda acção deve deixar o sistema melhor do que encontrou:
 - Optimizar · Automatizar · Reduzir atrito · Aumentar clareza · Aumentar throughput
@@ -150,8 +232,7 @@ Se a task não traz nenhum destes benefícios → questionar ao owner antes de e
 | `ops/V10_PROJECT_LINE_SYSTEM.md` | Linha V1→V10 — fases, diagnóstico, Phase Tracker, Gap Auditor |
 | `ops/BLOCK_MATURATION_OS.md` | Maturação por blocos — 7 blocos, 5 leis, Cross-Block Connector, Consistency Guard |
 | `ops/PROJECT_CANONICAL_CHECKUP_MASTER.md` | Auditoria mestre — 12 famílias, checkup definido/implementado/a-construir, gaps abertos |
-| `ops/ANTI_LOOP_LAW.md` | Lei anti-loop — 7 regras, diagnóstico de deriva, activação permanente |
 
 ---
 
-_CLAUDE.md v1.1 — actualizado em 2026-03-26 | @claude | ANTI-LOOP-LAW-QWGUU_
+_CLAUDE.md v1.2 — CONSTELLATION-LAW selada em 2026-03-25 | @claude | directiva owner_

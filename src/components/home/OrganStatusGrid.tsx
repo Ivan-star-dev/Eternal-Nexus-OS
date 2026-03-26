@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Brain, Globe, Scale, Radio, Newspaper, Activity } from "lucide-react";
 import { getOrgan } from "@/config/workspace";
 import { useOrganLiveStatus } from "@/hooks/useOrganLiveStatus";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // Ícones por órgão — puramente visual, não é dado
 const ORGAN_ICONS: Record<string, React.ReactNode> = {
@@ -21,7 +22,7 @@ const ORGAN_ICONS: Record<string, React.ReactNode> = {
 // Ordem de exibição no grid — subset dos órgãos do workspace (sem index)
 const GRID_ORGAN_IDS = ['nexus', 'atlas', 'tribunal', 'news', 'investor', 'geopolitics'] as const;
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 export default function OrganStatusGrid() {
   const liveStatus = useOrganLiveStatus();

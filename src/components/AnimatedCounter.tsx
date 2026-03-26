@@ -14,7 +14,6 @@ const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterP
   // Parse numeric value from both number and string inputs, preserving format metadata
   const { numericValue, formatDisplay } = (() => {
     if (typeof value === "number") {
-      // Preserve decimal places present in the original numeric value
       const decimalStr = value.toString().split(".")[1];
       const decimalPlaces = decimalStr ? decimalStr.length : 0;
       return {
@@ -24,15 +23,11 @@ const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterP
       };
     }
     if (typeof value === "string") {
-      // Extract optional non-numeric prefix (e.g. "$", "€") and suffix
       const prefixMatch = value.match(/^([^0-9]*)\d/);
       const suffixMatch = value.match(/\d([^0-9]*)$/);
       const prefix = prefixMatch ? prefixMatch[1] : "";
       const suffix = suffixMatch ? suffixMatch[1] : "";
-
-      // Strip formatting characters to get the raw numeric string
       const cleaned = value.replace(/,/g, "").replace(/[^0-9.+-]/g, "");
-      // Return null for strings with no numeric content (e.g. "N/A", "$")
       if (cleaned === "" || cleaned === "." || cleaned === "+" || cleaned === "-") {
         return { numericValue: null, formatDisplay: () => value };
       }
@@ -40,12 +35,9 @@ const AnimatedCounter = ({ value, duration = 1200, className }: AnimatedCounterP
       if (Number.isNaN(parsed)) {
         return { numericValue: null, formatDisplay: () => value };
       }
-
-      // Preserve decimal places from the original
       const dotIndex = cleaned.indexOf(".");
       const decimalPlaces = dotIndex >= 0 ? cleaned.length - dotIndex - 1 : 0;
       const useCommas = value.includes(",");
-
       return {
         numericValue: parsed,
         formatDisplay: (n: number) => {

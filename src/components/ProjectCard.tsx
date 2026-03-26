@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface ProjectCardProps {
   id: string;
@@ -15,7 +16,7 @@ interface ProjectCardProps {
   metrics: { value: string; label: string }[];
 }
 
-const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+const easeOutExpo = EASE_OUT;
 
 const statusStyles: Record<string, string> = {
   "Active":      "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",

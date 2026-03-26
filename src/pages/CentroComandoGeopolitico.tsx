@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Activity, Radio, AlertTriangle, Clock, Crosshair } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // ═══════════════════════════════════════════════════
 // Centro de Comando Geopolítico — Holographic War Room
@@ -386,7 +387,7 @@ function LeftPanel() {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: EASE_OUT }}
       className="absolute left-4 top-20 z-10 w-72 space-y-4"
     >
       {/* EI Status */}
@@ -459,7 +460,7 @@ function RightPanel() {
     <motion.div
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: EASE_OUT }}
       className="absolute right-4 top-20 z-10 w-80 space-y-4"
     >
       <div className="rounded-sm border border-white/[0.05] bg-ink-medium/60 p-4 backdrop-blur-xl">
@@ -521,7 +522,7 @@ function RightPanel() {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${activeScenario.confidence}%` }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, ease: EASE_OUT }}
                     className="h-full rounded-full"
                     style={{
                       background: `linear-gradient(90deg, #00ffcc, ${
@@ -552,7 +553,7 @@ function TopBar() {
     <motion.div
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: EASE_OUT }}
       className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between border-b border-white/5 bg-black/70 px-6 py-3 backdrop-blur-xl"
     >
       <div className="flex items-center gap-4">

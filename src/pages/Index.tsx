@@ -9,7 +9,6 @@ import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
-import StrategicLayer from "@/components/home/StrategicLayer";
 import { homeProjects } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
 import type { TrinityFace } from "@/lib/memory/types";
@@ -18,9 +17,9 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 // Minimal face-to-route mapping — no new logic, uses existing routing data
 const FACE_ENTRY: Record<TrinityFace, { path: string; label: string }> = {
-  heaven_lab:  { path: "/nexus",    label: "Heaven Lab — Retomar" },
-  bridge_nova: { path: "/nexus",    label: "Bridge Nova — Retomar" },
-  nexus_cria:  { path: "/nexus",    label: "Nexus Cria — Retomar" },
+  heaven_lab:  { path: "/lab",      label: "Heaven Lab — Retomar" },
+  bridge_nova: { path: "/school",   label: "Bridge Nova — Retomar" },
+  nexus_cria:  { path: "/workshop", label: "Nexus Cria — Retomar" },
 };
 
 // Session-aware CTA footer — primary entry changes when a resumable session exists.
@@ -78,34 +77,45 @@ const Index = () => {
         {/* ═══ HERO — Canonical ProductHero (globe-dominant · trinity · first proof) ═══ */}
         <ProductHero />
 
-        {/* ═══ PROJETOS VIVOS ═══ */}
-        <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Projetos vivos do organismo">
+        {/* ═══ DOSSIÊS — Apple-style staggered scroll reveals ═══ */}
+        <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20" aria-label="Dossiês estratégicos dos projetos ativos">
           <div className="max-w-[1200px] mx-auto">
-            {/* Orbital label */}
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease }}
-              className="flex items-center gap-5 mb-14"
+              className="text-center mb-16"
             >
               <motion.span
+                initial={{ opacity: 0, letterSpacing: "0.5em" }}
+                whileInView={{ opacity: 1, letterSpacing: "0.25em" }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block"
+              >
+                Dossiês Estratégicos
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.8, ease }}
+                className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-3"
+              >
+                Projetos <span className="text-primary italic font-light">Ativos</span>
+              </motion.h2>
+              <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.7, ease }}
-                className="block h-px origin-left"
-                style={{ width: "64px", background: "linear-gradient(to right, rgba(200,164,78,0.3), transparent)" }}
+                transition={{ delay: 0.5, duration: 0.8, ease }}
+                className="h-px w-20 mx-auto mt-6 origin-center"
+                style={{ background: "var(--gradient-gold)" }}
               />
-              <span
-                className="font-sans text-[9px] font-[500] uppercase tracking-[0.3em]"
-                style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.45)" }}
-              >
-                PROJETOS VIVOS
-              </span>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {homeProjects.map((project, i) => (
                 <motion.div
                   key={project.id}
@@ -129,9 +139,6 @@ const Index = () => {
 
         {/* ═══ CONTRIBUIÇÕES PÚBLICAS ═══ */}
         <ContributionsSection />
-
-        {/* ═══ CAMADAS ESTRATÉGICAS ═══ */}
-        <StrategicLayer />
 
         {/* ═══ CTA FOOTER — Apple-style reveal ═══ */}
         <section className="border-t border-border py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20 cinematic-vignette">

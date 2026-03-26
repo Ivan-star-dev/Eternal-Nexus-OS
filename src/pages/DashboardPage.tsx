@@ -11,6 +11,8 @@ import UPlotStreamChart from "@/components/dashboard/UPlotStreamChart";
 import FrameBudgetMonitor from "@/components/dashboard/FrameBudgetMonitor";
 import ProjectMetricsBarChart from "@/components/dashboard/ProjectMetricsBarChart";
 import SystemRadarChart from "@/components/dashboard/SystemRadarChart";
+import { EASE_OUT } from "@/lib/motion/config";
+import PortfolioMetricsPanel from "@/components/portfolio/PortfolioMetricsPanel";
 import {
   useProjectMetrics,
   useActivityLog,
@@ -18,7 +20,7 @@ import {
   useProjectProgress,
 } from "@/hooks/useDashboardData";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const DashboardPage = () => {
   useEffect(() => {
@@ -81,6 +83,9 @@ const DashboardPage = () => {
             </div>
           ) : (
             <>
+              {/* Portfolio Impact — aggregate KPIs from Supabase */}
+              <PortfolioMetricsPanel />
+
               {/* KPI Grid */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}

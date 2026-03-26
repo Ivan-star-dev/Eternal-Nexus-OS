@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Shield, FileText, MessageSquare, Boxes, Lock, Settings } from "lucide-react";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+const easeOutExpo = EASE_OUT;
 
 const capabilities = [
   {

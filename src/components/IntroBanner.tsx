@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Shield, Zap } from "lucide-react";
 import heroBannerBg from "@/assets/hero-banner-bg.jpg";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+const easeOutExpo = EASE_OUT;
 
 const IntroBanner = () => {
   return (

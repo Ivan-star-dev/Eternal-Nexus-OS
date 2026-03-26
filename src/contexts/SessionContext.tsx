@@ -34,40 +34,6 @@ interface SessionContextValue {
 const SessionContext = createContext<SessionContextValue | null>(null);
 
 function generateId(): string {
-  // Prefer Web Crypto for session IDs to reduce collision risk.
-  if (typeof crypto !== 'undefined') {
-    if (typeof (crypto as Crypto).randomUUID === 'function') {
-      return (crypto as Crypto).randomUUID();
-    }
-    if (typeof (crypto as Crypto).getRandomValues === 'function') {
-      const bytes = new Uint8Array(16);
-      (crypto as Crypto).getRandomValues(bytes);
-      return Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('');
-    }
-  }
-
-  // Last-resort fallback: combine timestamp with Math.random for extra entropy.
-  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
-  const cryptoObj = (typeof globalThis !== 'undefined' && (globalThis as any).crypto) || undefined;
-
-  if (cryptoObj?.randomUUID) {
-    // Use native UUID and trim to 8 chars to preserve existing length characteristics
-    return cryptoObj.randomUUID().replace(/-/g, '').slice(0, 8);
-  }
-
-  if (cryptoObj?.getRandomValues) {
-    const bytes = new Uint8Array(8);
-    cryptoObj.getRandomValues(bytes);
-    // Map bytes to a base36-like alphabet to keep the previous style (a-z0-9)
-    const alphabet = '0123456789abcdefghijklmnopqrstuvwxyz';
-    let id = '';
-    for (let i = 0; i < bytes.length; i++) {
-      id += alphabet[bytes[i] % alphabet.length];
-    }
-    return id;
-  }
-
-  // Fallback for very old environments: non-cryptographic, but avoids breaking behavior
   return Math.random().toString(36).slice(2, 10);
 }
 

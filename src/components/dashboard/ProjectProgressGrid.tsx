@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { ProjectProgressEntry } from "@/types/dashboard";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface ProjectProgressGridProps {
   progress: ProjectProgressEntry[];
@@ -71,7 +72,7 @@ export default function ProjectProgressGrid({ progress }: ProjectProgressGridPro
                         style={{ backgroundColor: meta.color }}
                         initial={{ width: 0 }}
                         animate={{ width: `${Number(phase.progress)}%` }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 1, ease: EASE_OUT }}
                       />
                     </div>
                   </div>
