@@ -32,18 +32,37 @@ export default function AtlasSidebar({ projects, selectedProject, onSelectProjec
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="fixed top-20 left-4 z-50 h-9 w-9 bg-card/95 backdrop-blur-xl border-border/50 rounded-lg"
+        <button
+          className="fixed top-20 left-4 z-50 h-9 w-9 flex items-center justify-center backdrop-blur-xl transition-colors"
+          style={{
+            background: "rgba(6,12,20,0.88)",
+            border: "0.5px solid rgba(200,164,78,0.15)",
+            color: "rgba(200,164,78,0.6)",
+          }}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,164,78,0.9)"}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "rgba(200,164,78,0.6)"}
         >
-          <PanelLeft className="h-4 w-4 text-primary" />
-        </Button>
+          <PanelLeft className="h-4 w-4" />
+        </button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 bg-card/98 backdrop-blur-2xl border-border/30 p-0">
-        <div className="p-4 border-b border-border/30">
-          <h3 className="font-mono text-[0.6rem] tracking-[0.25em] text-primary uppercase mb-3">
-            KENSHO Project Nodes
+      <SheetContent
+        side="left"
+        className="w-80 p-0"
+        style={{
+          background: "rgba(6,12,20,0.98)",
+          backdropFilter: "blur(40px)",
+          borderRight: "0.5px solid rgba(200,164,78,0.12)",
+        }}
+      >
+        <div
+          className="p-4"
+          style={{ borderBottom: "0.5px solid rgba(200,164,78,0.1)" }}
+        >
+          <h3
+            className="font-mono text-[0.6rem] tracking-[0.25em] uppercase mb-3"
+            style={{ color: "rgba(200,164,78,0.7)" }}
+          >
+            ATLAS · Project Nodes
           </h3>
           <div className="relative">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />

@@ -223,7 +223,7 @@ export default function ProjectInspector({
                   <p className="font-mono text-[0.42rem] tracking-[0.15em]"
                     style={{ color: "rgba(212, 175, 55, 0.18)" }}
                   >
-                    KENSHO LAYER 5.5 · 4K PROCEDURAL
+                    ETERNAL NEXUS v3 · 4K PROCEDURAL
                   </p>
                 </div>
               </div>
