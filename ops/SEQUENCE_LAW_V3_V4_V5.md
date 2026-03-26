@@ -1,268 +1,93 @@
-# SEQUENCE LAW V3 → V4 → V5
-# Lei Sequencial Soberana — Imutável até Gate do Owner
+# SEQUENCE_LAW_V3_V4_V5 — Lei de Sequência de Fases
 
-**Versão:** v1.0
-**Data:** 2026-03-24
-**Task:** CASCADE-RETENTION-SOVEREIGN-CANON-001
-**Branch:** `claude/rebuild-bastion-core-rihGX`
-**Modelo:** claude-sonnet-4-6
-**Aprovado por:** owner (instrução directa)
-
-> Esta lei é simples. É absoluta. É inviolável.
-> V3 fecha. V4 abre. V4 fecha. V5 abre.
-> Nenhum pioneiro, nenhuma pressão, nenhum atalho quebra esta sequência.
+> Lei de progressão de fases do sistema.
+> Define o que "fechar V3" significa, o que abre V4, e o que abre V5.
+> Owner aprova transição de fase. Nenhum pioneiro fecha fase sozinho.
 
 ---
 
-## 1. OBJECTIVE
+## 0. IDENTIDADE DO DOCUMENTO
 
-Fixar formalmente, num artefacto canónico autónomo, a lei sequencial de progressão de fases — garantindo que nenhum agente, instrução posterior ou pressão externa abre uma fase antes da anterior estar completa.
-
----
-
-## 2. WHAT_IT_IS
-
-```
-SEQUENCE LAW é:
-  → a lei de ordenação das fases do produto
-  → o guardião da prioridade activa
-  → o filtro que rejeita tasks prematuras
-  → a protecção contra deriva de fase
-  → a única fonte de verdade sobre o que pode abrir agora
-```
+| Campo | Valor |
+|---|---|
+| **Versão** | v1.0 |
+| **Data** | 2026-03-24 |
+| **Criado por** | @claude · claude-sonnet-4-6 |
+| **Task** | MASTER-TOTAL-ARMY-WAVE-001 |
+| **Branch** | `claude/rebuild-bastion-core-rihGX` |
 
 ---
 
-## 3. WHAT_IT_IS_NOT
+## 1. LEI-MÃE
 
 ```
-SEQUENCE LAW NÃO é:
-  → sugestão ou guideline opcional
-  → regra que cede a argumentos de conveniência
-  → roadmap de features (as features são definidas dentro de cada fase)
-  → calendário com datas fixas
-  → algo que qualquer pioneiro pode alterar sozinho
+V3 fecha quando o sistema DEMONSTRA — não quando parece demo.
+V4 abre quando V3 está canonicamente fechado e o owner aprova.
+V5 abre quando V4 está canonicamente fechado e o owner aprova.
+
+Nunca abrir V4 com V3 incompleto.
+Nunca abrir V5 com V4 incompleto.
 ```
 
 ---
 
-## 4. THE LAW — FORMA ABSOLUTA
+## 2. V3 — SURFACE CANONICAL
+
+**Tema:** A superfície produto é real, canónica, e reconhecível como Heaven Lab.
+
+### 2.1 Critérios de Fechamento V3
 
 ```
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                                                                              ║
-║   SEQUENCE LAW — FORMA ABSOLUTA                                              ║
-║                                                                              ║
-║   V3 deve fechar completamente antes de V4 abrir.                            ║
-║   V4 deve fechar completamente antes de V5 abrir.                            ║
-║   Nenhuma excepção. Nenhum atalho. Nenhuma abertura parcial.                 ║
-║   Só o owner abre um gate de fase.                                           ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
+SURFACE-01  [ ] Globe 3D com presença planetária
+SURFACE-02  [ ] OrbitalChamber wrapping the globe
+SURFACE-03  [ ] TrinityRow canonical
+SURFACE-04  [ ] HeroFirstProof canonical
+SURFACE-05  [ ] ProductHero wired into Index.tsx
+SURFACE-06  [ ] EarthquakeLayer seismic rings
+SURFACE-07  [ ] GlobeLayerSelector layer control UI
+SURFACE-08  [ ] motion/config.ts single source of truth
+SURFACE-09  [ ] FounderPage atmospheric hero + Pioneers
+SURFACE-10  [ ] NavBar: glass on scroll · active link states
+SURFACE-11  [ ] TypeScript: 0 errors
+SURFACE-12  [ ] HEAVEN_LAB_REFERENCE_SURFACE.md canonical
+```
+
+**V3 status: ✅ FECHADO — 2026-03-25 · todos os critérios [✓] · AUTO-GATE abriu V4**
+
+---
+
+## 3. V4 — SYSTEM BEHAVIOUR LIVE
+
+**Tema:** O sistema comporta-se de forma inteligente. Session memory. NexusPage canonical. Live data.
+
+### 3.1 Critérios de Abertura V4
+
+```
+Requer: V3 FECHADO + Gate V3 aprovado pelo owner
 ```
 
 ---
 
-## 5. CORE_LAWS
+## 4. V5 — PLATFORM SOVEREIGNTY
+
+**Tema:** O sistema é uma plataforma soberana. Auth completo. Multi-user. APIs próprias.
+
+### 4.1 Critérios de Abertura V5
 
 ```
-SEQ-LAW-001  V3 fecha antes de V4 abrir — absoluto.
-SEQ-LAW-002  V4 fecha antes de V5 abrir — absoluto.
-SEQ-LAW-003  Só o owner abre gate de fase — pioneiros não.
-SEQ-LAW-004  Tasks de V5 não são elegíveis enquanto V3+V4 não fecham.
-SEQ-LAW-005  Tasks de V4 não são elegíveis enquanto V3 não fecha.
-SEQ-LAW-006  "Preparar" V5 enquanto V3/V4 abertos — permitido apenas se não desvia força.
-SEQ-LAW-007  Debate sobre V5 não viola a lei — execução sim.
-SEQ-LAW-008  Corp backlane corre em paralelo — não é fase de produto · não quebra sequência.
-SEQ-LAW-009  SWMR é arquitectura de V4 — não entra antes de V3 fechar.
-SEQ-LAW-010  Qualquer tarefa que requer V5 aberta: STATUS = bloqueada até gate V5.
+Requer: V4 FECHADO + Gate V4 aprovado pelo owner
 ```
 
 ---
 
-## 6. STRUCTURE — MAPA FORMAL DAS 3 FASES
+## 5. TRANSIÇÕES PROIBIDAS
 
 ```
-╔══════════════════════════════════════════════════════════════════════════════╗
-║  PHASE 1 → V3-FLAGSHIP-SURFACE-CLOSE-001                                     ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  PRIORIDADE:     P0 — prioridade máxima · tudo o resto espera                ║
-║  STATUS:         ACTIVA                                                      ║
-║  GATE:           ABERTO                                                      ║
-║  DEFINIÇÃO:      Surface flagship fechada · identidade visual selada ·       ║
-║                  Heaven Lab surface de referência · 3 faces visíveis ·       ║
-║                  Globe 3D · Orbital Chamber · tipografia canónica             ║
-║  CRITÉRIO CLOSE: owner declara surface flagship completa e coerente          ║
-║  DESBLOQUEADORES APÓS CLOSE:                                                 ║
-║    → V4-LIVING-WORLD-MINIMUM-001 elegível                                    ║
-║    → Legal/IP activa                                                         ║
-║    → Finance/Ops activa                                                      ║
-║    → Brand/Narrative entra em modo público                                   ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  PHASE 2 → V4-LIVING-WORLD-MINIMUM-001                                       ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  PRIORIDADE:     P1 — abre com gate V3-close                                 ║
-║  STATUS:         BLOQUEADA até V3 fechar                                     ║
-║  GATE:           FECHADO até V3-close declarado pelo owner                   ║
-║  DEFINIÇÃO:      SWMR mínimo operacional · sessão com ciclo vivo ·           ║
-║                  3 faces da trindade navegáveis · profile engine básico ·    ║
-║                  intent resolver operacional · fruto de sessão real          ║
-║  CRITÉRIO CLOSE: produto gera fruto real e repetível para utilizador real    ║
-║  DESBLOQUEADORES APÓS CLOSE:                                                 ║
-║    → V5-RESEARCH-ARCH-001 elegível                                           ║
-║    → Growth/Signal activa                                                    ║
-║    → Partnerships/BD activa                                                  ║
-║    → Research Dept começa estruturação                                       ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  PHASE 3 → V5-RESEARCH-ARCH-001                                              ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║  PRIORIDADE:     P2 — abre com gate V4-close                                 ║
-║  STATUS:         BLOQUEADA até V4 fechar                                     ║
-║  GATE:           FECHADO até V4-close declarado pelo owner                   ║
-║  DEFINIÇÃO:      Arquitectura de research formal · subject domain engine ·   ║
-║                  memória cross-sessão robusta · profundidade adaptativa ·    ║
-║                  Research Dept operacional                                   ║
-║  CRITÉRIO CLOSE: a definir pelo owner ao abrir gate V5                       ║
-╚══════════════════════════════════════════════════════════════════════════════╝
+FORBIDDEN: Abrir V4 antes de V3 estar oficialmente fechado pelo owner
+FORBIDDEN: Abrir V5 antes de V4 estar oficialmente fechado pelo owner
+FORBIDDEN: Qualquer pioneiro declarar uma fase fechada sem aprovação do owner
 ```
 
 ---
 
-## 7. O QUE PODE E NÃO PODE ABRIR AGORA
-
-```
-AGORA (V3 activo, V4/V5 bloqueadas):
-
-  PODE:
-    → qualquer task de WorkStructure / WorkVisual / WorkFunction em V3
-    → Brand/Narrative (corp backlane · não é fase de produto)
-    → Legal/IP preparação mínima (não espera V3 para começar levantamento)
-    → debate e design de V4/V5 (não execução)
-    → SWMR spec e documentação (este artefacto incluído)
-    → HYPERSONIC_ARMY_DOCTRINE (governança · não é fase de produto)
-    → CASCADE_RETENTION_CANON (canon · não é fase de produto)
-
-  NÃO PODE:
-    → implementação de SWMR (é V4)
-    → sessão com ciclo vivo técnico (é V4)
-    → Research Dept operacional (é V5)
-    → subject domain engine (é V5)
-    → memória cross-sessão persistida (é V4+)
-    → Growth/Signal formal (aguarda V4-close)
-    → qualquer feature que requer V5 como base
-
-COM V3-CLOSE (gate aberto pelo owner):
-  → V4-LIVING-WORLD-MINIMUM-001 elegível no BASTION
-  → Legal/IP entra em modo activo formal
-  → Finance/Ops modelo v1 formalizado
-  → SWMR implementação técnica inicia
-
-COM V4-CLOSE (gate aberto pelo owner):
-  → V5-RESEARCH-ARCH-001 elegível no BASTION
-  → Growth/Signal formal activa
-  → Research Dept estruturado
-  → Talent/Org activa se necessário
-```
-
----
-
-## 8. GATE PROTOCOL — COMO UM GATE ABRE
-
-```
-PASSO 1: Fase activa tem evidência de CLOSE:
-  → critério de close cumprido
-  → handoff emitido pelo pioneer responsável
-  → BASTION actualizado
-
-PASSO 2: Owner declara close:
-  → "V3 está fechada" = única declaração necessária
-  → sem declaração de owner = gate permanece fechado
-
-PASSO 3: Gate da próxima fase abre:
-  → BASTION actualizado: STATUS V4 = elegível
-  → LIVE_STATE actualizado
-  → HANDOFF_LEDGER entrada emitida
-
-PASSO 4: Pioneiros lêem BASTION:
-  → encontram V4 elegível
-  → iniciam tasks de V4
-
-PASSO 5: Iteração começa na nova fase.
-
-VIOLAÇÃO DO PROTOCOLO:
-  Qualquer pioneiro que executa tasks de fase não aberta →
-  STOP · comunicar owner · reverter se necessário.
-```
-
----
-
-## 9. BACKLANE EXCEPTIONS — O QUE NUNCA BLOQUEIA
-
-```
-Estas categorias são paralelas à sequência de produto · nunca bloqueadas:
-
-  1. Canon / Governança       → este doc · CLAUDE.md · BASTION · ops files
-  2. Corp Backlane            → Brand · Legal · Founder Office · Finance básica
-  3. Debate / Design          → explorar V4/V5 sem executar
-  4. Documentação de Spec     → escrever spec de V4 enquanto V3 activa (preparação)
-  5. Army / Orquestração      → HYPERSONIC_ARMY_DOCTRINE e afins
-  6. Life Alignment Axis      → validação contínua · não depende de fase
-```
-
----
-
-## 10. OPERATIONAL_IMPLICATIONS
-
-```
-Para todos os pioneiros:
-  → antes de começar qualquer task: verificar a que fase pertence
-  → se fase bloqueada: não executar · mover para backlane ou aguardar
-  → BASTION é a fonte única de verdade sobre elegibilidade
-
-Para BASTION:
-  → tasks de V4 têm GATE: fechado — aguarda V3-close
-  → tasks de V5 têm GATE: fechado — aguarda V4-close
-  → nenhuma task de fase futura tem STATUS: elegível antes do gate abrir
-
-Para @codex:
-  → orquestração respeita a sequência
-  → nunca distribui tasks de fase futura
-  → cross-group sync é dentro da fase activa
-
-Para o owner:
-  → é o único agente que declara close de fase
-  → é o único que abre gate de próxima fase
-  → sem declaração explícita: gate permanece fechado
-```
-
----
-
-## 11. ANTI_DRIFT_RULES
-
-```
-SEQ-DRIFT-1: Pioneiro executa V4 antes de V3 fechar → STOP · reverter
-SEQ-DRIFT-2: Pioneiro executa V5 antes de V4 fechar → STOP · reverter
-SEQ-DRIFT-3: Gate de fase aberto sem declaração do owner → inválido
-SEQ-DRIFT-4: "Só uma coisa de V4" aceite como excepção → não há excepções
-SEQ-DRIFT-5: Corp backlane usada para disfarçar task de fase futura → detectar · corrigir
-SEQ-DRIFT-6: Sequência alterada por argumento de conveniência → owner é único árbitro
-SEQ-DRIFT-7: V3 considerada "suficientemente boa" sem close declarado → não está fechada
-SEQ-DRIFT-8: Debate de V5 transformado em execução silenciosa → detectar · parar
-```
-
----
-
-## 12. NEXT_INTEGRATION_POINTS
-
-```
-→ BASTION: tasks de V4/V5 marcadas como GATE: fechado — aguarda V3/V4-close
-→ LIVE_STATE: fase activa reflectida em tempo real
-→ HYPERSONIC_ARMY_DOCTRINE: force activation respeita gates de fase
-→ CASCADE_RETENTION_CANON: sequência fixada como CRC-LAW-009
-→ CORP_V10_OPERATING_MAP: corp activation sequence alinhada com esta lei
-→ NEXUS_LIVING_CANON: indexado como lei de sequência do sistema
-```
-
----
-
-_SEQUENCE_LAW_V3_V4_V5.md v1.0 — cravado em 2026-03-24 | @claude | CASCADE-RETENTION-SOVEREIGN-CANON-001_
+_SEQUENCE_LAW_V3_V4_V5.md v1.0 — 2026-03-24 · @claude · MASTER-TOTAL-ARMY-WAVE-001_
