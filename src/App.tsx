@@ -53,6 +53,9 @@ const Projects = lazy(() => import("./pages/Projects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
 const GlobePage = lazy(() => import("./pages/GlobePage"));
+const LabPage = lazy(() => import("./pages/LabPage"));
+const SchoolPage = lazy(() => import("./pages/SchoolPage"));
+const WorkshopPage = lazy(() => import("./pages/WorkshopPage"));
 
 const queryClient = new QueryClient();
 
@@ -125,6 +128,9 @@ const App = () => (
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/system" element={<SystemFacePage />} />
                 <Route path="/globe" element={<GlobePage />} />
+                <Route path="/lab" element={<LabPage />} />
+                <Route path="/school" element={<SchoolPage />} />
+                <Route path="/workshop" element={<WorkshopPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
