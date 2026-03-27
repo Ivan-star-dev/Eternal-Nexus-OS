@@ -1,20 +1,27 @@
 /**
  * GlobePage.tsx — /globe route
- * Planetary interface — visually dominant 3D Earth.
  * GLOBE-3D-001 | GLOBE-EXPERIENCE-IMPL-001
  *
- * Layout: full-viewport GlobeCanvas + minimal overlay UI
- * Palette: deep space dark (#0a0a1a) + electric blue (#00aaff)
+ * Full-viewport real 3D Earth:
+ *   - Procedural shader: ocean, landmass (fbm noise), polar ice
+ *   - Two additive atmosphere shells — electric blue Fresnel limb glow
+ *   - Starfield
+ *   - Smooth auto-rotation + OrbitControls (drag/scroll)
+ *   - Palette: deep space dark (#0a0a1a) + electric blue (#00aaff)
+ *   - Target: 60fps, minimum 30fps
  *
- * @antigravity + @cursor | 2026-03-27
+ * Route: /globe
+ *
+ * @antigravity + @cursor | GLOBE-3D-001 | 2026-03-27
  */
 
-import { Suspense, lazy } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
+// Real 3D Earth — GLOBE-3D-001
 const GlobeCanvas = lazy(() => import("@/components/globe/GlobeCanvas"));
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -39,7 +46,7 @@ function GlobeLoadingFallback() {
       />
       <span
         className="absolute font-mono text-[0.55rem] tracking-[0.3em] uppercase"
-        style={{ color: "rgba(0,170,255,0.4)", bottom: "calc(50% - 200px)" }}
+        style={{ color: "rgba(0,170,255,0.4)" }}
       >
         INITIALISING GLOBE…
       </span>
@@ -48,22 +55,22 @@ function GlobeLoadingFallback() {
 }
 
 export default function GlobePage() {
+  useEffect(() => {
+    document.title = "Globe — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{
-        height: "100dvh",
-        minHeight: "600px",
-        background: "#0a0a1a",
-      }}
+      className="fixed inset-0 overflow-hidden"
+      style={{ background: "#0a0a1a" }}
     >
-      {/* ── 3D Globe — fills 100% viewport ──────────────────────────── */}
-      <OrganErrorBoundary organName="GlobePage" silent>
+      {/* ── Real 3D Earth — fills 100% viewport ─────────────────────── */}
+      <OrganErrorBoundary organName="GlobeCanvas" silent>
         <Suspense fallback={<GlobeLoadingFallback />}>
-          <GlobeCanvas
-            style={{ position: "absolute", inset: 0 }}
-            className="absolute inset-0"
-          />
+          <div className="absolute inset-0">
+            <GlobeCanvas />
+          </div>
         </Suspense>
       </OrganErrorBoundary>
 
@@ -75,7 +82,6 @@ export default function GlobePage() {
         className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 py-4 md:px-12"
         style={{ borderBottom: "0.5px solid rgba(0,170,255,0.06)" }}
       >
-        {/* Back nav */}
         <Link
           to="/"
           className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-80"
@@ -86,8 +92,6 @@ export default function GlobePage() {
             Eternal Nexus OS
           </span>
         </Link>
-
-        {/* Live indicator */}
         <div className="flex items-center gap-2">
           <motion.span
             animate={{ opacity: [0.4, 1, 0.4] }}
@@ -136,7 +140,6 @@ export default function GlobePage() {
         >
           Drag to orbit · Scroll to zoom
         </p>
-        {/* Thin electric-blue underline pulse */}
         <motion.div
           animate={{ scaleX: [0.6, 1.1, 0.6], opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}

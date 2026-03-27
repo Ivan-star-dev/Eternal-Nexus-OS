@@ -2,11 +2,17 @@
  * InteractiveGlobe.tsx
  * GLOBE-3D-001 | GLOBE-EXPERIENCE-IMPL-001
  *
- * Desktop: Real 3D Earth via GlobeCanvas (procedural shader, atmosphere glow,
- *          electric blue #00aaff, deep space dark #0a0a1a, 60fps target).
- * Mobile:  MapLibre 2D fallback (MobileGlobeMap) — unchanged.
+ * Desktop: Real 3D Earth via GlobeCanvas
+ *   - Procedural shader (continent fbm, ocean, polar ice)
+ *   - Dual atmosphere shells — electric blue Fresnel limb glow (#00aaff)
+ *   - Starfield backdrop
+ *   - Deep space dark background (#0a0a1a)
+ *   - Smooth auto-rotation + OrbitControls
+ *   - Target: 60fps
  *
- * @antigravity + @cursor | 2026-03-27
+ * Mobile: MapLibre 2D fallback (MobileGlobeMap) — unchanged.
+ *
+ * @antigravity + @cursor | GLOBE-3D-001 | 2026-03-27
  */
 
 import { Suspense, lazy, useState, useCallback } from "react";
@@ -20,6 +26,7 @@ const GlobeCanvas = lazy(() => import("./GlobeCanvas"));
 
 interface InteractiveGlobeProps {
   onHotspotClick?: (projectId: string) => void;
+  onFocusChange?: (id: string | null) => void;
 }
 
 const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
@@ -35,7 +42,7 @@ const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
     return <MobileGlobeMap onHotspotClick={onHotspotClick ?? (() => {})} />;
   }
 
-  // Desktop: Real 3D Earth with atmosphere glow
+  // Desktop: Real 3D Earth with procedural shader + atmosphere glow
   return (
     <div className="absolute inset-0" style={{ zIndex: 0 }}>
       <GlobeConstructionSequence>
@@ -51,7 +58,7 @@ const InteractiveGlobe = ({ onHotspotClick }: InteractiveGlobeProps) => {
             </div>
           }
         >
-          {/* GlobeCanvas: solid Earth, atmosphere shells, starfield, OrbitControls */}
+          {/* GlobeCanvas: real Earth + atmosphere + starfield + OrbitControls */}
           <div className="absolute inset-0">
             <GlobeCanvas />
           </div>
