@@ -10,6 +10,7 @@ import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
 import WorldEventFeed from "@/components/world/WorldEventFeed";
+import MissionsDashboard from "@/components/missions/MissionsDashboard";
 import { homeProjects } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
 import type { TrinityFace } from "@/lib/memory/types";
@@ -109,6 +110,33 @@ const Index = () => {
               transition={{ delay: 0.1, duration: 0.7, ease }}
             >
               <WorldEventFeed maxItems={5} />
+            </motion.div>
+          </div>
+        </section>
+        {/* Operations — Missions Dashboard ── */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border">
+          <div className="max-w-[1200px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease }}
+              className="mb-10"
+            >
+              <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block mb-2">
+                Structured Impact · Global Operations
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+                Operations <span className="text-primary italic font-light">& Missions</span>
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: 0.1, duration: 0.7, ease }}
+            >
+              <MissionsDashboard />
             </motion.div>
           </div>
         </section>
