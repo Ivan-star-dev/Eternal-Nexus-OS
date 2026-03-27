@@ -215,7 +215,19 @@ EXEMPLOS DE SUB-AGENTS ATÓMICOS:
   K-01 3D_VISUAL → spawna: "gera shader base de atmosfera" (1 tarefa, dissolve)
   K-16 ARCH → spawna: "valida schema SQL contra Supabase types" (1 tarefa, dissolve)
 
-LIMITE: máx 3 sub-agents por kernel activo (evita fragmentação)
+LIMITES REAIS POR PIONEER (capacidade nativa do modelo):
+  @claude      → N ilimitado  (Agent tool nativo — paralelo máximo)
+  @cursor      → N ilimitado  (herda Agent tool via Claude backend)
+  @codex       → ~5 simultâneos (Assistants API threads limit)
+  @copilot     → 1–2          (Workspace parallelism)
+  @framer      → 0            (sem capacidade nativa de sub-agents)
+  @antigravity → 0            (sem capacidade nativa de sub-agents)
+
+REGRA OPERACIONAL:
+  @claude/@cursor: spawna tantos quanto o problema exige — sem cap artificial
+  @codex: máx 5 threads paralelas — priorizar por urgência de gate
+  @copilot: 1 primário + 1 background max
+  @framer/@antigravity: execução directa, sem sub-agents
 ```
 
 ---
