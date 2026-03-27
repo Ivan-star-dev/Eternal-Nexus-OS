@@ -6,6 +6,40 @@
 
 ---
 
+
+## HANDOFF — 2026-03-27 | @antigravity + @cursor | GLOBE-3D-001 + GLOBE-EXPERIENCE-IMPL-001 | claude-sonnet-4-6
+
+**TASK:** GLOBE-3D-001 — Real 3D Earth com procedural shader, atmosfera glow, deep space palette
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg (worktree agent-ad6aab8b)
+**STATUS:** CONCLUÍDA ✅
+**COMMIT:** 42f100a
+
+### ALTERACAO_REAL: sim
+
+**FILES CREATED/MODIFIED:**
+- `src/components/globe/GlobeCanvas.tsx` — CRIADO
+  - EarthSphere: ShaderMaterial procedural (fbm noise continents + ocean deep/shallow + polar ice)
+  - AtmosphereShell × 2: Fresnel limb glow additive blending — inner #00aaff (opacity 1.6), outer #0044cc (opacity 0.55)
+  - Starfield: 1400 stars, uniform sphere distribution at r=90-120
+  - OrbitControls: drag orbit, scroll zoom, damping 0.06, no pan
+  - Canvas: background #0a0a1a, dpr [1,2], ACESFilmic tone-mapping, high-performance GL
+  - Performance: auto-rotation delta * 0.08 (~12s/rev at 60fps)
+
+- `src/pages/GlobePage.tsx` — SUBSTITUÍDO (era GoldenAtlasScene)
+  - Full-viewport GlobeCanvas (100dvh, fixed)
+  - Top bar: back nav + live pulse indicator
+  - Bottom: "The World, Alive." title + "Drag to orbit · Scroll to zoom" label
+
+- `src/components/globe/InteractiveGlobe.tsx` — ATUALIZADO
+  - Desktop: substituído Canvas+GlobeScene wireframe por GlobeCanvas real
+  - Mobile: MobileGlobeMap 2D fallback mantido sem alteração
+  - GlobeConstructionSequence + GlobeLayerSelector preservados
+
+**PRÓXIMAS TASKS ELEGÍVEIS:**
+- QUALITY-AUDIT-001 (NS-1 ✓ + GLOBE-3D ✓ → trigger satisfeito)
+- GLOBE-EXPERIENCE-IMPL-001 (K-07 unblocked)
+
+---
 ## HANDOFF — 2026-03-26 | @claude | RUBERRA-VISUAL-MOTHER-ID-001 | claude-sonnet-4-6
 
 **TASK:** RUBERRA Visual Mother ID + Immersive Site Vision — full surface organism upgrade
