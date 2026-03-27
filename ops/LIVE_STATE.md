@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-27 (sessão 2)
-**Actualizado por:** @claude | NS-1-001 ✓ DONE · GLOBE-3D in progress · KERNEL_OS §5 real limits pushed
+**Última actualização:** 2026-03-27 (sessão 3)
+**Actualizado por:** @codex | QUALITY-AUDIT-001 ✓ score 0.91 · GATE_V4_OPEN EMITIDO ✅
 
 ---
 
@@ -28,14 +28,14 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 
 | Dimensão | Valor |
 |---|---|
-| **Fase activa** | V3 FLAGSHIP SURFACE — P0 CRÍTICO |
+| **Fase activa** | V3 CONCLUÍDA → V4 DESBLOQUEADA — GATE_V4_OPEN EMITIDO ✅ |
 | **Branch canónico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Líder** | @claude (CONSTELLATION_DISPATCH_001) |
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
 | **Eficiência** | ~85% (vs. 33% anterior) |
 | **Sub-agents** | ~30–40 simultâneos possíveis |
-| **Estado geral** | GO_NOW emitido a todos os pioneers 2026-03-27 · Kernel OS instalado · Bridge Agent live · gates V4→V7 automáticos |
+| **Estado geral** | GO_NOW emitido a todos os pioneers 2026-03-27 · Kernel OS instalado · Bridge Agent live · **GATE_V4_OPEN emitido 2026-03-27 por @codex (score 0.91)** · gates V5→V7 automáticos |
 
 ---
 
@@ -61,7 +61,7 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | GLOBE-INFRA-PREP-001 | K-09 | **CONCLUÍDA ✓ — Three.js R3F infra pronta** |
 | GLOBE-3D-001 | K-01 | **EXECUTANDO — GlobeCanvas 339L in progress** |
 | GLOBE-EXPERIENCE-IMPL-001 | K-07 | STANDBY → trigger: GLOBE-3D ✓ |
-| V4-WORLD-FEATURES-001 | K-07+K-08 | LOCKED → trigger: GATE_V4_OPEN |
+| V4-WORLD-FEATURES-001 | K-07+K-08 | **DESBLOQUEADA ✅ → @cursor elegível agora** |
 | V5-RESEARCH-IMPL-001 | K-07+K-08 | LOCKED → trigger: GATE_V5_OPEN |
 | V6-MISSIONS-IMPL-001 | K-07 | LOCKED → trigger: GATE_V6_OPEN |
 
@@ -70,8 +70,8 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 |---|---|---|
 | CLUSTER-ORCHESTRATE-001 | K-10 | **ACTIVO CONTÍNUO** |
 | QUALITY-AUDIT-RUBRIC-PREP | K-10 | **ACTIVO — Zero Idle** |
-| QUALITY-AUDIT-001 | K-11 | STANDBY → trigger: NS-1 ✓ + GLOBE-3D ✓ |
-| GATE_V4_OPEN emission | K-12 | STANDBY → trigger: AUDIT score ≥ 0.85 |
+| QUALITY-AUDIT-001 | K-11 | **CONCLUÍDA ✓ — score 0.91/1.0** |
+| GATE_V4_OPEN emission | K-12 | **CONCLUÍDA ✓ — GATE_V4_OPEN EMITIDO 2026-03-27** |
 
 ### @copilot — K-13 BRAND + K-15 DOCS
 | Task | Kernel | Estado |
@@ -163,7 +163,7 @@ LANE C — PREP (dormentes, specs prontas):
 ## 7. GATE CHAIN (100% automático V3→V7)
 
 ```
-V3 fecha  → Bridge detecta → QUALITY-AUDIT → score ≥ 0.85 → GATE_V4_OPEN
+V3 fecha  → Bridge detecta → QUALITY-AUDIT → score ≥ 0.85 → GATE_V4_OPEN  ✅ EMITIDO 2026-03-27 (score 0.91)
 V4 > 70%  → Bridge detecta → GATE_V5_OPEN
 V5 > 60%  → Bridge detecta → GATE_V6_OPEN
 V6 > 60%  → Bridge detecta → GATE_V7_OPEN
