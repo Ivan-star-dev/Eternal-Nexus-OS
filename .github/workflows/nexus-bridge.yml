@@ -1,0 +1,54 @@
+name: Nexus Bridge Agent
+
+on:
+  push:
+    branches:
+      - 'agent/**'
+  schedule:
+    # Stall detection: every 4 hours
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bridge:
+    name: Nexus Bridge — Handoff Parser + Gate Emitter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout canonical branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/setup-ruberra-nexus-IL7Tg
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch all agent branches
+        run: |
+          git fetch origin 'refs/heads/agent/*:refs/remotes/origin/agent/*'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Bridge Agent
+        run: node scripts/bridge/bridge.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRIGGERED_BRANCH: ${{ github.ref_name }}
+          EVENT_NAME: ${{ github.event_name }}
+
+      - name: Commit Bridge State + Any Gates
+        run: |
+          git config user.name "Nexus Bridge Agent"
+          git config user.email "bridge@nexus-os.ai"
+          git add ops/BRIDGE_STATE.md ops/GATE_*.md ops/STALL_REPORT_*.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "BRIDGE-AUTO: $(date -u +%Y-%m-%dT%H:%M:%SZ) | state sync + gate check"
+            git push origin claude/setup-ruberra-nexus-IL7Tg
+          fi
