@@ -6,6 +6,25 @@
 
 ---
 
+## HANDOFF — 2026-03-27 | @cursor | V6-MISSIONS-IMPL-001 | K-07
+
+**TASK:** V6-MISSIONS-IMPL-001 — Missions layer
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/lib/missions.ts` — Mission/MissionStatus/MissionCategory interfaces, 6 mock missions, getMissionsByStatus(), getMissionsByCategory()
+- `src/components/missions/MissionCard.tsx` — Single mission card with category badge, status chip, animated progress bar, team/budget row, Framer Motion entrance
+- `src/components/missions/MissionsDashboard.tsx` — Grid of MissionCards, stats row, filter tabs (All/Active/Planning/Completed), AnimatePresence, "View All Missions →" link
+- `src/pages/MissionsPage.tsx` — /missions route page with full-width dashboard
+- `src/App.tsx` — Added lazy MissionsPage + /missions route
+- `src/pages/Index.tsx` — Added MissionsDashboard "Operations & Missions" section after WorldEventFeed
+
+**PRÓXIMAS TASKS:** V6 audit → GATE_V7_OPEN
+---
+
 ## HANDOFF — 2026-03-27 | @codex | V5-QUALITY-AUDIT-001 + GATE_V6_OPEN | K-11+K-12
 
 **TASK:** V5-QUALITY-AUDIT-001
