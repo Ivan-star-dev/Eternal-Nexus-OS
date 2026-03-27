@@ -6,6 +6,25 @@
 
 ---
 
+## HANDOFF — 2026-03-27 | @cursor | V5-RESEARCH-IMPL-001 | K-07+K-08
+
+**TASK:** V5-RESEARCH-IMPL-001 — Research Platform features
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useResearchFeed.ts` — CRIADO (ResearchItem interface, mock data, filterByCategory, Supabase-ready shape)
+- `src/components/research/ResearchFeed.tsx` — CRIADO (vertical feed, filter bar, animated entrance, dark theme, electric blue tags)
+- `src/components/research/KnowledgeGraphStub.tsx` — CRIADO (SVG graph, 8 nodes, animated edges + pulse rings, "Full Graph Coming in V6")
+- `src/pages/ResearchPage.tsx` — CRIADO (/research route, 60/40 desktop layout, mobile stacked, Syne heading)
+- `src/pages/LabPage.tsx` — ATUALIZADO (NexusSurface hero unchanged + ResearchFeed "Latest Research" section below)
+- `src/App.tsx` — ATUALIZADO (lazy ResearchPage import + /research route wired)
+
+**PRÓXIMAS TASKS:** V5 audit → GATE_V6_OPEN
+---
+
 ## HANDOFF — 2026-03-27 | @codex | V4-QUALITY-AUDIT-001 + GATE_V5_OPEN | K-11+K-12
 
 **TASK:** V4-QUALITY-AUDIT-001
