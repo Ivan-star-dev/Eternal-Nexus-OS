@@ -3,6 +3,7 @@ import { ArrowRight, CornerDownRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { HomeProject } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
+import { useSingleProjectPulse } from "@/hooks/useProjectPulse";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -42,6 +43,7 @@ function DossierCard({ project, index }: Props) {
   const { session } = useSession();
   const hasPriorMomentum = isSessionProject && !!session?.latest_fruit;
   const pillar = trinityPillar[project.status] ?? trinityPillar.ACTIVE;
+  const pulse = useSingleProjectPulse(project.id);
 
   return (
     <motion.div
@@ -94,6 +96,38 @@ function DossierCard({ project, index }: Props) {
             <span className={`absolute top-3 right-3 font-mono text-[0.5rem] tracking-[0.15em] px-2 py-1 uppercase ${statusColors[project.status] || statusColors.ACTIVE}`}>
               {project.status}
             </span>
+            {/* Live pulse badge */}
+            {pulse?.isLive && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="absolute bottom-3 right-3 flex items-center gap-1 px-1.5 py-0.5"
+                style={{
+                  background: "rgba(0,170,255,0.12)",
+                  border: "0.5px solid rgba(0,170,255,0.35)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <motion.span
+                  animate={{ opacity: [0.4, 1, 0.4], scale: [0.85, 1.15, 0.85] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    display: "inline-block",
+                    width: "4px",
+                    height: "4px",
+                    borderRadius: "50%",
+                    background: "#00aaff",
+                    flexShrink: 0,
+                  }}
+                />
+                <span
+                  className="font-mono text-[7px] tracking-[0.14em] uppercase"
+                  style={{ color: "rgba(0,170,255,0.8)" }}
+                >
+                  LIVE
+                </span>
+              </motion.div>
+            )}
           </div>
 
           {/* Content */}

@@ -39,6 +39,7 @@ const FounderPage = lazy(() => import("./pages/FounderPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SystemFacePage = lazy(() => import("./pages/SystemFacePage"));
 const GlobePage = lazy(() => import("./pages/GlobePage"));
+const WorldPage = lazy(() => import("./pages/WorldPage"));
 const LabPage = lazy(() => import("./pages/LabPage"));
 const SchoolPage = lazy(() => import("./pages/SchoolPage"));
 const WorkshopPage = lazy(() => import("./pages/WorkshopPage"));
@@ -66,6 +67,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/project/:id" element={<ProjectPage />} />
                 <Route path="/globe" element={<GlobePage />} />
+                <Route path="/world" element={<WorldPage />} />
                 <Route path="/nexus" element={<NexusPage />} />
                 <Route path="/founder" element={<FounderPage />} />
                 <Route path="/lab" element={<LabPage />} />

@@ -9,6 +9,7 @@ import ContributionsSection from "@/components/home/ContributionsSection";
 import OrganStatusGrid from "@/components/home/OrganStatusGrid";
 import ProjectsLiveSection from "@/components/home/ProjectsLiveSection";
 import ProductHero from "@/components/home/ProductHero";
+import WorldEventFeed from "@/components/world/WorldEventFeed";
 import { homeProjects } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
 import type { TrinityFace } from "@/lib/memory/types";
@@ -76,6 +77,41 @@ const Index = () => {
           </div>
         </section>
         <ProjectsLiveSection />
+        {/* World Event Feed — compact strip on homepage */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border">
+          <div className="max-w-[1200px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease }}
+              className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8"
+            >
+              <div>
+                <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block mb-2">
+                  Planetary Intelligence · Live Feed
+                </span>
+                <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+                  World <span className="text-primary italic font-light">Events</span>
+                </h2>
+              </div>
+              <Link
+                to="/world"
+                className="font-mono text-[0.55rem] tracking-[0.12em] border border-border text-foreground px-4 py-2 hover:bg-card hover:border-primary/30 transition-all duration-200 flex items-center gap-2 uppercase flex-shrink-0"
+              >
+                <Globe className="w-3 h-3" /> World View
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: 0.1, duration: 0.7, ease }}
+            >
+              <WorldEventFeed maxItems={5} />
+            </motion.div>
+          </div>
+        </section>
         <OrganStatusGrid />
         <ContributionsSection />
         <section className="border-t border-border py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20 cinematic-vignette">
