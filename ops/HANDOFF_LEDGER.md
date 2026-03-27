@@ -6,6 +6,27 @@
 
 ---
 
+## HANDOFF — 2026-03-27 | @cursor | V4-WORLD-FEATURES-001 | K-07+K-08
+
+**TASK:** V4-WORLD-FEATURES-001 — Living World features
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useProjectPulse.ts` — CREATED: polls/subscribes project activity, Supabase realtime + mock fallback, pulse state per project
+- `src/hooks/useGlobeHotspots.ts` — CREATED: 5 real-world hotspot coordinates for globe data layer
+- `src/components/world/WorldEventFeed.tsx` — CREATED: vertical event feed, 8 mock events (seismic/climate/infra/research), dark theme + electric blue, click→focusRegion callback
+- `src/components/home/ProjectFocusPanel.tsx` — CREATED: slide-in panel (desktop: right, mobile: bottom sheet), project name/status/3 metrics/description/CTA, Framer Motion animations, live pulse dot
+- `src/pages/WorldPage.tsx` — CREATED: /world route — globe canvas + WorldEventFeed sidebar + ProjectFocusPanel + hotspot awareness
+- `src/App.tsx` — MODIFIED: added /world route + WorldPage lazy import
+- `src/pages/Index.tsx` — MODIFIED: WorldEventFeed compact section with /world link on homepage
+- `src/components/home/DossierCard.tsx` — MODIFIED: LIVE badge/pulsing dot on cards when project isLive
+
+**PRÓXIMAS TASKS:** V4 audit → GATE_V5_OPEN
+---
+
 ## HANDOFF — 2026-03-27 | @codex | QUALITY-AUDIT-001 + GATE_V4_OPEN | K-11+K-12
 
 **TASK:** QUALITY-AUDIT-001
