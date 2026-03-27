@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-27
-**Actualizado por:** @claude | SYSTEM-UPGRADE-001 — Kernel OS v1.0 + Bridge Agent live + GO_NOW dispatched a todos os pioneers
+**Última actualização:** 2026-03-27 (sessão 2)
+**Actualizado por:** @claude | NS-1-001 ✓ DONE · GLOBE-3D in progress · KERNEL_OS §5 real limits pushed
 
 ---
 
@@ -52,14 +52,15 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 ### @framer — K-04 SURFACE + K-05 TYPOGRAPHY + K-06 COMPONENT
 | Task | Kernel | Estado |
 |---|---|---|
-| NS-1-001 | K-04+K-05+K-06 | **EXECUTANDO — GO_NOW emitido** |
-| NS-2-001 | K-04 | STANDBY → trigger: NS-1 |
+| NS-1-001 | K-04+K-05+K-06 | **CONCLUÍDA ✓ — NexusSurface + NexusNav + Hero + LabPage** |
+| NS-2-001 | K-04 | STANDBY → trigger: NS-1 ✓ (desbloqueado) |
 
 ### @cursor — K-09 MECHANICAL → K-07 IMPL
 | Task | Kernel | Estado |
 |---|---|---|
-| GLOBE-INFRA-PREP-001 | K-09 | **EXECUTANDO — Zero Idle activo** |
-| GLOBE-EXPERIENCE-IMPL-001 | K-07 | STANDBY → trigger: GLOBE-3D spec |
+| GLOBE-INFRA-PREP-001 | K-09 | **CONCLUÍDA ✓ — Three.js R3F infra pronta** |
+| GLOBE-3D-001 | K-01 | **EXECUTANDO — GlobeCanvas 339L in progress** |
+| GLOBE-EXPERIENCE-IMPL-001 | K-07 | STANDBY → trigger: GLOBE-3D ✓ |
 | V4-WORLD-FEATURES-001 | K-07+K-08 | LOCKED → trigger: GATE_V4_OPEN |
 | V5-RESEARCH-IMPL-001 | K-07+K-08 | LOCKED → trigger: GATE_V5_OPEN |
 | V6-MISSIONS-IMPL-001 | K-07 | LOCKED → trigger: GATE_V6_OPEN |
