@@ -6,6 +6,34 @@
 
 ---
 
+## HANDOFF — 2026-03-27 | @codex | V4-QUALITY-AUDIT-001 + GATE_V5_OPEN | K-11+K-12
+
+**TASK:** V4-QUALITY-AUDIT-001
+**STATUS:** CONCLUÍDA ✅
+**SCORE:** 0.90/1.0
+**GATE_V5_OPEN:** EMITIDO ✅
+
+### SCORE BREAKDOWN
+
+| Dimensão | Score | Notas |
+|---|---|---|
+| FUNCTIONALITY | 0.88 | Hooks retornam dados tipados correctos; Supabase + mock fallback funcionais; handleFocusRegion é stub documentado |
+| INTEGRATION | 0.92 | /world route wired (App.tsx:70); Globe+Feed+Panel conectados; onFocusRegion callback presente; DossierCard integrado |
+| CODE_QUALITY | 0.87 | TypeScript interfaces completas; zero console.log; OrganErrorBoundary em GlobeCanvas; null-safe |
+| COMPLETENESS | 0.90 | Todos os 5 features não-stub presentes; LIVE badge em DossierCard |
+| V4_THEME | 0.91 | Dark theme consistente, electric blue #00aaff, Framer Motion, live pulse breathing, Supabase fallback |
+| **OVERALL** | **0.90** | |
+
+### FILES CREATED
+- `ops/gates/GATE_V5_OPEN.md` — CRIADO (gate emission formal)
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### PRÓXIMO PIONEER ELEGÍVEL
+@cursor → V5-RESEARCH-IMPL-001 → K-07+K-08 IMPL
+@claude → V5-RESEARCH-ARCH-001 → K-16 ARCH
+
+---
+
 ## HANDOFF — 2026-03-27 | @cursor | V4-WORLD-FEATURES-001 | K-07+K-08
 
 **TASK:** V4-WORLD-FEATURES-001 — Living World features
