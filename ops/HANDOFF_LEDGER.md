@@ -6,6 +6,33 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @codex | V7-QUALITY-AUDIT-001 | K-11
+
+**TASK:** V7-QUALITY-AUDIT-001 — Audit portal state framework + 3 portal surfaces against V10.1/V10.2
+**STATUS:** CONCLUÍDA ✅
+**SCORE:** 0.83/1.0
+**V7:** FECHADO
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES AUDITED:**
+- `src/lib/portal/types.ts` · `src/lib/portal/portalRegistry.ts` · `src/lib/portal/sessionContinuity.ts`
+- `src/contexts/PortalContext.tsx` · `src/hooks/usePortalIdentity.ts` · `src/hooks/useSessionSpawn.ts`
+- `src/components/lab-surface/*` · `src/components/school-surface/*` · `src/components/workshop-surface/*`
+- `src/pages/LabPage.tsx` · `src/pages/SchoolPage.tsx` · `src/pages/WorkshopPage.tsx`
+
+**SCORES:** PORTAL_IDENTITY 0.85 · WORLD_STATE 0.90 · SPAWN_LOGIC 0.72 · ANTI_CHAOS 0.88 · CANON_ALIGNMENT 0.82
+
+**TOP GAPS:**
+1. `useSessionSpawn` not wired in App.tsx (hook exists, zero call sites)
+2. `openPanels` hardcoded `[]` in transition() — panel state not captured
+3. `usePortalIdentity` not imported by surface components — caps by convention, not enforcement
+4. LabPage: NexusSurface hero before LabSurface dilutes portal identity on entry
+5. Lab ↔ Workshop: same densityCap + motionCap — differentiation color-only
+
+**OUTPUT:** `ops/gates/V7_CLOSURE_REPORT.md` — full audit with score breakdown, phase status, gaps, V8 entry conditions
+
+---
+
 ## HANDOFF — 2026-03-28 | @framer+@cursor | V7-SURFACES-001 | K-04+K-06+K-07
 
 **TASK:** V7-SURFACES-001 — Three portal surfaces (Lab + School + Workshop)
