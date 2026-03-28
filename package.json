@@ -16,6 +16,8 @@
     "watch:antigravity": "node scripts/ops/antigravity-watcher.mjs",
     "hibernate": "node scripts/ops/wake-organism.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json",
+    "gate:bundle": "npm run build && node scripts/gates/bundle-size-gate.mjs",
+    "gate:quality": "npm run typecheck && npm run lint && npm run build && npm run test && node scripts/gates/bundle-size-gate.mjs",
     "gate:memory:atlas": "node --expose-gc scripts/gates/map-memory-profile-gate.cjs",
     "ops:doctor": "bash ./.ops/doctor.sh",
     "ops:bootstrap": "bash ./.ops/bootstrap.sh",

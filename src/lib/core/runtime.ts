@@ -34,6 +34,7 @@ import {
 import { invalidateAtmosphereCache } from '@/lib/atmosphere/controller';
 import { listArtifacts } from '@/lib/artifacts/store';
 import type { MaturityLevel } from '@/lib/evolution/types';
+import { startInstrumentation, stopInstrumentation } from '@/lib/instrumentation/event-logger';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -68,6 +69,10 @@ class NexusRuntime {
       this._initEvolutionBridge();
       this._initPortalBridge();
       this._initFusionBridgeDOMEvents();
+
+      // Start pilot instrumentation — taps fusion bus, writes to localStorage
+      startInstrumentation(this.state.memory.session_id || 'boot');
+      this.cleanups.push(stopInstrumentation);
 
       this.patch({ boot_phase: 'live' });
       bus.emit('organism:ready', this.state, 'runtime');

@@ -6,6 +6,30 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | SCALE-REAL-001 | HARDENING+INSTRUMENTATION+GATES
+
+**TASK:** Scale Real — instrumentation, bundle gate, quality gate, scale manifest
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES CREATED:**
+- `src/lib/instrumentation/event-logger.ts` — FusionBus tap → localStorage ring buffer (500 events max), getPilotMetrics() → return_rate, artifact_rate, session_2_artifact, governance_violations
+- `scripts/gates/bundle-size-gate.mjs` — gzip size checker with named limits per chunk type; fails CI if LabPage > 15KB, NexusPage > 40KB, App shell > 90KB; warns on approach
+- `ops/SCALE_REAL_MANIFEST.md` — canonical hardening + scale document: H-1→H-4 phases, 5 quality gates, 9-step rollout, packaging tiers, multi-tenant path, post-pilot loop
+
+**FILES MODIFIED:**
+- `src/lib/core/runtime.ts` — startInstrumentation() wired to NexusRuntime.boot() using session_id
+- `package.json` — added gate:bundle + gate:quality scripts
+
+**GATE STATUS:**
+  gate:quality = typecheck ✅ → lint ✅ → build ✅ → test 84/84 ✅ → bundle ✅
+  LabPage: 6.4KB gzip (limit 15KB) ✅
+  App shell: 77KB gzip (warn at 85KB, limit 90KB) ⚠
+  BarChart: 89.7KB gzip (warn at 100KB) ⚠
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | BUILD-REAL-001 | TRANSITION+ATMOSPHERE+TASKBOARD
 
 **TASK:** Build Real — PageTransitionLayer, RouteAtmosphereLayer, universal atmosphere, BUILD_REAL_TASKBOARD
