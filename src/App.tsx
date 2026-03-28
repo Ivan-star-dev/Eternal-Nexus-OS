@@ -27,6 +27,7 @@ import ControlTower from "@/components/owner/ControlTower";
 import { useAuth } from "@/contexts/AuthContext";
 import PageTransitionLayer from "@/components/shell/PageTransitionLayer";
 import RouteAtmosphereLayer from "@/components/shell/RouteAtmosphereLayer";
+import { useOrganism } from "@/hooks/useOrganism";
 
 function SystemAwareInspector() {
   const location = useLocation();
@@ -40,6 +41,16 @@ function GlobalIntelligenceLayer() {
   const noHintRoutes = ['/owner', '/dashboard', '/system', '/access'];
   if (noHintRoutes.includes(location.pathname)) return null;
   return <NextStepHint minConfidence={0.65} />;
+}
+
+/**
+ * Mounts useOrganism app-wide — bridges SessionContext + useEvolution → NexusRuntime.
+ * Must live inside BrowserRouter (needs useLocation) and SessionProvider.
+ * Renders nothing; side-effects only.
+ */
+function OrganismBridge() {
+  useOrganism();
+  return null;
 }
 
 /** Renders ControlTower only for owner users */
@@ -127,6 +138,7 @@ const App = () => (
             <SessionSpawnGate />
             <PortalRouteSync />
             <SessionBoot />
+            <OrganismBridge />
             <OrganTransitionParticles />
             <SystemAwareInspector />
             <CommandPalette />

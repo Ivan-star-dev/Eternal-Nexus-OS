@@ -13,6 +13,7 @@
  * @claude | 2026-03-28
  */
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import LabHero from "@/components/lab-surface/LabHero";
 import LabSurface from "@/components/lab-surface/LabSurface";
@@ -20,10 +21,21 @@ import ResearchFeed from "@/components/research/ResearchFeed";
 import LabEntryHeader from "@/components/lab-surface/LabEntryHeader";
 import WaitlistBanner from "@/components/access/WaitlistBanner";
 import { useEvolution } from "@/hooks/useEvolution";
+import { useSession } from "@/contexts/SessionContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabPage() {
+  const { session, startSession } = useSession();
+
+  // Ensure session is initialised when the Lab is visited cold (no prior session)
+  useEffect(() => {
+    if (!session) {
+      startSession('Creation Lab', 'open-lab');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Record portal visit for evolution engine
   useEvolution();
 
