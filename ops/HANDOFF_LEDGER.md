@@ -6,6 +6,20 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | V9-EVOLUTION-001 | K-16
+
+**TASK:** V9-EVOLUTION-001 — Evolution Engine minimum
+**STATUS:** CONCLUÍDA ✅
+**FILES:**
+- `src/lib/evolution/types.ts` — UsageEvent, MaturityLevel, UnlockGraph interfaces
+- `src/lib/evolution/usageTracker.ts` — recordEvent, getUsageLog, getMaturityLevel, getDominantRoute
+- `src/lib/evolution/unlockGraph.ts` — UNLOCK_GATES, getUnlockedFeatures, isFeatureUnlocked, getNextSuggestion
+- `src/hooks/useEvolution.ts` — useEvolution hook (maturity, isUnlocked, nextSuggestion, recordPortalVisit)
+- `src/contexts/PortalContext.tsx` — wired: recordEvent on every transition() call
+**GOVERNANCE:** Portal identity unchanged. PortalConfig (palette, motionCap, densityCap) untouched. Only feature visibility + suggestions evolve.
+
+---
+
 ## HANDOFF — 2026-03-28 | @codex | V8-QUALITY-AUDIT-001 | K-11
 
 **TASK:** V8-QUALITY-AUDIT-001

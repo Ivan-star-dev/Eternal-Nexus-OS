@@ -11,6 +11,9 @@ import { getPortalConfig } from '@/lib/portal/portalRegistry'
 import { saveSnapshot, loadSnapshot, clearSnapshot } from '@/lib/portal/sessionContinuity'
 import { saveSessionSnapshot, loadSessionSnapshot } from '@/lib/auth/sessionPersistence'
 import { supabase } from '@/integrations/supabase/client'
+import { recordEvent } from '@/lib/evolution/usageTracker'
+
+const PORTAL_SESSION_ID: string = `session_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
 
 interface PortalContextValue {
   currentPortal: PortalId
@@ -96,6 +99,7 @@ export function PortalProvider({ children }: PortalProviderProps) {
       }
       saveSnapshot(newSnapshot)
       setSnapshot(newSnapshot)
+      recordEvent({ portalId, action: 'visit', timestamp: newSnapshot.timestamp, sessionId: PORTAL_SESSION_ID })
       void saveSessionSnapshot(newSnapshot, userIdRef.current)
       // Reset panels on portal change
       setOpenPanels([])
