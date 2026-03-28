@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão V8-DUAL-ACCESS-001)
-**Actualizado por:** @framer+@cursor | V8-DUAL-ACCESS-001 ✓ · DualEntryGate + LabEntryHeader + WaitlistBanner + EmailCaptureModal
+**Última actualização:** 2026-03-28 (sessão GAP-CLOSURE-V10-001)
+**Actualizado por:** @claude | GAP-CLOSURE-V10-001 ✓ · GAP_CLOSURE_MATRIX sealed · Session TTL+scroll+panels · Artifact Memory layer · Spawn/Entry pipeline · Governance runtime guards · Fidelity Ladder · Transition System
 
 ---
 
@@ -28,7 +28,7 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 
 | Dimensão | Valor |
 |---|---|
-| **Fase activa** | V3 CONCLUÍDA → V4 DESBLOQUEADA — GATE_V4_OPEN EMITIDO ✅ |
+| **Fase activa** | V10 GAP CLOSURE ACTIVO — 7 módulos implementados · P0 parcialmente fechado |
 | **Branch canónico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Líder** | @claude (CONSTELLATION_DISPATCH_001) |
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |

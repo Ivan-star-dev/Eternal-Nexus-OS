@@ -6,6 +6,55 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | GAP-CLOSURE-V10-001 | ALL-PILLARS
+
+**TASK:** GAP-CLOSURE-V10-001 — V10 REAL Gap Closure · All Pioneers Mobilized
+**STATUS:** CONCLUÍDA ✅ (wave 1 of P0 gaps)
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**PIONEER:** @claude (canon + arch + impl)
+
+**FILES CREATED/UPDATED:**
+- `ops/GAP_CLOSURE_MATRIX.md` — 20-gap V10 REAL matrix sealed as canon source of truth
+- `src/contexts/SessionContext.tsx` — TTL (7d), scroll position save/restore, open panels state, ts_last_active touch
+- `src/lib/artifacts/types.ts` — ArtifactMeta, ArtifactKind, ArtifactStatus, ArtifactSource, ArtifactFilter
+- `src/lib/artifacts/store.ts` — localStorage artifact CRUD: save/update/get/list/archive/delete/recent/bySession
+- `src/lib/artifacts/index.ts` — barrel export
+- `src/lib/spawn/entry-pipeline.ts` — EntryKind, resolveEntry(), buildReEntryPoint() — real call-site logic
+- `src/lib/spawn/index.ts` — barrel export
+- `src/lib/governance/runtime-guard.ts` — G-01→G-06 laws as executable guards + violation emitter
+- `src/lib/governance/index.ts` — barrel export
+- `src/lib/fidelity/ladder.ts` — ultra/high/balanced/light tiers, device detection, budgets, override
+- `src/lib/fidelity/index.ts` — barrel export
+- `src/lib/transitions/portal-transition.ts` — soft/dominant/full/instant transition configs + Framer variants
+- `src/lib/transitions/index.ts` — barrel export
+- `supabase/migrations/20260328000000_artifact_memory.sql` — artifacts table + session_snapshots table + RLS + realtime
+- `ops/LIVE_STATE.md` — updated phase + last actor
+- `ops/HANDOFF_LEDGER.md` — this entry
+
+**GAPS CLOSED (partial):**
+- Gap 5 (Session Continuity): TTL + scroll + panels ✅
+- Gap 6 (Artifact Memory): store + schema + migration ✅
+- Gap 4 (Spawn/Entry): real entry pipeline ✅
+- Gap 14 (Governance): runtime guards G-01→G-06 ✅
+- Gap 8 (Fidelity Ladder): ultra/high/balanced/light ✅
+- Gap 9 (Transition System): spatial transition configs ✅
+- Gap 1 (Canon): GAP_CLOSURE_MATRIX.md sealed ✅
+
+**GAPS REMAINING (pioneer assignments active):**
+- Gap 2 (Portal Identity): @framer + @antigravity — P1
+- Gap 3 (Creation Lab): @framer + @cursor — P0
+- Gap 7 (Atmosphere): @framer + @antigravity — P1
+- Gap 10 (Route Intelligence): @claude + @cursor — P1
+- Gap 11 (Guidance): @claude + @cursor — P2
+- Gap 12 (Evolution Engine): @cursor — P2
+- Gap 15 (Performance): @codex + @cursor — P1
+- Gap 17 (Owner Control): @claude + @cursor — P2
+- Gap 18 (Ship Gate): @claude + @codex — P1
+- Gap 20 (Pilot): @owner gate — after P0+P1
+
+---
+
 ## HANDOFF — 2026-03-28 | @codex | V9-QUALITY-AUDIT-001 | K-11
 
 **TASK:** V9-QUALITY-AUDIT-001
