@@ -6,6 +6,19 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @cursor | V8-AUTH-001 | K-07+K-08
+
+**TASK:** V8-AUTH-001 — Supabase auth + user model + session persistence
+**STATUS:** CONCLUÍDA ✅
+**FILES:**
+- `src/lib/auth/userModel.ts` — RuberraUser interface + buildRuberraUser()
+- `src/lib/auth/sessionPersistence.ts` — saveSessionSnapshot / loadSessionSnapshot (Supabase + localStorage)
+- `src/hooks/useAuth.ts` — useAuth hook (signIn / signUp / signOut / isPremium)
+- `src/components/auth/AuthModal.tsx` — Sign In / Sign Up modal, Framer Motion scale entrance
+- `src/components/auth/PremiumGate.tsx` — Access tier guard + UpgradePrompt
+- `src/contexts/PortalContext.tsx` — Integrated Supabase session persistence (load on mount, save on transition)
+---
+
 ## HANDOFF — 2026-03-28 | @cursor | V8-CONTINUITY-WIRE-001 | K-07
 
 **TASK:** V8-CONTINUITY-WIRE-001 — V7 gap closure
