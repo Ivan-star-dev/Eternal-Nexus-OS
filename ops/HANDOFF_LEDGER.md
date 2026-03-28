@@ -6,6 +6,34 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | GAP-CLOSURE-V10-WAVE4 | ALL-PILLARS
+
+**TASK:** GAP-CLOSURE-V10-WAVE4 — PortalShell + NextStepHint + ControlTower + wiring
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES CREATED:**
+- `src/components/shell/PortalShell.tsx` — atmospheric wrapper applying portal identity (bg, ambient, grid, grain, pulse) to any portal
+- `src/components/shell/index.ts` — barrel
+- `src/components/intelligence/NextStepHint.tsx` — fixed bottom-left route intelligence hint card (auto-dismiss 8s, confidence bar, action dispatch)
+- `src/lib/owner/control-tower.ts` — owner control layer: fidelity override, gate states, feature flags, readiness snapshot, PILOT_OPEN gate
+- `src/components/owner/ControlTower.tsx` — owner-only UI: fixed bottom-right toggle, fidelity tiers, gate toggles, flag toggles
+
+**FILES MODIFIED:**
+- `src/App.tsx` — added GlobalIntelligenceLayer (NextStepHint), OwnerLayer (ControlTower, owner-only)
+- `src/pages/LabPage.tsx` — wrapped in PortalShell + useEvolution() portal visit recording
+
+**GAPS PROGRESSED:**
+- Gap 2+7 (Portal Identity + Atmosphere): PortalShell makes it tangible ✅
+- Gap 10+11 (Route Intelligence + Guidance): NextStepHint surfaces suggestions ✅
+- Gap 17 (Owner Control): ControlTower + control-tower.ts ✅
+- Gap 12 (Evolution Engine): already existed in V9 (recordEvent/usageTracker/unlockGraph) — not duplicated ✅
+
+**EVOLUTION ENGINE NOTE:** src/lib/evolution/ already has types.ts + usageTracker.ts + unlockGraph.ts from V9-EVOLUTION-001. useEvolution() hook is the existing one — not replaced.
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | GAP-CLOSURE-V10-WAVE3 | ALL-PILLARS
 
 **TASK:** GAP-CLOSURE-V10-WAVE3 — Route Intelligence + Ship Gate + Portal Identity + Atmosphere Controller

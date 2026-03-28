@@ -22,11 +22,29 @@ import SessionBoot from "./components/SessionBoot";
 import { getPortalByRoute } from "@/lib/portal/portalRegistry";
 import { usePortal } from "@/contexts/PortalContext";
 import { useSessionSpawn } from "@/hooks/useSessionSpawn";
+import NextStepHint from "@/components/intelligence/NextStepHint";
+import ControlTower from "@/components/owner/ControlTower";
+import { useAuth } from "@/contexts/AuthContext";
 
 function SystemAwareInspector() {
   const location = useLocation();
   if (location.pathname === "/system") return null;
   return <NexusFlowInspector />;
+}
+
+/** Renders NextStepHint only outside of owner/dashboard routes */
+function GlobalIntelligenceLayer() {
+  const location = useLocation();
+  const noHintRoutes = ['/owner', '/dashboard', '/system', '/access'];
+  if (noHintRoutes.includes(location.pathname)) return null;
+  return <NextStepHint minConfidence={0.65} />;
+}
+
+/** Renders ControlTower only for owner users */
+function OwnerLayer() {
+  const { isOwner } = useAuth();
+  if (!isOwner) return null;
+  return <ControlTower />;
 }
 
 /**
@@ -110,6 +128,8 @@ const App = () => (
             <OrganTransitionParticles />
             <SystemAwareInspector />
             <CommandPalette />
+            <GlobalIntelligenceLayer />
+            <OwnerLayer />
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />

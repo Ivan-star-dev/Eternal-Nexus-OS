@@ -19,12 +19,17 @@ import LabSurface from "@/components/lab-surface/LabSurface";
 import ResearchFeed from "@/components/research/ResearchFeed";
 import LabEntryHeader from "@/components/lab-surface/LabEntryHeader";
 import WaitlistBanner from "@/components/access/WaitlistBanner";
+import PortalShell from "@/components/shell/PortalShell";
+import { useEvolution } from "@/hooks/useEvolution";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabPage() {
+  // Record portal visit for evolution engine
+  useEvolution();
+
   return (
-    <div style={{ background: "#060c14", minHeight: "100svh" }}>
+    <PortalShell portalId="lab" animate={false}>
       {/* ── Premium entry header — authenticated users only ── */}
       <LabEntryHeader />
 
@@ -115,6 +120,6 @@ export default function LabPage() {
 
       {/* ── Waitlist banner — unauthenticated visitors ── */}
       <WaitlistBanner />
-    </div>
+    </PortalShell>
   );
 }
