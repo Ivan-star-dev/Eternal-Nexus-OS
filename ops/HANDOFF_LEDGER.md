@@ -6,6 +6,31 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | ORGANISM-BRIDGE-001 | USEORGANISM-MOUNT+LABSESSION-SEED
+
+**TASK:** PRIORIDADE 1+2 from AUTO-JULGAMENTO SOBERANO — mount OrganismBridge app-wide, seed session on /lab cold entry
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMIT:** 77a9c78
+
+**FILES MODIFIED:**
+- `src/App.tsx` — added `OrganismBridge` component (calls `useOrganism()`, renders null), mounted inside BrowserRouter after SessionBoot. Imports `useOrganism`. This single addition activates: NexusRuntime live state, governance enforcement, organism sync on every route, real system health scores (continuity/calm/identity/adaptation/return_quality), evolution bridge.
+- `src/pages/LabPage.tsx` — added `useEffect` calling `startSession('Creation Lab', 'open-lab')` when `session` is null. Fixes resume badge empty string and session null on first /lab visit.
+
+**IMPACT:**
+- NexusRuntime transitions from permanently cold → live on every navigation
+- System health scores now compute against real session data (not cold zeros)
+- LabHero resume badge now shows actual subject on return
+- Governance laws C-01→C-07 now have active enforcement path via syncSession
+
+**REMAINING CRITICAL (post-pilot hardening):**
+- Triple session system unification (SessionContext vs ruberra:session:snapshot vs OrganismState.memory)
+- resolveEntry() wire or delete
+- PortalShell background override fix (pages need background: transparent)
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | GOVERNANCE-OBSERVABILITY-001 | SCORING+LOCKS+MANIFEST
 
 **TASK:** Governance + Observability V1000 — anti-chaos locks, scoring engine, market translation, dominance path

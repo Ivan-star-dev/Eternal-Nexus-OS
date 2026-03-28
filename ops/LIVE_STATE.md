@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão GOVERNANCE-OBSERVABILITY-001)
-**Actualizado por:** @claude | Governance + Observability V1000 closed · scoring.ts (8 scores) ✅ · ControlTower Health section wired ✅ · GOVERNANCE_OBSERVABILITY_MANIFEST.md ✅ · Market Translation + Dominance Path artifacts produced · WEDGE GATE ACTIVE — test pending owner validation
+**Última actualização:** 2026-03-28 (sessão ORGANISM-BRIDGE-001)
+**Actualizado por:** @claude | OrganismBridge mounted app-wide ✅ · startSession seeded in /lab ✅ · NexusRuntime now live on every route · PRIORIDADE 1+2 from AUTO-JULGAMENTO resolved · WEDGE GATE ACTIVE — test pending owner validation
 
 ---
 
