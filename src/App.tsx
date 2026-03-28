@@ -104,6 +104,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <SessionSpawnGate />
             <PortalRouteSync />
             <SessionBoot />
             <OrganTransitionParticles />

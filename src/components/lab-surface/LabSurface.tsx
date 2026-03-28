@@ -14,15 +14,18 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import LabWorkBay from "./LabWorkBay";
 import LabToolSpine from "./LabToolSpine";
+import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabSurface() {
   const [toolsVisible, setToolsVisible] = useState(false);
+  const { isMotionAllowed, isDenseAllowed } = usePortalIdentity();
 
   return (
     <section
       aria-label="Creation Lab"
+      data-portal-dense={isDenseAllowed ? "true" : "false"}
       style={{
         background: "#060c14",
         minHeight: "100vh",
@@ -45,8 +48,8 @@ export default function LabSurface() {
 
       {/* Section label */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={isMotionAllowed('moderate') ? { opacity: 0, y: 12 } : false}
+        whileInView={isMotionAllowed('moderate') ? { opacity: 1, y: 0 } : undefined}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.55, ease: EASE }}
         style={{ marginBottom: "40px" }}
@@ -75,8 +78,8 @@ export default function LabSurface() {
 
       {/* Main work area — hover triggers tool spine reveal */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={isMotionAllowed('moderate') ? { opacity: 0 } : false}
+        whileInView={isMotionAllowed('moderate') ? { opacity: 1 } : undefined}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
         onHoverStart={() => setToolsVisible(true)}

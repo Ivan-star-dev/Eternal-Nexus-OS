@@ -11,11 +11,15 @@
  */
 
 import LearningPath from "./LearningPath";
+import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 
 export default function SchoolSurface() {
+  const { isMotionAllowed } = usePortalIdentity();
+
   return (
     <main
       aria-label="Bridge Nova"
+      data-portal-motion={isMotionAllowed('subtle') ? "subtle" : "none"}
       style={{
         background: "#0a0f1e",
         minHeight: "100vh",

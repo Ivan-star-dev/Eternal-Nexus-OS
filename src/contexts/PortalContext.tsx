@@ -4,7 +4,7 @@
  * Source: RUBERRA_V10_1_MASTER.md Session Loop + Spawn Model
  */
 
-import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback, type ReactNode, useRef } from 'react'
 import type { PortalId, PortalConfig, PortalState, SessionSnapshot } from '@/lib/portal/types'
 import { getPortalConfig } from '@/lib/portal/portalRegistry'
 import { saveSnapshot, loadSnapshot, clearSnapshot } from '@/lib/portal/sessionContinuity'
@@ -14,8 +14,11 @@ interface PortalContextValue {
   portalConfig: PortalConfig
   portalState: PortalState
   snapshot: SessionSnapshot | null
+  openPanels: string[]
   transition: (portalId: PortalId, route?: string) => void
   clearContinuity: () => void
+  openPanel: (id: string) => void
+  closePanel: (id: string) => void
 }
 
 const DEFAULT_PORTAL: PortalId = 'lab'
@@ -39,6 +42,13 @@ export function PortalProvider({ children }: PortalProviderProps) {
   })
 
   const [snapshot, setSnapshot] = useState<SessionSnapshot | null>(() => loadSnapshot())
+  const [openPanels, setOpenPanels] = useState<string[]>(() => loadSnapshot()?.openPanels ?? [])
+
+  // Keep a ref so transition() can read latest openPanels without stale closure
+  const openPanelsRef = useRef<string[]>(openPanels)
+  useEffect(() => {
+    openPanelsRef.current = openPanels
+  }, [openPanels])
 
   const transition = useCallback((portalId: PortalId, route?: string) => {
     setPortalState(prev => {
@@ -46,12 +56,15 @@ export function PortalProvider({ children }: PortalProviderProps) {
         portalId,
         lastRoute: route ?? getPortalConfig(portalId).route,
         scrollPosition: typeof window !== 'undefined' ? window.scrollY : 0,
-        openPanels: [],
+        openPanels: openPanelsRef.current,
         lastTaskContext: null,
         timestamp: Date.now(),
       }
       saveSnapshot(newSnapshot)
       setSnapshot(newSnapshot)
+      // Reset panels on portal change
+      setOpenPanels([])
+      openPanelsRef.current = []
       return {
         current: portalId,
         previous: prev.current,
@@ -61,28 +74,41 @@ export function PortalProvider({ children }: PortalProviderProps) {
     })
   }, [])
 
+  const openPanel = useCallback((id: string) => {
+    setOpenPanels(prev => prev.includes(id) ? prev : [...prev, id])
+  }, [])
+
+  const closePanel = useCallback((id: string) => {
+    setOpenPanels(prev => prev.filter(p => p !== id))
+  }, [])
+
   const clearContinuity = useCallback(() => {
     clearSnapshot()
     setSnapshot(null)
+    setOpenPanels([])
     setPortalState(prev => ({ ...prev, snapshot: null }))
   }, [])
 
-  // Persist snapshot whenever portal changes
+  // Persist snapshot whenever portal or openPanels changes
   useEffect(() => {
     if (!snapshot) return
     saveSnapshot({
       ...snapshot,
+      openPanels,
       timestamp: Date.now(),
     })
-  }, [portalState.current, snapshot])
+  }, [portalState.current, snapshot, openPanels])
 
   const value: PortalContextValue = {
     currentPortal: portalState.current,
     portalConfig: getPortalConfig(portalState.current),
     portalState,
     snapshot,
+    openPanels,
     transition,
     clearContinuity,
+    openPanel,
+    closePanel,
   }
 
   return <PortalContext.Provider value={value}>{children}</PortalContext.Provider>

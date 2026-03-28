@@ -6,6 +6,13 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @cursor | V8-CONTINUITY-WIRE-001 | K-07
+
+**TASK:** V8-CONTINUITY-WIRE-001 — V7 gap closure
+**STATUS:** CONCLUÍDA ✅
+**GAPS CLOSED:** useSessionSpawn wired · usePortalIdentity in surfaces · openPanels tracked
+---
+
 ## HANDOFF — 2026-03-28 | @codex | V7-QUALITY-AUDIT-001 | K-11
 
 **TASK:** V7-QUALITY-AUDIT-001 — Audit portal state framework + 3 portal surfaces against V10.1/V10.2

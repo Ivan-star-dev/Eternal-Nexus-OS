@@ -12,11 +12,16 @@
 
 import WorkshopHeader from "./WorkshopHeader";
 import ProjectGrid from "./ProjectGrid";
+import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 
 export default function WorkshopSurface() {
+  const { isMotionAllowed, isDenseAllowed } = usePortalIdentity();
+
   return (
     <div
       aria-label="Nexus Cria"
+      data-portal-dense={isDenseAllowed ? "true" : "false"}
+      data-portal-motion={isMotionAllowed('moderate') ? "moderate" : isMotionAllowed('subtle') ? "subtle" : "none"}
       style={{
         background: "#0d0d14",
         minHeight: "100vh",
