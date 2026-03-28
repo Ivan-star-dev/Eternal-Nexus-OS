@@ -14,6 +14,7 @@ import MissionsDashboard from "@/components/missions/MissionsDashboard";
 import { homeProjects } from "@/data/homeProjects";
 import { useSession } from "@/contexts/SessionContext";
 import type { TrinityFace } from "@/lib/memory/types";
+import DualEntryGate from "@/components/access/DualEntryGate";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -59,6 +60,7 @@ const Index = () => {
     <Layout>
       <PageTransition>
         <ProductHero />
+        <DualEntryGate />
         <section id="dossiers" className="py-20 sm:py-28 px-4 sm:px-6 md:px-16 lg:px-20">
           <div className="max-w-[1200px] mx-auto">
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease }} className="text-center mb-16">

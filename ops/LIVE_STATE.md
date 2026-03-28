@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-27 (sessão 3)
-**Actualizado por:** @codex | QUALITY-AUDIT-001 ✓ score 0.91 · GATE_V4_OPEN EMITIDO ✅
+**Última actualização:** 2026-03-28 (sessão V8-DUAL-ACCESS-001)
+**Actualizado por:** @framer+@cursor | V8-DUAL-ACCESS-001 ✓ · DualEntryGate + LabEntryHeader + WaitlistBanner + EmailCaptureModal
 
 ---
 

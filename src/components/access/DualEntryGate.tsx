@@ -108,14 +108,12 @@ export default function DualEntryGate() {
             Platform Access · Choose Your Path
           </motion.span>
 
-          {/* Gate row */}
+          {/* Gate row — 3 cols on md+, stacked on mobile */}
           <motion.div
             variants={SLIDE_UP}
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-stretch"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto 1fr",
-              gap: "clamp(24px, 4vw, 48px)",
-              alignItems: "stretch",
+              gap: "clamp(20px, 4vw, 48px)",
             }}
           >
             {/* ── Left: Explore (Public) ── */}
@@ -210,24 +208,18 @@ export default function DualEntryGate() {
               </motion.div>
             </div>
 
-            {/* ── Divider ── */}
+            {/* ── Divider — vertical on md+, horizontal on mobile ── */}
             <div
               aria-hidden="true"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "12px",
-                userSelect: "none",
-              }}
+              className="flex md:flex-col flex-row items-center justify-center gap-3"
+              style={{ userSelect: "none" }}
             >
+              {/* Line before "or" */}
               <div
+                className="md:w-px md:flex-1 md:h-auto h-px flex-1"
                 style={{
-                  width: "0.5px",
-                  flex: 1,
                   background:
-                    "linear-gradient(to bottom, transparent, rgba(200,164,78,0.18), transparent)",
+                    "linear-gradient(to var(--dir, bottom), transparent, rgba(200,164,78,0.18), transparent)",
                 }}
               />
               <span
@@ -237,16 +229,17 @@ export default function DualEntryGate() {
                   letterSpacing: "0.2em",
                   color: "rgba(200,164,78,0.3)",
                   textTransform: "uppercase",
+                  flexShrink: 0,
                 }}
               >
                 or
               </span>
+              {/* Line after "or" */}
               <div
+                className="md:w-px md:flex-1 md:h-auto h-px flex-1"
                 style={{
-                  width: "0.5px",
-                  flex: 1,
                   background:
-                    "linear-gradient(to bottom, transparent, rgba(200,164,78,0.18), transparent)",
+                    "linear-gradient(to var(--dir, bottom), transparent, rgba(200,164,78,0.18), transparent)",
                 }}
               />
             </div>

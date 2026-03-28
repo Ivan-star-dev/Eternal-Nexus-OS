@@ -14,6 +14,7 @@
  */
 
 import WorkshopSurface from "@/components/workshop-surface/WorkshopSurface";
+import WaitlistBanner from "@/components/access/WaitlistBanner";
 
 export default function WorkshopPage() {
   return (
@@ -30,6 +31,7 @@ export default function WorkshopPage() {
       }}
     >
       <WorkshopSurface />
+      <WaitlistBanner />
     </div>
   );
 }

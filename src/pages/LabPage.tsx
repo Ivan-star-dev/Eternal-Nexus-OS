@@ -15,12 +15,16 @@ import { motion } from "framer-motion";
 import NexusSurface from "@/components/nexus-surface/NexusSurface";
 import LabSurface from "@/components/lab-surface/LabSurface";
 import ResearchFeed from "@/components/research/ResearchFeed";
+import LabEntryHeader from "@/components/lab-surface/LabEntryHeader";
+import WaitlistBanner from "@/components/access/WaitlistBanner";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabPage() {
   return (
     <div style={{ background: "#0a0a1a", minHeight: "100svh" }}>
+      {/* ── Premium entry header — authenticated users only ── */}
+      <LabEntryHeader />
       {/* ── Hero — NexusSurface unchanged ── */}
       <NexusSurface />
 
@@ -107,6 +111,9 @@ export default function LabPage() {
           <ResearchFeed />
         </motion.div>
       </section>
+
+      {/* ── Waitlist banner — unauthenticated visitors ── */}
+      <WaitlistBanner />
     </div>
   );
 }

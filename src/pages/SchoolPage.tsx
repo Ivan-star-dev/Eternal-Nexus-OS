@@ -15,6 +15,7 @@
 
 import SchoolNav from "@/components/school-surface/SchoolNav";
 import SchoolSurface from "@/components/school-surface/SchoolSurface";
+import WaitlistBanner from "@/components/access/WaitlistBanner";
 
 export default function SchoolPage() {
   return (
@@ -26,6 +27,7 @@ export default function SchoolPage() {
     >
       <SchoolNav />
       <SchoolSurface />
+      <WaitlistBanner />
     </div>
   );
 }

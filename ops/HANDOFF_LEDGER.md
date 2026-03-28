@@ -6,6 +6,22 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @framer+@cursor | V8-DUAL-ACCESS-001 | K-04+K-07
+
+**TASK:** V8-DUAL-ACCESS-001 — Dual access + Lab primary + waitlist
+**STATUS:** CONCLUÍDA ✅
+**FILES:**
+- `src/components/access/DualEntryGate.tsx` — Homepage dual entry gate (Explore public + Enter Lab premium)
+- `src/components/access/AuthModal.tsx` — Sign-in modal for unauthenticated Lab CTA clicks
+- `src/components/access/WaitlistBanner.tsx` — Sticky bottom bar for public users on /lab, /school, /workshop
+- `src/components/access/EmailCaptureModal.tsx` — Waitlist email capture modal with Supabase silent-fail insert
+- `src/components/lab-surface/LabEntryHeader.tsx` — Authenticated premium indicator banner (dismissible)
+- `src/pages/Index.tsx` — DualEntryGate added after ProductHero
+- `src/pages/LabPage.tsx` — LabEntryHeader + WaitlistBanner integrated
+- `src/pages/SchoolPage.tsx` — WaitlistBanner integrated
+- `src/pages/WorkshopPage.tsx` — WaitlistBanner integrated
+---
+
 ## HANDOFF — 2026-03-28 | @cursor | V8-AUTH-001 | K-07+K-08
 
 **TASK:** V8-AUTH-001 — Supabase auth + user model + session persistence
