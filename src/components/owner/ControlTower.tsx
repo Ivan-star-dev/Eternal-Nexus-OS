@@ -23,6 +23,8 @@ import { nexusRuntime } from '@/lib/core/runtime';
 import { getPilotMetrics } from '@/lib/instrumentation/event-logger';
 import { getSystemHealthSummary } from '@/lib/governance/scoring';
 import type { SystemHealthSummary, ScoreGrade } from '@/lib/governance/scoring';
+import { getReturnMetrics } from '@/lib/spawn/returnTracker';
+import type { ReturnMetrics } from '@/lib/spawn/returnTracker';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const FIDELITY_TIERS: FidelityTier[] = ['ultra', 'high', 'balanced', 'light'];
@@ -50,6 +52,7 @@ export default function ControlTower() {
   const [open, setOpen] = useState(false);
   const [controls, setControls] = useState<OwnerControls>(() => getControls());
   const [health, setHealth] = useState<SystemHealthSummary | null>(null);
+  const [wedge, setWedge] = useState<ReturnMetrics | null>(null);
 
   // Reload controls + health scores when panel opens
   useEffect(() => {
@@ -62,6 +65,7 @@ export default function ControlTower() {
     } catch {
       // scoring is read-only; silently skip if runtime not ready
     }
+    setWedge(getReturnMetrics());
   }, [open]);
 
   const handleFidelityChange = (tier: FidelityTier | null) => {
@@ -218,6 +222,33 @@ export default function ControlTower() {
                   <div>P1: {controls.readiness.p1_passed}/{controls.readiness.p1_total}</div>
                   <div>{new Date(controls.readiness.ts_checked).toLocaleDateString()}</div>
                 </div>
+              </Section>
+            )}
+
+            {/* Wedge Gate Metrics */}
+            {wedge ? (
+              <Section label={`Wedge Gate · ${wedge.wedge_signal.toUpperCase()}`}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  {[
+                    ['Visits',         String(wedge.visit_count)],
+                    ['Returns',        String(wedge.return_count)],
+                    ['48h Return',     wedge.returned_within_48h ? '✓ YES' : '— no'],
+                    ['Since First',    `${wedge.hours_since_first}h`],
+                    ['Since Last',     `${wedge.hours_since_last}h`],
+                  ].map(([label, value]) => (
+                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '9px', color: 'rgba(170,185,200,0.55)' }}>{label}</span>
+                      <span style={{ fontSize: '9px', color: wedge.returned_within_48h && label === '48h Return' ? '#00e5a0' : 'rgba(200,218,235,0.75)', fontWeight: 600 }}>{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ fontSize: '8px', marginTop: '4px', color: wedge.wedge_signal === 'strong' ? '#00e5a0' : wedge.wedge_signal === 'weak' ? '#ffd966' : 'rgba(255,100,100,0.7)', letterSpacing: '0.15em' }}>
+                  {wedge.wedge_signal === 'strong' ? '✓ WEDGE PROVEN' : wedge.wedge_signal === 'weak' ? '↑ BUILDING SIGNAL' : '○ NO SIGNAL YET'}
+                </div>
+              </Section>
+            ) : (
+              <Section label="Wedge Gate">
+                <span style={{ fontSize: '9px', color: 'rgba(150,170,190,0.4)' }}>No lab visits recorded</span>
               </Section>
             )}
 

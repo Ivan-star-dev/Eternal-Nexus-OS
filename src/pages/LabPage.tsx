@@ -22,6 +22,7 @@ import LabEntryHeader from "@/components/lab-surface/LabEntryHeader";
 import WaitlistBanner from "@/components/access/WaitlistBanner";
 import { useEvolution } from "@/hooks/useEvolution";
 import { useSession } from "@/contexts/SessionContext";
+import { recordVisit } from "@/lib/spawn/returnTracker";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -33,6 +34,8 @@ export default function LabPage() {
     if (!session) {
       startSession('Creation Lab', 'open-lab');
     }
+    // Record visit for wedge gate cross-visit tracking (deduped per browser session)
+    recordVisit();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

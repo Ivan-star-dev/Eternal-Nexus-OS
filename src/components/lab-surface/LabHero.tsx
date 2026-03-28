@@ -7,22 +7,40 @@
  * @claude + @framer | 2026-03-28
  */
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "@/contexts/SessionContext";
+import { getReturnMetrics } from "@/lib/spawn/returnTracker";
+import { getRecentArtifacts } from "@/lib/artifacts/store";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabHero() {
   const { session } = useSession();
   const [showExplainer, setShowExplainer] = useState(false);
+  const [lastArtifactTitle, setLastArtifactTitle] = useState<string | null>(null);
 
-  const isResume =
+  // Determine return state from two independent signals:
+  //   1. session.is_resume + re_entry_point (wired artifact interaction)
+  //   2. returnTracker.return_count > 0 (cross-visit, always accurate)
+  const metrics = typeof window !== 'undefined' ? getReturnMetrics() : null;
+  const sessionResume =
     session?.is_resume &&
     (session.re_entry_point.startsWith('lab:') ||
       session.re_entry_point.startsWith('resume-swarm:'));
+  const isResume = sessionResume || (metrics !== null && metrics.return_count > 0);
 
-  const resumeSubject = isResume ? session?.subject : null;
+  // Load most recent artifact title for the resume badge
+  useEffect(() => {
+    if (!isResume) return;
+    const recent = getRecentArtifacts(1);
+    if (recent.length > 0) {
+      setLastArtifactTitle(recent[0].title);
+    }
+  }, [isResume]);
+
+  // Resume label: artifact title if available, otherwise session subject
+  const resumeLabel = lastArtifactTitle ?? session?.subject ?? 'Creation Lab';
 
   const handleOpenLab = () => {
     const target = document.getElementById("lab-work-bay");
@@ -169,8 +187,8 @@ export default function LabHero() {
           ship — everything you create lives here.
         </motion.p>
 
-        {/* Resume badge — shown only on re-entry */}
-        {isResume && resumeSubject && (
+        {/* Resume badge — shown on re-entry (session resume OR prior visit detected) */}
+        {isResume && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -193,6 +211,7 @@ export default function LabHero() {
                 borderRadius: "50%",
                 background: "#00aaff",
                 flexShrink: 0,
+                boxShadow: "0 0 6px rgba(0,170,255,0.5)",
               }}
             />
             <span
@@ -203,9 +222,11 @@ export default function LabHero() {
                 color: "rgba(0,170,255,0.75)",
               }}
             >
-              Resume:{" "}
-              <span style={{ color: "rgba(200,225,245,0.85)", fontStyle: "normal" }}>
-                {resumeSubject}
+              {metrics && metrics.return_count > 0
+                ? `Visit ${metrics.visit_count} · `
+                : "Resume: "}
+              <span style={{ color: "rgba(200,225,245,0.85)" }}>
+                {resumeLabel}
               </span>
             </span>
           </motion.div>
