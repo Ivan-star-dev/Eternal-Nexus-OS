@@ -6,6 +6,34 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @framer+@cursor | V7-SURFACES-001 | K-04+K-06+K-07
+
+**TASK:** V7-SURFACES-001 — Three portal surfaces (Lab + School + Workshop)
+**STATUS:** CONCLUÍDA ✅
+**KERNEL:** K-04 SURFACE + K-06 COMPONENT + K-07 IMPL
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES:**
+- `src/components/lab-surface/LabSurface.tsx` — Creation Lab root wrapper
+- `src/components/lab-surface/LabWorkBay.tsx` — Project cards with stagger entrance
+- `src/components/lab-surface/LabToolSpine.tsx` — Dormant tool spine, reveals on hover
+- `src/components/lab-surface/index.ts` — Barrel export
+- `src/components/school-surface/SchoolSurface.tsx` — Bridge Nova root wrapper
+- `src/components/school-surface/LearningPath.tsx` — 5-step vertical path (locked/available/done)
+- `src/components/school-surface/SchoolNav.tsx` — Minimal nav + progress + back link
+- `src/components/school-surface/index.ts` — Barrel export
+- `src/components/workshop-surface/WorkshopSurface.tsx` — Nexus Cria root wrapper
+- `src/components/workshop-surface/WorkshopHeader.tsx` — Logotype + teal dot + stats
+- `src/components/workshop-surface/ProjectGrid.tsx` — 2-col project grid + progress bars
+- `src/components/workshop-surface/index.ts` — Barrel export
+- `src/pages/LabPage.tsx` — Updated: NexusSurface hero + LabSurface + ResearchFeed
+- `src/pages/SchoolPage.tsx` — Full portal: SchoolNav + SchoolSurface
+- `src/pages/WorkshopPage.tsx` — Full portal: WorkshopSurface + grid substrate bg
+
+**PORTALS:** Lab(#060c14/blue) · School(#0a0f1e/gold) · Workshop(#0d0d14/teal)
+**QUALITY:** TypeScript zero errors · Framer Motion throughout · Mobile-first 375px safe
+---
+
 ## HANDOFF — 2026-03-28 | @claude | V7-PORTAL-STATE-001 | K-16 ARCH
 
 **TASK:** V7-PORTAL-STATE-001 — Portal State Framework

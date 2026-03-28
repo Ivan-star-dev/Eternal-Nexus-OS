@@ -1,27 +1,35 @@
 /**
  * WorkshopPage.tsx — /workshop route
- * Nexus Cria face — stub page, ready for content.
- * @cursor | 2026-03-27
+ * Nexus Cria face — creation workshop portal.
+ *
+ * Layout:
+ *   1. WorkshopSurface — header + project grid on dark charcoal
+ *
+ * Identity: Dark charcoal (#0d0d14), teal accents hsl(172 55% 38%).
+ * Density: MEDIUM — project grid, no overload.
+ * Motion: moderate — purposeful transitions.
+ *
+ * Canon: V7-SURFACES-001 · K-04+K-06+K-07
+ * @framer+@cursor | 2026-03-28
  */
 
-import Layout from "@/components/Layout";
-import PageTransition from "@/components/PageTransition";
+import WorkshopSurface from "@/components/workshop-surface/WorkshopSurface";
 
 export default function WorkshopPage() {
   return (
-    <Layout>
-      <PageTransition>
-        <section className="min-h-[60vh] flex items-center justify-center px-6">
-          <div className="text-center">
-            <span className="font-mono text-[0.5rem] tracking-[0.3em] uppercase text-muted-foreground block mb-3">
-              Nexus Cria
-            </span>
-            <h1 className="font-serif text-3xl sm:text-4xl font-light italic text-foreground">
-              Em construção.
-            </h1>
-          </div>
-        </section>
-      </PageTransition>
-    </Layout>
+    <div
+      style={{
+        background: "#0d0d14",
+        minHeight: "100svh",
+        /* Subtle grid substrate via CSS */
+        backgroundImage: `
+          linear-gradient(rgba(172,210,200,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(172,210,200,0.025) 1px, transparent 1px)
+        `,
+        backgroundSize: "48px 48px",
+      }}
+    >
+      <WorkshopSurface />
+    </div>
   );
 }

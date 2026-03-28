@@ -1,18 +1,19 @@
 /**
  * LabPage.tsx — /lab route
- * Heaven Lab face — NexusSurface v1 (NS-1-001) + Research feed section.
+ * Creation Lab face — NexusSurface hero + LabSurface work environment.
  *
  * Layout:
  *   1. NexusSurface — hero (unchanged, owns its own nav)
- *   2. Research section — "Latest Research" with ResearchFeed
+ *   2. LabSurface — actual work environment below hero (V7-SURFACES-001)
+ *   3. Research section — ResearchFeed
  *
- * Canon: NS-1-001 · K-04 SURFACE · K-05 TYPOGRAPHY · K-06 COMPONENT
- *        V5-RESEARCH-IMPL-001 · K-07 IMPL · K-08 PIPELINE
- * @framer | @cursor | 2026-03-27
+ * Canon: NS-1-001 + V7-SURFACES-001 · K-04+K-05+K-06+K-07
+ * @framer+@cursor | 2026-03-28
  */
 
 import { motion } from "framer-motion";
 import NexusSurface from "@/components/nexus-surface/NexusSurface";
+import LabSurface from "@/components/lab-surface/LabSurface";
 import ResearchFeed from "@/components/research/ResearchFeed";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -23,7 +24,10 @@ export default function LabPage() {
       {/* ── Hero — NexusSurface unchanged ── */}
       <NexusSurface />
 
-      {/* ── Research section — first content section below hero ── */}
+      {/* ── Lab Surface — actual work environment ── */}
+      <LabSurface />
+
+      {/* ── Research section — below work environment ── */}
       <section
         style={{
           padding: "clamp(64px, 10vh, 120px) clamp(16px, 4vw, 60px)",

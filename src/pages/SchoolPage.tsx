@@ -1,27 +1,31 @@
 /**
  * SchoolPage.tsx — /school route
- * Bridge Nova face — stub page, ready for content.
- * @cursor | 2026-03-27
+ * Bridge Nova face — learning portal.
+ *
+ * Layout:
+ *   1. SchoolNav — minimal sticky nav with progress + back link
+ *   2. SchoolSurface — learning path content
+ *
+ * Identity: Deep navy (#0a0f1e), warm gold accents.
+ * Density: LOW — one concept at a time, mobile-first.
+ *
+ * Canon: V7-SURFACES-001 · K-04+K-06+K-07
+ * @framer+@cursor | 2026-03-28
  */
 
-import Layout from "@/components/Layout";
-import PageTransition from "@/components/PageTransition";
+import SchoolNav from "@/components/school-surface/SchoolNav";
+import SchoolSurface from "@/components/school-surface/SchoolSurface";
 
 export default function SchoolPage() {
   return (
-    <Layout>
-      <PageTransition>
-        <section className="min-h-[60vh] flex items-center justify-center px-6">
-          <div className="text-center">
-            <span className="font-mono text-[0.5rem] tracking-[0.3em] uppercase text-muted-foreground block mb-3">
-              Bridge Nova
-            </span>
-            <h1 className="font-serif text-3xl sm:text-4xl font-light italic text-foreground">
-              Em construção.
-            </h1>
-          </div>
-        </section>
-      </PageTransition>
-    </Layout>
+    <div
+      style={{
+        background: "#0a0f1e",
+        minHeight: "100svh",
+      }}
+    >
+      <SchoolNav />
+      <SchoolSurface />
+    </div>
   );
 }
