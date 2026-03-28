@@ -1,29 +1,24 @@
 /**
  * SessionBoot.tsx
- * Runs once on app mount to initialize session state from storage.
- * Uses the governance runtime guard to check session health on boot.
+ * Runs once on app mount to check session health via governance guards.
  *
  * Canon: GAP-CLOSURE-V10-001 · Gap 1 · Session Continuity
  * @claude | 2026-03-28
  */
 
 import { useEffect } from 'react';
-import { runGovernanceChecks } from '@/lib/governance/runtime-guard';
+import { guardArtifactCount, runGovernanceChecks } from '@/lib/governance/runtime-guard';
 import { useSession } from '@/contexts/SessionContext';
 
 export default function SessionBoot() {
   const { session } = useSession();
 
   useEffect(() => {
-    // Run governance checks on boot — silent, logs violations only
+    // Run lightweight governance checks on boot — non-blocking, logs violations only
     try {
-      runGovernanceChecks({
-        portalId: undefined,
-        openPanelCount: session.open_panels?.length ?? 0,
-        reEntryPoint: session.re_entry_point,
-        artifactCount: 0, // lightweight — no artifact load on boot
-        session,
-      });
+      runGovernanceChecks([
+        () => guardArtifactCount(0),
+      ]);
     } catch {
       // governance check failures are non-blocking
     }
@@ -33,3 +28,4 @@ export default function SessionBoot() {
 
   return null;
 }
+
