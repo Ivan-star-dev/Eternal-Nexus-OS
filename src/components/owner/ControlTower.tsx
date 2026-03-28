@@ -19,17 +19,49 @@ import {
 } from '@/lib/owner/control-tower';
 import type { OwnerControls, GateId } from '@/lib/owner/control-tower';
 import type { FidelityTier } from '@/lib/fidelity';
+import { nexusRuntime } from '@/lib/core/runtime';
+import { getPilotMetrics } from '@/lib/instrumentation/event-logger';
+import { getSystemHealthSummary } from '@/lib/governance/scoring';
+import type { SystemHealthSummary, ScoreGrade } from '@/lib/governance/scoring';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const FIDELITY_TIERS: FidelityTier[] = ['ultra', 'high', 'balanced', 'light'];
 
+const SCORE_ROWS: { key: keyof SystemHealthSummary['scores']; label: string }[] = [
+  { key: 'continuity',    label: 'Continuity' },
+  { key: 'calm',         label: 'Calm' },
+  { key: 'identity',     label: 'Identity' },
+  { key: 'adaptation',   label: 'Adaptation' },
+  { key: 'return_quality', label: 'Return' },
+  { key: 'artifact',     label: 'Artifact' },
+  { key: 'clarity',      label: 'Clarity' },
+  { key: 'friction',     label: 'Friction ↓' },
+];
+
+function gradeColor(g: ScoreGrade): string {
+  const map: Record<ScoreGrade, string> = {
+    S: '#d4af37', A: '#00e5a0', B: '#4db8ff',
+    C: '#ffd966', D: '#ff9933', F: '#ff5555',
+  };
+  return map[g];
+}
+
 export default function ControlTower() {
   const [open, setOpen] = useState(false);
   const [controls, setControls] = useState<OwnerControls>(() => getControls());
+  const [health, setHealth] = useState<SystemHealthSummary | null>(null);
 
-  // Reload controls when panel opens
+  // Reload controls + health scores when panel opens
   useEffect(() => {
-    if (open) setControls(getControls());
+    if (!open) return;
+    setControls(getControls());
+    try {
+      const state = nexusRuntime.getState();
+      const metrics = getPilotMetrics();
+      setHealth(getSystemHealthSummary(state, metrics));
+    } catch {
+      // scoring is read-only; silently skip if runtime not ready
+    }
   }, [open]);
 
   const handleFidelityChange = (tier: FidelityTier | null) => {
@@ -186,6 +218,43 @@ export default function ControlTower() {
                   <div>P1: {controls.readiness.p1_passed}/{controls.readiness.p1_total}</div>
                   <div>{new Date(controls.readiness.ts_checked).toLocaleDateString()}</div>
                 </div>
+              </Section>
+            )}
+
+            {/* System Health Scores */}
+            {health && (
+              <Section label={`System Health · ${health.overall_grade}`}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                  {SCORE_ROWS.map(({ key, label }) => {
+                    const s = health.scores[key];
+                    return (
+                      <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ fontSize: '9px', color: 'rgba(170,185,200,0.55)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {label}
+                        </span>
+                        <span style={{ fontSize: '9px', fontWeight: 700, color: gradeColor(s.grade), minWidth: '10px', textAlign: 'right' }}>
+                          {s.grade}
+                        </span>
+                        <div style={{ width: '40px', height: '3px', background: 'rgba(255,255,255,0.07)', borderRadius: '2px', overflow: 'hidden', flexShrink: 0 }}>
+                          <div style={{ height: '100%', width: `${Math.round(s.value * 100)}%`, background: gradeColor(s.grade), borderRadius: '2px', transition: 'width 0.4s ease' }} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {health.pilot_ready ? (
+                  <div style={{ fontSize: '8px', color: '#00e5a0', marginTop: '6px', letterSpacing: '0.2em' }}>
+                    ✓ PILOT READY
+                  </div>
+                ) : health.blocking_issues.length > 0 && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '6px' }}>
+                    {health.blocking_issues.map((issue, i) => (
+                      <div key={i} style={{ fontSize: '8px', color: 'rgba(255,100,100,0.8)', lineHeight: 1.4 }}>
+                        ⚠ {issue}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </Section>
             )}
           </motion.div>
