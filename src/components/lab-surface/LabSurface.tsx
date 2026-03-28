@@ -34,12 +34,15 @@ const TOOL_KIND_MAP: Partial<Record<LabToolId, ArtifactKind>> = {
 export default function LabSurface() {
   const [toolsVisible, setToolsVisible] = useState(false);
   const [refreshSignal, setRefreshSignal] = useState(0);
+  const [focusArtifactId, setFocusArtifactId] = useState<string | null>(null);
   const { session } = useSession();
   const { isMotionAllowed, isDenseAllowed } = usePortalIdentity();
 
-  const handleArtifactCreated = useCallback(() => {
-    // Bump refresh signal so LabWorkBay reloads
+  const handleArtifactCreated = useCallback((artifactId: string) => {
     setRefreshSignal(s => s + 1);
+    setFocusArtifactId(artifactId);
+    // Clear focus after one cycle so re-renders don't re-expand
+    setTimeout(() => setFocusArtifactId(null), 200);
   }, []);
 
   const handleToolSelect = useCallback((toolId: LabToolId) => {
@@ -155,7 +158,10 @@ export default function LabSurface() {
         }}
       >
         {/* Work bay — main content */}
-        <LabWorkBay refreshSignal={refreshSignal} />
+        <LabWorkBay
+          refreshSignal={refreshSignal}
+          autoExpandId={focusArtifactId ?? undefined}
+        />
 
         {/* Tool spine — right side, dormant until hover */}
         <div style={{ flexShrink: 0, width: "160px" }}>

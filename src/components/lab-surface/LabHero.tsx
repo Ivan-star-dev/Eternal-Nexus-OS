@@ -7,14 +7,15 @@
  * @claude + @framer | 2026-03-28
  */
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "@/contexts/SessionContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabHero() {
   const { session } = useSession();
+  const [showExplainer, setShowExplainer] = useState(false);
 
   const isResume =
     session?.is_resume &&
@@ -240,6 +241,7 @@ export default function LabHero() {
           </motion.button>
 
           <motion.button
+            onClick={() => setShowExplainer(v => !v)}
             whileHover={{ borderColor: "rgba(0,170,255,0.35)", color: "rgba(0,170,255,0.85)" }}
             style={{
               fontFamily: "Syne, system-ui, sans-serif",
@@ -247,18 +249,70 @@ export default function LabHero() {
               fontWeight: 500,
               letterSpacing: "0.04em",
               textTransform: "uppercase",
-              color: "rgba(160,185,210,0.55)",
+              color: showExplainer ? "rgba(0,170,255,0.85)" : "rgba(160,185,210,0.55)",
               background: "transparent",
-              border: "1px solid rgba(0,170,255,0.15)",
+              border: `1px solid ${showExplainer ? "rgba(0,170,255,0.35)" : "rgba(0,170,255,0.15)"}`,
               borderRadius: "8px",
               padding: "13px 24px",
               cursor: "pointer",
               transition: "color 0.2s, border-color 0.2s",
             }}
           >
-            What is Creation Lab?
+            {showExplainer ? "Got it" : "What is Creation Lab?"}
           </motion.button>
         </motion.div>
+
+        {/* Inline explainer — answers the question */}
+        <AnimatePresence>
+          {showExplainer && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              style={{
+                marginTop: "20px",
+                padding: "20px 24px",
+                background: "rgba(0,170,255,0.04)",
+                border: "1px solid rgba(0,170,255,0.12)",
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                maxWidth: "500px",
+              }}
+            >
+              {[
+                ["Create", "Research, notes, plans, drafts, simulations — one click to start, one environment to hold them all."],
+                ["Continue", "Every artifact remembers where you left off. Return tomorrow and pick up exactly where you were."],
+                ["Own", "Your work lives here, not scattered across 12 tools. The lab is your sovereign workspace."],
+              ].map(([label, text]) => (
+                <div key={label} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                  <span style={{
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "8px",
+                    letterSpacing: "0.25em",
+                    textTransform: "uppercase",
+                    color: "rgba(0,170,255,0.55)",
+                    flexShrink: 0,
+                    marginTop: "3px",
+                    minWidth: "44px",
+                  }}>
+                    {label}
+                  </span>
+                  <span style={{
+                    fontFamily: "Inter, system-ui, sans-serif",
+                    fontSize: "13px",
+                    color: "rgba(160,185,210,0.65)",
+                    lineHeight: 1.6,
+                  }}>
+                    {text}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* ── Bottom edge rule ── */}

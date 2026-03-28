@@ -6,13 +6,18 @@
  * Shows real ArtifactMeta cards with kind badge, summary, last access.
  * Empty state guides user to QuickCreate.
  *
+ * FIX-2 (wedge): "Continue →" expands card inline — title + content editable,
+ *   auto-saves on blur, gives artifacts life beyond display.
+ * FIX-1 (wedge): autoExpandId prop — new artifact from QuickCreate auto-expands
+ *   with cursor in title field, turning creation into a naming moment.
+ *
  * Canon: GAP-CLOSURE-V10-001 · Gap 3+6 · Creation Lab
  * @claude | 2026-03-28
  */
 
-import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import { getRecentArtifacts } from "@/lib/artifacts/store";
+import { useEffect, useState, useCallback, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { getRecentArtifacts, updateArtifact } from "@/lib/artifacts/store";
 import type { ArtifactMeta, ArtifactKind } from "@/lib/artifacts/types";
 import { useSession } from "@/contexts/SessionContext";
 import { buildReEntryPoint } from "@/lib/spawn/entry-pipeline";
@@ -61,17 +66,76 @@ const cardVariants = {
   }),
 };
 
+// ─── New: derive a placeholder title from the kind
+const NEW_TITLES: Record<ArtifactKind, string> = {
+  research: "New Research",
+  note: "New Note",
+  plan: "New Plan",
+  simulation: "New Simulation",
+  draft: "New Draft",
+  code: "New Code",
+  synthesis: "New Synthesis",
+  decision: "New Decision",
+};
+
+function isGenericTitle(title: string, kind: ArtifactKind): boolean {
+  return title === NEW_TITLES[kind];
+}
+
+// ─── ArtifactCard ─────────────────────────────────────────────────────────────
+
 interface ArtifactCardProps {
   artifact: ArtifactMeta;
   index: number;
-  onContinue: (artifact: ArtifactMeta) => void;
+  isExpanded: boolean;
+  onExpand: () => void;
+  onCollapse: () => void;
+  onUpdated: () => void;
 }
 
-function ArtifactCard({ artifact, index, onContinue }: ArtifactCardProps) {
+function ArtifactCard({
+  artifact,
+  index,
+  isExpanded,
+  onExpand,
+  onCollapse,
+  onUpdated,
+}: ArtifactCardProps) {
   const kindColor = KIND_COLORS[artifact.kind] ?? "#00aaff";
   const summary = artifact.summary.length > 90
     ? artifact.summary.slice(0, 87) + "..."
     : artifact.summary;
+
+  const [editTitle, setEditTitle] = useState(artifact.title);
+  const [editContent, setEditContent] = useState(artifact.content);
+  const [saved, setSaved] = useState(false);
+  const titleRef = useRef<HTMLInputElement>(null);
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Sync local state when artifact changes externally
+  useEffect(() => {
+    setEditTitle(artifact.title);
+    setEditContent(artifact.content);
+  }, [artifact.artifact_id, artifact.title, artifact.content]);
+
+  // Auto-focus title on expand — especially for new (generic-titled) artifacts
+  useEffect(() => {
+    if (isExpanded) {
+      setTimeout(() => titleRef.current?.focus(), 80);
+    }
+  }, [isExpanded]);
+
+  const persistSave = useCallback(() => {
+    updateArtifact(artifact.artifact_id, {
+      title: editTitle.trim() || artifact.title,
+      content: editContent,
+      summary: editContent.slice(0, 140) || artifact.summary,
+    });
+    setSaved(true);
+    onUpdated();
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => setSaved(false), 1800);
+  }, [artifact.artifact_id, artifact.title, artifact.summary, editTitle, editContent, onUpdated]);
 
   return (
     <motion.div
@@ -79,21 +143,17 @@ function ArtifactCard({ artifact, index, onContinue }: ArtifactCardProps) {
       variants={cardVariants}
       initial="hidden"
       animate="visible"
+      layout
       style={{
-        background: "rgba(0,170,255,0.03)",
-        border: "1px solid rgba(0,170,255,0.1)",
+        background: isExpanded ? "rgba(0,170,255,0.06)" : "rgba(0,170,255,0.03)",
+        border: `1px solid ${isExpanded ? "rgba(0,170,255,0.28)" : "rgba(0,170,255,0.1)"}`,
         borderRadius: "12px",
         padding: "20px 24px",
         display: "flex",
         flexDirection: "column",
         gap: "10px",
-        cursor: "pointer",
         transition: "border-color 0.2s, background 0.2s",
-      }}
-      whileHover={{
-        borderColor: "rgba(0,170,255,0.28)",
-        backgroundColor: "rgba(0,170,255,0.06)",
-        transition: { duration: 0.2 },
+        gridColumn: isExpanded ? "1 / -1" : undefined,
       }}
     >
       {/* Kind badge + time */}
@@ -132,23 +192,101 @@ function ArtifactCard({ artifact, index, onContinue }: ArtifactCardProps) {
         </span>
       </div>
 
-      {/* Title */}
-      <h3
-        style={{
-          fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "15px",
-          fontWeight: 600,
-          color: "rgba(220,232,240,0.9)",
-          margin: 0,
-          letterSpacing: "-0.01em",
-          lineHeight: 1.3,
-        }}
-      >
-        {artifact.title}
-      </h3>
+      {/* Title — editable when expanded */}
+      {isExpanded ? (
+        <input
+          ref={titleRef}
+          value={editTitle}
+          onChange={e => setEditTitle(e.target.value)}
+          onBlur={persistSave}
+          placeholder={isGenericTitle(artifact.title, artifact.kind) ? "Name your work..." : artifact.title}
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            fontSize: "15px",
+            fontWeight: 600,
+            color: "rgba(220,232,240,0.95)",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.3,
+            background: "rgba(0,170,255,0.05)",
+            border: "1px solid rgba(0,170,255,0.2)",
+            borderRadius: "6px",
+            padding: "8px 12px",
+            outline: "none",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        />
+      ) : (
+        <h3
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            fontSize: "15px",
+            fontWeight: 600,
+            color: isGenericTitle(artifact.title, artifact.kind)
+              ? "rgba(220,232,240,0.45)"
+              : "rgba(220,232,240,0.9)",
+            margin: 0,
+            letterSpacing: "-0.01em",
+            lineHeight: 1.3,
+            fontStyle: isGenericTitle(artifact.title, artifact.kind) ? "italic" : "normal",
+          }}
+        >
+          {isGenericTitle(artifact.title, artifact.kind)
+            ? `Untitled ${KIND_LABELS[artifact.kind]}`
+            : artifact.title}
+        </h3>
+      )}
 
-      {/* Summary */}
-      {summary && (
+      {/* Content area — only when expanded */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            style={{ overflow: "hidden" }}
+          >
+            <textarea
+              value={editContent}
+              onChange={e => setEditContent(e.target.value)}
+              onBlur={persistSave}
+              placeholder="Start writing. Everything here persists."
+              rows={6}
+              style={{
+                fontFamily: "Inter, system-ui, sans-serif",
+                fontSize: "13px",
+                color: "rgba(180,205,225,0.8)",
+                lineHeight: 1.7,
+                background: "rgba(0,0,0,0.2)",
+                border: "1px solid rgba(0,170,255,0.12)",
+                borderRadius: "6px",
+                padding: "12px 14px",
+                outline: "none",
+                width: "100%",
+                boxSizing: "border-box",
+                resize: "vertical",
+                minHeight: "120px",
+              }}
+            />
+            <div
+              style={{
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "8px",
+                color: saved ? "rgba(0,229,160,0.6)" : "rgba(100,130,160,0.3)",
+                letterSpacing: "0.2em",
+                marginTop: "6px",
+                transition: "color 0.3s",
+              }}
+            >
+              {saved ? "✓ SAVED" : "AUTO-SAVES ON BLUR"}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Summary — only when collapsed */}
+      {!isExpanded && summary && (
         <p
           style={{
             fontFamily: "Inter, system-ui, sans-serif",
@@ -163,7 +301,7 @@ function ArtifactCard({ artifact, index, onContinue }: ArtifactCardProps) {
       )}
 
       {/* Tags */}
-      {artifact.tags.length > 0 && (
+      {!isExpanded && artifact.tags.length > 0 && (
         <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
           {artifact.tags.slice(0, 3).map((tag) => (
             <span
@@ -186,32 +324,72 @@ function ArtifactCard({ artifact, index, onContinue }: ArtifactCardProps) {
         </div>
       )}
 
-      {/* Continue action */}
-      <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
-        <motion.button
-          onClick={(e) => { e.stopPropagation(); onContinue(artifact); }}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            fontWeight: 600,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: "#00aaff",
-            background: "rgba(0,170,255,0.08)",
-            border: "1px solid rgba(0,170,255,0.22)",
-            borderRadius: "6px",
-            padding: "5px 14px",
-            cursor: "pointer",
-          }}
-        >
-          Continue →
-        </motion.button>
+      {/* Actions row */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "4px" }}>
+        {isExpanded && (
+          <span
+            style={{
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "8px",
+              color: "rgba(0,170,255,0.35)",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+            }}
+          >
+            {artifact.artifact_id}
+          </span>
+        )}
+        <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+          {isExpanded ? (
+            <motion.button
+              onClick={onCollapse}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                fontFamily: "Syne, system-ui, sans-serif",
+                fontSize: "10px",
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "rgba(160,185,210,0.55)",
+                background: "transparent",
+                border: "1px solid rgba(0,170,255,0.12)",
+                borderRadius: "6px",
+                padding: "5px 14px",
+                cursor: "pointer",
+              }}
+            >
+              Close
+            </motion.button>
+          ) : (
+            <motion.button
+              onClick={onExpand}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                fontFamily: "Syne, system-ui, sans-serif",
+                fontSize: "10px",
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: "#00aaff",
+                background: "rgba(0,170,255,0.08)",
+                border: "1px solid rgba(0,170,255,0.22)",
+                borderRadius: "6px",
+                padding: "5px 14px",
+                cursor: "pointer",
+              }}
+            >
+              Continue →
+            </motion.button>
+          )}
+        </div>
       </div>
     </motion.div>
   );
 }
+
+// ─── EmptyState ───────────────────────────────────────────────────────────────
 
 function EmptyState() {
   return (
@@ -265,13 +443,17 @@ function EmptyState() {
   );
 }
 
+// ─── LabWorkBay ───────────────────────────────────────────────────────────────
+
 interface LabWorkBayProps {
-  refreshSignal?: number; // increment to trigger a reload
+  refreshSignal?: number;    // increment to trigger a reload
+  autoExpandId?: string;     // artifact_id to auto-expand on mount/change (new artifact from QuickCreate)
 }
 
-export default function LabWorkBay({ refreshSignal }: LabWorkBayProps) {
+export default function LabWorkBay({ refreshSignal, autoExpandId }: LabWorkBayProps) {
   const { session, updateReEntry } = useSession();
   const [artifacts, setArtifacts] = useState<ArtifactMeta[]>([]);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const loadArtifacts = useCallback(() => {
     const recent = getRecentArtifacts(12);
@@ -282,11 +464,24 @@ export default function LabWorkBay({ refreshSignal }: LabWorkBayProps) {
     loadArtifacts();
   }, [loadArtifacts, refreshSignal]);
 
-  const handleContinue = (artifact: ArtifactMeta) => {
+  // Auto-expand freshly created artifact
+  useEffect(() => {
+    if (autoExpandId) {
+      setExpandedId(autoExpandId);
+    }
+  }, [autoExpandId]);
+
+  const handleExpand = (artifact: ArtifactMeta) => {
     const reEntry = buildReEntryPoint("lab", artifact.artifact_id);
     updateReEntry(reEntry);
-    // Future: open artifact detail panel or navigate to it
+    setExpandedId(artifact.artifact_id);
   };
+
+  const handleCollapse = () => setExpandedId(null);
+
+  const handleUpdated = useCallback(() => {
+    loadArtifacts();
+  }, [loadArtifacts]);
 
   return (
     <motion.section
@@ -321,9 +516,7 @@ export default function LabWorkBay({ refreshSignal }: LabWorkBayProps) {
             lineHeight: 1.15,
           }}
         >
-          {session?.subject
-            ? `${session.subject}`
-            : "Your Work"}
+          {session?.subject ? `${session.subject}` : "Your Work"}
         </h2>
         <p
           style={{
@@ -356,7 +549,10 @@ export default function LabWorkBay({ refreshSignal }: LabWorkBayProps) {
               key={artifact.artifact_id}
               artifact={artifact}
               index={i}
-              onContinue={handleContinue}
+              isExpanded={expandedId === artifact.artifact_id}
+              onExpand={() => handleExpand(artifact)}
+              onCollapse={handleCollapse}
+              onUpdated={handleUpdated}
             />
           ))}
         </div>
