@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { SessionProvider } from "@/contexts/SessionContext";
@@ -21,11 +21,33 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import SessionBoot from "./components/SessionBoot";
 import { getPortalByRoute } from "@/lib/portal/portalRegistry";
 import { usePortal } from "@/contexts/PortalContext";
+import { useSessionSpawn } from "@/hooks/useSessionSpawn";
 
 function SystemAwareInspector() {
   const location = useLocation();
   if (location.pathname === "/system") return null;
   return <NexusFlowInspector />;
+}
+
+/**
+ * Silently restores last portal + route on app mount.
+ * Placed inside BrowserRouter so useNavigate() is available.
+ * Runs once; if isReturning, navigates to lastPortal route with no flash.
+ */
+function SessionSpawnGate() {
+  const { isReturning, lastPortal } = useSessionSpawn();
+  const navigate = useNavigate();
+  const { portalConfig } = usePortal();
+
+  useEffect(() => {
+    if (isReturning && lastPortal) {
+      navigate(portalConfig.route, { replace: true });
+    }
+    // Intentionally run once — spawn is a one-shot on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isReturning]);
+
+  return null;
 }
 
 /**
