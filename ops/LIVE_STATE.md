@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão GAP-CLOSURE-V10-001 · Wave 5)
-**Actualizado por:** @claude | Ship Gate P0 validated · Build ✅ · Tests 84/84 ✅ · SessionBoot + ProtectedRoute + motion/config stubs created · portal-transition.ts TS error fixed · SHIP_GATE_CHECKLIST G-01→G-05, G-11, G-12, P2-01, P2-02 marked ✅
+**Última actualização:** 2026-03-28 (sessão GOVERNANCE-OBSERVABILITY-001)
+**Actualizado por:** @claude | Governance + Observability V1000 closed · scoring.ts (8 scores) ✅ · ControlTower Health section wired ✅ · GOVERNANCE_OBSERVABILITY_MANIFEST.md ✅ · Market Translation + Dominance Path artifacts produced · WEDGE GATE ACTIVE — test pending owner validation
 
 ---
 

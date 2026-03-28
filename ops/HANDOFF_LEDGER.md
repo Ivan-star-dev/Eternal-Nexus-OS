@@ -6,6 +6,35 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | GOVERNANCE-OBSERVABILITY-001 | SCORING+LOCKS+MANIFEST
+
+**TASK:** Governance + Observability V1000 — anti-chaos locks, scoring engine, market translation, dominance path
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES CREATED:**
+- `src/lib/governance/scoring.ts` — 8-score observability engine: continuity, calm, identity, adaptation, return_quality, artifact, clarity, friction. Grade system S→F. `computeSystemScores()` + `getSystemHealthSummary()` with pilot_ready signal and blocking_issues list.
+- `ops/GOVERNANCE_OBSERVABILITY_MANIFEST.md` — canonical governance spec: C-01→C-07 laws, identity locks (IL-01→IL-05), motion caps (MC-01→MC-07), density caps (DC-01→DC-07), highlight caps (HC-01→HC-06), portal integrity rules, recovery rules, owner override rules, ship gate rules, 8-score definitions, pilot readiness definition, 6 failure playbooks, wedge governance rules.
+
+**FILES MODIFIED:**
+- `src/components/owner/ControlTower.tsx` — System Health section added: 8 scores with grade badge + mini progress bar + PILOT READY signal + blocking issues list. Refreshes on panel open via nexusRuntime.getState() + getPilotMetrics().
+- `ops/LIVE_STATE.md` — updated to reflect current session
+
+**STRATEGIC ARTIFACTS PRODUCED (non-code):**
+- MARKET_TRANSLATION_ARTIFACT.md — buyer narrative, enterprise value prop, pitch language, category statement, why-now/buy/switch/copy logic
+- DOMINANCE_PATH_ARTIFACT.md — Phase 0→7 sequence, wedge gate formula, moat map, pilot design, case study blueprint, revenue gate, repeatability tests, strategic expansion law
+
+**GATE STATUS:**
+  WEDGE GATE: PENDING — awaiting owner browser validation (L-01→L-08) + real-use 48h return test
+  GATE_PILOT_OPEN: CLOSED — opens after wedge test passes
+  System health scoring: LIVE in ControlTower
+  Governance manifest: LIVE in ops/
+
+**NEXT GATE:** Owner validates Creation Lab end-to-end. Creates real artifact. Exits. Returns unprompted within 48h. If yes → wedge proven → GATE_PILOT_OPEN eligible.
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | SCALE-REAL-001 | HARDENING+INSTRUMENTATION+GATES
 
 **TASK:** Scale Real — instrumentation, bundle gate, quality gate, scale manifest
