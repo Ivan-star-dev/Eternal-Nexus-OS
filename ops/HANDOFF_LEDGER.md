@@ -6,6 +6,34 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | LIVING-SYSTEM-MANIFEST-001 | ORGANISM-BOOT
+
+**TASK:** Living System Manifest + NexusRuntime Fusion Layer — close the true end of the system
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES CREATED:**
+- `src/lib/core/fusion-bus.ts` — typed inter-layer event bus (11 event kinds, 3 layers, DOM bridge)
+- `src/lib/core/organism-state.ts` — canonical state schema (5 layers: identity/memory/environment/intelligence/system), continuity score formula, behavioral type resolver
+- `src/lib/core/runtime.ts` — NexusRuntime singleton: boots all 11 subsystems, anti-chaos law enforcement, session/artifact/fidelity/evolution/portal bridges
+- `src/lib/core/index.ts` — barrel export
+- `src/hooks/useOrganism.ts` — React integration: wires SessionContext + useEvolution + route changes → runtime
+- `ops/LIVING_SYSTEM_MANIFEST.md` — canonical architecture document: 11 layers, fusion bus graph, organism state schema, 7 anti-chaos laws, continuity formula, behavioral matrix, transition grammar, atmosphere grammar
+
+**FILES MODIFIED:**
+- `src/components/SessionBoot.tsx` — now boots nexusRuntime on app mount (replaces governance stub)
+
+**ORGANISM ARCHITECTURE (sealed):**
+- 11 layers: Identity Interpreter → Intent Resolver → World Composer → Atmosphere Director → Interaction Conductor → Memory Core → Route Intelligence → Guidance Engine → Governance Guardian → Performance Governor → Evolution Engine
+- C-01→C-07 anti-chaos laws: state flows down, no cross-layer writes, governance synchronous, memory immortal, environment is consequence, evolution additive, performance gates rendering
+- Continuity score 0–1 with 6 signal components
+- Behavioral profile: explorer/builder/researcher/navigator/unknown
+
+**BUILD:** ✅ clean | **TESTS:** 84/84 ✅
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | GAP-CLOSURE-V10-WAVE5 | SHIP-GATE-VALIDATION
 
 **TASK:** Ship Gate P0 Validation — install deps, typecheck, lint, build, tests, fix blocking stubs

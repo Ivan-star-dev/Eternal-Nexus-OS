@@ -7,23 +7,12 @@
  */
 
 import { useEffect } from 'react';
-import { guardArtifactCount, runGovernanceChecks } from '@/lib/governance/runtime-guard';
-import { useSession } from '@/contexts/SessionContext';
+import { nexusRuntime } from '@/lib/core/runtime';
 
 export default function SessionBoot() {
-  const { session } = useSession();
-
   useEffect(() => {
-    // Run lightweight governance checks on boot — non-blocking, logs violations only
-    try {
-      runGovernanceChecks([
-        () => guardArtifactCount(0),
-      ]);
-    } catch {
-      // governance check failures are non-blocking
-    }
-  // Run once on mount
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Boot the living organism runtime — idempotent, safe to call once on mount
+    nexusRuntime.boot();
   }, []);
 
   return null;
