@@ -89,7 +89,7 @@ export interface ResolvedTransition {
  */
 export function resolveTransition(ctx: TransitionContext): ResolvedTransition {
   const budget = getCurrentBudget();
-  const { duration_ms } = budget;
+  const duration_ms = budget.transition_duration_ms;
 
   // Light tier or reduced motion — instant always
   if (budget.tier === 'light') {

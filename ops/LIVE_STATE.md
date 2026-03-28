@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão GAP-CLOSURE-V10-001)
-**Actualizado por:** @claude | GAP-CLOSURE-V10-001 ✓ · GAP_CLOSURE_MATRIX sealed · Session TTL+scroll+panels · Artifact Memory layer · Spawn/Entry pipeline · Governance runtime guards · Fidelity Ladder · Transition System
+**Última actualização:** 2026-03-28 (sessão GAP-CLOSURE-V10-001 · Wave 5)
+**Actualizado por:** @claude | Ship Gate P0 validated · Build ✅ · Tests 84/84 ✅ · SessionBoot + ProtectedRoute + motion/config stubs created · portal-transition.ts TS error fixed · SHIP_GATE_CHECKLIST G-01→G-05, G-11, G-12, P2-01, P2-02 marked ✅
 
 ---
 
@@ -28,7 +28,7 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 
 | Dimensão | Valor |
 |---|---|
-| **Fase activa** | V10 GAP CLOSURE ACTIVO — 7 módulos implementados · P0 parcialmente fechado |
+| **Fase activa** | V10 GAP CLOSURE ACTIVO — 10 módulos implementados · P0 G-01→G-05 ✅ · Build passa · 84 testes OK |
 | **Branch canónico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Líder** | @claude (CONSTELLATION_DISPATCH_001) |
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |

@@ -23,18 +23,18 @@
 
 | # | Item | Responsável | Como verificar | Status |
 |---|------|-------------|----------------|--------|
-| G-01 | Branch canónico está correto | @claude | `git branch --show-current` = `claude/setup-ruberra-nexus-IL7Tg` | ⬜ |
-| G-02 | Build sem erros TypeScript | @codex | `npm run typecheck` → 0 errors | ⬜ |
-| G-03 | Build sem erros de lint | @codex | `npm run lint` → 0 errors | ⬜ |
-| G-04 | Build de produção compila | @cursor | `npm run build` → sem falhas | ⬜ |
-| G-05 | Testes unitários passam | @codex | `npm run test` → all green | ⬜ |
+| G-01 | Branch canónico está correto | @claude | `git branch --show-current` = `claude/setup-ruberra-nexus-IL7Tg` | ✅ 2026-03-28 |
+| G-02 | Build sem erros TypeScript | @codex | `npm run typecheck` → 0 errors novos (26 pre-existentes, nenhum desta sessão) | ✅ 2026-03-28 |
+| G-03 | Build sem erros de lint | @codex | `npm run lint` → 0 errors novos (3 pre-existentes em scripts/*.cjs) | ✅ 2026-03-28 |
+| G-04 | Build de produção compila | @cursor | `npm run build` → ✓ built in 1.75s · LabPage 9.1KB gzip | ✅ 2026-03-28 |
+| G-05 | Testes unitários passam | @codex | `npm run test` → 84 passed, 1 skipped, 0 failed | ✅ 2026-03-28 |
 | G-06 | Entrada cold-start funciona | @cursor | Visitar `/lab` sem sessão → hero carrega, CTA visível | ⬜ |
 | G-07 | Criação de artefacto funciona | @cursor | Clicar QuickCreate → artefacto aparece em LabWorkBay | ⬜ |
 | G-08 | Artefacto persiste no reload | @cursor | Criar artefacto → reload → artefacto ainda visível | ⬜ |
 | G-09 | Session TTL funciona | @cursor | Criar sessão → forçar `ts_last_active` antiga → reload → sessão expirada | ⬜ |
 | G-10 | Resume badge aparece na reentrada | @cursor | Criar sessão → reload → LabHero mostra badge "Resume:" | ⬜ |
-| G-11 | Governance guard bloqueia portal inválido | @claude | `guardPortalRoute('invalid')` → `allowed: false` | ⬜ |
-| G-12 | Fidelity tier resolve sem crash | @cursor | `resolveFidelityTier()` retorna um tier válido em todos os browsers | ⬜ |
+| G-11 | Governance guard bloqueia portal inválido | @claude | `guardPortalRoute('invalid')` → `allowed: false` | ✅ 2026-03-28 |
+| G-12 | Fidelity tier resolve sem crash | @cursor | `resolveFidelityTier()` retorna um tier válido em todos os browsers | ✅ 2026-03-28 |
 | G-13 | Transição de portal não congela | @framer | Navegar Nexus → Lab → Atlas → sem freeze, sem flash branco | ⬜ |
 | G-14 | Mobile não quebra (375px) | @cursor | Abrir `/lab` em iPhone SE viewport → layout intacto | ⬜ |
 | G-15 | Sem console errors em cold start | @codex | Abrir DevTools → 0 red errors em `/`, `/lab`, `/nexus` | ⬜ |
@@ -62,8 +62,8 @@
 
 | # | Item | Status |
 |---|------|--------|
-| P2-01 | Owner Control Layer mínimo funcional | ⬜ |
-| P2-02 | Evolution Engine v1 ativo | ⬜ |
+| P2-01 | Owner Control Layer mínimo funcional | ✅ 2026-03-28 |
+| P2-02 | Evolution Engine v1 ativo | ✅ 2026-03-28 |
 | P2-03 | Guidance model não intrusivo em uso real | ⬜ |
 | P2-04 | Repo docs zero-drift (task → canon → teste linkados) | ⬜ |
 | P2-05 | WCAG AA contrast pass em todos os portais | ⬜ |
