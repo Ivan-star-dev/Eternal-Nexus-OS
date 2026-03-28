@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão ORGANISM-BRIDGE-001)
-**Actualizado por:** @claude | OrganismBridge mounted app-wide ✅ · startSession seeded in /lab ✅ · NexusRuntime now live on every route · PRIORIDADE 1+2 from AUTO-JULGAMENTO resolved · WEDGE GATE ACTIVE — test pending owner validation
+**Última actualização:** 2026-03-28 (sessão WEDGE-FIRST-STRIKE-001)
+**Actualizado por:** @claude | returnTracker.ts ✅ · resume badge shows real artifact name ✅ · ControlTower Wedge Gate section ✅ · WEDGE TEST NOW EXECUTABLE — open /lab, leave, return within 48h, check ControlTower · FIRST STRIKE complete
 
 ---
 

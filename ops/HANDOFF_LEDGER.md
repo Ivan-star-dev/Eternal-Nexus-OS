@@ -6,6 +6,33 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | WEDGE-FIRST-STRIKE-001 | RETURN-TRACKING+RESUME-BADGE+PILOT-METRICS
+
+**TASK:** FIRST STRIKE — wedge measurability, resume truth, pilot metrics
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMIT:** 9b5490e
+
+**FILES CREATED:**
+- `src/lib/spawn/returnTracker.ts` — cross-visit return tracking: `recordVisit()` (sessionStorage-deduped), `getReturnMetrics()` returns `{visit_count, return_count, returned_within_48h, wedge_signal: none|weak|strong, hours_since_first, hours_since_last}`. Persisted to `nxos_return_log`. Zero backend. Wedge gate is now measurable.
+
+**FILES MODIFIED:**
+- `src/pages/LabPage.tsx` — `recordVisit()` called on every /lab mount. Tracks cross-visit data independently of session system.
+- `src/components/lab-surface/LabHero.tsx` — Resume detection now uses TWO signals: session.is_resume (artifact path) OR returnTracker.return_count > 0 (always accurate). Resume badge now shows "Visit N · [last artifact title]" — real data, not generic 'Creation Lab'. Loads last artifact from getRecentArtifacts(1).
+- `src/components/owner/ControlTower.tsx` — Wedge Gate section added: visits, returns, 48h gate status, hours since first/last, WEDGE PROVEN/BUILDING/NO SIGNAL verdict. Loaded alongside health scores on panel open.
+
+**WEDGE TEST STATUS:**
+  EXECUTABLE NOW: open /lab → leave → return within 48h → open ControlTower → returned_within_48h=true, wedge_signal=weak
+  STRONG SIGNAL: 3+ returns → wedge_signal=strong → WEDGE PROVEN
+
+**REMAINING FIRST STRIKE (not yet done):**
+  - Unify triple session system
+  - resolveEntry() wire or delete
+  - Atmosphere: remove hardcoded backgrounds from portal pages
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | ORGANISM-BRIDGE-001 | USEORGANISM-MOUNT+LABSESSION-SEED
 
 **TASK:** PRIORIDADE 1+2 from AUTO-JULGAMENTO SOBERANO — mount OrganismBridge app-wide, seed session on /lab cold entry
