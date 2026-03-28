@@ -1,18 +1,20 @@
 /**
  * LabPage.tsx — /lab route
- * Creation Lab face — NexusSurface hero + LabSurface work environment.
+ * Creation Lab portal — V10 REAL upgrade.
  *
  * Layout:
- *   1. NexusSurface — hero (unchanged, owns its own nav)
- *   2. LabSurface — actual work environment below hero (V7-SURFACES-001)
- *   3. Research section — ResearchFeed
+ *   1. LabEntryHeader — authenticated user badge (unchanged)
+ *   2. LabHero — unique Creation Lab entry (replaces NexusSurface)
+ *   3. LabSurface — work environment: QuickCreate + WorkBay + ToolSpine
+ *   4. Research section — ResearchFeed
+ *   5. WaitlistBanner — unauthenticated visitors
  *
- * Canon: NS-1-001 + V7-SURFACES-001 · K-04+K-05+K-06+K-07
- * @framer+@cursor | 2026-03-28
+ * Canon: GAP-CLOSURE-V10-001 · Gap 3 · Creation Lab
+ * @claude | 2026-03-28
  */
 
 import { motion } from "framer-motion";
-import NexusSurface from "@/components/nexus-surface/NexusSurface";
+import LabHero from "@/components/lab-surface/LabHero";
 import LabSurface from "@/components/lab-surface/LabSurface";
 import ResearchFeed from "@/components/research/ResearchFeed";
 import LabEntryHeader from "@/components/lab-surface/LabEntryHeader";
@@ -22,13 +24,14 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function LabPage() {
   return (
-    <div style={{ background: "#0a0a1a", minHeight: "100svh" }}>
+    <div style={{ background: "#060c14", minHeight: "100svh" }}>
       {/* ── Premium entry header — authenticated users only ── */}
       <LabEntryHeader />
-      {/* ── Hero — NexusSurface unchanged ── */}
-      <NexusSurface />
 
-      {/* ── Lab Surface — actual work environment ── */}
+      {/* ── Hero — Creation Lab identity (distinct from Nexus) ── */}
+      <LabHero />
+
+      {/* ── Lab Surface — work environment with QuickCreate + WorkBay + ToolSpine ── */}
       <LabSurface />
 
       {/* ── Research section — below work environment ── */}
@@ -40,7 +43,6 @@ export default function LabPage() {
         }}
         aria-label="Latest Research"
       >
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +55,7 @@ export default function LabPage() {
               fontFamily: "JetBrains Mono, monospace",
               fontSize: "9px",
               letterSpacing: "0.28em",
-              color: "rgba(0,170,255,0.45)",
+              color: "rgba(0,170,255,0.4)",
               textTransform: "uppercase",
               display: "block",
               marginBottom: "10px",
@@ -66,7 +68,7 @@ export default function LabPage() {
               fontFamily: "Syne, system-ui, sans-serif",
               fontSize: "clamp(22px, 4vw, 36px)",
               fontWeight: 700,
-              color: "rgba(228,235,240,0.88)",
+              color: "rgba(228,235,240,0.85)",
               letterSpacing: "-0.02em",
               margin: 0,
               lineHeight: 1.2,
@@ -101,7 +103,6 @@ export default function LabPage() {
           />
         </motion.div>
 
-        {/* Feed */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
