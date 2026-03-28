@@ -25,6 +25,8 @@ import { useSessionSpawn } from "@/hooks/useSessionSpawn";
 import NextStepHint from "@/components/intelligence/NextStepHint";
 import ControlTower from "@/components/owner/ControlTower";
 import { useAuth } from "@/contexts/AuthContext";
+import PageTransitionLayer from "@/components/shell/PageTransitionLayer";
+import RouteAtmosphereLayer from "@/components/shell/RouteAtmosphereLayer";
 
 function SystemAwareInspector() {
   const location = useLocation();
@@ -131,6 +133,8 @@ const App = () => (
             <GlobalIntelligenceLayer />
             <OwnerLayer />
             <Suspense fallback={<LoadingFallback />}>
+            <PageTransitionLayer>
+            <RouteAtmosphereLayer>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/project/:id" element={<ProjectPage />} />
@@ -152,6 +156,8 @@ const App = () => (
                 <Route path="/terms" element={<Terms />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+            </RouteAtmosphereLayer>
+            </PageTransitionLayer>
             </Suspense>
           </BrowserRouter>
         </TooltipProvider>

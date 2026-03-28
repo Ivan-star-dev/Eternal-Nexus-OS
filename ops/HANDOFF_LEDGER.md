@@ -6,6 +6,40 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | BUILD-REAL-001 | TRANSITION+ATMOSPHERE+TASKBOARD
+
+**TASK:** Build Real — PageTransitionLayer, RouteAtmosphereLayer, universal atmosphere, BUILD_REAL_TASKBOARD
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES CREATED:**
+- `src/components/shell/PageTransitionLayer.tsx` — Framer Motion AnimatePresence wrapping all routes; resolveTransition() determines kind (soft/dominant/full/instant) from portal pair; usePrevious tracks from_portal
+- `src/components/shell/RouteAtmosphereLayer.tsx` — universal PortalShell at route level; skips /system /access /privacy /terms /investor; auto-detects portalId from window.location
+- `ops/BUILD_REAL_TASKBOARD.md` — canonical build state: repo map, 20 T-0 tasks ✅, 8 T-1 tasks, 6 T-2, 3 T-3, 10 acceptance tests, rollout sequence
+
+**FILES MODIFIED:**
+- `src/App.tsx` — wired PageTransitionLayer + RouteAtmosphereLayer around Suspense+Routes
+- `src/pages/LabPage.tsx` — removed PortalShell wrapper (now provided by RouteAtmosphereLayer at app level)
+
+**BUILD:** ✅ clean | **TESTS:** 84/84 ✅
+
+**ATMOSPHERE NOW LIVE ON ALL PORTALS:**
+  /lab → lab DNA (dark blue, electric blue, teal)
+  /nexus → nexus DNA (deep black, indigo, violet)
+  /atlas → atlas DNA (deep charcoal, gold, amber)
+  /founder → founder DNA (dark navy, platinum, crystal)
+  /research, /school, /workshop → each distinct atmospheric identity
+  (auto-applied via RouteAtmosphereLayer, no per-page code changes needed)
+
+**TRANSITIONS NOW LIVE ON ALL NAVIGATION:**
+  same portal → soft (0.3s)
+  lab ↔ nexus → dominant (0.5s, scale+blur overlay)
+  cross-family → full (0.7s, deep overlay)
+  light tier/rAM → instant (0s)
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | LIVING-SYSTEM-MANIFEST-001 | ORGANISM-BOOT
 
 **TASK:** Living System Manifest + NexusRuntime Fusion Layer — close the true end of the system
