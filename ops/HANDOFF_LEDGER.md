@@ -6,6 +6,30 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @claude | V7-PORTAL-STATE-001 | K-16 ARCH
+
+**TASK:** V7-PORTAL-STATE-001 — Portal State Framework
+**STATUS:** CONCLUÍDA ✅
+**KERNEL:** K-16 ARCH
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**FILES:**
+- `src/lib/portal/types.ts` — PortalId, PortalConfig, SessionSnapshot, PortalState
+- `src/lib/portal/portalRegistry.ts` — All 6 portal configs (lab/school/workshop/focus/archive/world)
+- `src/lib/portal/sessionContinuity.ts` — saveSnapshot, loadSnapshot, clearSnapshot, isSnapshotValid
+- `src/contexts/PortalContext.tsx` — PortalProvider, usePortal hook, transition, clearContinuity
+- `src/hooks/usePortalIdentity.ts` — density/motion cap enforcement, isExtraHighlightAllowed
+- `src/hooks/useSessionSpawn.ts` — isReturning, lastPortal, lastContext, spawnReady
+- `src/App.tsx` — PortalProvider wired, PortalRouteSync added inside BrowserRouter
+
+**CANON SOURCE:** RUBERRA_V10_1_MASTER.md + RUBERRA_V10_2_EXPANSION.md
+**BUILD PHASE:** Phase 1 — Portal State Framework
+**PIONEER:** @claude
+
+---
+
+---
+
 ## HANDOFF — 2026-03-27 | @codex | V6-QUALITY-AUDIT-001 + GATE_V7_OPEN | K-11+K-12
 
 **TASK:** V6-QUALITY-AUDIT-001

@@ -6,11 +6,12 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { SessionProvider } from "@/contexts/SessionContext";
+import { PortalProvider } from "@/contexts/PortalContext";
 import CustomCursor from "@/components/CustomCursor";
 import GrainOverlay from "@/components/GrainOverlay";
 import OrganTransitionParticles from "@/components/OrganTransitionParticles";
 import CommandPalette from "@/components/CommandPalette";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import OrganErrorBoundary from "./components/shared/OrganErrorBoundary";
 import OrganSuspenseFallback from "./components/shared/OrganSuspenseFallback";
@@ -18,11 +19,31 @@ import { NexusFlowInspector } from "./components/shared/NexusFlowInspector";
 import LoadingFallback from "./components/LoadingFallback";
 import ErrorBoundary from "./components/ErrorBoundary";
 import SessionBoot from "./components/SessionBoot";
+import { getPortalByRoute } from "@/lib/portal/portalRegistry";
+import { usePortal } from "@/contexts/PortalContext";
 
 function SystemAwareInspector() {
   const location = useLocation();
   if (location.pathname === "/system") return null;
   return <NexusFlowInspector />;
+}
+
+/**
+ * Syncs the active portal when the route changes.
+ * Placed inside BrowserRouter so useLocation() is available.
+ */
+function PortalRouteSync() {
+  const location = useLocation();
+  const { transition } = usePortal();
+
+  useEffect(() => {
+    const config = getPortalByRoute(location.pathname);
+    if (config) {
+      transition(config.id, location.pathname);
+    }
+  }, [location.pathname, transition]);
+
+  return null;
 }
 
 // ─── Active routes — clean organism post-purge 2026-03-26 ─────────────────────
@@ -54,12 +75,14 @@ const App = () => (
     <LanguageProvider>
       <SessionProvider>
       <AuthProvider>
+        <PortalProvider>
         <TooltipProvider>
           <CustomCursor />
           <GrainOverlay />
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <PortalRouteSync />
             <SessionBoot />
             <OrganTransitionParticles />
             <SystemAwareInspector />
@@ -89,6 +112,7 @@ const App = () => (
             </Suspense>
           </BrowserRouter>
         </TooltipProvider>
+        </PortalProvider>
       </AuthProvider>
       </SessionProvider>
     </LanguageProvider>
