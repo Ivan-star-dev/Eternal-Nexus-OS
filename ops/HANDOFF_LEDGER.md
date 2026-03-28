@@ -6,6 +6,21 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @codex | V9-GUIDANCE-GOVERNANCE-001 | K-10+K-11
+
+**TASK:** V9-GUIDANCE-GOVERNANCE-001 — Guidance Model + Governance validator
+**STATUS:** CONCLUÍDA ✅
+**FILES:**
+- `src/lib/guidance/types.ts` — GuidanceIntensity, GuidanceState, GuidanceTrigger
+- `src/lib/guidance/guidanceModel.ts` — resolveGuidanceIntensity (maturity + densityCap + trigger → GuidanceState)
+- `src/components/guidance/ContextualHint.tsx` — sole guidance UI component (dark glass card, bottom-left, Framer Motion fade, 8s auto-dismiss, pointer-events:none container)
+- `src/lib/governance/chaosDetector.ts` — detectChaos (panel cap, highlight cap, Deep Focus hard rules, recommendations only)
+- `src/hooks/useGovernance.ts` — reads openPanels + portalConfig, runs detectChaos, returns recommendations
+- `src/hooks/useGuidance.ts` — composes usePortalIdentity + maturityLevel → GuidanceState
+**LOCK:** Guidance never dominates. Chaos detector never auto-acts. Portal identity immutable.
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | V9-EVOLUTION-001 | K-16
 
 **TASK:** V9-EVOLUTION-001 — Evolution Engine minimum
