@@ -6,6 +6,26 @@
 
 ---
 
+## HANDOFF — 2026-03-28 | @codex | V8-QUALITY-AUDIT-001 | K-11
+
+**TASK:** V8-QUALITY-AUDIT-001
+**STATUS:** CONCLUÍDA ✅
+**SCORE:** 0.86/1.0
+
+**FILES PRODUCED:**
+- `ops/gates/V8_CLOSURE_REPORT.md` — Full audit report with score breakdown, phase status, gaps, V9 entry conditions
+
+**AUDIT SUMMARY:**
+- AUTH_QUALITY: 0.85 — RuberraUser typed, useAuth reactive, AuthModal functional, PremiumGate works. Minor: dual auth import paths.
+- CONTINUITY: 0.88 — SessionSpawnGate wired (V7 gap resolved), openPanels tracked (V7 gap resolved), usePortalIdentity in all 3 surfaces (V7 gap resolved). Scroll restore still missing.
+- DUAL_ACCESS: 0.90 — DualEntryGate in Index, two clear paths (public /world + premium /lab), WaitlistBanner on premium routes, LabEntryHeader live. Minor: AuthModal duplication risk.
+- SUPABASE_INTEGRATION: 0.87 — Dual-path persistence correct, silent fails throughout, reactive auth state. Gaps: no anon→auth migration, errors fully silenced, waitlist table untyped.
+- V10_ALIGNMENT: 0.80 — Portals as world states confirmed, spawn loop partially implemented, dual-access model aligned with vision. Phase 4+ (adaptive generation, evolution engine) not started.
+
+**V10.1 BUILD PHASES:** Phase 1 DONE (V7) · Phase 2 DONE (V8) · Phase 3 PARTIAL · Phase 4+ PENDING
+
+---
+
 ## HANDOFF — 2026-03-28 | @framer+@cursor | V8-DUAL-ACCESS-001 | K-04+K-07
 
 **TASK:** V8-DUAL-ACCESS-001 — Dual access + Lab primary + waitlist
