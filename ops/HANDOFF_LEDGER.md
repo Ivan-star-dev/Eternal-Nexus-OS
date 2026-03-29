@@ -6,6 +6,35 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | SIX-FAMILY-ECOSYSTEM-001 | ECOSYSTEM STRUCTURE SEEDED
+
+**TASK:** Six-family sovereign ecosystem build — Knowledge + Market + Product + Corp + Legacy
+**STATUS:** CONCLUÍDA ✅
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMIT:** 1d527cb
+
+**FILES CREATED (8 new files, 1419 lines):**
+- `ecosystem/INDEX.md` — master six-family map, truth label definitions, parallel ascension law, wedge oxygen law
+- `ecosystem/knowledge/RUNTIME_TRUTH.md` — 12 systems rated REAL/PARTIAL/SCAFFOLD/DEAD, verified against source code this session. Covers: Session Backbone, Artifact Memory, Evolution Engine, Return Tracker, OrganismBridge, Route Atmosphere, Session Snapshot, Governance (DEAD in UI), ControlTower, School Surface, Lab Tri-Core (FUTURE 0%), Supabase Sync (DEAD)
+- `ecosystem/knowledge/ARCHITECTURE_TRUTH.md` — layer map (5 layers), data flows for session/artifact/return/maturity, component dependency graph, storage map (9 localStorage/sessionStorage keys), isolation islands
+- `ecosystem/market/CATEGORY_LANGUAGE.md` — canonical category name, 3-line pitch, approved/forbidden vocabulary, 3-portal definitions, tri-core organism language, wedge language, brand voice
+- `ecosystem/market/WEDGE_POSITIONING.md` — formula, all 5 components with status, test protocol (8-step), proof state (PENDING), positioning vs Notion/Obsidian/Roam
+- `ecosystem/product/TRI_CORE_STATUS.md` — Creation 80% / School 70% / Lab 0%, gap lists per dimension, fusion readiness checklist (all boxes open)
+- `ecosystem/corp/PIONEER_TRUTH.md` — 6 pioneers, may/must-not-touch lists, immediate tasks per pioneer, globally frozen files, handoff protocol
+- `ecosystem/legacy/TIMELINE.md` — V1→V10 commit-by-commit history, decisions that survived (8 canonicalized), decisions that were cut, V10 real definition with current pass/fail
+
+**CRITICAL FINDINGS DOCUMENTED:**
+- Supabase sync = DEAD (comment only, never executes) — data fragility, localStorage only
+- Governance C-01→C-07 = DEAD in UI flows (zero call sites in saveArtifact/startSession)
+- Lab tri-core = 0% (fusion gate locked until owner opens gate)
+- sessionSnapshot saved but read by nothing in UI
+- Wedge test still pending (owner must leave /lab, return in 48h)
+
+**OXYGEN LAW RESPECTED:** Ecosystem built during wedge wait, not instead of wedge test.
+
+---
+
 ## HANDOFF — 2026-03-28 | @claude | WEDGE-FIRST-STRIKE-001 | RETURN-TRACKING+RESUME-BADGE+PILOT-METRICS
 
 **TASK:** FIRST STRIKE — wedge measurability, resume truth, pilot metrics

@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-28 (sessão WEDGE-FIRST-STRIKE-001)
-**Actualizado por:** @claude | returnTracker.ts ✅ · resume badge shows real artifact name ✅ · ControlTower Wedge Gate section ✅ · WEDGE TEST NOW EXECUTABLE — open /lab, leave, return within 48h, check ControlTower · FIRST STRIKE complete
+**Última actualização:** 2026-03-29 (sessão SIX-FAMILY-ECOSYSTEM-001)
+**Actualizado por:** @claude | ecosystem/ built ✅ · 8 files · 6 families seeded · RUNTIME_TRUTH + ARCHITECTURE_TRUTH + CATEGORY_LANGUAGE + WEDGE_POSITIONING + TRI_CORE_STATUS + PIONEER_TRUTH + TIMELINE · commit 1d527cb · WEDGE TEST STILL PENDING (owner must run 48h test)
 
 ---
 
