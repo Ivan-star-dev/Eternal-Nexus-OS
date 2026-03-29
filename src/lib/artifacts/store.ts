@@ -66,6 +66,12 @@ async function syncToSupabase(artifact: ArtifactMeta, userId: string): Promise<v
       ts_created: artifact.ts_created,
       ts_updated: artifact.ts_updated,
       ts_last_accessed: artifact.ts_last_accessed,
+      ...(artifact.validation_status !== undefined
+        ? { validation_status: artifact.validation_status }
+        : {}),
+      ...(artifact.related_artifact_ids !== undefined
+        ? { related_artifact_ids: artifact.related_artifact_ids }
+        : {}),
     }, { onConflict: 'artifact_id' });
   } catch {
     // sync failure is non-fatal — localStorage is the immediate source of truth
@@ -126,6 +132,8 @@ export interface SaveArtifactOptions {
   tags?: string[];
   source?: ArtifactSource;
   userId?: string; // if provided, dual-write to Supabase
+  validation_status?: ArtifactMeta['validation_status'];
+  related_artifact_ids?: string[];
 }
 
 export function saveArtifact(params: SaveArtifactOptions): ArtifactSaveResult {
@@ -154,6 +162,12 @@ export function saveArtifact(params: SaveArtifactOptions): ArtifactSaveResult {
     ts_updated: now,
     ts_last_accessed: now,
     version: 1,
+    ...(params.validation_status !== undefined
+      ? { validation_status: params.validation_status }
+      : {}),
+    ...(params.related_artifact_ids !== undefined
+      ? { related_artifact_ids: params.related_artifact_ids }
+      : {}),
   };
 
   // Local write is synchronous and immediate
@@ -169,7 +183,7 @@ export function saveArtifact(params: SaveArtifactOptions): ArtifactSaveResult {
 
 export function updateArtifact(
   artifact_id: string,
-  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status' | 'ts_last_accessed'>>,
+  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status' | 'ts_last_accessed' | 'validation_status' | 'related_artifact_ids'>>,
   userId?: string
 ): ArtifactMeta | null {
   const artifacts = loadAll();

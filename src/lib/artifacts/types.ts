@@ -44,6 +44,8 @@ export interface ArtifactMeta {
   ts_updated: string;            // ISO 8601
   ts_last_accessed: string;      // ISO 8601
   version: number;               // starts at 1, increments on update
+  validation_status?: 'pending' | 'running' | 'passed' | 'failed' | 'inconclusive';
+  related_artifact_ids?: string[];
 }
 
 export interface ArtifactFilter {
