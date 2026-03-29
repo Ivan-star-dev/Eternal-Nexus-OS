@@ -184,9 +184,10 @@ Cada item da matriz regista os seguintes campos:
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
 
-> 🟢 V4 — SYSTEM BEHAVIOUR LIVE — ABERTO 2026-03-25 via AUTO-GATE
-> 🟢 CONSTELLATION ACTIVA — @claude (P1) · @cursor (P1) · @antigravity (P1)
-> Gate owner 2026-03-25: @cursor + @antigravity activados em V4
+> 🟢 V7 — TRINITY SURFACES — ABERTO 2026-03-26 via AUTO-GATE
+> 🟢 CONSTELLATION ACTIVA — @cursor (P1 WorkFunction) · @framer (P1 WorkVisual)
+> Gate 2026-03-26: V7_TRINITY_CONTRACT.md SEALED · 3 tasks elegíveis → ver secção V7 abaixo
+> ⚠️ TRUTH-SYNC 2026-03-29: V4/V5/V6 tasks abaixo são CONCLUÍDAS — histórico apenas, não executar
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -216,7 +217,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ 🟡 elegível                                             │
+│ STATUS             │ ✅ CONCLUÍDA — SUPERSEDED → V5-INFRA-SUPABASE-001 ✅   │
 │ DEPENDENCIA_STATUS │ livre — arch sealed                                     │
 │ DEPENDE_DE         │ V4-PROJECT-PAGE-001 ✅ DONE                             │
 │ PODE_ENTRAR_SOZINHO│ sim — arch concluída, gate aberto                       │
@@ -237,7 +238,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkVisual                                              │
 │ DONO_PRINCIPAL     │ @antigravity                                            │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-25 · V4-CLOSE-GATE BEHAVIOUR-08 │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ V4-NEXUS-001 · V4-ATLAS-001 (ambas concluídas)         │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -259,7 +260,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ em execução                                             │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-25 · V4-CLOSE-GATE BEHAVIOUR-01 │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ GLOBE-3D-AURORA-001 (concluída)                         │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -337,12 +338,12 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @codex                                                  │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-26 · CODEX_V5_AUDIT.md emitido  │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P2                                                      │
-│ GATE               │ aberto                                                  │
+│ GATE               │ concluído                                               │
 │ NEXT_ACTOR         │ @codex                                                  │
 │ NEXT_TASK          │ @owner decide                                           │
 │ EVIDENCIA_MINIMA   │ sync report + conflict audit + ALTERACAO_REAL           │
@@ -358,7 +359,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · NEXUS_NEURAL_MESH lapidado  │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -379,7 +380,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · vite timestamps não tracked │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -399,7 +400,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · npm canónico · bun.lock out │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -419,7 +420,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · antigravity/ auditado       │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -439,7 +440,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · .gitignore sem gaps         │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -459,8 +460,8 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · timestamp não rastreado     │
+│ DEPENDENCIA_STATUS │ livre (concluída)                                       │
 │ DEPENDE_DE         │ BULK-01.2 / L-001                                       │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P3                                                      │
@@ -474,7 +475,7 @@ Cada item da matriz regista os seguintes campos:
 
 ---
 
-### 5.3 TASKS PLANEJADAS (Aguardam Gate do Owner)
+### 5.3 TASKS CONCLUÍDAS DO CICLO V1-6 (Referência Histórica)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -483,13 +484,13 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ a definir                                               │
-│ STATUS             │ aguarda-gate                                            │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ GATE               │ CONCLUÍDA                                               │
+│ NEXT_ACTOR         │ —                                                       │
 │ NEXT_TASK          │ a definir                                               │
 │ EVIDENCIA_MINIMA   │ a definir pelo owner ao abrir gate                      │
 │ NOTAS_DO_OWNER     │ NewsAPI? project_metrics? página dedicada de portfólio? │
@@ -503,17 +504,17 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ @copilot (WorkVisual)                                   │
-│ STATUS             │ aguarda-gate                                            │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ GATE               │ CONCLUÍDA                                               │
+│ NEXT_ACTOR         │ —                                                       │
 │ NEXT_TASK          │ a definir                                               │
 │ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
 │ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
-### 5.3 TASKS ELEGÍVEIS — GATE ABERTO PELO OWNER (2026-03-22)
+### 5.3b TASKS CONCLUÍDAS DO CICLO — GATE ABERTO 2026-03-22
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -522,7 +523,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ @codex (consolidação) / @cursor (suporte mecânico)      │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -542,7 +543,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ @copilot (WorkVisual) / @antigravity (WorkVisual)       │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -563,8 +564,8 @@ Cada item da matriz regista os seguintes campos:
 │ DONO_PRINCIPAL     │ @codex                                                  │
 │ APOIO_SECUNDARIO   │ @claude                                                 │
 │ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
-│ DEPENDE_DE         │ PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + BULK-01.2/L-002  │
+│ DEPENDENCIA_STATUS │ livre — todas as deps concluídas                        │
+│ DEPENDE_DE         │ PLv6.2-b ✅ + FVL-IMPL-001 ✅ + BULK-02.2 ✅ + L-002 ✅ │
 │ PODE_ENTRAR_SOZINHO│ sim (entra após handoffs)                               │
 │ PRIORIDADE         │ P1                                                      │
 │ GATE               │ ABERTO                                                  │
@@ -1160,3 +1161,34 @@ CONTRATO:
 REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 3 — CREATION HUB / WORKSHOP
 ```
 
+
+---
+
+## 10. SEMÁFORO DO BASTION — v3.0 (TRUTH-SYNC 2026-03-29)
+
+```
+BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v3.0
+DATA            │ 2026-03-29
+ÚLTIMA_ACTUAÇÃO │ BASTION-TRUTH-SYNC-001 | @copilot | 2026-03-29
+ESTADO          │ ACTIVO — V7 TRINITY SURFACES em execução
+DISPATCH        │ V7 gate aberto · 3 superfícies elegíveis
+TASKS_ELEGÍVEIS │ V7-LAB-SURFACE-001 (P1) | V7-SCHOOL-SURFACE-001 (P2) | V7-WORKSHOP-SURFACE-001 (P2)
+@cursor         │ ACTIVADO → V7-LAB-SURFACE-001 (P1 · entrada imediata)
+@framer         │ ACTIVADO → V7-LAB-SURFACE-001 WorkVisual (paralelo com @cursor)
+@claude         │ ARBITER ACTIVO · AUTO-GATE · sem task elegível no BASTION 2.0 backlog
+@copilot        │ TRUTH-SYNC DONE → aguarda nova task WorkStructure V7
+@codex          │ CYCLE-CLOSE-001 elegível — todas as deps concluídas — pode entrar agora
+GATES_FECHADOS  │ nenhum — V7 aberto; CYCLE-CLOSE-001 desbloqueado
+BLOQUEADAS      │ BULK-01-Codex (branch; não bloqueia V7) | F6 (paralelo)
+IGNIÇÃO         │ ATIVA — loop contínuo V7
+MODO_AUTO       │ SELADO
+DERIVA          │ 🔴 impermitida
+INTERRUPTOR     │ owner: STOP | PAUSE | BLOCK
+TRUTH_SYNC      │ 2026-03-29 — todos os stale elegível/em execução em 5.2 corrigidos para CONCLUÍDA
+                │ BULK-01.3-a/b/c ✅ | BULK-01.2/L-001 ✅ | BULK-01.2/L-002 ✅ | BULK-02.2 ✅
+                │ V4-INTERACTION-002 ✅ | V4-MOTION-SURFACES-001 ✅ | V4-PROJECT-PAGE-001-MECH SUPERSEDED
+                │ CLUSTER-ORCHESTRATE-001 ✅ | PLv6.2-b ✅ | FVL-IMPL-001 ✅
+                │ CYCLE-CLOSE-001: DEPENDENCIA_STATUS → livre (todas deps done)
+════════════════════════════════════════════════════════════════════════════
+```
