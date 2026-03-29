@@ -6,6 +6,72 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP1–4 CANONICAL CONVERGENCE
+
+**TASK:** Force final site convergence — sovereign palette, globe cosmic wrap, dead code elimination
+**STATUS:** STEP1–4 CONCLUÍDOS ✅
+**ALTERACAO_REAL:** sim — runtime + visual + structural
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMITS:** 8e623e0 · 4191d5a · dff09a6
+
+---
+
+**STEP 1 — SOVEREIGN_PALETTE → src/index.css ✅**
+- Added full `--rx-*` canonical token set to `:root`:
+  `--rx-void/depth/ground/lift/rim` (base field)
+  `--rx-text-prime/mid/dim/ghost` (text scale)
+  `--rx-electric/teal/gold` (tri-core energy veins)
+  `--rx-signal/alert/sovereign` (accents)
+- Bridged Tailwind semantic vars to sovereign values:
+  `--background → --rx-void` · `--primary → --rx-gold` · `--accent → --rx-teal`
+  `--border → --rx-rim` · `--muted-foreground → --rx-text-mid`
+- Added portal vein utilities: `.vein-electric/teal/gold/sovereign`
+- Added surface tints: `.surface-creation/lab/school`
+- **RUNTIME REAL:** every component using `hsl(var(--background))`, `--primary`, `--accent`, `--border` now renders sovereign values
+
+---
+
+**STEP 2 — Kill competing visual truths ✅**
+- `src/pages/IndexPage.tsx` → `src/archive/IndexPage.SUPERSEDED.tsx`
+  Was competing homepage (intelligence dashboard), never routed at "/"
+- `src/components/GlobeBackground.tsx` → `src/archive/GlobeBackground.SUPERSEDED.tsx`
+  Duplicate globe (122L), superseded by GlobeScene.tsx
+- `NexusSurfaceHero.tsx`: rewired lazy import from GlobeBackground → InteractiveGlobe
+- **AUTHORITY REMOVED:** IndexPage can no longer be confused as the homepage
+
+---
+
+**STEP 3 — GlobeScene cosmic wrap ✅**
+- `CosmicVoid`: 32 deterministic distant points, fixed screen-size (sizeAttenuation=false)
+  Behave as real stars — not particle wallpaper. Creates spatial depth.
+- `AtmosphericShell`: 3 concentric BackSide spheres with independent breathing:
+  Ionosphere `#14c8a0` op 0.032 · Stratosphere `#0a9cff` op 0.022 · Corona `#1a6adf` op 0.009
+- `GlobeCore` mass: solid dark sphere `#060e1c` op 0.88 — globe now has physical weight
+- Lighting: warm sun (#e8d4a0) + cold space fill (#1a4a8a) + electric backlight (#0a9cff)
+- **VISUALLY REAL:** globe is suspended in living cosmos, not floating in void
+
+---
+
+**STEP 4 — 20 dead home/ components archived ✅**
+- Verified zero real imports for all 20 (grep confirmed — EarthLab/ResearchTrails were string/fn name matches only)
+- Archived to `src/archive/home-superseded/`: AIInsightsPanel, CollaborationHub, EarthLab, EarthquakeMonitor, EcosystemMap, LearningPathway, LiveEventStream, ManifestoSection, MarketPulse, MetricsTimeline, PlatformStats, QuoteBlock, ResearchCallout, ResearchTrails, RoadmapTimeline, ScenarioComparison, StrategicLayer, V10Proof, WorldClock, WorldPulse
+- `home/index.ts` cleaned: 18 exports → 8 canonical exports
+- **STRUCTURAL REAL:** home/ went from 28 files → 8 files · no phantom exports
+
+---
+
+**CANONICAL SITE LINE (locked):**
+```
+Index.tsx → ProductHero.tsx → GlobeScene.tsx (cosmic wrap)
+          → TrinityRow.tsx → HeroFirstProof.tsx
+          → DossierCard · ProjectsLiveSection · WorldEventFeed
+          → MissionsDashboard · OrganStatusGrid · ContributionsSection
+```
+
+**NEXT:** STEP5 — below-fold survivors audit (ProjectFocusPanel, DossierCard, OrganStatusGrid, ContributionsSection, ProjectsLiveSection quality check)
+
+---
+
 ## HANDOFF — 2026-03-29 | @claude | TOTAL-WAR-CONSOLIDATION-001 | P0 SURVIVAL + TRI-CORE DIGNITY + VISUAL WRAP
 
 **TASK:** Total consolidation pass — P0 survival, tri-core dignity, visual wrap

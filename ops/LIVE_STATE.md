@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão PIONEER-WAVE-001)
-**Actualizado por:** @antigravity + @copilot | ORBITAL-CHAMBER-001 ✅ · OrbitalChamberPage created · /orbital route wired · NavBar brand=ETERNAL NEXUS OS · HeroFirstProof v10 metrics · MOTION-SYSTEM-001 triggered
+**Última actualização:** 2026-03-29 (sessão SITE-CONVERGENCE-001)
+**Actualizado por:** @claude | STEP1–4 ✅ · SOVEREIGN_PALETTE→index.css · IndexPage+GlobeBackground archived · GlobeScene cosmic wrap · 20 dead home/ components archived
 
 ---
 
@@ -28,14 +28,49 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 
 | Dimensão | Valor |
 |---|---|
-| **Fase activa** | V10 GAP CLOSURE ACTIVO — 10 módulos implementados · P0 G-01→G-05 ✅ · Build passa · 84 testes OK |
+| **Fase activa** | SITE-CONVERGENCE-001 ✅ · STEP1–4 completos · canonical site line locked |
 | **Branch canónico** | `claude/setup-ruberra-nexus-IL7Tg` |
-| **Líder** | @claude (CONSTELLATION_DISPATCH_001) |
+| **Líder** | @claude |
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
-| **Eficiência** | ~85% (vs. 33% anterior) |
-| **Sub-agents** | ~30–40 simultâneos possíveis |
-| **Estado geral** | GO_NOW emitido a todos os pioneers 2026-03-27 · Kernel OS instalado · Bridge Agent live · **GATE_V4_OPEN emitido 2026-03-27 por @codex (score 0.91)** · gates V5→V7 automáticos |
+| **Estado geral** | GATE_V4_OPEN emitido 2026-03-27 · SITE-CONVERGENCE STEP1–4 done 2026-03-29 |
+
+---
+
+## 1A. CANONICAL SITE LINE — FONTE DE VERDADE
+
+```
+CANONICAL HOMEPAGE (route "/"):
+  Index.tsx
+    └── ProductHero.tsx
+          └── GlobeScene.tsx    ← cosmic wrap added STEP3
+          └── TrinityRow.tsx
+          └── HeroFirstProof.tsx
+    └── DossierCard grid
+    └── ProjectsLiveSection
+    └── WorldEventFeed (world/)
+    └── MissionsDashboard (missions/)
+    └── OrganStatusGrid
+    └── ContributionsSection
+
+SUPERSEDED / ARCHIVED:
+  src/pages/IndexPage.tsx            → src/archive/IndexPage.SUPERSEDED.tsx
+  src/components/GlobeBackground.tsx → src/archive/GlobeBackground.SUPERSEDED.tsx
+  src/components/home/ (20 dead)     → src/archive/home-superseded/
+
+VISUAL TRUTH:
+  SOVEREIGN_PALETTE.md → wired to src/index.css (STEP1)
+  --rx-void/depth/ground/lift/rim + text scale + 3 energy veins
+  Tailwind semantic vars bridged to rx tokens
+  Portal vein utilities: .vein-electric/teal/gold, .surface-creation/lab/school
+
+GLOBE TRUTH:
+  GlobeScene.tsx — cosmic wrap LIVE:
+    CosmicVoid (32 deterministic distant points)
+    AtmosphericShell (ionosphere + stratosphere + outer corona, 3 layers)
+    GlobeCore mass (dark interior sphere — globe has weight)
+    Lighting: warm sun side + cold space fill + electric backlight
+```
 
 ---
 
@@ -44,10 +79,10 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 ### @antigravity — K-01 3D_VISUAL
 | Task | Kernel | Estado |
 |---|---|---|
-| GLOBE-3D-001 | K-01 | **CONCLUÍDA ✓** |
+| GLOBE-3D-001 | K-01 | **SUPERSEDED — @claude entregou cosmic wrap em GlobeScene.tsx (STEP3)** |
 | ORBITAL-CHAMBER-001 | K-02 | **CONCLUÍDA ✓ — OrbitalChamberPage + /orbital route** |
-| MOTION-SYSTEM-001 | K-02 | **EXECUTANDO — trigger: ORBITAL ✓** |
-| SUBSTRATE-LAYER-001 | K-03 | STANDBY → trigger: MOTION |
+| MOTION-SYSTEM-001 | K-02 | STANDBY — não confirmado como entregue |
+| SUBSTRATE-LAYER-001 | K-03 | LOCKED |
 
 ### @framer — K-04 SURFACE + K-05 TYPOGRAPHY + K-06 COMPONENT
 | Task | Kernel | Estado |
@@ -87,7 +122,11 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | MAX_VELOCITY_PROTOCOL | K-17 | CONCLUÍDA ✓ |
 | BASTION_V3_INSERT | K-16 | CONCLUÍDA ✓ |
 | V4/V5/V6/V7 specs | K-18 | CONCLUÍDAS ✓ |
-| V6/V7 gap refinement | K-17 | **ACTIVO — Zero Idle** |
+| SITE-CONVERGENCE-001 STEP1 | K-17 | **CONCLUÍDA ✓ — SOVEREIGN_PALETTE → index.css** |
+| SITE-CONVERGENCE-001 STEP2 | K-16 | **CONCLUÍDA ✓ — IndexPage + GlobeBackground archived** |
+| SITE-CONVERGENCE-001 STEP3 | K-01 | **CONCLUÍDA ✓ — GlobeScene cosmic wrap** |
+| SITE-CONVERGENCE-001 STEP4 | K-16 | **CONCLUÍDA ✓ — 20 dead home/ archived, barrel clean** |
+| STEP5 below-fold survivors audit | K-16 | NEXT |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---
