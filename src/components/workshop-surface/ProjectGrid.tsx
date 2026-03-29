@@ -57,11 +57,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       animate="visible"
       whileHover={{
         borderColor: TEAL_MID,
-        backgroundColor: "rgba(30, 50, 50, 0.35)",
+        backgroundColor: "hsl(var(--muted) / 0.35)",
         transition: { duration: 0.2 },
       }}
       style={{
-        background: "rgba(255,255,255,0.025)",
+        background: "hsl(var(--muted) / 0.04)",
         border: `1px solid ${TEAL_BORDER}`,
         borderRadius: "12px",
         padding: "22px 22px 18px",
@@ -92,7 +92,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           fontFamily: "Syne, system-ui, sans-serif",
           fontSize: "15px",
           fontWeight: 600,
-          color: "rgba(220,232,240,0.9)",
+          color: "var(--rx-text-primary)",
           margin: 0,
           letterSpacing: "-0.01em",
           lineHeight: 1.3,
@@ -115,7 +115,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               fontFamily: "JetBrains Mono, monospace",
               fontSize: "9px",
               letterSpacing: "0.12em",
-              color: "rgba(150,185,185,0.4)",
+              color: "var(--rx-text-ghost)",
             }}
           >
             Progress
@@ -134,7 +134,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div
           style={{
             height: "3px",
-            background: "rgba(255,255,255,0.07)",
+            background: "hsl(var(--muted) / 0.15)",
             borderRadius: "2px",
             overflow: "hidden",
           }}
@@ -166,7 +166,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             fontFamily: "JetBrains Mono, monospace",
             fontSize: "10px",
             letterSpacing: "0.08em",
-            color: "rgba(150,185,185,0.35)",
+            color: "var(--rx-text-ghost)",
           }}
         >
           {project.team} member{project.team !== 1 ? "s" : ""}
