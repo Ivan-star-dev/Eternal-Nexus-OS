@@ -59,6 +59,10 @@ export default function LabSurface() {
       code: "New Code",
       synthesis: "New Synthesis",
       decision: "New Decision",
+      experiment: "New Experiment",
+      evidence: "New Evidence",
+      hypothesis: "New Hypothesis",
+      lesson: "New Lesson",
     };
 
     saveArtifact({

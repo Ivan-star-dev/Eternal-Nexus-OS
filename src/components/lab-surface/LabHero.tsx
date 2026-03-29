@@ -54,7 +54,6 @@ export default function LabHero() {
       aria-label="Creation Lab entry"
       style={{
         position: "relative",
-        background: "#060c14",
         minHeight: "72vh",
         display: "flex",
         flexDirection: "column",

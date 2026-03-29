@@ -13,13 +13,19 @@ export type ArtifactKind =
   | 'draft'        // work-in-progress document or design
   | 'code'         // code snippet, script, algorithm
   | 'synthesis'    // cross-domain distillation, insight
-  | 'decision';    // owner decision record
+  | 'decision'     // owner decision record
+  | 'experiment'   // Lab tri-core: structured experiment with hypothesis + result
+  | 'evidence'     // Lab tri-core: observed fact, verified data point
+  | 'hypothesis'   // Lab tri-core: falsifiable claim awaiting test
+  | 'lesson';      // School tri-core: study session anchor
 
 export type ArtifactStatus = 'active' | 'archived' | 'draft' | 'sealed';
 
 export type ArtifactSource =
   | 'nexus'        // came from NexusPage interaction
   | 'lab'          // came from Creation Lab
+  | 'school'       // came from Bridge Nova / School portal
+  | 'test'         // came from Lab tri-core test portal
   | 'atlas'        // came from Atlas geospatial
   | 'manual'       // user-created directly
   | 'import';      // imported from external

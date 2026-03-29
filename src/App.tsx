@@ -119,6 +119,7 @@ const ResearchPage = lazy(() => import("./pages/ResearchPage"));
 const SchoolPage = lazy(() => import("./pages/SchoolPage"));
 const WorkshopPage = lazy(() => import("./pages/WorkshopPage"));
 const MissionsPage = lazy(() => import("./pages/MissionsPage"));
+const TestPage = lazy(() => import("./pages/TestPage"));
 
 const queryClient = new QueryClient();
 
@@ -158,6 +159,7 @@ const App = () => (
                 <Route path="/research" element={<ResearchPage />} />
                 <Route path="/school" element={<SchoolPage />} />
                 <Route path="/workshop" element={<WorkshopPage />} />
+                <Route path="/test" element={<TestPage />} />
                 <Route path="/access" element={<GovAuth />} />
                 <Route path="/owner" element={<ProtectedRoute ownerOnly><OwnerDashboard /></ProtectedRoute>} />
                 <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />

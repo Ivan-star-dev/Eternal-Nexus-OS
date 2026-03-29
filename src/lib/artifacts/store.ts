@@ -1,8 +1,9 @@
 /**
  * ARTIFACT-MEMORY-001
- * Local artifact store — localStorage-backed with indexed access.
- * Production path: Supabase table `artifacts` (migration: 20260328_artifacts).
- * Falls back to localStorage when Supabase is unavailable.
+ * Artifact store — dual-write: localStorage (instant) + Supabase (durable).
+ * Falls back to localStorage-only when Supabase is unavailable or user is anon.
+ * P0-2: memory durability — local wipe does not kill the line.
+ * P0-3: governance — guardArtifactCount enforced on every save.
  * Browser-safe: no node imports.
  */
 
@@ -13,6 +14,8 @@ import type {
   ArtifactFilter,
   ArtifactSaveResult,
 } from './types';
+import { guardArtifactCount } from '@/lib/governance/runtime-guard';
+import { supabase } from '@/integrations/supabase/client';
 
 const STORE_KEY = 'nxos_artifacts';
 const MAX_LOCAL_ARTIFACTS = 200;
@@ -35,13 +38,60 @@ function loadAll(): ArtifactMeta[] {
 
 function saveAll(artifacts: ArtifactMeta[]): void {
   try {
-    // Keep only the most recent MAX_LOCAL_ARTIFACTS to avoid storage bloat
     const sorted = [...artifacts].sort(
       (a, b) => new Date(b.ts_updated).getTime() - new Date(a.ts_updated).getTime()
     );
     localStorage.setItem(STORE_KEY, JSON.stringify(sorted.slice(0, MAX_LOCAL_ARTIFACTS)));
   } catch {
     // storage unavailable — fail silently
+  }
+}
+
+// Upsert a single artifact to Supabase. Fire-and-forget — local write never waits.
+async function syncToSupabase(artifact: ArtifactMeta, userId: string): Promise<void> {
+  if (!supabase) return;
+  try {
+    await supabase.from('artifacts').upsert({
+      artifact_id: artifact.artifact_id,
+      user_id: userId,
+      session_id: artifact.session_id,
+      kind: artifact.kind,
+      title: artifact.title,
+      summary: artifact.summary,
+      content: artifact.content,
+      tags: artifact.tags,
+      source: artifact.source,
+      status: artifact.status,
+      version: artifact.version,
+      ts_created: artifact.ts_created,
+      ts_updated: artifact.ts_updated,
+      ts_last_accessed: artifact.ts_last_accessed,
+    }, { onConflict: 'artifact_id' });
+  } catch {
+    // sync failure is non-fatal — localStorage is the immediate source of truth
+  }
+}
+
+// Hydrate localStorage from Supabase on session restore (call once on boot).
+export async function hydrateFromSupabase(userId: string): Promise<boolean> {
+  if (!supabase || !userId) return false;
+  try {
+    const { data, error } = await supabase
+      .from('artifacts')
+      .select('*')
+      .eq('user_id', userId)
+      .eq('status', 'active')
+      .order('ts_last_accessed', { ascending: false })
+      .limit(MAX_LOCAL_ARTIFACTS);
+    if (error || !data) return false;
+    // Merge: remote wins for same artifact_id (remote is durable source of truth)
+    const local = loadAll();
+    const remoteIds = new Set(data.map((a: ArtifactMeta) => a.artifact_id));
+    const localOnly = local.filter(a => !remoteIds.has(a.artifact_id));
+    saveAll([...(data as ArtifactMeta[]), ...localOnly]);
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -67,20 +117,29 @@ function matchesFilter(artifact: ArtifactMeta, filter: ArtifactFilter): boolean 
 
 // ─── Public API ──────────────────────────────────────────────────────────────
 
-export function saveArtifact(
-  params: {
-    session_id: string;
-    kind: ArtifactKind;
-    title: string;
-    summary: string;
-    content: string;
-    tags?: string[];
-    source?: ArtifactSource;
-  }
-): ArtifactSaveResult {
-  const artifacts = loadAll();
-  const now = new Date().toISOString();
+export interface SaveArtifactOptions {
+  session_id: string;
+  kind: ArtifactKind;
+  title: string;
+  summary: string;
+  content: string;
+  tags?: string[];
+  source?: ArtifactSource;
+  userId?: string; // if provided, dual-write to Supabase
+}
 
+export function saveArtifact(params: SaveArtifactOptions): ArtifactSaveResult {
+  const artifacts = loadAll();
+
+  // P0-3: governance gate — enforce artifact cap before writing
+  const guard = guardArtifactCount(artifacts.filter(a => a.status === 'active').length);
+  if (!guard.allowed) {
+    // Return the violation as a thrown error with law context so UI can surface it
+    const violation = guard.violations[0];
+    throw Object.assign(new Error(violation.message), { law: violation.law, severity: violation.severity });
+  }
+
+  const now = new Date().toISOString();
   const artifact: ArtifactMeta = {
     artifact_id: generateArtifactId(),
     session_id: params.session_id,
@@ -97,13 +156,21 @@ export function saveArtifact(
     version: 1,
   };
 
+  // Local write is synchronous and immediate
   saveAll([artifact, ...artifacts]);
+
+  // P0-2: Supabase dual-write is fire-and-forget — never blocks local write
+  if (params.userId && supabase) {
+    syncToSupabase(artifact, params.userId);
+  }
+
   return { artifact, is_new: true };
 }
 
 export function updateArtifact(
   artifact_id: string,
-  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status'>>
+  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status'>>,
+  userId?: string
 ): ArtifactMeta | null {
   const artifacts = loadAll();
   const idx = artifacts.findIndex(a => a.artifact_id === artifact_id);
@@ -118,6 +185,11 @@ export function updateArtifact(
 
   artifacts[idx] = updated;
   saveAll(artifacts);
+
+  if (userId && supabase) {
+    syncToSupabase(updated, userId);
+  }
+
   return updated;
 }
 

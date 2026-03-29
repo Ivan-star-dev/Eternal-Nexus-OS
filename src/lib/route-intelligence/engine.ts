@@ -120,6 +120,10 @@ function buildCreateAction(kind: ArtifactKind, confidence: number): RouteAction 
     code: 'Start a Code artifact',
     synthesis: 'Write a Synthesis',
     decision: 'Record a Decision',
+    experiment: 'Run an Experiment',
+    evidence: 'Capture Evidence',
+    hypothesis: 'State a Hypothesis',
+    lesson: 'Start a Lesson',
   };
   return {
     kind: 'create-artifact',

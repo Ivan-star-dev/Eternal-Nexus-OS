@@ -8,6 +8,8 @@
  */
 
 import { motion } from "framer-motion";
+import { saveArtifact } from "@/lib/artifacts/store";
+import { useSession } from "@/contexts/SessionContext";
 
 type StepStatus = "locked" | "available" | "done";
 
@@ -89,7 +91,7 @@ function CheckIcon() {
   );
 }
 
-function StepCard({ step, index, status }: { step: LearningStep; index: number; status: StepStatus }) {
+function StepCard({ step, index, status, onBegin }: { step: LearningStep; index: number; status: StepStatus; onBegin: () => void }) {
   const isDone = status === "done";
   const isAvailable = status === "available";
   const isLocked = status === "locked";
@@ -185,6 +187,7 @@ function StepCard({ step, index, status }: { step: LearningStep; index: number; 
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
+              onClick={onBegin}
               style={{
                 fontFamily: "Syne, system-ui, sans-serif",
                 fontSize: "11px",
@@ -219,8 +222,23 @@ interface LearningPathProps {
 }
 
 export default function LearningPath({ maturityLevel }: LearningPathProps) {
+  const { session, updateReEntry } = useSession();
   const doneCount = Math.min(maturityLevel, STEPS.length);
   const progressPct = Math.round((doneCount / STEPS.length) * 100);
+
+  function handleBegin(step: LearningStep) {
+    const sessionId = session?.session_id ?? 'anon';
+    saveArtifact({
+      session_id: sessionId,
+      kind: 'note',
+      title: `${step.title} — Study Session`,
+      summary: `Began study of "${step.title}". ${step.description}`,
+      content: `# ${step.title}\n\n${step.description}\n\n---\n_Started: ${new Date().toISOString()}_`,
+      tags: ['school', 'lesson', step.id],
+      source: 'school',
+    });
+    updateReEntry(`school:step-${step.number}`);
+  }
 
   return (
     <div
@@ -282,7 +300,7 @@ export default function LearningPath({ maturityLevel }: LearningPathProps) {
       </motion.div>
 
       {STEPS.map((step, i) => (
-        <StepCard key={step.id} step={step} index={i} status={resolveStatus(i, maturityLevel)} />
+        <StepCard key={step.id} step={step} index={i} status={resolveStatus(i, maturityLevel)} onBegin={() => handleBegin(step)} />
       ))}
     </div>
   );

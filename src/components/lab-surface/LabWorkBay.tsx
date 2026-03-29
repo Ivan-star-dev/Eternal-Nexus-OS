@@ -33,6 +33,10 @@ const KIND_LABELS: Record<ArtifactKind, string> = {
   code: "Code",
   synthesis: "Synthesis",
   decision: "Decision",
+  experiment: "Experiment",
+  evidence: "Evidence",
+  hypothesis: "Hypothesis",
+  lesson: "Lesson",
 };
 
 const KIND_COLORS: Record<ArtifactKind, string> = {
@@ -44,6 +48,10 @@ const KIND_COLORS: Record<ArtifactKind, string> = {
   code: "#9b59b6",
   synthesis: "#e67e22",
   decision: "#e74c3c",
+  experiment: "hsl(172,55%,36%)",
+  evidence: "hsl(172,48%,52%)",
+  hypothesis: "hsl(172,40%,44%)",
+  lesson: "hsl(42,78%,52%)",
 };
 
 function formatRelativeTime(isoString: string): string {
@@ -76,6 +84,10 @@ const NEW_TITLES: Record<ArtifactKind, string> = {
   code: "New Code",
   synthesis: "New Synthesis",
   decision: "New Decision",
+  experiment: "New Experiment",
+  evidence: "New Evidence",
+  hypothesis: "New Hypothesis",
+  lesson: "New Lesson",
 };
 
 function isGenericTitle(title: string, kind: ArtifactKind): boolean {
