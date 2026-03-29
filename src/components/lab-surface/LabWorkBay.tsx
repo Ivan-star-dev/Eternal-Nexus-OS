@@ -20,6 +20,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getRecentArtifacts, updateArtifact } from "@/lib/artifacts/store";
 import type { ArtifactMeta, ArtifactKind } from "@/lib/artifacts/types";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { buildReEntryPoint } from "@/lib/spawn/entry-pipeline";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -113,6 +114,7 @@ function ArtifactCard({
   onCollapse,
   onUpdated,
 }: ArtifactCardProps) {
+  const { user } = useAuth();
   const kindColor = KIND_COLORS[artifact.kind] ?? "#00aaff";
   const summary = artifact.summary.length > 90
     ? artifact.summary.slice(0, 87) + "..."
@@ -142,7 +144,7 @@ function ArtifactCard({
       title: editTitle.trim() || artifact.title,
       content: editContent,
       summary: editContent.slice(0, 140) || artifact.summary,
-    });
+    }, user?.id);
     setSaved(true);
     onUpdated();
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
@@ -464,6 +466,7 @@ interface LabWorkBayProps {
 
 export default function LabWorkBay({ refreshSignal, autoExpandId }: LabWorkBayProps) {
   const { session, updateReEntry } = useSession();
+  const { user } = useAuth();
   const [artifacts, setArtifacts] = useState<ArtifactMeta[]>([]);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -488,7 +491,7 @@ export default function LabWorkBay({ refreshSignal, autoExpandId }: LabWorkBayPr
     updateReEntry(reEntry);
     setExpandedId(artifact.artifact_id);
     // A4: record view time — improves return intelligence and maturity scoring
-    updateArtifact(artifact.artifact_id, { ts_last_accessed: new Date().toISOString() });
+    updateArtifact(artifact.artifact_id, { ts_last_accessed: new Date().toISOString() }, user?.id);
   };
 
   const handleCollapse = () => setExpandedId(null);
