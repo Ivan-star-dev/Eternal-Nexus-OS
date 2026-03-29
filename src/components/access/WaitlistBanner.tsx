@@ -100,7 +100,7 @@ export default function WaitlistBanner() {
               style={{
                 flexShrink: 0,
                 background: "hsl(42 78% 52%)",
-                color: "hsl(216 50% 5%)",
+                color: "hsl(var(--background))",
                 border: "none",
                 padding: "8px 20px",
                 fontFamily: "Syne, system-ui, sans-serif",

@@ -285,7 +285,7 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
       <div
         className="relative flex flex-col md:flex-row w-full overflow-hidden"
         style={{
-          background: "linear-gradient(180deg, rgba(6,12,20,0) 0%, rgba(6,12,20,0.4) 100%)",
+          background: "linear-gradient(180deg, hsl(var(--background) / 0) 0%, hsl(var(--background) / 0.4) 100%)",
           border: "0.5px solid rgba(255,255,255,0.04)",
         }}
       >

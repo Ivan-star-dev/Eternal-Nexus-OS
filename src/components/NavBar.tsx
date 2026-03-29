@@ -35,7 +35,7 @@ const NavBar = () => {
         aria-label="Navegação principal"
         role="navigation"
         className={`fixed top-0 left-0 right-0 z-[999] h-14 flex items-center px-5 md:px-8 transition-all duration-500 ${
-          atTop ? "bg-transparent border-b border-white/[0.04]" : "bg-background/80 backdrop-blur-2xl border-b border-white/[0.08]"
+          atTop ? "bg-transparent border-b border-border/[0.4]" : "bg-background/80 backdrop-blur-2xl border-b border-border/[0.7]"
         }`}
       >
         <Link to="/" className="flex-shrink-0 logo-shimmer relative inline-flex items-baseline">
@@ -93,8 +93,8 @@ const NavBar = () => {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-              className="absolute top-14 left-0 right-0 backdrop-blur-2xl border-b border-white/[0.08] p-6 flex flex-col gap-1 md:hidden"
-              style={{ background: "hsl(216 50% 5% / 0.96)" }}>
+              className="absolute top-14 left-0 right-0 backdrop-blur-2xl border-b border-border/70 p-6 flex flex-col gap-1 md:hidden"
+              style={{ background: "hsl(var(--background) / 0.96)" }}>
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -108,11 +108,11 @@ const NavBar = () => {
                   </Link>
                 );
               })}
-              <div className="mt-2 pt-3 border-t border-white/[0.06] flex flex-col gap-1">
+              <div className="mt-2 pt-3 border-t border-border/60 flex flex-col gap-1">
                 {isOwner && (<Link to="/owner" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary py-2 px-3 border-l border-primary/40 flex items-center gap-2"><Shield className="w-3 h-3" /> OWNER DASHBOARD</Link>)}
                 <Link to="/access" onClick={() => setMobileOpen(false)} className="font-mono text-[0.68rem] tracking-[0.12em] text-primary/70 hover:text-primary py-2 px-3">{user ? profile?.institution : "ACCESS"}</Link>
               </div>
-              <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center gap-3 px-3"><ThemeToggle /><LanguageSwitcher /></div>
+              <div className="mt-3 pt-3 border-t border-border/40 flex items-center gap-3 px-3"><ThemeToggle /><LanguageSwitcher /></div>
             </motion.div>
           )}
         </AnimatePresence>

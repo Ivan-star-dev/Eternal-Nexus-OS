@@ -43,7 +43,7 @@ export default function WorkshopHeader() {
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "clamp(24px, 4vw, 36px)",
             fontWeight: 700,
-            color: "rgba(228,235,240,0.92)",
+            color: "var(--rx-text-primary)",
             letterSpacing: "-0.02em",
             lineHeight: 1,
           }}
@@ -71,7 +71,7 @@ export default function WorkshopHeader() {
         style={{
           fontFamily: "Inter, system-ui, sans-serif",
           fontSize: "14px",
-          color: "rgba(160,185,200,0.6)",
+          color: "var(--rx-text-dim)",
           margin: "0 0 24px",
           lineHeight: 1.5,
           letterSpacing: "0.01em",
@@ -108,7 +108,7 @@ export default function WorkshopHeader() {
                 fontSize: "10px",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                color: "rgba(150,185,185,0.45)",
+                color: "var(--rx-text-ghost)",
               }}
             >
               {stat.label}

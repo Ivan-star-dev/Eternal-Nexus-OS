@@ -5,6 +5,8 @@
 
 **Última actualização:** 2026-03-29 (sessão FORCE-TASK-003 · @copilot)
 **Actualizado por:** @copilot | FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
+**Última actualização:** 2026-03-29 (sessão RUBERRA-FINISH-PASS)
+**Actualizado por:** @claude | STEP1–7 ✅ + RUBERRA-FINISH-PASS ✅ · globe visual fusion · sovereign dark/light system · ThemeToggle · ProductHero sealed · NavBar sealed · SessionPulse sealed · DossierCard sealed · TrinityRow sealed · Footer fully sealed · homepage 100% theme-aware
 
 ---
 
@@ -30,11 +32,13 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | Dimensão | Valor |
 |---|---|
 | **Fase activa** | SITE-CONVERGENCE-001 ✅ completa · FORCE_TASK_ACTIVATION_003 emitida 2026-03-29 |
+| **Fase activa** | Homepage Seal + Portal Convergence Phase · STEP1–7 ✅ · RUBERRA-FINISH-PASS ✅ |
 | **Branch canónico** | `claude/setup-ruberra-nexus-IL7Tg` |
 | **Líder** | @claude |
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
 | **Estado geral** | GATE_V4_OPEN emitido 2026-03-27 · SITE-CONVERGENCE STEP1–7 done 2026-03-29 · **V4 LIVING WORLD EM EXECUÇÃO** |
+| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · PENDING: Block2(@claude) · Block3(@cursor) · Block4(@framer) |
 
 ---
 
@@ -79,21 +83,33 @@ SUPERSEDED / ARCHIVED:
   src/components/home/ (20 dead)     → src/archive/home-superseded/
 
 VISUAL TRUTH:
-  SOVEREIGN_PALETTE.md → wired to src/index.css (STEP1)
+  SOVEREIGN_PALETTE.md → wired to src/index.css
   --rx-void/depth/ground/lift/rim + text scale + 3 energy veins
   Tailwind semantic vars bridged to rx tokens
   Portal vein utilities: .vein-electric/teal/gold, .surface-creation/lab/school
 
-GLOBE TRUTH:
-  GlobeScene.tsx — cosmic wrap LIVE:
-    CosmicVoid (32 deterministic distant points)
-    AtmosphericShell (ionosphere + stratosphere + outer corona, 3 layers)
-    GlobeCore mass (dark interior sphere — globe has weight)
-    Lighting: warm sun side + cold space fill + electric backlight
+DARK/LIGHT SYSTEM — LIVE:
+  .light block: mineral pale base 215 30% 96% · deep navy text 220 32% 10%
+  --rx-substrate-line: dark rgba(255,255,255,0.018) / light rgba(10,14,30,0.028)
+  ThemeToggle: text-only sovereign · localStorage key rx-theme
 
-PENDING AUDIT:
-  ProductHero text     — hero headline copy not yet audited
-  ProjectFocusPanel    — may be unused (home/ survivor)
+GLOBE TRUTH — SEALED:
+  GlobeScene.tsx — full visual identity:
+    OrbitalMesh: 7 great-circle arcs · groupA +0.009 / groupB -0.006 rad/s · golden #c8a44e
+    CosmicVoid: 80 stars · 3 tiers deterministic · radii R×3.6–8.2
+    NetworkSphere: subordinate layer · #1a3a5c opacity 0.06
+    AtmosphericShell: ionosphere + stratosphere + outer corona
+    GlobeCore: dark mass with weight
+
+HOMEPAGE SEAL STATUS — 100% THEME-AWARE:
+  ProductHero ✅ · NavBar ✅ · DossierCard ✅ · TrinityRow ✅
+  ProjectsLiveSection ✅ · SessionPulse ✅ · Footer ✅ (bg + separator + text)
+  Zero hardcoded dark assumptions remain on homepage.
+
+PENDING NEXT:
+  Block 2: Access layer seal → @claude  (RUBERRA-ACCESS-SEAL-001)
+  Block 3: Lab interior seal → @cursor  (RUBERRA-LAB-SEAL-001)
+  Block 4: Homepage polish   → @framer  (RUBERRA-POLISH-001)
 ```
 
 ---
@@ -144,6 +160,13 @@ PENDING AUDIT:
 | SITE-CONVERGENCE-001 STEP6 | K-16 | **CONCLUÍDA ✓ — below-fold purged, sovereign CTA locked** |
 | SITE-CONVERGENCE-001 STEP7 | K-17 | **CONCLUÍDA ✓ — ProjectsLiveSection /atlas→/lab · DossierCard FORBIDDEN-08 fixed · PLANNING vein electric** |
 | V4-WORLD-PULSE-OVERSIGHT | K-17 | **DESBLOQUEADA ✅ → FORCE_TASK_003 emitida** |
+| RUBERRA-VISUAL-FUSION-001 | K-01 | **CONCLUÍDA ✓ — OrbitalMesh + CosmicVoid + NetworkSphere demotion** |
+| RUBERRA-THEME-SYSTEM-001 | K-17 | **CONCLUÍDA ✓ — sovereign dark/light system · ThemeToggle · --rx-substrate-line** |
+| RUBERRA-HERO-PASS-001 | K-17 | **CONCLUÍDA ✓ — ProductHero copy + CTA fix + 6 hardcodes removed** |
+| RUBERRA-NAV-SEAL-001 | K-16 | **CONCLUÍDA ✓ — NavBar + SessionPulse fully theme-aware** |
+| RUBERRA-HOMEPAGE-SEAL-001 | K-16 | **CONCLUÍDA ✓ — Block 1: DossierCard + TrinityRow + Footer sealed** |
+| RUBERRA-FOOTER-TEXT-001 | K-16 | **CONCLUÍDA ✓ — Footer ghost text 10× → rx-text-ghost/dim** |
+| RUBERRA-ACCESS-SEAL-001 | K-16 | **ELEGÍVEL → @claude · Block 2: access layer 4 button hardcodes** |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---

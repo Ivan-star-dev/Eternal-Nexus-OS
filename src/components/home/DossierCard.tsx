@@ -88,7 +88,7 @@ function DossierCard({ project, index }: Props) {
             {/* Trinity pillar badge — top left */}
             <span
               className="absolute top-3 left-3 font-mono text-[0.45rem] tracking-[0.18em] px-2 py-0.5 uppercase"
-              style={{ color: pillar.color, background: "rgba(6,12,20,0.7)", backdropFilter: "blur(6px)" }}
+              style={{ color: pillar.color, background: "hsl(var(--background) / 0.7)", backdropFilter: "blur(6px)" }}
             >
               {pillar.label}
             </span>
@@ -103,8 +103,8 @@ function DossierCard({ project, index }: Props) {
                 animate={{ opacity: 1, scale: 1 }}
                 className="absolute bottom-3 right-3 flex items-center gap-1 px-1.5 py-0.5"
                 style={{
-                  background: "rgba(0,170,255,0.12)",
-                  border: "0.5px solid rgba(0,170,255,0.35)",
+                  background: "hsl(var(--rx-electric) / 0.12)",
+                  border: "0.5px solid hsl(var(--rx-electric) / 0.35)",
                   backdropFilter: "blur(8px)",
                 }}
               >

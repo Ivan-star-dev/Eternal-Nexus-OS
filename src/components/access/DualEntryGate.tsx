@@ -330,7 +330,7 @@ export default function DualEntryGate() {
                     fontWeight: 600,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "hsl(216 50% 5%)",
+                    color: "hsl(var(--background))",
                     background: "hsl(42 78% 52%)",
                     border: "none",
                     padding: "15px 32px",

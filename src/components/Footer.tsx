@@ -19,12 +19,12 @@ const Footer = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="relative"
-      style={{ background: "hsl(216 60% 4%)" }}
+      style={{ background: "hsl(var(--background))" }}
     >
       {/* Top separator */}
       <div
         className="absolute top-0 left-0 right-0"
-        style={{ height: "0.5px", background: "rgba(255,255,255,0.05)" }}
+        style={{ height: "0.5px", background: "hsl(var(--border) / 0.3)" }}
         aria-hidden="true"
       />
 
@@ -37,31 +37,31 @@ const Footer = () => {
               fontFamily: "Syne, system-ui, sans-serif",
               fontSize: "9px",
               letterSpacing: "0.22em",
-              color: "rgba(228,235,240,0.22)",
+              color: "hsl(var(--rx-text-dim))",
             }}
           >
             RUBERRA
           </span>
-          <span style={{ color: "rgba(255,255,255,0.1)", fontSize: "9px" }}>·</span>
+          <span style={{ color: "hsl(var(--rx-text-ghost))", fontSize: "9px" }}>·</span>
           <span
             className="font-mono"
             style={{
               fontFamily: "JetBrains Mono, monospace",
               fontSize: "8px",
               letterSpacing: "0.16em",
-              color: "rgba(228,235,240,0.14)",
+              color: "hsl(var(--rx-text-ghost))",
             }}
           >
             ETERNAL NEXUS OS
           </span>
-          <span style={{ color: "rgba(255,255,255,0.1)", fontSize: "9px" }}>·</span>
+          <span style={{ color: "hsl(var(--rx-text-ghost))", fontSize: "9px" }}>·</span>
           <span
             className="font-mono"
             style={{
               fontFamily: "JetBrains Mono, monospace",
               fontSize: "8px",
               letterSpacing: "0.1em",
-              color: "rgba(228,235,240,0.1)",
+              color: "hsl(var(--rx-text-ghost))",
             }}
           >
             2026
@@ -83,19 +83,19 @@ const Footer = () => {
                   fontFamily: "JetBrains Mono, monospace",
                   fontSize: "8px",
                   letterSpacing: "0.1em",
-                  color: "rgba(228,235,240,0.16)",
+                  color: "hsl(var(--rx-text-ghost))",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.45)";
+                  (e.currentTarget as HTMLElement).style.color = "hsl(var(--rx-text-dim))";
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.16)";
+                  (e.currentTarget as HTMLElement).style.color = "hsl(var(--rx-text-ghost))";
                 }}
               >
                 {link.label}
               </Link>
               {i < 2 && (
-                <span style={{ color: "rgba(255,255,255,0.08)", fontSize: "8px" }}>·</span>
+                <span style={{ color: "hsl(var(--rx-text-ghost))", fontSize: "8px" }}>·</span>
               )}
             </span>
           ))}
@@ -108,7 +108,7 @@ const Footer = () => {
             fontFamily: "JetBrains Mono, monospace",
             fontSize: "7px",
             letterSpacing: "0.14em",
-            color: "rgba(228,235,240,0.1)",
+            color: "hsl(var(--rx-text-ghost))",
           }}
         >
           © 2026 · All systems governed

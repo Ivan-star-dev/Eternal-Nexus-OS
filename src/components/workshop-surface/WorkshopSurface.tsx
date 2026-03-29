@@ -23,7 +23,7 @@ export default function WorkshopSurface() {
       data-portal-dense={isDenseAllowed ? "true" : "false"}
       data-portal-motion={isMotionAllowed('moderate') ? "moderate" : isMotionAllowed('subtle') ? "subtle" : "none"}
       style={{
-        background: "#0d0d14",
+        background: "hsl(var(--background))",
         minHeight: "100vh",
         padding: "clamp(40px, 7vh, 80px) clamp(16px, 4vw, 60px)",
         position: "relative",

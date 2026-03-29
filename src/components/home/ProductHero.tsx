@@ -65,8 +65,8 @@ function MachineSubstrate() {
       aria-hidden="true"
       style={{
         backgroundImage: `
-          repeating-linear-gradient(0deg, transparent, transparent 63px, rgba(255,255,255,0.018) 63px, rgba(255,255,255,0.018) 64px),
-          repeating-linear-gradient(90deg, transparent, transparent 63px, rgba(255,255,255,0.018) 63px, rgba(255,255,255,0.018) 64px)
+          repeating-linear-gradient(0deg, transparent, transparent 63px, var(--rx-substrate-line) 63px, var(--rx-substrate-line) 64px),
+          repeating-linear-gradient(90deg, transparent, transparent 63px, var(--rx-substrate-line) 63px, var(--rx-substrate-line) 64px)
         `,
       }}
     />
@@ -104,7 +104,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         style={{
           height: "60%",
           background:
-            "linear-gradient(to bottom, transparent 0%, hsl(216 50% 5% / 0.2) 35%, hsl(216 50% 5% / 0.65) 68%, hsl(216 50% 5%) 100%)",
+            "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.2) 35%, hsl(var(--background) / 0.65) 68%, hsl(var(--background)) 100%)",
         }}
         aria-hidden="true"
       />
@@ -113,7 +113,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         className="pointer-events-none absolute inset-y-0 left-0 z-[2]"
         style={{
           width: "18%",
-          background: "linear-gradient(to right, hsl(216 50% 5%) 0%, transparent 100%)",
+          background: "linear-gradient(to right, hsl(var(--background)) 0%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -121,7 +121,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         className="pointer-events-none absolute inset-y-0 right-0 z-[2]"
         style={{
           width: "18%",
-          background: "linear-gradient(to left, hsl(216 50% 5%) 0%, transparent 100%)",
+          background: "linear-gradient(to left, hsl(var(--background)) 0%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -221,12 +221,12 @@ function SovereignText() {
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
           fontSize: "clamp(32px, 4.5vw, 58px)",
-          color: "rgba(228,235,240,0.88)",
+          color: "var(--rx-text-primary)",
           maxWidth: "820px",
         }}
       >
-        The world, studied.{" "}
-        <span style={{ color: "rgba(200,164,78,0.75)" }}>The future, built.</span>
+        The world is the material.{" "}
+        <span style={{ color: "hsl(42 78% 52% / 0.75)" }}>This is where you work it.</span>
       </h1>
 
       {/* Sub-line */}
@@ -236,13 +236,13 @@ function SovereignText() {
           fontFamily: "Syne, system-ui, sans-serif",
           fontSize: "11px",
           letterSpacing: "0.18em",
-          color: "rgba(228,235,240,0.38)",
+          color: "var(--rx-text-dim)",
           maxWidth: "560px",
           lineHeight: "1.8",
           textTransform: "uppercase",
         }}
       >
-        A sovereign operating system for perceiving, investigating, and creating at planetary scale.
+        Perceive · Investigate · Create · One System · Three Portals
       </p>
 
       {/* CTAs */}
@@ -273,25 +273,25 @@ function SovereignText() {
           Enter the System
         </Link>
         <Link
-          to="/projects"
+          to="/lab"
           className="font-sans font-[400] transition-colors duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "10px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            color: "rgba(228,235,240,0.35)",
+            color: "var(--rx-text-ghost)",
             padding: "13px 28px",
             borderRadius: 0,
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.75)";
+            (e.currentTarget as HTMLElement).style.color = "var(--rx-text-secondary)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
+            (e.currentTarget as HTMLElement).style.color = "var(--rx-text-ghost)";
           }}
         >
-          Explore Projects
+          Enter Lab
         </Link>
       </div>
     </motion.div>
@@ -338,7 +338,7 @@ function SessionPulse() {
         animate={{ width: hovered && stepDisplay ? "auto" : "auto" }}
         className="flex flex-col gap-1"
         style={{
-          background: "rgba(6,12,20,0.78)",
+          background: "hsl(var(--background) / 0.78)",
           border: `0.5px solid ${isResume ? "rgba(200,164,78,0.2)" : "rgba(32,153,120,0.2)"}`,
           backdropFilter: "blur(14px)",
           padding: "6px 10px",
@@ -408,7 +408,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
   return (
     <motion.section
       ref={sectionRef}
-      style={{ opacity: sectionOpacity, y: sectionY, background: "#060c14" }}
+      style={{ opacity: sectionOpacity, y: sectionY, background: "hsl(var(--background))" }}
       className="relative w-full overflow-hidden"
       aria-label="Heaven Lab — sistema e filhos"
       role="banner"
@@ -440,7 +440,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
         className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-40"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, hsl(216 50% 5% / 0.5) 55%, hsl(216 50% 5%) 100%)",
+            "linear-gradient(to bottom, transparent, hsl(var(--background) / 0.5) 55%, hsl(var(--background)) 100%)",
         }}
         aria-hidden="true"
       />

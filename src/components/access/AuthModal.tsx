@@ -302,7 +302,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                   style={{
                     width: "100%",
                     background: "hsl(42 78% 52%)",
-                    color: "hsl(216 50% 5%)",
+                    color: "hsl(var(--background))",
                     border: "none",
                     padding: "14px",
                     fontFamily: "Syne, system-ui, sans-serif",
