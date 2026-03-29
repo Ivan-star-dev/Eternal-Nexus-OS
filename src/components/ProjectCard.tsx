@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface ProjectCardProps {
   id: string;
@@ -15,7 +16,17 @@ interface ProjectCardProps {
   metrics: { value: string; label: string }[];
 }
 
-const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+const easeOutExpo = EASE_OUT;
+
+const statusStyles: Record<string, string> = {
+  "Active":      "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
+  "In Progress": "bg-gold/10 text-gold border border-gold/30",
+  "Completed":   "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+};
+
+const getStatusStyle = (status: string) =>
+  statusStyles[status] ??
+  "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
 
 const ProjectCard = ({
   id,
@@ -68,7 +79,7 @@ const ProjectCard = ({
     >
       <Link
         to={`/project/${id}`}
-        className="block border border-border bg-card hover:border-primary transition-all duration-300 group relative overflow-hidden"
+        className="block bg-ink-medium/40 border border-white/[0.05] rounded-sm hover:border-white/[0.12] hover:bg-ink-medium/60 transition-all duration-300 overflow-hidden group relative"
       >
         {/* Parallax glare overlay */}
         <motion.div
@@ -81,8 +92,8 @@ const ProjectCard = ({
           }}
         />
 
-        {/* Image with parallax depth */}
-        <div className="relative h-52 overflow-hidden">
+        {/* Image thumbnail */}
+        <div className="aspect-video bg-ink-medium/60 border-b border-white/[0.05] overflow-hidden relative">
           <motion.img
             src={image}
             alt={title}
@@ -94,7 +105,9 @@ const ProjectCard = ({
             }}
             transition={{ duration: 0.7, ease: easeOutExpo }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/40 to-transparent" />
+
+          {/* Classification badge */}
           <div className="absolute top-4 left-4 flex gap-2">
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
@@ -106,26 +119,36 @@ const ProjectCard = ({
               {classification}
             </motion.span>
           </div>
+
+          {/* Status badge */}
           <div className="absolute top-4 right-4">
-            <span className="font-mono text-[0.6rem] tracking-[0.2em] text-teal-light flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-light animate-pulse-dot" />
+            <span
+              className={`font-mono text-[0.42rem] tracking-[0.12em] uppercase px-2 py-0.5 rounded-sm ${getStatusStyle(status)}`}
+            >
               {status}
             </span>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6">
-          <span className="section-label">{number} · {country}</span>
-          <h3 className="font-serif text-xl font-bold text-foreground mt-2 group-hover:text-primary transition-colors">
+        {/* Card body */}
+        <div className="p-5">
+          {/* Meta row */}
+          <div className="font-mono text-[0.45rem] tracking-[0.15em] uppercase text-paper-dim/40 flex gap-3 mt-1">
+            <span>{number}</span>
+            <span>·</span>
+            <span>{country}</span>
+          </div>
+
+          <h3 className="font-serif text-base font-light text-paper mt-1">
             {title}
           </h3>
-          <p className="font-sans text-sm text-muted-foreground mt-1.5 leading-relaxed">
+
+          <p className="text-xs text-paper-dim/60 font-light leading-relaxed mt-2">
             {subtitle}
           </p>
 
-          {/* Sectors */}
-          <div className="flex flex-wrap gap-2 mt-4">
+          {/* Tech tags / sectors */}
+          <div className="flex flex-wrap gap-1.5 mt-3">
             {sectors.map((sector, i) => (
               <motion.span
                 key={sector}
@@ -133,7 +156,7 @@ const ProjectCard = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + i * 0.06 }}
-                className="font-mono text-[0.6rem] tracking-[0.1em] text-accent-foreground bg-accent/30 border border-accent/20 px-2 py-0.5 uppercase"
+                className="font-mono text-[0.42rem] tracking-[0.1em] uppercase border border-white/[0.06] px-2 py-0.5 text-paper-dim/40"
               >
                 {sector}
               </motion.span>
@@ -141,24 +164,31 @@ const ProjectCard = ({
           </div>
 
           {/* Metrics */}
-          <div className="grid grid-cols-3 gap-px bg-border mt-6 border border-border">
+          <div className="grid grid-cols-3 gap-px bg-white/[0.04] mt-4 border border-white/[0.05]">
             {metrics.map((metric, i) => (
               <motion.div
                 key={metric.label}
-                className="bg-card p-3"
+                className="bg-ink-medium/40 p-3"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 + i * 0.08 }}
               >
-                <div className="font-serif text-lg font-bold text-foreground">
+                <div className="font-serif text-lg font-light text-paper">
                   {metric.value}
                 </div>
-                <div className="font-mono text-[0.55rem] tracking-[0.15em] text-muted-foreground uppercase mt-1">
+                <div className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 uppercase mt-1">
                   {metric.label}
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-4">
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-gold/70 hover:text-gold transition-colors duration-200">
+              View Dossier →
+            </span>
           </div>
         </div>
       </Link>

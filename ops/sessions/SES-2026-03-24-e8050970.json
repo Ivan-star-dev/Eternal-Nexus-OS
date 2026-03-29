@@ -1,0 +1,21 @@
+{
+  "session_id": "SES-2026-03-24-e8050970",
+  "user_id": "owner",
+  "subject": "turn this research into a paper and visual prototype",
+  "intention": "Produce a publishable paper and an interactive visual prototype from existing research",
+  "profile_snapshot": {},
+  "trinity_face": "nexus_cria",
+  "swarm_activated": [
+    "@claude"
+  ],
+  "concepts_touched": [],
+  "fruit": [
+    "analysis::turn-this-research-into-a-paper-and-visual-prototype::initial::2026-03-24T19:54:27.595Z"
+  ],
+  "open_threads": [
+    "initial-thread"
+  ],
+  "re_entry_point": "Open production track for \"turn this research into a paper and visual prototype\" — define deliverable type and first output",
+  "ts_start": "2026-03-24T19:54:27.595Z",
+  "ts_end": null
+}

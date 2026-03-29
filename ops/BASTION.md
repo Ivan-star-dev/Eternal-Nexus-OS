@@ -1,5 +1,14 @@
 # BASTION — Coração Canônico de Execução dos Pioneiros
 
+**Versão:** v1.3
+**Data:** 2026-03-21
+**Task:** OPS-BASTION-001
+**Versão:** v2.0
+**Data:** 2026-03-21
+**Task:** BASTION-2.0-CYCLE-START-001
+**Branch:** `claude/expose-workspace-config-yt4Km`
+**Modelo:** claude-4.6-opus-high-thinking
+**Aprovado por:** owner (instrução direta — ordem de ignição operacional)
 **Versão:** v1
 **Data:** 2026-03-20
 **Task:** OPS-BASTION-001
@@ -41,6 +50,7 @@
 |---|---|---|
 | **WorkStructure** | Estrutura / base / governança / protocolos / ops | @claude / @copilot |
 | **WorkFunction** | Funcionalidade / integração / comportamento / produto vivo | @claude / @cursor |
+| **WorkVisual** | Design / UI / UX / identidade / apresentação | @copilot |
 | **WorkVisual** | Design / UI / UX / identidade / apresentação | @framer / @antigravity / @copilot |
 
 **Regra de território:**
@@ -76,6 +86,7 @@ LOOP DO PIONEIRO:
 - Executa só o que estiver elegível
 - Fecha com EVIDENCE_BLOCK (ALTERACAO_REAL obrigatório)
 - Actualiza BASTION ao concluir (via handoff ou instrução directa)
+- Avalia activamente se outros pioneers podem entrar na wave activa (CONSTELLATION-LAW)
 
 ---
 
@@ -126,6 +137,14 @@ Cada item da matriz regista os seguintes campos:
 | PLv5.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv5 |
 | PLv6.1 | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.1 |
 | PLv6.2-a | Produto | WorkFunction | @claude | concluída | handoff emitido — PLv6.2-a |
+| PLv6.2-b | Produto | WorkFunction | @claude | concluída | handoff emitido — project_metrics expandido (CO₂, jobs, SDG, impactScore, PortfolioImpactSummary) |
+| FVL-IMPL-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | handoff emitido — FounderPage v2 (hero atmosférico, secção Architects, 6 pioneers, seal v2) |
+| BULK-01.2/L-001 | Mecânico | WorkStructure | @claude | concluída | .gitignore auditado — sem gaps; vite/bun/cli já cobertos |
+| BULK-01.2/L-002 | Mecânico | WorkStructure | @claude | concluída | timestamp files não rastreados — .gitignore resolve |
+| BULK-01.3-a | Mecânico | WorkStructure | @claude | concluída | vite timestamps não tracked — confirmado |
+| BULK-01.3-b | Mecânico | WorkStructure | @claude | concluída | decisão: npm canónico; package-lock.json tracked; bun.lock excluído |
+| BULK-01.3-c | Mecânico | WorkStructure | @claude | concluída | antigravity/ auditado — 168 ficheiros research assets intencional; sem lixo |
+| BULK-02.2 | Governança | WorkStructure | @claude | concluída | NEXUS_NEURAL_MESH.md lapidado — 4 rastos PLv6 actualizados para estado real |
 | OPS-OUTPUT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — OUTPUT_STANDARD v1 |
 | GENESIS-FOUNDER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido |
 | OPS-AUTOFLOW-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — AUTOFLOW v1 |
@@ -136,6 +155,14 @@ Cada item da matriz regista os seguintes campos:
 | OPS-BASTION-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION v1 criado |
 | OPS-BASTION-DISPATCH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION_DISPATCH_001.md emitido |
 | OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático selado; IGNIÇÃO_ATIVA permanente |
+| OPS-BASTION-AUTO-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — modo automático BASTION/IGNITION activo |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 iniciado |
+| COUNCIL-PR-TRIAGE-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — triagem 27 PRs/Issues |
+| BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — ciclo contínuo BASTION 2.0 activado |
+| BULK-01.3-a | Mecânico | WorkStructure | @cursor | concluída | já resolvido por @copilot F5 — timestamp removido do tracking + .gitignore blindado |
+| BULK-01.3-b | Mecânico | WorkStructure | @cursor | concluída | análise done — npm é PM canônico; bun.lock residual; aguarda B-002 owner para remoção |
+| BULK-01.3-c | Mecânico | WorkStructure | @cursor | concluída | análise done — 5 HTMLs legacy do owner (420K); zero refs no src/; aguarda B-003 owner |
+| OPS-FULL-AUTO-UNTIL-STOP-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — execução contínua reforçada até segunda ordem |
 | BASTION-2.0-CYCLE-START-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — BASTION 2.0 ciclo activado por ordem owner |
 | DNA-PROTOCOL-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — DNA_PROTOCOL.md v1 criado |
 | NEXUS-PIONEER-ROLE-MOTHER-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — PIONEER_MATRIX.md v1 criado; papéis cravados; 3 chats selados |
@@ -143,10 +170,187 @@ Cada item da matriz regista os seguintes campos:
 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — CROSS_SUPPORT_PROTOCOL.md v1 criado; FOL v2.1 seção 18; DNA v1.2 mapa |
 | NEXUS-FLOWMESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — FLOWMESH.md v1.0 criado; roteamento adaptativo; 8 blocos; 12 departamentos |
 | NEXUS-NEURAL-MESH-001 | Governança | WorkStructure | @claude | concluída | handoff emitido — NEXUS_NEURAL_MESH.md v1.0 criado; 10 partes; camada de inteligência viva |
+| MASTER-TOTAL-ARMY-WAVE-001 | Produto | WorkFunction+WorkVisual | @claude | concluída | motion/config.ts · OrbitalChamber · TrinityRow · HeroFirstProof · ProductHero · Index wired · TS 0 errors |
+| GLOBE-3D-ATMOSPHERE-001 | Produto | WorkVisual | @claude | concluída | AtmosphereSphere+CoronaSphere+3-point lighting+focus pulse+EarthquakeLayer+GlobeLayerSelector · TS 0 errors |
+| MOTION-SWEEP-001 | Mecânico | WorkStructure | @claude | concluída | 32 files migrated · 0 hardcoded ease values in src/ · EASE_OUT canonical · TS 0 errors |
+| GLOBE-3D-AURORA-001 | Visual | WorkVisual | @claude | concluída | AuroraRimSphere GLSL fresnel shader teal↔gold · OrbitalChamber focused sync · onFocusChange chain · TS 0 errors |
+| NS-1-HERO-COMPOSITION-001 | Visual | WorkVisual | @claude | concluída | Sacred thread Trinity→Proof · DELAY.afterGlobe stagger · motion.div wrapper · spacing sealed · TS 0 errors |
+| NS-2-NAV-POLISH-001 | Visual | WorkVisual | @claude | concluída | Glass bg/80 + white/8 border · active gold gradient bar · mobile left-border active state · TS 0 errors |
+
+> ✅ V3 GATE FECHADO — 2026-03-25 · AUTO-GATE abriu V4 imediatamente
+> Lei: CLAUDE.md §5 AUTO-GATE-LAW — @claude avalia e abre gate quando critérios [✓]
 
 ---
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
+
+> 🟢 V7 — TRINITY SURFACES — ABERTO 2026-03-26 via AUTO-GATE
+> 🟢 CONSTELLATION ACTIVA — @cursor (P1 WorkFunction) · @framer (P1 WorkVisual)
+> Gate 2026-03-26: V7_TRINITY_CONTRACT.md SEALED · 3 tasks elegíveis → ver secção V7 abaixo
+> ⚠️ TRUTH-SYNC 2026-03-29: V4/V5/V6 tasks abaixo são CONCLUÍDAS — histórico apenas, não executar
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-PROJECT-PAGE-001                                     │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ ✅ DONE                                                 │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ V4-ATLAS-001 (concluída)                                │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ concluído — AUTO-GATE abre V4-PROJECT-PAGE-001-MECH    │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ V4-PROJECT-PAGE-001-MECH                                │
+│ EVIDENCIA_MINIMA   │ projectBridge.ts · session carryover · Inspector CTA · TS 0 │
+│ NOTAS              │ @claude: arch sealed 2026-03-25 · bridge + carryover   │
+│                    │ @cursor enters: MECH gate NOW OPEN                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-PROJECT-PAGE-001-MECH                                │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ ✅ CONCLUÍDA — SUPERSEDED → V5-INFRA-SUPABASE-001 ✅   │
+│ DEPENDENCIA_STATUS │ livre — arch sealed                                     │
+│ DEPENDE_DE         │ V4-PROJECT-PAGE-001 ✅ DONE                             │
+│ PODE_ENTRAR_SOZINHO│ sim — arch concluída, gate aberto                       │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ 🔓 ABERTO — V4-PROJECT-PAGE-001 concluída 2026-03-25   │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ Supabase queries · API wiring · TS 0                   │
+│ NOTAS              │ @cursor: Supabase + API mechanical layer                │
+│                    │ No arch decisions — pure implementation                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-MOTION-SURFACES-001                                  │
+│ PILAR              │ WorkVisual                                              │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @antigravity                                            │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-25 · V4-CLOSE-GATE BEHAVIOUR-08 │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ V4-NEXUS-001 · V4-ATLAS-001 (ambas concluídas)         │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto — owner gate 2026-03-25                         │
+│ NEXT_ACTOR         │ @antigravity                                            │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ ProposalCard motion · WorldBankBar entrance · TS 0     │
+│ NOTAS              │ @antigravity: animate V4 surfaces                      │
+│                    │ ProposalCard approve flow · WorldBankBar slide-in       │
+│                    │ SessionBoot restore pulse · TS 0                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-INTERACTION-002                                      │
+│ PILAR              │ WorkFunction + WorkVisual                               │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-25 · V4-CLOSE-GATE BEHAVIOUR-01 │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ GLOBE-3D-AURORA-001 (concluída)                         │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-SESSION-001                                          │
+│ EVIDENCIA_MINIMA   │ ProjectFocusPanel · slide-in · click wired · TS 0      │
+│ NOTAS              │ Globe hotspot click → project detail panel slide-in     │
+│                    │ First real "system behaviour" moment of V4              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-SESSION-001                                          │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ concluída                                               │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-NEXUS-001                                            │
+│ EVIDENCIA_MINIMA   │ session memory hook · localStorage · TS 0              │
+│ NOTAS              │ Eternal Memory OS — user session persists across visits │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-NEXUS-001                                            │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ concluída                                               │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ V4-ATLAS-001                                            │
+│ EVIDENCIA_MINIMA   │ NexusPage canonical surface · AI parliament · TS 0     │
+│ NOTAS              │ NexusPage: canonical AI parliament with real proposals  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-ATLAS-001                                            │
+│ PILAR              │ WorkFunction                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ STATUS             │ concluída                                               │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto (AUTO-GATE V4)                                   │
+│ NEXT_ACTOR         │ @claude · @cursor                                       │
+│ NEXT_TASK          │ V4-PROJECT-PAGE-001                                     │
+│ EVIDENCIA_MINIMA   │ AtlasPage Supabase wired · WorldBank API · TS 0        │
+│ NOTAS              │ AtlasPage fully wired to Supabase globe_projects        │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CLUSTER-ORCHESTRATE-001                                 │
+│ PILAR              │ Consolidação                                            │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @codex                                                  │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-26 · CODEX_V5_AUDIT.md emitido  │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ concluído                                               │
+│ NEXT_ACTOR         │ @codex                                                  │
+│ NEXT_TASK          │ @owner decide                                           │
+│ EVIDENCIA_MINIMA   │ sync report + conflict audit + ALTERACAO_REAL           │
+│ NOTAS_DO_OWNER     │ Wave sync · detect drift across pioneer branches        │
+│                    │ Emit canonical integration report                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -155,7 +359,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · NEXUS_NEURAL_MESH lapidado  │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -176,7 +380,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · vite timestamps não tracked │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -196,7 +400,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · npm canónico · bun.lock out │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -216,7 +420,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @cursor                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-21 · antigravity/ auditado       │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -236,7 +440,7 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · .gitignore sem gaps         │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
@@ -256,8 +460,8 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · timestamp não rastreado     │
+│ DEPENDENCIA_STATUS │ livre (concluída)                                       │
 │ DEPENDE_DE         │ BULK-01.2 / L-001                                       │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P3                                                      │
@@ -271,7 +475,7 @@ Cada item da matriz regista os seguintes campos:
 
 ---
 
-### 5.3 TASKS PLANEJADAS (Aguardam Gate do Owner)
+### 5.3 TASKS CONCLUÍDAS DO CICLO V1-6 (Referência Histórica)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -280,13 +484,13 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction                                            │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ a definir                                               │
-│ STATUS             │ aguarda-gate                                            │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ GATE               │ CONCLUÍDA                                               │
+│ NEXT_ACTOR         │ —                                                       │
 │ NEXT_TASK          │ a definir                                               │
 │ EVIDENCIA_MINIMA   │ a definir pelo owner ao abrir gate                      │
 │ NOTAS_DO_OWNER     │ NewsAPI? project_metrics? página dedicada de portfólio? │
@@ -300,16 +504,75 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ @copilot (WorkVisual)                                   │
-│ STATUS             │ aguarda-gate                                            │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ não                                                     │
 │ PRIORIDADE         │ P2                                                      │
-│ GATE               │ fechado — aguarda decisão owner                         │
-│ NEXT_ACTOR         │ @owner (decide) → @claude (executa)                     │
+│ GATE               │ CONCLUÍDA                                               │
+│ NEXT_ACTOR         │ —                                                       │
 │ NEXT_TASK          │ a definir                                               │
 │ EVIDENCIA_MINIMA   │ rota /founder implementada + ALTERACAO_REAL: sim        │
 │ NOTAS_DO_OWNER     │ Blueprint FVL v1 pronto; paralelo ou sequencial c/ PLv6.2-b │
+### 5.3b TASKS CONCLUÍDAS DO CICLO — GATE ABERTO 2026-03-22
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ PLv6.2-b [CONCLUÍDA — ver 5.1]                          │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @codex (consolidação) / @cursor (suporte mecânico)      │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ FVL-IMPL-001 (paralelo)                                 │
+│ EVIDENCIA_MINIMA   │ NewsAPI integrada OU project_metrics expandido + commit │
+│ NOTAS_DO_OWNER     │ GATE ABERTO — fechar este ciclo; prioridade máxima      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ FVL-IMPL-001 [CONCLUÍDA — ver 5.1]                      │
+│ PILAR              │ Produto                                                 │
+│ WORKTREE_ALIAS     │ WorkFunction + WorkVisual                               │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ @copilot (WorkVisual) / @antigravity (WorkVisual)       │
+│ STATUS             │ ✅ CONCLUÍDA — 2026-03-22 · ver 5.1                     │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO — owner abriu em 2026-03-22                      │
+│ NEXT_ACTOR         │ @claude + @copilot (paralelo)                           │
+│ NEXT_TASK          │ CYCLE-CLOSE-001                                         │
+│ EVIDENCIA_MINIMA   │ rota /founder funcional + visual polido + ALTERACAO_REAL│
+│ NOTAS_DO_OWNER     │ GATE ABERTO — executar em paralelo com PLv6.2-b         │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ CYCLE-CLOSE-001                                         │
+│ PILAR              │ Consolidação                                            │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @codex                                                  │
+│ APOIO_SECUNDARIO   │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre — todas as deps concluídas                        │
+│ DEPENDE_DE         │ PLv6.2-b ✅ + FVL-IMPL-001 ✅ + BULK-02.2 ✅ + L-002 ✅ │
+│ PODE_ENTRAR_SOZINHO│ sim (entra após handoffs)                               │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ ABERTO                                                  │
+│ NEXT_ACTOR         │ @codex                                                  │
+│ NEXT_TASK          │ PR para main                                            │
+│ EVIDENCIA_MINIMA   │ relatório-mãe consolidado + todos os handoffs recebidos │
+│ NOTAS_DO_OWNER     │ Fechar o ciclo: consolidar tudo → PR → main             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -369,26 +632,75 @@ O Codex não executa. O Codex lê, distribui e consolida.
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v1.8
+VERSÃO          │ v1.3
 DATA            │ 2026-03-21
-ÚLTIMA_ACTUAÇÃO │ NEXUS-NEURAL-MESH-001 | @claude | 2026-03-21
-ESTADO          │ BASTION 2.0 ACTIVO — ciclo contínuo activado por ordem do owner
-CICLO_2.0       │ ATIVO — todos os pioneiros em fluxo contínuo no território dominante
-DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+ÚLTIMA_ACTUAÇÃO │ BASTION-2.0-CYCLE-START-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION 2.0 activo — pioneiros em loop contínuo por elegibilidade
 TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
                 │ BULK-01.2/L-001 | BULK-01.2/L-002
-@copilot        │ EM FLUXO → L-001 → L-002 → BULK-02.2 (WorkStructure / Lapidação)
-@cursor         │ EM FLUXO → 01.3-a → 01.3-b → 01.3-c (WorkStructure / Mecânico)
-@codex          │ CONSOLIDADOR ATIVO → lê BASTION → distribui → consolida ondas
-@claude         │ ÁRBITRO — abre caminho estrutural; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-@antigravity    │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
-@framer         │ SEM ELEGÍVEL — entra quando houver task no território ou apoio explícito
-GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam decisão owner)
-BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento @codex)
-IGNIÇÃO         │ ATIVA — PERMANENTE (para: owner / gate soberano / bloqueio real / sem elegível)
+@copilot        │ ACTIVADO → lê BASTION → executa elegível WorkStructure (L-001/L-002/BULK-02.2)
+@cursor         │ ACTIVADO → lê BASTION → executa elegível mecânico (01.3-a/b/c)
+@codex          │ CONSOLIDADOR ATIVO → audita estado do BASTION e ordena dependências
+@claude         │ ARBITRAGEM ACTIVA — topo do BASTION coerente + semáforo vivo
+VERSÃO          │ v2.0
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ BULK-01.3-a/b/c | @cursor | 2026-03-21
+ESTADO          │ ACTIVO — CICLO CONTÍNUO 2.0 EM EXECUÇÃO
+DISPATCH        │ BASTION_DISPATCH_001 emitido — @copilot + @cursor + @codex activados
+CICLO           │ BASTION 2.0 — fluxo contínuo sem microgestão do owner
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
+@cursor         │ 01.3-a DONE (já resolvido) | 01.3-b DONE (análise→B-002) | 01.3-c DONE (análise→B-003) | SEM TASK ELEGÍVEL
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ ARBITER ACTIVO — sem tasks elegíveis; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@antigravity    │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+@framer         │ SEM TASK ELEGÍVEL — entra apenas se task do território aparecer no BASTION
+VERSÃO          │ v1.2
+DATA            │ 2026-03-21
+ÚLTIMA_ACTUAÇÃO │ OPS-BASTION-AUTO-001 | @claude | 2026-03-21
+VERSÃO          │ v1.3
+DATA            │ 2026-03-20
+ÚLTIMA_ACTUAÇÃO │ OPS-FULL-AUTO-UNTIL-STOP-001 | @claude | 2026-03-21
+ESTADO          │ ACTIVO — fonte única de execução elegível
+DISPATCH        │ BASTION_DISPATCH_001 + OPS_FULL_AUTO_UNTIL_STOP_001 activos
+TASKS_ELEGÍVEIS │ BULK-02.2 | BULK-01.3-a | BULK-01.3-b | BULK-01.3-c |
+                │ BULK-01.2/L-001 | BULK-01.2/L-002
+@copilot        │ ACTIVADO → L-001 → L-002 → BULK-02.2
+@cursor         │ ACTIVADO → 01.3-a → 01.3-b → 01.3-c
+@codex          │ CONSOLIDADOR ATIVO → aguarda handoffs para relatório-mãe
+@claude         │ MODO AUTOMÁTICO SELADO — aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
+@codex          │ CONSOLIDADOR/TRIBUNAL ATIVO → KEEP/SALVAGE/KILL/REBUILD quando necessário
+@claude         │ GUARDA DO TOPO DO BASTION + arbitragem canônica contínua
+AUTOMÁTICO      │ ON — terminou task = volta ao BASTION; entrada automática só com
+                │ NEXT_ACTOR correspondente + ACTIVATION_MODE: imediato + CONDITION: nenhuma
+GATES_FECHADOS  │ PLv6.2-b | FVL-IMPL-001 (aguardam owner)
+BLOQUEADAS      │ BULK-01-Codex (branch) | F6 (em andamento)
+IGNIÇÃO         │ ATIVA — ciclo contínuo iniciado por ordem do owner 2026-03-21
+IGNIÇÃO         │ ATIVA — PERMANENTE (até ordem owner / gate soberano / bloqueio real / sem elegível)
 MODO_AUTO       │ SELADO — pioneiros seguem BASTION sem instrução manual entre tasks
-CICLO_PARA      │ ordem owner | gate soberano | bloqueio real | red line | sem elegível
 DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é deriva
+INTERRUPTOR     │ Parar apenas por: ordem owner | gate soberano | bloqueio real | red line | sem elegível
+VERSÃO          │ v2.0
+DATA            │ 2026-03-22
+ÚLTIMA_ACTUAÇÃO │ BULK-CLOSE | @claude cross-support | 2026-03-22
+ESTADO          │ PRONTO PARA CYCLE-CLOSE-001 — todas as tasks elegíveis concluídas
+CICLO_2.0       │ SPRINT FINAL — aguarda só PR para main
+DISPATCH        │ BASTION_DISPATCH_002 emitido — FECHAMENTO DE CICLO
+TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 (última — aguarda PR)
+TASKS_CONCLUÍDAS│ PLv6.2-b ✓ | FVL-IMPL-001 ✓ | BULK-02.2 ✓ |
+                │ BULK-01.2/L-001 ✓ | BULK-01.2/L-002 ✓ |
+                │ BULK-01.3-a ✓ | BULK-01.3-b ✓ | BULK-01.3-c ✓
+@claude         │ DONE — todas as tasks P1 + cross-support mecânico concluídas
+@copilot        │ LIBERADO — tasks completadas por @claude em cross-support
+@cursor         │ LIBERADO — tasks completadas por @claude em cross-support
+@codex          │ CYCLE-CLOSE-001 — emitir relatório-mãe + abrir PR
+GATES_FECHADOS  │ nenhum — ciclo encerrado operacionalmente
+BLOQUEADAS      │ BULK-01-Codex (branch, não bloqueia PR) | F6 (paralelo)
+IGNIÇÃO         │ COMPLETA — sprint final executado em bulk
+MODO_AUTO       │ SELADO
+CICLO_PARA      │ PR para main → owner aprova merge → ciclo declarado fechado
+DERIVA          │ impermitida
 ════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -405,6 +717,9 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 | Estado vivo | `ops/LIVE_STATE.md` |
 | Histórico de handoffs | `ops/HANDOFF_LEDGER.md` |
 | Orquestração do Codex | `ops/CODEX_CONSOLIDATOR.md` |
+| Modo de ignição | `ops/IGNITION.md` |
+| Fluxo autônomo | `ops/AUTOFLOW.md` |
+| Ordem full-auto | `ops/OPS_FULL_AUTO_UNTIL_STOP_001.md` |
 | Protocolo-mãe | `ops/DNA_PROTOCOL.md` |
 | Papéis dos pioneiros | `ops/PIONEER_MATRIX.md` |
 | Modo de ignição | `ops/IGNITION.md` |
@@ -418,9 +733,462 @@ DERIVA          │ 🔴 impermitida — qualquer execução fora do BASTION é 
 *BASTION.md v1 — criado em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-001*
 *BASTION.md v1.1 — semáforo actualizado com dispatch em 2026-03-20 | claude-sonnet-4-6 | OPS-BASTION-DISPATCH-001*
 *BASTION.md v1.2 — modo automático selado; IGNIÇÃO_ATIVA permanente registada em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.2 — modo automático BASTION/IGNITION reforçado em 2026-03-21 | claude-sonnet-4-6 | OPS-BASTION-AUTO-001*
+*BASTION.md v1.3 — ciclo contínuo BASTION 2.0 iniciado em 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v2.0 — ciclo contínuo BASTION 2.0 activado por ordem do owner em 2026-03-21 | claude-4.6-opus-high-thinking | BASTION-2.0-CYCLE-START-001*
+*BASTION.md v1.3 — execução contínua reforçada até segunda ordem em 2026-03-21 | claude-sonnet-4-6 | OPS-FULL-AUTO-UNTIL-STOP-001*
 *BASTION.md v1.3 — BASTION 2.0 ciclo activado por ordem owner; semáforo 2.0; todos os pioneiros em fluxo contínuo — 2026-03-21 | claude-sonnet-4-6 | BASTION-2.0-CYCLE-START-001*
 *BASTION.md v1.4 — DNA-PROTOCOL-MOTHER-001 concluída; DNA_PROTOCOL.md v1 adicionado ao histórico e localização canônica — 2026-03-21 | claude-sonnet-4-6 | DNA-PROTOCOL-MOTHER-001*
 *BASTION.md v1.5 — NEXUS-PIONEER-ROLE-MOTHER-001 concluída; PIONEER_MATRIX.md v1 adicionado; papéis cravados; 3 chats selados — 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
 *BASTION.md v1.6 — WorkVisual corrigido (@framer/@antigravity/@copilot); typo 'pioneer'→'pioneiro' — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*
 *BASTION.md v1.7 — NEXUS-ELIGIBLE-CROSS-SUPPORT-001 + NEXUS-FOUNDATION-REFINEMENT-001 adicionados ao histórico; CROSS_SUPPORT_PROTOCOL.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-ELIGIBLE-CROSS-SUPPORT-001*
 *BASTION.md v1.8 — NEXUS-FLOWMESH-001 + NEXUS-NEURAL-MESH-001 adicionados ao histórico; FLOWMESH.md + NEXUS_NEURAL_MESH.md na localização canônica; semáforo atualizado — 2026-03-21 | claude-sonnet-4-6 | NEXUS-NEURAL-MESH-001*
+*BASTION.md v1.9 — FECHAMENTO DE CICLO: gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner; CYCLE-CLOSE-001 criada; todos os pioneers em sprint final; semáforo v1.9 — 2026-03-22 | claude-sonnet-4-6 | CYCLE-CLOSE-DISPATCH*
+*BASTION.md v2.0 — BULK-CLOSE: todas as tasks elegíveis concluídas em bulk coordenado (@claude cross-support); semáforo v2.0 — 2026-03-22 | claude-sonnet-4-6 | BULK-CLOSE-001*
+
+---
+
+## 6. V4 CLOSE GATE — CRITÉRIOS DE FECHO
+
+> Aberto por: @claude · 2026-03-25 · FORCE-ACTIVATION-001
+> V4 fecha quando TODOS os critérios abaixo estiverem [✓]
+> Owner aprova o fecho e @claude abre V5 via AUTO-GATE
+
+```
+V4-CLOSE-GATE
+═══════════════════════════════════════════════════════════════════════
+
+BEHAVIOUR-01  [✓] V4-INTERACTION-002 — ProjectFocusPanel slide-in DONE
+BEHAVIOUR-02  [✓] V4-SESSION-001    — Eternal Memory OS DONE
+BEHAVIOUR-03  [✓] V4-NEXUS-001      — AI Parliament NexusPage DONE
+BEHAVIOUR-04  [✓] V4-ATLAS-001      — AtlasPage WorldBank wired DONE
+BEHAVIOUR-05  [✓] V4-PROJECT-PAGE-001 — arch + session carryover DONE
+BEHAVIOUR-06  [✓] GoldenAtlasScene wired as hero with scrollProgress DONE
+BEHAVIOUR-07  [~] V4-PROJECT-PAGE-001-MECH — WAIVED by owner 2026-03-25
+               Reclassified → V5-INFRA-SUPABASE-001 (early infra, V5 queue)
+               NOTE: Do NOT mark backend readiness or production Supabase
+               complete until real secrets are wired in proper environment.
+BEHAVIOUR-08  [✓] V4-MOTION-SURFACES-001   — ProposalCard stagger + SessionBoot restore pulse + dialogue framer-motion DONE
+BEHAVIOUR-09  [✓] V4-LAPIDATION-001        — NexusPage header mobile overflow fixed · scrollYProgress reactivity fixed · TS 0 DONE
+BEHAVIOUR-10  [~] CLUSTER-ORCHESTRATE-001  — deferred, not blocking V4 close
+
+QUALITY-01    [✓] TS 0 errors
+QUALITY-02    [✓] Build clean (✓ 3685 modules · 2.73s)
+QUALITY-03    [✓] V4 surfaces mobile-responsive — NexusPage L1 header sm/md/lg breakpoints · FounderPage grid-cols-1 sm · ProjectPage responsive padding · AtlasPage fixed-position shell
+QUALITY-04    [✓] OrganErrorBoundary always logs in componentDidCatch (even when silent=true) — console non-silent confirmed
+
+V4-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — owner waved BEHAVIOUR-07 + BEHAVIOUR-10
+V4-CLOSE-REASON: Supabase .env is a mechanical secret dependency, not a conceptual
+                 behaviour blocker. Phase closure cannot be held hostage by infra secrets.
+═══════════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 7. PIONEER DISPATCH — FORCE ACTIVATION 2026-03-25
+
+> Owner instruction: "activate everyone · close V4 · open V5 · coordinated · precise"
+> All pioneers enter their task NOW. No waiting. Parallel execution.
+
+```
+FORCE-ACTIVATION-001
+═══════════════════════════════════════════════════════════════════════
+
+@CLAUDE — V4-CLOSE-COORD (executing now)
+  TERRITORY : WorkStructure + WorkFunction (arch arbiter)
+  TASK      : V4 coordination · hero scrollProgress wired · BASTION V5 gates defined
+  STATUS    : ✅ EXECUTING — GoldenAtlasScene scrollProgress DONE · V5 gates OPEN
+  NEXT      : Monitor V4 close · enter V5-ARCH-001 when V4 [✓]
+
+@CURSOR — V4-PROJECT-PAGE-001-MECH
+  TERRITORY : WorkFunction (mechanical layer)
+  TASK      : ProjectPage Supabase queries · real project data · API wiring
+  GATE      : 🔓 OPEN — arch sealed by @claude 2026-03-25
+  ENTRYPOINT: src/pages/ProjectPage.tsx + src/lib/projectBridge.ts
+  EVIDENCE  : Supabase queries returning real data · TS 0 · build clean
+  PRIORITY  : P1 — V4 blocker
+
+@ANTIGRAVITY — V4-MOTION-SURFACES-001
+  TERRITORY : WorkVisual (motion layer)
+  TASK      : Animate V4 surfaces — ProposalCard · WorldBankBar · SessionBoot
+  GATE      : 🔓 OPEN — all surfaces exist, behaviour sealed
+  ENTRYPOINT: src/components/nexus/ · src/components/atlas/WorldBankBar.tsx
+  EVIDENCE  : Smooth entrance animations · stagger · TS 0
+  PRIORITY  : P1 — V4 blocker
+
+@COPILOT — V4-LAPIDATION-001 (NEW TASK)
+  TERRITORY : WorkFunction (lapidation)
+  TASK      : Polish pass on all V4 surfaces — spacing · contrast · edge cases
+              Ensure no visible broken states · mobile check · console clean
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All V4 pages (Index · Atlas · Nexus · ProjectPage · FounderPage)
+  EVIDENCE  : No broken UI states · console clean · mobile 375px no overflow
+  PRIORITY  : P2
+
+@CODEX — CLUSTER-ORCHESTRATE-001
+  TERRITORY : Consolidação
+  TASK      : Wave sync · detect pioneer drift · emit canonical integration report
+  GATE      : 🔓 OPEN
+  ENTRYPOINT: All branches — diff audit · BASTION alignment check
+  EVIDENCE  : Integration report · confirmed no duplicate work · ALTERACAO_REAL
+  PRIORITY  : P2
+
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 8. V5 GATE — REAL-TIME INTELLIGENCE LAYER
+
+> Gate opens when V4-CLOSE-GATE all [✓] and owner approves
+> @claude opens V5 via AUTO-GATE when criteria met
+
+```
+V5-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "The system is alive — data moves, AI acts, globe reacts"
+
+TASKS (elegíveis quando V4 fechar):
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-LIVE-DATA-001                                        │
+│ DONO      │ @cursor                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Globe hotspots stream live project metrics              │
+│           │ Supabase realtime → CO₂ · jobs · progress · status     │
+│ EVIDENCE  │ Numbers change live · no page reload · TS 0            │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-EVENT-STREAM-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Event bus → globe surface reactions                     │
+│           │ Real-world events trigger visual pulses on globe        │
+│           │ News items → hotspot glow · seismic → ring pulse        │
+│ EVIDENCE  │ Globe reacts to injected events · TS 0                 │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AUDIO-SYSTEM-001                                     │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion + sound)                             │
+│ TASK      │ Full spatial audio design system                        │
+│           │ Globe hover tone · project click · data stream hum      │
+│           │ Ambient low-freq drone · UI confirmation tones          │
+│ EVIDENCE  │ Every interaction has audio weight · Web Audio API      │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-AI-PROPOSALS-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction (arch)                                     │
+│ TASK      │ Nexus proposals auto-generated from real project data   │
+│           │ Supabase metrics → Claude API → structured proposals    │
+│           │ Proposals enter parliament queue automatically          │
+│ EVIDENCE  │ New proposals appear without manual input · TS 0       │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-CAMERA-FLY-001                                       │
+│ DONO      │ @antigravity                                            │
+│ TERRITORY │ WorkVisual (motion)                                     │
+│ TASK      │ Camera flies to project location on hotspot click       │
+│           │ Cinematic zoom in · land at coordinates · pull back     │
+│           │ Triggers ProjectInspector after landing                 │
+│ EVIDENCE  │ Smooth cinematic fly · no jank · TS 0                  │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-MOBILE-IMMERSION-001                                 │
+│ DONO      │ @copilot                                                │
+│ TERRITORY │ WorkFunction (lapidation)                               │
+│ TASK      │ Full mobile experience — touch gestures on globe        │
+│           │ Pinch-zoom · swipe-rotate · tap-to-inspect              │
+│           │ Mobile-first hero adapted for 375px+                    │
+│ EVIDENCE  │ Smooth on iOS/Android · no overflow · TS 0             │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V5-INFRA-SUPABASE-001 (reclassified from V4-B07)        │
+│ DONO      │ @cursor (mechanical) + owner (secrets)                  │
+│ TERRITORY │ WorkFunction (infra/mechanical)                         │
+│ TASK      │ Wire real Supabase project: create project · add .env   │
+│           │ VITE_SUPABASE_URL · VITE_SUPABASE_PUBLISHABLE_KEY       │
+│           │ VITE_SUPABASE_PROJECT_ID · run globe_projects SQL       │
+│           │ Then: @cursor wires ProjectPage real queries             │
+│ BLOCKED   │ Owner must provide .env with real credentials first     │
+│ EVIDENCE  │ Real project data loads · no placeholder fallback       │
+│ PRIORITY  │ P1 (unblocks V5-LIVE-DATA-001)                          │
+│ CONSTRAINT│ DO NOT mark backend-ready or Supabase-complete until    │
+│           │ real secrets are in environment and queries return data  │
+└─────────────────────────────────────────────────────────────────────┘
+
+V5-GATE-STATUS : 🟢 OPEN — V4 closed by owner 2026-03-25
+V5-DONE        : V5-EVENT-STREAM-001 ✅
+                 V5-AI-PROPOSALS-001 ✅ (arch stub → Supabase-ready)
+                 V5-INFRA-SUPABASE-001 ✅ — .env wired · fetchSupabaseProjects() live · ENRICHMENT_REGISTRY · isLive:true active
+                 V5-AUDIO-SYSTEM-001 ✅ — audioEngine (Web Audio API) · 6 sounds · ambient drone · wired to globe + AICouncil
+                 V5-CAMERA-FLY-001 ✅ — CameraController · easeInOutCubic arc · fly→land→inspector · close→return
+                 V5-LIVE-DATA-001 ✅ — useGlobeRealtime · Supabase realtime · INSERT/UPDATE/DELETE · PROJECT_UPDATE → EventPulseRing · live badge
+                 V5-MOBILE-IMMERSION-001 ✅ — useTouchGlobe · swipe-orbit · pinch-zoom · tap-to-inspect · momentum decay · DPR mobile cap
+V5-CLOSE-STATUS: ✅ CLOSED — 2026-03-25 — 7/7 tasks done
+CLUSTER-ORCHESTRATE-001: ✅ briefing emitido → ops/CODEX_V5_AUDIT.md
+═══════════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 9. V6 GATE — USER SOVEREIGNTY LAYER
+
+> Gate aberto por: @claude · 2026-03-25 · AUTO-GATE-LAW (CLAUDE.md §5)
+> V5 7/7 [✓] → critérios satisfeitos → V6 abre automaticamente
+> Owner pode bloquear dizendo "STOP", "PAUSE", ou "BLOCK"
+
+```
+V6-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+
+THEME : "O utilizador tem voz — identidade, workspace, soberania pessoal"
+
+CONSTELLATION PARA V6:
+  @claude      → arch + governança + decisões soberanas
+  @cursor      → implementação mecânica (queries, API wiring)
+  @copilot     → lapidação + polish de superfícies V6
+  @antigravity → motion layer das novas superfícies
+
+TASKS ELEGÍVEIS — GATE 🟢 ABERTO:
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-AUTH-001                                             │
+│ DONO      │ @claude (arch) + @cursor (mech)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Full auth flow — Supabase Auth (email/magic link)       │
+│           │ onboarding screen · user profile · session persistence  │
+│           │ gate-protected routes (Atlas, Nexus, ProjectPage)       │
+│ EVIDENCE  │ Login funcional · rotas protegidas · TS 0               │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PROJECT-DETAIL-001                                   │
+│ DONO      │ @cursor (mech layer)                                    │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ ProjectPage wired to real Supabase data                 │
+│           │ globe_projects query · metrics · timeline · status      │
+│           │ Completes V4-PROJECT-PAGE-001-MECH (outstanding)        │
+│ EVIDENCE  │ Real project data loads · no placeholder · TS 0         │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-PORTFOLIO-DASHBOARD-001                              │
+│ DONO      │ @claude (arch) + @cursor (data)                         │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ Portfolio aggregate view                                │
+│           │ Total investment · CO₂ impact · jobs · SDG score        │
+│           │ Live metrics from globe_projects + project_metrics      │
+│           │ New route /portfolio or embedded in AtlasPage           │
+│ EVIDENCE  │ Aggregate numbers visible · update on Supabase change   │
+│ PRIORITY  │ P1                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-COUNCIL-LIVE-001                                     │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkFunction                                            │
+│ TASK      │ AICouncil proposals fully live from Supabase            │
+│           │ fetchSupabaseProjects() returns rows → isLive:true      │
+│           │ AUTO badge shows "LIVE" not "stub"                      │
+│           │ Proposals persist to Supabase proposal_ledger table     │
+│ EVIDENCE  │ isLive:true confirmed · proposals from real data · TS 0 │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TASK_ID   │ V6-RUBERRA-SURFACE-001                                  │
+│ DONO      │ @claude                                                 │
+│ TERRITORY │ WorkStructure + WorkVisual                              │
+│ TASK      │ RUBERRA corp stubs 02-10 with real content structure    │
+│           │ Corp structure · product · system spine · defense       │
+│           │ governance · forja · marketing · didactic · ecosystem   │
+│ EVIDENCE  │ 9 stubs with real section structure · TS 0              │
+│ PRIORITY  │ P2                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+V6-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-25
+V6-QUEUE       : V6-AUTH-001 (P1 — ✅ DONE 2026-03-26 @claude)
+                 V6-PROJECT-DETAIL-001 (P1 — ✅ DONE 2026-03-26 @claude)
+                 V6-PORTFOLIO-DASHBOARD-001 (P1 — ✅ DONE 2026-03-26 @claude · PR#175)
+                 V6-COUNCIL-LIVE-001 (P2 — ✅ DONE 2026-03-26 @claude · PR#176)
+                 V6-RUBERRA-SURFACE-001 (P2 — 🔄 IN PROGRESS @claude)
+
+V6-AUTH-001-CLOSE:
+  ✅ ProtectedRoute component (auth guard + ownerOnly variant)
+  ✅ /owner and /dashboard protected in App.tsx
+  ✅ useCurrentUser hook — flat identity surface for all V6 components
+  ✅ GovAuth post-login redirect honours location.state.from
+  ✅ TS 0 · commit 0fd720a · pushed
+
+V6-PORTFOLIO-DASHBOARD-001-CLOSE:
+  ✅ usePortfolioData hook — globe_projects + project_metrics aggregate
+  ✅ metric_key contracts: investment_usd · co2_tonnes · jobs_created · sdg_score
+  ✅ Real-time: postgres_changes on both tables
+  ✅ PortfolioMetricsPanel — animated KPI cards · LIVE badge · status bar
+  ✅ Wired at top of DashboardPage (/dashboard)
+  ✅ Build ✓ · PR#175 → main 8dc6b00
+
+V6-COUNCIL-LIVE-001-CLOSE:
+  ✅ useProposalQueue: real-time subscription to globe_projects added
+  ✅ Queue auto-rebuilds on globe_projects INSERT/UPDATE/DELETE
+  ✅ isLive: true when fetchSupabaseProjects() returns real rows
+  ✅ appendToProposalLedger: Supabase upsert to proposal_ledger added
+  ✅ Graceful fallback when proposal_ledger table doesn't exist yet
+  ✅ SQL migration documented in PR#176
+  ✅ Build ✓ · PR#176 → main d3e10b0
+
+V6-RUBERRA-SURFACE-001-CLOSE:
+  ✅ PRODUCT_MAP.md — surfaces, routes, faces, session tracking (128 lines)
+  ✅ PRODUCT_VISION.md — product vision, principles, evolution
+  ✅ RUNTIME.md — stack, boot sequence, realtime flows, perf budgets (184 lines)
+  ✅ DATA_AND_CONTROL_FLOWS.md — data architecture, control flows (217 lines)
+  ✅ GOVERNANCE_MODEL.md — decision classes, protocols (216 lines)
+  ✅ CURRENT_STACK.md — full tech inventory, CI/CD, branch model (150 lines)
+  ✅ DEPLOY_MODEL.md — pipeline, rollback, env vars, sprint cycle (198 lines)
+  ✅ BRAND_CORE.md — identity, voice, visual language, positioning (212 lines)
+  ✅ KNOWLEDGE_TRANSFER.md — onboarding layers, handoff law, glossary (110 lines)
+  ✅ commit 5399df5 · pushed · 1627 insertions
+V6-GATE-CLOSE: V6 wave complete — all P1+P2 tasks done
+═══════════════════════════════════════════════════════════════════════
+```
+
+## V7 — GATE STATUS
+
+V7-GATE-STATUS : 🟢 OPEN — AUTO-GATE 2026-03-26
+V7-CONTRACT    : ops/V7_TRINITY_CONTRACT.md — SEALED ✅
+
+```
+V7-GATE-DEFINITION
+═══════════════════════════════════════════════════════════════════════
+VERSÃO        : V7 — Trinity Surfaces
+TEMA          : Visible Species Incarnation — Lab / School / Workshop
+GATE ABERTO   : 2026-03-26 | AUTO-GATE | @claude
+CONTRATO      : ops/V7_TRINITY_CONTRACT.md
+FECHADO QUANDO: Todos os critérios das 3 superfícies [✓] em V7_TRINITY_CONTRACT.md
+═══════════════════════════════════════════════════════════════════════
+```
+
+### V7-LAB-SURFACE-001
+
+```
+TASK          : V7-LAB-SURFACE-001
+DESCRICAO     : Construir Lab surface completa — /lab · heaven_lab face · 3 zonas · useLabState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P1
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/LabPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useLabState.ts (criar)
+  - Componentes: src/components/lab/ (criar directório + módulos)
+  - Módulos obrigatórios: HypothesisBoard · EvidencePanel · ProjectProbe · IntelFeed · GeoLayer · AIProbe
+  - State key: nxos_lab_state
+  - Entry vector mínimo: direct nav /lab com restore de estado
+  - Exit vector mínimo: "Build on this" → /workshop com contexto
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+```
+
+### V7-SCHOOL-SURFACE-001
+
+```
+TASK          : V7-SCHOOL-SURFACE-001
+DESCRICAO     : Construir School surface completa — /school · bridge_nova face · 3 zonas · useSchoolState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P2
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/SchoolPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useSchoolState.ts (criar)
+  - Componentes: src/components/school/ (criar directório + módulos)
+  - Módulos obrigatórios: MasteryMap · LearningModule · AITutor · CaseArchive · ProgressEngine
+  - State key: nxos_school_state
+  - Entry vector mínimo: direct nav /school com restore de estado
+  - Exit vector mínimo: módulo completo → updateFruit() · "Test in Lab" → /lab
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 2 — SCHOOL
+```
+
+### V7-WORKSHOP-SURFACE-001
+
+```
+TASK          : V7-WORKSHOP-SURFACE-001
+DESCRICAO     : Construir Workshop surface completa — /workshop · nexus_cria face · 3 zonas · useWorkshopState
+PILLAR        : WorkFunction (mecânica) + WorkVisual (face)
+PRIORIDADE    : P2
+NEXT_ACTOR    : @cursor (WorkFunction) + @framer (WorkVisual)
+STATUS        : elegível
+DEPENDENCIA   : ops/V7_TRINITY_CONTRACT.md [✓ SEALED]
+DEPENDENCIA_STATUS : desbloqueada
+PODE_ENTRAR_SOZINHO: sim
+
+CONTRATO:
+  - Shell: src/pages/WorkshopPage.tsx (substituir placeholder)
+  - Hook: src/hooks/useWorkshopState.ts (criar)
+  - Componentes: src/components/workshop/ (criar directório + módulos)
+  - Módulos obrigatórios: CreationCanvas · AICoCreator · ArtefactLibrary · OrganismBuilder · WorkflowEngine · OutputBridge
+  - State key: nxos_workshop_state
+  - Entry vector mínimo: direct nav /workshop com restore · Lab finding → "Build on this"
+  - Exit vector mínimo: OutputBridge → Projects layer
+
+REFERENCIA    : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 3 — CREATION HUB / WORKSHOP
+```
+
+
+---
+
+## 10. SEMÁFORO DO BASTION — v3.0 (TRUTH-SYNC 2026-03-29)
+
+```
+BASTION ════════════════════════════════════════════════════════════════════
+VERSÃO          │ v3.0
+DATA            │ 2026-03-29
+ÚLTIMA_ACTUAÇÃO │ BASTION-TRUTH-SYNC-001 | @copilot | 2026-03-29
+ESTADO          │ ACTIVO — V7 TRINITY SURFACES em execução
+DISPATCH        │ V7 gate aberto · 3 superfícies elegíveis
+TASKS_ELEGÍVEIS │ V7-LAB-SURFACE-001 (P1) | V7-SCHOOL-SURFACE-001 (P2) | V7-WORKSHOP-SURFACE-001 (P2)
+@cursor         │ ACTIVADO → V7-LAB-SURFACE-001 (P1 · entrada imediata)
+@framer         │ ACTIVADO → V7-LAB-SURFACE-001 WorkVisual (paralelo com @cursor)
+@claude         │ ARBITER ACTIVO · AUTO-GATE · sem task elegível no BASTION 2.0 backlog
+@copilot        │ TRUTH-SYNC DONE → aguarda nova task WorkStructure V7
+@codex          │ CYCLE-CLOSE-001 elegível — todas as deps concluídas — pode entrar agora
+GATES_FECHADOS  │ nenhum — V7 aberto; CYCLE-CLOSE-001 desbloqueado
+BLOQUEADAS      │ BULK-01-Codex (branch; não bloqueia V7) | F6 (paralelo)
+IGNIÇÃO         │ ATIVA — loop contínuo V7
+MODO_AUTO       │ SELADO
+DERIVA          │ 🔴 impermitida
+INTERRUPTOR     │ owner: STOP | PAUSE | BLOCK
+TRUTH_SYNC      │ 2026-03-29 — todos os stale elegível/em execução em 5.2 corrigidos para CONCLUÍDA
+                │ BULK-01.3-a/b/c ✅ | BULK-01.2/L-001 ✅ | BULK-01.2/L-002 ✅ | BULK-02.2 ✅
+                │ V4-INTERACTION-002 ✅ | V4-MOTION-SURFACES-001 ✅ | V4-PROJECT-PAGE-001-MECH SUPERSEDED
+                │ CLUSTER-ORCHESTRATE-001 ✅ | PLv6.2-b ✅ | FVL-IMPL-001 ✅
+                │ CYCLE-CLOSE-001: DEPENDENCIA_STATUS → livre (todas deps done)
+════════════════════════════════════════════════════════════════════════════
+```

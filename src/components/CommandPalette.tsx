@@ -1,5 +1,5 @@
 // Neural Search — Google-style instant search across all organs with fuzzy matching
-import { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
 import { Search, FileText, Globe, Shield, Info, Scale, BarChart3, Brain, Radio, Newspaper, Zap } from "lucide-react";
@@ -78,37 +78,53 @@ const CommandPalette = () => {
   }, [filtered]);
 
   return (
-    <CommandDialog open={open} onOpenChange={(o) => { setOpen(o); if (!o) setQuery(""); }}>
+    <CommandDialog
+      open={open}
+      onOpenChange={(o) => { setOpen(o); if (!o) setQuery(""); }}
+    >
+      {/* Header */}
       <div className="flex items-center gap-2 px-4 pt-3 pb-1">
-        <Zap className="w-3.5 h-3.5 text-primary animate-pulse" />
-        <span className="font-mono text-[0.45rem] tracking-[0.2em] text-primary/70 uppercase">
+        <Zap className="w-3.5 h-3.5 text-gold animate-pulse" />
+        <span className="font-mono text-[0.42rem] tracking-[0.28em] uppercase text-paper-dim/30">
           NEURAL SEARCH — TODOS OS ÓRGÃOS
         </span>
       </div>
+
+      {/* Search input — V3 */}
       <CommandInput
         placeholder="Buscar dossiê, órgão, seção… (fuzzy)"
         value={query}
         onValueChange={setQuery}
+        className="bg-ink-medium/80 border border-white/[0.08] font-mono text-sm text-paper placeholder:text-paper-dim/30 focus:border-gold/40 focus:outline-none px-4 py-3"
       />
+
       <CommandList>
+        {/* Empty state — V3 */}
         <CommandEmpty>
           <div className="flex flex-col items-center gap-2 py-6">
-            <Search className="w-6 h-6 text-muted-foreground/30" />
-            <span className="font-mono text-[0.5rem] text-muted-foreground">
-              Nenhum resultado neural encontrado.
+            <Search className="w-5 h-5 text-paper-dim/20" />
+            <span className="font-mono text-[0.5rem] text-paper-dim/30">
+              No results in this branch of the system.
             </span>
           </div>
         </CommandEmpty>
+
         {Object.entries(grouped).map(([organ, items]) => (
-          <CommandGroup key={organ} heading={
-            <span className="flex items-center gap-2">
-              <span
-                className="w-1.5 h-1.5 rounded-full inline-block"
-                style={{ backgroundColor: items[0]?.organColor }}
-              />
-              <span className="font-mono text-[0.45rem] tracking-[0.15em]">{organ}</span>
-            </span>
-          }>
+          <CommandGroup
+            key={organ}
+            heading={
+              <span className="flex items-center gap-2">
+                <span
+                  className="w-1.5 h-1.5 rounded-full inline-block"
+                  style={{ backgroundColor: items[0]?.organColor }}
+                />
+                {/* Section group label — V3 */}
+                <span className="font-mono text-[0.42rem] tracking-[0.28em] uppercase text-paper-dim/30">
+                  {organ}
+                </span>
+              </span>
+            }
+          >
             {items.map((p) => (
               <CommandItem
                 key={p.path}
@@ -118,18 +134,20 @@ const CommandPalette = () => {
                   setOpen(false);
                   setQuery("");
                 }}
-                className="gap-3 group"
+                /* Result item — V3: base + hover + active/selected states */
+                className="gap-3 group font-mono text-[0.6rem] tracking-[0.08em] text-paper-dim hover:bg-ink-medium/60 hover:text-paper data-[selected=true]:bg-gold/10 data-[selected=true]:border-l-2 data-[selected=true]:border-gold/60 data-[selected=true]:text-gold"
               >
                 <div
                   className="w-6 h-6 rounded flex items-center justify-center transition-colors"
                   style={{ backgroundColor: `${p.organColor}15` }}
                 >
-                  <p.icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />
+                  {(() => { const Icon = p.icon as React.FC<React.SVGProps<SVGSVGElement>>; return <Icon className="w-3.5 h-3.5" style={{ color: p.organColor }} />; })()}
                 </div>
                 <div className="flex-1">
-                  <span className="font-mono text-xs">{p.label}</span>
+                  <span className="font-mono text-[0.6rem] tracking-[0.08em]">{p.label}</span>
                 </div>
-                <span className="font-mono text-[0.4rem] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">
+                {/* Keyboard shortcut badge — V3 */}
+                <span className="font-mono text-[0.42rem] border border-white/[0.08] px-1.5 py-0.5 text-paper-dim/40 opacity-0 group-hover:opacity-100 transition-opacity">
                   ENTER ↵
                 </span>
               </CommandItem>
@@ -137,12 +155,15 @@ const CommandPalette = () => {
           </CommandGroup>
         ))}
       </CommandList>
-      <div className="border-t border-border/30 px-4 py-2 flex items-center justify-between">
-        <span className="font-mono text-[0.4rem] text-muted-foreground">
-          {filtered.length} resultados • ⌘K para fechar
+
+      {/* Footer */}
+      <div className="border-t border-white/[0.08] px-4 py-2 flex items-center justify-between">
+        <span className="font-mono text-[0.42rem] text-paper-dim/30">
+          {filtered.length} resultados
         </span>
-        <span className="font-mono text-[0.4rem] text-primary/50">
-          NEURAL BRIDGE ACTIVE
+        {/* Keyboard shortcut badge — V3 */}
+        <span className="font-mono text-[0.42rem] border border-white/[0.08] px-1.5 py-0.5 text-paper-dim/40">
+          ⌘K
         </span>
       </div>
     </CommandDialog>

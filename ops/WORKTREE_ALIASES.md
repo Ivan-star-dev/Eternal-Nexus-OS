@@ -100,6 +100,7 @@ WorkVisual    = o que aparece     → UI, UX, design, identidade, apresentação
 
 ---
 
+*WORKTREE_ALIASES v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-WORKTREE-ALIAS-001*
 ---
 
 ## 6. REGRA DOS 3 CHATS — ORIENTAÇÃO DO OWNER

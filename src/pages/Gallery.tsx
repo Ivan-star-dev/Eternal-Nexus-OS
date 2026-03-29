@@ -1,26 +1,20 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn, Filter, Grid3X3, LayoutGrid } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
-import projectData, { type ProjectData, type ConceptImage } from "@/data/projects";
+import projectData, { type ProjectData, type ConceptImage, type ArtifactKind, ARTIFACT_KIND_LABELS } from "@/data/projects";
 import { useLightbox } from "@/hooks/useLightbox";
+import { EASE_OUT } from "@/lib/motion/config";
 
 interface GalleryImage {
   src: string;
   caption: string;
-  category: "render" | "technical" | "concept" | "diagram";
+  category: ArtifactKind;
   projectId: string;
   projectTitle: string;
   projectNumber: string;
 }
-
-const categoryLabels: Record<string, string> = {
-  render: "CGI RENDER",
-  technical: "TECHNICAL DRAWING",
-  concept: "CONCEPT",
-  diagram: "ENGINEERING DIAGRAM",
-};
 
 function buildGalleryImages(): GalleryImage[] {
   const images: GalleryImage[] = [];
@@ -74,6 +68,12 @@ const Gallery = () => {
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [columns, setColumns] = useState<3 | 4>(4);
 
+  // V3: document title
+  useEffect(() => {
+    document.title = "Gallery — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   const projectIds = useMemo(() => {
     const ids = Array.from(new Set(allImages.map((img) => img.projectId)));
     return ids;
@@ -113,7 +113,8 @@ const Gallery = () => {
       {/* Hero */}
       <section className="pt-28 sm:pt-32 pb-12 px-4 sm:px-6 md:px-16 lg:px-20 border-b border-border">
         <div className="max-w-[1400px] mx-auto">
-          <span className="font-mono text-[0.5rem] sm:text-[0.55rem] tracking-[0.2em] text-primary uppercase font-medium">
+          {/* V3: section label — font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase */}
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
             MEDIA ARCHIVE · {allImages.length} ASSETS
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-2">
@@ -192,7 +193,7 @@ const Gallery = () => {
                         : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
                     }`}
                   >
-                    {categoryLabels[cat] || cat}
+                    {ARTIFACT_KIND_LABELS[cat] || cat}
                   </button>
                 ))}
               </div>
@@ -219,7 +220,7 @@ const Gallery = () => {
           <div className="mt-3 font-mono text-[0.45rem] tracking-[0.12em] text-muted-foreground uppercase">
             {filtered.length} {filtered.length === 1 ? "asset" : "assets"}
             {projectFilter !== "all" && ` · ${projectNames[projectFilter]?.title}`}
-            {categoryFilter !== "all" && ` · ${categoryLabels[categoryFilter]}`}
+            {categoryFilter !== "all" && ` · ${ARTIFACT_KIND_LABELS[categoryFilter]}`}
           </div>
         </div>
       </section>
@@ -227,8 +228,9 @@ const Gallery = () => {
       {/* Grid */}
       <section className="py-8 sm:py-12 px-4 sm:px-6 md:px-16 lg:px-20">
         <div className="max-w-[1400px] mx-auto">
+          {/* V3: tight grid — gap-1 md:gap-2 */}
           <div
-            className={`grid gap-2 ${
+            className={`grid gap-1 md:gap-2 ${
               columns === 3
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
@@ -255,14 +257,17 @@ const Gallery = () => {
                     />
                   </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 p-3">
+                  {/* V3: hover overlay — bg-ink-dark/70 backdrop-blur-sm, caption font-mono text-[0.48rem] */}
+                  <div className="absolute inset-0 bg-ink-dark/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 p-3">
                     <ZoomIn className="w-5 h-5 text-primary" />
-                    <span className="font-mono text-[0.42rem] tracking-[0.15em] text-primary uppercase text-center">
-                      {categoryLabels[img.category]}
+                    <span className="font-mono text-[0.48rem] tracking-[0.15em] text-primary uppercase text-center">
+                      {ARTIFACT_KIND_LABELS[img.category]}
                     </span>
-                    <span className="font-mono text-[0.38rem] tracking-[0.1em] text-muted-foreground uppercase">
+                    <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/60 uppercase">
                       {img.projectNumber}
+                    </span>
+                    <span className="font-mono text-[0.48rem] tracking-[0.08em] text-paper-dim/40 text-center line-clamp-2 mt-0.5">
+                      {img.caption}
                     </span>
                   </div>
 
@@ -272,7 +277,7 @@ const Gallery = () => {
                       {img.projectNumber}
                     </span>
                     <span className="font-mono text-[0.38rem] tracking-[0.1em] uppercase bg-background/80 backdrop-blur-sm border border-border px-1.5 py-0.5 text-muted-foreground">
-                      {categoryLabels[img.category]}
+                      {ARTIFACT_KIND_LABELS[img.category]}
                     </span>
                   </div>
                 </motion.div>
@@ -334,7 +339,7 @@ const Gallery = () => {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: EASE_OUT }}
                 src={filtered[lightboxIndex].src}
                 alt={filtered[lightboxIndex].caption}
                 className="max-w-[90vw] max-h-[75vh] object-contain"
@@ -351,7 +356,7 @@ const Gallery = () => {
                 {filtered[lightboxIndex].projectNumber} · {filtered[lightboxIndex].projectTitle}
               </Link>
               <span className="font-mono text-[0.42rem] tracking-[0.12em] text-primary/60 uppercase block mb-1">
-                {categoryLabels[filtered[lightboxIndex].category]}
+                {ARTIFACT_KIND_LABELS[filtered[lightboxIndex].category]}
               </span>
               <p className="font-sans text-xs text-muted-foreground">
                 {filtered[lightboxIndex].caption}

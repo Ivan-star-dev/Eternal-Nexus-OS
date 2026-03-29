@@ -1,0 +1,21 @@
+{
+  "session_id": "SES-2026-03-24-5c65ab7e",
+  "user_id": "owner",
+  "subject": "how to reach Mars in six months",
+  "intention": "Plan mission and skill path to achieve Mars transit in six months",
+  "profile_snapshot": {},
+  "trinity_face": "bridge_nova",
+  "swarm_activated": [
+    "@claude"
+  ],
+  "concepts_touched": [],
+  "fruit": [
+    "analysis::how-to-reach-mars-in-six-months::initial::2026-03-24T19:54:27.593Z"
+  ],
+  "open_threads": [
+    "initial-thread"
+  ],
+  "re_entry_point": "Map learning path for \"how to reach Mars in six months\" — define milestones and knowledge prerequisites",
+  "ts_start": "2026-03-24T19:54:27.592Z",
+  "ts_end": null
+}

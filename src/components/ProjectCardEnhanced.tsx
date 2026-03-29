@@ -2,8 +2,8 @@ import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield, Activity } from "lucide-react";
-import AnimatedCounter from "./AnimatedCounter";
 import { cn } from "@/lib/utils";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const MiniProjectScene = lazy(() =>
   import("./MiniProjectScene").catch(() => {
@@ -34,7 +34,17 @@ const PROJECT_COLORS: Record<string, string> = {
   "chip-fold": "#26A69A",
 };
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
+
+const statusStyles: Record<string, string> = {
+  "Active":      "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
+  "In Progress": "bg-gold/10 text-gold border border-gold/30",
+  "Completed":   "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+};
+
+const getStatusStyle = (status: string) =>
+  statusStyles[status] ??
+  "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
 
 interface ProjectCardEnhancedProps {
   project: ProjectCardProject;
@@ -57,15 +67,15 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={cn(
-            "group relative overflow-hidden border transition-all duration-500",
-            "bg-card",
+            "group relative overflow-hidden rounded-sm transition-all duration-300",
+            "bg-ink-medium/40 border border-white/[0.05]",
             isHovered
-              ? "border-primary/40 shadow-2xl shadow-primary/5"
-              : "border-border"
+              ? "border-white/[0.12] bg-ink-medium/60"
+              : ""
           )}
         >
           {/* Image / 3D Preview Area */}
-          <div className="relative h-52 sm:h-64 md:h-72 overflow-hidden">
+          <div className="aspect-video bg-ink-medium/60 border-b border-white/[0.05] overflow-hidden relative">
             {/* Background image — always present */}
             <motion.img
               src={project.image}
@@ -91,8 +101,8 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
                 >
                   <Suspense fallback={
                     <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-mono text-[0.5rem] tracking-[0.2em] text-muted-foreground animate-pulse uppercase">
-                        LOADING 3D…
+                      <span className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 animate-pulse uppercase">
+                        Loading 3D…
                       </span>
                     </div>
                   }>
@@ -103,7 +113,7 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
             </AnimatePresence>
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/50 to-transparent z-20 pointer-events-none" />
 
             {/* Classification badge */}
             <div className="absolute top-3 left-3 z-30">
@@ -113,51 +123,62 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
               </span>
             </div>
 
-            {/* Status indicator */}
+            {/* Status badge */}
             <div className="absolute top-3 right-3 z-30">
-              <span className="font-mono text-[0.52rem] sm:text-[0.58rem] tracking-[0.2em] text-teal-light flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
+              <span
+                className={`font-mono text-[0.42rem] tracking-[0.12em] uppercase px-2 py-0.5 rounded-sm ${getStatusStyle(project.status)}`}
+              >
                 {project.status}
               </span>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="p-5 sm:p-6 md:p-8 relative z-20">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 sm:gap-6">
+          {/* Card body */}
+          <div className="p-5 relative z-20">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
               <div className="flex-1">
-                <span className="section-label">{project.number} · {project.country}</span>
-                <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground mt-2 group-hover:text-primary transition-colors">
+                {/* Meta row */}
+                <div className="font-mono text-[0.45rem] tracking-[0.15em] uppercase text-paper-dim/40 flex gap-3 mt-1">
+                  <span>{project.number}</span>
+                  <span>·</span>
+                  <span>{project.country}</span>
+                </div>
+
+                <h3 className="font-serif text-base font-light text-paper mt-1">
                   {project.title}
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-muted-foreground mt-2 leading-relaxed max-w-lg">
+
+                <p className="text-xs text-paper-dim/60 font-light leading-relaxed mt-2 max-w-lg">
                   {project.subtitle}
                 </p>
+
+                {/* Tech tags / sectors */}
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {project.sectors.map((sector) => (
                     <span
                       key={sector}
-                      className="font-mono text-[0.5rem] sm:text-[0.55rem] tracking-[0.1em] text-accent-foreground bg-accent/10 border border-accent/20 px-1.5 py-0.5 uppercase"
+                      className="font-mono text-[0.42rem] tracking-[0.1em] uppercase border border-white/[0.06] px-2 py-0.5 text-paper-dim/40"
                     >
                       {sector}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-primary font-mono text-[0.62rem] sm:text-[0.68rem] tracking-[0.15em] uppercase group-hover:gap-3 transition-all">
-                VIEW DOSSIER <ArrowRight className="w-3.5 h-3.5" />
+
+              {/* CTA link */}
+              <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase text-gold/70 hover:text-gold transition-colors duration-200 group-hover:gap-3">
+                View Dossier <ArrowRight className="w-3 h-3" />
               </div>
             </div>
 
-            {/* Animated Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border mt-5 border border-border">
+            {/* Metrics */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] mt-4 border border-white/[0.05]">
               {project.metrics.map((m) => (
-                <div key={m.label} className="bg-card p-3 sm:p-4">
-                  <AnimatedCounter
-                    value={m.value}
-                    className="font-serif text-base sm:text-lg md:text-xl font-bold text-foreground"
-                  />
-                  <div className="font-mono text-[0.45rem] sm:text-[0.5rem] tracking-[0.15em] text-muted-foreground uppercase mt-1">
+                <div key={m.label} className="bg-ink-medium/40 p-3">
+                  <span className="font-serif text-base font-light text-paper tabular-nums">
+                    {m.value}
+                  </span>
+                  <div className="font-mono text-[0.42rem] tracking-[0.15em] text-paper-dim/40 uppercase mt-1">
                     {m.label}
                   </div>
                 </div>
@@ -173,15 +194,21 @@ const ProjectCardEnhanced = ({ project, index }: ProjectCardEnhancedProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.3 }}
-                className="absolute bottom-3 right-3 bg-background/95 border border-accent/30 backdrop-blur-sm p-3 max-w-[220px] hidden md:block z-30"
+                className="absolute bottom-3 right-3 bg-ink-deep/95 border border-white/[0.06] backdrop-blur-sm p-3 max-w-[220px] hidden md:block z-30 rounded-sm"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <Activity className="w-3 h-3 text-accent-foreground" />
-                  <span className="font-mono text-[0.5rem] tracking-[0.18em] text-accent-foreground uppercase">Live Telemetry</span>
+                  <Activity className="w-3 h-3 text-paper-dim/40" />
+                  <span className="font-mono text-[0.42rem] tracking-[0.15em] uppercase text-paper-dim/40">
+                    Live Telemetry
+                  </span>
                 </div>
                 <div className="space-y-1">
-                  <p className="font-mono text-[0.58rem] text-foreground/80">Status: <span className="text-accent-foreground font-medium">Operational</span></p>
-                  <p className="font-mono text-[0.58rem] text-foreground/80">Uptime: <span className="text-accent-foreground font-medium">99.7%</span></p>
+                  <p className="font-mono text-[0.48rem] text-paper-dim/60">
+                    Status: <span className="text-emerald-400 font-medium">Operational</span>
+                  </p>
+                  <p className="font-mono text-[0.48rem] text-paper-dim/60">
+                    Uptime: <span className="text-emerald-400 font-medium">99.7%</span>
+                  </p>
                 </div>
               </motion.div>
             )}

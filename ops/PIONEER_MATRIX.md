@@ -525,13 +525,99 @@ Esta task está concluída quando o owner conseguir dizer:
 
 ## CHANGELOG
 
+---
+
+## PARTE 9 — CONSTELLATION-LAW (complemento ao CLAUDE.md §5.A)
+
+> Directiva owner 2026-03-25. Complementa — não substitui — as regras existentes.
+
+```
+STANDBY NÃO É ESTADO PERMANENTE
+
+Pioneer em standby = recurso disponível, não recurso inactivo.
+@claude avalia activamente se pioneers em standby podem entrar
+na wave de versão activa sem violar território ou soberania.
+
+REGRA OPERACIONAL:
+  Se @claude é o único pioneer activo E versão tem múltiplas
+  camadas (WorkFunction + WorkVisual + mechanical) →
+  @claude propõe ou activa split dentro da mesma versão.
+
+SPLIT CANÓNICO POR CAMADA:
+  arch/decisão     → @claude       (sempre)
+  mechanical/API   → @cursor       (após arch sealed)
+  motion/3D        → @antigravity  (após surfaces existirem)
+  design system    → @framer       (após behaviour sealed)
+  lapidação        → @copilot      (após surface fechada)
+  consolidação     → @codex        (após wave parcial/completa)
+
+REGRA DE VERSÃO — INVIOLÁVEL:
+  Activação de pioneer = dentro da versão activa APENAS
+  V4 activo → V4 tasks · nunca V5 · nunca alterar V3 fechado
+  O que foi selado numa versão não é tocado por outra
+```
+
 ```
 PIONEER_MATRIX.md v1 — criado em 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001
 Gate aberto por owner — 2026-03-21
 6 pioneiros cravados | regra dos 3 chats | 3 pilares | aplicação dupla | regra de benefício
 PIONEER_MATRIX.md v1.1 — erro gramatical 'cravar'→'crava' corrigido — 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001
+PIONEER_MATRIX.md v1.2 — CONSTELLATION-LAW adicionada (complemento CLAUDE.md §5.A) — 2026-03-25 | claude-sonnet-4-6 | directiva owner
 ```
 
 ---
 
 *PIONEER_MATRIX.md v1 — espinha dorsal operacional dos executores do Eternal Nexus OS | 2026-03-21 | claude-sonnet-4-6 | NEXUS-PIONEER-ROLE-MOTHER-001*
+
+---
+
+## MATRIX STATE — V7 DISPATCH (2026-03-29)
+
+> MATRIX-STATE-PROPAGATION-001 — @copilot — 2026-03-29
+
+```
+PIONEER STATUS TABLE — V7 TRINITY SURFACES
+═══════════════════════════════════════════════════════════════
+
+@cursor
+  STATUS   : UPDATED — V7 is new mandate
+  MANDATE  : V7-LAB-SURFACE-001 (P1) — entrar imediatamente
+             V7-SCHOOL-SURFACE-001 (P2) — após Lab
+             V7-WORKSHOP-SURFACE-001 (P2) — após Lab
+  STOP     : BULK-01.3-a/b/c — OBSOLETE as next task
+             V4-PROJECT-PAGE-001-MECH — SUPERSEDED
+  REF      : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+
+@framer
+  STATUS   : UPDATED — V7 WorkVisual mandate active
+  MANDATE  : V7-LAB-SURFACE-001 WorkVisual (paralelo com @cursor)
+  REF      : ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+
+@codex
+  STATUS   : UPDATED — CYCLE-CLOSE-001 now eligible
+  MANDATE  : CYCLE-CLOSE-001 (todas deps ✅ — entrar agora)
+             F6 — paralelo independente (continua)
+  STOP     : BULK-01-Codex — CONCLUÍDA (não executar)
+
+@claude
+  STATUS   : UPDATED — ARBITER · AUTO-GATE activo
+  MANDATE  : Abrir V8 quando V7 critérios [✓]
+             Sem task elegível no BASTION backlog
+  STOP     : PLv6.2-b / FVL-IMPL-001 — CONCLUÍDAS
+
+@copilot
+  STATUS   : PARTIALLY UPDATED — truth-sync done; aguarda nova V7 task
+  MANDATE  : MATRIX-STATE-PROPAGATION-001 done
+             Próxima: lapidação pós V7-LAB-SURFACE-001 (quando closed)
+  STOP     : BULK-01.2/L-001/L-002 — CONCLUÍDAS
+
+@antigravity
+  STATUS   : WAITING ON SYNC — sem task V7 atribuída ainda
+  MANDATE  : V4-MOTION-SURFACES-001 CONCLUÍDA
+             Próximo: V7 motion layer (quando @cursor fechar Lab shell)
+  STOP     : V4-MOTION-SURFACES-001 elegível — OBSOLETE as active mandate
+
+═══════════════════════════════════════════════════════════════
+```
+
+*PIONEER_MATRIX.md v1.3 — V7 pioneer dispatch table propagated — 2026-03-29 | @copilot | MATRIX-STATE-PROPAGATION-001*

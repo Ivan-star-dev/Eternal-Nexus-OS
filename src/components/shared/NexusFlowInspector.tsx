@@ -1,18 +1,26 @@
 import { useNexusState } from "@/hooks/useNexusState";
 import { useIndexOrgan } from "@/hooks/useIndexOrgan";
 import { getSacredFlowOrgans, WORKSPACE } from "@/config/workspace";
+import { useSession } from "@/contexts/SessionContext";
 
 /**
  * Audit-safe Dev Inspector.
  * Provides visibility into the shared session state and propagation path.
  * PLv1: exposes canonical workspace config (sacred flow + product layer).
  */
-export const NexusFlowInspector = () => {
-  if (import.meta.env.PROD) return null;
+const FACE_COLOR: Record<string, string> = {
+  heaven_lab:  '#22ffaa',
+  bridge_nova: '#4a90e2',
+  nexus_cria:  '#D4AF37',
+};
 
+export const NexusFlowInspector = () => {
   const { verdicts } = useNexusState();
   const { entries } = useIndexOrgan();
   const sacredFlowOrgans = getSacredFlowOrgans();
+  const { session } = useSession();
+
+  if (import.meta.env.PROD) return null;
 
   return (
     <div className="fixed bottom-4 left-4 z-[9999] bg-black/90 border border-gold-500/30 p-4 rounded-lg font-mono text-[10px] w-64 max-h-96 overflow-y-auto shadow-2xl backdrop-blur-md">
@@ -22,6 +30,53 @@ export const NexusFlowInspector = () => {
       </div>
 
       <div className="space-y-3">
+        {/* SESSION STATE — SESSION-AWARE-PRODUCT-INTEGRATION-001 */}
+        <div>
+          <div className="text-muted-foreground mb-1 flex justify-between">
+            <span>SESSION</span>
+            <span className={session?.is_resume ? 'text-green-400' : 'text-yellow-400'}>
+              {session ? (session.is_resume ? 'RESUME' : 'LIVE') : 'COLD'}
+            </span>
+          </div>
+          {session ? (
+            <div className="space-y-0.5">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">face</span>
+                <span
+                  className="font-bold text-[9px]"
+                  style={{ color: FACE_COLOR[session.active_face] ?? '#fff' }}
+                >
+                  {session.active_face}
+                </span>
+              </div>
+              <div className="flex justify-between gap-2">
+                <span className="text-muted-foreground shrink-0">next</span>
+                <span className="truncate text-[9px] text-right" title={session.next_expected_step}>
+                  {session.next_expected_step || '—'}
+                </span>
+              </div>
+              {session.re_entry_point && (
+                <div className="flex justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">reentry</span>
+                  <span className="truncate text-[9px] text-right text-green-400" title={session.re_entry_point}>
+                    {session.re_entry_point}
+                  </span>
+                </div>
+              )}
+              {session.latest_fruit && (
+                <div className="flex justify-between gap-2">
+                  <span className="text-muted-foreground shrink-0">fruit</span>
+                  <span className="truncate text-[9px] text-right text-yellow-400" title={session.latest_fruit}>
+                    {session.latest_fruit}
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="text-[9px] text-muted-foreground italic">No active session</div>
+          )}
+        </div>
+
         {/* Workspace config — PLv1 */}
         <div>
           <div className="text-muted-foreground mb-1">WORKSPACE CONFIG</div>

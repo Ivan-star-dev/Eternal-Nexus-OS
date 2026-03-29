@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Shield, Globe, Award, Fingerprint } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const About = () => {
   const { t } = useLanguage();
@@ -25,7 +26,7 @@ const About = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            transition={{ delay: 0.6, duration: 0.7, ease: EASE_OUT as [number, number, number, number] }}
             className="font-serif text-4xl md:text-6xl font-black text-foreground leading-[0.95]"
           >
             Ivanildo Michel<br />

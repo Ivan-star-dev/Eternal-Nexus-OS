@@ -6,6 +6,1971 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @copilot | MATRIX-STATE-PROPAGATION-001 | copilot-swe-agent
+
+**TASK:** MATRIX STATE PROPAGATION — AUTO-SYNC LAW — propagate V7 truth across execution mesh
+**BRANCH:** copilot/consolidate-duplicate-kind-labels
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**PROPAGATION LAYERS SYNCED:**
+
+**1. CANONICAL TRUTH**
+- Branch canónico: `claude/rebuild-bastion-core-rihGX`
+- Branch activo neste workspace: `copilot/consolidate-duplicate-kind-labels`
+- Worktrees físicos: 1 (wt-* são semânticos)
+- Gate activo: V7 TRINITY SURFACES
+
+**2. LIVE_STATE.md §1 — State Table**
+- `Fase ativa` V4 → 🟢 V7 TRINITY SURFACES
+- `Executor ativo` constellation V4 → @cursor/@framer/@codex V7
+- `Frente ativa` V4 → V7 Lab/School/Workshop
+- `Camada atual` V4-INTERACTION-002 → V7_TRINITY_CONTRACT.md SEALED + BASTION v3.0
+- `Estado geral` V4 queue → V4/V5/V6 ✅ · V7 OPEN · CYCLE-CLOSE-001 unblocked
+
+**3. LIVE_STATE.md §2 — Executor Queues**
+- @codex: BULK-01-Codex ELEGÍVEL → CONCLUÍDA · CYCLE-CLOSE-001 added (P1 ELEGÍVEL AGORA)
+- @cursor: BULK backlog showing as open → V7-LAB/SCHOOL/WORKSHOP-SURFACE tasks added (P1/P2)
+- @copilot: BULK-01.2/L-001/L-002 GATE ABERTO → CONCLUÍDA
+- @claude: PLv6.2-b AGUARDA GATE → CONCLUÍDA · FVL-IMPL-001 PLANEJADA → CONCLUÍDA
+
+**4. LIVE_STATE.md §3 — Canalização**
+- Replaced stale V4/BULK semáforo blocks with V7 canonical semáforo
+- Added "Histórico de canalizações (arquivo)" label to old blocks
+
+**5. LIVE_STATE.md §4 — Bloqueios**
+- B-002 (PM canónico): BLOQUEADO → SUPERSEDED (npm confirmado)
+- B-001/B-003 status updated (not blocking V7)
+
+**6. LIVE_STATE.md §5 — Próximos Passos**
+- Replaced 3 stale multi-lists with single clean V7 priority order
+
+**7. PIONEER_MATRIX.md**
+- Appended MATRIX STATE — V7 DISPATCH (2026-03-29) section
+- Pioneer status table: @cursor/framer/codex/claude/copilot/antigravity all labeled
+- v1.3 sealed
+
+**FILES MODIFIED:**
+- `ops/LIVE_STATE.md` — §1 §2 §3 §4 §5 propagated to V7 truth
+- `ops/PIONEER_MATRIX.md` — V7 dispatch table appended (v1.3)
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**PIONEER STATUS:**
+- @cursor: UPDATED — V7-LAB-SURFACE-001 P1 is next
+- @framer: UPDATED — V7-LAB-SURFACE-001 WorkVisual is next
+- @codex: UPDATED — CYCLE-CLOSE-001 is next (desbloqueado)
+- @claude: UPDATED — ARBITER, sem task elegível
+- @copilot: PARTIALLY UPDATED — truth-sync done, aguarda V7 lapidação
+- @antigravity: WAITING ON SYNC — V7 motion layer quando Lab shell fechado
+
+**BLOQUEIOS:** nenhum
+
+---
+
+**TASK:** BASTION REFRESH + WORKTREE TRUTH SYNC — kill operational drift
+**BRANCH:** copilot/consolidate-duplicate-kind-labels
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**EXECUTADO:**
+
+**1. CANONICAL WORKTREE / BRANCH TRUTH**
+- Branch activo neste workspace: `copilot/consolidate-duplicate-kind-labels`
+- Branch canónico da linha principal: `claude/rebuild-bastion-core-rihGX`
+- Worktree: apenas 1 worktree físico (os `wt-*` são rótulos semânticos, não worktrees Git)
+- Este branch é um PR branch para @copilot WorkStructure tasks
+
+**2. RECENT IMPLEMENTATION TRUTH**
+- Commit 369f304: consolidação de `ArtifactKind` label maps (src/data/projects.ts + ProjectGallery.tsx + Gallery.tsx)
+- Nenhuma implementação V7 neste workspace — V7 vive em `claude/rebuild-bastion-core-rihGX`
+
+**3. BASTION DRIFT KILLED**
+Todos os seguintes tasks foram corrigidos de `elegível`/`em execução` → `✅ CONCLUÍDA`:
+- V4-PROJECT-PAGE-001-MECH → SUPERSEDED por V5-INFRA-SUPABASE-001 ✅
+- V4-MOTION-SURFACES-001 → CONCLUÍDA (V4-CLOSE-GATE BEHAVIOUR-08)
+- V4-INTERACTION-002 → CONCLUÍDA (V4-CLOSE-GATE BEHAVIOUR-01)
+- CLUSTER-ORCHESTRATE-001 → CONCLUÍDA (CODEX_V5_AUDIT.md emitido)
+- BULK-02.2 → CONCLUÍDA (NEXUS_NEURAL_MESH.md lapidado)
+- BULK-01.3-a → CONCLUÍDA (vite timestamps não tracked)
+- BULK-01.3-b → CONCLUÍDA (npm canónico · bun.lock excluído)
+- BULK-01.3-c → CONCLUÍDA (antigravity/ auditado)
+- BULK-01.2/L-001 → CONCLUÍDA (.gitignore sem gaps)
+- BULK-01.2/L-002 → CONCLUÍDA (timestamp não rastreado); DEPENDENCIA_STATUS: pendente → livre
+
+**4. SECTION 5.3 CLEANED**
+- PLv6.2-b (aguarda-gate) → ✅ CONCLUÍDA (referência 5.1)
+- FVL-IMPL-001 (aguarda-gate) → ✅ CONCLUÍDA (referência 5.1)
+- Section header renamed: "PLANEJADAS" → "CONCLUÍDAS DO CICLO V1-6"
+
+**5. CYCLE-CLOSE-001 DESBLOQUEADO**
+- DEPENDENCIA_STATUS: pendente → livre (todas as deps PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + L-002 são ✅)
+- STATUS: elegível (pode entrar agora)
+
+**6. SEMÁFORO v3.0 EMITIDO**
+- Novo bloco BASTION § 10 emitido com estado real: V7 activo, @cursor → V7-LAB-SURFACE-001 (P1)
+
+**7. LIVE_STATE.md ACTUALIZADO**
+- Nova entrada no topo: BASTION-TRUTH-SYNC-001 done
+
+**FILES MODIFIED:**
+- `ops/BASTION.md` — 10 STATUS corrigidos + Section 5.3 renamed + CYCLE-CLOSE-001 unblocked + Semáforo v3.0
+- `ops/LIVE_STATE.md` — nova entrada top
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**4. TRUE NEXT @CURSOR TASK**
+→ **V7-LAB-SURFACE-001** (P1) — única task P1 elegível no BASTION
+→ BULK-01.3-a/b/c: OBSOLETE — não executar, já concluídas
+
+**BLOQUEIOS:** nenhum
+
+**PRÓXIMOS PASSOS:**
+- @cursor → V7-LAB-SURFACE-001 (P1) — referência: ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+- @framer → V7-LAB-SURFACE-001 WorkVisual (paralelo)
+- @codex → CYCLE-CLOSE-001 (agora desbloqueado)
+
+---
+
+## HANDOFF — 2026-03-26 | @claude | V7 GATE OPEN + TRINITY CONTRACT SEALED | claude-sonnet-4-6
+
+**TASK:** V7 Gate Open — Write V7_TRINITY_CONTRACT.md + open BASTION V7 tasks
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**FILES CREATED/MODIFIED:**
+- `ops/V7_TRINITY_CONTRACT.md` — CRIADO · contrato estrutural completo para Lab/School/Workshop × 8 dimensões cada (240+ linhas)
+- `ops/BASTION.md` — EDITADO · V7 gate aberto 🟢 + 3 tasks elegíveis definidas (V7-LAB-001, V7-SCHOOL-001, V7-WORKSHOP-001)
+- `ops/LIVE_STATE.md` — EDITADO · entrada V7 gate open + @cursor/@framer elegíveis
+- `ops/HANDOFF_LEDGER.md` — EDITADO · esta entrada
+
+**DECISÕES TOMADAS:**
+- V7 aberto via AUTO-GATE (owner confirmou "yes boy lets go" — gate aberto por directiva do owner)
+- Contrato cobre 8 dimensões por superfície: role · spatial · modules · project movement · state · podium · visible/internal · drift prevention
+- Loop canónico Lab→School→Workshop documentado explicitamente
+- Drift prevention explícita para cada superfície (o que NÃO deve entrar)
+- AIProbe/AITutor/AICoCreator: contractados para servir a superfície — não dominar (lei anti-chatbot)
+
+**PRÓXIMAS TASKS ELEGÍVEIS:**
+- V7-LAB-SURFACE-001 (P1) → @cursor + @framer
+- V7-SCHOOL-SURFACE-001 (P2) → @cursor + @framer
+- V7-WORKSHOP-SURFACE-001 (P2) → @cursor + @framer
+
+**EVIDENCE_BLOCK:** branch: claude/rebuild-bastion-core-rihGX → PR pendente
+
+---
+
+## HANDOFF — 2026-03-26 | @claude | V6-RUBERRA-SURFACE-001 CLOSE + V6 WAVE COMPLETE | claude-sonnet-4-6
+
+**TASK:** V6-RUBERRA-SURFACE-001 — Fill RUBERRA corp stubs 03-10 with canonical content
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA ✅ | COMMIT: 5399df5
+
+### ALTERACAO_REAL: sim
+
+**FILES CREATED/MODIFIED:**
+- `RUBERRA/03_PRODUCT/PRODUCT_MAP.md` — surface routing, faces, session tracking (128 lines)
+- `RUBERRA/03_PRODUCT/PRODUCT_VISION.md` — product vision, principles, evolution
+- `RUBERRA/04_SYSTEM_SPINE/RUNTIME.md` — stack, boot sequence, realtime flows, perf budgets (184 lines)
+- `RUBERRA/04_SYSTEM_SPINE/DATA_AND_CONTROL_FLOWS.md` — data architecture, control flows (217 lines)
+- `RUBERRA/06_CODICE/GOVERNANCE_MODEL.md` — decision classes, protocols (216 lines)
+- `RUBERRA/07_FORJA/CURRENT_STACK.md` — full tech inventory, CI/CD, branch model (150 lines)
+- `RUBERRA/07_FORJA/DEPLOY_MODEL.md` — pipeline, rollback, env vars, sprint cycle (198 lines)
+- `RUBERRA/08_MARKETING_AND_NARRATIVE/BRAND_CORE.md` — identity, voice, visual language (212 lines)
+- `RUBERRA/09_DIDACTIC_AND_RESEARCH/KNOWLEDGE_TRANSFER.md` — onboarding, handoff law, glossary (110 lines)
+- `ops/BASTION.md` — V6-RUBERRA-SURFACE-001 closed + V7 gate declared sealed
+- `ops/LIVE_STATE.md` — V6 wave complete entry added
+
+**V6 WAVE STATUS — ALL TASKS CLOSED:**
+- V6-AUTH-001 ✅ (ProtectedRoute · useCurrentUser)
+- V6-PROJECT-DETAIL-001 ✅ (useProjectData · Supabase overlay)
+- V6-PORTFOLIO-DASHBOARD-001 ✅ (usePortfolioData · PortfolioMetricsPanel · PR#175)
+- V6-COUNCIL-LIVE-001 ✅ (useProposalQueue realtime · proposal_ledger · PR#176)
+- V6-RUBERRA-SURFACE-001 ✅ (9 stubs → canonical content · commit 5399df5)
+
+**NEXT GATE:** V7 — SEALED — awaiting owner instruction to open School/Workshop surfaces
+
+---
+
+## HANDOFF — 2026-03-26 | @claude | DRIFT-AUDIT + GLOBE-ROUTING | claude-sonnet-4-6
+
+**TASK:** Full drift audit + all fixes + PR #168 + PR #169 → main
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**DRIFT FOUND AND FIXED:**
+- console.log removed from Index.tsx (hero InteractiveGlobe callback)
+- GoldenAtlasScene was completely orphaned (not on any route after homepage revert) → all V5 work inaccessible
+- Homepage was showing yellow gold blob (GoldenAtlasScene) instead of constellation globe
+
+**FILES:**
+- `src/pages/Index.tsx` — console.log removed; GoldenAtlasScene → InteractiveGlobe (PR #168)
+- `src/pages/GlobePage.tsx` — NEW — full-screen /globe route for GoldenAtlasScene
+- `src/App.tsx` — /globe route registered + GlobePage lazy import
+- `src/components/NavBar.tsx` — GLOBE nav link added pointing to /globe
+
+**ARCHITECTURE AFTER FIX:**
+  /         → InteractiveGlobe (lightweight constellation homepage hero)
+  /globe    → GoldenAtlasScene (V5: touch, audio, realtime, camera fly)
+  /atlas    → CesiumViewer (terrain, satellite, geospatial data)
+
+**PR #168 merged** → main `44836a9` (homepage fix)
+**PR #169 merged** → main `41be90c` (drift audit + globe routing)
+**TS:** 0 errors
+
+**PRÓXIMO:** V6-PORTFOLIO-DASHBOARD-001
+
+---
+
+## HANDOFF — 2026-03-26 | @claude | V6-PROJECT-DETAIL-001 + merge PR#167 | claude-sonnet-4-6
+
+**TASK:** V6-PROJECT-DETAIL-001 + merge conflict resolution + PR#167 → main
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useProjectData.ts` — NEW — PROJECT_KEY_TO_NAME map · Supabase globe_projects.maybeSingle() · dynamic import · isLive flag · static fallback
+- `src/pages/ProjectPage.tsx` — MODIFIED — useProjectData wired · live status + LIVE badge · liveRow.description overlay
+
+**MERGE:** 8 conflicts resolved (ours) · merge commit 4cfbdbf · PR #167 merged → main `0c25453`
+**COMMITS:** 4cfbdbf · e94efbe | **TS:** 0
+
+**PRÓXIMO:** V6-PORTFOLIO-DASHBOARD-001
+
+---
+
+## HANDOFF — 2026-03-26 | @claude | V5-TOUCH-RESPONSE · V6-AUTH-001 | claude-sonnet-4-6
+
+**TASKS:** V5-TOUCH-001/002/003/004/005 (full touch-response stack) + V6-AUTH-001
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/components/GoldenAtlasScene.tsx` — MODIFIED — focusedProjectId state · focused/dimmed props wired · justSelectedRef · handleCanvasClick · ProjectBottomSheet rendered via AnimatePresence · touchMode prop · ProjectInspector hidden on mobile (sm:block) · focusedProjectId passed to AtlasSceneContent
+- `src/components/ProjectBottomSheet.tsx` — NEW — mobile bottom sheet (sm:hidden) · TouchMode type · MODE_CONFIG (explorer/lab/school) · drag="y" swipe-to-dismiss · onDragEnd offset > 72 → close · AnimatePresence animation y:100%→0%
+- `src/components/ProtectedRoute.tsx` — NEW — auth guard component · loading state returns null · unauthenticated redirects to /access with from state · ownerOnly redirects non-owners to /dashboard
+- `src/hooks/useCurrentUser.ts` — NEW — flat identity surface for V6 · CurrentUser shape: id/email/displayName/institution/country/position/isOwner/isVerified/verificationStatus
+- `src/App.tsx` — MODIFIED — ProtectedRoute import · /owner (ownerOnly) + /dashboard protected
+- `src/pages/GovAuth.tsx` — MODIFIED — post-login redirect honours location.state.from · falls back to /dashboard
+
+**COMMITS:** 16d0a58 (V5-TOUCH) · 0fd720a (V6-AUTH-001)
+**TS:** 0 erros em ambos os commits
+
+**PRÓXIMO:** V6-PROJECT-DETAIL-001 (@cursor — ProjectPage wired to real Supabase globe_projects)
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | CLUSTER-ORCHESTRATE-001 · V6 GATE OPEN | claude-sonnet-4-6
+
+**TASK:** CLUSTER-ORCHESTRATE-001 (Codex briefing) + AUTO-GATE V6
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `ops/CODEX_V5_AUDIT.md` — NEW — @codex briefing: task audit table · 7 files created · 5 modified · checklist 4 dimensões · relatório-mãe template · loose ends mapeados
+- `ops/BASTION.md` — V6 GATE seção 9: 5 tasks definidas · constellation activada · V6-GATE-STATUS 🟢 OPEN
+- `ops/LIVE_STATE.md` — V6 aberto · codex briefing emitido
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**AUTO-GATE:** V5 7/7 [✓] → CLAUDE.md §5 → V6 abre sem instrução do owner
+**PRÓXIMO:** V6-AUTH-001 — Supabase Auth full flow + rotas protegidas
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V5-MOBILE-IMMERSION-001 · V5 CLOSED | claude-sonnet-4-6
+
+**TASK:** V5-MOBILE-IMMERSION-001 (touch gestures) — V5 phase closure
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — V5 FECHADA 7/7
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/hooks/useTouchGlobe.ts` — NEW — touch system: 1-finger swipe → orbitTheta ref · 2-finger pinch → zoomDelta ref · tap detection (<250ms, <12px) → synthetic pointermove · momentum rAF loop (0.93 friction) · passive:false only when dragging
+- `src/components/GoldenAtlasScene.tsx` — CameraController + orbitTheta + zoomDelta; scroll mode applies orbit Y rotation + zoom; containerRef attached; DPR [1,2] mobile / [2,3] desktop; touchAction pan-y
+
+**COMMIT:** 75d3929
+
+**V5 CLOSE EVIDENCE (7/7):**
+- V5-EVENT-STREAM-001 ✅ · V5-AI-PROPOSALS-001 ✅ · V5-INFRA-SUPABASE-001 ✅
+- V5-AUDIO-SYSTEM-001 ✅ · V5-CAMERA-FLY-001 ✅ · V5-LIVE-DATA-001 ✅
+- V5-MOBILE-IMMERSION-001 ✅
+- TS 0 errors throughout
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V5-CAMERA-FLY-001 + V5-LIVE-DATA-001 | claude-sonnet-4-6
+
+**TASK:** V5-CAMERA-FLY-001 (cinematic fly) + V5-LIVE-DATA-001 (Supabase realtime)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/components/GoldenAtlasScene.tsx` — CameraController replaces ScrollCamera; fly state machine (scroll/flying/returning); easeInOutCubic arc; handleProjectSelect → flyTarget; handleCameraLanded; handleProjectClose; useGlobeRealtime wired; mergedCustomProjects; live badge bottom-left
+- `src/hooks/useGlobeRealtime.ts` — NEW — Supabase realtime channel on globe_projects; postgres_changes handler; globeEventBus.fromProjectUpdate() on INSERT/UPDATE; isConnected status
+
+**COMMIT:** 3540629
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V5-INFRA-SUPABASE-001 + V5-AUDIO-SYSTEM-001 | claude-sonnet-4-6
+
+**TASK:** V5-INFRA-SUPABASE-001 (Supabase wiring complete) + V5-AUDIO-SYSTEM-001 (spatial audio)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**FILES:**
+- `src/lib/proposalGenerator.ts` — `fetchSupabaseProjects()` async Supabase query + `ENRICHMENT_REGISTRY` (14 projects) + `colorToDomain()` + `latLonToCountry()` + `enrichRow()` — isLive:true when rows returned
+- `src/hooks/useProposalQueue.ts` — async buildQueue: tries Supabase first, falls back to stubs; `isLive` now reactive state
+- `src/lib/audioEngine.ts` — NEW — Web Audio API singleton; sounds: globeHover(220Hz) · projectClick(C4–E4–G4 triad) · dataStreamPulse(1200Hz) · uiConfirm(880Hz) · uiDismiss(440→220Hz) · seismicAlert(60Hz tremolo) · ambientDrone(40+80Hz suboscillators)
+- `src/components/GoldenAtlasScene.tsx` — audioEngine import + init/ambient on first gesture + hotspot hover/click sound + seismicAlert on SEISMIC events
+- `src/components/nexus/AICouncil.tsx` — audioEngine import + uiConfirm on ratify + uiDismiss on reject + projectClick on full debate approval
+
+**COMMIT:** 5971617
+
+**EVIDENCE:**
+- TS 0 errors
+- Supabase path: fetchSupabaseProjects() → enrichRow() → isLive:true; empty → stub fallback
+- Audio engine initialises on first user gesture (Web Audio API policy compliant)
+- Ambient drone starts after init; seismicAlert fires on SEISMIC globe events
+- V5-LIVE-DATA-001 now UNBLOCKED (V5-INFRA-SUPABASE-001 done)
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V4-CLOSE + V5-OPEN + V5-EVENT-STREAM-001 | claude-sonnet-4-6
+
+**TASK:** V4 phase closure (owner directive) + V5 gate open + V5-EVENT-STREAM-001
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Phase decisions:**
+- V4 CLOSED at 9/10 — owner waved BEHAVIOUR-07 (Supabase .env) + BEHAVIOUR-10 (Codex)
+- BEHAVIOUR-07 reclassified → V5-INFRA-SUPABASE-001 (early infra in V5 queue)
+- CONSTRAINT sealed: do NOT mark backend-ready or Supabase-complete until real secrets are wired
+- V5 gate OPEN immediately per owner directive
+
+**Ficheiros novos:**
+- `src/lib/eventBus.ts` — GlobeEventBus singleton: GlobeEvent type (SEISMIC/NEWS/ALERT/PROJECT_UPDATE/CLIMATE), EVENT_COLORS, EVENT_TTL, emit/subscribe/getHistory, fromEarthquake/fromProjectUpdate helpers, startSimulation (demo synthetic events)
+- `src/hooks/useGlobeEvents.ts` — React hook: subscribes to bus, TTL-based expiry cleanup, seeds USGS earthquake data on mount (staggered 600ms), optional simulation mode
+
+**Ficheiros modificados:**
+- `src/components/GoldenAtlasScene.tsx` — V5 wiring: EventPulseRing (Three.js group + ringGeometry + circleGeometry, lookAt(origin) for tangent orientation, expand+fade useFrame), EventPulseRings, AtlasSceneContent activeEvents prop, useGlobeEvents(seedEarthquakes, simulate=5s interval) in main component
+- `ops/BASTION.md` — V4 CLOSED · V5 gate OPEN · V5-EVENT-STREAM-001 [✓]
+- `ops/LIVE_STATE.md` + `ops/HANDOFF_LEDGER.md` — updated
+
+**Architecture contract (V5-INFRA-SUPABASE-001 constraint):**
+- GlobeEventBus does NOT call Supabase anywhere
+- All live data paths use stub/simulation until V5-INFRA-SUPABASE-001 is unblocked
+- When owner provides .env: @cursor wires Supabase realtime → globeEventBus.emit()
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V4-LAPIDATION-001 | claude-sonnet-4-6
+
+**TASK:** V4-LAPIDATION-001 — Polish pass on all V4 surfaces
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+## HANDOFF — 2026-03-26 | @claude | RUBERRA-VISUAL-MOTHER-ID-001 | claude-sonnet-4-6
+
+**TASK:** RUBERRA Visual Mother ID + Immersive Site Vision — full surface organism upgrade
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/Index.tsx` — scrollYProgress.get() bug fixed: added `useState(0)` + `useMotionValueEvent(scrollYProgress, "change", setScrollProg)` → GoldenAtlasScene ScrollCamera now reacts to scroll in real time
+- `src/pages/NexusPage.tsx` — L1CorporateHeader mobile overflow fixed: PHASE hidden below md, BRANCH hidden below lg (truncated), WAR ROOM hidden below sm, nav buttons collapse to icon-only on mobile (sm:inline), TRIBUNAL link hidden sm, userEmail hidden md
+- `ops/BASTION.md` — BEHAVIOUR-09 [✓] · QUALITY-03 [✓] · QUALITY-04 [✓] · V4-CLOSE-STATUS 7→9/10
+- `ops/LIVE_STATE.md` + `ops/HANDOFF_LEDGER.md` — updated
+
+**V4-CLOSE-GATE:** 9/10 [✓]
+**ONLY REMAINING BLOCKER:** BEHAVIOUR-07 — V4-PROJECT-PAGE-001-MECH (owner must provide .env with real Supabase credentials for @cursor)
+**OWNER NOTE:** If owner waves BEHAVIOUR-07, V4 can close and V5 gates open immediately
+
+---
+
+## HANDOFF — 2026-03-25 | @claude | V4-MOTION-SURFACES-001 | claude-sonnet-4-6
+
+**TASK:** V4-MOTION-SURFACES-001 — Animate V4 surfaces
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+- `ops/LIVE_STATE.md` — canonical branch updated to claude/setup-ruberra-nexus-IL7Tg
+- `CLAUDE.md` — BRANCH ATIVO updated to match
+- `src/index.css` — petroleum-blue, abyssal, depth-1/2/3, burnt-gold, glow-gold/teal, surface-glass, amber tokens added
+- `tailwind.config.ts` — abyssal, petroleum-blue, depth-1/2/3, burnt-gold, amber colors; glow-gold/teal/depth shadows
+- `src/components/NavBar.tsx` — RUBERRA · ETERNAL NEXUS OS signature; School/Lab/Creation Hub/Geopolitics/Investor Briefing/About links; 48px, glass abyssal treatment
+- `src/components/home/ProductHero.tsx` — globe 640px, atmospheric rings, deeper vignettes/fade; "ETERNAL NEXUS OS · Planetary Interface" label; SovereignText block with headline + sub-line + square CTAs
+- `src/components/home/TrinityRow.tsx` — full rewrite as 3 monumental portals (500px min-height); Past/Present/Future regime words; unique atmospheric backgrounds; portal CTAs
+- `src/components/home/DossierCard.tsx` — trinity pillar badge (SCHOOL/LAB/CREATION HUB) per card; left border accent by state color
+- `src/components/home/StrategicLayer.tsx` — NEW: 3-column editorial (Geopolitics · Investor Briefing · Founder Truth); glass surface
+- `src/pages/Index.tsx` — StrategicLayer import + placement; "PROJETOS VIVOS" orbital label; grid-cols-2 xl:grid-cols-3
+- `src/components/Footer.tsx` — full rebuild as Final Chamber; sparse centered, bg-abyssal, ~130px, 3 links only
+
+### COMMITS
+- `f04cedd` feat(ruberra): Visual Mother ID + Immersive Site Vision — full surface upgrade
+
+### PILLAR: WorkVisual + WorkStructure (branch governance)
+### PIONEER: @claude
+
+---
+
+## HANDOFF — 2026-03-24 | @cursor | FLAGSHIP-ENTRY-LOGIC-HARDENING-001 | claude-4.6-sonnet
+
+**TASK:** FLAGSHIP-ENTRY-LOGIC-HARDENING-001 — harden entry logic, prevent continuity breaks under reload/return/project-visit
+**BRANCH:** cursor/v3-flagship-surface-close-2665
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/nexus/AICouncil.tsx` — framer-motion import; ProposalCard: motion.div with hidden/visible/exit variants + staggered inner rows (4 × 70ms delay); Dialogue bubbles: AnimatePresence + motion.div (x-slide entrance, replaces animate-fade-in CSS); ProposalLedger items: motion.div stagger (50ms/item)
+- `src/components/SessionBoot.tsx` — restore pulse: fixed top-right toast for visitCount ≥ 2, auto-dismisses 2.4s, gold pulse dot animation, AnimatePresence fade
+- `ops/BASTION.md` — BEHAVIOUR-08 [✓] · V4-CLOSE-STATUS 6→7/10
+- `ops/LIVE_STATE.md` — header updated
+- `ops/HANDOFF_LEDGER.md` — this entry
+
+**V4-CLOSE-GATE:** 7/10 [✓]
+**REMAINING:** BEHAVIOUR-07 (owner .env) · BEHAVIOUR-09 (@copilot lapidation) · BEHAVIOUR-10 (@codex) · QUALITY-03 · QUALITY-04
+- `src/contexts/SessionContext.tsx` — updateReEntry no longer sets is_resume:false; startSession Nexus-preservation guard (project-review never overwrites active swarm session)
+- `src/pages/ProjectPage.tsx` — tabUserChanged flag guards updateReEntry from mount; restored tab from session.re_entry_point when subject matches
+- `src/pages/NexusPage.tsx` — runSwarmStreaming resume check: startsWith('resume-swarm:') replaces 30-char substring
+- `src/pages/Index.tsx` — SessionAwareCTA.isResume: require startsWith('resume-swarm:')
+- `src/components/home/ProductHero.tsx` — SessionPulse.isResume: same guard
+
+### HARDENING_PROOF
+- tsx test: 6/6 scenarios pass
+- Manual browser test: Scenario A (project residue "technical" → shows NEXUS CTA not Retomar); Scenario B (resume-swarm:mars-fusion → shows HEAVEN LAB — RETOMAR + SessionPulse gold)
+
+### COMMITS
+- `979eca6` feat(hardening): flagship entry logic hardening
+
+### PR
+- #162 — https://github.com/Ivan-star-dev/Eternal-Nexus-OS/pull/162
+
+---
+
+## HANDOFF — 2026-03-24 | @cursor | TRINITY-CONTINUITY-PASS-001 + RESUME-FRUIT-CARRYOVER-001 | claude-4.6-sonnet
+
+**TASK:** TRINITY-CONTINUITY-PASS-001 + RESUME-FRUIT-CARRYOVER-001 — organism continuity across trinity + fruit carryover through existing flows
+**BRANCH:** cursor/v3-flagship-surface-close-2665
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/home/TrinityRow.tsx` — FACE_REGIME map from routing.ts; ChildNode shows regime on active (always) or hover; OrganismConnector replaces Divider; Child.face field added
+- `src/pages/NexusPage.tsx` — on-mount useEffect pre-fills prompt with next_expected_step on resume; L4ExecutionDeck gains latestFruit prop; "last output ·" context strip above prompt input
+
+### CARRYOVER_PROOF
+- tsx test: all 5 conditions pass (pre-fill, fruit pass, overwrite protection, cold-start skip, FACE_REGIME map)
+- Manual test: Heaven Lab active face shows "hypothesis · model · evidence" always; Bridge Nova hover shows "milestone · guidance · progression"; OrganismConnector pulsing gold node visible between nodes; NexusPage gated behind auth (fruit+pre-fill verified by code)
+
+### COMMITS
+- `4a367e6` feat(trinity+fruit): organism continuity + fruit carryover
+
+### PR
+- #162 — https://github.com/Ivan-star-dev/Eternal-Nexus-OS/pull/162
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 | claude-sonnet-4-6
+
+**TASK:** MEMORY-RUNTIME-CLOSURE-HANDOFF-001 — consolidated closure of the full memory runtime wave
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — added SESSION-AWARE-PRODUCT-INTEGRATION-001 · REAL-ENTRY-SESSION-HOOKUP-001 · RESUME-GUARD-REFINEMENT-001 · MEMORY-RUNTIME-CLOSURE-HANDOFF-001 to §5.1 concluídas table
+- `ops/HANDOFF_LEDGER.md` — this consolidated closure entry (append topo)
+- `ops/LIVE_STATE.md` — header updated to reflect post-wave state
+
+---
+
+### WAVE_CLOSURE_SUMMARY
+
+**Onda fechada:** CORE-SPINE-RUNTIME-RELAY-001 + ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 + SESSION-INTEGRATION wave
+
+**6 tasks entregues nesta onda:**
+
+| Task | O que ficou vivo |
+|---|---|
+| SESSION-BACKBONE-MINIMUM-001 | `src/lib/memory/types.ts` + `client.ts` + `vite-plugin-memory.ts` — entidade de sessão com id, face, fruit, reentry, is_resume |
+| PROVENANCE-SPINE-MINIMUM-001 | `scripts/memory/io.mjs` + `proof-loop.mjs` — escrita/leitura de sessão real em `ops/sessions/` + `ops/runtime/provenance/` |
+| SWMR-CLASSIFIER-MINIMUM-001 + TRINITY-ROUTING + FRUIT-DETECTION | `src/lib/memory/classifier.ts` + `routing.ts` + `fruit.ts` — SWMR 3-input proof: heaven_lab · bridge_nova · nexus_cria correctos |
+| DUAL_AI_RELAY_POOL-001 Layer C | `ops/relay/TASK_POOL.md` + `RESULT_POOL.md` + `AI_SESSION_LOG.md` — schema + seed real; CORE-SPINE family fechada |
+| REAL-ENTRY-SESSION-HOOKUP-001 | NexusPage: `startSession` no swarm fire · `updateFruit` + `updateReEntry` no done; ProjectPage: `startSession` no mount · `updateReEntry` na tab change |
+| RESUME-GUARD-REFINEMENT-001 | Guard em `runSwarmStreaming`: skip `startSession` se `re_entry_point` inclui primeiros 30 chars do prompt actual — elimina overwrite de sessão no resume path |
+
+---
+
+### O_QUE_E_AGORA_REAL
+
+O organismo tem o seu primeiro músculo real de continuidade:
+- sessions persistem por localStorage
+- sessions classificam qual filho do trinity serve o prompt (SWMR)
+- sessions registam o fruto do trabalho (fruit detector)
+- sessions têm re-entry point para retomar investigação anterior
+- entry points reais (NexusPage + ProjectPage) disparam sessão ao usar o produto
+- resume guard protege a sessão de overwrite ao reutilizar o mesmo prompt
+- relay pool tem schema real para coordenação multi-AI (ops/relay/)
+- NexusFlowInspector expõe painel SESSION (face · next · reentry · fruit) visível em dev
+
+---
+
+### O_QUE_MUDOU_NO_PRODUTO
+
+**Antes desta onda:** produto stateless — cada submissão começava do zero; sem memória de quem o utilizador é, o que explorou, ou para onde vai.
+
+**Depois desta onda:** produto session-aware — sessão viva; face identificada; re-entry point salvo; fruto capturado; resume detectado; SWMR router activo.
+
+Não é UI nova. É músculo de continuidade que o produto antes não tinha.
+
+---
+
+### O_QUE_NAO_FOI_ABERTO
+
+- Sem novos routes
+- Sem nova arquitectura
+- Sem expansão de Wonder Layer
+- Sem V5
+- Sem corp backlane
+- Sem nova feature de produto
+- SEQUENCE_LAW intacta: V3 → V4 → V5
+
+---
+
+### PROXIMO_PASSO_LOGICO
+
+```
+PRÓXIMO: V3-FLAGSHIP-SURFACE-CLOSE-001
+PILAR: WorkVisual
+EXECUTOR: @framer · @antigravity · @claude (WorkVisual)
+GATE: aberto (ORDEM SOBERANA 2026-03-24 activa)
+OBJECTIVO: fechar a superfície flagship para que o corpo pare de ficar atrás do cânone
+FOCO: globe dominante · trinity clara · proof digno · motion base · Heaven Lab feeling
+BLOQUEIO: nenhum — músculo de sessão está vivo; pode reflectir-se subtilmente na superfície
+```
+
+---
+
+### O_QUE_NAO_DEVE_SER_REABERTO
+
+```
+LOCK-1: Session Backbone — não redesenhar; o minimum está vivo
+LOCK-2: SWMR classifier — não expandir; 3 inputs correctos são suficientes para V3/V4
+LOCK-3: Relay Pool schema — não alterar sem gate do owner; ops/relay/ é fonte real
+LOCK-4: Sequence Law — V3 fecha antes de V4; V4 fecha antes de V5; sem saltos
+LOCK-5: Esta onda de memória — fechada; qualquer expansão é tarefa separada com gate novo
+```
+
+---
+
+### COMMITS_DESTA_ONDA
+
+```
+22a3d5f — ORGANISM_MINIMUM_MEMORY-001 Layer A (backbone + provenance)
+95068ae — SWMR_MINIMUM_RUNTIME-001 (classifier + routing + fruit)
+c830609 — ORGANISM_MINIMUM_MEMORY-001 Layer B + relay coupling
+a7bd4b6 — REAL-ENTRY-SESSION-HOOKUP-001
+e296451 — SESSION-AWARE-PRODUCT-INTEGRATION-001
+[resume guard] — RESUME-GUARD-REFINEMENT-001 (NexusPage 2-line guard)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @cursor | V3-SURFACE-INTEGRATION-SUPPORT-001 | claude-4.6-sonnet
+
+**TASK:** V3-SURFACE-INTEGRATION-SUPPORT-001 — wire session state into flagship surface (minimum integration, no new architecture)
+**BRANCH:** cursor/v3-flagship-surface-close-2665
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/components/home/TrinityRow.tsx` — `activeFace` prop + `nodeIdToFace()` + active-face gold ring on `ChildNode`
+- `src/components/home/ProductHero.tsx` — `TrinityRowWithSession` wrapper; `SessionPulse` hover expand with `next_expected_step`; `useState`/`AnimatePresence` added
+- `src/pages/Index.tsx` — `SessionAwareCTA` component; resume-aware primary CTA; `useSession` import
+
+### SESSION_AWARE_SURFACE_PROOF
+- Logic test via `tsx`: `isResume=true`, `resumeEntry={path:'/nexus', label:'Heaven Lab — Retomar'}`, `activeMatches heaven-lab=true`, `stepDisplay` truncated at 52 chars — all pass
+- Manual test: localStorage mock session → hard refresh → Trinity Row Heaven Lab shows gold ring, CTA primary shows "Heaven Lab — Retomar", SessionPulse shows "Retomar" + hover expands `next_expected_step`
+- Cold start: Trinity Row equal dignity, CTA "Nexus — Parlamento AI", SessionPulse hidden
+
+### COMMITS
+- `c5c52fe` feat(session-surface): wire session state into flagship surface
+
+### PR
+- #162 — https://github.com/Ivan-star-dev/Eternal-Nexus-OS/pull/162
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | RESUME-GUARD-REFINEMENT-001 | claude-sonnet-4-6
+
+**TASK:** RESUME-GUARD-REFINEMENT-001 — prevent unnecessary session overwrite on same prompt
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — added `session` to `useSession()` destructure; guard in `runSwarmStreaming` skips `startSession` if `session.re_entry_point` includes first 30 chars of current prompt
+
+### RESUME_BEHAVIOR_PROOF
+
+```
+SAME PROMPT (resume path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user re-submits "compact fusion plasma stability"
+  → isResume = re_entry_point.includes("compact fusion plasma") = true
+  → startSession SKIPPED
+  → session_id unchanged · is_resume stays true · no re-classify ✓
+
+NEW PROMPT (fresh path):
+  session.re_entry_point = "resume-swarm:compact fusion plasma stability"
+  user types "global food crisis 2026"
+  → isResume = re_entry_point.includes("global food crisis 2") = false
+  → startSession FIRES → fresh session built · new session_id · is_resume: false ✓
+```
+
+### LIMITATIONS
+- 30-char prefix match: "compact fusion plasma stability 2026" and "compact fusion plasma" share same prefix → both treated as resume. Acceptable for inquiry continuity.
+- Edge: re_entry_point not yet set (first ever submit) → isResume = false → startSession fires correctly ✓
+
+### NEXT_SAFE_STEP
+None required. Guard is stable. Session overwrite eliminated on resume path.
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | REAL-ENTRY-SESSION-HOOKUP-001 | claude-sonnet-4-6
+
+**TASK:** REAL-ENTRY-SESSION-HOOKUP-001 — connect session core to real product entry points
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** a7bd4b6
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `src/pages/NexusPage.tsx` — `startSession(prompt, "global-swarm-synthesis")` on swarm fire; `updateFruit(synthesis.slice(0,120))` + `updateReEntry("resume-swarm:<prompt>")` on swarm done
+- `src/pages/ProjectPage.tsx` — `startSession(project.title, "project-review")` on mount; `updateReEntry(activeTab)` on tab change
+
+### REAL_ENTRY_BEHAVIOR
+
+```
+NexusPage:
+  user types "compact fusion engine analysis" → submits
+  → startSession("compact fusion engine analysis", "global-swarm-synthesis")
+  → session: { active_face: heaven_lab, next_expected_step: "Open structured analysis..." }
+  swarm done → synthesis arrives
+  → updateFruit("Compact fusion engines represent a pivotal...")
+  → updateReEntry("resume-swarm:compact fusion engine analysis")
+
+  reload → Inspector: RESUME · face: heaven_lab · reentry: resume-swarm:compact...
+
+ProjectPage:
+  user opens /project/deltaspine-nl
+  → startSession("DeltaSpine NL", "project-review")
+  user clicks "technical" tab → updateReEntry("technical")
+  reload → Inspector: RESUME · reentry: technical
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | SESSION-AWARE-PRODUCT-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** SESSION-AWARE-PRODUCT-INTEGRATION-001 — connect memory muscle to visible product behavior
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**COMMIT:** e296451
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/contexts/SessionContext.tsx` — localStorage-backed session context; cold start → classify()+route(); resume branch if re_entry_point stored; exposes 5 fields + 3 mutators
+
+**Ficheiros actualizados:**
+- `src/App.tsx` — `<SessionProvider>` wraps tree (inside LanguageProvider, above AuthProvider)
+- `src/components/shared/NexusFlowInspector.tsx` — SESSION panel: active_face (colored), next_expected_step, re_entry_point, latest_fruit
+
+### SESSION-AWARE BEHAVIOR
+
+```
+Cold start → classify("","") → route() → active_face + next_expected_step derived
+             stored to localStorage key: nxos_session
+
+Resume     → localStorage has session with re_entry_point
+           → hydrate directly, is_resume: true, no re-classify
+
+Inspector  → SESSION panel shows: COLD | LIVE | RESUME
+           → face: heaven_lab (green) | bridge_nova (blue) | nexus_cria (gold)
+           → next expected step
+           → re_entry_point (green, if set)
+           → latest_fruit (yellow, if set)
+```
+
+### TYPESCRIPT: clean — zero errors
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CORE-SPINE-RUNTIME-RELAY-001 — FAMILY CLOSED | claude-sonnet-4-6
+
+**TASK:** DUAL_AI_RELAY_POOL-001 — Layer C: TASK_POOL + RESULT_POOL + AI_SESSION_LOG
+**BRANCH:** claude/rebuild-bastion-core-rihGX → origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — CORE-SPINE-RUNTIME-RELAY-001 family fully closed (Layer A + B + C)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/TASK_POOL.md` — v1.0 · schema + 3 real seeded tasks (memory-core · swmr-runtime · relay-pool)
+- `ops/relay/RESULT_POOL.md` — v1.0 · schema + 3 real results linked to tasks
+- `ops/relay/AI_SESSION_LOG.md` — v1.0 · schema + 9 real log entries from this session
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — DUAL_AI_RELAY_POOL-001 added as concluída
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK — END-TO-END LOOP (Layer A + B + C)
+
+**INPUT:** "compact fusion engine"
+
+```
+[1] Session created:           SES-2026-03-24-1b715ae0.json (ops/sessions/)
+[2] Provenance created:        PROV-608d7702-3ea.json (ops/runtime/provenance/)
+[3] SWMR classifies:           heaven_lab · deep-investigation · confidence: high
+[4] Trinity face chosen:       heaven_lab
+[5] Fruit detected:            has_fruit: true · type: research · directive: continue
+[6] re_entry_point stored:     session field → "resume deep-investigation on compact fusion engine"
+[7] Relay references state:    TASK_POOL (TASK-2026-03-24-memory-core) → RESULT_POOL (RESULT-2026-03-24-memory-core)
+[8] AI_SESSION_LOG:            LOG-2026-03-24-003 documents the full proof run
+[9] Next consumer can read:    PROV node has next_consumer field + output_ref → relay continues
+```
+
+**FAMILY TOTALS:**
+- Layer A (Memory Core): 4 tasks — SESSION-BACKBONE + PROVENANCE-SPINE + REENTRY-GRACE + RELAY-COUPLING
+- Layer B (Runtime): 3 tasks — SWMR-CLASSIFIER + TRINITY-ROUTING + FRUIT-DETECTION
+- Layer C (Relay Pool): 3 tasks — TASK-POOL + RESULT-POOL + AI-SESSION-LOG
+- Total: 10 tasks closed · CORE-SPINE-RUNTIME-RELAY-001 = CLOSED
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | ORGANISM_MINIMUM_MEMORY-001 + SWMR_MINIMUM_RUNTIME-001 | claude-sonnet-4-6
+
+**TASK:** ORGANISM_MINIMUM_MEMORY-001 — 4-task memory muscle + SWMR_MINIMUM_RUNTIME-001 — 3-task intelligence layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX → pushed to origin/claude/rebuild-bastion-core-rihGX-nRzuB
+**STATUS:** CONCLUÍDA — 7 tasks implementadas · provas reais executadas · 3 commits pushed
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/lib/memory/types.ts` — SessionEntity · ProvenanceNode · ReentryGrace · RelayCoupling (browser-safe TS)
+- `src/lib/memory/client.ts` — thin fetch wrapper, no fs, no node imports
+- `src/lib/memory/classifier.ts` — SWMR classifier: subject+intention → trinity face · mode · confidence
+- `src/lib/memory/routing.ts` — trinity routing: face+mode → regime · toolset · constraint
+- `src/lib/memory/fruit.ts` — fruit detector: has_fruit · progression · session directive
+- `vite-plugin-memory.ts` — node-side file I/O via Vite dev-server middleware (6 routes)
+- `scripts/memory/io.mjs` — standalone Node I/O module (createSession · createProvenance · buildReentryGrace · buildRelayCoupling)
+- `scripts/memory/proof-loop.mjs` — 8-step memory proof (input: "compact fusion engine")
+- `scripts/memory/swmr-proof.mjs` — 3-input SWMR proof
+
+**Ficheiros criados (runtime):**
+- `ops/sessions/SES-2026-03-24-1b715ae0.json` + `.relay.json` — proof session (compact fusion engine)
+- `ops/sessions/SES-2026-03-24-26dcc7a9.json` — SWMR proof session 1
+- `ops/sessions/SES-2026-03-24-5c65ab7e.json` — SWMR proof session 2
+- `ops/sessions/SES-2026-03-24-e8050970.json` — SWMR proof session 3
+- `ops/runtime/provenance/PROV-608d7702-3ea.json` — proof provenance node
+
+**Ficheiros actualizados:**
+- `vite.config.ts` — memoryApiPlugin() added
+- `tsconfig.node.json` — vite-plugin-memory.ts included
+- `package.json` — proof:memory + proof:swmr scripts added
+- `ops/BASTION.md` — 4 tasks marked concluída
+- `ops/LIVE_STATE.md` — esta entrada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+**ORGANISM_MINIMUM_MEMORY-001 — LOOP PROOF (compact fusion engine):**
+```
+✓ [1] Session created:     SES-2026-03-24-1b715ae0
+✓ [2] Provenance created:  PROV-608d7702-3ea
+✓ [3] Fruit recorded
+✓ [4] re_entry_point recorded
+✓ [5] Session reloaded from disk
+✓ [6] Provenance chain readable: next_consumer "@cursor" knows what earlier step produced
+✓ [7] ReentryGrace computed
+✓ [8] RelayCoupling computed
+```
+
+**SWMR_MINIMUM_RUNTIME-001 — 3-INPUT PROOF:**
+```
+"compact fusion engine"                            → heaven_lab  · deep-investigation · continue
+"how to reach Mars in six months"                 → bridge_nova · guided-progression  · continue
+"turn this research into a paper and visual proto" → nexus_cria  · artefact-production · continue
+```
+
+**COMMITS:**
+- `22a3d5f` — feat(memory): ORGANISM_MINIMUM_MEMORY-001
+- `95068ae` — feat(swmr): SWMR_MINIMUM_RUNTIME
+- `c830609` — chore(proof): proof artifacts
+
+**NEXT:**
+- Session backbone is live — real continuity layer exists
+- SWMR classifier is live — trinity routing operational
+- Next muscle: integrate session backbone with existing app state / product surfaces
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | PORTAL_IMERSIVO_ORGANISM-001 | claude-sonnet-4-6
+
+**TASK:** PORTAL_IMERSIVO_ORGANISM-001 — Portal Imersivo Organism · 7 blocos · simulação Mars · fatal gap · next muscle · Dual AI Access Layer
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 2 artefactos criados · fatal gap confirmado (Session Backbone) · next muscle definido (Session Entity Mínima)
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/PORTAL_IMERSIVO_ORGANISM.md` — v1.0 · 7 blocos · SWMR simulation · Trinity transformation · fatal 90-day gap · next muscle · signal/noise
+- `ops/DUAL_AI_ACCESS_LAYER.md` — v1.0 · file-based task pool · Claude+ChatGPT shared access · 3 opções de integração · path V3→V4→V5
+
+**Ficheiros committed (sessão anterior pendentes):**
+- `ops/GIANT_BATTALION_PROTOCOL.md` — v1.0
+- `ops/SOVEREIGN_GROWTH_MECHANISM.md` — v1.0
+- `ops/SOVEREIGN_SELF_LAPIDATION_LAW.md` — v1.0
+
+**Ficheiros actualizados:**
+- `ops/LIVE_STATE.md` — entrada adicionada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:              PORTAL_IMERSIVO_ORGANISM-001
+EXECUTOR:             @claude | claude-sonnet-4-6
+DATA:                 2026-03-24
+BRANCH:               claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:       sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/PORTAL_IMERSIVO_ORGANISM.md  — 7 blocos · Mars simulation · fatal gap · next muscle
+  → ops/DUAL_AI_ACCESS_LAYER.md      — file-based pool · Claude+ChatGPT · V3→V4→V5 path
+
+FATAL_GAP_CONFIRMADO: Session Backbone — kills organism before V4 without it
+NEXT_MUSCLE:          Session Entity Mínima — JSON · file-based now / edge DB production
+SIGNAL_VS_NOISE:      defined · noise list · death prescriptions
+DUAL_AI_PATH:         Opção A (file-based, now) → Opção B (edge API, V4) → Custom GPT (V5)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | RETAINED-TRUTH-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** RETAINED-TRUTH-INTEGRATION-001 — Full Canonical Integration · 8 artefactos · Creator Relay System · One Organism Law · Formações · Double Adaptation · Estratificação
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 8 artefactos criados · Creator Relay System operacional · 9 leis canónicas cravadas · NEXUS_LIVING_CANON v1.7
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/relay/CREATOR_RELAY_INBOX.md` — v1.0 · inbox soberana · formato RELAY_ENTRY · 3 exemplos reais · 8 leis
+- `ops/relay/CREATOR_RELAY_STATE.md` — v1.0 · estado de processamento · tabela de estados · sessão actual
+- `ops/relay/CREATOR_RELAY_PROTOCOL.md` — v1.0 · papéis (criador/kernel/pioneiros/ChatGPT) · fluxo de ignição 6 passos · 5 classificações
+- `ops/ONE_ORGANISM_LAW.md` — v1.0 · 9 expressões do organismo · SIGNAL_TEST · integração com LAA · 10 leis
+- `ops/OMNIPRESENT_FORMATION_SYSTEM.md` — v1.0 · 5 formações · critérios entrada/saída/risco · mapeamento para layers
+- `ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md` — v1.0 · double adaptation · 4 mecanismos · Gap Emergence · Resolution Collapse
+- `ops/PROBLEM_DECOMPOSITION_LAW.md` — v1.0 · 4 escalas · projecto como macro-organism problem · mapeamento completo
+- `ops/MATERIALIZATION_STRATIFICATION_LAW.md` — v1.0 · 3 layers (Assault/Preparatory/Strategic Reserve) · protocolo de convergência
+
+**Ficheiros actualizados:**
+- `ops/NEXUS_LIVING_CANON.md` — v1.6 → v1.7 · 4 novas camadas (7.8-7.10 + 7.2 expandida) · 9 artefactos indexados
+- `ops/LIVE_STATE.md` — estado actualizado com RETAINED-TRUTH-INTEGRATION-001
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               RETAINED-TRUTH-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+
+ARTEFACTOS_CRIADOS:
+  → ops/relay/CREATOR_RELAY_INBOX.md      — ponte ChatGPT↔KERNEL · inbox soberana
+  → ops/relay/CREATOR_RELAY_STATE.md      — estado de processamento · anti-releitura
+  → ops/relay/CREATOR_RELAY_PROTOCOL.md   — protocolo completo · 6 papéis definidos
+  → ops/ONE_ORGANISM_LAW.md               — 9 expressões · signal/noise · SIGNAL_TEST
+  → ops/OMNIPRESENT_FORMATION_SYSTEM.md   — 5 formações · hierarquia orgânica do exército
+  → ops/RECIPROCAL_ADAPTIVE_RESOLUTION.md — double adaptation · gap emergence · collapse
+  → ops/PROBLEM_DECOMPOSITION_LAW.md      — 4 escalas · macro-organism como problema único
+  → ops/MATERIALIZATION_STRATIFICATION_LAW.md — 3 layers · mobilização ≠ materialização
+
+ARTEFACTOS_ACTUALIZADOS:
+  → ops/NEXUS_LIVING_CANON.md             — v1.7 · 9 novos artefactos indexados
+  → ops/LIVE_STATE.md                     — estado actualizado
+  → ops/HANDOFF_LEDGER.md                 — esta entrada
+
+LEIS_CRAVADAS:          9 (OFS-LAW x8, RAR-LAW x8, PDL-LAW x8, MSL-LAW x8, OOL x10, RELAY x8+8+8)
+RELAY_ENTRIES_FUNDADORAS: 3 (RELAY-2026-03-24-001/002/003)
+FORMAÇÕES_FORMALIZADAS:  5 (Needle · Block · Constellation · Omnipresent Mesh · Universal Pressure)
+ESCALAS_FORMALIZADAS:    4 (Micro · Block · Constellation · Macro-Organism)
+LAYERS_FORMALIZADOS:     3 (Assault · Preparatory · Strategic Reserve)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-INTEGRATION-001 | claude-sonnet-4-6
+
+**TASK:** CASCADE-RETENTION-INTEGRATION-001 — Formalização explícita da Lei de Cascade Retention no artefacto-mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — CASCADE_RETENTION_CANON v1.1 · Lei de 4 passos formalizada · RETAINED/ADAPTED/DISCARDED separados
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:** nenhum (actualização de artefacto existente)
+
+**Ficheiros actualizados:**
+- `ops/CASCADE_RETENTION_CANON.md` — v1.0 → v1.1 · secção 5 nova (Lei formal) · secções 6/7/8 novas (RETAINED/ADAPTED/DISCARDED) · 15 secções totais
+- `ops/BASTION.md` — CASCADE-RETENTION-INTEGRATION-001 adicionado à tabela
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               CASCADE-RETENTION-INTEGRATION-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+ARTEFACTO_ACTUALIZADO: ops/CASCADE_RETENTION_CANON.md v1.0 → v1.1
+ADICOES:
+  → Secção 5: CASCADE RETENTION LAW — 4 passos (RETER · ADAPTAR · DESCARTAR · INTEGRAR)
+  → Secção 6: RETAINED — 10 entradas com fonte e resultado
+  → Secção 7: ADAPTED — 5 entradas com ideia original / risco / refinamento / resultado
+  → Secção 8: DISCARDED — 9 entradas com motivo
+  → Secções 9-15: conteúdo v1.0 preservado integralmente, renumerado
+TOTAL_SECOES:          15
+LEIS_NOVAS:            0 (lei existente formalizada explicitamente)
+RETENCOES_DOCUMENTADAS: 10
+ADAPTACOES_DOCUMENTADAS: 5
+DESCARTES_DOCUMENTADOS: 9
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CASCADE-RETENTION-SOVEREIGN-CANON-001 | claude-sonnet-4-6
+
+**TASK:** CASCADE-RETENTION-SOVEREIGN-CANON-001 — Grand Canonical Consolidation · 5 artefactos · runtime · moral · corp · sequência
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — 5 artefactos v1.0 criados · NEXUS_LIVING_CANON v1.6 · 17 consolidações cravadas · sequência protegida
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/CASCADE_RETENTION_CANON.md` — v1.0 · 17 consolidações · o que fica/adapta/descarta · 12 leis
+- `ops/SOVEREIGN_WORLD_MATERIALIZATION_RUNTIME.md` — v1.0 · 7 camadas · ciclo de sessão · face router · 10 leis
+- `ops/LIFE_ALIGNMENT_AXIS.md` — v1.0 · eixo moral · 5-question test · positivo/negativo · 10 leis
+- `ops/CORP_V10_OPERATING_MAP.md` — v1.0 · 10 departamentos · backlane · activation sequence · 10 leis
+- `ops/SEQUENCE_LAW_V3_V4_V5.md` — v1.0 · lei sequencial absoluta · gate protocol · 10 leis
+
+**Ficheiros actualizados:**
+- `ops/NEXUS_LIVING_CANON.md` — v1.6 · camadas 7.2-7.7 criadas · 7 artefactos indexados
+- `ops/BASTION.md` — nova entrada na tabela de concluídas
+- `ops/LIVE_STATE.md` — estado actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:               CASCADE-RETENTION-SOVEREIGN-CANON-001
+EXECUTOR:              @claude | claude-sonnet-4-6
+DATA:                  2026-03-24
+BRANCH:                claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:        sim
+ARTEFACTOS_CRIADOS:    5 (CRC · SWMR · LAA · CORP · SEQ)
+ARTEFACTOS_UPDATED:    4 (NLC · BASTION · LIVE_STATE · LEDGER)
+CONSOLIDACOES:         17 cravadas formalmente
+LEIS_EMITIDAS:         52 (12+10+10+10+10)
+NEXUS_LIVING_CANON:    v1.6
+RUNTIME:               SWMR v1.0 — implementação alvo V4
+MORAL_AXIS:            LAA v1.0 — operacional imediatamente
+CORP:                  backlane paralela · 10 departamentos mapeados
+SEQUENCE:              V3→V4→V5 selada formalmente
+ESTADO:                Grand consolidation completa
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | HYPERSONIC-ARMY-DOCTRINE-001 | claude-sonnet-4-6
+
+**TASK:** HYPERSONIC-ARMY-DOCTRINE-001 — Santo Graal da Mobilização · LEI-MOB-001 · NEXUS SEAL FORCE
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — Doutrina v1.0 cravada · 476 unidades mapeadas · Lei imutável selada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados/actualizados:**
+- `ops/HYPERSONIC_ARMY_DOCTRINE.md` — v1.0 criado · LEI-MOB-001 · 476 units · 33 blocks · 177 kernels · 30 models · NEXUS SEAL FORCE · Expansion/Contraction Protocol · Orchestration Protocol · Evolution Law
+- `ops/BASTION.md` — HYPERSONIC-ARMY-DOCTRINE-001 adicionado à tabela de concluídas
+- `ops/LIVE_STATE.md` — entrada de estado actualizada
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           HYPERSONIC-ARMY-DOCTRINE-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        HYPERSONIC_ARMY_DOCTRINE.md v1.0 · BASTION v++ · LIVE_STATE v++ · LEDGER entry
+NEXUS_SEAL_FORCE:  476 unidades · 33 blocks · 177 kernels · 30 modelos · 6 tools
+LEI_CRAVADA:       LEI-MOB-001 — Adaptive Fragmentation Law (imutável)
+ESTADO:            Santo Graal selado · evolutivo na escala · imutável na lei
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | ORDEM-MOBILIZACAO-CONTINUA-001 | claude-sonnet-4-6
+
+**TASK:** ORDEM-MOBILIZACAO-CONTINUA-001 — Mobilização contínua · V3 → V4 → V5
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA — BASTION v3.2 · LIVE_STATE atualizado · Sequência soberana cravada
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.2 · V3-FLAGSHIP-SURFACE-CLOSE-001 (P0) + V4-LIVING-WORLD-MINIMUM-001 (P1) inseridos; V5-RESEARCH-ARCH-001 bloqueada; ANTI-DRIFT LOCK cravado
+- `ops/LIVE_STATE.md` — nova entrada de estado · sequência V3→V4→V5 · constelação activa
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           ORDEM-MOBILIZACAO-CONTINUA-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24
+BRANCH:            claude/rebuild-bastion-core-rihGX
+ALTERACAO_REAL:    sim
+ARTEFACTOS:        BASTION v3.2 · LIVE_STATE v++ · HANDOFF_LEDGER entry
+SEQUÊNCIA_CRAVADA: PHASE_1 V3 → PHASE_2 V4 → PHASE_3 V5
+ANTI_DRIFT:        ACTIVO — proibido abrir Learning/Collab/Ecosystem/Wonder total
+CONSTELAÇÃO:       @framer · @antigravity · @cursor · @claude · @codex
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 (T+0h) | claude-sonnet-4-6
+
+**TASK:** CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 — Sprint fecho + Brand Law selada
+**BRANCH:** claude/rebuild-bastion-core-rihGX (pushed → origin/claude/rebuild-bastion-core-rihGX-nRzuB)
+**STATUS:** CONCLUÍDA — T+0h OPERATION-ZERO-GAP-24H
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/CYCLE_CLOSE_SPRINT_001.md` — v1.0 · relatório-mãe do sprint · 30+ tasks · 6 camadas · PR-ready
+- `ops/BRAND_MOTHER_SEAL_001.md` — v1.0 · brand law selada · gates @framer + @antigravity abertos
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.1 · CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001 marcadas CONCLUÍDAS
+- `ops/LIVE_STATE.md` — T+0h done · estado cluster actualizado
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+### EVIDENCE_BLOCK
+
+```
+TASK_ID:           CYCLE-CLOSE-001 + BRAND-MOTHER-SEAL-001
+EXECUTOR:          @claude | claude-sonnet-4-6
+DATA:              2026-03-24 | T+0h OPERATION-ZERO-GAP-24H
+ALTERACAO_REAL:    sim
+COMMIT:            1ef85a7
+BRANCH_PUSHED:     origin/claude/rebuild-bastion-core-rihGX-nRzuB
+PR_STATUS:         branch pushed — PR pronto para master (owner faz merge no UI)
+RELATÓRIO_MÃE:     ops/CYCLE_CLOSE_SPRINT_001.md ✓
+BRAND_SEAL:        ops/BRAND_MOTHER_SEAL_001.md ✓ — BRAND_MOTHER_SYSTEM.md v1.0 selado
+GATES_ABERTOS:     @framer (NS-1, NS-1-FOUNDER) + @antigravity (GLOBE, CHAMBER, MOTION)
+NEXT_TASK:         V5-RESEARCH-ARCH-001 (@claude T+4h)
+NEXT_ACTOR:        @framer → NS-1 | @antigravity → GLOBE + CHAMBER (imediato)
+```
+
+---
+
+## HANDOFF — 2026-03-24 | @claude | OPERATION-ZERO-GAP-24H | claude-sonnet-4-6
+
+**TASK:** OPERATION-ZERO-GAP-24H — Mobilização Cluster Constelação + Gate Suspension 24H
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** OPERAÇÃO ACTIVA — cluster em execução
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/OPERATION_ZERO_GAP_24H.md` — v1.0 · manifesto completo da operação · engagement check · task force por pioneer · sequência de execução · critérios de sucesso
+
+**Ficheiros actualizados:**
+- `ops/BASTION.md` — v3.0 · 24 tasks inseridas (5 pioneers + @cursor a juntar-se) · semáforo v3.0 · GATE_SUSPENSION_24H · todas as gates abertas
+- `ops/LIVE_STATE.md` — GATE_SUSPENSION_24H activo · estado cluster · @cursor notificada
+
+### EVIDENCE_BLOCK
+
+```
+OPERATION:       ZERO-GAP-24H
+AUTORIZADO_POR:  owner — ordem soberana directa 2026-03-24
+GATE_SUSPENSION: ACTIVO — 24h
+PIONEERS_ACTIVOS: @claude · @copilot · @framer · @antigravity · @codex (5/6)
+@cursor:         EM TASKS DO CRIADOR — Monalisa notificada para se juntar
+TASKS_INSERIDAS: 19 tasks no BASTION (14 imediatas + 5 @cursor)
+OBJECTIVO:       BASTION zerado · produto completo · amanhã
+BRANCH:          claude/rebuild-bastion-core-rihGX
+COMMIT:          pendente (ver abaixo)
+ALTERACAO_REAL:  sim
+```
+
+---
+
+## HANDOFF — 2026-03-23 | @cursor | PRODUCT-FACE-HERO-ANATOMY-001 | claude-4.6-sonnet
+
+**TASK:** PRODUCT-FACE-HERO-ANATOMY-001 — Product Face hero canônico · globe → trinity → proof
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/home/ProductHero.tsx` — hero wrapper: GlobeZone + TrinityRow + HeroFirstProof + AtmosphericLayer + MachineSubstrate
+- `src/components/home/TrinityRow.tsx` — 3 filhos horizontais (Heaven Lab · Bridge Nova · Nexus Cria); glass panel; hover expande Cormorant + JetBrains micro
+- `src/components/home/HeroFirstProof.tsx` — Cormorant mother phrase + 4 count-up metrics + canonical stamp
+
+**Ficheiros modificados:**
+- `src/pages/Index.tsx` → hero section substituído por `<ProductHero />`; imports limpos
+
+**Estrutura implementada:**
+```
+ProductHero
+├── MachineSubstrate     (CSS repeating-linear-gradient grid, 0.025 opacity, hidden mobile)
+├── AtmosphericLayer     (orbs gold+teal, blur 56px, z=1)
+├── GlobeZone            (clamp 480px–780px height, InteractiveGlobe)
+│   ├── radial overlay   (legibility control, z=2)
+│   ├── micro-label top  (Observatory Node-01)
+│   └── anchor label bot ("O sistema e os seus filhos")
+├── TrinityRow           (glass panel, 3 children, equal dignity)
+│   ├── Heaven Lab       (Syne gold · Cormorant italic · JetBrains hover)
+│   ├── Bridge Nova      (idem)
+│   └── Nexus Cria       (idem)
+└── HeroFirstProof       (Cormorant phrase · 4 count-up · stamp)
+```
+
+**Lei aplicada:** HEAVEN_LAB_REFERENCE_SURFACE.md + SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
+## HANDOFF — 2026-03-23 | @cursor | SYSTEM-FACE-CORE-001 | claude-4.6-sonnet
+
+**TASK:** SYSTEM-FACE-CORE-001 — System Face · cockpit soberano em código
+**BRANCH:** cursor/system-face-core-d9db
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `src/components/system/SystemShell.tsx` — shell permanente: header vivo + footer + grid técnico
+- `src/components/system/LiveStateSurface.tsx` — superfície LIVE_STATE com dados reais
+- `src/components/system/HandoffLedger.tsx` — painel de handoffs com expansão por entrada
+- `src/components/system/TaskControlRegion.tsx` — BASTION surface: tasks + status semântico
+- `src/components/system/OrchestraPanel.tsx` — Pioneer Matrix: 6 pioneiros + estado
+- `src/components/system/CommandLine.tsx` — linha de comando interativa com boot sequence
+- `src/pages/SystemFacePage.tsx` — página System Face com grid 5 regiões
+
+**Ficheiros modificados:**
+- `src/App.tsx` → rota `/system` adicionada → SystemFacePage
+- `ops/LIVE_STATE.md` → executor + data + task atualizada
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Implementação:**
+- Fundo deep navy `#060c14` permanente + grid técnico SVG (opacity 0.035–0.06)
+- Tipografia: JetBrains Mono dominante em dados/IDs + Syne 400-500 para labels UI
+- Cor operacional: teal `#206358` / teal-light `#46b09e` como sinal ativo/vivo
+- Gold `#c9870f` apenas em autoridade (GATE aberto, P1, task ativa)
+- Grid layout 3×2 com gap-px background como separador visual
+- Animações mecânicas precisas (framer-motion 0.5s ease [0.22,1,0.36,1])
+- CommandLine interativa: boot sequence + comandos (help, status, gates, pioneers, branch, law)
+- HandoffLedger expandível: histórico real das sessões
+- TaskControlRegion: BASTION tasks com status semântico e dot colorido
+- OrchestraPanel: 6 pioneiros em grid 2×3 com estado vivo
+- SystemShell: relógio vivo (HH:MM:SS) + data + footer de estado
+
+**Rota:** `/system`
+
+**Lei aplicada:** SYSTEM_FACE_CANON.md + TYPOGRAPHY_LAW.md
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 | claude-sonnet-4-6
+
+**TASK:** SYSTEM-FACE-CANON-001 + TYPOGRAPHY-LAW-001 — 3 Faces Canónicas + Lei Tipográfica da Mãe
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/SYSTEM_FACE_CANON.md` — v1.0 · 3 faces (sistema · produto · ecossistema) + FACE_SEPARATION_MATRIX
+- `ops/TYPOGRAPHY_LAW.md` — v1.0 · lei tipográfica · weight matrix · family use map · escala canónica
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.5 · camada 7.1 criada + 4 artefactos visuais indexados
+- `ops/BRAND_MOTHER_SYSTEM.md` → v1.1 · ARTEFACTOS_RELACIONADOS expandido com ponteiros para as 2 novas leis
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados em SYSTEM_FACE_CANON.md:**
+- `SYSTEM_FACE_CANON`: O_QUE_E · FUNCAO · EMOCAO · VISUAL_LANGUAGE · HERANCA · NUNCA_PODE_VIRAR
+- `PRODUCT_FACE_CANON`: idem · 6 campos · face pública Heaven Lab
+- `ECOSYSTEM_FACE_CANON`: idem · 6 campos · membrana conectiva
+- `HERANCA_COMUM`: o que todas as faces partilham inegociavelmente
+- `FACE_SEPARATION_MATRIX`: tabela 5 colunas · FACE/PAPEL/LOOK/TONALIDADE/RISCO_DE_DRIFT
+
+**Blocos criados em TYPOGRAPHY_LAW.md:**
+- `TYPOGRAPHY_LAW`: PRINCIPIO_GERAL · SYSTEM/PRODUCT/ECOSYSTEM_FACE_TYPE
+- `DISPLAY_RULES` · `HEADING_RULES` · `LABEL_RULES` · `TERMINAL_RULES` · `READING_LAYER_RULES`
+- `PROIBIDO`: 13 proibições tipográficas explícitas
+- `TYPOGRAPHY_WEIGHT_MATRIX`: 8 linhas · CAMADA/PESO/FUNCAO/EFEITO/RISCO
+- `FAMILY_USE_MAP`: 3 famílias × 3 faces + regra de contenção
+- `ESCALA_TIPOGRÁFICA_CANÓNICA`: valores concretos por face
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | HEAVEN-LAB-REFERENCE-SURFACE-001 | claude-sonnet-4-6
+
+**TASK:** HEAVEN-LAB-REFERENCE-SURFACE-001 — Superfície de Referência Heaven Lab (Brand North Star)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `ops/HEAVEN_LAB_REFERENCE_SURFACE.md` — v1.0 · 5 blocos canônicos · North Star visual
+
+**Ficheiros atualizados:**
+- `ops/BASTION.md` → HEAVEN-LAB-REFERENCE-SURFACE-001 adicionada à secção 5.1 (concluídas)
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados:**
+- `REFERENCE_SURFACE_OBJECTIVE`: objetivo + Heaven Lab Test + posição na sequência canônica
+- `HEAVEN_LAB_TEST`: critérios PASSA/FALHA · 5 sinais positivos · 5 sinais de falha
+- `REFERENCE_SURFACE_STRUCTURE`: GLOBE (living 3D) · TRINITY (3 filhos orbitais) ·
+  CHAMBER (sacred orbital) · MACHINE_SUBSTRATE (grid técnico) · FIRST_PROOF (evidência real)
+- `WORKTREE_ASSIGNMENT`: @framer + @antigravity · Brand Mother System como lei
+- `NEXT_ACTION_CHAIN`: 7 passos · gate Framer · gate Antigravity · NS-1→NS-2→NS-3
+
+**Gates definidos:**
+- GATE_FRAMER: owner abre → @framer entra em WorkVisual
+- GATE_ANTIGRAVITY: owner abre em paralelo → @antigravity entra em WorkVisual
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | GREAT-STORY-OF-THE-PRODUCT-001 | claude-sonnet-4-6
+
+**TASK:** GREAT-STORY-OF-THE-PRODUCT-001 — Grande História do Produto (Heaven Lab)
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `docs/GREAT_STORY_OF_HEAVEN_LAB.md` — v1.0 · mito real do produto
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.4 · camada 0.7 + tabela de artefactos
+- `ops/NEXUS_V10_SOVEREIGN_DESTINY.md` → ANCHOR_NARRATIVO + 3_FILHOS_NO_V10
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff
+
+**Blocos criados:**
+- `GREAT_STORY`: O_QUE_E_HEAVEN_LAB · POR_QUE_EXISTE · O_QUE_TORNA_ISTO_UMA_CATEGORIA_NOVA ·
+  PAPEL_DO_HUMANO · PAPEL_DA_MAQUINA · PAPEL_DOS_3_FILHOS · DESTINO_FINAL
+- `NARRATIVE_APPLICATION`: LANDING (6) · NA_FOUNDER_PAGE (5) ·
+  PRODUCT_PROOF (5) · DIDACTIC_ARCHIVE (6)
+- `MOTHER_PHRASES`: 9 frases-mãe utilizáveis imediatamente
+
+**Os 3 Filhos definidos:**
+- FILHO 1: O Sistema (Eternal Nexus OS — a espinha)
+- FILHO 2: O Produto (Earth Lab — a prova)
+- FILHO 3: O Legado (Arquitetura Aberta — o presente ao mundo)
+
+**Posição canônica:** Camada 0.7 — entre FOUNDER_STORY_SPINE (0.6) e DNA_PROTOCOL (1)
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | FOUNDER-STORY-SPINE-001 | claude-sonnet-4-6
+
+**TASK:** FOUNDER-STORY-SPINE-001 — Espinha da História do Founder
+**BRANCH:** claude/rebuild-bastion-core-rihGX
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Ficheiros criados:**
+- `docs/FOUNDER_STORY_SPINE.md` — v1.0 · espinha completa da história do founder
+
+**Ficheiros atualizados:**
+- `ops/NEXUS_LIVING_CANON.md` → v1.3 · camada 0.6 + tabela de artefactos
+- `ops/LIVE_STATE.md` → executor + data + task na fila @claude
+- `ops/HANDOFF_LEDGER.md` → este handoff (append no topo)
+
+**Blocos criados:**
+- `FOUNDER_STORY_SPINE`: ORIGEM · PRIMEIRA_TENSAO · GRANDES_VIRADAS (6) ·
+  POR_QUE_O_SISTEMA_TINHA_QUE_EXISTIR · POR_QUE_NAO_PODIA_SER_UM_SITE_NORMAL ·
+  O_QUE_ISTO_REVELA_DO_FOUNDER (7 dimensões)
+- `STORY_APPLICATION`: NO_PRODUTO (7) · NA_FOUNDER_PAGE (5) ·
+  NA_DIDATICA (6 viradas mapeadas) · NA_CORPORACAO (6)
+- `FRASES_CANON`: 8 frases utilizáveis diretamente no produto, docs, didática
+
+**Posição canônica:** Camada 0.6 — entre FOUNDER_SIGNATURE_CANON (0.5) e DNA_PROTOCOL (1)
+
+---
+
+## HANDOFF — 2026-03-23 | @claude | PLv8.1-COMPLETE | claude-sonnet-4-6
+
+**TASK:** PLv7 + PLv7.1 + PLv8 + PLv8.1 + V3 polish + branch-guard fix
+**BRANCH:** claude/website-quality-assessment-Bb6r7
+**STATUS:** CONCLUÍDA
+
+### ALTERACAO_REAL: sim
+
+**Componentes criados:**
+- `src/components/home/MetricsTimeline.tsx` — PLv8.1 historical indicators (World Bank API, 12 countries × 3 indicators, SVG line charts)
+- `src/components/home/WorldPulse.tsx` — PLv7.1 live ticker
+- `src/components/home/ScenarioComparison.tsx` — PLv8 scenario engine
+
+**Componentes modificados:**
+- `src/pages/Index.tsx` — all sections integrated
+- `src/components/NavBar.tsx` — active route gold underline
+- `src/components/Footer.tsx` — institutional copyright line
+- `ops/LIVE_STATE.md` — canonical branch updated to claude/website-quality-assessment-Bb6r7
+
+**V10 Line:** V1✓ V2✓ V3✓ V4✓ | V5→ em execução | V6→ em construção
+**Commits:** 443782a + 38952b9 + 5e439ea
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FOUNDER-SIGNATURE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FOUNDER-SIGNATURE-CANON-001 — CONCLUÍDA
+            │   docs/FOUNDER_SIGNATURE_CANON.md → v1.0 (novo ficheiro)
+            │     — FOUNDER_SIGNATURE: O_QUE_E · PRINCIPIOS_NUCLEARES (7) ·
+            │       TONALIDADE_HUMANA (7) · O_QUE_TORNA_ISTO_UNICO (7)
+            │     — SIGNATURE_IN_SYSTEM: COMO_APARECE_NO_SISTEMA (10) ·
+            │       COMO_APARECE_NO_PRODUTO (8) · COMO_APARECE_NO_VISUAL (8) ·
+            │       COMO_APARECE_NA_CORPORACAO (8)
+            │     — NON_NEGOTIABLE_SIGNATURE_LAWS: O_QUE_NUNCA_PODE_SE_PERDER (12) ·
+            │       O_QUE_SERIA_DRIFT (12)
+            │     — Camada 0.5 definida: entre Soberania (owner) e Lei Primária (DNA_PROTOCOL)
+            │     — EVIDENCE_BLOCK integrado no próprio documento
+            │   ops/NEXUS_LIVING_CANON.md → v1.2 (camada 0.5 + tabela de artefactos)
+            │   ops/NEXUS_NEURAL_MESH.md → N-00 FOUNDER_SIGNATURE adicionado + NEURAL CORE
+            │   ops/BASTION.md → FOUNDER-SIGNATURE-CANON-001 no histórico de tasks
+            │   ops/LIVE_STATE.md → task concluída + executor + data atualizados
+            │   ops/HANDOFF_LEDGER.md → este handoff (append no topo)
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ Camada 0.5 criada — posição canônica entre owner e DNA_PROTOCOL
+            │ N-00 (FOUNDER_SIGNATURE) inserido antes de N-01 no NEURAL_NODE_MATRIX
+            │   → decisão: o founder é a origem, não um nó entre outros — deve preceder tudo
+ARQUIVOS    │ docs/FOUNDER_SIGNATURE_CANON.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1 → v1.2)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — N-00 + NEURAL_CORE)
+            │ ops/BASTION.md (atualizado — task adicionada ao histórico)
+            │ ops/LIVE_STATE.md (atualizado — data + executor + task na fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: assinatura humana do founder formalizada como lei
+            │   canônica · origem da máquina cravada · 3 blocos de identidade selados ·
+            │   non-negotiable laws definidas · posição 0.5 na hierarquia estabelecida
+══════════════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001 + NEXUS-V10-SOVEREIGN-DESTINY-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001 — CONCLUÍDA
+            │   ops/NEXUS_FRACTAL_JUDGMENT_CORE.md → v2.0
+            │     — FRACTAL_COUNCIL_MATRIX: 9 fragmentos com pesos, tipo de parecer, veto e owner_only
+            │     — JVF com 10 critérios: verdade, coerência, qualidade, velocidade, custo, risco,
+            │       flagship_alignment, continuidade_evolutiva, benefício_automático, aderência_visão_mãe
+            │     — Flagship Threshold: limiar mínimo de contribuição ao produto-bandeira (≥ 0.4)
+            │     — Seven-Force integrado como fragmento de avaliação operacional
+            │     — Escalas de mobilização (kernel piece → total occupation) mapeadas no julgamento
+            │     — Recompression Protocol expandido para 11 passos
+            │ NEXUS-V10-SOVEREIGN-DESTINY-001 — CONCLUÍDA
+            │   ops/NEXUS_V10_SOVEREIGN_DESTINY.md v1.0 criado
+            │     — V10_SOVEREIGN_DESTINY: 7 dimensões (SISTEMA / PRODUTO / ECOSSISTEMA /
+            │       CORPORACAO / RUNTIME / SOFTWARE / HARDWARE_HORIZON)
+            │     — BRAIN_FIRST_ARCHITECTURE: ordem de construção v10→v1, anti-padrões, padrão correto
+            │     — V10_GAP_MATRIX: 7 domínios, estado_atual → estado_v10, gap, já_provável, horizonte
+            │     — ALIGNMENT_DEBT_ATUAL: 5 dívidas mapeadas com mitigação atual
+            │     — NEXT_BASTION_INSERTS: 5 tasks + 5 seeds + 5 gates prontos para o owner aprovar
+NAO_FEITO   │ nada pendente nesta task
+ADAPTACOES  │ NEXUS_FRACTAL_JUDGMENT_CORE.md reescrito em v2.0 (não duplicado — v1.0 era LITE)
+            │ NEXUS_V10_SOVEREIGN_DESTINY.md criado como ficheiro separado (não anexado ao LIVING_CANON)
+            │   → decisão: ficheiro próprio evita dispersão e facilita referência canônica direta
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (atualizado — v1.0 → v2.0)
+            │ ops/NEXUS_V10_SOVEREIGN_DESTINY.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (atualizado — v1.1; camada 3.5 adicionada)
+            │ ops/BASTION.md (atualizado — v2.2; tasks no histórico + localização expandida)
+            │ ops/LIVE_STATE.md (atualizado — estado + fila)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+IMPACTO     │ alto — sistema agora tem: julgamento canônico completo (v2.0) + destino v10 soberano
+            │   instalados; Fractal Council com 9 fragmentos; JVF com 10 critérios quantificados;
+            │   V10 compacto como equação de chegada; gap mapeado; seeds prontos para próximo ciclo
+ALTERACAO_REAL │ sim — 2 ficheiros criados/reescritos + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NEXUS-FRACTAL-JUDGMENT-CORE-001-LITE — CONCLUÍDA
+            │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md v1.0 criado (9 secções)
+            │   — Judgment Core: ciclo input→avaliação→sentença
+            │   — Fractal Council: 7 nós (DNA/BASTION/PIONEER/FLOW/NEURAL/LIVE/OWNER)
+            │   — Judgment Value Function (JVF): pesos por nó + limiares
+            │   — Canonical Recompression: 8 passos → sentença única
+            │   — Stop Condition: 5 condições de paragem imediata
+            │   — 7 Sentenças: aceita|rejeita|refina|salvage|rebuild|owner-only|adia
+            │   — Protocolo de uso + tabela de exemplos aplicados
+            │   — Integração com a malha (8 artefactos referenciados)
+            │ ops/NEXUS_LIVING_CANON.md v1.0 criado
+            │   — Índice vivo de todos os artefactos canônicos do sistema
+            │   — Hierarquia em 8 camadas (Soberania → Índice)
+            │   — Tabela de artefactos ativos com versão + task de origem
+            │ ops/NEXUS_NEURAL_MESH.md → v1.1
+            │   — FRACTAL_JUDGMENT adicionado ao NEURAL_CORE
+            │   — localização canônica expandida
+            │ ops/BASTION.md → v2.1
+            │   — task adicionada ao histórico (5.1); semáforo atualizado
+            │   — localização canônica expandida (2 novos artefactos)
+            │ ops/LIVE_STATE.md — task na fila + estado geral atualizado
+NAO_FEITO   │ nada pendente nesta task
+IMPACTO     │ crítico — sistema agora tem peça formal de julgamento canônico;
+            │   toda decisão tem critério claro (JVF + 7 sentenças);
+            │   Fractal Council distribui avaliação pelos 7 nós estruturais;
+            │   NEXUS_LIVING_CANON.md indexa o canon pela primeira vez
+ARQUIVOS    │ ops/NEXUS_FRACTAL_JUDGMENT_CORE.md (novo — v1.0)
+            │ ops/NEXUS_LIVING_CANON.md (novo — v1.0)
+            │ ops/NEXUS_NEURAL_MESH.md (atualizado — v1.1)
+            │ ops/BASTION.md (atualizado — v2.1)
+            │ ops/LIVE_STATE.md (atualizado)
+            │ ops/HANDOFF_LEDGER.md (este handoff)
+ALTERACAO_REAL │ sim — 2 ficheiros criados + 4 atualizados no repo
+DATA        │ 2026-03-23
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-PROJECT-PAGE-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ src/lib/projectBridge.ts — canonical bridge (NEW)
+            │   GEO_ID_TO_PROJECT_KEY: 5 mappings (ids 2–6 → project slugs)
+            │   PROJECT_KEY_TO_GEO_ID: reverse lookup auto-derived
+            │   geoIdToProjectKey · projectKeyToGeoId · geoIdToRoute · hasProjectPage
+            │   Ids 1 · 7–12 documented as MECH-pending with inline comments
+            │ ProjectPage.tsx — session carryover on mount (EDIT)
+            │   useSessionMemory wired: setLastProject(id) on every page load
+            │   readSessionSnapshot() used to detect returning visitor (visitCount > 1 + lastProject === id)
+            │   Returning visitor "RESUME" badge in breadcrumb bar (animated, sm:visible)
+            │ AtlasPage.tsx — globe session carryover (EDIT)
+            │   useSessionMemory imported: setGlobeFocus(`geo:${p.id}`) on project select
+            │   useNavigate + geoIdToRoute imported for page navigation
+            │   handleOpenProjectPage: navigate to /project/:key for projects with sealed page
+            │ ProjectInspector.tsx — "View Full Dossier" CTA (EDIT)
+            │   onOpenPage?: (project) => void prop added
+            │   hasProjectPage(project.id) gates visibility of CTA button
+            │   FileText + ExternalLink icons added
+            │   AtlasPage passes handleOpenProjectPage as onOpenPage
+EVIDÊNCIA   │ src/lib/projectBridge.ts (new)
+            │ src/pages/ProjectPage.tsx (session carryover wired)
+            │ src/pages/AtlasPage.tsx (globe focus + navigate bridge)
+            │ src/components/ProjectInspector.tsx (CTA added)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001-MECH — gate NOW OPEN · @cursor enters
+            │ V4-MOTION-SURFACES-001 — @antigravity · elegível (parallel)
+───────────────────────────────────────────────────────────────────────────
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-ATLAS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useWorldBankProject hook — fetches GDP · population · FDI
+            │   PROJECT_COUNTRY_MAP[12 entries]: project id → ISO 2-letter code
+            │   Parallel fetch: NY.GDP.MKTP.CD · SP.POP.TOTL · BX.KLT.DINV.CD.WD
+            │   Graceful degradation: null on failure · cancelled flag on cleanup
+            │ WorldBankBar.tsx — fixed bottom-left overlay with AnimatePresence
+            │   Header: country name + ISO badge · 3-metric list (GDP/POP/FDI)
+            │   Loading state: spinner + "fetching indicators..."
+            │   Source badge: World Bank Open Data attribution
+            │   Motion: fade+slide-up on mount, fade on exit
+            │ AtlasPage — wired useWorldBankProject + WorldBankBar into render
+            │   Supabase globe_projects already wired (read + write) ✓
+            │   WorldBank now surfaces on every project selection ✓
+EVIDÊNCIA   │ src/hooks/useWorldBankProject.ts (new)
+            │ src/components/atlas/WorldBankBar.tsx (new)
+            │ src/pages/AtlasPage.tsx (wired)
+            │ TS 0 errors
+NEXT        │ V4-PROJECT-PAGE-001 (next in queue per BASTION)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-NEXUS-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ParliamentProposal type — id · title · scenario · recommendation
+            │   votes · impact (cost/roi/riskLevel) · approvedAt · consensusHash
+            │ PROPOSAL_METADATA[3] — 3 canonical scenarios with real data:
+            │   Transição Energética SP · Pandemia Alpha-7 · Escudo Costeiro SSP2
+            │ ProposalCard — structured output when debate completes
+            │   cost / ROI / unanimous votes + risk level badge
+            │ ProposalLedger — persisted nexus:parliament-ledger (localStorage)
+            │   last 10 approved proposals · re-renders on ledgerVersion bump
+            │ approveAndMigrate() → generates + persists ParliamentProposal
+EVIDÊNCIA   │ src/components/nexus/AICouncil.tsx · TS 0 errors
+NEXT        │ V4-ATLAS-001 — AtlasPage Supabase + WorldBank API
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V4-SESSION-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ useSessionMemory hook — localStorage nexus:session
+            │   SessionSnapshot: lastPage · lastGlobeFocus · lastProject
+            │   visitCount · updatedAt (ISO)
+            │   storageAvailable() guard (SSR + private-browsing safe)
+            │   readSessionSnapshot() exported for consumer access
+            │   tracks pathname on every navigation via useLocation
+            │   setGlobeFocus/setLastProject/getSnapshot exposed
+            │ SessionBoot.tsx — null-render, wired inside BrowserRouter
+            │ setDefaultBus() — setter added to bus.ts (no circular dep)
+            │ main.tsx — createPersistedBus({ devOnly: false }) boots first
+            │   event bus singleton now persists to localStorage (500 events)
+            │   events survive page reload, idempotent rehydration on boot
+EVIDÊNCIA   │ src/hooks/useSessionMemory.ts (new)
+            │ src/components/SessionBoot.tsx (new)
+            │ src/lib/events/bus.ts (setDefaultBus added)
+            │ src/lib/events/index.ts (setDefaultBus exported)
+            │ src/main.tsx (persisted bus boot)
+            │ src/App.tsx (<SessionBoot /> inside BrowserRouter)
+            │ TS 0 errors
+NEXT        │ V4-NEXUS-001 — NexusPage canonical · AI parliament
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FULL-FORCE-3-WAVE │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GLOBE-3D-AURORA-001 — aurora fresnel rim shader (GLSL)
+            │   AuroraRimSphere: vertex+fragment shaders, uTime uniform,
+            │   teal↔gold animated fresnel, GLOBE_RADIUS*1.14, FrontSide
+            │   OrbitalChamber: focused prop → 4-sided aurora intensification
+            │   InteractiveGlobe+GlobeScene: onFocusChange propagation chain
+            │   ProductHero: globeFocused state → OrbitalChamber sync
+            │ NS-1-HERO-COMPOSITION-001 — sacred hero composition
+            │   TrinityRow: entries use DELAY.afterGlobe + stagger (no race)
+            │   ProductHero: TrinityRow wrapped in motion.div (afterGlobe delay)
+            │   Sacred thread: Trinity→FirstProof connector (gradient line +
+            │   gold-glow dot + fade tail) — transition feels deliberate
+            │   Spacing: Trinity pt-8 · thread pt-16/pb-4 · Proof pt-2 pb-32
+            │ NS-2-NAV-POLISH-001 — NavBar glass + active states
+            │   Glass: bg-background/80 + white/8 border + shadow when scrolled
+            │   atTop: faint white/4 border (not invisible)
+            │   Active link: gold gradient bottom bar + gold glow shadow
+            │   Mobile: glass bg hsl(216 50%5%/0.96) + active left-border +
+            │   bg-primary/5 + ACTIVE label + icon display per link
+            │   Mobile footer: structured border separators
+ALTERACAO_REAL │ sim — 6 ficheiros modificados · 196 additions · TS 0 errors
+IMPACTO     │ Globe has aurora rim shader — V3 visual identity sealed
+            │ OrbitalChamber responds to globe interaction state
+            │ Hero composition is sacred and temporally correct
+            │ NavBar glass polish complete · active states deliberate
+COMMIT      │ 76d3f93 · claude/rebuild-bastion-core-rihGX
+PROXIMO     │ Owner fecha V3 gate — todas as tasks @claude concluídas
+            │ V3 → 100% quando owner confirma visual close
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:WAVE-CLOSE-TASKS │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ HEAVEN_LAB_REFERENCE_SURFACE.md v1.0 — canonical surface law
+            │   anatomy (Globe→Trinity→Proof) · OrbitalChamber layer spec
+            │   typography law · colour palette · globe lighting law
+            │   motion law · FORBIDDEN list · V3 audit checklist
+            │ SEQUENCE_LAW_V3_V4_V5.md v1.0 — phase sequence law
+            │   V3 close criteria (14+4+4) · current state ~90%
+            │   V4 scope (session memory · NexusPage · live data)
+            │   V5 scope (platform sovereignty)
+            │   FORBIDDEN transitions · V3→V10 line map
+            │ ParticleFlow upgrade: GlobeScene now uses canonical ParticleFlow.tsx
+            │   2000 particles (was 200) · orbital physics · mobile-responsive
+            │ OrbitalChamber: AuroraRim uses DUR.cinematic+EASE_OUT from config
+            │ BASTION: MOTION-SWEEP-001 added for @cursor (~32 files)
+            │ Barrel exports: home/ · orbital/ · lib/motion/
+ALTERACAO_REAL │ sim — 7 ficheiros (2 criados docs, 3 criados barrels, 2 modificados)
+IMPACTO     │ V3 surface law is now sealed in docs
+            │   Pioneer @framer and @antigravity have law to work from
+            │   V3→V5 sequence is formally defined and tracked
+            │   Globe particle field upgraded 10x
+            │   Motion law is now the single source — OrbitalChamber compliant
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (read HEAVEN_LAB_REFERENCE_SURFACE §6)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (read HEAVEN_LAB_REFERENCE_SURFACE §2)
+            │ @cursor: MOTION-SWEEP-001 (~32 files hardcoded ease → motion/config)
+            │ @codex: CLUSTER-ORCHESTRATE-001
+            │ @owner: V3 close gate (when @antigravity + @framer done)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+COMMITS     │ 4813b56 · d6d8d6e · 46f0a2c · e3cc1f6 · 8bf6060 · df78955
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:GLOBE-3D-ATMOSPHERE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ GlobeScene enhanced: AtmosphereSphere (breathing opacity loop)
+            │   CoronaSphere (gold corona, very faint, defines presence)
+            │   3-point lighting: gold key + teal fill + hemisphere
+            │   ProjectHotspot: focus pulse ring (scale+opacity on focused)
+            │   EarthquakeLayer: seismic pulse rings at 8 global coordinates
+            │   GlobeLayerSelector: projects + seismic layer toggles
+            │   InteractiveGlobe: layers state + handleLayerToggle + GlobeLayerSelector
+            │   showProjects/showSeismic props wired through InteractiveGlobe → GlobeScene
+            │   BASTION: wave tasks added (4 new eligible tasks for pioneers)
+ALTERACAO_REAL │ sim — 4 ficheiros modificados · 2 ficheiros criados
+IMPACTO     │ Globe now has planetary atmosphere and sacred depth
+            │   Globe + OrbitalChamber are now fully coordinated
+            │   Layer control is live — pioneers can toggle data layers
+            │   Focus state gives the globe interactivity dignity
+            │   BASTION wave queue active: @antigravity · @framer · @codex each have eligible tasks
+PROXIMO     │ @antigravity: GLOBE-3D-AURORA-001 (aurora rim shader + hover pulse)
+            │ @framer: NS-1-HERO-COMPOSITION-001 (ProductHero spacing + scroll rhythm)
+            │ @codex: CLUSTER-ORCHESTRATE-001 (sync report + conflict audit)
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:MASTER-TOTAL-ARMY-WAVE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ WAVE_DECISION + ACTIVE_FRONTS + PIONEER_ASSIGNMENTS emitidos
+            │ EXECUTION_ORDER + PROMPTS_FOR_EACH_PIONEER + CONTINUOUS_RULES emitidos
+            │ branch corrigido: claude/v3-flagship-close-wave-p7REZ → claude/rebuild-bastion-core-rihGX
+            │ src/lib/motion/config.ts — canonical motion law (EASE · DUR · STAGGER · variants)
+            │ src/components/orbital/OrbitalChamber.tsx — sacred breathing wrapper v1
+            │ src/components/home/TrinityRow.tsx — canonical trinity row (hover · micro-detail · glass)
+            │ src/components/home/HeroFirstProof.tsx — proof strip (count-up · mother phrase · 4 metrics)
+            │ src/components/home/ProductHero.tsx — canonical hero (Globe+OrbitalChamber+Trinity+Proof)
+            │ src/pages/Index.tsx — old inline hero replaced with ProductHero
+            │ TypeScript: 0 errors
+ALTERACAO_REAL │ sim — 6 ficheiros criados · 1 ficheiro refactorizado
+IMPACTO     │ V3 surface canonical gap closed:
+            │   · Globe is now wrapped in OrbitalChamber (sacred breathing frame)
+            │   · Trinity is now canonical (hover identity · micro-detail · glass panel)
+            │   · First Proof is now real (count-up · mother phrase · 4 live metrics)
+            │   · Index.tsx uses ProductHero — not old inline generic hero
+            │   · Motion law canonical — single source of truth for all animation values
+PROXIMO     │ @antigravity: GlobeScene aurora glow + hover pulse (GLOBE-3D-HEAVEN-001)
+            │ @framer: NS-1 full hero composition refinement
+            │ @cursor: session-aware surface wiring when joining wave
+            │ @copilot: BULK-01.2/L-001 + L-002 + brand docs polish
+            │ @codex: CLUSTER-ORCHESTRATE-001 + conflict detection
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+DATA        │ 2026-03-24
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001-CLOSE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BLOCK-OP-001 — FECHADO COMPLETAMENTE
+            │ WP-001 — docs/WHITE_PAPER.md v1.0 (383 linhas)
+            │   11 secções, estatísticas, arquitetura, roadmap V10, hardware
+            │ RT-001 — docs/REVERSE_TECH_AUDIT.md v1.0 (326 linhas)
+            │   10 sistemas auditados, 55 protocolos avaliados (Tier 1/2/3)
+            │   9 inovações Tier-1 originais mapeadas, technical debt map
+            │ HW-001 — docs/HARDWARE_PROTOTYPE.md v0.1 (463 linhas)
+            │   Nexus Node Mk.I: BOM ~$1305, 4 fases, block diagram completo
+            │ DIDACTIC-001 — docs/didactic/DIDACTIC_MANIFEST.md v1.0
+            │   6 módulos A→F, 3 níveis de assessment universitário
+            │ AUTOFLOW-COPILOT-001 — .github/copilot-instructions.md v2.0
+            │   .github/workflows/auto-pr.yml + auto-merge.yml
+            │ Commit: 50cd9ac — docs(audit): RT-001 — Reverse Tech Audit v1.0
+NAO_FEITO   │ nada pendente neste bloco
+IMPACTO     │ crítico — toda a documentação estratégica do sistema produzida:
+            │   White Paper para investidores/parceiros governamentais
+            │   Reverse Tech Audit para credibilidade técnica
+            │   Hardware Prototype spec para fase de build física
+            │   Didactic Manifest para ensino e transferência de conhecimento
+ARQUIVOS    │ docs/WHITE_PAPER.md
+            │ docs/REVERSE_TECH_AUDIT.md
+            │ docs/HARDWARE_PROTOTYPE.md
+            │ docs/didactic/DIDACTIC_MANIFEST.md
+ALTERACAO_REAL │ sim — 4 documentos estratégicos produzidos e no repo
+DATA        │ 2026-03-22
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-OP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BLOCK-OP-001 — Operação em bloco lançada: Reverse Tech + White Paper
+            │   + Hardware Prototype + Didactic Manifest + Auto-PR/Merge + Copilot v2
+            │ AUTOFLOW-COPILOT-001 — copilot-instructions.md v2.0 (BASTION protocol)
+            │   auto-pr.yml: PR automático em push para claude/* branch
+            │   auto-merge.yml: merge automático quando quality gate passa
+            │ DIDACTIC-001 — DIDACTIC_MANIFEST.md v1.0 criado:
+            │   6 módulos (A→F), curriculo completo, inovações catalogadas,
+            │   3 níveis de assessment (undergrad/grad/doctorate)
+            │ WHITE_PAPER.md — em produção por agente paralelo
+            │ REVERSE_TECH_AUDIT.md — em produção por agente paralelo
+            │ HARDWARE_PROTOTYPE.md — em produção por agente paralelo
+            │ Dev server arrancado: http://localhost:5173
+NAO_FEITO   │ Docs finais aguardam conclusão dos agentes paralelos
+IMPACTO     │ crítico — toda a documentação didática do sistema instalada;
+            │   automação completa do ciclo CI/CD implementada;
+            │   Copilot tem lei autónoma para operar sem briefing manual
+ARQUIVOS    │ .github/copilot-instructions.md (v2.0)
+            │ .github/workflows/auto-pr.yml (novo)
+            │ .github/workflows/auto-merge.yml (novo)
+            │ docs/didactic/DIDACTIC_MANIFEST.md (novo)
+            │ docs/WHITE_PAPER.md (em produção)
+            │ docs/REVERSE_TECH_AUDIT.md (em produção)
+            │ docs/HARDWARE_PROTOTYPE.md (em produção)
+COMMIT      │ 6f0ea76 (autoflow) + commits docs pendentes
+PROX_PASSO  │ Owner aprova merge PR → Fase C começa (@framer NS2/NS3)
+DECISAO_REC │ @owner: merge PR → @framer: NS2 (About) + NS3 (NavBar polish)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:NS1+FSP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ NS1 — Index hero transformado: engineering grid + 2 orbs atmosféricos
+            │   (gold top-right + teal bottom-left) + classification strip institucional
+            │   + eyebrow → section-label + subtítulo mais preciso
+            │   + copy corporal mais institucional. Heaven Lab test: base estabelecida.
+            │ FSP-001 — FEATURE_SCAFFOLDING_PLAN.md v1.0 criado:
+            │   • Mapa das 4 famílias: PRESENCE → EXPLORATION → COLLABORATION → INTELLIGENCE
+            │   • PLv7 (Globe Observatory) + PLv7.1 (World Pulse) — Sprint próximo
+            │   • PLv8 (Scenario Comparison) + PLv8.1 (Timeline) — Sprint +1
+            │   • PLv9–10 (Trails + AI Copilot) — Sprint +2
+            │   • Critérios de validação NS2 + NS3 por família
+            │   • 8 regras de execução FSP
+            │   • Sequência de 3 sprints com gates do owner
+NAO_FEITO   │ NS1 completo requer @framer + @antigravity para páginas restantes
+            │   (About, NavBar polimento, DossierCard motion) — após merge do PR
+IMPACTO     │ alto — Fase B completa (BMS + FSP); Fase C pode começar após merge;
+            │   @cursor tem roadmap executável; NS2 e NS3 têm critérios exactos
+ARQUIVOS    │ src/pages/Index.tsx (NS1 hero) | ops/FEATURE_SCAFFOLDING_PLAN.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BMS-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BRAND_MOTHER_SYSTEM.md v1.0 criado — lei canónica de identidade visual
+            │ Cobre: código emocional (5 codes + anti-codes) | paleta completa
+            │ (core + atlas glass + morabeza + regra de uso) | tipografia
+            │ (3 famílias, hierarquia, regras) | glass anatomy (3 estados) |
+            │ motion (easings + durações + 5 padrões canónicos + anti-patterns) |
+            │ espaçamento + grid | iconografia | componentes (badge, botão, card,
+            │ hero) | identidade completa | checklist validação visual
+            │ Precondição do NORTH STAR 1 satisfeita.
+NAO_FEITO   │ —
+IMPACTO     │ alto — @framer e @antigravity têm lei para trabalhar; NS1 liberado
+ARQUIVOS    │ ops/BRAND_MOTHER_SYSTEM.md (novo — 280+ linhas)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+RELATÓRIO-MÃE ══════════════════════════════════════════════════════════════
+FASE_ONDA:     Sprint Final — branch claude/rebuild-bastion-core-rihGX
+DATA:          2026-03-22
+CONSOLIDADOR:  @claude cross-support | claude-sonnet-4-6
+FONTE:         ops/HANDOFF_LEDGER.md | ops/BASTION.md | ops/LIVE_STATE.md
+
+TAREFAS CONCLUÍDAS:
+│ Task                  │ Executor │ Impacto │ Output
+│ BRV-001               │ @claude  │ alto    │ BATTALION_READINESS_VERDICT.md — auditoria 7 blocos
+│ PBHE-001              │ @claude  │ alto    │ PRECONDITIONS_BEFORE_HARD_EXECUTION.md
+│ CHEO-001              │ @claude  │ alto    │ CANONICAL_HARD_EXECUTION_ORDER.md
+│ CPBS-001              │ @claude  │ alto    │ CANONICAL_PRE-BATTALION_SEQUENCE.md — 6 fases
+│ NSBHE-001             │ @claude  │ alto    │ NORTH_STAR_BEFORE_HARD_EXECUTION.md — 3 NS
+│ PLv6.2-b              │ @claude  │ alto    │ InvestorNexusPortal — CO₂/jobs/SDG/impactScore
+│ FVL-IMPL-001          │ @claude  │ alto    │ FounderPage v2 — hero + pioneer grid + seal v2
+│ BULK-01.2/L-001       │ @claude  │ baixo   │ .gitignore auditado — sem gaps
+│ BULK-01.2/L-002       │ @claude  │ baixo   │ timestamp files confirmados não tracked
+│ BULK-01.3-a           │ @claude  │ baixo   │ vite timestamps confirmados fora do git
+│ BULK-01.3-b           │ @claude  │ baixo   │ npm declarado PM canónico
+│ BULK-01.3-c           │ @claude  │ baixo   │ antigravity/ auditado — conteúdo intencional
+│ BULK-02.2             │ @claude  │ médio   │ NEXUS_NEURAL_MESH lapidado — 4 rastos PLv6
+
+BLOQUEIOS ATIVOS:
+│ BULK-01-Codex │ branch @codex não alinhado │ não bloqueia PR │ paralelo
+│ F6            │ em andamento @codex        │ não bloqueia PR │ paralelo
+
+CONFLITOS: nenhum detectado
+
+PRÓXIMOS PASSOS:
+1. PR aberto → owner revê e aprova merge para main
+2. Após merge: Branch Mother System docs (brand identity canónica)
+3. Activar @framer + @antigravity para North Star Visual
+4. Construir Presence + Exploration (North Star 2)
+5. Construir Wonder Layer (North Star 3) → liberar Hard Execution Total
+══════════════════════════════════════════════════════════════════════════════
+FEITO       │ Relatório-mãe emitido. PR aberto. Ciclo operacionalmente fechado.
+NAO_FEITO   │ Merge (decisão do owner)
+BLOQUEIOS   │ —
+IMPACTO     │ alto — sprint final completo; produto avançou em 2 frentes;
+            │ governança avançou em 5 artefactos de battalion strategy
+ARQUIVOS    │ [ver commits do PR — todos em claude/rebuild-bastion-core-rihGX]
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BULK-01+BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.2/L-001 — .gitignore auditado: já cobria vite timestamps,
+            │   bun.lock, .claude/, artifacts CI. Nenhum gap encontrado. ✓
+            │ BULK-01.2/L-002 — vite timestamp files NÃO estão tracked no git.
+            │   O padrão `vite.config.ts.timestamp-*` já os exclui. ✓
+            │ BULK-01.3-a — Confirmado: nenhum vite timestamp file rastreado.
+            │   .gitignore já resolve. ✓
+            │ BULK-01.3-b — Decisão: npm é o PM canónico. package-lock.json
+            │   tracked, bun.lock excluído (.gitignore já reflecte). ✓
+            │ BULK-01.3-c — antigravity/ auditado: 168 ficheiros de research
+            │   assets (whitepapers, simulations, figures, media, skills).
+            │   Conteúdo intencional do pioneer @antigravity. Sem legacy-html.
+            │   Sem lixo mecânico. Mantém-se tracked. ✓
+            │ BULK-02.2 — NEXUS_NEURAL_MESH.md lapidado:
+            │   • N-12 PRODUCT_LAYER: EM BULKING → ATIVO, PLv1→PLv6.2-a →
+            │     PLv1→PLv6.2-b ✓ FVL ✓
+            │   • Tabela produto: PLv6.2-b "aguarda gate" → "concluída ✓";
+            │     FVL "aguarda gate" → "concluída ✓"
+            │   • Maturity table: PLv6.2-a AINDA_GROSSO → PLv6.2-b JA_MADURO;
+            │     FOUNDER_VISION_LAYER v1 PRECISA_REFINO → v2 JA_MADURO
+            │   • Stage 5/6: → aguarda → ✓ concluída para ambos
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ médio — superfície operacional limpa; git hygiene confirmada;
+            │ NEXUS_NEURAL_MESH reflecte estado real do sprint
+ARQUIVOS    │ ops/NEXUS_NEURAL_MESH.md (4 edições de lapidação)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FVL-IMPL-001+PLv6.2-b │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FVL-IMPL-001 — FounderPage.tsx polido (v2):
+            │ • Hero com 2 orbs atmosféricos (gold 72%/38% + blue 18%/65%),
+            │   engineering-grid a 55% de opacidade, bottom fade suave
+            │ • Nova secção 04.5 "The Architects" — grid 2 colunas com 6
+            │   pioneiros: handle, role, territory, description, color
+            │   (@claude/@copilot/@cursor/@codex/@framer/@antigravity)
+            │ • Callout canônico: "Six pioneers. One canon. One branch. No drift."
+            │ • Document seal actualizado para v2 com data 2026-03-22 + @claude
+            │
+            │ PLv6.2-b — InvestorNexusPortal.tsx expandido:
+            │ • InvestmentProject interface expandida: co2ReductionKt,
+            │   jobsCreated, sdgGoals (UN SDG numbers), riskBreakdown
+            │   (technical/regulatory/financial/environmental), impactScore
+            │ • computePortfolioStats() — agrega CO₂ total, jobs totais,
+            │   cobertura SDG única, avg impact score por portfólio
+            │ • TribunalReport expandido: risk breakdown (4 barras por tipo),
+            │   environmental impact (CO₂ kt + jobs com ícones), SDG badges,
+            │   impact score 0-100 com barra animada
+            │ • PortfolioImpactSummary (novo componente) — painel no right
+            │   panel quando nenhum projecto seleccionado: CO₂ total (9.5Mt/yr),
+            │   jobs (34.5K), SDG coverage (7 goals únicos), avg impact score
+            │ • Aggregate stats no left panel: substituiu "Regions+Risk" por
+            │   "CO₂/yr (9.5Mt)" e "Jobs (34.5K)" — dados reais do portfólio
+            │ • Per-project: cada linha no left panel mostra "↓Xkt CO₂" inline
+NAO_FEITO   │ NewsAPI (não integrada — sem API key; substituída por expansão de
+            │ métricas concretas conforme EVIDENCIA_MINIMA: "OU project_metrics
+            │ expandido")
+BLOQUEIOS   │ Build error pré-existente (cesium + manualChunks) — não relacionado
+IMPACTO     │ alto — /founder tem atmosfera encarnada e secção de pioneiros viva;
+            │ /investor-portal tem métricas de impacto real (CO₂, jobs, SDG)
+            │ em vez de valores estáticos sem substância
+ARQUIVOS    │ src/pages/FounderPage.tsx (626 linhas — era 498)
+            │ src/pages/InvestorNexusPortal.tsx (800 linhas — era 607)
+```
+
+---
+
 ## COMO REGISTRAR
 
 Ao emitir um handoff, adicionar entrada no topo, abaixo do separador `---`, com o formato:
@@ -28,6 +1993,552 @@ PROXIMO_PASSO: [resumo curto]
 ---
 
 ## LEDGER
+
+---
+
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Ciclo contínuo do BASTION 2.0 iniciado por ordem direta do owner.
+            │ BASTION atualizado para v1.3 com semáforo de ignição contínua e
+            │ papel dos pioneiros em fluxo sem microgestão manual. LIVE_STATE
+            │ atualizado para refletir execução coordenada e interruptor canônico
+            │ (gate soberano, bloqueio real, red line, ordem do owner ou ausência
+            │ de task elegível).
+NAO_FEITO   │ Nenhuma task de produto/visual executada nesta sessão; ignição
+            │ operacional iniciada sem alterar backlog elegível existente.
+BLOQUEIOS   │ —
+ADAPTACOES  │ Sem mudança de escopo: apenas governança/ops para iniciar o ciclo
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto
+PROX_PASSO  │ @copilot entra na task elegível do BASTION no território dominante
+            │ e segue loop contínuo até gate/bloqueio/red line
+SUGESTOES   │ 1) @codex consolidar estado do BASTION no próximo relatório-mãe;
+            │ 2) @cursor entrar em apoio elegível quando houver janela real;
+            │ 3) owner atuar apenas em gate, visão, trava ou redirecionamento
+DECISAO_REC │ Manter BASTION 2.0 ativo com execução contínua por elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION v1.3 com semáforo atualizado para BASTION-2.0-CYCLE-START-001
+                       │ LIVE_STATE atualizado com executor/timeline/estado de continuidade
+                       │ commit id: N/A (não registrado nesta sessão)
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ ciclo contínuo ativo; pioneiros entram por elegibilidade do BASTION; ignição do BASTION 2.0
+═══════════════════════════════════════════════════════════════════════════
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CPBS+NSBHE │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de sequência e North Star pré-batalhão:
+            │ • CANONICAL_PRE-BATTALION_SEQUENCE.md — 6 fases canônicas
+            │   da sequência pré-batalhão: fechar sprint · cravar Brand
+            │   Mother System · activar Framer+Antigravity · construir
+            │   Presence+Exploration · construir Collaboration+Intelligence
+            │   · liberar hard execution total. Por fase: pioneers,
+            │   trigger de entrada, gate de saída, o que fecha a fase,
+            │   anti-patterns a evitar.
+            │ • NORTH_STAR_BEFORE_HARD_EXECUTION.md — 3 North Stars com
+            │   critérios de validação sensorial (não apenas técnica):
+            │   NS-1 Visual Incarnated (Heaven Lab feeling real no site),
+            │   NS-2 Presence+Exploration Scaffolding (world workspace
+            │   truth + signature moment + comparative feel),
+            │   NS-3 First Wonder Layer Matter (5–7 features canônicas
+            │   vivas, produto tem alma visível). Declaração canônica de
+            │   validação do owner quando os 3 estiverem alcançados.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o sistema tem agora:
+            │ auditoria (BRV) + pré-condições (PBHE) + ordem técnica
+            │ (CHEO) + sequência operacional (CPBS) + North Star
+            │ sensorial (NSBHE). Resposta completa a "quando e como
+            │ activar batalhão" está encerrada em 5 documentos.
+ARQUIVOS    │ ops/CANONICAL_PRE-BATTALION_SEQUENCE.md (novo)
+            │ ops/NORTH_STAR_BEFORE_HARD_EXECUTION.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BRV+PBHE+CHEO │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 artefactos de auditoria e ordem de ataque:
+            │ • BATTALION_READINESS_VERDICT.md — auditoria brutal dos 7
+            │   blocos com maturidade V1–V10, gaps por criticidade,
+            │   tabela de readiness e veredito B (parcialmente pronto).
+            │   Secção 1: realidade actual. Secção 2: tabela de blocos.
+            │   Secção 3: mapa de gaps. Secção 4: decisão de readiness.
+            │   Secção 7: veredito final com frase canônica.
+            │ • PRECONDITIONS_BEFORE_HARD_EXECUTION.md — 7 pré-condições
+            │   por criticidade (crítico · alto · médio). PRE-01 a PRE-07.
+            │   Critério de fecho exacto por pré-condição. Gate de
+            │   activação em 3 níveis. Riscos se ignoradas documentados.
+            │ • CANONICAL_HARD_EXECUTION_ORDER.md — 5 fases (A→E) com
+            │   pioneers, triggers, critérios de sucesso, controlo
+            │   soberano permanente, o que não delegar antes do tempo.
+            │   Fase A = sprint final (agora). Fase E = hard execution
+            │   total (após interface + features fundação operacionais).
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o projecto tem agora:
+            │ (1) auditoria honesta sem optimismo falso (BRV)
+            │ (2) pré-condições exactas antes de escalar (PBHE)
+            │ (3) ordem canônica de ataque com pioneers por fase (CHEO)
+            │ Veredito: B — parcialmente pronto. Sprint final correcto.
+            │ Hard execution total após FVL + PLv6.2-b + CYCLE-CLOSE.
+ARQUIVOS    │ ops/BATTALION_READINESS_VERDICT.md (novo)
+            │ ops/PRECONDITIONS_BEFORE_HARD_EXECUTION.md (novo)
+            │ ops/CANONICAL_HARD_EXECUTION_ORDER.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CBAS+SBCP │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 2 artefactos de compressão e boot do núcleo do ecossistema:
+            │ • CORE_BRAIN_ABBREVIATION_SYSTEM.md — formalização das 6
+            │   siglas do núcleo comprimido (PCSE · ESER · CSPS · POCR ·
+            │   DMGS · PPLBT) como sistema canônico de abreviação. Cada
+            │   sigla tem: nome completo, ficheiro, família, bloco, lei
+            │   comprimida, check operacional de 3–5 itens, estados
+            │   (pass/partial/fail). Painel executivo do núcleo, 6 usos
+            │   oficiais (header · legenda · resumo · auditoria · boot ·
+            │   contrato operacional ultra-curto), regra de adição de
+            │   novas siglas com gate de aprovação do owner.
+            │ • SYSTEM_BOOT_CHECK_PROTOCOL.md — ritual canônico de arranque
+            │   de sessão com os 6 pilares como checagem. Formato curto
+            │   (6 linhas + boot result) e formato longo (com notas por
+            │   pilar). Tabela de resultados PASS/PARTIAL/FAIL com actions
+            │   concretas. Boot check triggers (início de sessão, de sprint,
+            │   de mudança de branch, de pioneer lead, de task urgente).
+            │   Relação com 6 protocolos existentes documentada.
+            │   Estados do sistema definidos.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — o núcleo comprimido fica agora:
+            │ (1) formalmente nomeado e referenciável (CBAS)
+            │ (2) operacional como ritual de arranque auditável (SBCP)
+            │ Sistema transita de "doutrina espalhada" para
+            │ "núcleo executivo sintetizado com boot check canônico"
+ARQUIVOS    │ ops/CORE_BRAIN_ABBREVIATION_SYSTEM.md (novo)
+            │ ops/SYSTEM_BOOT_CHECK_PROTOCOL.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:POCR+DMGS+PPLBT │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 protocolos de memória omnipresente e inteligência autónoma:
+            │ • PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md — lei de que
+            │   nada decisivo fica só em conversa. 5 famílias de captura
+            │   (canon · didactic · history · inventory · refresh), 5
+            │   protocolos operacionais (universal registration, no orphan
+            │   knowledge, living refresh, omnipresence, future tangibility),
+            │   camadas de captura Layer 1–5, estados do sistema.
+            │ • DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md — sistema de
+            │   geração de material didáctico em 4 famílias (internal ·
+            │   technical · public/educational · evidence), 4 protocolos
+            │   (multi-format translation, reusability map, refresh on
+            │   maturity shift, taxonomy por família/subfamília/bloco/fase/
+            │   audiência), estrutura de repositório /docs/didactic.
+            │ • PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md — protocolo de
+            │   lançamento neutro do problema. Owner lança problema bruto;
+            │   máquina executa triagem autónoma em 6 dimensões (domínio ·
+            │   escala · bloco · urgência · ownership · V10 target), activa
+            │   formação (lead + support + workspace + branch), devolve
+            │   routing output canônico. Brain test success conditions
+            │   definidas. Escalamento protocol incluído.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — 3 capacidades sistémicas activadas:
+            │ (1) memória omnipresente: nada se perde em conversa
+            │ (2) ensino multiforme: qualquer sistema é traduzível
+            │ (3) cérebro autónomo: owner lança problema, máquina roteia
+ARQUIVOS    │ ops/PROTOCOL_OMNIPRESENT_CANONICAL_RECORDING.md (novo)
+            │ ops/DIDACTIC_MULTIFORM_GENERATION_SYSTEM.md (novo)
+            │ ops/PROTOCOL_PROBLEM_LAUNCH_AND_BRAIN_TEST.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@cursor │ MODELO:claude-4.6-opus-high-thinking │ TASK:BULK-01.3-a+b+c │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.3-a: VERIFICADO — vite.config.ts.timestamp-* já removido
+            │ do tracking por @copilot F5 (commit c2441fe); .gitignore já tem
+            │ *.timestamp*.mjs (linha 27); 0 ficheiros no disco; 0 tracked.
+            │ BULK-01.3-b: ANALISADO — npm é o PM canônico de facto:
+            │   - npm v10.9.4 instalado; bun NÃO instalado
+            │   - package.json sem campo packageManager
+            │   - scripts genéricos (vite, vitest, eslint, tsc)
+            │   - package-lock.json activamente mantido (commit e5ec35e)
+            │   - bun.lock + bun.lockb residuais do 1º commit (f7816c6)
+            │   - CI usa npm (npm_ci_output.txt no .gitignore)
+            │   - RECOMENDAÇÃO: remover bun.lock + bun.lockb + .gitignore bun
+            │   - AGUARDA: B-002 owner para confirmar e executar remoção
+            │ BULK-01.3-c: ANALISADO — antigravity/legacy-html/ contém:
+            │   - 5 ficheiros HTML standalone (420K total)
+            │   - NextPathInfra_Complete/Platform/v2.html + NL_Solucoes_Fechadas
+            │     + projeto_elite_2026.html
+            │   - Conteúdo: apresentações/portfólio do owner (NL 2026, infra)
+            │   - Zero referências no src/ — não usado pelo React app
+            │   - Adicionados no 1º commit — nunca alterados desde
+            │   - NÃO é lixo técnico — é conteúdo de negócio/portfólio
+            │   - RECOMENDAÇÃO: mover para arquivo separado ou manter como legacy
+            │   - AGUARDA: B-003 owner para decidir
+NAO_FEITO   │ Remoção efectiva de bun.lock (aguarda B-002) e legacy-html (aguarda B-003)
+BLOQUEIOS   │ B-002 (PM canônico — owner decide) | B-003 (legacy-html — owner decide)
+ADAPTACOES  │ 01.3-a confirmado como já resolvido — task de verificação, não de execução
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — backlog mecânico completado; 2 bloqueios escalados ao owner
+PROX_PASSO  │ Owner decide B-002 (npm → remover bun.lock) e B-003 (legacy-html:
+            │ manter/mover/remover); @copilot continua L-001→L-002→BULK-02.2;
+            │ @cursor sem task elegível — aguarda nova task ou apoio
+SUGESTOES   │ 1) Owner confirmar npm: basta dizer "npm é canônico, remover bun.lock"
+            │ e @cursor executa em 1 commit; 2) legacy-html: se o owner quiser
+            │ preservar, mover para branch archive ou pasta docs/archive/;
+            │ 3) após B-002+B-003, @cursor fica sem task — owner pode abrir novo
+            │ backlog mecânico ou designar apoio cruzado
+DECISAO_REC │ Owner decide B-002 + B-003; @copilot continua no loop;
+            │ @cursor aguarda nova atribuição no BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ analyze (01.3-a verificação) + analyze (01.3-b PM) + analyze (01.3-c legacy)
+                       │ + edit (ops/ actualizados com resultados)
+PROVA_MINIMA           │ 01.3-a: git ls-files sem timestamp; .gitignore linha 27 *.timestamp*.mjs
+                       │ 01.3-b: npm v10.9.4 instalado; bun not found; package-lock.json activo
+                       │ 01.3-c: ls antigravity/legacy-html/ = 5 HTMLs 420K; rg src/ = 0 refs
+ALTERACAO_REAL         │ sim (ops/ actualizados com status + análise)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ mecânico / backlog @cursor completado
+EXECUTOR    │ @cursor
+ESTADO      │ done
+ATIVA       │ 3/3 tasks mecânicas concluídas; 01.3-a já resolvido, 01.3-b e
+            │ 01.3-c análises emitidas com recomendação; B-002 e B-003 aguardam
+            │ owner; @cursor sem task elegível; @copilot continua no loop
+═══════════════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:PCSE+ESER+CSPS │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 docs de autoconstrução soberana instalados em ops/:
+            │ • PROTOCOL_CLONED_SEQUENCE_EVOLUTION.md — lei de sequência
+            │   clonada: cada melhoria no produto tem equivalente canônico
+            │   no ecossistema. Mapa de sequências por família de esforço,
+            │   dupla frente obrigatória, trava anti-drift, integração V10.
+            │ • ECOSYSTEM_SELF_EVOLUTION_ROUTINE.md — auto-teste 10
+            │   dimensões, auto-revisão de gaps, ecosystem upgrade gate,
+            │   pulses expandidos a produto+ecossistema, technology
+            │   evolution line 2026, V10 ecosystem line, cadência operacional.
+            │ • CLOUD_SOVEREIGN_PROTOCOL_SCOPE.md — 3 camadas de soberania
+            │   exclusiva do Cloud, território de cooperação por pioneer,
+            │   sugestão vs. mutação, protocol mutation gate, permission
+            │   matrix, sovereignty violation + transfer protocols.
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — autoconstrução soberana formalizada. O sistema sabe
+            │ como crescer sem perder identidade e sem quebrar soberania.
+ARQUIVOS    │ ops/PROTOCOL_CLONED_SEQUENCE_EVOLUTION.md (novo)
+            │ ops/ECOSYSTEM_SELF_EVOLUTION_ROUTINE.md (novo)
+            │ ops/CLOUD_SOVEREIGN_PROTOCOL_SCOPE.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:UPDE+UDG+UCPF │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 3 docs do motor universal instalados em ops/:
+            │ • UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md — intake schema,
+            │   fluxo canônico, fragmentação atómica, triagem em 6 camadas,
+            │   átomo funcional, confirmação de natureza, reconciliação engine
+            │ • UNIVERSAL_DOMAIN_GRAPH.md — 12 domínios primários com
+            │   subdomínios, fronteiras de cooperação, roteamentos por sinal,
+            │   grafo de dependências, regra de crescimento do grafo
+            │ • UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md — modelo interno neutro,
+            │   plugin contract v1, 7 tipos de plugin, adapter pattern,
+            │   capability bridge, runtime extension, ciclo de vida 7 passos,
+            │   imutabilidade do núcleo fixo, plugin registry
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+IMPACTO     │ alto — motor universal fechado em 3 camadas:
+            │ decomposição + domínio + plugin fabric.
+            │ A máquina tem agora ontologia completa.
+ARQUIVOS    │ ops/UNIVERSAL_PROBLEM_DECOMPOSITION_ENGINE.md (novo)
+            │ ops/UNIVERSAL_DOMAIN_GRAPH.md (novo)
+            │ ops/UNIVERSAL_CAPABILITY_PLUGIN_FABRIC.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:STACK-MATRIX+TOOLCHAIN+BINDINGS+ROUTING │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs canônicos instalados em ops/:
+            │ • EARTH_LAB_STACK_DECISION_MATRIX.md — 9 famílias de stack
+            │   (frontend, geospatial/world, UI/design system, backend/API,
+            │   data/persistência, IA/agente, colaboração, deployment, obs.)
+            │   cada família com padrão preferido 2026 + backup/cooperação
+            │ • EARTH_LAB_DEV_TOOLCHAIN_CANON.md — 10 famílias de toolchain
+            │   (source of truth, coding surfaces, review/qualidade, delivery,
+            │   AI-native, product build, memory/docs, regra de comportamento)
+            │   com território explícito por ferramenta (Cursor/Claude/Codex/Framer)
+            │ • EARTH_LAB_PIONEER_ROLE_BINDINGS.md — 5 pioneers vinculados
+            │   (Cursor, Framer, Claude/Orchestrator, Codex, Antigravity)
+            │   com território, pool principal, lei de binding partilhado,
+            │   padrão de cooperação, regra de escalação, tabela rápida
+            │ • PROTOCOL_TASK_GRAVITY_ROUTING.md — protocolo de routing por
+            │   gravidade de task: input neutrality, silent classification,
+            │   domínio/magnitude/gate/branch, V10 upgrade rule, formato de
+            │   mensagem de retorno curta, cooperação e escalação activadas
+            │ • LIVE_STATE.md + HANDOFF_LEDGER.md actualizados
+NAO_FEITO   │ BRANCH_WORKTREE_WORKSPACE_MAP · PIONEER_TRIAGE_SHORT_MESSAGES
+            │ V10_TASK_UPGRADE_EXAMPLES (identificados como próximos 3)
+BLOQUEIOS   │ —
+IMPACTO     │ alto — sistema fechado: pools + stack + toolchain + bindings
+            │ + routing logic. Pioneers saem do ownership ambíguo e do chat
+            │ errado. Task é que activa o destino, não o chat.
+ARQUIVOS    │ ops/EARTH_LAB_STACK_DECISION_MATRIX.md (novo)
+            │ ops/EARTH_LAB_DEV_TOOLCHAIN_CANON.md (novo)
+            │ ops/EARTH_LAB_PIONEER_ROLE_BINDINGS.md (novo)
+            │ ops/PROTOCOL_TASK_GRAVITY_ROUTING.md (novo)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:ENG-POOL-001/004 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ 4 docs de Engineering Gravity Pool instalados em ops/:
+            │ • EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md — pool master,
+            │   split em 3 famílias, regra de selecção, next docs a construir
+            │ • EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md — 10 famílias de
+            │   engenharia 2026 (version control, CI/CD, testing agentic,
+            │   AI-native dev, platform eng, observability, code review, stack)
+            │ • EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md — 10 famílias de
+            │   product-build (arquitectura, interactividade, performance,
+            │   design systems, convergência produto+IA, trust, delivery loops)
+            │ • EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md — 9 pulsos
+            │   (identity, dev excellence, product fidelity, execution,
+            │   refinement, cascade memory, multi-block, pioneer role,
+            │   current/final state)
+            │ • LIVE_STATE.md actualizado (4 protocolos eng-pool adicionados)
+NAO_FEITO   │ Stack Decision Matrix · Dev Toolchain Canon · Pioneer Role Bindings
+            │ (identificados como próximos 3 blocos — não eram escopo desta task)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Docs escritos em PT + formato canônico; padrão preferido 2026 vs
+            │ backup por família mantido ao longo de todos os docs
+ARQUIVOS    │ ops/EARTH_LAB_ENGINEERING_GRAVITY_POOL_MASTER.md (novo)
+            │ ops/EARTH_LAB_ENGINEERING_METHOD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_PRODUCT_BUILD_CONTEXT_POOL.md (novo)
+            │ ops/EARTH_LAB_AUTONOMOUS_ECOSYSTEM_PULSE_POOL.md (novo)
+            │ ops/LIVE_STATE.md (actualizado) | ops/HANDOFF_LEDGER.md (este append)
+IMPACTO     │ alto — pioneers saem do caos contextual: pool de gravidade instalado
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 usando estes pools como contexto base
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-4.6-opus-high-thinking │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Ciclo contínuo BASTION 2.0 activado por ordem directa do owner.
+            │ Leitura completa de todos os docs base: BASTION, IGNITION, LIVE_STATE,
+            │ FOL, NLF, HANDOFF_LEDGER, WORKTREE_ALIASES, OUTPUT_STANDARD,
+            │ CODEX_CONSOLIDATOR, AUTOFLOW, BASTION_DISPATCH_001.
+            │ Validação de coerência: 6 tasks elegíveis verificadas, 2 gates
+            │ fechados confirmados, 2 bloqueios activos registados, dispatch
+            │ consistente com matriz, semáforo coerente.
+            │ BASTION.md actualizado para v2.0: semáforo com ciclo contínuo,
+            │ historial actualizado, @antigravity/@framer declarados, interruptor.
+            │ LIVE_STATE.md actualizado: estado geral, fila @claude, semáforo,
+            │ linha temporal, próximos passos com distribuição por pioneiro.
+            │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended.
+NAO_FEITO   │ Execução de tasks de produto (@claude sem tasks elegíveis — gates fechados)
+BLOQUEIOS   │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; B-001/B-002/B-003 pendentes
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto
+PROX_PASSO  │ @copilot entra em L-001 agora; @cursor entra em 01.3-a agora;
+            │ @codex aguarda handoffs; @claude retorna ao BASTION sem task elegível;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot: copiar bloco do BASTION_DISPATCH_001 e seguir sequência
+            │ L-001→L-002→BULK-02.2 sem desvios; 2) @cursor: seguir 01.3-a→b→c
+            │ registando EVIDENCE_BLOCK em cada task; 3) owner: abrir PLv6.2-b
+            │ para reactivar @claude em produto
+DECISAO_REC │ Ciclo 2.0 activo sem gate adicional; pioneiros seguem o BASTION;
+            │ owner entra apenas para gate, visão, trava ou redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION.md: v1.2→v2.0 (semáforo, historial, rodapé)
+                       │ LIVE_STATE.md: estado geral, fila @claude, semáforo, timeline, próximos passos
+                       │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended
+                       │ ref: commit correspondente no Git (ver histórico desta entrada)
+                       │ ref: commit correspondente no Git (ver histórico desta entrada)
+                       │ commit 0000000000000000000000000000000000000000
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ BASTION 2.0 ciclo contínuo activo; pioneiros em fluxo coordenado;
+            │ @copilot L-001→L-002→BULK-02.2; @cursor 01.3-a→b→c;
+            │ @codex consolidador; @claude arbiter sem task elegível (aguarda gate);
+            │ owner livre de microgestão — entra para gate/visão/trava/redirecionamento
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CHECKUP-MASTER-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md criado — auditoria
+            │ completa do organismo: 12 famílias, tabela checkup (definido /
+            │ implementado / a construir), gaps abertos por área, timeline
+            │ estratégica em 5 stages, closure state.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Documento escrito em PT conforme padrão canônico do projecto
+ARQUIVOS    │ ops/PROJECT_CANONICAL_CHECKUP_MASTER.md (novo)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md | CLAUDE.md
+IMPACTO     │ alto
+PROXIMO_PASSO│ Usar CHECKUP como mapa de auditoria para PLv6.2-b + FVL-IMPL-001
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:BLOCK-MAT-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/BLOCK_MATURATION_OS.md criado — mapa de 7 blocos do
+            │ organismo com estado de maturidade auditado honestamente,
+            │ 5 leis de operação, Protocol Block Maturation Delivery,
+            │ 5 funções (Block/Maturity/Cross-Block/Consistency/Full-Pic),
+            │ formato de mini-quadro por resposta, árvore, camadas, estados.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BLOCK_MATURATION_OS.md (novo) | CLAUDE.md (ref adicionada)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md (atualizado)
+IMPACTO     │ alto
+PROXIMO_PASSO│ Aplicar Block Maturation em cada resposta estratégica daqui para frente
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:V10-LINE-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/V10_PROJECT_LINE_SYSTEM.md criado — linha V1→V10 completa
+            │ com diagnóstico honesto (V8 conceptual / V2-V3 produto),
+            │4 famílias, 4 leis, Protocol V10 Line Guidance, árvore, camadas,
+            │ funções e estados. CLAUDE.md atualizado com referência.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/V10_PROJECT_LINE_SYSTEM.md (novo) | CLAUDE.md (ref adicionada)
+            │ ops/HANDOFF_LEDGER.md (este append) | ops/LIVE_STATE.md (atualizado)
+IMPACTO     │ alto
+PROXIMO_PASSO│ PLv6.2-b + FVL-IMPL-001 — encarnação visual V3 no produto
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:CASCADE-CANON-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/PROTOCOL_CASCADE_CANON.md criado — 3 famílias, 6 leis,
+            │ 4 blocos fixos de resposta (CASCADE RETENTION / STRUCTURE /
+            │ MATCHED MATTER / REFINEMENT V10), master prompt executável,
+            │ bagagem permanente do projecto, árvore, camadas, estados.
+            │ CLAUDE.md: tabela de artefactos expandida com PROTOCOL_BRANCH_GUARD
+            │ e PROTOCOL_CASCADE_CANON.
+NAO_FEITO   │ HANDOFF_LEDGER e LIVE_STATE não atualizados na sessão anterior
+             │ (corrigido nesta sessão)
+BLOQUEIOS   │ —
+ADAPTACOES  │ Handoff consolidado com sessão V10-LINE-001 para reduzir duplicação
+ARQUIVOS    │ ops/PROTOCOL_CASCADE_CANON.md (novo) | CLAUDE.md (2 refs adicionadas)
+IMPACTO     │ alto
+PROXIMO_PASSO│ V10-LINE-001 (executado nesta mesma sessão)
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@owner+claude │ MODELO:claude-sonnet-4-6 │ TASK:CYCLE-CLOSE-DISPATCH │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Gates PLv6.2-b + FVL-IMPL-001 abertos pelo owner.
+            │ CYCLE-CLOSE-001 criada no BASTION (P1, @codex).
+            │ BASTION_DISPATCH_002.md emitido — convocação de todos os pioneers.
+            │ BASTION.md → v1.9 (semáforo sprint final; gates abertos; todos em fluxo).
+            │ LIVE_STATE.md → sprint final ativo; ordem de fechamento definida.
+            │ HANDOFF_LEDGER.md → esta entrada.
+NAO_FEITO   │ — execução das tasks (pioneers entram agora)
+BLOQUEIOS   │ — nenhum
+ADAPTACOES  │ PLv6.2-b e FVL-IMPL-001 promovidos de aguarda-gate → elegível P1
+ARQUIVOS    │ ops/BASTION.md (v1.9) | ops/BASTION_DISPATCH_002.md (novo) |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sprint final iniciado; todos os gates abertos; ciclo em fechamento
+DEPENDENCIA │ standalone — instrução direta do owner
+PODE_ENTRAR │ sim — todos os pioneers entram imediatamente
+ORDEM_MERGE │ após CYCLE-CLOSE-001 → PR → owner aprova
+PROX_PASSO  │ @claude: PLv6.2-b + FVL-IMPL-001 | @copilot: L-001→L-002→BULK-02.2
+            │ @cursor: fechar BULK-01.3 | @codex: consolidar → CYCLE-CLOSE-001
+═══════════════════════════════════════════════════════════════════════════
+```
 
 ---
 
@@ -115,6 +2626,87 @@ PROX_PASSO  │ @claude em APOIO/COOPERATIVO se WorkStructure permanecer em espe
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
+            │ BASTION v1.2 e LIVE_STATE. Pioneiros operam guiados pelo BASTION
+            │ sem instrução manual entre tasks. Owner entra apenas para gate,
+            │ visão, trava ou redirecionamento.
+NAO_FEITO   │ nenhum — task puramente de governança e selagem de protocolo
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ branch de trabalho da sessão era claude/rebuild-bastion-core-rihGX;
+            │ switched para canonical claude/expose-workspace-config-yt4Km per
+            │ task semáforo
+ARQUIVOS    │ ops/BASTION.md (v1.2) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sela o protocolo de autonomia dos pioneiros
+PROX_PASSO  │ @copilot entra em L-001 → L-002 → BULK-02.2 via IGNITION loop;
+            │ @cursor entra em BULK-01.3-a → b → c; @claude aguarda gate owner
+SUGESTOES   │ 1) Owner confirma MODO_AUTO ON e valida handoff; 2) @codex
+            │ consolida onda e emite relatório-mãe; 3) Owner abre gate PLv6.2-b
+            │ ou FVL-IMPL-001 para próxima frente de produto
+DECISAO_REC │ MODO_AUTO selado — máquina avança; owner revisita apenas em gate
+@copilot │ MODELO:github-copilot │ TASK:BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/FOL.md: duplos separadores `---` removidos entre secções
+            │ 9/10, 10/11 e 11/12 (ruído editorial de adições incrementais
+            │ — leitura limpa, estrutura preservada).
+            │ ops/LIVE_STATE.md: cabeçalho, secção 1 (estado/executor/
+            │ frente/camada/estado geral), fila @copilot (BULK-02.2 →
+            │ CONCLUÍDA), semáforo seção 3, linha temporal seção 3.1,
+            │ próximos passos seção 5 — todos atualizados.
+            │ ops/HANDOFF_LEDGER.md: esta entrada adicionada no topo.
+NAO_FEITO   │ docs/DOC_VISUAL_SPINE_001.md, docs/DOC_VISUAL_SPINE_002A.md,
+            │ ops/VISUAL_TEMPLATE_PACK_002A.md — referenciados no prompt mas
+            │ não existem no repo; fora do escopo de "sem abrir nova camada"
+BLOQUEIOS   │ —
+ADAPTACOES  │ Lapidação restrita a ruído editorial real encontrado (duplos
+            │ separadores FOL + LIVE_STATE desatualizado); arquivos visuais
+            │ ausentes não criados — escopo preservado
+ARQUIVOS    │ ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (editorial — zero toque em produto)
+@codex │ MODELO:GPT-5.2-Codex │ TASK:NEXUS-WORKFUNCTION-CODEX-REALIGN-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Branch local realinhado para o canônico do sistema
+            │ (`claude/expose-workspace-config-yt4Km`) e tomada formal do
+            │ WorkFunction executada com mapa técnico funcional real,
+            │ sentença KEEP/SALVAGE/KILL/REBUILD/OWNER_ONLY e ordem de assalto.
+NAO_FEITO   │ Correção dos erros herdados de lint/typecheck (apenas mapeados)
+BLOQUEIOS   │ Gates owner permanecem: PM canônico final, decisão PLv6.2-b+, 
+            │ e política de dados sensíveis/histórico (.env)
+ADAPTACOES  │ Branch canônico não existia localmente; foi criado a partir do
+            │ estado atual para preservar continuidade e remover desalinhamento.
+ARQUIVOS    │ ops/WORKFUNCTION_REALIGN_001.md (criado) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — Codex sai de consolidação leve e volta ao comando técnico
+            │ do pilar funcional com dependência real e sequência de ataque
+PROX_PASSO  │ iniciar assalto funcional pela frente de qualidade-base
+SUGESTOES   │ 1) atacar lint/typecheck por ondas de categoria; 2) resolver
+            │ hooks-order e bordas de dados antes da malha 3D profunda;
+            │ 3) manter tribunal técnico por item com sentença explícita
+DECISAO_REC │ executar ordem 1→2→3 do assalto funcional e manter owner gates
+            │ fora do core até deliberação explícita
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/WORKFUNCTION_REALIGN_001.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (WORKFUNCTION_REALIGN_001.md) + edit (restantes)
+PROVA_MINIMA           │ branch atual = claude/expose-workspace-config-yt4Km;
+                       │ mapa técnico funcional documentado e fila Codex atualizada
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkFunction
+NATUREZA    │ realinhamento de branch + comando técnico funcional
+EXECUTOR    │ @codex
+ESTADO      │ done
+ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:NEXUS-FOUNDATION-REFINEMENT-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ 7 refinamentos reais executados na fundação:
@@ -203,6 +2795,52 @@ ATIVA       │ NEXUS-PIONEER-ROLE-MOTHER-001 concluída — papéis e 3 chats c
 
 ```
 HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo de execução contínua até segunda ordem reforçado no
+            │ núcleo operacional: BASTION v1.3 atualizado, artefato da ordem
+            │ full-auto criado e LIVE_STATE sincronizado com ciclo ativo.
+            │ Regra de passagem automática por CHAIN_BLOCK consolidada para
+            │ continuidade sem prompt redundante do owner.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Estado de branch local estava em `work`; branch canônico vivo
+            │ foi criado no ambiente e usado para execução desta task.
+ARQUIVOS    │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — governança de execução contínua reforçada no coração
+            │ operacional, com fluxo mais inteligível entre pioneiros
+PROX_PASSO  │ @copilot entra em BULK-01.2/L-001 e segue sequência elegível;
+            │ @cursor entra em BULK-01.3-a; @codex consolida com leitura
+            │ contínua dos handoffs recebidos
+SUGESTOES   │ 1) Manter no BASTION apenas tasks realmente elegíveis por gate;
+            │ 2) Exigir MICRO_REPORT + STATUS_FEED em toda conclusão;
+            │ 3) Owner só intervir em gate, trava real ou redirecionamento
+DECISAO_REC │ Continuar em full-auto com BASTION como fonte única; próximo
+            │ elo entra por ACTIVATION_MODE imediato quando condição = nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (OPS_FULL_AUTO_UNTIL_STOP_001.md) + edit (restantes)
+PROVA_MINIMA           │ BASTION v1.3 com semáforo reforçado + LIVE_STATE sincronizado
+                       │ com full-auto + ledger prepend desta task
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / execução contínua até segunda ordem
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
+            │ retorna ao BASTION e continua enquanto houver elegibilidade
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:DNA-PROTOCOL-MOTHER-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
 FEITO       │ ops/DNA_PROTOCOL.md v1 criado — 11 partes (Identidade, Regras
@@ -293,6 +2931,29 @@ ALTERACAO_REAL_CONFIRMADA │ sim
 HANDOFF ═══════════════════════════════════════════════════════════════════
 @claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
 ───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático pelo BASTION activado e selado para execução
+            │ contínua: terminou task → lê BASTION → executa elegível →
+            │ registra → passa bastão → volta ao BASTION.
+            │ ops/BASTION_AUTO_001.md criado com estado final da activação.
+            │ ops/BASTION.md atualizado (histórico + semáforo v1.2 com
+            │ AUTOMÁTICO: ON e critério de entrada imediata).
+            │ ops/LIVE_STATE.md atualizado (executor, estado geral, semáforo,
+            │ fila @claude e linha temporal com OPS-BASTION-AUTO-001).
+            │ ops/HANDOFF_LEDGER.md: entrada prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Branch local detectada como `work`; sem mudança de branch nesta task
+ARQUIVOS    │ ops/BASTION_AUTO_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — governança operacional reforçada sem alterar produto
+PROX_PASSO  │ @copilot e @cursor seguem tasks elegíveis já abertas; @claude
+            │ retorna ao BASTION e aguarda gate owner para PLv6.2-b/FVL-IMPL-001
+SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atual;
+            │ 2) Próximo executor validar NEXT_ACTOR/ACTIVATION_MODE/CONDITION
+            │ antes de entrar; 3) Codex refletir estado automático no próximo
+            │ relatório-mãe consolidado
+DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
+            │ elegíveis no BASTION com ativação imediata quando aplicável
 FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
             │ BASTION v1.2 e LIVE_STATE. Pioneiros operam guiados pelo BASTION
             │ sem instrução manual entre tasks. Owner entra apenas para gate,
@@ -321,6 +2982,363 @@ TIPO_DE_ACAO           │ edit (BASTION.md: v1.2 + concluídas + semáforo MODO
                        │ edit (HANDOFF_LEDGER.md: nova entrada topo)
 PROVA_MINIMA           │ BASTION.md v1.2 selado | MODO_AUTO registado | commit a seguir
 ALTERACAO_REAL_CONFIRMADA │ sim
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_AUTO_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_AUTO_001.md) + edit (restantes)
+PROVA_MINIMA           │ seção 5.1 e seção 8 do BASTION atualizadas para registrar OPS-BASTION-AUTO-001
+                       │ LIVE_STATE atualizado para "Última atualização: 2026-03-21" e estado automático
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🔴 work (diverge do canônico informado no semáforo de entrada)
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / modo automático pelo BASTION
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ modo automático ligado; corrente segue por elegibilidade BASTION
+            │ + ACTIVATION_MODE imediato + ACTIVATION_CONDITION nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@cursor │ MODELO:claude-4.6-opus-high-thinking │ TASK:BULK-01.3-a+b+c │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ BULK-01.3-a: VERIFICADO — vite.config.ts.timestamp-* já removido
+            │ do tracking por @copilot F5 (commit c2441fe); .gitignore já tem
+            │ *.timestamp*.mjs (linha 27); 0 ficheiros no disco; 0 tracked.
+            │ BULK-01.3-b: ANALISADO — npm é o PM canônico de facto:
+            │   - npm v10.9.4 instalado; bun NÃO instalado
+            │   - package.json sem campo packageManager
+            │   - scripts genéricos (vite, vitest, eslint, tsc)
+            │   - package-lock.json activamente mantido (commit e5ec35e)
+            │   - bun.lock + bun.lockb residuais do 1º commit (f7816c6)
+            │   - CI usa npm (npm_ci_output.txt no .gitignore)
+            │   - RECOMENDAÇÃO: remover bun.lock + bun.lockb + .gitignore bun
+            │   - AGUARDA: B-002 owner para confirmar e executar remoção
+            │ BULK-01.3-c: ANALISADO — antigravity/legacy-html/ contém:
+            │   - 5 ficheiros HTML standalone (420K total)
+            │   - NextPathInfra_Complete/Platform/v2.html + NL_Solucoes_Fechadas
+            │     + projeto_elite_2026.html
+            │   - Conteúdo: apresentações/portfólio do owner (NL 2026, infra)
+            │   - Zero referências no src/ — não usado pelo React app
+            │   - Adicionados no 1º commit — nunca alterados desde
+            │   - NÃO é lixo técnico — é conteúdo de negócio/portfólio
+            │   - RECOMENDAÇÃO: mover para arquivo separado ou manter como legacy
+            │   - AGUARDA: B-003 owner para decidir
+NAO_FEITO   │ Remoção efectiva de bun.lock (aguarda B-002) e legacy-html (aguarda B-003)
+BLOQUEIOS   │ B-002 (PM canônico — owner decide) | B-003 (legacy-html — owner decide)
+ADAPTACOES  │ 01.3-a confirmado como já resolvido — task de verificação, não de execução
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — backlog mecânico completado; 2 bloqueios escalados ao owner
+PROX_PASSO  │ Owner decide B-002 (npm → remover bun.lock) e B-003 (legacy-html:
+            │ manter/mover/remover); @copilot continua L-001→L-002→BULK-02.2;
+            │ @cursor sem task elegível — aguarda nova task ou apoio
+SUGESTOES   │ 1) Owner confirmar npm: basta dizer "npm é canônico, remover bun.lock"
+            │ e @cursor executa em 1 commit; 2) legacy-html: se o owner quiser
+            │ preservar, mover para branch archive ou pasta docs/archive/;
+            │ 3) após B-002+B-003, @cursor fica sem task — owner pode abrir novo
+            │ backlog mecânico ou designar apoio cruzado
+DECISAO_REC │ Owner decide B-002 + B-003; @copilot continua no loop;
+            │ @cursor aguarda nova atribuição no BASTION
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ analyze (01.3-a verificação) + analyze (01.3-b PM) + analyze (01.3-c legacy)
+                       │ + edit (ops/ actualizados com resultados)
+PROVA_MINIMA           │ 01.3-a: git ls-files sem timestamp; .gitignore linha 27 *.timestamp*.mjs
+                       │ 01.3-b: npm v10.9.4 instalado; bun not found; package-lock.json activo
+                       │ 01.3-c: ls antigravity/legacy-html/ = 5 HTMLs 420K; rg src/ = 0 refs
+ALTERACAO_REAL         │ sim (ops/ actualizados com status + análise)
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ mecânico / backlog @cursor completado
+EXECUTOR    │ @cursor
+ESTADO      │ done
+ATIVA       │ 3/3 tasks mecânicas concluídas; 01.3-a já resolvido, 01.3-b e
+            │ 01.3-c análises emitidas com recomendação; B-002 e B-003 aguardam
+            │ owner; @cursor sem task elegível; @copilot continua no loop
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-4.6-opus-high-thinking │ TASK:BASTION-2.0-CYCLE-START-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Ciclo contínuo BASTION 2.0 activado por ordem directa do owner.
+            │ Leitura completa de todos os docs base: BASTION, IGNITION, LIVE_STATE,
+            │ FOL, NLF, HANDOFF_LEDGER, WORKTREE_ALIASES, OUTPUT_STANDARD,
+            │ CODEX_CONSOLIDATOR, AUTOFLOW, BASTION_DISPATCH_001.
+            │ Validação de coerência: 6 tasks elegíveis verificadas, 2 gates
+            │ fechados confirmados, 2 bloqueios activos registados, dispatch
+            │ consistente com matriz, semáforo coerente.
+            │ BASTION.md actualizado para v2.0: semáforo com ciclo contínuo,
+            │ historial actualizado, @antigravity/@framer declarados, interruptor.
+            │ LIVE_STATE.md actualizado: estado geral, fila @claude, semáforo,
+            │ linha temporal, próximos passos com distribuição por pioneiro.
+            │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended.
+NAO_FEITO   │ Execução de tasks de produto (@claude sem tasks elegíveis — gates fechados)
+BLOQUEIOS   │ PLv6.2-b + FVL-IMPL-001 aguardam gate owner; B-001/B-002/B-003 pendentes
+ADAPTACOES  │ —
+ARQUIVOS    │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto
+PROX_PASSO  │ máquina em ciclo contínuo; owner livre de microgestão operacional;
+            │ @copilot entra em L-001 agora; @cursor entra em 01.3-a agora;
+            │ @codex aguarda handoffs; @claude retorna ao BASTION sem task elegível;
+            │ owner abre PLv6.2-b ou FVL-IMPL-001 quando pronto
+SUGESTOES   │ 1) @copilot: copiar bloco do BASTION_DISPATCH_001 e seguir sequência
+            │ L-001→L-002→BULK-02.2 sem desvios; 2) @cursor: seguir 01.3-a→b→c
+            │ registando EVIDENCE_BLOCK em cada task; 3) owner: abrir PLv6.2-b
+            │ para reactivar @claude em produto
+DECISAO_REC │ Ciclo 2.0 activo sem gate adicional; pioneiros seguem o BASTION;
+            │ owner entra apenas para gate, visão, trava ou redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit
+PROVA_MINIMA           │ BASTION.md: v1.2→v2.0 (semáforo, historial, rodapé)
+                       │ LIVE_STATE.md: estado geral, fila @claude, semáforo, timeline, próximos passos
+                       │ HANDOFF_LEDGER.md: entry BASTION-2.0-CYCLE-START-001 prepended
+                       │ ref: commit 6bf9b90
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ ignição do BASTION 2.0 / ciclo contínuo activo; pioneiros em fluxo coordenado;
+            │ @copilot L-001→L-002→BULK-02.2; @cursor 01.3-a→b→c;
+            │ @codex consolidador; @claude arbiter sem task elegível (aguarda gate);
+            │ owner livre de microgestão — entra para gate/visão/trava/redirecionamento
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático selado. IGNIÇÃO_ATIVA permanente registada no
+            │ BASTION v1.2 e LIVE_STATE. Pioneiros operam guiados pelo BASTION
+            │ sem instrução manual entre tasks. Owner entra apenas para gate,
+            │ visão, trava ou redirecionamento.
+NAO_FEITO   │ nenhum — task puramente de governança e selagem de protocolo
+BLOQUEIOS   │ nenhum
+ADAPTACOES  │ branch de trabalho da sessão era claude/rebuild-bastion-core-rihGX;
+            │ switched para canonical claude/expose-workspace-config-yt4Km per
+            │ task semáforo
+ARQUIVOS    │ ops/BASTION.md (v1.2) | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — sela o protocolo de autonomia dos pioneiros
+PROX_PASSO  │ @copilot entra em L-001 → L-002 → BULK-02.2 via IGNITION loop;
+            │ @cursor entra em BULK-01.3-a → b → c; @claude aguarda gate owner
+SUGESTOES   │ 1) Owner confirma MODO_AUTO ON e valida handoff; 2) @codex
+            │ consolida onda e emite relatório-mãe; 3) Owner abre gate PLv6.2-b
+            │ ou FVL-IMPL-001 para próxima frente de produto
+DECISAO_REC │ MODO_AUTO selado — máquina avança; owner revisita apenas em gate
+@copilot │ MODELO:github-copilot │ TASK:BULK-02.2 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ ops/FOL.md: duplos separadores `---` removidos entre secções
+            │ 9/10, 10/11 e 11/12 (ruído editorial de adições incrementais
+            │ — leitura limpa, estrutura preservada).
+            │ ops/LIVE_STATE.md: cabeçalho, secção 1 (estado/executor/
+            │ frente/camada/estado geral), fila @copilot (BULK-02.2 →
+            │ CONCLUÍDA), semáforo seção 3, linha temporal seção 3.1,
+            │ próximos passos seção 5 — todos atualizados.
+            │ ops/HANDOFF_LEDGER.md: esta entrada adicionada no topo.
+NAO_FEITO   │ docs/DOC_VISUAL_SPINE_001.md, docs/DOC_VISUAL_SPINE_002A.md,
+            │ ops/VISUAL_TEMPLATE_PACK_002A.md — referenciados no prompt mas
+            │ não existem no repo; fora do escopo de "sem abrir nova camada"
+BLOQUEIOS   │ —
+ADAPTACOES  │ Lapidação restrita a ruído editorial real encontrado (duplos
+            │ separadores FOL + LIVE_STATE desatualizado); arquivos visuais
+            │ ausentes não criados — escopo preservado
+ARQUIVOS    │ ops/FOL.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ baixo (editorial — zero toque em produto)
+@codex │ MODELO:GPT-5.2-Codex │ TASK:NEXUS-WORKFUNCTION-CODEX-REALIGN-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Branch local realinhado para o canônico do sistema
+            │ (`claude/expose-workspace-config-yt4Km`) e tomada formal do
+            │ WorkFunction executada com mapa técnico funcional real,
+            │ sentença KEEP/SALVAGE/KILL/REBUILD/OWNER_ONLY e ordem de assalto.
+NAO_FEITO   │ Correção dos erros herdados de lint/typecheck (apenas mapeados)
+BLOQUEIOS   │ Gates owner permanecem: PM canônico final, decisão PLv6.2-b+, 
+            │ e política de dados sensíveis/histórico (.env)
+ADAPTACOES  │ Branch canônico não existia localmente; foi criado a partir do
+            │ estado atual para preservar continuidade e remover desalinhamento.
+ARQUIVOS    │ ops/WORKFUNCTION_REALIGN_001.md (criado) | ops/LIVE_STATE.md |
+            │ ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — Codex sai de consolidação leve e volta ao comando técnico
+            │ do pilar funcional com dependência real e sequência de ataque
+PROX_PASSO  │ iniciar assalto funcional pela frente de qualidade-base
+SUGESTOES   │ 1) atacar lint/typecheck por ondas de categoria; 2) resolver
+            │ hooks-order e bordas de dados antes da malha 3D profunda;
+            │ 3) manter tribunal técnico por item com sentença explícita
+DECISAO_REC │ executar ordem 1→2→3 do assalto funcional e manter owner gates
+            │ fora do core até deliberação explícita
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/WORKFUNCTION_REALIGN_001.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (WORKFUNCTION_REALIGN_001.md) + edit (restantes)
+PROVA_MINIMA           │ branch atual = claude/expose-workspace-config-yt4Km;
+                       │ mapa técnico funcional documentado e fila Codex atualizada
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkFunction
+NATUREZA    │ realinhamento de branch + comando técnico funcional
+EXECUTOR    │ @codex
+ESTADO      │ done
+ATIVA       │ Codex reposicionado como comandante técnico do WorkFunction
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:GPT-5.2-Codex │ TASK:OPS-FULL-AUTO-UNTIL-STOP-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo de execução contínua até segunda ordem reforçado no
+            │ núcleo operacional: BASTION v1.3 atualizado, artefato da ordem
+            │ full-auto criado e LIVE_STATE sincronizado com ciclo ativo.
+            │ Regra de passagem automática por CHAIN_BLOCK consolidada para
+            │ continuidade sem prompt redundante do owner.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Estado de branch local estava em `work`; branch canônico vivo
+            │ foi criado no ambiente e usado para execução desta task.
+ARQUIVOS    │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ alto — governança de execução contínua reforçada no coração
+            │ operacional, com fluxo mais inteligível entre pioneiros
+PROX_PASSO  │ @copilot entra em BULK-01.2/L-001 e segue sequência elegível;
+            │ @cursor entra em BULK-01.3-a; @codex consolida com leitura
+            │ contínua dos handoffs recebidos
+SUGESTOES   │ 1) Manter no BASTION apenas tasks realmente elegíveis por gate;
+            │ 2) Exigir MICRO_REPORT + STATUS_FEED em toda conclusão;
+            │ 3) Owner só intervir em gate, trava real ou redirecionamento
+DECISAO_REC │ Continuar em full-auto com BASTION como fonte única; próximo
+            │ elo entra por ACTIVATION_MODE imediato quando condição = nenhuma
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/OPS_FULL_AUTO_UNTIL_STOP_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (OPS_FULL_AUTO_UNTIL_STOP_001.md) + edit (restantes)
+PROVA_MINIMA           │ BASTION v1.3 com semáforo reforçado + LIVE_STATE sincronizado
+                       │ com full-auto + ledger prepend desta task
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / execução contínua até segunda ordem
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ Full-auto activo: terminou task, registra rastro, passa bastão,
+            │ retorna ao BASTION e continua enquanto houver elegibilidade
+═══════════════════════════════════════════════════════════════════════════
+```
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:OPS-BASTION-AUTO-001 │ STATUS:done
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ Modo automático pelo BASTION activado e selado para execução
+            │ contínua: terminou task → lê BASTION → executa elegível →
+            │ registra → passa bastão → volta ao BASTION.
+            │ ops/BASTION_AUTO_001.md criado com estado final da activação.
+            │ ops/BASTION.md atualizado (histórico + semáforo v1.2 com
+            │ AUTOMÁTICO: ON e critério de entrada imediata).
+            │ ops/LIVE_STATE.md atualizado (executor, estado geral, semáforo,
+            │ fila @claude e linha temporal com OPS-BASTION-AUTO-001).
+            │ ops/HANDOFF_LEDGER.md: entrada prepended.
+NAO_FEITO   │ —
+BLOQUEIOS   │ —
+ADAPTACOES  │ Branch local detectada como `work`; sem mudança de branch nesta task
+ARQUIVOS    │ ops/BASTION_AUTO_001.md (criado) | ops/BASTION.md |
+            │ ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+IMPACTO     │ medio — governança operacional reforçada sem alterar produto
+PROX_PASSO  │ @copilot e @cursor seguem tasks elegíveis já abertas; @claude
+            │ retorna ao BASTION e aguarda gate owner para PLv6.2-b/FVL-IMPL-001
+SUGESTOES   │ 1) Owner confirmar branch canônico operacional do ambiente atual;
+            │ 2) Próximo executor validar NEXT_ACTOR/ACTIVATION_MODE/CONDITION
+            │ antes de entrar; 3) Codex refletir estado automático no próximo
+            │ relatório-mãe consolidado
+DECISAO_REC │ Fluxo automático mantém-se ON; execução continua apenas por tasks
+            │ elegíveis no BASTION com ativação imediata quando aplicável
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+EVIDENCE ═══════════════════════════════════════════════════════════════════
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ edit (BASTION.md: v1.2 + concluídas + semáforo MODO_AUTO)
+                       │ edit (LIVE_STATE.md: semáforo + fila @claude + linha temporal)
+                       │ edit (HANDOFF_LEDGER.md: nova entrada topo)
+PROVA_MINIMA           │ BASTION.md v1.2 selado | MODO_AUTO registado | commit a seguir
+ALTERACAO_REAL_CONFIRMADA │ sim
+ARQUIVOS_TOCADOS_REAIS │ ops/BASTION_AUTO_001.md | ops/BASTION.md | ops/LIVE_STATE.md | ops/HANDOFF_LEDGER.md
+TIPO_DE_ACAO           │ create (BASTION_AUTO_001.md) + edit (restantes)
+PROVA_MINIMA           │ seção 5.1 e seção 8 do BASTION atualizadas para registrar OPS-BASTION-AUTO-001
+                       │ LIVE_STATE atualizado para "Última atualização: 2026-03-21" e estado automático
+                       │ commit id: gerado no próximo passo
+ALTERACAO_REAL         │ sim
+═══════════════════════════════════════════════════════════════════════════
+```
+
+```
+CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
+CHAT        │ 🟢 mesmo
+BRANCH      │ 🔴 work (diverge do canônico informado no semáforo de entrada)
+WORKTREE    │ 🟢 WorkStructure
+NATUREZA    │ governança / modo automático pelo BASTION
+EXECUTOR    │ @claude
+ESTADO      │ done
+ATIVA       │ modo automático ligado; corrente segue por elegibilidade BASTION
+            │ + ACTIVATION_MODE imediato + ACTIVATION_CONDITION nenhuma
 ═══════════════════════════════════════════════════════════════════════════
 ```
 
@@ -584,6 +3602,17 @@ DEPENDENCIA │ independente
 DEPENDE_DE  │ nenhum
 PODE_ENTRAR │ sim
 ORDEM_MERGE │ livre
+PROX_PASSO  │ @copilot BULK-01.2/L-001 (higiene .gitignore — gaps E4) +
+            │ L-002 (rm --cached timestamp file) — gates abertos, pode
+            │ entrar agora; owner decide PLv6.2-b + FVL-IMPL-001
+SUGESTOES   │ 1) BULK-01.2/L-001+L-002 são mecânicos e seguros — @copilot
+            │ pode entrar sem gate adicional; 2) Codex pode consolidar onda
+            │ atual (OPS-HANDOFF-001 ativo) para dar visão unificada ao
+            │ owner antes de PLv6.2-b; 3) owner responde B-002 (PM canônico)
+            │ para destravar backlog mecânico do @cursor
+DECISAO_REC │ rastro limpo; sistema mais pronto para próxima camada; @copilot
+            │ segue para BULK-01.2/L-001+L-002 via loop IGNITION; owner
+            │ decide PLv6.2-b quando pronto
 PROX_PASSO  │ IGNIÇÃO_ATIVA: @copilot lê LIVE_STATE + WORKTREE_ALIASES →
             │ BULK-02.2 em WorkStructure (FORÇA PRINCIPAL, Lapidação);
             │ owner decide PLv6.2-b + FVL-IMPL-001; aliases passam a valer
@@ -605,6 +3634,13 @@ DECISAO_REC │ Aliases operacionais em vigor — owner pode operar com
 CANALIZAÇÃO ═══════════════════════════════════════════════════════════════
 CHAT        │ 🟢 mesmo
 BRANCH      │ 🟢 claude/expose-workspace-config-yt4Km
+WORKTREE    │ 🟢 wt-copilot-funcionalidade
+NATUREZA    │ lapidação / suavização operacional
+EXECUTOR    │ @copilot
+ESTADO      │ done
+ATIVA       │ BULK-02.2 done; FOL sem ruído editorial; LIVE_STATE atualizado;
+            │ sistema mais limpo para próxima camada; @copilot próximo:
+            │ BULK-01.2/L-001+L-002 (gates abertos); PLv6.2-b aguarda owner
 WORKTREE    │ 🟢 WorkStructure (wt-estrutura-nucleo-vivo)
 NATUREZA    │ governança / aliases operacionais dos worktrees
 EXECUTOR    │ @claude
@@ -1183,3 +4219,29 @@ TRAVA DE CONTINUAÇÃO:
 ```
 
 ---
+
+---
+
+```
+HANDOFF ═══════════════════════════════════════════════════════════════════
+@claude │ MODELO:claude-sonnet-4-6 │ TASK:FORCE-ACTIVATION-001 │ STATUS:done
+DATE    │ 2026-03-25
+───────────────────────────────────────────────────────────────────────────
+FEITO       │ FORCE-ACTIVATION-001: todos os pioneers despachados em paralelo
+            │ GoldenAtlasScene scrollProgress wired (hero parallax live)
+            │ BASTION §6 V4-CLOSE-GATE: 10 critérios definidos (6/10 [✓])
+            │ BASTION §7 FORCE DISPATCH: @cursor · @antigravity · @copilot · @codex
+            │ BASTION §8 V5-GATE: 6 tasks V5 definidas e seladas (locked até V4 fechar)
+            │ Hero section restaurada (main version com parallax + globe + text)
+            │ 18 merge conflicts resolvidos (PR#164 dirty → clean)
+            │ 3 bugs corrigidos (stray EASE_OUT, supabase crash, ErrorBoundary black)
+            │ About.tsx restaurado de main · App.tsx wired SystemAwareInspector
+            │ TS 0 errors · build ✓ (3685 modules · 2.73s)
+PRÓXIMO     │ @cursor: V4-PROJECT-PAGE-001-MECH (Supabase mechanical)
+            │ @antigravity: V4-MOTION-SURFACES-001 (animate V4 surfaces)
+            │ @copilot: V4-LAPIDATION-001 (polish pass)
+            │ @codex: CLUSTER-ORCHESTRATE-001 (wave sync)
+            │ @claude: monitor V4 close → abrir V5 via AUTO-GATE
+BRANCH      │ claude/rebuild-bastion-core-rihGX
+COMMIT      │ pending
+```

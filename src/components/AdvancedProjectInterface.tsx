@@ -12,6 +12,7 @@ import { Zap, FlaskConical, BookOpen, Bot, Mic, Paperclip, Send, X, Volume2, Squ
 import ReactMarkdown from "react-markdown";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // ====================== PROCEDURAL GLOBE ======================
 function ProceduralGlobe() {
@@ -505,7 +506,7 @@ export default function AdvancedProjectInterface({ project }: AdvancedProjectInt
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, ease: EASE_OUT }}
             className="mx-auto max-w-2xl border border-border bg-card/95 backdrop-blur-xl mb-6 flex flex-col"
             style={{ maxHeight: "70vh" }}
           >

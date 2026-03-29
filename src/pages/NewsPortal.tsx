@@ -11,6 +11,9 @@ import ReactMarkdown from "react-markdown";
 import BroadcastBar from "@/components/news/BroadcastBar";
 import { useIndexOrgan } from "@/hooks/useIndexOrgan";
 import { IndexEntry } from "@/types/index-organ";
+import { getDefaultBus } from "@/lib/events/bus";
+import { makeEventId, seedFromId } from "@/lib/events/id";
+import type { NexusEvent, NewsBroadcastPayload } from "@/types/sacred-flow";
 
 // Lazy-load AIAnchor3D so that a WebGL/r3f module failure doesn't crash NewsPortal
 const AIAnchor3D = lazy(() =>
@@ -210,6 +213,45 @@ export default function NewsPortal() {
   const [analysisLoading, setAnalysisLoading] = useState(false);
   const anchor = useAIAnchor();
 
+  useEffect(() => {
+    document.title = "Nexus News · Intelligence Feed";
+  }, []);
+  const bus = getDefaultBus();
+  const publishedBroadcasts = useRef<Set<string>>(new Set());
+
+  // Gate: Narratable — publish news.broadcast events to bus
+  // When Index entries are transformed into readable reports, publish them
+  // so the full Sacred Flow is traceable: Tribunal → Atlas → Index → News
+  useEffect(() => {
+    for (const report of reports) {
+      if (publishedBroadcasts.current.has(report.id)) continue;
+
+      const payload: NewsBroadcastPayload = {
+        title: report.title,
+        content: report.summary,
+        live: false,
+        linkedVerdictId: report.id,
+      };
+
+      const eventId = makeEventId('news.broadcast', 'news', report.timestamp, payload);
+      const event: NexusEvent<NewsBroadcastPayload> = {
+        id: eventId,
+        type: 'news.broadcast',
+        createdAt: report.timestamp,
+        source: 'news',
+        severity: report.severity === 'critical' ? 0.9 : report.severity === 'high' ? 0.7 : 0.4,
+        payload,
+        confidence: 0.85,
+        seed: seedFromId(eventId),
+        version: 1,
+      };
+
+      if (bus.publish(event as NexusEvent)) {
+        publishedBroadcasts.current.add(report.id);
+      }
+    }
+  }, [reports, bus]);
+
   // Initial report selection
   useEffect(() => {
     if (reports.length > 0 && !selectedReport) {
@@ -300,12 +342,25 @@ export default function NewsPortal() {
       <NewsTicker reports={reports} />
 
       <div className="max-w-7xl mx-auto px-4 py-6">
+        {/* ═══ PAGE HERO ═══ */}
+        <div className="mb-8">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-2">
+            INTELLIGENCE PORTAL · AI DAILY BRIEF
+          </span>
+          <h1 className="font-serif text-3xl md:text-4xl font-light text-paper mb-2">
+            Nexus News
+          </h1>
+          <p className="text-sm text-paper-dim/70 font-light max-w-2xl">
+            Feed de inteligência em tempo real — clima, saúde, segurança, economia e infraestrutura global, sintetizados pelo Conselho AI.
+          </p>
+        </div>
+
         {/* ═══ AI ANCHOR 3D AVATAR ═══ */}
         <div className="mb-6">
           <Suspense fallback={
-            <div className="bg-card border border-primary/20 rounded-lg h-[80px] flex items-center px-4">
-              <span className="font-mono text-[0.5rem] text-muted-foreground tracking-widest uppercase animate-pulse">
-                CARREGANDO ANCHOR…
+            <div className="bg-ink-medium/40 border border-white/[0.05] rounded-sm h-[80px] flex items-center px-4">
+              <span className="font-mono text-[0.5rem] text-paper-dim/50 tracking-widest uppercase animate-pulse">
+                Calibrating anchor signal…
               </span>
             </div>
           }>
@@ -334,29 +389,28 @@ export default function NewsPortal() {
                 <div
                   key={r.id}
                   onClick={() => readReport(r)}
-                  className={`bg-card border rounded-lg p-4 cursor-pointer transition-all hover:border-primary/40 ${
-                    selectedReport?.id === r.id ? "border-primary/50 ring-1 ring-primary/20" : "border-border/30"
+                  className={`bg-ink-medium/40 border border-white/[0.05] rounded-sm p-4 cursor-pointer transition-all duration-200 hover:border-white/[0.10] ${
+                    selectedReport?.id === r.id ? "border-white/[0.12] ring-1 ring-gold/20" : ""
                   } ${r.severity === "critical" ? "border-l-4 border-l-destructive" : r.severity === "high" ? "border-l-4 border-l-orange-400" : ""}`}
                 >
                   <div className="flex items-start gap-3">
                     <div className={meta?.color}>{meta?.icon}</div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className={`font-mono text-[0.4rem] px-1.5 py-0.5 rounded ${
-                          r.severity === "critical" ? "bg-destructive/20 text-destructive" :
-                          r.severity === "high" ? "bg-orange-500/20 text-orange-400" :
-                          "bg-muted text-muted-foreground"
+                        <span className={`font-mono text-[0.45rem] tracking-[0.2em] uppercase border border-white/[0.08] px-2 py-0.5 text-paper-dim/50 ${
+                          r.severity === "critical" ? "border-destructive/30 text-destructive/70" :
+                          r.severity === "high" ? "border-orange-500/30 text-orange-400/70" : ""
                         }`}>
-                          {r.severity.toUpperCase()}
+                          {r.severity}
                         </span>
-                        <span className={`font-mono text-[0.4rem] ${meta?.color}`}>{meta?.label}</span>
-                        <span className="font-mono text-[0.4rem] text-muted-foreground ml-auto">
+                        <span className={`font-mono text-[0.45rem] tracking-[0.2em] uppercase border border-white/[0.08] px-2 py-0.5 text-paper-dim/50 ${meta?.color}`}>{meta?.label}</span>
+                        <span className="font-mono text-[0.48rem] tracking-[0.12em] text-paper-dim/40 ml-auto">
                           {new Date(r.timestamp).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
                         </span>
                       </div>
-                      <h3 className="font-mono text-sm text-foreground font-semibold mb-1">{r.title}</h3>
+                      <h3 className="font-serif text-base font-light text-paper mb-1">{r.title}</h3>
                       <p className="font-mono text-[0.55rem] text-muted-foreground leading-relaxed">{r.summary}</p>
-                      <span className="font-mono text-[0.4rem] text-primary/60 mt-1 block">Fonte: {r.source}</span>
+                      <span className="font-mono text-[0.48rem] tracking-[0.12em] text-paper-dim/40 mt-1 block">SRC · {r.source}</span>
                     </div>
                     <Button variant="ghost" size="icon" className="h-7 w-7 shrink-0" onClick={(e) => { e.stopPropagation(); readReport(r); }}>
                       <Play className="h-3 w-3" />
@@ -370,15 +424,15 @@ export default function NewsPortal() {
           {/* ═══ DETAIL PANEL ═══ */}
           <div className="space-y-4">
             {selectedReport ? (
-              <div className="bg-card border border-border/30 rounded-lg p-4 sticky top-16">
+              <div className="bg-ink-medium/40 border border-white/[0.05] rounded-sm p-4 sticky top-16">
                 <div className="flex items-center gap-2 mb-3">
                   {CATEGORY_META[selectedReport.category]?.icon}
-                  <span className="font-mono text-[0.55rem] text-primary uppercase tracking-wider">
+                  <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
                     Análise Detalhada
                   </span>
                 </div>
 
-                <h3 className="font-mono text-sm text-foreground font-bold mb-3">{selectedReport.title}</h3>
+                <h3 className="font-serif text-base font-light text-paper mb-3">{selectedReport.title}</h3>
 
                 {aiAnalysis ? (
                   <div className="prose prose-sm prose-invert max-w-none font-mono text-[0.55rem] leading-relaxed">
@@ -393,10 +447,10 @@ export default function NewsPortal() {
                       disabled={analysisLoading || !user}
                     >
                       <Brain className="h-3 w-3 mr-1" />
-                      {analysisLoading ? "Analisando..." : "Gerar Análise AI"}
+                      {analysisLoading ? "Fetching intelligence feed…" : "Gerar Análise AI"}
                     </Button>
                     {!user && (
-                      <span className="font-mono text-[0.4rem] text-muted-foreground block mt-2">
+                      <span className="font-mono text-[0.45rem] tracking-[0.12em] text-paper-dim/40 block mt-2">
                         Login necessário para análise AI
                       </span>
                     )}
@@ -404,17 +458,17 @@ export default function NewsPortal() {
                 )}
               </div>
             ) : (
-              <div className="bg-card border border-border/30 rounded-lg p-6 text-center">
+              <div className="bg-ink-medium/40 border border-white/[0.05] rounded-sm p-6 text-center">
                 <Newspaper className="h-8 w-8 text-muted-foreground/30 mx-auto mb-2" />
-                <span className="font-mono text-[0.5rem] text-muted-foreground">
+                <span className="font-mono text-[0.48rem] tracking-[0.12em] text-paper-dim/40">
                   Selecione uma notícia para ver análise detalhada.
                 </span>
               </div>
             )}
 
             {/* Stats */}
-            <div className="bg-card border border-border/30 rounded-lg p-4">
-              <span className="font-mono text-[0.5rem] text-primary tracking-wider block mb-3">
+            <div className="bg-ink-medium/40 border border-white/[0.05] rounded-sm p-4">
+              <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-3">
                 RESUMO DO DIA
               </span>
               <div className="grid grid-cols-2 gap-2">

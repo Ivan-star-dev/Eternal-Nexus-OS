@@ -1,5 +1,6 @@
 # OUTPUT STANDARD — Padrão Canônico de Output Copiável
 
+**Versão:** v1.2
 **Versão:** v1
 **Data:** 2026-03-20
 **Task:** OPS-OUTPUT-001
@@ -151,6 +152,7 @@ Nunca substituir o bloco por tabelas markdown ou texto solto.
 
 ---
 
+## 8. EVIDENCE — Referência de Valores (integrado no bloco único)
 ## 6. EVIDENCE — Referência de Valores (integrado no bloco único)
 
 > O EVIDENCE está embutido na seção 2 (bloco único). Esta seção é referência de valores válidos.
@@ -171,6 +173,7 @@ Nunca substituir o bloco por tabelas markdown ou texto solto.
 
 ---
 
+## 6. IDENTIDADE OPERACIONAL
 ## 7. IDENTIDADE OPERACIONAL
 
 A forma de saída é parte da identidade do sistema Eternal Nexus OS.
@@ -185,6 +188,7 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 
 ---
 
+## 7. LOCALIZAÇÃO CANÔNICA
 ## 8. LOCALIZAÇÃO CANÔNICA
 
 | Artefato | Localização |
@@ -192,10 +196,38 @@ A forma de saída é parte da identidade do sistema Eternal Nexus OS.
 | Este padrão | `ops/OUTPUT_STANDARD.md` |
 | Referência no FOL | `ops/FOL.md` seção 10 |
 | Blueprint do relatório-mãe | `ops/CODEX_CONSOLIDATOR.md` |
+| Template pack visual vivo | `ops/VISUAL_TEMPLATE_PACK_002A.md` |
+
+---
+
+## 9. CAMADA VIVA (VISUAL-SPINE-002A)
+
+Esta seção ativa presença visual sem alterar o schema fixo.
+
+### O que permanece imutável
+- Nomes de blocos (`HANDOFF_TABLE`, `CANALIZACAO_TABLE`)
+- Ordem dos campos obrigatórios
+- Regra de bloco copiável único
+
+### O que pode variar
+- Linha curta de atmosfera antes do handoff
+- Assinatura textual do pioneiro (ex.: `AURA_CURSOR:`)
+- Separadores premium/clean sem quebrar legibilidade
+
+### Princípio de aplicação
+
+> Conteúdo manda. Visual acelera leitura.
+> Se houver conflito entre estética e rastreabilidade, vence rastreabilidade.
+
+### Referências desta camada
+- `docs/DOC_VISUAL_SPINE_001.md`
+- `docs/DOC_VISUAL_SPINE_002A.md`
+- `ops/VISUAL_TEMPLATE_PACK_002A.md`
 
 ---
 
 *OUTPUT_STANDARD.md v1 — selado em 2026-03-20 | claude-sonnet-4-6 | OPS-OUTPUT-001*
 *OUTPUT_STANDARD.md v1.1 — seção 8 + ordem de output actualizada em 2026-03-20 | claude-sonnet-4-6 | OPS-EVIDENCE-BLOCK-001*
 *OUTPUT_STANDARD.md v2.0 — bloco único copiável (HANDOFF+EVIDENCE+CHAIN+CANALIZAÇÃO) em 2026-03-21 | claude-sonnet-4-6 | OPS-OUTPUT-HANDOFF-V2*
+*OUTPUT_STANDARD.md v1.2 — camada viva integrada em 2026-03-20 | gpt-5.3-codex-high | VISUAL-SPINE-002A*
 *OUTPUT_STANDARD.md v2.1 — secções reordenadas (6=EVIDENCE, 7=IDENTIDADE, 8=LOCALIZAÇÃO) em 2026-03-21 | claude-sonnet-4-6 | NEXUS-FOUNDATION-REFINEMENT-001*

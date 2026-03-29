@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Globe, Building, Grid3X3, Users } from "lucide-react";
 import type { ProjectData } from "@/data/projects";
+import { EASE_OUT } from "@/lib/motion/config";
 
 const CanalSimulation3D = lazy(() => import("@/components/briefing/CanalSimulation3D"));
 const GeoCoreSimulation3D = lazy(() => import("@/components/briefing/GeoCoreSimulation3D"));
@@ -9,7 +10,7 @@ const TerraLentaSimulation3D = lazy(() => import("@/components/briefing/TerraLen
 const FusionCoreSimulation3D = lazy(() => import("@/components/briefing/FusionCoreSimulation3D"));
 const ChipFoldSimulation3D = lazy(() => import("@/components/briefing/ChipFoldSimulation3D"));
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 interface TechnicalTabProps {
   project: ProjectData;

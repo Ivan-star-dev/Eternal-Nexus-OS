@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, Suspense } from "react";
+import { useState, useRef, useMemo, Suspense, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
@@ -23,7 +23,11 @@ import {
   Zap,
   BarChart3,
   FileText,
+  Leaf,
+  Users,
+  Target,
 } from "lucide-react";
+import ProjectMetrics from "@/components/ProjectMetrics";
 
 // ═══════════════════════════════════════════════
 // Living Project Renders — 3D Investment View
@@ -40,6 +44,17 @@ interface InvestmentProject {
   status: "active" | "pilot" | "planning";
   progress: number;
   position: [number, number, number];
+  // Expanded metrics — PLv6.2-b
+  co2ReductionKt: number;       // CO₂ reduction in kilotons/year
+  jobsCreated: number;          // direct + indirect jobs
+  sdgGoals: number[];           // UN SDG numbers aligned
+  riskBreakdown: {
+    technical: number;
+    regulatory: number;
+    financial: number;
+    environmental: number;
+  };
+  impactScore: number;          // 0–100
 }
 
 const PROJECTS: InvestmentProject[] = [
@@ -54,6 +69,11 @@ const PROJECTS: InvestmentProject[] = [
     status: "pilot",
     progress: 35,
     position: [-3, 1, 0],
+    co2ReductionKt: 420,
+    jobsCreated: 3800,
+    sdgGoals: [11, 13, 14, 17],
+    riskBreakdown: { technical: 28, regulatory: 35, financial: 22, environmental: 15 },
+    impactScore: 78,
   },
   {
     id: "geocore",
@@ -66,6 +86,11 @@ const PROJECTS: InvestmentProject[] = [
     status: "active",
     progress: 48,
     position: [0, 2, -1],
+    co2ReductionKt: 310,
+    jobsCreated: 1200,
+    sdgGoals: [7, 9, 13],
+    riskBreakdown: { technical: 20, regulatory: 18, financial: 32, environmental: 10 },
+    impactScore: 85,
   },
   {
     id: "fusion-core",
@@ -78,6 +103,11 @@ const PROJECTS: InvestmentProject[] = [
     status: "planning",
     progress: 12,
     position: [3, 0.5, 0.5],
+    co2ReductionKt: 8500,
+    jobsCreated: 22000,
+    sdgGoals: [7, 9, 13, 17],
+    riskBreakdown: { technical: 65, regulatory: 45, financial: 38, environmental: 8 },
+    impactScore: 96,
   },
   {
     id: "chip-fold",
@@ -90,6 +120,11 @@ const PROJECTS: InvestmentProject[] = [
     status: "planning",
     progress: 8,
     position: [1, -1.5, 2],
+    co2ReductionKt: 95,
+    jobsCreated: 5400,
+    sdgGoals: [9, 12, 17],
+    riskBreakdown: { technical: 42, regulatory: 22, financial: 30, environmental: 6 },
+    impactScore: 71,
   },
   {
     id: "terra-lenta",
@@ -102,8 +137,22 @@ const PROJECTS: InvestmentProject[] = [
     status: "pilot",
     progress: 22,
     position: [-2, -1, 1.5],
+    co2ReductionKt: 180,
+    jobsCreated: 2100,
+    sdgGoals: [11, 13, 15],
+    riskBreakdown: { technical: 35, regulatory: 28, financial: 25, environmental: 12 },
+    impactScore: 74,
   },
 ];
+
+// ── Portfolio-level computed metrics ──────────────────────────────────────────
+function computePortfolioStats(projects: InvestmentProject[]) {
+  const totalCo2 = projects.reduce((a, p) => a + p.co2ReductionKt, 0);
+  const totalJobs = projects.reduce((a, p) => a + p.jobsCreated, 0);
+  const allSdg = [...new Set(projects.flatMap((p) => p.sdgGoals))].sort((a, b) => a - b);
+  const avgImpact = Math.round(projects.reduce((a, p) => a + p.impactScore, 0) / projects.length);
+  return { totalCo2, totalJobs, allSdg, avgImpact };
+}
 
 // ── Living Project Node ──
 
@@ -180,6 +229,7 @@ function ProjectNode({ project, selected, onClick }: {
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
+              args={[particlePositions, 3]}
               count={80}
               array={particlePositions}
               itemSize={3}
@@ -309,12 +359,10 @@ function InvestorScene({
 }
 
 // ═══════════════════════════════════════════════
-// Tribunal Auto-Report Generator
+// Tribunal Auto-Report Generator — PLv6.2-b expanded
 // ═══════════════════════════════════════════════
 
 function TribunalReport({ project }: { project: InvestmentProject }) {
-  const riskScore = project.status === "active" ? 28 : project.status === "pilot" ? 45 : 67;
-  const impactScore = Math.round(project.progress * 0.8 + 30);
   const feasibility = project.status === "active" ? 92 : project.status === "pilot" ? 78 : 55;
 
   return (
@@ -326,43 +374,98 @@ function TribunalReport({ project }: { project: InvestmentProject }) {
     >
       <div className="flex items-center gap-2 mb-3">
         <FileText className="h-4 w-4 text-violet-400" />
-        <h3 className="text-sm font-semibold">Relatório do Tribunal</h3>
+        <h3 className="text-sm font-semibold">{project.name}</h3>
       </div>
 
-      {/* Scores */}
-      {[
-        { label: "Risco", value: riskScore, color: riskScore < 40 ? "bg-green-500" : riskScore < 60 ? "bg-amber-500" : "bg-red-500" },
-        { label: "Impacto Ambiental", value: impactScore, color: "bg-cyan-500" },
-        { label: "Viabilidade", value: feasibility, color: "bg-violet-500" },
-      ].map((s) => (
-        <div key={s.label}>
-          <div className="flex justify-between text-[0.6rem] text-white/50 mb-1">
-            <span>{s.label}</span>
-            <span className="font-mono">{s.value}%</span>
-          </div>
-          <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: `${s.value}%` }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className={`h-full rounded-full ${s.color}`}
-            />
-          </div>
+      {/* Risk breakdown */}
+      <div>
+        <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30 mb-2">
+          Risk Breakdown
         </div>
-      ))}
+        {[
+          { label: "Technical", value: project.riskBreakdown.technical, color: "bg-blue-500" },
+          { label: "Regulatory", value: project.riskBreakdown.regulatory, color: "bg-amber-500" },
+          { label: "Financial", value: project.riskBreakdown.financial, color: "bg-red-500" },
+          { label: "Environmental", value: project.riskBreakdown.environmental, color: "bg-green-500" },
+        ].map((s) => (
+          <div key={s.label} className="mb-1.5">
+            <div className="flex justify-between text-[0.58rem] text-white/40 mb-1">
+              <span>{s.label}</span>
+              <span className="font-mono">{s.value}%</span>
+            </div>
+            <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${s.value}%` }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className={`h-full rounded-full ${s.color}`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
 
-      {/* Verdict */}
-      <div className="mt-4 p-3 rounded-lg bg-white/[0.03] border border-white/5">
+      {/* Environmental impact */}
+      <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5 space-y-2">
         <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30 mb-1">
-          Veredicto
+          Environmental Impact
+        </div>
+        <div className="flex items-center gap-2">
+          <Leaf className="h-3 w-3 text-green-400 flex-shrink-0" />
+          <span className="text-[0.65rem] font-mono text-green-400">
+            -{project.co2ReductionKt.toLocaleString()} kt CO₂/yr
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Users className="h-3 w-3 text-cyan-400 flex-shrink-0" />
+          <span className="text-[0.65rem] font-mono text-cyan-400">
+            {project.jobsCreated.toLocaleString()} jobs
+          </span>
+        </div>
+      </div>
+
+      {/* SDG alignment */}
+      <div>
+        <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30 mb-2">
+          SDG Alignment
+        </div>
+        <div className="flex flex-wrap gap-1">
+          {project.sdgGoals.map((sdg) => (
+            <span
+              key={sdg}
+              className="font-mono text-[0.55rem] px-2 py-0.5 rounded bg-violet-500/15 text-violet-300 border border-violet-500/20"
+            >
+              SDG {sdg}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Impact score + verdict */}
+      <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+        <div className="flex items-center justify-between mb-2">
+          <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30">
+            Impact Score
+          </div>
+          <span className="font-mono text-[0.65rem] font-bold text-emerald-400">
+            {project.impactScore}/100
+          </span>
+        </div>
+        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden mb-3">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${project.impactScore}%` }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="h-full rounded-full bg-emerald-500"
+          />
         </div>
         <div className={`text-sm font-bold ${
           feasibility > 75 ? "text-green-400" : feasibility > 50 ? "text-amber-400" : "text-red-400"
         }`}>
           {feasibility > 75 ? "APROVADO" : feasibility > 50 ? "EM ANÁLISE" : "PENDENTE"}
         </div>
-        <p className="text-[0.6rem] text-white/40 mt-1">
-          ROI estimado: {project.roi} · Timeline: {project.timeline}
+        <p className="text-[0.58rem] text-white/40 mt-1">
+          ROI: {project.roi} · {project.timeline}
         </p>
       </div>
 
@@ -380,34 +483,131 @@ function TribunalReport({ project }: { project: InvestmentProject }) {
 }
 
 // ═══════════════════════════════════════════════
+// Portfolio Impact Summary — PLv6.2-b new panel
+// ═══════════════════════════════════════════════
+
+function PortfolioImpactSummary() {
+  const stats = computePortfolioStats(PROJECTS);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="space-y-5"
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <Target className="h-4 w-4 text-emerald-400" />
+        <h3 className="text-sm font-semibold">Portfolio Impact</h3>
+      </div>
+      <p className="text-[0.58rem] text-white/30 leading-relaxed">
+        Aggregate environmental and social metrics across all 5 projects.
+      </p>
+
+      {/* CO₂ reduction */}
+      <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+        <div className="flex items-center gap-2 mb-1">
+          <Leaf className="h-3 w-3 text-green-400" />
+          <span className="text-[0.55rem] uppercase tracking-[0.12em] text-white/30">
+            Total CO₂ Reduction
+          </span>
+        </div>
+        <span className="font-mono text-lg font-bold text-green-400">
+          {(stats.totalCo2 / 1000).toFixed(1)}Mt
+        </span>
+        <span className="text-[0.58rem] text-white/30 ml-1">per year</span>
+      </div>
+
+      {/* Jobs */}
+      <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+        <div className="flex items-center gap-2 mb-1">
+          <Users className="h-3 w-3 text-cyan-400" />
+          <span className="text-[0.55rem] uppercase tracking-[0.12em] text-white/30">
+            Jobs Created
+          </span>
+        </div>
+        <span className="font-mono text-lg font-bold text-cyan-400">
+          {stats.totalJobs.toLocaleString()}
+        </span>
+        <span className="text-[0.58rem] text-white/30 ml-1">direct + indirect</span>
+      </div>
+
+      {/* SDG coverage */}
+      <div>
+        <div className="text-[0.55rem] uppercase tracking-[0.12em] text-white/30 mb-2">
+          SDG Coverage ({stats.allSdg.length} goals)
+        </div>
+        <div className="flex flex-wrap gap-1">
+          {stats.allSdg.map((sdg) => (
+            <span
+              key={sdg}
+              className="font-mono text-[0.52rem] px-1.5 py-0.5 rounded bg-violet-500/12 text-violet-300 border border-violet-500/20"
+            >
+              {sdg}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Avg impact score */}
+      <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[0.55rem] uppercase tracking-[0.12em] text-white/30">
+            Avg Impact Score
+          </span>
+          <span className="font-mono text-[0.7rem] font-bold text-emerald-400">
+            {stats.avgImpact}/100
+          </span>
+        </div>
+        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${stats.avgImpact}%` }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+            className="h-full rounded-full bg-emerald-500"
+          />
+        </div>
+      </div>
+
+      <p className="text-[0.55rem] text-white/20 text-center pt-2">
+        Select a project for detailed analysis
+      </p>
+    </motion.div>
+  );
+}
+
+// ═══════════════════════════════════════════════
 // Main Page
 // ═══════════════════════════════════════════════
 
 export default function InvestorNexusPortal() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
+  useEffect(() => {
+    document.title = "Nexus Investor Portal — Living Investment Renders · Eternal Nexus";
+  }, []);
+
   const selected = PROJECTS.find((p) => p.id === selectedProject);
 
   return (
     <div className="h-screen w-screen flex overflow-hidden bg-[#04040e] text-white">
       {/* ═══ LEFT PANEL — Portfolio Overview ═══ */}
-      <aside className="w-[300px] min-w-[300px] h-full flex flex-col border-r border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
+      <aside className="w-[300px] min-w-[300px] h-full flex flex-col border-r border-white/[0.04] bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
         {/* Header */}
-        <div className="p-4 border-b border-white/5">
+        <div className="p-4 border-b border-white/[0.04]">
           <div className="flex items-center gap-2 mb-1">
-            <TrendingUp className="h-4 w-4 text-emerald-400" />
-            <h1 className="text-sm font-bold tracking-tight">
+            <TrendingUp className="h-4 w-4 text-gold" />
+            <h1 className="font-serif text-base font-light text-paper">
               Investor Portal
             </h1>
           </div>
-          <p className="text-[0.55rem] text-white/30 tracking-wide uppercase">
+          <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
             Nexus Living Renders · Real-Time ROI
           </p>
         </div>
 
         {/* Project List */}
         <div className="flex-1 overflow-y-auto p-3 space-y-1.5">
-          <div className="text-[0.55rem] uppercase tracking-[0.15em] text-white/30 px-1 mb-2">
+          <div className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 px-1 mb-2">
             Portfolio ({PROJECTS.length} projects)
           </div>
 
@@ -415,31 +615,31 @@ export default function InvestorNexusPortal() {
             <button
               key={p.id}
               onClick={() => setSelectedProject(p.id)}
-              className={`w-full text-left p-3 rounded-lg transition-all ${
+              className={`w-full text-left p-3 rounded-sm transition-all ${
                 selectedProject === p.id
-                  ? "bg-white/[0.06] border border-white/10"
-                  : "hover:bg-white/[0.03] border border-transparent"
+                  ? "bg-ink-medium/60 border border-white/[0.12]"
+                  : "bg-ink-medium/30 border border-white/[0.05] hover:border-white/[0.12]"
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
                 <div
-                  className="w-2 h-2 rounded-full"
+                  className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: p.color }}
                 />
-                <span className="text-[0.7rem] font-medium">{p.name}</span>
+                <span className="font-mono text-[0.65rem] font-light text-paper">{p.name}</span>
                 <span
-                  className={`ml-auto text-[0.5rem] uppercase px-1.5 py-0.5 rounded-full ${
+                  className={`ml-auto font-mono text-[0.45rem] tracking-[0.2em] uppercase px-1.5 py-0.5 rounded-sm ${
                     p.status === "active"
-                      ? "bg-green-500/10 text-green-400"
+                      ? "bg-green-500/10 text-green-400 border border-green-500/20"
                       : p.status === "pilot"
-                      ? "bg-amber-500/10 text-amber-400"
-                      : "bg-white/5 text-white/40"
+                      ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                      : "bg-white/[0.03] text-paper-dim/40 border border-white/[0.05]"
                   }`}
                 >
                   {p.status === "active" ? "Ativo" : p.status === "pilot" ? "Piloto" : "Planeamento"}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-[0.55rem] text-white/40">
+              <div className="flex items-center gap-3 font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">
                 <span className="flex items-center gap-0.5">
                   <DollarSign className="h-2.5 w-2.5" /> {p.investment}
                 </span>
@@ -451,7 +651,7 @@ export default function InvestorNexusPortal() {
                 </span>
               </div>
               <div className="mt-2">
-                <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-1 bg-white/[0.04] rounded-full overflow-hidden">
                   <div
                     className="h-full rounded-full transition-all"
                     style={{
@@ -460,29 +660,39 @@ export default function InvestorNexusPortal() {
                     }}
                   />
                 </div>
-                <span className="text-[0.5rem] text-white/30 font-mono">
-                  {p.progress}% complete
-                </span>
+                <div className="flex items-center justify-between mt-0.5">
+                  <span className="font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">
+                    {p.progress}% complete
+                  </span>
+                  <span className="font-mono text-[0.45rem] text-gold/60">
+                    ↓{p.co2ReductionKt}kt CO₂
+                  </span>
+                </div>
               </div>
             </button>
           ))}
         </div>
 
+        {/* Portfolio Analytics */}
+        <div className="p-3 border-t border-white/[0.04]">
+          <ProjectMetrics projects={PROJECTS} />
+        </div>
+
         {/* Aggregate Stats */}
-        <div className="p-4 border-t border-white/5">
+        <div className="p-4 border-t border-white/[0.04]">
           <div className="grid grid-cols-2 gap-2">
             {[
-              { icon: <DollarSign className="h-3 w-3" />, label: "Total", value: "€1.985B" },
-              { icon: <BarChart3 className="h-3 w-3" />, label: "Avg ROI", value: "8.6 yr" },
-              { icon: <Globe className="h-3 w-3" />, label: "Regions", value: "5" },
-              { icon: <Shield className="h-3 w-3" />, label: "Risk", value: "Moderate" },
+              { icon: <DollarSign className="h-3 w-3" />, label: "TOTAL", value: "€1.985B" },
+              { icon: <BarChart3 className="h-3 w-3" />, label: "AVG ROI", value: "8.6 yr" },
+              { icon: <Leaf className="h-3 w-3" />, label: "CO₂/YR", value: "9.5Mt" },
+              { icon: <Users className="h-3 w-3" />, label: "JOBS", value: "34.5K" },
             ].map((s) => (
-              <div key={s.label} className="p-2 rounded bg-white/[0.02]">
-                <div className="flex items-center gap-1 text-white/30 mb-0.5">
+              <div key={s.label} className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-2 hover:border-white/[0.12] transition-colors">
+                <div className="flex items-center gap-1 text-gold/60 mb-0.5">
                   {s.icon}
-                  <span className="text-[0.5rem]">{s.label}</span>
+                  <span className="font-mono text-[0.45rem] tracking-[0.2em] uppercase text-paper-dim/40">{s.label}</span>
                 </div>
-                <span className="text-[0.65rem] font-semibold">{s.value}</span>
+                <span className="font-mono text-lg font-light text-gold">{s.value}</span>
               </div>
             ))}
           </div>
@@ -547,15 +757,17 @@ export default function InvestorNexusPortal() {
         </div>
       </main>
 
-      {/* ═══ RIGHT PANEL — Tribunal Report ═══ */}
-      <aside className="w-[280px] min-w-[280px] h-full flex flex-col border-l border-white/5 bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
-        <div className="p-4 border-b border-white/5">
+      {/* ═══ RIGHT PANEL — Tribunal Report / Portfolio Impact ═══ */}
+      <aside className="w-[280px] min-w-[280px] h-full flex flex-col border-l border-white/[0.04] bg-[#08081a]/95 backdrop-blur-xl overflow-hidden">
+        <div className="p-4 border-b border-white/[0.04]">
           <div className="flex items-center gap-2">
-            <Zap className="h-4 w-4 text-amber-400" />
-            <h2 className="text-sm font-bold">Tribunal Report</h2>
+            <Zap className="h-4 w-4 text-gold" />
+            <h2 className="font-serif text-base font-light text-paper">
+              {selected ? "Tribunal Report" : "Portfolio Impact"}
+            </h2>
           </div>
-          <p className="text-[0.55rem] text-white/30 mt-0.5">
-            Auto-generated analysis
+          <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mt-0.5">
+            {selected ? "Auto-generated analysis" : "Aggregate environmental + social metrics"}
           </p>
         </div>
 
@@ -564,29 +776,21 @@ export default function InvestorNexusPortal() {
             {selected ? (
               <TribunalReport key={selected.id} project={selected} />
             ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="h-full flex items-center justify-center"
-              >
-                <p className="text-[0.6rem] text-white/20 text-center">
-                  Select a project to view<br />Tribunal analysis
-                </p>
-              </motion.div>
+              <PortfolioImpactSummary key="portfolio" />
             )}
           </AnimatePresence>
         </div>
 
         {/* Investor Partners */}
-        <div className="p-4 border-t border-white/5">
-          <div className="text-[0.5rem] uppercase tracking-[0.15em] text-white/30 mb-2">
+        <div className="p-4 border-t border-white/[0.04]">
+          <div className="font-mono text-[0.45rem] tracking-[0.25em] uppercase text-paper-dim/40 mb-2">
             Target Investors
           </div>
           <div className="flex flex-wrap gap-1">
             {["EU Fund", "World Bank", "Banco Africano", "Emirates IA", "China Dev"].map((inv) => (
               <span
                 key={inv}
-                className="text-[0.5rem] px-2 py-0.5 rounded-full bg-white/[0.04] text-white/40 border border-white/5"
+                className="font-mono text-[0.45rem] tracking-[0.15em] uppercase px-2 py-0.5 rounded-sm bg-ink-medium/60 text-paper-dim/40 border border-white/[0.05] hover:border-white/[0.12] transition-colors"
               >
                 {inv}
               </span>

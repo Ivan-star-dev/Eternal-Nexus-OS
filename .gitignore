@@ -1,4 +1,5 @@
 # Logs
+/logs/
 logs
 *.log
 npm-debug.log*
@@ -12,6 +13,23 @@ dist
 dist-ssr
 *.local
 
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Certificate and private key files
+*.pem
+*.key
+*.p12
+
+# Lock file — npm is canonical; bun.lock is not tracked
+bun.lock
+bun.lockb
+
+# Vite config timestamp caches
+vite.config.ts.timestamp-*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,9 +41,21 @@ dist-ssr
 *.sln
 *.sw?
 
+# Local desktop worktrees
+/_worktrees/
+
+# Optional private strategy vault
+NEXUS_CONTEXT/_private/
 # Vite dev server temp files
 *.timestamp*.mjs
 
 # CI/typecheck local output artifacts
 npm_ci_output.txt
 typecheck_filtered.txt
+
+# Claude Code local tooling — worktrees e estado local ignorados
+.claude/
+# Exceções: settings e hooks são infra canónica do sistema
+!.claude/settings.json
+!.claude/hooks/
+!.claude/hooks/*.sh

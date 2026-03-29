@@ -1,8 +1,9 @@
-import React, { useRef, useMemo, useState, useCallback } from "react";
+import React, { useRef, useMemo, useState, useCallback, useEffect } from "react";
 import { Canvas, useFrame, type ThreeElements } from "@react-three/fiber";
 import { OrbitControls, Float, Sparkles } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
 import {
   ArrowRight,
   Globe,
@@ -243,14 +244,14 @@ function ConnectionArc({
 
   return (
     <group>
-      <line ref={lineRef} geometry={lineGeom}>
+      <threeLine ref={lineRef} geometry={lineGeom}>
         <lineBasicMaterial
           color={color}
           transparent
           opacity={0.25}
           blending={THREE.AdditiveBlending}
         />
-      </line>
+      </threeLine>
       <points ref={particlesRef} geometry={particleGeom}>
         <pointsMaterial
           size={0.04}
@@ -336,9 +337,9 @@ function SliderInput({
 }) {
   return (
     <div className="space-y-1">
-      <div className="flex justify-between text-xs">
-        <span className="text-white/60">{label}</span>
-        <span className="text-white/90 font-medium tabular-nums">
+      <div className="flex justify-between items-baseline">
+        <span className="font-mono text-[0.55rem] tracking-[0.12em] text-gold/60 uppercase">{label}</span>
+        <span className="font-mono text-xs text-paper tabular-nums">
           {unit === "€"
             ? `€${value}M`
             : `${value}${unit}`}
@@ -354,10 +355,10 @@ function SliderInput({
         className="w-full h-1 appearance-none bg-white/10 rounded-full cursor-pointer
                    [&::-webkit-slider-thumb]:appearance-none
                    [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3
-                   [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-violet-400
-                   [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(167,139,250,0.6)]
+                   [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gold/80
+                   [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(212,162,87,0.5)]
                    [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3
-                   [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-violet-400
+                   [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-gold/80
                    [&::-moz-range-thumb]:border-0"
       />
     </div>
@@ -382,11 +383,16 @@ function TribunalPanel() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-2 mb-2">
-        <Scale className="w-5 h-5 text-violet-400" />
-        <h2 className="text-sm font-semibold tracking-wide uppercase text-white/80">
-          Tribunal de Cenários
-        </h2>
+      <div className="mb-4">
+        <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-2">
+          Módulo · Avaliação
+        </p>
+        <div className="flex items-center gap-2">
+          <Scale className="w-4 h-4 text-gold/60" />
+          <h2 className="font-serif text-xl font-light text-paper">
+            Tribunal de Cenários
+          </h2>
+        </div>
       </div>
 
       {scenarios.map((scenario) => {
@@ -397,10 +403,10 @@ function TribunalPanel() {
           <motion.div
             key={scenario.id}
             layout
-            className="rounded-xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-4 space-y-3"
+            className="bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4 space-y-3"
           >
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-white/90">
+              <span className="font-serif text-sm font-light text-paper">
                 {scenario.label}
               </span>
               <AnimatePresence mode="wait">
@@ -410,11 +416,12 @@ function TribunalPanel() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: 4 }}
                   transition={{ duration: 0.3 }}
-                  className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold"
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 font-mono text-[0.55rem] tracking-[0.08em] uppercase"
                   style={{
                     backgroundColor: `${vColor}18`,
                     color: vColor,
                     boxShadow: `0 0 12px ${vColor}20`,
+                    border: `1px solid ${vColor}30`,
                   }}
                 >
                   {verdictIcon(verdict)}
@@ -453,9 +460,9 @@ function TribunalPanel() {
 
             {/* Score bar */}
             <div className="pt-1">
-              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-px w-full bg-white/5 overflow-hidden">
                 <motion.div
-                  className="h-full rounded-full"
+                  className="h-full"
                   style={{ backgroundColor: vColor }}
                   animate={{
                     width: `${Math.min(
@@ -491,18 +498,19 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.6, ease: EASE_OUT },
   },
 };
 
 export default function PlataformaNacional() {
+  useEffect(() => {
+    document.title = 'Plataforma Nacional de Infraestrutura Viva · Eternal Nexus';
+  }, []);
+
   return (
     <div
       className="min-h-screen w-full overflow-x-hidden"
-      style={{
-        backgroundColor: "#04040e",
-        fontFamily: "'Poppins', system-ui, sans-serif",
-      }}
+      style={{ backgroundColor: "#04040e" }}
     >
       <motion.div
         variants={containerVariants}
@@ -510,20 +518,23 @@ export default function PlataformaNacional() {
         animate="visible"
         className="flex flex-col h-screen"
       >
-        {/* ── Header ── */}
+        {/* ── Hero Header ── */}
         <motion.header
           variants={itemVariants}
           className="relative z-10 px-6 pt-8 pb-4 lg:px-10"
         >
           <div className="flex items-start justify-between">
             <div>
+              <p className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase mb-3">
+                República · Infraestrutura Viva
+              </p>
               <div className="flex items-center gap-3 mb-2">
-                <Globe className="w-6 h-6 text-violet-400" />
-                <h1 className="text-xl lg:text-2xl font-bold tracking-tight text-white">
+                <Globe className="w-5 h-5 text-gold/60" />
+                <h1 className="font-serif text-3xl md:text-4xl font-light text-paper">
                   Plataforma Nacional de Infraestrutura Viva
                 </h1>
               </div>
-              <p className="text-sm text-white/40 tracking-wide ml-9">
+              <p className="font-serif text-sm text-paper-dim/80 leading-relaxed ml-8">
                 Atlas + Tribunal &middot; Cabo Verde &amp; Países Baixos
               </p>
             </div>
@@ -532,16 +543,14 @@ export default function PlataformaNacional() {
             <div className="hidden md:flex items-center gap-3">
               <motion.span
                 variants={itemVariants}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
-                           bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                className="inline-flex items-center gap-1.5 border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.12em] uppercase px-3 py-1.5"
               >
                 <Activity className="w-3 h-3" />
                 Cabo Verde — Piloto Ativo
               </motion.span>
               <motion.span
                 variants={itemVariants}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
-                           bg-violet-500/10 text-violet-400 border border-violet-500/20"
+                className="inline-flex items-center gap-1.5 border border-gold/40 text-gold/70 font-mono text-[0.6rem] tracking-[0.12em] uppercase px-3 py-1.5"
               >
                 <Leaf className="w-3 h-3" />
                 Países Baixos — Fase &beta;
@@ -556,7 +565,7 @@ export default function PlataformaNacional() {
           className="flex-1 flex flex-col lg:flex-row gap-4 px-4 lg:px-8 pb-4 min-h-0"
         >
           {/* 3D Canvas */}
-          <div className="relative flex-1 rounded-2xl overflow-hidden border border-white/[0.06] bg-black/30">
+          <div className="relative flex-1 rounded-sm overflow-hidden border border-white/[0.05] bg-black/30">
             <Canvas
               camera={{ position: [0, 2, 6], fov: 45 }}
               gl={{
@@ -578,8 +587,7 @@ export default function PlataformaNacional() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1 + i * 0.15, duration: 0.5 }}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/50 backdrop-blur-md
-                             border border-white/[0.06]"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-ink-medium/60 border border-white/[0.05] backdrop-blur-md"
                 >
                   <span
                     className="w-2 h-2 rounded-full"
@@ -588,10 +596,10 @@ export default function PlataformaNacional() {
                       boxShadow: `0 0 8px ${node.color}80`,
                     }}
                   />
-                  <span className="text-xs text-white/70 font-medium">
+                  <span className="font-mono text-[0.6rem] tracking-[0.08em] text-paper/70">
                     {node.name}
                   </span>
-                  <span className="text-[10px] text-white/30 hidden sm:inline">
+                  <span className="font-serif text-[10px] text-paper-dim/30 hidden sm:inline">
                     {node.description}
                   </span>
                 </motion.div>
@@ -602,8 +610,7 @@ export default function PlataformaNacional() {
           {/* Right Sidebar — Tribunal */}
           <motion.aside
             variants={itemVariants}
-            className="w-full lg:w-80 xl:w-96 shrink-0 overflow-y-auto rounded-2xl
-                       border border-white/[0.06] bg-white/[0.01] backdrop-blur-sm p-5"
+            className="w-full lg:w-80 xl:w-96 shrink-0 overflow-y-auto bg-ink-medium/60 border border-white/[0.05] rounded-sm p-5"
           >
             <TribunalPanel />
           </motion.aside>
@@ -621,8 +628,8 @@ export default function PlataformaNacional() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.5 + i * 0.1 }}
-                  className="text-xs font-medium px-3 py-1 rounded-full
-                             bg-white/[0.04] text-white/50 hover:text-white/80 hover:bg-white/[0.08]
+                  className="font-mono text-[0.6rem] tracking-[0.12em] uppercase px-3 py-1
+                             border border-white/[0.05] text-paper-dim/50 hover:text-gold/70 hover:border-gold/20
                              transition-colors cursor-default"
                 >
                   {stage}
@@ -633,7 +640,7 @@ export default function PlataformaNacional() {
                     animate={{ opacity: 0.4, x: 0 }}
                     transition={{ delay: 1.6 + i * 0.1 }}
                   >
-                    <ArrowRight className="w-3 h-3 text-violet-400/60" />
+                    <ArrowRight className="w-3 h-3 text-gold/40" />
                   </motion.span>
                 )}
               </React.Fragment>
@@ -643,15 +650,13 @@ export default function PlataformaNacional() {
           {/* Mobile pilot badges */}
           <div className="flex md:hidden items-center justify-center gap-3 mt-3">
             <span
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium
-                         bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+              className="inline-flex items-center gap-1.5 border border-gold/60 text-gold font-mono text-[0.55rem] tracking-[0.1em] uppercase px-3 py-1"
             >
               <Activity className="w-2.5 h-2.5" />
               Cabo Verde — Piloto Ativo
             </span>
             <span
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium
-                         bg-violet-500/10 text-violet-400 border border-violet-500/20"
+              className="inline-flex items-center gap-1.5 border border-gold/40 text-gold/70 font-mono text-[0.55rem] tracking-[0.1em] uppercase px-3 py-1"
             >
               <Leaf className="w-2.5 h-2.5" />
               Países Baixos — Fase &beta;

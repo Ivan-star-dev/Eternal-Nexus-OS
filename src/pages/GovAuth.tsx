@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import { Shield, Lock, Fingerprint, ChevronRight, AlertTriangle } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
 const govIdTypes = [
@@ -35,6 +35,13 @@ const GovAuth = () => {
   const { t } = useLanguage();
   const { signUp, signIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  // Redirect to the page the user was trying to reach, or fall back to /dashboard
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? "/dashboard";
+
+  useEffect(() => {
+    document.title = "Government Authentication — Eternal Nexus";
+  }, []);
   const [mode, setMode] = useState<"login" | "register">("login");
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -46,7 +53,7 @@ const GovAuth = () => {
   });
 
   const totalSteps = mode === "register" ? 3 : 1;
-  const inputClass = "w-full bg-background border border-border px-4 py-3 font-mono text-[0.72rem] text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none transition-colors";
+  const inputClass = "w-full bg-ink-medium/40 border border-white/[0.08] rounded-sm font-mono text-sm text-paper placeholder:text-paper-dim/30 focus:border-gold/40 focus:outline-none px-4 py-3 transition-colors";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,7 +85,7 @@ const GovAuth = () => {
       } else {
         await signIn(form.email, form.password);
         toast({ title: "Authenticated", description: "Access granted." });
-        navigate("/");
+        navigate(from, { replace: true });
       }
     } catch (err: any) {
       toast({ title: "Error", description: err.message, variant: "destructive" });
@@ -102,22 +109,22 @@ const GovAuth = () => {
         <div className="max-w-[600px] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             {/* Header */}
-            <span className="section-label flex items-center gap-2 mb-4">
-              <span className="w-7 h-px bg-primary inline-block" />
-              RESTRICTED ACCESS PROTOCOL
+            <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase block mb-3">
+              Restricted Access Protocol · Institutional
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-2">
-              Government <span className="text-primary">Authentication</span>
+            <h1 className="font-serif text-3xl md:text-4xl font-light text-paper mb-2">
+              Government Authentication
             </h1>
+            <div className="border-t border-white/[0.04] my-4" />
             <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-8 max-w-lg">
               This platform is restricted to verified government entities and authorised institutional
               representatives. All sessions are logged, timestamped, and attributed.
             </p>
 
             {/* Auth Box */}
-            <div className="border border-primary/20 bg-card overflow-hidden">
+            <div className="border border-white/[0.08] bg-ink-medium/40 overflow-hidden rounded-sm">
               {/* Box Header */}
-              <div className="bg-secondary/50 px-6 py-4 border-b border-border flex items-center justify-between">
+              <div className="bg-ink-medium/60 px-6 py-4 border-b border-white/[0.04] flex items-center justify-between">
                 <span className="font-mono text-[0.62rem] tracking-[0.14em] text-foreground/80">
                   Next Path Infra · Secure Authentication · Step {step} of {totalSteps}
                 </span>
@@ -136,7 +143,7 @@ const GovAuth = () => {
               </div>
 
               {/* Mode toggle */}
-              <div className="flex border-b border-border mx-6 mt-5">
+              <div className="flex border-b border-white/[0.04] mx-6 mt-5">
                 <button
                   onClick={() => { setMode("login"); setStep(1); }}
                   className={`flex-1 py-3 font-mono text-[0.62rem] tracking-[0.12em] transition-colors border-b-2 ${
@@ -227,7 +234,7 @@ const GovAuth = () => {
                 </AnimatePresence>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-border mt-6">
+                <div className="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-6">
                   {/* Step indicators */}
                   <div className="flex gap-1.5">
                     {Array.from({ length: totalSteps }).map((_, i) => (
@@ -248,7 +255,7 @@ const GovAuth = () => {
                       </button>
                     )}
                     <button type="submit" disabled={loading}
-                      className="px-6 py-2.5 bg-primary text-primary-foreground font-mono text-[0.62rem] tracking-[0.12em] hover:bg-primary/90 transition-colors disabled:opacity-50 flex items-center gap-2">
+                      className="px-6 py-2.5 bg-gold/10 border border-gold/60 text-gold font-mono text-[0.6rem] tracking-[0.15em] uppercase hover:bg-gold/20 transition-colors disabled:opacity-50 flex items-center gap-2">
                       <Lock className="w-3.5 h-3.5" />
                       {mode === "register" && step < totalSteps ? "CONTINUE" : mode === "register" ? "SUBMIT FOR VERIFICATION" : "AUTHENTICATE"}
                       {mode === "register" && step < totalSteps && <ChevronRight className="w-3.5 h-3.5" />}

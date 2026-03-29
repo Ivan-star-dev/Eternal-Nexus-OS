@@ -1,0 +1,34 @@
+name: Performance Budget Gates
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/gates/performance/**'
+      - 'package.json'
+      - 'playwright.config.ts'
+  push:
+    branches: [main]
+
+jobs:
+  validate-memory-budget:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Build app for preview server
+        run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://placeholder.supabase.co' }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'placeholder-key' }}
+      - name: Run Memory Performance Gate (MapLibre/PMTiles)
+        run: npm run test:perf

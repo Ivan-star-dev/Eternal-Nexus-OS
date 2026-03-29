@@ -1,0 +1,2 @@
+# GLOSSARY
+_stub_

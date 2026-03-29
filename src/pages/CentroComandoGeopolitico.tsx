@@ -1,10 +1,12 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
+import type React from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, Float, Text, MeshDistortMaterial, Line } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Activity, Radio, AlertTriangle, Clock, Crosshair } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
 
 // ═══════════════════════════════════════════════════
 // Centro de Comando Geopolítico — Holographic War Room
@@ -82,7 +84,7 @@ function HolographicTable() {
   });
 
   const gridLines = useMemo(() => {
-    const lines: JSX.Element[] = [];
+    const lines: React.ReactElement[] = [];
     const count = 20;
     const size = 5;
     for (let i = 0; i <= count; i++) {
@@ -385,13 +387,13 @@ function LeftPanel() {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: EASE_OUT }}
       className="absolute left-4 top-20 z-10 w-72 space-y-4"
     >
       {/* EI Status */}
-      <div className="rounded-xl border border-white/5 bg-black/60 p-4 backdrop-blur-xl">
-        <h3 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400">
-          <Radio className="h-3.5 w-3.5" />
+      <div className="rounded-sm border border-white/[0.05] bg-ink-medium/60 p-4 backdrop-blur-xl">
+        <h3 className="mb-3 flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
+          <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
           Análise Estratégica
         </h3>
         <div className="space-y-3">
@@ -404,7 +406,7 @@ function LeftPanel() {
                   <p className="text-[10px] text-white/40">{agent.role}</p>
                 </div>
               </div>
-              <span className="rounded bg-emerald-500/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400">
+              <span className="rounded-sm border border-white/[0.05] bg-ink-medium/60 px-1.5 py-0.5 font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">
                 ONLINE
               </span>
             </div>
@@ -413,17 +415,17 @@ function LeftPanel() {
       </div>
 
       {/* Threat Count */}
-      <div className="rounded-xl border border-white/5 bg-black/60 p-4 backdrop-blur-xl">
+      <div className="rounded-sm border bg-rose-500/[0.04] border-rose-500/20 p-4 backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="h-4 w-4 text-red-400" />
-            <span className="text-xs font-medium text-white/70">Ameaças Ativas</span>
+            <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+            <span className="font-mono text-[0.48rem] tracking-[0.1em] text-rose-400 uppercase">Ameaças Ativas</span>
           </div>
           <motion.span
             key="threats"
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-red-500/20 text-sm font-bold text-red-400"
+            className="flex h-7 w-7 items-center justify-center rounded-sm bg-rose-500/20 text-sm font-bold text-rose-400"
           >
             7
           </motion.span>
@@ -431,13 +433,13 @@ function LeftPanel() {
       </div>
 
       {/* Routes Count */}
-      <div className="rounded-xl border border-white/5 bg-black/60 p-4 backdrop-blur-xl">
+      <div className="rounded-sm border border-white/[0.05] bg-ink-medium/60 p-4 backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Activity className="h-4 w-4 text-cyan-400" />
-            <span className="text-xs font-medium text-white/70">Rotas de Influência</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">Rotas de Influência</span>
           </div>
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500/20 text-sm font-bold text-cyan-400">
+          <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-cyan-500/20 text-sm font-bold text-cyan-400">
             {HVDC_ROUTES.length}
           </span>
         </div>
@@ -458,12 +460,12 @@ function RightPanel() {
     <motion.div
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: EASE_OUT }}
       className="absolute right-4 top-20 z-10 w-80 space-y-4"
     >
-      <div className="rounded-xl border border-white/5 bg-black/60 p-4 backdrop-blur-xl">
-        <h3 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400">
-          <Crosshair className="h-3.5 w-3.5" />
+      <div className="rounded-sm border border-white/[0.05] bg-ink-medium/60 p-4 backdrop-blur-xl">
+        <h3 className="mb-3 flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.28em] text-rose-400 uppercase">
+          <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
           Decisão Estratégica
         </h3>
 
@@ -472,7 +474,7 @@ function RightPanel() {
             <Button
               key={scenario.id}
               variant="outline"
-              className="w-full justify-start border-white/10 bg-white/5 text-xs text-white/80 hover:bg-cyan-500/10 hover:text-cyan-300 hover:border-cyan-500/30"
+              className="w-full justify-start border-white/[0.05] bg-ink-medium/60 font-mono text-[0.6rem] tracking-[0.1em] text-paper-dim/60 hover:bg-rose-500/10 hover:text-rose-300 hover:border-rose-500/30 rounded-sm"
               onClick={() => handleScenarioClick(scenario)}
             >
               <Shield className="mr-2 h-3.5 w-3.5 text-cyan-500/60" />
@@ -492,8 +494,8 @@ function RightPanel() {
               transition={{ duration: 0.5 }}
               className="mt-4 space-y-3"
             >
-              <div className="rounded-lg border border-cyan-500/20 bg-cyan-500/5 p-3">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-400/60 mb-1.5">
+              <div className="rounded-sm border border-rose-500/20 bg-rose-500/[0.04] p-3">
+                <p className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-1.5">
                   Veredito EI
                 </p>
                 <motion.p
@@ -509,7 +511,7 @@ function RightPanel() {
               {/* Confidence Meter */}
               <div>
                 <div className="mb-1 flex items-center justify-between">
-                  <span className="text-[10px] uppercase tracking-widest text-white/40">
+                  <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40 uppercase">
                     Confiança
                   </span>
                   <span className="text-xs font-bold text-cyan-400">
@@ -520,7 +522,7 @@ function RightPanel() {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${activeScenario.confidence}%` }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, ease: EASE_OUT }}
                     className="h-full rounded-full"
                     style={{
                       background: `linear-gradient(90deg, #00ffcc, ${
@@ -551,21 +553,25 @@ function TopBar() {
     <motion.div
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6, ease: EASE_OUT }}
       className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between border-b border-white/5 bg-black/70 px-6 py-3 backdrop-blur-xl"
     >
       <div className="flex items-center gap-4">
-        <Shield className="h-5 w-5 text-cyan-400" />
-        <h1 className="text-sm font-bold uppercase tracking-[0.25em] text-white/90">
-          Centro de Comando Geopolítico
-        </h1>
-        <span className="rounded border border-red-500/30 bg-red-500/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-red-400">
+        <div>
+          <p className="font-mono text-[0.48rem] tracking-[0.28em] text-rose-400/60 uppercase mb-0.5">
+            NEXUS GEOPOLITICAL COMMAND · CLASSIFIED
+          </p>
+          <h1 className="font-serif text-3xl md:text-4xl font-light text-paper leading-none">
+            Centro de Comando Geopolítico
+          </h1>
+        </div>
+        <span className="rounded-sm border border-rose-500/30 bg-rose-500/[0.04] px-2 py-0.5 text-[9px] font-mono tracking-widest text-rose-400 uppercase">
           CLASSIFICADO
         </span>
       </div>
-      <div className="flex items-center gap-3 text-white/40">
-        <Clock className="h-3.5 w-3.5" />
-        <span className="font-mono text-xs">{time}</span>
+      <div className="flex items-center gap-2">
+        <span className="animate-pulse bg-rose-500 rounded-full w-1.5 h-1.5 shrink-0" />
+        <span className="font-mono text-[0.48rem] tracking-[0.1em] text-paper-dim/40">{time}</span>
       </div>
     </motion.div>
   );
@@ -574,6 +580,11 @@ function TopBar() {
 // ═══════════ Main Page ═══════════
 
 export default function CentroComandoGeopolitico() {
+  useEffect(() => {
+    document.title = "Geopolitical Command — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, []);
+
   return (
     <div className="relative h-screen w-screen overflow-hidden" style={{ backgroundColor: "#02020a" }}>
       <TopBar />

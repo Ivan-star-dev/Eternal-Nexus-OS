@@ -20,6 +20,11 @@ import GrainOverlay from "@/components/GrainOverlay";
 import StreetViewMode from "@/components/atlas/StreetViewMode";
 import { Canvas } from "@react-three/fiber";
 import { useRealtimeData } from "@/hooks/useRealtimeData";
+import { useWorldBankProject } from "@/hooks/useWorldBankProject";
+import WorldBankBar from "@/components/atlas/WorldBankBar";
+import { useSessionMemory } from "@/hooks/useSessionMemory";
+import { geoIdToRoute, hasProjectPage } from "@/lib/projectBridge";
+import { useNavigate } from "react-router-dom";
 
 // sacred flow — Atlas mode system
 import type { AtlasMode, QualityTier } from "@/lib/atlas/atlas-state";
@@ -64,6 +69,11 @@ function altitudeToLOD(height: number): LODLevel {
 
 // ═══ sacred flow — Main Atlas Page with CesiumJS + Mode System ═══
 export default function AtlasPage() {
+  // V3 — document title
+  useEffect(() => {
+    document.title = "Atlas — Eternal Nexus OS";
+  }, []);
+
   // sacred flow — mode system state
   const [mode, setMode] = useState<AtlasMode>("clean");
   const [quality] = useState<QualityTier>(() => tierToQuality(detectDeviceTier()));
@@ -85,6 +95,13 @@ export default function AtlasPage() {
   const cesiumRef = useRef<CesiumViewerHandle>(null);
   const sound = useSoundManager();
   const { user } = useAuth();
+
+  // V4-ATLAS-001: WorldBank macro data for selected project's country
+  const worldBankData = useWorldBankProject(selectedProject);
+
+  // V4-PROJECT-PAGE-001: session memory + navigation bridge
+  const { setGlobeFocus } = useSessionMemory();
+  const navigate = useNavigate();
 
   // sacred flow — layer visibility (controlled by right panel)
   const [layers, setLayers] = useState({
@@ -111,12 +128,20 @@ export default function AtlasPage() {
     setLod(altitudeToLOD(height));
   }, []);
 
-  // sacred flow — project selection with fly-to
+  // sacred flow — project selection with fly-to + session memory
   const handleSelectProject = useCallback((p: GeoProject) => {
     setSelectedProject(p);
     sound.playNavigate();
     cesiumRef.current?.flyTo(p.lat, p.lon, 500000);
-  }, [sound]);
+    // V4-PROJECT-PAGE-001: persist globe focus to session
+    setGlobeFocus(`geo:${p.id}`);
+  }, [sound, setGlobeFocus]);
+
+  // V4-PROJECT-PAGE-001: navigate to full project page from globe
+  const handleOpenProjectPage = useCallback((p: GeoProject) => {
+    const route = geoIdToRoute(p.id);
+    if (route) navigate(route);
+  }, [navigate]);
 
   useEffect(() => {
     if (realtimeData?.length) {
@@ -210,6 +235,15 @@ export default function AtlasPage() {
       <VignetteOverlay />
       <GrainOverlay />
 
+      {/* V3 — hero label: geographic intelligence identity */}
+      {!isFlyMode && (
+        <div className="fixed top-16 left-4 z-50 pointer-events-none">
+          <span className="font-mono text-[0.48rem] tracking-[0.28em] text-gold/60 uppercase">
+            ATLAS ENGINE · GEOGRAPHIC INTELLIGENCE
+          </span>
+        </div>
+      )}
+
       {/* sacred flow — new UI shell */}
       {!isFlyMode && (
         <>
@@ -226,20 +260,26 @@ export default function AtlasPage() {
 
           <AgentStatusOverlay />
           
-          <div className="fixed bottom-4 left-4 z-40">
+          <div className="fixed bottom-4 left-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
             <WeatherOverlay
               projectName={selectedProject?.name}
               lat={selectedProject?.lat}
               lon={selectedProject?.lon}
             />
           </div>
+
+          {/* V4-ATLAS-001 — WorldBank macro bar: GDP · population · FDI */}
+          <WorldBankBar
+            data={worldBankData}
+            projectName={selectedProject?.name ?? ""}
+          />
         </>
       )}
 
       {!isFlyMode && <FlyModeHint />}
 
       {/* sacred flow — CesiumJS globe (terrain, 3D tiles, infinite zoom) */}
-      <div className="absolute inset-0" onContextMenu={handleContextMenu}>
+      <div className="absolute inset-0 border border-white/[0.05] rounded-sm overflow-hidden" onContextMenu={handleContextMenu}>
         <CesiumViewerComponent
           ref={cesiumRef}
           mode={mode}
@@ -294,7 +334,7 @@ export default function AtlasPage() {
 
       {/* sacred flow — project detail panels */}
       {selectedProject && !isFlyMode && (
-        <div className="fixed bottom-4 right-4 z-40">
+        <div className="fixed bottom-4 right-4 z-40 bg-ink-medium/60 border border-white/[0.05] rounded-sm p-4">
           <EnvironmentPanel project={selectedProject} />
         </div>
       )}
@@ -303,6 +343,7 @@ export default function AtlasPage() {
         <ProjectInspector
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
+          onOpenPage={handleOpenProjectPage}
         />
       )}
 

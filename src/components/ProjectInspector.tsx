@@ -1,10 +1,12 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { X } from "lucide-react";
+import { X, FileText, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import { EASE_OUT } from "@/lib/motion/config";
+import { hasProjectPage } from "@/lib/projectBridge";
 
 interface InspectorProject {
   id: number;
@@ -72,9 +74,11 @@ function InspectorPreview3D({ color }: { color: string }) {
 export default function ProjectInspector({
   project,
   onClose,
+  onOpenPage,
 }: {
   project: InspectorProject;
   onClose: () => void;
+  onOpenPage?: (project: InspectorProject) => void;
 }) {
   const sound = useSoundManager();
   const isNPI = project.status === "Ω CLEARANCE";
@@ -98,7 +102,7 @@ export default function ProjectInspector({
           initial={{ scale: 0.75, opacity: 0, y: 60 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.75, opacity: 0, y: 60 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
           className="relative w-[94vw] max-w-4xl overflow-hidden"
           style={{
             border: "1px solid rgba(212, 175, 55, 0.25)",
@@ -226,6 +230,27 @@ export default function ProjectInspector({
                     KENSHO LAYER 5.5 · 4K PROCEDURAL
                   </p>
                 </div>
+
+                {/* V4-PROJECT-PAGE-001: open full dossier CTA */}
+                {hasProjectPage(project.id) && onOpenPage && (
+                  <button
+                    onClick={() => {
+                      sound.playNavigate?.();
+                      onOpenPage(project);
+                    }}
+                    className="w-full flex items-center justify-between gap-2 px-4 py-2.5 mt-2 font-mono text-[0.52rem] tracking-[0.15em] uppercase transition-all hover:bg-primary/10"
+                    style={{
+                      border: "1px solid rgba(212, 175, 55, 0.3)",
+                      color: "rgba(212, 175, 55, 0.8)",
+                    }}
+                  >
+                    <span className="flex items-center gap-2">
+                      <FileText className="w-3 h-3" />
+                      View Full Dossier
+                    </span>
+                    <ExternalLink className="w-3 h-3 opacity-60" />
+                  </button>
+                )}
               </div>
             </div>
           </div>

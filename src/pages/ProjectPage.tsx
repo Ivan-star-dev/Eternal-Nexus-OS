@@ -1,7 +1,8 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { useSessionMemory, readSessionSnapshot } from "@/hooks/useSessionMemory";
 import Layout from "@/components/Layout";
 import PageTransition from "@/components/PageTransition";
 import ProjectNotes from "@/components/ProjectNotes";
@@ -16,18 +17,74 @@ import RiskTab from "@/components/project/RiskTab";
 import TimelineTab from "@/components/project/TimelineTab";
 import FinancialTab from "@/components/project/FinancialTab";
 import { useLanguage } from "@/contexts/LanguageContext";
-import projectData from "@/data/projects";
+import { useSession } from "@/contexts/SessionContext";
+import { EASE_OUT } from "@/lib/motion/config";
+import { useProjectData } from "@/hooks/useProjectData";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
+// V3: status badge colour map
+const statusBadgeClass: Record<string, string> = {
+  active: "text-yellow-400 border-yellow-400/40 bg-yellow-400/10",
+  completed: "text-emerald-400 border-emerald-400/40 bg-emerald-400/10",
+  "in-progress": "text-blue-400 border-blue-400/40 bg-blue-400/10",
+};
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
-  const project = id ? projectData[id] : null;
-  const [activeTab, setActiveTab] = useState("overview");
+  const { session, startSession, updateReEntry, updateFruit } = useSession();
+  // V6-PROJECT-DETAIL-001: live data from Supabase overlaid on static shell
+  const { project, liveRow, isLive } = useProjectData(id);
+
+  // Restore last tab from session if the session subject matches this project.
+  const VALID_TABS = new Set(["overview", "simulation", "technical", "financial", "risk", "timeline", "documents"]);
+  const restoredTab = (
+    session?.subject?.toLowerCase() === project?.title?.toLowerCase() &&
+    session?.re_entry_point &&
+    VALID_TABS.has(session.re_entry_point)
+  ) ? session.re_entry_point : "overview";
+
+  const [activeTab, setActiveTab] = useState(restoredTab);
+  const [tabUserChanged, setTabUserChanged] = useState(false);
+
+  // V4-PROJECT-PAGE-001 — session carryover: persist last project + detect returning visitor
+  const { setLastProject } = useSessionMemory();
+  const [isReturningVisitor, setIsReturningVisitor] = useState(false);
+
+  useEffect(() => {
+    if (!id) return;
+    const snap = readSessionSnapshot();
+    // Returning visitor = visitCount > 1 AND they've been here before
+    if (snap && snap.visitCount > 1 && snap.lastProject === id) {
+      setIsReturningVisitor(true);
+    }
+    setLastProject(id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  // V3: dynamic document title
+  useEffect(() => {
+    document.title = project ? `${project.title} — Eternal Nexus OS` : "Project — Eternal Nexus OS";
+    return () => { document.title = "Eternal Nexus OS"; };
+  }, [project]);
+
+  // Session hookup: start session with real project context on mount
+  useEffect(() => {
+    if (project) startSession(project.title, "project-review");
+  }, [project]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Track tab navigation: re_entry_point + fruit (what the user last read).
+  // Guard: only update re_entry_point when the user actively changed the tab.
+  // On initial mount, a Nexus session's re_entry_point (resume-swarm:...) must
+  // not be overwritten by the default "overview" tab value.
+  useEffect(() => {
+    if (!tabUserChanged) return;
+    updateReEntry(activeTab);
+    if (project) updateFruit(`${project.title} · ${activeTab}`);
+  }, [activeTab, tabUserChanged]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!project) {
     return (
@@ -51,15 +108,37 @@ const ProjectPage = () => {
         animate={{ opacity: 1 }}
         className="border-b border-border bg-secondary/50 backdrop-blur-sm px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
       >
-        <div className="flex items-center gap-2 font-mono text-[0.55rem] sm:text-[0.6rem] tracking-[0.12em] text-muted-foreground">
+        {/* V3: breadcrumb meta — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
+        <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">
           <Link to="/" className="hover:text-primary transition-colors hidden sm:inline">NPI REGISTRY</Link>
           <ChevronRight className="w-3 h-3 opacity-40 hidden sm:inline" />
           <span className="text-primary">{project.number}</span>
           <ChevronRight className="w-3 h-3 opacity-40" />
-          <span className="text-foreground">{project.title}</span>
+          <span className="text-paper">{project.title}</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="badge-status badge-active text-[0.48rem] sm:text-[0.55rem]">ACTIVE</span>
+          {isReturningVisitor && (
+            <motion.span
+              initial={{ opacity: 0, x: 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: EASE_OUT }}
+              className="hidden sm:flex items-center gap-1 font-mono text-[0.42rem] tracking-[0.12em] text-primary/60 bg-primary/8 border border-primary/20 px-1.5 py-0.5 rounded"
+            >
+              <RotateCcw className="w-2 h-2" />
+              RESUME
+            </motion.span>
+          )}
+          {/* V6: show live status from Supabase when available */}
+          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[((liveRow?.status ?? project.status) ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
+            {liveRow?.status ?? project.status ?? "ACTIVE"}
+          </span>
+          {isLive && (
+            <span className="hidden sm:flex items-center gap-1 font-mono text-[0.4rem] tracking-[0.14em] uppercase px-1.5 py-0.5"
+              style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.3)", color: "#22c55e" }}>
+              <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
+              LIVE
+            </span>
+          )}
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>
         </div>
       </motion.div>
@@ -88,12 +167,14 @@ const ProjectPage = () => {
             </Link>
           </motion.div>
 
+          {/* V3: meta row — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8, ease }} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
-            <span className="section-label">{project.number} · {project.version}</span>
-            <span className="font-mono text-[0.48rem] sm:text-[0.55rem] tracking-[0.1em] text-muted-foreground/60">© 2026 Ivanildo Michel Monteiro Fernandes</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">{project.number} · {project.version}</span>
+            <span className="font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">© 2026 Ivanildo Michel Monteiro Fernandes</span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-bold text-foreground leading-[0.88] mb-3">
+          {/* V3: hero title — font-serif font-light text-paper */}
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper leading-[0.92] mb-3">
             {project.title.split(" ").slice(0, -1).join(" ")}<span className="text-primary">{project.title.split(" ").slice(-1)}</span>
           </motion.h1>
 
@@ -101,8 +182,9 @@ const ProjectPage = () => {
             {project.subtitle}
           </motion.p>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="font-sans text-xs sm:text-sm text-muted-foreground/70 max-w-xl leading-relaxed mb-8 sm:mb-10">
-            {project.summary.slice(0, 200)}…
+          {/* V6: live description from Supabase overlays static summary when available */}
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }} className="font-serif text-sm text-paper-dim/80 leading-relaxed max-w-xl mb-8 sm:mb-10">
+            {liveRow?.description ?? project.summary.slice(0, 200) + "…"}
           </motion.p>
 
           {/* KPI Row with Animated Counters */}
@@ -124,7 +206,7 @@ const ProjectPage = () => {
       {/* ═══ TABBED NAVIGATION ═══ */}
       <div className="border-t border-border sticky top-14 z-40 bg-background/95 backdrop-blur-xl">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-16 lg:px-20">
-          <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setTabUserChanged(true); }}>
             <TabsList className="bg-transparent h-auto p-0 gap-0 w-full justify-start border-b border-border rounded-none overflow-x-auto">
               {[
                 { value: "overview", label: "OVERVIEW" },

@@ -107,6 +107,15 @@ export interface ConceptImage {
   caption: string;
 }
 
+export type ArtifactKind = "render" | "technical" | "concept" | "diagram";
+
+export const ARTIFACT_KIND_LABELS: Record<ArtifactKind, string> = {
+  render: "CGI RENDER",
+  technical: "TECHNICAL DRAWING",
+  concept: "CONCEPT",
+  diagram: "ENGINEERING DIAGRAM",
+};
+
 export interface FinancialPhase {
   phase: string;
   cost: string;
@@ -149,6 +158,7 @@ export interface ProjectData {
   riskMatrix?: RiskItem[];
   nlSubSections?: NLSubSection[];
   financial?: FinancialData;
+  status?: string;
 }
 
 const projectData: Record<string, ProjectData> = {

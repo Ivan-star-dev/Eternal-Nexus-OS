@@ -1,0 +1,55 @@
+/**
+ * Nervous System v1 — public API barrel
+ *
+ * Usage:
+ *   import { createNexusClient, createTribunalVerdict } from '@/lib/events';
+ */
+
+// Bus
+export { createInMemoryBus, getDefaultBus, setDefaultBus, type NexusEventBus } from './bus';
+
+// Client
+export { createNexusClient, type NexusClient, type NexusClientOptions } from './client';
+
+// Schema factories
+export {
+  SCHEMA_VERSION,
+  createTribunalVerdict,
+  createTribunalEscalation,
+  createAtlasMarker,
+  createAtlasLayerUpdate,
+  createIndexEntry,
+  createNewsBroadcast,
+  createStreamsFeed,
+} from './schema';
+
+// Streams organ (5th Sacred Flow organ)
+export { createStreamsOrgan, type StreamsOrgan } from './streams';
+
+// Replay
+export { createReplaySession, replaySince, type ReplaySession } from './replay';
+
+// ID utilities
+export { makeEventId, seedFromId, fnv1a32 } from './id';
+
+// Validation
+export { validateEvent, isNexusEvent } from './validation';
+
+// Persistence adapter (dev-only by default, opt-in for prod)
+export {
+  createPersistedBus,
+  type PersistedBus,
+  type PersistenceOptions,
+} from './persistence';
+
+// Observability ledger (dev-only)
+export {
+  createEventLedger,
+  attachLedger,
+  initDevLedger,
+  getDevLedger,
+  type EventLedger,
+  type LedgerEntry,
+  type LedgerFilter,
+  type LedgerStats,
+} from './ledger';

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import type { ProjectData } from "@/data/projects";
+import { EASE_OUT } from "@/lib/motion/config";
 
-const ease = [0.16, 1, 0.3, 1] as const;
+const ease = EASE_OUT;
 
 interface FinancialTabProps {
   project: ProjectData;

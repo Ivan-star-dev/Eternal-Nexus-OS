@@ -4,6 +4,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import type { TribunalVerdict, AgentStatus, AgentId } from '../../types';
+import { validateTribunalEvent } from '@/lib/tribunal/validation';
 
 // sacred-flow: EIs fixos do Tribunal — NUNCA mudar
 const TRIBUNAL_JUDGES: AgentId[] = ['zeta-9', 'kronos', 'nanobanana'];
@@ -62,6 +63,13 @@ export default function TribunalCore({ onVerdict, isActive = true }: TribunalCor
       });
       return next;
     });
+
+    // Pilar 1: validate before emitting downstream — guard against malformed events
+    const { valid, errors } = validateTribunalEvent(verdict);
+    if (!valid) {
+      console.warn('[Tribunal] Malformed event rejected:', errors);
+      return verdict;
+    }
 
     setVerdicts(prev => [verdict, ...prev].slice(0, 50)); // Keep last 50
 

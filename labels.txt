@@ -1,0 +1,17 @@
+state:mergeable
+state:blocked
+state:semi-alive
+state:dead
+state:orphan
+state:superseded
+state:alive
+kind:cluster
+kind:consolidation
+kind:audit
+kind:gate
+kind:meta
+kind:diagnostic
+escalate:claude
+escalate:codex
+escalate:cursor
+escalate:owner
