@@ -11,6 +11,7 @@
  */
 
 import WorkshopHeader from "./WorkshopHeader";
+import WorkshopArtifactPanel from "./WorkshopArtifactPanel";
 import ProjectGrid from "./ProjectGrid";
 import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 
@@ -31,6 +32,7 @@ export default function WorkshopSurface() {
       }}
     >
       <WorkshopHeader />
+      <WorkshopArtifactPanel />
       <ProjectGrid />
     </div>
   );

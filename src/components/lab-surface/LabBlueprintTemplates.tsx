@@ -30,6 +30,127 @@ interface Blueprint {
 
 const BLUEPRINTS: Blueprint[] = [
   {
+    id: "L-01",
+    label: "Market Gap Investigation",
+    category: "Active Mission",
+    artifactKind: "research",
+    titleTemplate: "Market Gap Mission: [territory you are investigating]",
+    contentTemplate: `# Market Gap Investigation
+
+## Mission Brief
+Territory: [what market/domain are you investigating?]
+Trigger: [what made you think there's a gap here?]
+Time budget: [how many hours will you spend before deciding?]
+
+## Competing Hypotheses (require exactly 3)
+H1: [state the first candidate gap]
+H2: [state a competing explanation]
+H3: [state the null — maybe there is no real gap]
+
+## Evidence to Collect
+E1: [what would confirm H1?]
+E2: [what would confirm H2?]
+E3: [what would confirm H3?]
+E4: [what would eliminate all three and require new hypotheses?]
+
+## Active Investigation Log
+Date | Source | Finding | Hypothesis affected
+-----|--------|---------|--------------------
+[  ] | [    ] | [     ] | [                ]
+
+## Confidence Threshold
+What level of evidence is required before acting on a hypothesis?
+[ ] One strong signal
+[ ] Three independent signals
+[ ] Published + anecdotal convergence
+
+## Decision Gate
+Condition to proceed: [state it]
+Condition to abandon: [state it]
+Review date: [when will you force a decision?]
+
+## Status
+[ ] Open  [ ] Active  [ ] Closed → Decision: [what did you decide?]`,
+  },
+  {
+    id: "L-02",
+    label: "Competitor Intelligence Dossier",
+    category: "Intelligence",
+    artifactKind: "synthesis",
+    titleTemplate: "Dossier: [name of entity, product, or participant]",
+    contentTemplate: `# Competitor Intelligence Dossier
+
+Subject: [name of entity/product]
+Filed: ${new Date().toISOString().slice(0, 10)}
+Status: [ ] Active monitoring  [ ] Historical reference
+
+## Identity Layer
+What they claim to be: [stated positioning]
+What they actually are: [real mechanism — what they actually do]
+Gap between claim and reality: [where do they overstate?]
+
+## Mechanics Layer
+Core mechanism: [how do they actually deliver value?]
+Distribution method: [how do they reach buyers?]
+Revenue model: [how do they make money?]
+
+## Strengths (real, not obvious)
+→ [What would take 3+ years to replicate?]
+→ [What do their best customers reference most?]
+
+## Weaknesses (exploitable)
+→ [What do their best customers complain about?]
+→ [What do they systematically avoid doing?]
+→ [What assumption are they making that may be false?]
+
+## Positioning Gap
+→ [What do they leave completely unclaimed?]
+→ [Who do they systematically underserve?]
+→ [What angle would make them irrelevant?]
+
+## Threat Assessment
+Threat level: [ ] Existential  [ ] Significant  [ ] Manageable  [ ] Irrelevant
+What would make them dangerous: [specific trigger]
+What would neutralize them: [specific move]`,
+  },
+  {
+    id: "L-03",
+    label: "Hypothesis Testing Kit",
+    category: "Investigation",
+    artifactKind: "experiment",
+    titleTemplate: "Hypothesis Test: [state the hypothesis in one line]",
+    contentTemplate: `# Hypothesis Testing Kit
+
+## Hypothesis
+Precise statement: [If X is true, then Y will happen when Z]
+Source of belief: [where did this idea come from?]
+Prior confidence: [1–10 before evidence]
+
+## Null Hypothesis
+What would prove this wrong? [specific condition]
+What evidence would you refuse to accept as disproof? [name your blind spots]
+
+## Test Design
+What will you actually do? [one specific action]
+Who will you observe? [define the test subject precisely]
+Time boundary: [when does this test end?]
+
+## Evidence Threshold
+Confirms hypothesis: [specific observable result]
+Disconfirms hypothesis: [specific observable result]
+Inconclusive — needs redesign: [what would trigger a redesign?]
+
+## Results (fill after test)
+What actually happened: [record after test]
+Evidence match: [ ] Confirmed  [ ] Disconfirmed  [ ] Inconclusive
+Updated confidence: [1–10 after evidence]
+Next action: [ ] Proceed  [ ] Pivot  [ ] Investigate further  [ ] Abandon
+
+## Upstream Effect
+What does this result change about your build plan?
+What other hypotheses does this affect?`,
+  },
+  {
     id: "P-01",
     label: "Product System Map",
     category: "Value Creation",

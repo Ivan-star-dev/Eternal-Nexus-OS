@@ -12,6 +12,7 @@
 
 import { useState } from "react";
 import LearningPath from "./LearningPath";
+import DoctrineMap from "./DoctrineMap";
 import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 import { useEvolution } from "@/hooks/useEvolution";
 
@@ -59,17 +60,17 @@ export default function SchoolSurface() {
                   flexDirection: "column",
                   gap: "4px",
                   background: isActive ? GOLD_FAINT : "transparent",
-                  border: `1px solid ${isActive ? GOLD + "66" : "rgba(255,255,255,0.07)"}`,
+                  border: `1px solid ${isActive ? GOLD + "66" : "hsl(var(--border))"}`,
                   borderRadius: "10px",
                   padding: "12px 18px",
                   cursor: "pointer",
                   textAlign: "left",
                 }}
               >
-                <span style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, color: isActive ? "rgba(228,235,240,0.9)" : "rgba(180,195,210,0.55)" }}>
+                <span style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, color: isActive ? "var(--rx-text-primary)" : "var(--rx-text-ghost)" }}>
                   {track.label}
                 </span>
-                <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.12em", textTransform: "uppercase", color: isActive ? `${GOLD}88` : "rgba(150,165,180,0.3)" }}>
+                <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.12em", textTransform: "uppercase", color: isActive ? `${GOLD}88` : "var(--rx-text-ghost)" }}>
                   {track.sub}
                 </span>
               </button>
@@ -77,6 +78,7 @@ export default function SchoolSurface() {
           })}
         </div>
 
+        {activeTrack === "foundations" && <DoctrineMap />}
         <LearningPath maturityLevel={maturity.level} track={activeTrack} />
       </div>
     </main>
