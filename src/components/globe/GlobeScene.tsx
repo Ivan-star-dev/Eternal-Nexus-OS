@@ -16,6 +16,74 @@ interface GlobeSceneProps {
   showSeismic?: boolean;
 }
 
+// Deep cosmic void — sparse anchor points at extreme distance
+// Not a star wallpaper. A sense that space exists beyond the globe.
+function CosmicVoid() {
+  const positions = useMemo(() => {
+    // Seed for determinism — same field every render
+    const arr = new Float32Array(32 * 3);
+    const seed = [0.12,0.87,0.34,0.65,0.23,0.91,0.47,0.78,0.05,0.56,
+                  0.39,0.72,0.18,0.83,0.61,0.29,0.94,0.42,0.67,0.15,
+                  0.88,0.33,0.54,0.76,0.09,0.48,0.81,0.26,0.63,0.97,0.37,0.70];
+    for (let i = 0; i < 32; i++) {
+      const phi   = Math.acos(2 * seed[i % 32] - 1);
+      const theta = seed[(i + 11) % 32] * Math.PI * 2;
+      const r     = GLOBE_RADIUS * (4.8 + seed[(i + 7) % 32] * 2.8); // 22–35 units out
+      arr[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      arr[i * 3 + 2] = r * Math.cos(phi);
+    }
+    return arr;
+  }, []);
+
+  return (
+    <points>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      {/* Fixed screen-size points — they behave like real stars, not particles */}
+      <pointsMaterial color="#c8d8e8" size={1.2} transparent opacity={0.14} sizeAttenuation={false} />
+    </points>
+  );
+}
+
+// Atmospheric shell — Earth-from-space effect
+// Three concentric translucent layers: ionosphere, stratosphere, electric corona
+// Uses BackSide rendering so the glow wraps the globe from behind
+function AtmosphericShell() {
+  const innerRef  = useRef<THREE.Mesh>(null);
+  const midRef    = useRef<THREE.Mesh>(null);
+  const outerRef  = useRef<THREE.Mesh>(null);
+
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
+    // Independent breathing — layers pulse at different rates, never in sync
+    if (innerRef.current)  innerRef.current.scale.setScalar(1 + Math.sin(t * 0.31) * 0.004);
+    if (midRef.current)    midRef.current.scale.setScalar(1 + Math.sin(t * 0.22 + 1.1) * 0.007);
+    if (outerRef.current)  outerRef.current.scale.setScalar(1 + Math.sin(t * 0.17 + 2.3) * 0.010);
+  });
+
+  return (
+    <group>
+      {/* Ionosphere — warm teal scatter, closest to surface */}
+      <mesh ref={innerRef}>
+        <sphereGeometry args={[GLOBE_RADIUS * 1.042, 64, 32]} />
+        <meshBasicMaterial color="#14c8a0" transparent opacity={0.032} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
+      {/* Stratosphere — electric blue, the dominant corona ring */}
+      <mesh ref={midRef}>
+        <sphereGeometry args={[GLOBE_RADIUS * 1.085, 64, 32]} />
+        <meshBasicMaterial color="#0a9cff" transparent opacity={0.022} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
+      {/* Outer corona — near-invisible electric whisper, defines the edge of space */}
+      <mesh ref={outerRef}>
+        <sphereGeometry args={[GLOBE_RADIUS * 1.15, 48, 24]} />
+        <meshBasicMaterial color="#1a6adf" transparent opacity={0.009} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
+    </group>
+  );
+}
+
 // Wireframe globe sphere + network nodes
 function NetworkSphere() {
   const groupRef = useRef<THREE.Group>(null);
@@ -52,26 +120,32 @@ function NetworkSphere() {
 
   return (
     <group ref={groupRef}>
+      {/* Globe mass — dark interior gives the sphere actual weight */}
       <mesh>
-        <sphereGeometry args={[GLOBE_RADIUS * 0.98, 48, 24]} />
-        <meshBasicMaterial color="#0a1628" wireframe transparent opacity={0.06} />
+        <sphereGeometry args={[GLOBE_RADIUS * 0.995, 64, 32]} />
+        <meshBasicMaterial color="#060e1c" transparent opacity={0.88} depthWrite />
+      </mesh>
+      {/* Wireframe overlay */}
+      <mesh>
+        <sphereGeometry args={[GLOBE_RADIUS * 0.998, 48, 24]} />
+        <meshBasicMaterial color="#0a1628" wireframe transparent opacity={0.07} />
       </mesh>
       <lineSegments>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[connections, 3]} />
         </bufferGeometry>
-        <lineBasicMaterial color="#c8a44e" transparent opacity={0.1} />
+        <lineBasicMaterial color="#c8a44e" transparent opacity={0.12} />
       </lineSegments>
       <points>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         </bufferGeometry>
-        <pointsMaterial color="#c8a44e" size={0.04} transparent opacity={0.5} sizeAttenuation />
+        <pointsMaterial color="#c8a44e" size={0.04} transparent opacity={0.55} sizeAttenuation />
       </points>
       {/* Equator */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <ringGeometry args={[GLOBE_RADIUS * 1.03, GLOBE_RADIUS * 1.04, 96]} />
-        <meshBasicMaterial color="#c8a44e" transparent opacity={0.1} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#c8a44e" transparent opacity={0.12} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
@@ -214,10 +288,18 @@ function OrbitalRingOuter() {
 const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
   return (
     <>
-      <ambientLight intensity={0.28} />
-      <pointLight position={[10, 8, 10]} intensity={0.35} color="#D4AF37" />
-      <pointLight position={[-8, -4, 6]} intensity={0.12} color="#1a6b5a" />
+      {/* Cosmic void — rendered first, deepest layer */}
+      <CosmicVoid />
+
+      {/* Lighting — sun from upper-right, cold fill from rear */}
+      <ambientLight intensity={0.18} />
+      <pointLight position={[12, 9, 8]}  intensity={0.55} color="#e8d4a0" /> {/* warm sun side */}
+      <pointLight position={[-10, -5, -8]} intensity={0.08} color="#1a4a8a" /> {/* cold space fill */}
+      <pointLight position={[0, 6, -12]} intensity={0.10} color="#0a9cff" />  {/* electric backlight */}
+
+      {/* Globe + atmosphere */}
       <NetworkSphere />
+      <AtmosphericShell />
       <OrbitalBreathingRing />
       <OrbitalRingOuter />
       <ParticleFlow />
