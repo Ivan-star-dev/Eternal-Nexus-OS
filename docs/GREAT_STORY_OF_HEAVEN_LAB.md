@@ -1,3 +1,11 @@
+---
+title: "The Heaven Lab Story"
+slug: heaven-lab-story
+date: 2026-03-23
+category: narrative
+excerpt: "The real myth of the product — how Heaven Lab was born and what it means."
+---
+
 # GREAT STORY OF HEAVEN LAB — O Mito Real do Produto
 
 **Versão:** v1.0

@@ -1,3 +1,11 @@
+---
+title: "Founder Letter"
+slug: founder-letter
+date: 2026-03-20
+category: manifesto
+excerpt: "Ivan on building systems, not just products — and why the distinction matters."
+---
+
 # FOUNDER LETTER
 
 **De:** Ivan

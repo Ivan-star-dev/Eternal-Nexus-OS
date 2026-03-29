@@ -1,3 +1,11 @@
+---
+title: "Nexus OS"
+slug: nexus-os
+date: 2026-03-20
+category: architecture
+excerpt: "The canonical thick shell of the Eternal Nexus OS — the sovereign cognitive environment."
+---
+
 # ETERNAL NEXUS OS — CASCA GROSSA CANÔNICA
 
 **Versão:** v1 — implantação inicial

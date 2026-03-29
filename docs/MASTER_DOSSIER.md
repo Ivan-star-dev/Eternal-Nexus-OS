@@ -1,3 +1,11 @@
+---
+title: "Master Dossier"
+slug: master-dossier
+date: 2026-03-20
+category: whitepaper
+excerpt: "Codex Tangibilis Prime — the complete master dossier of the Ruberra system."
+---
+
 # CODEX TANGIBILIS: PRIME — Master Dossier
 
 ```

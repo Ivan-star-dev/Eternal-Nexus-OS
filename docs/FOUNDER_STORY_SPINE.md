@@ -1,3 +1,11 @@
+---
+title: "Founder Story"
+slug: founder-story
+date: 2026-03-23
+category: narrative
+excerpt: "The canonical spine of the founder's story — the origin, the mission, the sovereign system."
+---
+
 # FOUNDER STORY SPINE — Espinha da História do Founder
 
 **Versão:** v1.0
