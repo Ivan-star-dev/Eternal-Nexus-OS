@@ -25,9 +25,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, FlaskConical } from "lucide-react";
 import OrganErrorBoundary from "@/components/shared/OrganErrorBoundary";
 
-// Globe imported lazily — another pioneer will wire the real 3D globe here
-// For now we load the existing GlobeBackground as the atmospheric presence
-const GlobeBackground = lazy(() => import("@/components/GlobeBackground"));
+// Globe slot — wired to InteractiveGlobe (sovereign line)
+// GlobeBackground was archived (SUPERSEDED) — replaced by InteractiveGlobe
+const GlobeBackground = lazy(() => import("@/components/globe/InteractiveGlobe"));
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 

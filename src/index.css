@@ -10,56 +10,57 @@
        © 2026 Ivanildo Michel Monteiro Fernandes
     ═══════════════════════════════════════════════ */
 
-    /* Core — deep institutional navy */
-    --background: 216 50% 5%;
-    --foreground: 210 25% 93%;
+    /* Core — sovereign night canvas (bridged to SOVEREIGN_PALETTE) */
+    --background: var(--rx-void);         /* hsl(222 28% 5%) */
+    --foreground: var(--rx-text-prime);   /* hsl(210 20% 92%) */
 
-    --card: 216 45% 8%;
-    --card-foreground: 210 25% 93%;
+    --card: var(--rx-lift);               /* hsl(216 18% 14%) */
+    --card-foreground: var(--rx-text-prime);
 
-    --popover: 216 45% 8%;
-    --popover-foreground: 210 25% 93%;
+    --popover: var(--rx-ground);          /* hsl(218 20% 11%) */
+    --popover-foreground: var(--rx-text-prime);
 
-    /* Gold — authoritative, warm brass */
-    --primary: 42 78% 45%;
-    --primary-foreground: 216 50% 5%;
+    /* Gold — sovereign school vein */
+    --primary: var(--rx-gold);            /* hsl(42 78% 52%) */
+    --primary-foreground: var(--rx-void);
 
-    --secondary: 216 35% 12%;
-    --secondary-foreground: 210 25% 93%;
+    --secondary: var(--rx-ground);        /* hsl(218 20% 11%) */
+    --secondary-foreground: var(--rx-text-prime);
 
-    --muted: 216 25% 14%;
-    --muted-foreground: 215 15% 48%;
+    --muted: var(--rx-lift);              /* hsl(216 18% 14%) */
+    --muted-foreground: var(--rx-text-mid); /* hsl(210 14% 65%) */
 
-    /* Teal — operational / active status */
-    --accent: 172 55% 28%;
-    --accent-foreground: 172 45% 72%;
+    /* Teal — lab / operational vein */
+    --accent: var(--rx-teal);             /* hsl(172 55% 36%) */
+    --accent-foreground: 172 45% 82%;
 
-    /* Classification red */
-    --destructive: 0 52% 32%;
-    --destructive-foreground: 210 25% 93%;
+    /* Governance alert */
+    --destructive: var(--rx-alert);       /* hsl(12 82% 55%) */
+    --destructive-foreground: var(--rx-text-prime);
 
-    --border: 216 22% 14%;
-    --input: 216 22% 14%;
-    --ring: 42 78% 45%;
+    --border: var(--rx-rim);              /* hsl(215 16% 18%) */
+    --input: var(--rx-rim);
+    --ring: var(--rx-gold);
 
     --radius: 0.15rem;
 
-    /* Extended tokens */
-    --gold: 42 78% 45%;
-    --gold-light: 42 70% 58%;
-    --gold-dim: 42 60% 28%;
-    --teal: 172 55% 28%;
-    --teal-light: 172 48% 52%;
-    --red-classified: 0 52% 32%;
-    --ink-deep: 216 55% 3%;
-    --ink-dark: 220 15% 4%;
-    --ink-medium: 216 45% 8%;
-    --navy: 216 40% 11%;
-    --navy-light: 216 35% 16%;
-    --paper: 210 25% 93%;
-    --paper-dim: 215 12% 55%;
-    --rule: 216 20% 18%;
+    /* Extended tokens — aligned to SOVEREIGN_PALETTE */
+    --gold: var(--rx-gold);           /* 42 78% 52% */
+    --gold-light: 42 70% 68%;
+    --gold-dim: 42 55% 32%;
+    --teal: var(--rx-teal);           /* 172 55% 36% */
+    --teal-light: 172 48% 56%;
+    --red-classified: var(--rx-alert); /* 12 82% 55% */
+    --ink-deep: var(--rx-void);
+    --ink-dark: var(--rx-void);
+    --ink-medium: var(--rx-depth);
+    --navy: var(--rx-ground);
+    --navy-light: var(--rx-lift);
+    --paper: var(--rx-text-prime);    /* 210 20% 92% */
+    --paper-dim: var(--rx-text-mid);  /* 210 14% 65% */
+    --rule: var(--rx-rim);            /* 215 16% 18% */
     --platinum: 210 18% 85%;
+    --electric: var(--rx-electric);   /* 205 100% 52% — Creation portal vein */
 
     /* ═══ MORABEZA CABO-VERDIANA — warm palette ═══ */
     --morabeza-warm: 28 72% 52%;
@@ -68,18 +69,46 @@
     --morabeza-terracotta: 12 55% 42%;
     --morabeza-ocean: 195 55% 38%;
 
+    /* ═══ SOVEREIGN PALETTE — CANONICAL TOKENS (TIER 0) ═══
+       Source: ecosystem/knowledge/SOVEREIGN_PALETTE.md
+       Law: mother palette · do not override without gate
+    ═══════════════════════════════════════════════════════ */
+
+    /* Base field — depth canvas */
+    --rx-void:        222 28% 5%;
+    --rx-depth:       220 24% 8%;
+    --rx-ground:      218 20% 11%;
+    --rx-lift:        216 18% 14%;
+    --rx-rim:         215 16% 18%;
+
+    /* Neutral text scale */
+    --rx-text-prime:  210 20% 92%;
+    --rx-text-mid:    210 14% 65%;
+    --rx-text-dim:    210 10% 42%;
+    --rx-text-ghost:  210 8%  28%;
+
+    /* Energy veins — tri-core identity */
+    --rx-electric:    205 100% 52%;   /* Creation portal */
+    --rx-teal:        172 55%  36%;   /* Lab / Test portal */
+    --rx-gold:        42  78%  52%;   /* School portal */
+
+    /* Sovereign accents */
+    --rx-signal:      155 65% 48%;   /* Confirmation, success */
+    --rx-alert:       12  82% 55%;   /* Cap hit, governance */
+    --rx-sovereign:   270 45% 58%;   /* Owner layer */
+
     /* ═══ RUBERRA DEPTH SYSTEM ═══ */
     --petroleum-blue: hsl(210 65% 8%);
-    --abyssal: hsl(216 60% 4%);
-    --depth-1: hsl(216 55% 6%);
-    --depth-2: hsl(216 50% 8%);
-    --depth-3: hsl(216 45% 10%);
+    --abyssal: hsl(var(--rx-void));
+    --depth-1: hsl(var(--rx-depth));
+    --depth-2: hsl(var(--rx-ground));
+    --depth-3: hsl(var(--rx-lift));
     --burnt-gold: hsl(36 65% 38%);
     --burnt-gold-light: hsl(36 60% 50%);
-    --glow-gold: 0 0 60px -10px hsl(42 78% 45% / 0.18);
-    --glow-teal: 0 0 40px -8px hsl(172 55% 28% / 0.2);
-    --surface-glass: hsl(216 40% 8% / 0.6);
-    --haze: hsl(216 50% 5% / 0.85);
+    --glow-gold: 0 0 60px -10px hsl(var(--rx-gold) / 0.18);
+    --glow-teal: 0 0 40px -8px hsl(var(--rx-teal) / 0.2);
+    --surface-glass: hsl(var(--rx-depth) / 0.6);
+    --haze: hsl(var(--rx-void) / 0.85);
     --amber: hsl(38 80% 42%);
 
     /* Fonts */
@@ -606,6 +635,31 @@
         0 0 80px hsl(42 78% 45% / 0.22);
     }
   }
+
+  /* ═══ SOVEREIGN PALETTE — PORTAL VEIN UTILITIES ═══
+     Source: SOVEREIGN_PALETTE.md § 3 Portal Chromatic Identity
+  ═══════════════════════════════════════════════════ */
+  .vein-electric  { color: hsl(var(--rx-electric)); }
+  .vein-teal      { color: hsl(var(--rx-teal)); }
+  .vein-gold      { color: hsl(var(--rx-gold)); }
+  .vein-signal    { color: hsl(var(--rx-signal)); }
+  .vein-alert     { color: hsl(var(--rx-alert)); }
+  .vein-sovereign { color: hsl(var(--rx-sovereign)); }
+
+  .bg-rx-void   { background-color: hsl(var(--rx-void)); }
+  .bg-rx-depth  { background-color: hsl(var(--rx-depth)); }
+  .bg-rx-ground { background-color: hsl(var(--rx-ground)); }
+  .bg-rx-lift   { background-color: hsl(var(--rx-lift)); }
+
+  .border-rx-rim      { border-color: hsl(var(--rx-rim)); }
+  .border-rx-electric { border-color: hsl(var(--rx-electric) / 0.35); }
+  .border-rx-teal     { border-color: hsl(var(--rx-teal) / 0.35); }
+  .border-rx-gold     { border-color: hsl(var(--rx-gold) / 0.35); }
+
+  /* Portal surface tint — one dominant vein at ambient opacity */
+  .surface-creation { background: hsl(var(--rx-electric) / 0.04); }
+  .surface-lab      { background: hsl(var(--rx-teal)     / 0.04); }
+  .surface-school   { background: hsl(var(--rx-gold)     / 0.04); }
 
   /* ═══ WILL-CHANGE PERF HINTS ═══ */
   .will-change-transform { will-change: transform; }
