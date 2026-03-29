@@ -17,6 +17,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import LabActiveMission from "./LabActiveMission";
 import { getRecentArtifacts, updateArtifact } from "@/lib/artifacts/store";
 import type { ArtifactMeta, ArtifactKind } from "@/lib/artifacts/types";
 import { useSession } from "@/contexts/SessionContext";
@@ -507,6 +508,7 @@ export default function LabWorkBay({ refreshSignal, autoExpandId }: LabWorkBayPr
       transition={{ duration: 0.65, ease: EASE }}
       style={{ flex: 1, display: "flex", flexDirection: "column", gap: "24px" }}
     >
+      <LabActiveMission />
       {/* Header */}
       <div>
         <span

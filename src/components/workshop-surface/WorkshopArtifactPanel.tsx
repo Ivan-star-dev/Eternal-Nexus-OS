@@ -12,6 +12,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import MechanismDocument from "./MechanismDocument";
 
 const TEAL = "hsl(172, 55%, 38%)";
 const TEAL_MID = "hsla(172, 55%, 38%, 0.55)";
@@ -375,6 +376,7 @@ export default function WorkshopArtifactPanel() {
         />
       </div>
 
+      <MechanismDocument />
       {ARTIFACTS.map(artifact => (
         <ArtifactCard key={artifact.id} artifact={artifact} />
       ))}
