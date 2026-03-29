@@ -17,7 +17,7 @@ const statusColors: Record<string, string> = {
 const trinityPillar: Record<string, { label: string; color: string; borderColor: string }> = {
   ACTIVE:   { label: "LAB",          color: "hsl(172 48% 52% / 0.7)", borderColor: "hsl(172 55% 28% / 0.55)" },
   RESEARCH: { label: "SCHOOL",       color: "hsl(42 78% 52% / 0.7)",  borderColor: "hsl(42 78% 38% / 0.55)"  },
-  PLANNING: { label: "CREATION HUB", color: "hsl(38 80% 55% / 0.7)",  borderColor: "hsl(38 80% 42% / 0.55)"  },
+  PLANNING: { label: "CREATION",     color: "hsl(205 100% 52% / 0.7)", borderColor: "hsl(205 100% 38% / 0.55)" },
 };
 
 interface Props {
@@ -55,7 +55,7 @@ function DossierCard({ project, index }: Props) {
     >
       <Link to={`/project/${project.id}`} className="group block">
         <div
-          className="relative border bg-card overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)/0.25)] tribunal-approved morabeza-glow"
+          className="relative border bg-card overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-12px_hsl(var(--primary)/0.25)] morabeza-glow"
           style={{
             borderColor: isSessionProject
               ? "rgba(200,164,78,0.28)"

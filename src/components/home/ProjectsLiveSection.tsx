@@ -70,7 +70,7 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
       viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: index * 0.08, duration: 0.6, ease }}
     >
-      <Link to="/atlas" className="group block h-full">
+      <Link to="/lab" className="group block h-full">
         <div className="relative border border-border bg-card p-5 h-full transition-all duration-400 hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.2)]">
           {/* Color dot from globe project */}
           <div className="flex items-start justify-between gap-2 mb-3">
@@ -83,7 +83,6 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
                 {label}
               </span>
             </div>
-            <MapPin className="w-3 h-3 text-muted-foreground/40 flex-shrink-0 mt-[2px]" />
           </div>
 
           <h3 className="font-serif text-base sm:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-1">
@@ -96,10 +95,6 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
             </p>
           )}
 
-          {/* Coordinates */}
-          <p className="font-mono text-[0.45rem] tracking-[0.12em] text-muted-foreground/40 mt-3 uppercase">
-            {project.lat.toFixed(2)}°N · {project.lon.toFixed(2)}°E
-          </p>
 
           {/* Hover top border */}
           <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/50 transition-all duration-500" />
@@ -135,7 +130,7 @@ const ProjectsLiveSection = () => {
   return (
     <section
       className="py-20 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border"
-      aria-label="Portfólio Atlas — Projectos registados no sistema"
+      aria-label="Projectos Registados — Lab"
     >
       <div className="max-w-[1200px] mx-auto">
 
@@ -149,7 +144,7 @@ const ProjectsLiveSection = () => {
         >
           <div>
             <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block mb-3">
-              Portfólio Atlas · Layer 2 — Supabase
+              Projetos Registados
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Projectos{" "}
@@ -169,10 +164,10 @@ const ProjectsLiveSection = () => {
             )}
 
             <Link
-              to="/atlas"
+              to="/lab"
               className="font-mono text-[0.55rem] tracking-[0.12em] border border-border text-foreground px-4 py-2 hover:bg-card hover:border-primary/30 transition-all duration-200 flex items-center gap-2 uppercase"
             >
-              Ver Atlas <ArrowRight className="w-3 h-3" />
+              Ver Lab <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
         </motion.div>
@@ -202,10 +197,10 @@ const ProjectsLiveSection = () => {
               Nenhum projecto registado ainda.
             </p>
             <Link
-              to="/atlas"
+              to="/lab"
               className="font-mono text-[0.55rem] tracking-[0.12em] text-primary uppercase mt-4 inline-flex items-center gap-1.5 hover:gap-2.5 transition-all"
             >
-              Adicionar no Atlas <ArrowRight className="w-3 h-3" />
+              Adicionar no Lab <ArrowRight className="w-3 h-3" />
             </Link>
           </motion.div>
         )}
@@ -220,10 +215,10 @@ const ProjectsLiveSection = () => {
             className="text-center mt-8"
           >
             <Link
-              to="/atlas"
+              to="/lab"
               className="font-mono text-[0.55rem] tracking-[0.15em] text-muted-foreground uppercase hover:text-primary transition-colors inline-flex items-center gap-1.5"
             >
-              + {total - projects.length} mais no Atlas <ArrowRight className="w-3 h-3" />
+              + {total - projects.length} mais no Lab <ArrowRight className="w-3 h-3" />
             </Link>
           </motion.div>
         )}
