@@ -3,7 +3,6 @@ import { useFrame } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import projectLocations, { latLngToVector3 } from "@/data/projectLocations";
-import EarthquakeLayer from "./EarthquakeLayer";
 
 const GLOBE_RADIUS = 4.5;
 const NODE_COUNT = 80;
@@ -13,7 +12,6 @@ interface GlobeSceneProps {
   focusedProject: string | null;
   onHotspotClick: (id: string) => void;
   showProjects?: boolean;
-  showSeismic?: boolean;
 }
 
 // Deterministic pseudo-random in [0,1) — same value every render for given inputs
@@ -225,50 +223,6 @@ function ProjectHotspot({ id, lat, lng, title, subtitle, number, color, status, 
   );
 }
 
-// Particle flow between hotspots
-function ParticleFlow() {
-  const ref = useRef<THREE.Points>(null);
-  const count = 200;
-
-  const positions = useMemo(() => {
-    const arr = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const phi = Math.acos(2 * Math.random() - 1);
-      const theta = Math.random() * Math.PI * 2;
-      const r = GLOBE_RADIUS * (1.04 + Math.random() * 0.15);
-      arr[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      arr[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return arr;
-  }, []);
-
-  useFrame(({ clock }) => {
-    if (!ref.current) return;
-    const t = clock.getElapsedTime() * 0.15;
-    const posArr = ref.current.geometry.attributes.position.array as Float32Array;
-    for (let i = 0; i < count; i++) {
-      const x = posArr[i * 3];
-      const z = posArr[i * 3 + 2];
-      const cos = Math.cos(t * 0.02);
-      const sin = Math.sin(t * 0.02);
-      posArr[i * 3] = x * cos - z * sin;
-      posArr[i * 3 + 2] = x * sin + z * cos;
-    }
-    ref.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  return (
-    <points ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      <pointsMaterial color="#D4AF37" size={0.025} transparent opacity={0.35} sizeAttenuation />
-    </points>
-  );
-}
-
-
 
 // Orbital breathing ring — calm authority, not decoration
 function OrbitalBreathingRing() {
@@ -444,7 +398,7 @@ function OrbitalMesh() {
   );
 }
 
-const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
+const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true }: GlobeSceneProps) => {
   return (
     <>
       {/* Cosmic void — rendered first, deepest layer */}
@@ -462,7 +416,6 @@ const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showS
       <OrbitalMesh />
       <OrbitalBreathingRing />
       <OrbitalRingOuter />
-      <ParticleFlow />
       {showProjects !== false && projectLocations.map((p) => (
         <ProjectHotspot
           key={p.id}
@@ -477,7 +430,6 @@ const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showS
           onClick={onHotspotClick}
         />
       ))}
-      <EarthquakeLayer visible={showSeismic} />
       <OrbitControls
         enablePan={false}
         enableZoom={true}

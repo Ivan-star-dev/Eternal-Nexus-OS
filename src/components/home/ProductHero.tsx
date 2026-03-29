@@ -221,12 +221,12 @@ function SovereignText() {
         style={{
           fontFamily: "Cormorant Garamond, Georgia, serif",
           fontSize: "clamp(32px, 4.5vw, 58px)",
-          color: "rgba(228,235,240,0.88)",
+          color: "var(--rx-text-primary)",
           maxWidth: "820px",
         }}
       >
         The world is the material.{" "}
-        <span style={{ color: "rgba(200,164,78,0.75)" }}>This is where you work it.</span>
+        <span style={{ color: "hsl(42 78% 52% / 0.75)" }}>This is where you work it.</span>
       </h1>
 
       {/* Sub-line */}
@@ -236,7 +236,7 @@ function SovereignText() {
           fontFamily: "Syne, system-ui, sans-serif",
           fontSize: "11px",
           letterSpacing: "0.18em",
-          color: "rgba(228,235,240,0.38)",
+          color: "var(--rx-text-dim)",
           maxWidth: "560px",
           lineHeight: "1.8",
           textTransform: "uppercase",
@@ -280,15 +280,15 @@ function SovereignText() {
             fontSize: "10px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
-            color: "rgba(228,235,240,0.35)",
+            color: "var(--rx-text-ghost)",
             padding: "13px 28px",
             borderRadius: 0,
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.75)";
+            (e.currentTarget as HTMLElement).style.color = "var(--rx-text-secondary)";
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
+            (e.currentTarget as HTMLElement).style.color = "var(--rx-text-ghost)";
           }}
         >
           Enter Lab
