@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Globe, Brain, Orbit } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Shield, Search, FlaskConical, GraduationCap, Layers } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -17,10 +17,9 @@ const NavBar = () => {
   const { visible, atTop } = useScrollDirection();
 
   const navLinks = [
-    { label: "GLOBE", path: "/globe", icon: Globe, live: true },
-    { label: "ORBITAL", path: "/orbital", icon: Orbit, live: true },
-    { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
-    { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
+    { label: "LAB",      path: "/lab",      icon: FlaskConical,  live: true },
+    { label: "SCHOOL",   path: "/school",   icon: GraduationCap, live: true },
+    { label: "CREATION", path: "/workshop", icon: Layers,        live: true },
   ];
 
   const triggerCmdK = () => {

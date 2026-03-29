@@ -30,9 +30,9 @@ interface ProofMetric {
 }
 
 const PROOF_METRICS: ProofMetric[] = [
-  { value: 10, label: "Versions Shipped" },
-  { value: 6, label: "Pioneer Models" },
-  { value: 84, label: "Tests Passing", suffix: "+" },
+  { value: 10,  label: "Versions Shipped" },
+  { value: 3,   label: "Sovereign Portals" },
+  { value: 1,   label: "Living OS" },
   { value: 194, label: "Countries Indexed" },
 ];
 

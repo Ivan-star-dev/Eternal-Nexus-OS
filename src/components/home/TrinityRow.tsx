@@ -43,8 +43,8 @@ const PORTALS: Portal[] = [
     regimeWord: "Past",
     identity: "Where memory becomes understanding.",
     tags: "study · understand · remember",
-    path: "/nexus",
-    glowColor: "hsl(42 78% 45% / 0.06)",
+    path: "/school",
+    glowColor: "hsl(42 78% 52% / 0.07)",
     name: "Heaven Lab",
   },
   {
@@ -55,23 +55,36 @@ const PORTALS: Portal[] = [
     regimeWord: "Present",
     identity: "Where reality is placed under examination.",
     tags: "observe · investigate · model",
-    path: "/atlas",
-    glowColor: "hsl(172 55% 28% / 0.06)",
+    path: "/lab",
+    glowColor: "hsl(172 55% 36% / 0.07)",
     name: "Bridge Nova",
   },
   {
     id: "nexus-cria",
     face: "nexus_cria",
     index: 3,
-    pillarName: "CREATION HUB",
+    pillarName: "CREATION",
     regimeWord: "Future",
     identity: "Where systems gain form and authorship takes root.",
     tags: "design · build · ship",
-    path: "/projects",
-    glowColor: "hsl(38 80% 42% / 0.06)",
+    path: "/workshop",
+    glowColor: "hsl(205 100% 52% / 0.06)",
     name: "Nexus Cria",
   },
 ];
+
+// Sovereign vein per portal — one identity, no cross-contamination
+const PORTAL_VEIN: Record<string, string> = {
+  "heaven-lab":  "hsl(42 78% 52%)",   // gold — school / mastery
+  "bridge-nova": "hsl(172 55% 36%)",  // teal — lab / evidence
+  "nexus-cria":  "hsl(205 100% 52%)", // electric — creation / force
+};
+
+const PORTAL_VEIN_DIM: Record<string, string> = {
+  "heaven-lab":  "hsl(42 78% 52% / 0.45)",
+  "bridge-nova": "hsl(172 55% 36% / 0.45)",
+  "nexus-cria":  "hsl(205 100% 52% / 0.45)",
+};
 
 interface PortalNodeProps {
   portal: Portal;
@@ -82,6 +95,8 @@ interface PortalNodeProps {
 function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
   const [hovered, setHovered] = useState(false);
   const lit = hovered || isActive;
+  const vein = PORTAL_VEIN[portal.id] ?? "hsl(42 78% 52%)";
+  const veinDim = PORTAL_VEIN_DIM[portal.id] ?? "hsl(42 78% 52% / 0.45)";
 
   return (
     <motion.div
@@ -120,12 +135,12 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
       <div className="relative z-10 flex items-center gap-3 mb-4">
         <span
           className="font-mono text-[9px] tabular-nums"
-          style={{ color: "rgba(200,164,78,0.3)", letterSpacing: "0.1em" }}
+          style={{ color: `${vein.replace(")", " / 0.3)")}`, letterSpacing: "0.1em" }}
         >
           {String(portal.index).padStart(2, "0")}
         </span>
         <motion.span
-          animate={{ color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 42% / 0.8)" }}
+          animate={{ color: lit ? vein : `${vein.replace(")", " / 0.6)")}` }}
           transition={{ duration: 0.35 }}
           className="font-sans font-[500] uppercase"
           style={{
@@ -138,12 +153,12 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
         </motion.span>
       </div>
 
-      {/* Thin separator under header */}
+      {/* Thin separator — vein color */}
       <div
         className="relative z-10 mb-10"
         style={{
           height: "0.5px",
-          background: `linear-gradient(to right, rgba(200,164,78,${lit ? "0.3" : "0.15"}), transparent)`,
+          background: `linear-gradient(to right, ${vein.replace(")", ` / ${lit ? "0.3" : "0.15"})`)}`, transparent)`,
           transition: "background 0.4s",
         }}
       />
@@ -177,21 +192,21 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
         {portal.identity}
       </motion.p>
 
-      {/* Regime tags */}
+      {/* Regime tags — each portal's own vein color */}
       <span
         className="relative z-10 block font-mono"
         style={{
           fontFamily: "JetBrains Mono, monospace",
           fontSize: "9px",
           letterSpacing: "0.18em",
-          color: "hsl(172 48% 52% / 0.45)",
+          color: veinDim,
           marginBottom: "auto",
         }}
       >
         {portal.tags}
       </span>
 
-      {/* Portal CTA — bottom */}
+      {/* Portal CTA — sovereign, not instructional */}
       <motion.div
         animate={{ opacity: lit ? 1 : 0.4, x: lit ? 4 : 0 }}
         transition={{ duration: 0.3 }}
@@ -205,11 +220,11 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
             fontSize: "10px",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: lit ? "hsl(42 78% 52%)" : "hsl(42 78% 45% / 0.55)",
+            color: lit ? vein : `${vein.replace(")", " / 0.55)")}`,
           }}
         >
           <span>→</span>
-          <span>Enter {portal.pillarName === "CREATION HUB" ? "Creation Hub" : portal.pillarName.charAt(0) + portal.pillarName.slice(1).toLowerCase()}</span>
+          <span>{portal.pillarName.charAt(0) + portal.pillarName.slice(1).toLowerCase()}</span>
         </Link>
       </motion.div>
     </motion.div>
@@ -254,7 +269,7 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
           className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
           style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.4)" }}
         >
-          OS TRÊS PILARES
+          ESCOLHE O TEU DOMÍNIO
         </span>
         <motion.span
           initial={{ scaleX: 0 }}
