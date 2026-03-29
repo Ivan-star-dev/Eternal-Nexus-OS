@@ -16,34 +16,59 @@ interface GlobeSceneProps {
   showSeismic?: boolean;
 }
 
-// Deep cosmic void — sparse anchor points at extreme distance
-// Not a star wallpaper. A sense that space exists beyond the globe.
+// Deterministic pseudo-random in [0,1) — same value every render for given inputs
+function dRand(i: number, salt: number): number {
+  const x = Math.sin(i * 9301 + salt * 49297) * 233280;
+  return x - Math.floor(x);
+}
+
+// Deep cosmic void — 80 stars in 3 size tiers
+// Tier 1: 40 dim dust | Tier 2: 28 mid field | Tier 3: 12 bright anchors
 function CosmicVoid() {
-  const positions = useMemo(() => {
-    // Seed for determinism — same field every render
-    const arr = new Float32Array(32 * 3);
-    const seed = [0.12,0.87,0.34,0.65,0.23,0.91,0.47,0.78,0.05,0.56,
-                  0.39,0.72,0.18,0.83,0.61,0.29,0.94,0.42,0.67,0.15,
-                  0.88,0.33,0.54,0.76,0.09,0.48,0.81,0.26,0.63,0.97,0.37,0.70];
-    for (let i = 0; i < 32; i++) {
-      const phi   = Math.acos(2 * seed[i % 32] - 1);
-      const theta = seed[(i + 11) % 32] * Math.PI * 2;
-      const r     = GLOBE_RADIUS * (4.8 + seed[(i + 7) % 32] * 2.8); // 22–35 units out
-      arr[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
-      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      arr[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return arr;
+  const { tier1, tier2, tier3 } = useMemo(() => {
+    const makeField = (count: number, rMin: number, rMax: number, offset: number) => {
+      const arr = new Float32Array(count * 3);
+      for (let i = 0; i < count; i++) {
+        const phi   = Math.acos(2 * dRand(i + offset, 1) - 1);
+        const theta = dRand(i + offset, 2) * Math.PI * 2;
+        const r     = rMin + dRand(i + offset, 3) * (rMax - rMin);
+        arr[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+        arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        arr[i * 3 + 2] = r * Math.cos(phi);
+      }
+      return arr;
+    };
+    return {
+      tier1: makeField(40, GLOBE_RADIUS * 5.5, GLOBE_RADIUS * 8.2, 0),   // dim far dust
+      tier2: makeField(28, GLOBE_RADIUS * 4.2, GLOBE_RADIUS * 6.5, 100), // mid field
+      tier3: makeField(12, GLOBE_RADIUS * 3.6, GLOBE_RADIUS * 5.8, 200), // bright anchors
+    };
   }, []);
 
   return (
-    <points>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
-      {/* Fixed screen-size points — they behave like real stars, not particles */}
-      <pointsMaterial color="#c8d8e8" size={1.2} transparent opacity={0.14} sizeAttenuation={false} />
-    </points>
+    <group>
+      {/* Tier 1 — dim far dust */}
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[tier1, 3]} />
+        </bufferGeometry>
+        <pointsMaterial color="#8898aa" size={0.9} transparent opacity={0.09} sizeAttenuation={false} />
+      </points>
+      {/* Tier 2 — mid field */}
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[tier2, 3]} />
+        </bufferGeometry>
+        <pointsMaterial color="#b0bec8" size={1.5} transparent opacity={0.15} sizeAttenuation={false} />
+      </points>
+      {/* Tier 3 — bright anchor stars */}
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[tier3, 3]} />
+        </bufferGeometry>
+        <pointsMaterial color="#d4dde4" size={2.2} transparent opacity={0.24} sizeAttenuation={false} />
+      </points>
+    </group>
   );
 }
 
@@ -285,6 +310,140 @@ function OrbitalRingOuter() {
   );
 }
 
+// ── OrbitalMesh helpers ────────────────────────────────────────────────────────
+
+// Generate 96-point great-circle arc from a normal vector at radius r
+function greatCircleArc(nx: number, ny: number, nz: number, r: number): Float32Array {
+  const n = new THREE.Vector3(nx, ny, nz).normalize();
+  const ref = Math.abs(n.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0);
+  const u = new THREE.Vector3().crossVectors(n, ref).normalize();
+  const v = new THREE.Vector3().crossVectors(n, u).normalize();
+  const segs = 96;
+  const pts = new Float32Array(segs * 3);
+  for (let i = 0; i < segs; i++) {
+    const a = (i / segs) * Math.PI * 2;
+    pts[i * 3]     = (u.x * Math.cos(a) + v.x * Math.sin(a)) * r;
+    pts[i * 3 + 1] = (u.y * Math.cos(a) + v.y * Math.sin(a)) * r;
+    pts[i * 3 + 2] = (u.z * Math.cos(a) + v.z * Math.sin(a)) * r;
+  }
+  return pts;
+}
+
+// Generate equidistant node positions along a great circle (for intersection markers)
+function arcNodes(nx: number, ny: number, nz: number, r: number, count = 6): Float32Array {
+  const n = new THREE.Vector3(nx, ny, nz).normalize();
+  const ref = Math.abs(n.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0);
+  const u = new THREE.Vector3().crossVectors(n, ref).normalize();
+  const v = new THREE.Vector3().crossVectors(n, u).normalize();
+  const pts = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    const a = (i / count) * Math.PI * 2;
+    pts[i * 3]     = (u.x * Math.cos(a) + v.x * Math.sin(a)) * r;
+    pts[i * 3 + 1] = (u.y * Math.cos(a) + v.y * Math.sin(a)) * r;
+    pts[i * 3 + 2] = (u.z * Math.cos(a) + v.z * Math.sin(a)) * r;
+  }
+  return pts;
+}
+
+// 7 great-circle planes — normal vectors define each arc's orbital plane
+// Group A (3): slow forward rotation | Group B (4): slower counter-rotation
+const ORBITAL_ARCS_A: [number, number, number][] = [
+  [1,     0,     0    ], // polar meridian — N-S through prime meridian
+  [0.5,   0.866, 0    ], // 60° inclined orbit
+  [0,     0.643, 0.766], // 50° from equatorial, different azimuth
+];
+const ORBITAL_ARCS_B: [number, number, number][] = [
+  [0,     1,     0    ], // equatorial great circle
+  [0.707, 0,     0.707], // 45° diagonal through poles
+  [-0.5,  0.5,   0.707], // opposite diagonal — counter-lattice
+  [0.259, 0.966, 0    ], // 15° inclined near-equatorial ring
+];
+
+// OrbitalMesh — sovereign cybernetic lattice
+// Golden great-circle arcs in two counter-rotating groups
+// Node points at equidistant positions, breathing opacity
+function OrbitalMesh() {
+  const groupA = useRef<THREE.Group>(null); // 3 arcs — forward
+  const groupB = useRef<THREE.Group>(null); // 4 arcs — counter
+
+  const R = GLOBE_RADIUS * 1.055; // hugs just above the ionosphere
+
+  const arcGeomsA  = useMemo(() => ORBITAL_ARCS_A.map(([x, y, z]) => greatCircleArc(x, y, z, R)), [R]);
+  const arcGeomsB  = useMemo(() => ORBITAL_ARCS_B.map(([x, y, z]) => greatCircleArc(x, y, z, R)), [R]);
+  const nodeGeomsA = useMemo(() => ORBITAL_ARCS_A.map(([x, y, z]) => arcNodes(x, y, z, R, 6)), [R]);
+  const nodeGeomsB = useMemo(() => ORBITAL_ARCS_B.map(([x, y, z]) => arcNodes(x, y, z, R, 6)), [R]);
+
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
+    const breath = 0.22 + Math.sin(t * 0.28) * 0.05; // 0.17–0.27 range
+
+    if (groupA.current) {
+      groupA.current.rotation.y = t * 0.009;
+      groupA.current.traverse((obj) => {
+        if (obj instanceof THREE.Line) {
+          (obj.material as THREE.LineBasicMaterial).opacity = breath;
+        } else if (obj instanceof THREE.Points) {
+          (obj.material as THREE.PointsMaterial).opacity = Math.min(0.65, breath + 0.28);
+        }
+      });
+    }
+    if (groupB.current) {
+      groupB.current.rotation.y = -t * 0.006;
+      groupB.current.traverse((obj) => {
+        if (obj instanceof THREE.Line) {
+          (obj.material as THREE.LineBasicMaterial).opacity = breath * 0.82;
+        } else if (obj instanceof THREE.Points) {
+          (obj.material as THREE.PointsMaterial).opacity = Math.min(0.55, breath * 0.82 + 0.20);
+        }
+      });
+    }
+  });
+
+  return (
+    <>
+      {/* Group A — forward rotation */}
+      <group ref={groupA}>
+        {arcGeomsA.map((pts, i) => (
+          <lineLoop key={`al${i}`}>
+            <bufferGeometry>
+              <bufferAttribute attach="attributes-position" args={[pts, 3]} />
+            </bufferGeometry>
+            <lineBasicMaterial color="#c8a44e" transparent opacity={0.22} depthWrite={false} />
+          </lineLoop>
+        ))}
+        {nodeGeomsA.map((pts, i) => (
+          <points key={`an${i}`}>
+            <bufferGeometry>
+              <bufferAttribute attach="attributes-position" args={[pts, 3]} />
+            </bufferGeometry>
+            <pointsMaterial color="#d4b86a" size={0.065} transparent opacity={0.50} sizeAttenuation depthWrite={false} />
+          </points>
+        ))}
+      </group>
+
+      {/* Group B — counter-rotation */}
+      <group ref={groupB}>
+        {arcGeomsB.map((pts, i) => (
+          <lineLoop key={`bl${i}`}>
+            <bufferGeometry>
+              <bufferAttribute attach="attributes-position" args={[pts, 3]} />
+            </bufferGeometry>
+            <lineBasicMaterial color="#c8a44e" transparent opacity={0.18} depthWrite={false} />
+          </lineLoop>
+        ))}
+        {nodeGeomsB.map((pts, i) => (
+          <points key={`bn${i}`}>
+            <bufferGeometry>
+              <bufferAttribute attach="attributes-position" args={[pts, 3]} />
+            </bufferGeometry>
+            <pointsMaterial color="#d4b86a" size={0.055} transparent opacity={0.40} sizeAttenuation depthWrite={false} />
+          </points>
+        ))}
+      </group>
+    </>
+  );
+}
+
 const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showSeismic = true }: GlobeSceneProps) => {
   return (
     <>
@@ -297,9 +456,10 @@ const GlobeScene = ({ focusedProject, onHotspotClick, showProjects = true, showS
       <pointLight position={[-10, -5, -8]} intensity={0.08} color="#1a4a8a" /> {/* cold space fill */}
       <pointLight position={[0, 6, -12]} intensity={0.10} color="#0a9cff" />  {/* electric backlight */}
 
-      {/* Globe + atmosphere */}
+      {/* Globe + atmosphere + sovereign lattice */}
       <NetworkSphere />
       <AtmosphericShell />
+      <OrbitalMesh />
       <OrbitalBreathingRing />
       <OrbitalRingOuter />
       <ParticleFlow />
