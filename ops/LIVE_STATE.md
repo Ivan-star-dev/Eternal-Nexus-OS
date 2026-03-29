@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão VALUE-ENGINE-002)
-**Actualizado por:** @claude | VALUE-ENGINE-002 ✅ · VALUE_ENGINE_CANON + VALUE_ENGINE_INFUSION_MAP · TestBay 7 validation frameworks · School Value Creation track · track selector in SchoolSurface · commit 01e80da · WEDGE TEST STILL PENDING
+**Última actualização:** 2026-03-29 (sessão GLOBE-3D-001)
+**Actualizado por:** @antigravity | GLOBE-3D-001 ✅ · GlobeCanvas implementation closed, ORBITAL-CHAMBER-001 & GLOBE-EXPERIENCE-IMPL-001 triggered
 
 ---
 
@@ -44,8 +44,8 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 ### @antigravity — K-01 3D_VISUAL
 | Task | Kernel | Estado |
 |---|---|---|
-| GLOBE-3D-001 | K-01 | **EXECUTANDO — GO_NOW emitido** |
-| ORBITAL-CHAMBER-001 | K-02 | STANDBY → trigger: GLOBE-3D |
+| GLOBE-3D-001 | K-01 | **CONCLUÍDA ✓** |
+| ORBITAL-CHAMBER-001 | K-02 | **EXECUTANDO — trigger: GLOBE-3D ✓** |
 | MOTION-SYSTEM-001 | K-02 | STANDBY → trigger: ORBITAL |
 | SUBSTRATE-LAYER-001 | K-03 | STANDBY → trigger: MOTION |
 
@@ -59,8 +59,8 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | Task | Kernel | Estado |
 |---|---|---|
 | GLOBE-INFRA-PREP-001 | K-09 | **CONCLUÍDA ✓ — Three.js R3F infra pronta** |
-| GLOBE-3D-001 | K-01 | **EXECUTANDO — GlobeCanvas 339L in progress** |
-| GLOBE-EXPERIENCE-IMPL-001 | K-07 | STANDBY → trigger: GLOBE-3D ✓ |
+| GLOBE-3D-001 | K-01 | **CONCLUÍDA ✓ — GlobeCanvas 340L ready** |
+| GLOBE-EXPERIENCE-IMPL-001 | K-07 | **EXECUTANDO — trigger: GLOBE-3D ✓** |
 | V4-WORLD-FEATURES-001 | K-07+K-08 | **DESBLOQUEADA ✅ → @cursor elegível agora** |
 | V5-RESEARCH-IMPL-001 | K-07+K-08 | LOCKED → trigger: GATE_V5_OPEN |
 | V6-MISSIONS-IMPL-001 | K-07 | LOCKED → trigger: GATE_V6_OPEN |
