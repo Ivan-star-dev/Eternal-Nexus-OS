@@ -136,77 +136,123 @@
     --sidebar-ring: 42 78% 45%;
   }
 
-  /* ═══════════════════════════════════════════════
-     LIGHT MODE — Clean institutional white
-  ═══════════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════════════════════
+     SOVEREIGN LIGHT MODE — Mineral / pale / luminous
+     One organism. Different illumination state.
+     No plain white. No weak gray fog. No loss of authority.
+     Same mother DNA — gold/teal/electric discipline preserved.
+     Base: luminous pale mineral — cool, tensed, premium.
+  ═══════════════════════════════════════════════════════════ */
   .light {
-    --background: 210 20% 98%;
-    --foreground: 216 40% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 216 40% 12%;
+    /* ── SOVEREIGN PALETTE — Light-mode depth scale ───────── */
+    /* Re-declares all --rx-* so every consumer auto-adapts.    */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 40% 12%;
+    /* Base field — mineral canvas (not white, not gray) */
+    --rx-void:        215 30% 96%;  /* luminous pale mineral — the floor     */
+    --rx-depth:       216 22% 93%;  /* deeper layer — section bg, wells      */
+    --rx-ground:      214 18% 89%;  /* inner wells — inputs, sunken areas    */
+    --rx-lift:        213 14% 85%;  /* hover targets, selects                */
+    --rx-rim:         212 22% 74%;  /* borders — visible but not harsh       */
 
-    --primary: 42 78% 36%;
-    --primary-foreground: 0 0% 100%;
+    /* Text — deep cool navy scale */
+    --rx-text-prime:  220 32% 10%;  /* primary text — deep navy, not black   */
+    --rx-text-mid:    220 20% 30%;  /* secondary — dark slate                */
+    --rx-text-dim:    220 14% 50%;  /* muted                                 */
+    --rx-text-ghost:  220 10% 66%;  /* ghost                                 */
 
-    --secondary: 210 15% 93%;
-    --secondary-foreground: 216 40% 12%;
+    /* Energy veins — deepened for pale-surface legibility */
+    --rx-gold:        42  82%  40%; /* authority — deeper, more contrast     */
+    --rx-teal:        172 60%  26%; /* lab / present — deep teal             */
+    --rx-electric:    205 100% 38%; /* creation / future — deep electric     */
+    --rx-signal:      155 70%  32%; /* live / active                         */
+    --rx-alert:       12  85%  42%; /* governance warning                    */
+    --rx-sovereign:   270 50%  42%; /* owner layer                           */
 
-    --muted: 210 12% 90%;
-    --muted-foreground: 215 15% 36%;
+    /* ── Tailwind semantic bridging ──────────────────────── */
+    /* background/foreground auto-adapt via var(--rx-void) etc. */
 
-    --accent: 172 55% 25%;
-    --accent-foreground: 172 55% 14%;
+    /* Cards float above mineral floor — tinted near-white   */
+    --card:                  210 28% 98%; /* cool tinted near-white, not #fff */
+    --card-foreground:       var(--rx-text-prime);
 
-    --destructive: 0 60% 40%;
-    --destructive-foreground: 0 0% 100%;
+    --popover:               210 28% 98%;
+    --popover-foreground:    var(--rx-text-prime);
 
-    --border: 210 18% 82%;
-    --input: 210 18% 82%;
-    --ring: 42 78% 36%;
+    /* Primary foreground on gold surface = pale mineral     */
+    --primary-foreground:    var(--rx-void);
 
-    /* Extended tokens — light overrides */
-    --gold: 42 78% 36%;
-    --gold-light: 42 70% 38%;
-    --gold-dim: 42 45% 42%;
-    --teal: 172 55% 25%;
-    --teal-light: 172 50% 30%;
-    --red-classified: 0 60% 40%;
-    --ink-deep: 210 15% 96%;
-    --ink-dark: 210 15% 94%;
-    --ink-medium: 0 0% 100%;
-    --navy: 210 14% 88%;
-    --navy-light: 210 12% 82%;
-    --paper: 216 40% 12%;
-    --paper-dim: 215 15% 36%;
-    --rule: 210 18% 82%;
-    --platinum: 216 25% 22%;
+    --secondary:             var(--rx-lift);
+    --secondary-foreground:  var(--rx-text-prime);
 
-    /* Morabeza light overrides */
-    --morabeza-warm: 28 65% 46%;
-    --morabeza-sunset: 16 70% 42%;
-    --morabeza-sand: 35 35% 62%;
-    --morabeza-terracotta: 12 48% 36%;
-    --morabeza-ocean: 195 50% 32%;
+    --muted:                 var(--rx-ground);
+    --muted-foreground:      var(--rx-text-mid);
 
-    --shadow-classified: 0 4px 24px -4px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 2px 20px -4px hsl(0 0% 0% / 0.08);
-    --shadow-elevation: 0 12px 40px -8px hsl(0 0% 0% / 0.12);
-    --gradient-dark: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 15% 93%) 100%);
-    --gradient-hero-overlay: linear-gradient(180deg, hsl(210 20% 98% / 0.15) 0%, hsl(210 20% 98% / 0.97) 80%);
-    --gradient-card: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(210 15% 96%) 100%);
+    /* Accent foreground on teal surface */
+    --accent-foreground:     172 60% 10%;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 216 40% 12%;
-    --sidebar-primary: 42 78% 40%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 12% 90%;
-    --sidebar-accent-foreground: 216 40% 12%;
-    --sidebar-border: 210 15% 86%;
-    --sidebar-ring: 42 78% 40%;
+    --destructive:           var(--rx-alert);
+    --destructive-foreground: var(--rx-void);
+
+    /* ── Extended token overrides ─────────────────────────── */
+    --gold:             var(--rx-gold);
+    --gold-light:       42 70% 52%;
+    --gold-dim:         42 58% 34%;
+    --teal:             var(--rx-teal);
+    --teal-light:       172 52% 36%;
+    --red-classified:   var(--rx-alert);
+    --ink-deep:         var(--rx-lift);
+    --ink-dark:         var(--rx-ground);
+    --ink-medium:       var(--rx-depth);
+    --navy:             var(--rx-ground);
+    --navy-light:       var(--rx-lift);
+    --paper:            var(--rx-text-prime);
+    --paper-dim:        var(--rx-text-mid);
+    --rule:             var(--rx-rim);
+    --platinum:         220 28% 20%;
+    --electric:         var(--rx-electric);
+
+    /* Ruberra depth system — light remapped */
+    --petroleum-blue:   hsl(215 30% 96%);
+    --abyssal:          hsl(var(--rx-void));
+    --depth-1:          hsl(var(--rx-depth));
+    --depth-2:          hsl(var(--rx-ground));
+    --depth-3:          hsl(var(--rx-lift));
+    --burnt-gold:       hsl(42 76% 36%);
+    --burnt-gold-light: hsl(42 72% 44%);
+    --glow-gold:        0 0 50px -10px hsl(var(--rx-gold) / 0.28);
+    --glow-teal:        0 0 35px -8px  hsl(var(--rx-teal) / 0.30);
+    --surface-glass:    hsl(var(--rx-depth) / 0.7);
+    --haze:             hsl(var(--rx-void) / 0.9);
+    --amber:            hsl(38 80% 36%);
+
+    /* Shadows — perceptible but not heavy */
+    --shadow-classified: 0 4px 24px -4px hsl(220 32% 10% / 0.14);
+    --shadow-card:       0 2px 20px -4px hsl(220 32% 10% / 0.10);
+    --shadow-elevation:  0 12px 40px -8px hsl(220 32% 10% / 0.16);
+
+    /* Gradients adapted */
+    --gradient-gold:       linear-gradient(90deg, hsl(42 82% 36%), hsl(42 75% 50%));
+    --gradient-dark:       linear-gradient(180deg, hsl(215 30% 96%) 0%, hsl(216 22% 91%) 100%);
+    --gradient-hero-overlay: linear-gradient(180deg, hsl(215 30% 96% / 0.08) 0%, hsl(215 30% 96% / 0.95) 80%);
+    --gradient-card:       linear-gradient(160deg, hsl(210 28% 98%) 0%, hsl(215 30% 96%) 100%);
+
+    /* Morabeza — slightly deeper for legibility */
+    --morabeza-warm:        28 65% 44%;
+    --morabeza-sunset:      16 72% 40%;
+    --morabeza-sand:        35 38% 58%;
+    --morabeza-terracotta:  12 50% 34%;
+    --morabeza-ocean:       195 52% 30%;
+
+    /* Sidebar */
+    --sidebar-background:           215 28% 93%;
+    --sidebar-foreground:           var(--rx-text-prime);
+    --sidebar-primary:              var(--rx-gold);
+    --sidebar-primary-foreground:   var(--rx-void);
+    --sidebar-accent:               var(--rx-lift);
+    --sidebar-accent-foreground:    var(--rx-text-prime);
+    --sidebar-border:               var(--rx-rim);
+    --sidebar-ring:                 var(--rx-gold);
   }
 }
 
@@ -376,6 +422,12 @@
     background-image:
       repeating-linear-gradient(0deg, transparent, transparent 79px, hsl(var(--gold) / 0.04) 79px, hsl(var(--gold) / 0.04) 80px),
       repeating-linear-gradient(90deg, transparent, transparent 79px, hsl(var(--gold) / 0.04) 79px, hsl(var(--gold) / 0.04) 80px);
+  }
+  /* Light mode — lattice shifts to deep navy, slightly stronger */
+  .light .engineering-grid {
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, hsl(220 32% 10% / 0.05) 79px, hsl(220 32% 10% / 0.05) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, hsl(220 32% 10% / 0.05) 79px, hsl(220 32% 10% / 0.05) 80px);
   }
 
   /* ═══ SCANLINE ═══ */
@@ -660,6 +712,10 @@
   .surface-creation { background: hsl(var(--rx-electric) / 0.04); }
   .surface-lab      { background: hsl(var(--rx-teal)     / 0.04); }
   .surface-school   { background: hsl(var(--rx-gold)     / 0.04); }
+  /* Light mode — tints at higher opacity to stay perceptible on pale surface */
+  .light .surface-creation { background: hsl(var(--rx-electric) / 0.08); }
+  .light .surface-lab      { background: hsl(var(--rx-teal)     / 0.07); }
+  .light .surface-school   { background: hsl(var(--rx-gold)     / 0.07); }
 
   /* ═══ WILL-CHANGE PERF HINTS ═══ */
   .will-change-transform { will-change: transform; }
