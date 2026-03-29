@@ -6,6 +6,46 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @copilot | FORCE-TASK-003 | FORÇA-TAREFA V4 LIVING WORLD ACTIVADA
+
+**TASK:** FORCE-TASK-003-OPS — activar FORCE_TASK_ACTIVATION_003 · actualizar ops
+**STATUS:** CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — FORCE_TASK_ACTIVATION_003.md criado · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
+**BRANCH:** copilot/atualiza-forca-tarefa → merge para claude/setup-ruberra-nexus-IL7Tg
+
+---
+
+**FEITO:**
+- [✅] `ops/FORCE_TASK_ACTIVATION_003.md` criado — G3 Complexo · V4 Living World · 5 pioneers activados
+- [✅] `ops/LIVE_STATE.md` actualizado — estado FORCE_TASK_003 EMITIDA · fila V4 desbloqueada · canalization lane A/B/C actualizadas · gate chain V4→V5 marcado em progresso
+- [✅] `ops/BASTION.md` actualizado — 4 novas tasks V4 inseridas (V4-WORLD-PULSE-001 · V4-TIMELINE-BASE-001 · NS-3-FRAMER-UI-001 · FORCE-TASK-003-OPS concluída)
+- [✅] `ops/HANDOFF_LEDGER.md` appended — esta entrada
+
+**CONTEXTO DE ACTIVAÇÃO:**
+- SITE-CONVERGENCE-001 STEP1–7 completamente fechado ✅
+- GATE_V4_OPEN emitido 2026-03-27 (score 0.91) ✅
+- Canonical site line locked (LAB · SCHOOL · CREATION) ✅
+- Sovereign palette + globe cosmic wrap + trinity routes + homepage purged ✅
+
+**PIONEIROS ACTIVADOS NA FORCE_TASK_003:**
+- @cursor → V4-WORLD-PULSE-001 + V4-TIMELINE-BASE-001 (Pilar 1+2)
+- @framer → NS-3-FRAMER-UI-001 · 5 Wonder Layer components (Pilar 3)
+- @copilot → FORCE-TASK-003-OPS · BULK-02.2 · L-001 (Pilar 4) ← esta sessão
+- @claude → V4 oversight + V5 spec prep
+- @codex → CI verify + wave report
+
+**NÃO FEITO (próxima sessão):**
+- BULK-02.2 lapidação completa de ops/
+- L-001 higiene .gitignore
+
+**BLOQUEIOS:** nenhum
+
+**PRÓXIMO PASSO:**
+@cursor → iniciar V4-WORLD-PULSE-001 em GlobeScene.tsx
+@framer → scaffold 5 componentes NS-3 Wonder Layer
+@copilot → BULK-02.2 + L-001 (continuação desta sessão se gate aberto)
+
+**DECISÃO_REC:** @cursor entra primeiro (World Pulse é o coração do V4)
 ## HANDOFF — 2026-03-29 | @claude | RUBERRA-FINISH-PASS | HOMEPAGE SEAL + DARK/LIGHT SOVEREIGN SYSTEM
 
 **TASK:** Homepage Theme-Aware Seal + Sovereign Dark/Light System + Globe Visual Fusion
