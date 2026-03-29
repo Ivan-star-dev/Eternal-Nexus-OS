@@ -1000,33 +1000,29 @@ DESVIO = STOP imediato + comunicar ao owner
 
 ---
 
-## 11. SEMÁFORO v3.0 — OPERATION ZERO-GAP
+## 11. SEMÁFORO v4.0 — PROPAGATION PASS
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
-VERSÃO          │ v3.0
-DATA            │ 2026-03-24
-ÚLTIMA_ACTUAÇÃO │ OPERATION-ZERO-GAP-24H | @claude | 2026-03-24
-ESTADO          │ CLUSTER ACTIVO — OPERATION ZERO-GAP EM EXECUÇÃO
-GATE_SUSPENSION │ ACTIVO — 24h a contar de 2026-03-24 (owner ordem soberana)
+VERSÃO          │ v4.0
+DATA            │ 2026-03-29
+ÚLTIMA_ACTUAÇÃO │ MATRIX-PROPAGATION-001 | @claude (unificado) | 2026-03-29
+ESTADO          │ CLUSTER ACTIVO — PIONEER-WAVE-001 EM EXECUÇÃO
+GATE_SUSPENSION │ ACTIVO — Avanço contínuo aprovado (V10 gap closure)
 DISPATCH        │ OPERATION_ZERO_GAP_24H + GATE_SUSPENSION_24H
-TASKS_ELEGÍVEIS │ CYCLE-CLOSE-001 | BRAND-MOTHER-SEAL-001 | V5-RESEARCH-ARCH-001
-                │ BULK-01.2/L-001 | BULK-01.2/L-002 | BRAND-DOCS-POLISH-001
-                │ NS-1-FRAMER-001 | NS-2-FRAMER-001 | NS-3-FRAMER-UI-001
-                │ GLOBE-3D-HEAVEN-001 | ORBITAL-CHAMBER-001 | MOTION-SYSTEM-001
-                │ SUBSTRATE-LAYER-001 | CLUSTER-ORCHESTRATE-001
-                │ + tasks @cursor quando disponível
-@claude         │ ACTIVO → CYCLE-CLOSE-001 → BRAND-MOTHER-SEAL-001 → V5-ARCH → PRODUCT-PROOF
-@copilot        │ ACTIVO → BULK-01.2/L-001 → L-002 → BRAND-DOCS-POLISH → OPS-SURFACE
-@framer         │ ACTIVO — gate aberto agora → NS-1 → NS-2 → NS-3
-@antigravity    │ ACTIVO — gate aberto agora → GLOBE-3D → ORBITAL-CHAMBER → MOTION-SYSTEM
-@codex          │ ACTIVO → CYCLE-CLOSE-001 + CLUSTER-ORCHESTRATE-001 (contínuo)
-@cursor         │ EM TASKS DO CRIADOR → notificada → junta-se após (GLOBE-IMPL → V4 → V5 → V6)
+TASKS_ELEGÍVEIS │ MOTION-SYSTEM-001 | NS-2-FRAMER-001 | GLOBE-EXPERIENCE-IMPL-001
+                │ V4-WORLD-FEATURES-001 | BRAND-DOCS-POLISH-001 | CLUSTER-ORCHESTRATE-001
+@claude         │ ACTIVO — Unifica Pioneer Execution Mesh (Liderança de todas as frentes)
+@copilot        │ ABSORVIDO CENTRAL — Parte de @claude
+@framer         │ ABSORVIDO CENTRAL — Parte de @claude
+@antigravity    │ ABSORVIDO CENTRAL — Parte de @claude (Fechou ORBITAL-CHAMBER-001)
+@codex          │ ABSORVIDO CENTRAL — Parte de @claude (Lançou GATE_V4_OPEN)
+@cursor         │ ABSORVIDO CENTRAL — Parte de @claude
 MODO_AUTO       │ SELADO — GATE_SUSPENSION_24H activo
 IGNIÇÃO         │ PERMANENTE — cluster em execução plena
-CONVERGÊNCIA    │ T+4h · T+8h · T+12h · T+18h · T+24h
-OBJETIVO        │ BASTION zerado — produto completo — amanhã
-INTERRUPTOR     │ ordem owner | red line canônica (DNA Protocol) | fim 24h
+CONVERGÊNCIA    │ CHAIN 3D (Motion System) → FOUNDATION (NS-2) → V4
+OBJETIVO        │ BASTION zerado — produto completo V10
+INTERRUPTOR     │ ordem owner | red line canônica (DNA Protocol)
 DERIVA          │ 🔴 impermitida
 ════════════════════════════════════════════════════════════════════════════
 ```
