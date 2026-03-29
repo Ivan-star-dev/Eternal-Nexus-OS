@@ -1000,7 +1000,98 @@ DESVIO = STOP imediato + comunicar ao owner
 
 ---
 
-## 11. SEMÁFORO v4.0 — PROPAGATION PASS
+## 12. FORCE_TASK_ACTIVATION_003 — V4 LIVING WORLD (2026-03-29)
+
+> Emitida por @copilot · Activação: GATE_V4_OPEN ✅ · Site Convergence done ✅
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-WORLD-PULSE-001                                      │
+│ PILAR              │ WorkFunction / Produto V4                               │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ @framer (Wonder Layer sync)                             │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ GATE_V4_OPEN (emitido ✅)                               │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto — GATE_V4_OPEN emitido 2026-03-27               │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ V4-TIMELINE-BASE-001                                    │
+│ EVIDENCIA_MINIMA   │ World Pulse visível · dados de projects.ts · commit id  │
+│ NOTAS_DO_OWNER     │ Pontos de actividade no globe · intensidade proporcional│
+│                    │ ao número de projetos activos por região                │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ V4-TIMELINE-BASE-001                                    │
+│ PILAR              │ WorkFunction / Produto V4                               │
+│ WORKTREE_ALIAS     │ WorkFunction                                            │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ V4-WORLD-PULSE-001                                      │
+│ PODE_ENTRAR_SOZINHO│ sim (após V4-WORLD-PULSE-001)                          │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto — GATE_V4_OPEN emitido 2026-03-27               │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ V4-WORLD-FEATURES-001 (score emission)                 │
+│ EVIDENCIA_MINIMA   │ Timeline navegável · milestones reais · commit id       │
+│ NOTAS_DO_OWNER     │ Scroll horizontal ou overlay leve · dados canónicos do  │
+│                    │ sistema (ops milestones) · sem overhead visual pesado   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ NS-3-FRAMER-UI-001                                      │
+│ PILAR              │ WorkVisual / Wonder Layer                               │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @framer                                                 │
+│ APOIO_SECUNDARIO   │ @cursor (World Pulse sync)                              │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ GATE_V4_OPEN (emitido ✅)                               │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto — GATE_V4_OPEN emitido 2026-03-27               │
+│ NEXT_ACTOR         │ @framer                                                 │
+│ NEXT_TASK          │ V4-WORLD-FEATURES-001 (score)                          │
+│ EVIDENCIA_MINIMA   │ 5 componentes Wonder Layer funcionais · commit id       │
+│ NOTAS_DO_OWNER     │ Breathing Interface · World Pulse Indicator ·           │
+│                    │ Discovery Signatures · Deep Focus Mode · Dawn/Dusk      │
+│                    │ Sync com World Pulse (4000ms base)                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ FORCE-TASK-003-OPS                                      │
+│ PILAR              │ Governança / WorkStructure                              │
+│ WORKTREE_ALIAS     │ WorkStructure                                           │
+│ DONO_PRINCIPAL     │ @copilot                                                │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ concluída                                               │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ nenhum                                                  │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor (V4 impl)                                       │
+│ NEXT_TASK          │ V4-WORLD-PULSE-001                                      │
+│ EVIDENCIA_MINIMA   │ FORCE_TASK_ACTIVATION_003.md · LIVE_STATE updated ·    │
+│                    │ BASTION V4 tasks inseridas · HANDOFF_LEDGER appended    │
+│ NOTAS_DO_OWNER     │ SITE-CONVERGENCE-001 fechada · V4 activada             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+*BASTION.md v4.1 — V4 tasks inseridas (FORCE_TASK_ACTIVATION_003) — 2026-03-29 | @copilot*
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════
