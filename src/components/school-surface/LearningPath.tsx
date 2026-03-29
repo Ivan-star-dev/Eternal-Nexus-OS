@@ -24,14 +24,30 @@ const GOLD = "hsl(42, 78%, 52%)";
 const GOLD_FAINT = "hsla(42, 78%, 52%, 0.18)";
 const GOLD_MUTED = "hsla(42, 78%, 52%, 0.45)";
 
-// Canonical steps — status derived from real maturity level, not hardcoded
-const STEPS: LearningStep[] = [
+type TrackId = "foundations" | "value-creation";
+
+// Track: Foundations — sovereign intellectual base
+const STEPS_FOUNDATIONS: LearningStep[] = [
   { id: "s1", number: 1, title: "Foundations",      description: "Core principles of structured thinking and system literacy." },
   { id: "s2", number: 2, title: "Systems Thinking", description: "How to read complex systems, feedback loops, and emergence." },
   { id: "s3", number: 3, title: "Research Methods", description: "Rigorous methods for inquiry, synthesis, and original insight." },
   { id: "s4", number: 4, title: "Simulation",       description: "Build and run scenario models to test hypotheses in context." },
   { id: "s5", number: 5, title: "Leadership",       description: "From vision to execution: orchestrating people, systems, and intent." },
 ];
+
+// Track: Value Creation — practical digital intelligence (engine infusion)
+const STEPS_VALUE_CREATION: LearningStep[] = [
+  { id: "v1", number: 1, title: "Foundations of Value",   description: "What is value, how it's created, stored, and transmitted. Why most created value doesn't reach the people who need it." },
+  { id: "v2", number: 2, title: "Offer Intelligence",     description: "What makes an offer structurally sound. Promise architecture, mechanism articulation, proof systems, pricing as positioning." },
+  { id: "v3", number: 3, title: "Distribution Literacy",  description: "Why brilliant things go undiscovered. Channel strategy, positioning logic, and trust-building mechanics." },
+  { id: "v4", number: 4, title: "Execution Architecture", description: "Systems that produce value reliably. SOPs, workflows, leverage. The difference between doing and systematizing." },
+  { id: "v5", number: 5, title: "Mastery and Scaling",    description: "How competence and systems compound differently. Defensible positions. Scaling without losing sovereignty." },
+];
+
+const TRACK_STEPS: Record<TrackId, LearningStep[]> = {
+  "foundations": STEPS_FOUNDATIONS,
+  "value-creation": STEPS_VALUE_CREATION,
+};
 
 // maturityLevel 0→3 maps to steps unlocked:
 // 0=new → step 1 available, rest locked
@@ -219,10 +235,12 @@ function StepCard({ step, index, status, onBegin }: { step: LearningStep; index:
 
 interface LearningPathProps {
   maturityLevel: 0 | 1 | 2 | 3;
+  track?: TrackId;
 }
 
-export default function LearningPath({ maturityLevel }: LearningPathProps) {
+export default function LearningPath({ maturityLevel, track = "foundations" }: LearningPathProps) {
   const { session, updateReEntry } = useSession();
+  const STEPS = TRACK_STEPS[track];
   const doneCount = Math.min(maturityLevel, STEPS.length);
   const progressPct = Math.round((doneCount / STEPS.length) * 100);
 
@@ -234,10 +252,10 @@ export default function LearningPath({ maturityLevel }: LearningPathProps) {
       title: `${step.title} — Study Session`,
       summary: `Began study of "${step.title}". ${step.description}`,
       content: `# ${step.title}\n\n${step.description}\n\n---\n_Started: ${new Date().toISOString()}_`,
-      tags: ['school', 'lesson', step.id],
+      tags: ['school', track, 'lesson', step.id],
       source: 'school',
     });
-    updateReEntry(`school:step-${step.number}`);
+    updateReEntry(`school:${track}:step-${step.number}`);
   }
 
   return (
@@ -269,7 +287,7 @@ export default function LearningPath({ maturityLevel }: LearningPathProps) {
             marginBottom: "10px",
           }}
         >
-          Bridge Nova · Learning Path
+          Bridge Nova · {track === "value-creation" ? "Value Creation" : "Foundations"}
         </span>
         <h2
           style={{
