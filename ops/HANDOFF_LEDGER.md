@@ -6,6 +6,56 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | RUBERRA-FINISH-PASS | HOMEPAGE SEAL + DARK/LIGHT SOVEREIGN SYSTEM
+
+**TASK:** Homepage Theme-Aware Seal + Sovereign Dark/Light System + Globe Visual Fusion
+**STATUS:** BLOCOS 1–7 CONCLUÍDOS ✅ · homepage 100% theme-aware · globe sealed · nav sealed · footer sealed
+**ALTERACAO_REAL:** sim — 12 ficheiros modificados · 7 commits · branch canónico
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMITS:** c649035 (ProductHero) · d16738e (NavBar) · dd12634 (SessionPulse) · 34ce62b (Block1) · 5b64221 (Footer text)
+
+---
+
+**RUBERRA-VISUAL-FUSION-001 ✅**
+- GlobeScene: OrbitalMesh — 7 great-circle arcs, 2 counter-rotating groups (+0.009/-0.006 rad/s), golden #c8a44e, breath opacity 0.17–0.27
+- CosmicVoid: 80 stars, 3 tiers (40+28+12), deterministic LCG seed, radii R×3.6–8.2
+- NetworkSphere: demoted to subordinate layer (#1a3a5c, opacity 0.06)
+
+**RUBERRA-THEME-SYSTEM-001 ✅**
+- index.css .light block: sovereign mineral palette (215 30% 96% base, deep navy text 220 32% 10%)
+- --rx-substrate-line token: rgba(255,255,255,0.018) dark / rgba(10,14,30,0.028) light
+- ThemeToggle: text-only sovereign rewrite, localStorage key renamed rx-theme, shows destination state
+
+**RUBERRA-HERO-PASS-001 ✅**
+- ProductHero headline: "The world is the material. This is where you work it."
+- Sub-line: "Perceive · Investigate · Create · One System · Three Portals"
+- CTA-2: /projects → /lab
+- 6× hardcoded dark values → hsl(var(--background)) · var(--rx-substrate-line)
+
+**RUBERRA-NAV-SEAL-001 ✅**
+- NavBar: mobile menu hsl(216 50% 5%/0.96) → hsl(var(--background)/0.96), 5× border-white → border-border
+- SessionPulse: rgba(6,12,20,0.78) → hsl(var(--background)/0.78)
+
+**RUBERRA-HOMEPAGE-SEAL-001 ✅ (Block 1)**
+- DossierCard: trinity badge rgba(6,12,20,0.7) → hsl(var(--background)/0.7)
+- DossierCard LIVE pulse: rgba(0,170,255,0.12/0.35) → hsl(var(--rx-electric)/0.12/0.35)
+- TrinityRow: rgba(6,12,20,...) gradient → hsl(var(--background)/...)
+- Footer: hsl(216 60% 4%) → hsl(var(--background)), separator rgba(255,255,255,0.05) → hsl(var(--border)/0.3)
+
+**RUBERRA-FOOTER-TEXT-001 ✅**
+- 10× rgba(228,235,240/255,255,255,0.xx) → hsl(var(--rx-text-ghost)) / hsl(var(--rx-text-dim))
+- Hover delta preserved. Ghost/signature feel preserved. Both modes legível.
+
+---
+
+**ESTADO DO PRODUTO APÓS ESTA SESSÃO:**
+- Homepage: 100% theme-aware · zero hardcoded dark assumptions
+- Globe: sovereign visual identity · orbital + cosmic + demoted network
+- Nav + Footer: fully sealed
+- PENDING → Block 2 (access layer @claude) · Block 3 (Lab interior @cursor) · Block 4 (polish @framer)
+
+---
+
 ## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP7 VISUAL AUDIT FIXES
 
 **TASK:** Sovereign visual audit — ProjectsLiveSection + DossierCard

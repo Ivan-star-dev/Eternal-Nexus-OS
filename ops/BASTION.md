@@ -190,10 +190,84 @@ Cada item da matriz regista os seguintes campos:
 | REAL-ENTRY-SESSION-HOOKUP-001 | WorkFunction / Sessão | WorkFunction | @claude | concluída | handoff emitido — NexusPage wired: startSession no swarm fire + updateFruit + updateReEntry no done; ProjectPage wired: startSession no mount + updateReEntry na mudança de tab; commit a7bd4b6 |
 | RESUME-GUARD-REFINEMENT-001 | WorkFunction / Sessão | WorkFunction | @claude | concluída | handoff emitido — guard em runSwarmStreaming: skip startSession se re_entry_point inclui primeiros 30 chars do prompt; elimina overwrite de sessão no resume path; comportamento fresh vs resume correto |
 | MEMORY-RUNTIME-CLOSURE-HANDOFF-001 | WorkStructure / Consolidação | WorkStructure | @claude | concluída | handoff consolidado emitido — onda de memória runtime fechada: 6 tasks · session backbone vivo · provenance spine vivo · SWMR classifier · relay pool · entry hookup · resume guard · NexusFlowInspector SESSION panel |
+| RUBERRA-VISUAL-FUSION-001 | Produto | WorkVisual | @claude | concluída | GlobeScene: OrbitalMesh golden cybernetic lattice (7 arcs, 2 counter-rotating groups) · CosmicVoid 3-tier 80 stars deterministic · NetworkSphere demoted to subordinate layer |
+| RUBERRA-THEME-SYSTEM-001 | Produto | WorkVisual | @claude | concluída | Sovereign dark/light token system — index.css .light block (mineral pale base) · --rx-substrate-line token · ThemeToggle sovereign text-only rewrite · localStorage key rx-theme |
+| RUBERRA-HERO-PASS-001 | Produto | WorkVisual | @claude | concluída | ProductHero: sovereign headline + sub-line copy replaced · CTA-2 /projects→/lab fixed · 6 hardcoded dark values → hsl(var(--background)) · fully theme-aware |
+| RUBERRA-NAV-SEAL-001 | Produto | WorkVisual | @claude | concluída | NavBar: mobile menu hsl(216 50% 5%/0.96) + 5 border-white/[x] → token-driven · SessionPulse rgba(6,12,20,0.78) → hsl(var(--background)/0.78) |
+| RUBERRA-HOMEPAGE-SEAL-001 | Produto | WorkVisual | @claude | concluída | Block 1 complete: DossierCard trinity badge + LIVE pulse bg/border · TrinityRow container gradient · Footer bg + separator → all sovereign token-driven · commit 34ce62b |
+| RUBERRA-FOOTER-TEXT-001 | Produto | WorkVisual | @claude | concluída | Footer micro-seal: 10× rgba(228,235,240/255,255,255,0.xx) ghost text → hsl(var(--rx-text-ghost)) / hsl(var(--rx-text-dim)) · legível em ambos os modos |
 
 ---
 
 ### 5.2 TASKS ACTIVAS E ELEGÍVEIS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ RUBERRA-ACCESS-SEAL-001                                 │
+│ PILAR              │ Produto / Seal                                          │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @claude                                                 │
+│ APOIO_SECUNDARIO   │ nenhum                                                  │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ RUBERRA-HOMEPAGE-SEAL-001 ✓                             │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_TASK          │ RUBERRA-LAB-SEAL-001                                    │
+│ EVIDENCIA_MINIMA   │ 4 ficheiros tocados + zero hsl(216 50% 5%) restante     │
+│ NOTAS_DO_OWNER     │ Block 2: WaitlistBanner · AuthModal · EmailCaptureModal │
+│                    │ · DualEntryGate — button text hsl(216 50% 5%)           │
+│                    │ → hsl(var(--background)) · /access route fully sealed   │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ RUBERRA-LAB-SEAL-001                                    │
+│ PILAR              │ Produto / Portal Interior                               │
+│ WORKTREE_ALIAS     │ WorkVisual + WorkFunction                               │
+│ DONO_PRINCIPAL     │ @cursor                                                 │
+│ APOIO_SECUNDARIO   │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ livre                                                   │
+│ DEPENDE_DE         │ RUBERRA-ACCESS-SEAL-001                                 │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
+│ PRIORIDADE         │ P1                                                      │
+│ GATE               │ aberto                                                  │
+│ NEXT_ACTOR         │ @cursor                                                 │
+│ NEXT_TASK          │ RUBERRA-POLISH-001                                      │
+│ EVIDENCIA_MINIMA   │ LabSurface + LabHero + LabEntryHeader + LabToolSpine    │
+│                    │ sem hardcodes #060c14/rgba(6,12,20) · /lab theme-aware  │
+│ NOTAS_DO_OWNER     │ Block 3: LabSurface bg #060c14 · LabHero CTA text       │
+│                    │ · LabEntryHeader rgba(6,12,20,0.94) · LabToolSpine      │
+│                    │ rgba(6,12,20,0.95) → hsl(var(--background)/opacity)     │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TASK_ID            │ RUBERRA-POLISH-001                                      │
+│ PILAR              │ Produto / Finish                                        │
+│ WORKTREE_ALIAS     │ WorkVisual                                              │
+│ DONO_PRINCIPAL     │ @framer                                                 │
+│ APOIO_SECUNDARIO   │ @claude                                                 │
+│ STATUS             │ elegível                                                │
+│ DEPENDENCIA_STATUS │ pendente                                                │
+│ DEPENDE_DE         │ RUBERRA-LAB-SEAL-001                                    │
+│ PODE_ENTRAR_SOZINHO│ sim (após Lab seal)                                     │
+│ PRIORIDADE         │ P2                                                      │
+│ GATE               │ aberto (após block 3)                                   │
+│ NEXT_ACTOR         │ @framer                                                 │
+│ NEXT_TASK          │ CYCLE-CLOSE-001                                         │
+│ EVIDENCIA_MINIMA   │ DossierCard + TrinityRow + HeroFirstProof — neon reduz  │
+│                    │ · matte/premium finish · dark mode quality ++           │
+│ NOTAS_DO_OWNER     │ Block 4: reduzir neon bruto · aumentar profundidade     │
+│                    │ matte · precisão tipográfica · sem redesign estrutural  │
+│                    │ · sem tocar copy/routes/motion/GlobeScene               │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
