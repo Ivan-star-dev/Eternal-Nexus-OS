@@ -487,6 +487,8 @@ export default function LabWorkBay({ refreshSignal, autoExpandId }: LabWorkBayPr
     const reEntry = buildReEntryPoint("lab", artifact.artifact_id);
     updateReEntry(reEntry);
     setExpandedId(artifact.artifact_id);
+    // A4: record view time — improves return intelligence and maturity scoring
+    updateArtifact(artifact.artifact_id, { ts_last_accessed: new Date().toISOString() });
   };
 
   const handleCollapse = () => setExpandedId(null);

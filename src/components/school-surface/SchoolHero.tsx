@@ -115,7 +115,7 @@ export default function SchoolHero() {
         >
           Your{" "}
           <span style={{ background: `linear-gradient(135deg, ${GOLD} 0%, hsl(35, 90%, 68%) 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            School
+            Mastery Path
           </span>
         </motion.h1>
 
@@ -126,23 +126,42 @@ export default function SchoolHero() {
           transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
           style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "clamp(15px, 2vw, 18px)", color: "rgba(200,185,160,0.60)", lineHeight: 1.65, margin: "0 0 36px", maxWidth: "520px" }}
         >
-          Master what matters. Structured progression, real depth, zero distraction — the path is yours.
+          Not courses. Not content. A sovereign progression system — every session builds on the last, every level earned by doing, not watching.
         </motion.p>
 
-        {/* Resume badge */}
-        {isResume && metrics && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: EASE, delay: 0.22 }}
-            style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: GOLD_FAINT, border: `1px solid ${GOLD_BORDER}`, borderRadius: "8px", padding: "9px 16px", marginBottom: "24px" }}
-          >
-            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: GOLD, flexShrink: 0 }} />
-            <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "10px", letterSpacing: "0.1em", color: GOLD_DIM }}>
-              Visit {metrics.visit_count} · <span style={{ color: "rgba(220,205,175,0.85)" }}>Level {maturity.level} — {MATURITY_LABELS[maturity.level]}</span>
+        {/* Maturity progress bar + resume state */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: EASE, delay: 0.20 }}
+          style={{ marginBottom: "28px", display: "flex", flexDirection: "column", gap: "10px", maxWidth: "400px" }}
+        >
+          {/* Level label row */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "9px", letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD_DIM }}>
+              Mastery Level {maturity.level} — {MATURITY_LABELS[maturity.level]}
             </span>
-          </motion.div>
-        )}
+            {isResume && metrics && (
+              <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.15em", color: "rgba(200,185,155,0.45)", textTransform: "uppercase" }}>
+                Visit {metrics.visit_count}
+              </span>
+            )}
+          </div>
+          {/* Progress bar */}
+          <div style={{ height: "3px", borderRadius: "2px", background: "rgba(212,175,55,0.12)", overflow: "hidden" }}>
+            <div style={{
+              height: "100%",
+              width: `${Math.min(100, (maturity.totalSessions / Math.max(1, (maturity.level + 1) * 4)) * 100)}%`,
+              background: `linear-gradient(90deg, ${GOLD}, hsl(35,90%,68%))`,
+              borderRadius: "2px",
+              transition: "width 1s ease",
+            }} />
+          </div>
+          {/* Session stat */}
+          <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.18em", color: "rgba(200,185,155,0.38)", textTransform: "uppercase" }}>
+            {maturity.totalSessions} session{maturity.totalSessions !== 1 ? "s" : ""} recorded
+          </span>
+        </motion.div>
 
         {/* CTAs */}
         <motion.div

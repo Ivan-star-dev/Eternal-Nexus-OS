@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import type { User } from "@supabase/supabase-js";
+import { hydrateFromSupabase } from "@/lib/artifacts/store";
 
 interface GovernmentProfile {
   id: string;
@@ -69,6 +70,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           setTimeout(() => {
             fetchProfile(session.user.id);
             checkOwnerRole(session.user.id);
+            // P0-2: restore artifacts from Supabase on auth state change
+            hydrateFromSupabase(session.user.id);
           }, 0);
         } else {
           setProfile(null);
@@ -83,6 +86,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (session?.user) {
         fetchProfile(session.user.id);
         checkOwnerRole(session.user.id);
+        // P0-2: hydrate artifacts from Supabase on cold boot restore
+        hydrateFromSupabase(session.user.id);
       }
       setLoading(false);
     });

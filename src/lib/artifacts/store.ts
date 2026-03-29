@@ -169,7 +169,7 @@ export function saveArtifact(params: SaveArtifactOptions): ArtifactSaveResult {
 
 export function updateArtifact(
   artifact_id: string,
-  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status'>>,
+  patch: Partial<Pick<ArtifactMeta, 'title' | 'summary' | 'content' | 'tags' | 'status' | 'ts_last_accessed'>>,
   userId?: string
 ): ArtifactMeta | null {
   const artifacts = loadAll();

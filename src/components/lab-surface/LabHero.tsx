@@ -9,6 +9,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useSession } from "@/contexts/SessionContext";
 import { getReturnMetrics } from "@/lib/spawn/returnTracker";
 import { getRecentArtifacts } from "@/lib/artifacts/store";
@@ -280,6 +281,31 @@ export default function LabHero() {
           >
             {showExplainer ? "Got it" : "What is Creation Lab?"}
           </motion.button>
+
+          {/* Test Lab portal — tri-core entry */}
+          <Link
+            to="/test"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "7px",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "10px",
+              fontWeight: 500,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "rgba(20,200,160,0.6)",
+              background: "rgba(20,200,160,0.04)",
+              border: "1px solid rgba(20,200,160,0.18)",
+              borderRadius: "8px",
+              padding: "13px 20px",
+              textDecoration: "none",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+          >
+            <span style={{ fontSize: "8px", opacity: 0.7 }}>◈</span>
+            Test Lab
+          </Link>
         </motion.div>
 
         {/* Inline explainer — answers the question */}

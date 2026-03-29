@@ -6,6 +6,92 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | TOTAL-WAR-CONSOLIDATION-001 | P0 SURVIVAL + TRI-CORE DIGNITY + VISUAL WRAP
+
+**TASK:** Total consolidation pass — P0 survival, tri-core dignity, visual wrap
+**STATUS:** CONCLUÍDA ✅ — All Phase A P0 items closed. School elevated. Palette canonical.
+**ALTERACAO_REAL:** sim
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+
+**PHASE A — P0 SURVIVAL (all closed):**
+
+A1 — hydrateFromSupabase WIRED ✅
+  `AuthContext.tsx` — `hydrateFromSupabase(userId)` now called in:
+    - `onAuthStateChange` when session.user is present (inside setTimeout)
+    - `getSession` on cold boot when session.user is present
+  Result: artifacts in Supabase now restore to localStorage on auth. Local wipe no longer total death.
+
+A2 — null-safe session boot ✅ (done prior session — useOrganism.ts + LabHero.tsx)
+
+A3 — governance try/catch in callers ✅
+  `LabQuickCreate.tsx` — `handleCreate` wrapped in try/catch. `capMessage` state.
+    Cap error renders as inline amber message below Quick Create label. Auto-clears 5s.
+  `LabSurface.tsx` — `handleToolSelect` wrapped in try/catch. `toolCapMessage` state.
+    Cap error renders above Quick Create row. Auto-clears 5s.
+  Both callers now surface governance law violations as premium messages, not crashes.
+
+A4 — ts_last_accessed on view ✅
+  `store.ts` — `updateArtifact` patch type extended to include `ts_last_accessed`
+  `LabWorkBay.tsx` — `handleExpand` now calls `updateArtifact` with `ts_last_accessed: now`
+  Result: opening/viewing an artifact now updates its access time. Return intelligence improves.
+
+A7 — /test discoverability ✅
+  `LabHero.tsx` — "Test Lab" link button added to CTA row
+    Teal DNA (rgba(20,200,160,0.6)) — distinct from Creation blue
+    Links to /test via react-router Link. No navigation breaking.
+    Tri-core now reachable without knowing the URL.
+
+**PHASE B — TRI-CORE DIGNITY:**
+
+B3 — School entry elevated ✅
+  `SchoolHero.tsx`:
+    - Headline: "Your School" → "Your Mastery Path" — stronger sovereign claim
+    - Subline: rewritten to "Not courses. Not content. A sovereign progression system..."
+    - Added maturity progress bar (visual level indicator with width % from totalSessions)
+    - Added level label row with visit count on right
+    - Added "X sessions recorded" stat beneath bar
+    - Resume badge replaced by persistent maturity stats block (shows always, not only on resume)
+  Result: School now communicates progression system, not educational platform.
+
+**PHASE C — VISUAL WRAP:**
+
+C1/C2 — Mother palette + 5 premium modes ✅
+  `ecosystem/knowledge/SOVEREIGN_PALETTE.md` — NEW canonical doc:
+    - Mother palette: 5 depth tokens (void→rim) + 4 text tokens + 3 energy veins
+    - Electric vein: Creation identity
+    - Teal vein: Lab/Test identity
+    - Gold vein: School identity
+    - 5 premium modes: Sovereign Night / Deep Amber / Clean Void / Luminous White / Signal Red
+    - Each mode: name, function, feeling, contrast law, use role
+    - Portal chromatic identity matrix
+    - 10-item anti-cheapness forbidden list
+    - Implementation tier order
+    - Truth state (what is canonical vs partial vs scaffold)
+
+C3 — Background sovereignty ✅ (confirmed prior session: LabHero clean, AtlasPage fixed)
+
+**WHAT REMAINS PARTIAL:**
+- Palette: defined canonically but NOT yet in CSS tokens — inline hardcoded values still scattered
+- Mode 2-4: defined, not applied — owner gate required for auto-activate
+- enable_pilot_access: no `enable_pilot_access` field in GovernmentProfile schema —
+  architecture doesn't have the field yet. Cannot enforce without schema addition.
+  Partial: ProtectedRoute guards /owner + /dashboard. /lab /school /test remain open by design.
+- Supabase dual-write userId: `saveArtifact` accepts `userId` but callers don't pass it yet.
+  hydrateFromSupabase is now wired for restore, but new saves only sync if userId passed.
+  Next: pass user.id from useAuth() into QuickCreate/LabSurface callers.
+
+**RISKS STILL OPEN:**
+- WEDGE TEST: still pending owner action (leave /lab → return unprompted within 48h)
+- TRI-CORE FUSION: Lab at ~55% — needs Lab→70% before fusion gate opens
+- B-001: .env history — owner decision outstanding
+
+**NEXT IMMEDIATE MOVE:**
+Wire `userId` from `useAuth()` into `LabQuickCreate` and `LabSurface` `saveArtifact` calls
+so new artifacts also sync to Supabase on creation (not just on restore).
+@cursor eligible. No gate required.
+
+---
+
 ## HANDOFF — 2026-03-29 | @claude | VALUE-ENGINE-002 | EXECUTION PLAN + CREATION HUB INFUSION (TIER 1 COMPLETE)
 
 **TASK:** 7-block execution architecture + Tier 1c Creation Hub blueprint infusion

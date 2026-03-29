@@ -61,23 +61,31 @@ interface LabQuickCreateProps {
 export default function LabQuickCreate({ onCreated }: LabQuickCreateProps) {
   const { session } = useSession();
   const [confirming, setConfirming] = useState<string | null>(null);
+  const [capMessage, setCapMessage] = useState<string | null>(null);
 
   const handleCreate = (opt: CreateOption) => {
     const sessionId = session?.session_id ?? "lab-anon";
-    const result = saveArtifact({
-      session_id: sessionId,
-      kind: opt.kind,
-      title: opt.defaultTitle,
-      summary: opt.defaultSummary,
-      content: "",
-      tags: ["creation-lab"],
-      source: "lab",
-    });
+    try {
+      const result = saveArtifact({
+        session_id: sessionId,
+        kind: opt.kind,
+        title: opt.defaultTitle,
+        summary: opt.defaultSummary,
+        content: "",
+        tags: ["creation-lab"],
+        source: "lab",
+      });
 
-    setConfirming(opt.kind);
-    setTimeout(() => setConfirming(null), 1800);
+      setCapMessage(null);
+      setConfirming(opt.kind);
+      setTimeout(() => setConfirming(null), 1800);
 
-    if (onCreated) onCreated(result.artifact.artifact_id, opt.kind);
+      if (onCreated) onCreated(result.artifact.artifact_id, opt.kind);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Artifact cap reached.";
+      setCapMessage(msg);
+      setTimeout(() => setCapMessage(null), 5000);
+    }
   };
 
   return (
@@ -104,6 +112,24 @@ export default function LabQuickCreate({ onCreated }: LabQuickCreateProps) {
       >
         Quick Create
       </span>
+
+      {/* Governance cap message */}
+      {capMessage && (
+        <div
+          style={{
+            fontFamily: "JetBrains Mono, monospace",
+            fontSize: "10px",
+            letterSpacing: "0.08em",
+            color: "rgba(230,100,80,0.85)",
+            background: "rgba(230,100,80,0.06)",
+            border: "1px solid rgba(230,100,80,0.2)",
+            borderRadius: "6px",
+            padding: "8px 14px",
+          }}
+        >
+          {capMessage}
+        </div>
+      )}
 
       {/* Buttons row */}
       <div

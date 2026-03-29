@@ -36,13 +36,13 @@ export default function LabSurface() {
   const [toolsVisible, setToolsVisible] = useState(false);
   const [refreshSignal, setRefreshSignal] = useState(0);
   const [focusArtifactId, setFocusArtifactId] = useState<string | null>(null);
+  const [toolCapMessage, setToolCapMessage] = useState<string | null>(null);
   const { session } = useSession();
   const { isMotionAllowed, isDenseAllowed } = usePortalIdentity();
 
   const handleArtifactCreated = useCallback((artifactId: string) => {
     setRefreshSignal(s => s + 1);
     setFocusArtifactId(artifactId);
-    // Clear focus after one cycle so re-renders don't re-expand
     setTimeout(() => setFocusArtifactId(null), 200);
   }, []);
 
@@ -66,17 +66,23 @@ export default function LabSurface() {
       lesson: "New Lesson",
     };
 
-    saveArtifact({
-      session_id: sessionId,
-      kind,
-      title: labels[kind],
-      summary: `Created from Lab Tool Spine.`,
-      content: "",
-      tags: ["creation-lab", "tool-spine"],
-      source: "lab",
-    });
-
-    setRefreshSignal(s => s + 1);
+    try {
+      saveArtifact({
+        session_id: sessionId,
+        kind,
+        title: labels[kind],
+        summary: `Created from Lab Tool Spine.`,
+        content: "",
+        tags: ["creation-lab", "tool-spine"],
+        source: "lab",
+      });
+      setToolCapMessage(null);
+      setRefreshSignal(s => s + 1);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Artifact cap reached.";
+      setToolCapMessage(msg);
+      setTimeout(() => setToolCapMessage(null), 5000);
+    }
   }, [session]);
 
   return (
@@ -133,6 +139,26 @@ export default function LabSurface() {
           }}
         />
       </motion.div>
+
+      {/* Governance cap message from tool spine */}
+      {toolCapMessage && (
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto 12px",
+            fontFamily: "JetBrains Mono, monospace",
+            fontSize: "10px",
+            letterSpacing: "0.08em",
+            color: "rgba(230,100,80,0.85)",
+            background: "rgba(230,100,80,0.06)",
+            border: "1px solid rgba(230,100,80,0.2)",
+            borderRadius: "6px",
+            padding: "8px 14px",
+          }}
+        >
+          {toolCapMessage}
+        </div>
+      )}
 
       {/* Quick Create row — always visible, above the work bay */}
       <motion.div
