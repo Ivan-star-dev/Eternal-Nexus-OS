@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 # AGENTS.md — Regras operacionais para Fase 3
 
 ## Documento soberano do sistema
