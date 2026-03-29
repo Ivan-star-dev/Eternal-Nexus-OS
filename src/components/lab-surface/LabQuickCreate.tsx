@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { saveArtifact } from "@/lib/artifacts/store";
 import type { ArtifactKind } from "@/lib/artifacts/types";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -60,6 +61,7 @@ interface LabQuickCreateProps {
 
 export default function LabQuickCreate({ onCreated }: LabQuickCreateProps) {
   const { session } = useSession();
+  const { user } = useAuth();
   const [confirming, setConfirming] = useState<string | null>(null);
   const [capMessage, setCapMessage] = useState<string | null>(null);
 
@@ -74,6 +76,7 @@ export default function LabQuickCreate({ onCreated }: LabQuickCreateProps) {
         content: "",
         tags: ["creation-lab"],
         source: "lab",
+        userId: user?.id,
       });
 
       setCapMessage(null);

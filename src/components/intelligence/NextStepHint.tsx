@@ -15,6 +15,7 @@ import type { RouteAction } from '@/lib/route-intelligence/engine';
 import { useNavigate } from 'react-router-dom';
 import { saveArtifact } from '@/lib/artifacts/store';
 import { useSession } from '@/contexts/SessionContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const AUTO_DISMISS_MS = 8000;
@@ -40,6 +41,7 @@ export default function NextStepHint({
 }: NextStepHintProps) {
   const { primary, refresh } = useRouteIntelligence();
   const { session } = useSession();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState<string | null>(null);
@@ -76,6 +78,7 @@ export default function NextStepHint({
             summary: 'Created from Next Step hint.',
             content: '',
             source: 'lab',
+            userId: user?.id,
           });
           refresh();
           navigate('/lab');

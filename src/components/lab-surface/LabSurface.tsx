@@ -21,6 +21,7 @@ import type { LabToolId } from "./LabToolSpine";
 import type { ArtifactKind } from "@/lib/artifacts/types";
 import { saveArtifact } from "@/lib/artifacts/store";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -38,6 +39,7 @@ export default function LabSurface() {
   const [focusArtifactId, setFocusArtifactId] = useState<string | null>(null);
   const [toolCapMessage, setToolCapMessage] = useState<string | null>(null);
   const { session } = useSession();
+  const { user } = useAuth();
   const { isMotionAllowed, isDenseAllowed } = usePortalIdentity();
 
   const handleArtifactCreated = useCallback((artifactId: string) => {
@@ -75,6 +77,7 @@ export default function LabSurface() {
         content: "",
         tags: ["creation-lab", "tool-spine"],
         source: "lab",
+        userId: user?.id,
       });
       setToolCapMessage(null);
       setRefreshSignal(s => s + 1);

@@ -12,6 +12,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { saveArtifact } from "@/lib/artifacts/store";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const BLUE = "hsl(210, 100%, 56%)";
@@ -264,6 +265,7 @@ interface LabBlueprintTemplatesProps {
 
 export default function LabBlueprintTemplates({ onCreated }: LabBlueprintTemplatesProps) {
   const { session, updateReEntry } = useSession();
+  const { user } = useAuth();
   const [expanded, setExpanded] = useState(false);
   const [creating, setCreating] = useState<string | null>(null);
   const [created, setCreated] = useState<string | null>(null);
@@ -280,6 +282,7 @@ export default function LabBlueprintTemplates({ onCreated }: LabBlueprintTemplat
         content: bp.contentTemplate,
         tags: ["creation-lab", "blueprint", bp.id, bp.category.toLowerCase().replace(/\s+/g, "-")],
         source: "lab",
+        userId: user?.id,
       });
       updateReEntry(`lab:blueprint:${bp.id}`);
       setCreated(bp.id);

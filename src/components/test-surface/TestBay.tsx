@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { saveArtifact, getRecentArtifacts } from "@/lib/artifacts/store";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 import type { ArtifactKind } from "@/lib/artifacts/types";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -47,6 +48,7 @@ interface QuickCreateProps {
 
 function QuickCreate({ onCreated, prefill }: QuickCreateProps) {
   const { session, updateReEntry } = useSession();
+  const { user } = useAuth();
   const [active, setActive] = useState<LabKind | null>(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -83,6 +85,7 @@ function QuickCreate({ onCreated, prefill }: QuickCreateProps) {
         content,
         tags: ["lab", "test", active],
         source: "test",
+        userId: user?.id,
       });
       updateReEntry(`test:${active}`);
       setActive(null);

@@ -10,6 +10,7 @@
 import { motion } from "framer-motion";
 import { saveArtifact } from "@/lib/artifacts/store";
 import { useSession } from "@/contexts/SessionContext";
+import { useAuth } from "@/contexts/AuthContext";
 
 type StepStatus = "locked" | "available" | "done";
 
@@ -240,6 +241,7 @@ interface LearningPathProps {
 
 export default function LearningPath({ maturityLevel, track = "foundations" }: LearningPathProps) {
   const { session, updateReEntry } = useSession();
+  const { user } = useAuth();
   const STEPS = TRACK_STEPS[track];
   const doneCount = Math.min(maturityLevel, STEPS.length);
   const progressPct = Math.round((doneCount / STEPS.length) * 100);
@@ -254,6 +256,7 @@ export default function LearningPath({ maturityLevel, track = "foundations" }: L
       content: `# ${step.title}\n\n${step.description}\n\n---\n_Started: ${new Date().toISOString()}_`,
       tags: ['school', track, 'lesson', step.id],
       source: 'school',
+      userId: user?.id,
     });
     updateReEntry(`school:${track}:step-${step.number}`);
   }
