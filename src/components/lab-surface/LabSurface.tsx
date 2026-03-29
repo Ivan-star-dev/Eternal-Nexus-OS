@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import LabWorkBay from "./LabWorkBay";
 import LabToolSpine from "./LabToolSpine";
 import LabQuickCreate from "./LabQuickCreate";
+import LabBlueprintTemplates from "./LabBlueprintTemplates";
 import type { LabToolId } from "./LabToolSpine";
 import type { ArtifactKind } from "@/lib/artifacts/types";
 import { saveArtifact } from "@/lib/artifacts/store";
@@ -142,6 +143,7 @@ export default function LabSurface() {
         style={{ maxWidth: "1100px", margin: "0 auto 8px" }}
       >
         <LabQuickCreate onCreated={handleArtifactCreated} />
+        <LabBlueprintTemplates onCreated={id => handleArtifactCreated(id)} />
       </motion.div>
 
       {/* Main work area — hover triggers tool spine reveal */}
