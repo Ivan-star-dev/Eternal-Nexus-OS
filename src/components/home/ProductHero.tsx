@@ -338,7 +338,7 @@ function SessionPulse() {
         animate={{ width: hovered && stepDisplay ? "auto" : "auto" }}
         className="flex flex-col gap-1"
         style={{
-          background: "rgba(6,12,20,0.78)",
+          background: "hsl(var(--background) / 0.78)",
           border: `0.5px solid ${isResume ? "rgba(200,164,78,0.2)" : "rgba(32,153,120,0.2)"}`,
           backdropFilter: "blur(14px)",
           padding: "6px 10px",
