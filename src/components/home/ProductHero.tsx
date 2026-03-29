@@ -225,8 +225,8 @@ function SovereignText() {
           maxWidth: "820px",
         }}
       >
-        The world, studied.{" "}
-        <span style={{ color: "rgba(200,164,78,0.75)" }}>The future, built.</span>
+        The world is the material.{" "}
+        <span style={{ color: "rgba(200,164,78,0.75)" }}>This is where you work it.</span>
       </h1>
 
       {/* Sub-line */}
@@ -242,7 +242,7 @@ function SovereignText() {
           textTransform: "uppercase",
         }}
       >
-        A sovereign operating system for perceiving, investigating, and creating at planetary scale.
+        Perceive · Investigate · Create · One System · Three Portals
       </p>
 
       {/* CTAs */}
@@ -273,7 +273,7 @@ function SovereignText() {
           Enter the System
         </Link>
         <Link
-          to="/projects"
+          to="/lab"
           className="font-sans font-[400] transition-colors duration-200"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
@@ -291,7 +291,7 @@ function SovereignText() {
             (e.currentTarget as HTMLElement).style.color = "rgba(228,235,240,0.35)";
           }}
         >
-          Explore Projects
+          Enter Lab
         </Link>
       </div>
     </motion.div>
