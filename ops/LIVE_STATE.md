@@ -4,7 +4,7 @@
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
 **Última actualização:** 2026-03-29 (sessão SITE-CONVERGENCE-001)
-**Actualizado por:** @claude | STEP1–4 ✅ · SOVEREIGN_PALETTE→index.css · IndexPage+GlobeBackground archived · GlobeScene cosmic wrap · 20 dead home/ components archived
+**Actualizado por:** @claude | STEP1–7 ✅ · SOVEREIGN_PALETTE wired · globe cosmic wrap · 20 dead home/ archived · nav purged to tri-core · trinity routes fixed · homepage below-fold purged · sovereign CTA locked
 
 ---
 
@@ -40,18 +40,37 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 ## 1A. CANONICAL SITE LINE — FONTE DE VERDADE
 
 ```
-CANONICAL HOMEPAGE (route "/"):
+CANONICAL HOMEPAGE (route "/") — LOCKED 2026-03-29:
   Index.tsx
     └── ProductHero.tsx
-          └── GlobeScene.tsx    ← cosmic wrap added STEP3
-          └── TrinityRow.tsx
-          └── HeroFirstProof.tsx
-    └── DossierCard grid
-    └── ProjectsLiveSection
-    └── WorldEventFeed (world/)
-    └── MissionsDashboard (missions/)
-    └── OrganStatusGrid
-    └── ContributionsSection
+          └── GlobeScene.tsx    ← cosmic wrap (STEP3)
+          └── TrinityRow.tsx    ← routes fixed · veins distinct · label sovereign
+          └── HeroFirstProof.tsx ← metrics corrected
+    └── DossierCard grid        ← "Projetos Ativos" — pending visual audit
+    └── ProjectsLiveSection     ← pending visual audit
+    └── Sovereign CTA           ← /lab · /school · /workshop only
+
+PURGED FROM HOMEPAGE:
+  DualEntryGate        — removed from flow
+  WorldEventFeed       — geopolitics terminal residue · GONE
+  MissionsDashboard    — dashboard residue · GONE
+  OrganStatusGrid      — system status residue · GONE
+  ContributionsSection — NGO language residue · GONE
+  SessionAwareCTA links /nexus /tribunal /news → /lab /school /workshop
+
+NAV TRUTH — LOCKED:
+  REMOVED: GLOBE · ORBITAL · NEXUS · DASHBOARD
+  LIVE:    LAB(/lab) · SCHOOL(/school) · CREATION(/workshop) · ACCESS · OWNER
+
+TRINITY ROUTES — LOCKED:
+  SCHOOL   → /school    (was /nexus)
+  LAB      → /lab       (was /atlas)
+  CREATION → /workshop  (was /projects)
+
+TRINITY VEINS — LOCKED:
+  SCHOOL:   gold     hsl(42 78% 52%)
+  LAB:      teal     hsl(172 55% 36%)
+  CREATION: electric hsl(205 100% 52%)
 
 SUPERSEDED / ARCHIVED:
   src/pages/IndexPage.tsx            → src/archive/IndexPage.SUPERSEDED.tsx
@@ -70,6 +89,12 @@ GLOBE TRUTH:
     AtmosphericShell (ionosphere + stratosphere + outer corona, 3 layers)
     GlobeCore mass (dark interior sphere — globe has weight)
     Lighting: warm sun side + cold space fill + electric backlight
+
+PENDING AUDIT:
+  ProjectsLiveSection  — visual quality unknown
+  DossierCard          — sovereign visual upgrade needed
+  ProductHero text     — hero headline copy not yet audited
+  ProjectFocusPanel    — may be unused (home/ survivor)
 ```
 
 ---
@@ -126,7 +151,9 @@ GLOBE TRUTH:
 | SITE-CONVERGENCE-001 STEP2 | K-16 | **CONCLUÍDA ✓ — IndexPage + GlobeBackground archived** |
 | SITE-CONVERGENCE-001 STEP3 | K-01 | **CONCLUÍDA ✓ — GlobeScene cosmic wrap** |
 | SITE-CONVERGENCE-001 STEP4 | K-16 | **CONCLUÍDA ✓ — 20 dead home/ archived, barrel clean** |
-| STEP5 below-fold survivors audit | K-16 | NEXT |
+| SITE-CONVERGENCE-001 STEP5 | K-17 | **CONCLUÍDA ✓ — nav purged, trinity routes+veins fixed, metrics corrected** |
+| SITE-CONVERGENCE-001 STEP6 | K-16 | **CONCLUÍDA ✓ — below-fold purged, sovereign CTA locked** |
+| STEP7 visual audit ProjectsLiveSection + DossierCard | K-17 | NEXT |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---

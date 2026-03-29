@@ -6,6 +6,80 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP5–6 HOMEPAGE LOCKDOWN
+
+**TASK:** Homepage identity lock — nav purge, trinity fix, below-fold purge, sovereign CTA
+**STATUS:** STEP5–6 CONCLUÍDOS ✅
+**ALTERACAO_REAL:** sim — visual + structural + route truth
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMITS:** 390966d (nav+trinity+metrics) · 42a87a9 (homepage lockdown)
+
+---
+
+**STEP 5 — Nav purge + TrinityRow identity fix ✅**
+
+NavBar:
+- REMOVED: GLOBE · ORBITAL · NEXUS · DASHBOARD
+- ADDED: LAB(/lab) · SCHOOL(/school) · CREATION(/workshop)
+- Icons: FlaskConical · GraduationCap · Layers
+
+TrinityRow routes (all were pointing to wrong destinations):
+- SCHOOL: /nexus → /school
+- LAB: /atlas → /lab
+- CREATION: /projects → /workshop (name: "CREATION HUB" → "CREATION")
+
+TrinityRow vein identity (all were warm-gold variants):
+- SCHOOL: gold hsl(42 78% 52%) — header · separator · tags · CTA
+- LAB: teal hsl(172 55% 36%) — header · separator · tags · CTA
+- CREATION: electric hsl(205 100% 52%) — header · separator · tags · CTA
+
+TrinityRow label: "OS TRÊS PILARES" → "ESCOLHE O TEU DOMÍNIO"
+
+HeroFirstProof metrics:
+- "6 Pioneer Models" → "3 Sovereign Portals"
+- "84 Tests Passing" → "1 Living OS"
+
+---
+
+**STEP 6 — Below-fold purge + sovereign CTA ✅**
+
+REMOVED from Index.tsx:
+- DualEntryGate (unknown quality, removed from flow)
+- WorldEventFeed section ("Planetary Intelligence · Live Feed") — geopolitics residue
+- MissionsDashboard section ("Operations & Missions") — dashboard residue
+- OrganStatusGrid — system status residue
+- ContributionsSection — NGO language ("Doe tempo, recursos ou ideias")
+- Morabeza closing line ("Cure o mundo. Um ponto por vez.")
+
+SessionAwareCTA fixed:
+- /nexus → /lab (FlaskConical)
+- /tribunal → /school (GraduationCap)
+- /news → /workshop (Layers)
+
+Final CTA:
+- Heading: "Contribua. Colabore." → "Escolhe o teu domínio."
+- Sub: "Três portais. Um organismo. Cada sessão constrói sobre a anterior."
+
+**HOMEPAGE SHAPE LOCKED:**
+```
+ProductHero (globe + trinity + first proof)
+  ↓ Dossiers grid ("Projetos Ativos")
+  ↓ ProjectsLiveSection
+  ↓ Sovereign CTA (Lab · School · Creation)
+```
+
+**DRIFT PERMANENTLY REMOVED:**
+- No geopolitics terminal on homepage
+- No dashboard/admin surface on homepage
+- No NGO contribution language
+- No competing routes (/nexus /tribunal /news) in homepage flow
+- No competing globe page in navigation
+- Nav no longer exposes old product identity (GLOBE/ORBITAL/NEXUS/DASHBOARD)
+
+**NEXT:** STEP7 — visual audit of ProjectsLiveSection + DossierCard
+
+---
+
 ## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP1–4 CANONICAL CONVERGENCE
 
 **TASK:** Force final site convergence — sovereign palette, globe cosmic wrap, dead code elimination
