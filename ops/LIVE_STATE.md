@@ -4,6 +4,12 @@
 > Não é canon. Reflete o estado operacional atual do sistema.
 > Em caso de conflito com `docs/NEXUS_OS.md`, o NEXUS_OS prevalece.
 
+**Última atualização:** 2026-03-29
+**Atualizado por:** @copilot | MATRIX-STATE-PROPAGATION-001 | AUTO-SYNC PROPAGATION — §1 estado canónico V7 · §2 queues @cursor/@codex/@copilot/@claude propagadas · §3 canalização V7 semáforo · §4 bloqueios limpos · §5 próximos passos V7 · PIONEER_MATRIX.md v1.3 · branch: copilot/consolidate-duplicate-kind-labels
+
+**Última atualização:** 2026-03-29
+**Atualizado por:** @copilot | BASTION-TRUTH-SYNC-001 | DRIFT KILLED — 10 stale elegível tasks marcadas CONCLUÍDA em BASTION 5.2 · CYCLE-CLOSE-001 desbloqueado (todas deps ✅) · semáforo v3.0 emitido · V7 é estado canónico activo · branch: copilot/consolidate-duplicate-kind-labels
+
 **Última atualização:** 2026-03-26
 **Atualizado por:** @claude | claude-sonnet-4-6 | V7 GATE OPEN 🟢 — AUTO-GATE 2026-03-26 · V7_TRINITY_CONTRACT.md SEALED ✅ · BASTION V7 tasks: V7-LAB-SURFACE-001 (P1) + V7-SCHOOL-SURFACE-001 (P2) + V7-WORKSHOP-SURFACE-001 (P2) · @cursor elegível para todas as 3 superfícies · @framer elegível para WorkVisual · branch: claude/rebuild-bastion-core-rihGX
 
@@ -58,33 +64,17 @@
 
 | Dimensão | Valor atual |
 |---|---|
-**Última atualização:** 2026-03-25 (AUTO-GATE V4 OPEN)
-**Atualizado por:** @claude | claude-sonnet-4-6 | AUTO-GATE-LAW sealed · V3 FECHADO · V4 ABERTO · V4-INTERACTION-002 DONE · ProjectFocusPanel deployed · TS 0 errors · commit 773d1ed
+**Última atualização:** 2026-03-29
+**Atualizado por:** @copilot | MATRIX-STATE-PROPAGATION-001 | §1 estado canónico actualizado para V7
 
 | Dimensão | Valor atual |
 |---|---|
-| **Fase ativa** | 🟢 V4 — SYSTEM BEHAVIOUR LIVE — CONSTELLATION 3 PIONEERS ACTIVOS |
+| **Fase ativa** | 🟢 V7 — TRINITY SURFACES — @cursor P1 · @framer P1 WorkVisual · @codex CYCLE-CLOSE |
 | **Branch canônico** | `claude/rebuild-bastion-core-rihGX` |
-| **Executor ativo** | CONSTELLATION: @claude (P1 WorkFunction) · @cursor (P1 WorkFunction) · @antigravity (P1 WorkVisual) |
-| **Frente ativa** | V4 — 3 frentes paralelas abertas por owner gate 2026-03-25 |
-| **Camada atual** | V4-INTERACTION-002 DONE: ProjectFocusPanel (globe hotspot → project detail slide-in) · CLAUDE.md v1.1 AUTO-GATE-LAW sealed · SEQUENCE_LAW V3 FECHADO |
-| **Estado geral** | AUTO-GATE: @claude abre gates quando critérios [✓] sem esperar owner · V3 100% closed · V4 queue: V4-INTERACTION-002 ✓ · V4-SESSION-001 elegível · V4-NEXUS-001 elegível · V4-ATLAS-001 elegível |
-| **Executor ativo** | @cursor (BULK-01.3-a/b/c concluídos) |
-| **Frente ativa** | Mecânico / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v2.0 activo; @cursor completou backlog mecânico (3 tasks) |
-| **Estado geral** | BASTION 2.0 CICLO CONTÍNUO EM EXECUÇÃO; @cursor completou 01.3-a (já resolvido), 01.3-b (análise→B-002), 01.3-c (análise→B-003); @copilot → L-001→L-002→BULK-02.2; @codex consolidador; @claude arbiter aguarda gate; @cursor sem task elegível (backlog mecânico esgotado) |
-| **Executor ativo** | @claude (OPS-BASTION-DISPATCH-001 concluído) |
-| **Frente ativa** | Governança operacional / WorkStructure |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.2 activo; MODO_AUTO selado — pioneiros em ignição contínua sem instrução manual |
-| **Estado geral** | BASTION + IGNIÇÃO_ATIVA activos e selados; MODO_AUTO ON; @copilot → L-001→L-002→BULK-02.2; @cursor → 01.3-a→b→c; @codex consolidador; @claude aguarda gate owner (PLv6.2-b / FVL-IMPL-001) |
-| **Executor ativo** | @copilot (BULK-02.2 concluída) |
-| **Frente ativa** | Lapidação operacional / wt-copilot-funcionalidade |
-| **Camada atual** | PLv6.2-a concluída; protocolos operacionais selados; IGNIÇÃO_ATIVA ligada; BULK-02.2 done (lapidação de superfície ops/) |
-| **Estado geral** | PLv6.2-a done; AUTOFLOW + IGNITION + FOL v1.4 + NLF v1.1 + FOUNDER_VISION_LAYER.md selados; BULK-02.2 done (FOL lapidado, LIVE_STATE + HANDOFF_LEDGER atualizados); IGNIÇÃO_ATIVA: pioneiros operam em loop contínuo de 7 passos dentro do protocolo; PLv6.2-b aguarda gate owner |
-| **Executor ativo** | @codex (NEXUS-WORKFUNCTION-CODEX-REALIGN-001 concluído) |
-| **Frente ativa** | Pilar funcional / WorkFunction |
-| **Camada atual** | PLv6.2-a concluída; BASTION v1.3 activo; execução contínua até segunda ordem reforçada (OPS-FULL-AUTO-UNTIL-STOP-001) |
-| **Estado geral** | Branch canônico realinhado para o executor Codex; tomada formal do WorkFunction concluída com mapa técnico funcional emitido; governança e linhas paralelas mantidas sem alteração estrutural. |
+| **Executor ativo** | @cursor (V7-LAB-SURFACE-001 P1) · @framer (V7-LAB-SURFACE-001 WorkVisual) · @codex (CYCLE-CLOSE-001) |
+| **Frente ativa** | V7 — Trinity Surfaces — Lab (P1) / School (P2) / Workshop (P2) |
+| **Camada atual** | V7_TRINITY_CONTRACT.md SEALED · 3 superfícies elegíveis · BASTION v3.0 activo (truth-sync 2026-03-29) |
+| **Estado geral** | V4 ✅ V5 ✅ V6 ✅ — todas as waves fechadas · V7 OPEN · BULK backlog 100% concluído · CYCLE-CLOSE-001 desbloqueado (todas deps ✅) · @cursor → V7-LAB-SURFACE-001 imediato · @codex → CYCLE-CLOSE-001 |
 
 ---
 
@@ -120,8 +110,8 @@
 | COUNCIL-PR-TRIAGE-001 | Triagem de 27 PRs/Issues/branches do ciclo anterior | CONCLUÍDA | handoff emitido |
 | BASTION-2.0-CYCLE-START-001 | Activar ciclo contínuo BASTION 2.0 por ordem do owner | CONCLUÍDA | handoff emitido |
 | OPS-FULL-AUTO-UNTIL-STOP-001 | Engajar pioneiros em execução contínua até segunda ordem | CONCLUÍDA | handoff emitido |
-| PLv6.2-b | Próxima camada | AGUARDA GATE | owner: NewsAPI? project_metrics? página dedicada de portfólio? |
-| FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | PLANEJADA | blueprint pronto; aguarda gate owner (paralelo ou sequencial com PLv6.2-b) |
+| PLv6.2-b | Próxima camada produto | CONCLUÍDA | project_metrics expandido · commit em claude/rebuild-bastion-core-rihGX |
+| FVL-IMPL-001 | Implementar Founder Vision Layer no site (/founder) | CONCLUÍDA | FounderPage v2 · hero atmosférico · 6 pioneers · commit em claude/rebuild-bastion-core-rihGX |
 
 ### @codex (Consolidador de Fase/Onda + Refinador Técnico)
 
@@ -130,24 +120,29 @@
 | OPS-HANDOFF-001 | Consolidador oficial de fase/onda | ATIVO | consolidação contínua por handoffs recebidos |
 | F6 | Casca técnica executável | EM ANDAMENTO | frente independente |
 | NEXUS-WORKFUNCTION-CODEX-REALIGN-001 | Realinhamento de branch + tomada WorkFunction | CONCLUÍDA | branch canônico vivo + mapa funcional emitido |
-| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | ELEGÍVEL | bloqueio de branch removido nesta sessão |
+| BULK-01-Codex | Refinamento da camada BULK-01 (execução) | CONCLUÍDA | ver §5.1 BASTION |
+| **CYCLE-CLOSE-001** | **Relatório-mãe + consolidação V1-V6 + PR** | **ELEGÍVEL — ENTRAR AGORA** | todas as deps ✅ (PLv6.2-b ✅ FVL-IMPL-001 ✅ BULK-02.2 ✅ L-002 ✅) |
 
-### @cursor (Desbloqueador / Backlog Mecânico)
+### @cursor (Desbloqueador / V7 WorkFunction)
 
 | # | Task | Estado | Resultado |
 |---|---|---|---|
-| BULK-01.3-a | Remover `vite.config.ts.timestamp-*` do tracking | CONCLUÍDA | já resolvido por @copilot F5 — timestamp removido + `.gitignore` blindado (`*.timestamp*.mjs`) |
-| BULK-01.3-b | Avaliar `bun.lock` + `package-lock.json` — PM canônico? | CONCLUÍDA | npm é o PM canônico (único instalado, scripts genéricos, lock activo); `bun.lock`/`bun.lockb` são residuais do 1º commit; remoção aguarda B-002 owner |
-| BULK-01.3-c | Verificar `antigravity/legacy-html/` — lixo mecânico? | CONCLUÍDA | 5 HTMLs standalone do owner (420K total, NL_Solucoes, NextPathInfra, projeto_elite); zero refs no src/; conteúdo de portfólio, não lixo técnico; remoção aguarda B-003 owner |
+| BULK-01.3-a | Remover `vite.config.ts.timestamp-*` do tracking | CONCLUÍDA | já resolvido por @copilot F5 |
+| BULK-01.3-b | Avaliar `bun.lock` + `package-lock.json` — PM canônico? | CONCLUÍDA | npm canónico confirmado |
+| BULK-01.3-c | Verificar `antigravity/legacy-html/` — lixo mecânico? | CONCLUÍDA | 5 HTMLs portfólio; owner decide |
+| **V7-LAB-SURFACE-001** | **Construir Lab surface completa — /lab · useLabState · 6 módulos** | **P1 ELEGÍVEL — ENTRAR AGORA** | V7_TRINITY_CONTRACT.md ✅ SEALED |
+| V7-SCHOOL-SURFACE-001 | Construir School surface — /school · useSchoolState · 5 módulos | P2 ELEGÍVEL — após Lab | V7_TRINITY_CONTRACT.md ✅ SEALED |
+| V7-WORKSHOP-SURFACE-001 | Construir Workshop surface — /workshop · useWorkshopState · 6 módulos | P2 ELEGÍVEL — após Lab | V7_TRINITY_CONTRACT.md ✅ SEALED |
 
 ### @copilot (Lapidador)
 
 | # | Task | Estado | Aguarda |
 |---|---|---|---|
-| BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | GATE ABERTO | pode executar agora |
-| BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | GATE ABERTO | pode executar agora |
+| BULK-01.2 / L-001 | Higiene `.gitignore` — cobrir gaps mapeados pelo Tribunal (E4) | CONCLUÍDA | handoff emitido |
+| BULK-01.2 / L-002 | `rm --cached` do timestamp file já rastreado | CONCLUÍDA | handoff emitido |
 | BULK-02.2 | Operational Surface Smoothing v1 — suavização de ops/ | CONCLUÍDA | handoff emitido |
-| — | Lapidação da camada NLF | PLANEJADA | handoff de @codex sobre E17/BULK-01-Codex |
+| BASTION-TRUTH-SYNC-001 | Kill drift — 10 stale tasks corrigidas + semáforo v3.0 | CONCLUÍDA | commit 59adc71 |
+| MATRIX-STATE-PROPAGATION-001 | Auto-sync: propagate V7 truth across execution mesh | CONCLUÍDA | este commit |
 
 ### Micro Team
 
@@ -160,14 +155,27 @@
 ## 3. ESTADO DE CANALIZAÇÃO ATUAL
 
 ```
-SEMÁFORO:
-🟢 CHAT: mesmo
+SEMÁFORO V7 — CANONICAL STATE 2026-03-29
 🟢 BRANCH: claude/rebuild-bastion-core-rihGX
-🟢 WORKTREE: WorkStructure
-NATUREZA: mecânico / backlog do @cursor completado
-EXECUTOR: @cursor (BULK-01.3-a/b/c done)
-IGNIÇÃO: ATIVA — ciclo contínuo em execução
-ATIVADA POR: owner | 2026-03-20 (OPS-IGNITION-001) → reforçada 2026-03-21 (BASTION 2.0)
+🟢 FASE: V7 — TRINITY SURFACES
+🟢 BASTION: v3.0 (truth-sync 2026-03-29)
+NATUREZA: produto / V7 Trinity surfaces
+EXECUTOR_P1: @cursor → V7-LAB-SURFACE-001 (WorkFunction)
+EXECUTOR_P1: @framer → V7-LAB-SURFACE-001 (WorkVisual, paralelo)
+EXECUTOR_P2: @codex → CYCLE-CLOSE-001 (todas deps ✅)
+EXECUTOR_ARBITER: @claude → AUTO-GATE activo · sem task elegível no backlog
+IGNIÇÃO: ATIVA — V7 loop contínuo
+WAVES_CONCLUÍDAS: V3 ✅ V4 ✅ V5 ✅ V6 ✅
+BULK_BACKLOG: 100% CONCLUÍDO (BULK-01.2/L-001 ✅ L-002 ✅ BULK-01.3-a/b/c ✅ BULK-02.2 ✅)
+GATES_FECHADOS: nenhum
+TASKS_ELEGÍVEIS: V7-LAB-SURFACE-001 (P1) | V7-SCHOOL-SURFACE-001 (P2) | V7-WORKSHOP-SURFACE-001 (P2) | CYCLE-CLOSE-001
+BLOQUEADAS: BULK-01-Codex (branch; não bloqueia V7) | F6 (paralelo independente)
+DERIVA: 🔴 impermitida
+INTERRUPTOR: owner STOP | PAUSE | BLOCK
+TRUTH_SYNC: 2026-03-29 BASTION-TRUTH-SYNC-001 ✅ + MATRIX-STATE-PROPAGATION-001 ✅
+```
+
+### Histórico de canalizações (arquivo)
 BASTION: ACTIVO v2.0 — CICLO CONTÍNUO EM EXECUÇÃO
 @copilot: ACTIVADO → BULK-01.2/L-001 → L-002 → BULK-02.2 (FORÇA PRINCIPAL: Lapidação)
 @cursor: BACKLOG MECÂNICO COMPLETADO — 01.3-a done (já resolvido) | 01.3-b done (análise→B-002) | 01.3-c done (análise→B-003) | SEM TASK ELEGÍVEL
@@ -278,45 +286,24 @@ PRÓXIMA TRANSIÇÃO: @copilot executa L-001 → L-002 → BULK-02.2; @cursor se
 
 | ID | Bloqueio | Aguarda | Estado |
 |---|---|---|---|
-| B-001 | `.env` no histórico git | Owner: segredos reais ou placeholders? | BLOQUEADO — owner |
-| B-002 | PM canônico: npm vs bun | Owner: confirmar npm definitivo | BLOQUEADO — owner |
-| B-003 | `antigravity/legacy-html/` | Owner: manter ou remover? | BLOQUEADO — owner |
+| B-001 | `.env` no histórico git | Owner: segredos reais ou placeholders? | BLOQUEADO — owner (não bloqueia V7) |
+| B-002 | PM canônico: npm vs bun | Owner: confirmar npm definitivo | SUPERSEDED — npm confirmado pelos handoffs @cursor; remoção bun.lock aguarda owner |
+| B-003 | `antigravity/legacy-html/` | Owner: manter ou remover? | BLOQUEADO — owner (não bloqueia V7) |
 
 ---
 
 ## 5. PRÓXIMOS PASSOS (ordem recomendada)
 
-**[BASTION 2.0 — CICLO CONTÍNUO EM EXECUÇÃO]**
+**[V7 TRINITY SURFACES — CICLO ACTIVO 2026-03-29]**
 
-1. **@copilot** — L-001 → L-002 → BULK-02.2 — continua no loop BASTION
-2. **@codex** — consolida onda quando handoffs chegarem (OPS-HANDOFF-001 ativo)
-3. **Owner decide B-002** — confirmar npm como PM canônico → permite remoção de `bun.lock`/`bun.lockb` (análise @cursor: npm é o único PM instalado e activo)
-4. **Owner decide B-003** — manter ou remover `antigravity/legacy-html/` (análise @cursor: 5 HTMLs de portfólio, 420K, zero refs no src/)
-5. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
-6. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site
-7. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-8. **@cursor** — sem task elegível no BASTION; aguarda nova task ou apoio cruzado
-9. **@claude** — arbiter activo; aguarda gate owner (PLv6.2-b / FVL-IMPL-001)
-10. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
-**[IGNIÇÃO_ATIVA PERMANENTE — MODO_AUTO SELADO — pioneiros seguem BASTION sem instrução manual]**
+1. **@cursor** — V7-LAB-SURFACE-001 (P1) — entra imediatamente — ref: `ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1`
+2. **@framer** — V7-LAB-SURFACE-001 WorkVisual (paralelo com @cursor)
+3. **@codex** — CYCLE-CLOSE-001 (todas deps ✅ — pode entrar agora)
+4. **@copilot** — aguarda nova task WorkStructure V7 ou lapidação pós-Lab
+5. **@claude** — ARBITER · AUTO-GATE · abre V8 quando V7 critérios [✓]
+6. **Owner (se necessário)** — B-001 (`.env`) · B-003 (legacy-html) — não bloqueiam V7
 
-1. **@copilot** — L-001 → L-002 → BULK-02.2 (gates abertos, FORÇA PRINCIPAL, sequência obrigatória)
-2. **@cursor** — BULK-01.3-a → b → c (mecânico, gates abertos, sequência natural)
-3. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
-4. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
-5. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
-6. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-7. **Owner responde B-002** — confirmar npm como PM canônico
-8. **@codex alinha branch** — condição para escada principal como FORÇA PRINCIPAL em Qualidade
-1. **@copilot** — BULK-01.2/L-001 (gate aberto — higiene `.gitignore`, cobrir gaps E4) + L-002 (`rm --cached` do timestamp file) → pode entrar agora via loop IGNITION
-2. **@codex** — consolida onda atual (OPS-HANDOFF-001 ativo, não requer branch) + avança F6 (independente)
-3. **Owner decide PLv6.2-b** — gate para próxima camada de produto (NewsAPI? project_metrics? página de portfólio?)
-4. **Owner decide FVL-IMPL-001** — implementar Founder Vision Layer no site (paralelo ou sequencial com PLv6.2-b)
-5. **Owner responde B-001** — `.env`: segredos reais ou placeholders?
-6. **Owner responde B-002** — confirmar npm como PM canônico
-7. **@codex** — iniciar assalto funcional em qualidade (lint/typecheck) com sentença KEEP/SALVAGE/REBUILD já emitida
 
----
 
 ## COMO ATUALIZAR ESTE ARQUIVO
 
