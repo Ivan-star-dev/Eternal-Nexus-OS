@@ -12,16 +12,17 @@
 
 import LearningPath from "./LearningPath";
 import { usePortalIdentity } from "@/hooks/usePortalIdentity";
+import { useEvolution } from "@/hooks/useEvolution";
 
 export default function SchoolSurface() {
   const { isMotionAllowed } = usePortalIdentity();
+  const { maturity } = useEvolution();
 
   return (
     <main
       aria-label="Bridge Nova"
       data-portal-motion={isMotionAllowed('subtle') ? "subtle" : "none"}
       style={{
-        background: "#0a0f1e",
         minHeight: "100vh",
         padding:
           "clamp(48px, 8vh, 96px) clamp(16px, 4vw, 48px) clamp(64px, 10vh, 120px)",
@@ -32,22 +33,9 @@ export default function SchoolSurface() {
         alignItems: "center",
       }}
     >
-      {/* Atmospheric background — warm radial very subtle */}
-      <div
-        aria-hidden
-        style={{
-          position: "fixed",
-          inset: 0,
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(160,100,20,0.06) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
       {/* Content */}
       <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
-        <LearningPath />
+        <LearningPath maturityLevel={maturity.level} />
       </div>
     </main>
   );

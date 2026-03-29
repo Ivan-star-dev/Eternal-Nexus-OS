@@ -23,7 +23,6 @@ export default function NexusSurface() {
     <div
       style={{
         minHeight: "100svh",
-        background: "#0a0a1a",
         overflowX: "hidden",
       }}
     >

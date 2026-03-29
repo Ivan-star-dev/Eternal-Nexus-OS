@@ -979,7 +979,7 @@ export default function NexusPage() {
   const healthCount = Object.values(healthSources).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* ═══════════════════════════════════════════
           L1 — CORPORATE HEADER
           Identity, phase, branch, executor state

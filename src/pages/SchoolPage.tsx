@@ -1,31 +1,37 @@
 /**
  * SchoolPage.tsx — /school route
- * Bridge Nova face — learning portal.
+ * Bridge Nova face — sovereign learning portal.
  *
  * Layout:
- *   1. SchoolNav — minimal sticky nav with progress + back link
- *   2. SchoolSurface — learning path content
+ *   1. SchoolNav — sticky nav with back link
+ *   2. SchoolHero — gold sovereign entry (mirrors LabHero dignity)
+ *   3. SchoolSurface — learning path content (maturity-wired)
+ *   4. WaitlistBanner — unauthenticated visitors
  *
- * Identity: Deep navy (#0a0f1e), warm gold accents.
- * Density: LOW — one concept at a time, mobile-first.
- *
- * Canon: V7-SURFACES-001 · K-04+K-06+K-07
- * @framer+@cursor | 2026-03-28
+ * Background: transparent — PortalShell via RouteAtmosphereLayer handles identity.
+ * Canon: TRI-CORE-PARITY-001 · School sovereign surface
+ * @claude | 2026-03-28
  */
 
+import { useEffect } from "react";
 import SchoolNav from "@/components/school-surface/SchoolNav";
+import SchoolHero from "@/components/school-surface/SchoolHero";
 import SchoolSurface from "@/components/school-surface/SchoolSurface";
 import WaitlistBanner from "@/components/access/WaitlistBanner";
+import { recordVisit } from "@/lib/spawn/returnTracker";
 
 export default function SchoolPage() {
+  useEffect(() => {
+    recordVisit('school');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div
-      style={{
-        background: "#0a0f1e",
-        minHeight: "100svh",
-      }}
-    >
+    <div style={{ minHeight: "100svh" }}>
       <SchoolNav />
+      <SchoolHero />
+      {/* Anchor for SchoolHero CTA scroll */}
+      <div id="school-learning-path" />
       <SchoolSurface />
       <WaitlistBanner />
     </div>

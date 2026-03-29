@@ -10,6 +10,8 @@ import React, { createContext, useContext, useEffect, useRef, useState } from 'r
 import type { TrinityFace } from '@/lib/memory/types';
 import { classify } from '@/lib/memory/classifier';
 import { route } from '@/lib/memory/routing';
+import { saveSnapshot } from '@/lib/portal/sessionContinuity';
+import type { SessionSnapshot } from '@/lib/portal/types';
 
 const STORAGE_KEY = 'nxos_session';
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
@@ -72,11 +74,33 @@ function loadFromStorage(): SessionState | null {
   }
 }
 
+// TrinityFace → PortalId — single authoritative mapping
+const FACE_TO_PORTAL: Record<string, SessionSnapshot['portalId']> = {
+  heaven_lab:  'lab',
+  bridge_nova: 'school',
+  nexus_cria:  'workshop',
+};
+
 function saveToStorage(s: SessionState): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
   } catch {
     // storage unavailable — fail silently
+  }
+  // Keep ruberra:session:snapshot in sync — eliminates triple-session divergence
+  try {
+    const portalId = FACE_TO_PORTAL[s.active_face] ?? 'lab';
+    const snap: SessionSnapshot = {
+      portalId,
+      lastRoute: typeof window !== 'undefined' ? window.location.pathname : '/',
+      scrollPosition: s.scroll_snapshot?.y ?? 0,
+      openPanels: s.open_panels,
+      lastTaskContext: s.re_entry_point || null,
+      timestamp: Date.now(),
+    };
+    saveSnapshot(snap);
+  } catch {
+    // snapshot sync is best-effort — session is primary truth
   }
 }
 

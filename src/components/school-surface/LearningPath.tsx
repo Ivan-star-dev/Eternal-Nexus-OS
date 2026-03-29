@@ -16,50 +16,33 @@ interface LearningStep {
   number: number;
   title: string;
   description: string;
-  status: StepStatus;
 }
 
 const GOLD = "hsl(42, 78%, 52%)";
 const GOLD_FAINT = "hsla(42, 78%, 52%, 0.18)";
 const GOLD_MUTED = "hsla(42, 78%, 52%, 0.45)";
 
+// Canonical steps — status derived from real maturity level, not hardcoded
 const STEPS: LearningStep[] = [
-  {
-    id: "s1",
-    number: 1,
-    title: "Foundations",
-    description: "Core principles of structured thinking and system literacy.",
-    status: "done",
-  },
-  {
-    id: "s2",
-    number: 2,
-    title: "Systems Thinking",
-    description: "How to read complex systems, feedback loops, and emergence.",
-    status: "done",
-  },
-  {
-    id: "s3",
-    number: 3,
-    title: "Research Methods",
-    description: "Rigorous methods for inquiry, synthesis, and original insight.",
-    status: "available",
-  },
-  {
-    id: "s4",
-    number: 4,
-    title: "Simulation",
-    description: "Build and run scenario models to test hypotheses in context.",
-    status: "locked",
-  },
-  {
-    id: "s5",
-    number: 5,
-    title: "Leadership",
-    description: "From vision to execution: orchestrating people, systems, and intent.",
-    status: "locked",
-  },
+  { id: "s1", number: 1, title: "Foundations",      description: "Core principles of structured thinking and system literacy." },
+  { id: "s2", number: 2, title: "Systems Thinking", description: "How to read complex systems, feedback loops, and emergence." },
+  { id: "s3", number: 3, title: "Research Methods", description: "Rigorous methods for inquiry, synthesis, and original insight." },
+  { id: "s4", number: 4, title: "Simulation",       description: "Build and run scenario models to test hypotheses in context." },
+  { id: "s5", number: 5, title: "Leadership",       description: "From vision to execution: orchestrating people, systems, and intent." },
 ];
+
+// maturityLevel 0→3 maps to steps unlocked:
+// 0=new → step 1 available, rest locked
+// 1=familiar → steps 1-2 done, step 3 available, rest locked
+// 2=practiced → steps 1-3 done, step 4 available, step 5 locked
+// 3=expert → steps 1-4 done, step 5 available
+function resolveStatus(stepIndex: number, maturityLevel: number): StepStatus {
+  const doneThreshold = maturityLevel;           // steps < doneThreshold are done
+  const availableIndex = maturityLevel;          // step at maturityLevel is available
+  if (stepIndex < doneThreshold) return "done";
+  if (stepIndex === availableIndex) return "available";
+  return "locked";
+}
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -106,10 +89,10 @@ function CheckIcon() {
   );
 }
 
-function StepCard({ step, index }: { step: LearningStep; index: number }) {
-  const isDone = step.status === "done";
-  const isAvailable = step.status === "available";
-  const isLocked = step.status === "locked";
+function StepCard({ step, index, status }: { step: LearningStep; index: number; status: StepStatus }) {
+  const isDone = status === "done";
+  const isAvailable = status === "available";
+  const isLocked = status === "locked";
 
   const borderColor = isAvailable
     ? GOLD
@@ -231,7 +214,14 @@ function StepCard({ step, index }: { step: LearningStep; index: number }) {
   );
 }
 
-export default function LearningPath() {
+interface LearningPathProps {
+  maturityLevel: 0 | 1 | 2 | 3;
+}
+
+export default function LearningPath({ maturityLevel }: LearningPathProps) {
+  const doneCount = Math.min(maturityLevel, STEPS.length);
+  const progressPct = Math.round((doneCount / STEPS.length) * 100);
+
   return (
     <div
       style={{
@@ -275,10 +265,24 @@ export default function LearningPath() {
         >
           Your path forward
         </h2>
+        {/* Real progression indicator */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginTop: "14px" }}>
+          <div style={{ flex: 1, height: "2px", background: "rgba(212,175,55,0.12)", borderRadius: "1px", overflow: "hidden" }}>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${progressPct}%` }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
+              style={{ height: "100%", background: GOLD, borderRadius: "1px" }}
+            />
+          </div>
+          <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "9px", color: GOLD_MUTED, whiteSpace: "nowrap" }}>
+            {doneCount}/{STEPS.length} complete
+          </span>
+        </div>
       </motion.div>
 
       {STEPS.map((step, i) => (
-        <StepCard key={step.id} step={step} index={i} />
+        <StepCard key={step.id} step={step} index={i} status={resolveStatus(i, maturityLevel)} />
       ))}
     </div>
   );

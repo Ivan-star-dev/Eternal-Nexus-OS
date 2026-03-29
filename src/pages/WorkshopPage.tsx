@@ -20,14 +20,7 @@ export default function WorkshopPage() {
   return (
     <div
       style={{
-        background: "#0d0d14",
         minHeight: "100svh",
-        /* Subtle grid substrate via CSS */
-        backgroundImage: `
-          linear-gradient(rgba(172,210,200,0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(172,210,200,0.025) 1px, transparent 1px)
-        `,
-        backgroundSize: "48px 48px",
       }}
     >
       <WorkshopSurface />

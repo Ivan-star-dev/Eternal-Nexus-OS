@@ -12,7 +12,9 @@
  * @claude | 2026-03-28
  */
 
-const STORE_KEY = 'nxos_return_log';
+function storeKey(portal: string): string {
+  return `nxos_return_log_${portal}`;
+}
 
 export interface ReturnLog {
   first_visit_ts: number;    // epoch ms — first ever visit to /lab
@@ -29,9 +31,9 @@ export interface ReturnMetrics extends ReturnLog {
   wedge_signal: 'none' | 'weak' | 'strong'; // none=0 returns, weak=1-2, strong=≥3
 }
 
-function load(): ReturnLog | null {
+function load(portal: string): ReturnLog | null {
   try {
-    const raw = localStorage.getItem(STORE_KEY);
+    const raw = localStorage.getItem(storeKey(portal));
     if (!raw) return null;
     return JSON.parse(raw) as ReturnLog;
   } catch {
@@ -39,29 +41,29 @@ function load(): ReturnLog | null {
   }
 }
 
-function save(log: ReturnLog): void {
+function save(portal: string, log: ReturnLog): void {
   try {
-    localStorage.setItem(STORE_KEY, JSON.stringify(log));
+    localStorage.setItem(storeKey(portal), JSON.stringify(log));
   } catch { /* storage unavailable — silent */ }
 }
 
 /**
- * Record a visit to /lab.
- * Call once on mount. Idempotent within the same browser session via
- * sessionStorage dedup — multiple renders don't inflate count.
+ * Record a portal visit.
+ * @param portal — 'lab' | 'school' | 'workshop' | etc. Defaults to 'lab'.
+ * Idempotent within the same browser session via sessionStorage dedup.
  */
-export function recordVisit(): void {
-  const SESSION_DEDUP_KEY = 'nxos_visit_recorded';
+export function recordVisit(portal = 'lab'): void {
+  const SESSION_DEDUP_KEY = `nxos_visit_recorded_${portal}`;
   try {
     if (sessionStorage.getItem(SESSION_DEDUP_KEY)) return;
     sessionStorage.setItem(SESSION_DEDUP_KEY, '1');
   } catch { /* sessionStorage unavailable — proceed without dedup */ }
 
   const now = Date.now();
-  const existing = load();
+  const existing = load(portal);
 
   if (!existing) {
-    save({
+    save(portal, {
       first_visit_ts: now,
       last_visit_ts: now,
       visit_count: 1,
@@ -72,7 +74,7 @@ export function recordVisit(): void {
   }
 
   const gap = now - existing.last_visit_ts;
-  save({
+  save(portal, {
     ...existing,
     last_visit_ts: now,
     visit_count: existing.visit_count + 1,
@@ -82,11 +84,12 @@ export function recordVisit(): void {
 }
 
 /**
- * Read current return metrics. Safe to call at any time.
+ * Read current return metrics for a portal. Safe to call at any time.
  * Returns null if no visit has been recorded.
+ * @param portal — defaults to 'lab'
  */
-export function getReturnMetrics(): ReturnMetrics | null {
-  const log = load();
+export function getReturnMetrics(portal = 'lab'): ReturnMetrics | null {
+  const log = load(portal);
   if (!log) return null;
 
   const now = Date.now();

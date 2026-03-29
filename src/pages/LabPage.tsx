@@ -35,7 +35,7 @@ export default function LabPage() {
       startSession('Creation Lab', 'open-lab');
     }
     // Record visit for wedge gate cross-visit tracking (deduped per browser session)
-    recordVisit();
+    recordVisit('lab');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

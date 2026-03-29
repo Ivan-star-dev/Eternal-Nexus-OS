@@ -23,7 +23,7 @@ export default function LabHero() {
   // Determine return state from two independent signals:
   //   1. session.is_resume + re_entry_point (wired artifact interaction)
   //   2. returnTracker.return_count > 0 (cross-visit, always accurate)
-  const metrics = typeof window !== 'undefined' ? getReturnMetrics() : null;
+  const metrics = typeof window !== 'undefined' ? getReturnMetrics('lab') : null;
   const sessionResume =
     session?.is_resume &&
     (session.re_entry_point.startsWith('lab:') ||
