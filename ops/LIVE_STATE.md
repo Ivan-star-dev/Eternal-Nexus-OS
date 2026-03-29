@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão GLOBE-3D-001)
-**Actualizado por:** @antigravity | GLOBE-3D-001 ✅ · GlobeCanvas implementation closed, ORBITAL-CHAMBER-001 & GLOBE-EXPERIENCE-IMPL-001 triggered
+**Última actualização:** 2026-03-29 (sessão PIONEER-WAVE-001)
+**Actualizado por:** @antigravity + @copilot | ORBITAL-CHAMBER-001 ✅ · OrbitalChamberPage created · /orbital route wired · NavBar brand=ETERNAL NEXUS OS · HeroFirstProof v10 metrics · MOTION-SYSTEM-001 triggered
 
 ---
 
@@ -45,8 +45,8 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | Task | Kernel | Estado |
 |---|---|---|
 | GLOBE-3D-001 | K-01 | **CONCLUÍDA ✓** |
-| ORBITAL-CHAMBER-001 | K-02 | **EXECUTANDO — trigger: GLOBE-3D ✓** |
-| MOTION-SYSTEM-001 | K-02 | STANDBY → trigger: ORBITAL |
+| ORBITAL-CHAMBER-001 | K-02 | **CONCLUÍDA ✓ — OrbitalChamberPage + /orbital route** |
+| MOTION-SYSTEM-001 | K-02 | **EXECUTANDO — trigger: ORBITAL ✓** |
 | SUBSTRATE-LAYER-001 | K-03 | STANDBY → trigger: MOTION |
 
 ### @framer — K-04 SURFACE + K-05 TYPOGRAPHY + K-06 COMPONENT

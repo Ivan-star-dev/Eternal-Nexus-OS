@@ -30,9 +30,9 @@ interface ProofMetric {
 }
 
 const PROOF_METRICS: ProofMetric[] = [
-  { value: 9, label: "Versions Shipped" },
+  { value: 10, label: "Versions Shipped" },
   { value: 6, label: "Pioneer Models" },
-  { value: 47, label: "Modules Planned" },
+  { value: 84, label: "Tests Passing", suffix: "+" },
   { value: 194, label: "Countries Indexed" },
 ];
 
@@ -207,7 +207,7 @@ export default function HeroFirstProof() {
             letterSpacing: "0.16em",
           }}
         >
-          Eternal Nexus OS · v9 · Heaven Lab · 2026
+          Eternal Nexus OS · v10 · Heaven Lab · 2026
         </span>
       </motion.div>
     </div>

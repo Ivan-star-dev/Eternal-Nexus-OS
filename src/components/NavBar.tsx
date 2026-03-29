@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Globe, Brain } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Shield, Search, BarChart3, Globe, Brain, Orbit } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -18,6 +18,7 @@ const NavBar = () => {
 
   const navLinks = [
     { label: "GLOBE", path: "/globe", icon: Globe, live: true },
+    { label: "ORBITAL", path: "/orbital", icon: Orbit, live: true },
     { label: "NEXUS", path: "/nexus", icon: Brain, live: true },
     { label: "DASHBOARD", path: "/dashboard", icon: BarChart3, live: true },
   ];
@@ -39,8 +40,8 @@ const NavBar = () => {
         }`}
       >
         <Link to="/" className="flex-shrink-0 logo-shimmer relative inline-flex items-baseline">
-          <span className="font-serif text-sm font-bold text-foreground tracking-wide">NEXT PATH</span>
-          <sup className="font-mono text-[0.48rem] text-primary tracking-[0.18em] ml-1 align-super">INFRA</sup>
+          <span className="font-serif text-sm font-bold text-foreground tracking-wide">ETERNAL NEXUS</span>
+          <sup className="font-mono text-[0.48rem] text-primary tracking-[0.18em] ml-1 align-super">OS</sup>
         </Link>
         <div className="hidden md:flex items-center gap-6 ml-8">
           {navLinks.map((link) => {

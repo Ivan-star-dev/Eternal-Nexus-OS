@@ -120,6 +120,7 @@ const SchoolPage = lazy(() => import("./pages/SchoolPage"));
 const WorkshopPage = lazy(() => import("./pages/WorkshopPage"));
 const MissionsPage = lazy(() => import("./pages/MissionsPage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
+const OrbitalChamberPage = lazy(() => import("./pages/OrbitalChamberPage"));
 
 const queryClient = new QueryClient();
 
@@ -166,6 +167,7 @@ const App = () => (
                 <Route path="/investor/deltaspine-nl" element={<InvestorBriefing />} />
                 <Route path="/system" element={<SystemFacePage />} />
                 <Route path="/missions" element={<MissionsPage />} />
+                <Route path="/orbital" element={<OrbitalChamberPage />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="*" element={<NotFound />} />
