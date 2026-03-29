@@ -1,3 +1,11 @@
+---
+title: "Protocol Documentation Canon"
+slug: protocol-documentation-canon
+date: 2026-03-20
+category: protocol
+excerpt: "Canonical documentation protocol."
+---
+
 # PROTOCOLO — DOCUMENTAÇÃO CANÔNICA
 
 > Documento canônico. Define como o conhecimento é materializado, organizado e preservado no ecossistema.

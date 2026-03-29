@@ -1,3 +1,11 @@
+---
+title: "Capacity Routing"
+slug: capacity-routing
+date: 2026-03-20
+category: protocol
+excerpt: "Capacity routing protocol for the Eternal Nexus."
+---
+
 # Eternal Nexus — Capacity Routing
 
 > Before claiming any task, every pioneer must assess capacity and route to the correct model/platform.

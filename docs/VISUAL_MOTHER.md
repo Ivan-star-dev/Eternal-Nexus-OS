@@ -1,3 +1,11 @@
+---
+title: "Visual Mother"
+slug: visual-mother
+date: 2026-03-20
+category: design
+excerpt: "Mother visual direction of the Eternal Nexus Corporation."
+---
+
 # VISUAL MOTHER — Direção Visual-Mãe da Eternal Nexus Corporation
 
 **Versão:** v1

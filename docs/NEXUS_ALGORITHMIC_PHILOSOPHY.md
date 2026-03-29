@@ -1,3 +1,11 @@
+---
+title: "Nexus Algorithmic Philosophy"
+slug: nexus-algorithmic-philosophy
+date: 2026-03-20
+category: philosophy
+excerpt: "The algorithmic philosophy of the living brain."
+---
+
 # Nexus — Algorithmic Philosophy of the Living Brain
 
 ## I. The Emergent Cortex

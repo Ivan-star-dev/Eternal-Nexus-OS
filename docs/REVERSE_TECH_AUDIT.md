@@ -1,3 +1,11 @@
+---
+title: "Reverse Tech Audit"
+slug: reverse-tech-audit
+date: 2026-03-20
+category: audit
+excerpt: "From implementation back to intent — reverse tech audit."
+---
+
 # REVERSE TECH AUDIT — Eternal Nexus OS
 ## From Implementation Back to Intent
 

@@ -1,3 +1,11 @@
+---
+title: "Reality Parasite"
+slug: reality-parasite
+date: 2026-03-20
+category: philosophy
+excerpt: "Reality parasite concept and its role in the system."
+---
+
 # Reality Parasite
 
 > Run this checklist before any governance change ships.

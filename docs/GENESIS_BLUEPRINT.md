@@ -1,3 +1,11 @@
+---
+title: "Genesis Blueprint"
+slug: genesis-blueprint
+date: 2026-03-20
+category: architecture
+excerpt: "Architect's memory — the genesis blueprint of the system."
+---
+
 # GENESIS BLUEPRINT — Memória do Arquiteto
 
 **Classificação:** PRIVADO — cofre interno do sistema

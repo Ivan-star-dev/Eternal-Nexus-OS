@@ -1,3 +1,11 @@
+---
+title: "Protocol Task Force"
+slug: protocol-task-force
+date: 2026-03-20
+category: protocol
+excerpt: "Task force protocol — rapid execution unit."
+---
+
 # PROTOCOLO — FORÇA-TAREFA
 
 > Documento canônico. Protocolo operacional para ativação e gestão de forças-tarefa no ecossistema.

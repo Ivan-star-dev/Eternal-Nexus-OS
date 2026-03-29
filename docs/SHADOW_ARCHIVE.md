@@ -1,3 +1,11 @@
+---
+title: "Shadow Archive"
+slug: shadow-archive
+date: 2026-03-20
+category: archive
+excerpt: "Codex Tangibilis Umbra — the shadow archive."
+---
+
 # CODEX TANGIBILIS: UMBRA — Shadow Archive
 
 ```

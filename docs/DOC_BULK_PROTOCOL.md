@@ -1,3 +1,11 @@
+---
+title: "Bulk Protocol"
+slug: doc-bulk-protocol
+date: 2026-03-20
+category: protocol
+excerpt: "Operational protocol for bulk cascade execution."
+---
+
 # DOC_BULK_PROTOCOL — Protocolo Operacional de Bulk em Cascata
 
 **Pilar:** Estrutura

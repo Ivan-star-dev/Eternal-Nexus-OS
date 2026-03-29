@@ -1,3 +1,11 @@
+---
+title: "Master Dossier System"
+slug: master-dossier-system
+date: 2026-03-20
+category: whitepaper
+excerpt: "Codex Tangibilis — architecture of the tangible documentary system."
+---
+
 # CODEX TANGIBILIS — Arquitetura do Sistema Documental Tangível
 
 **Versão:** v1

@@ -1,3 +1,11 @@
+---
+title: "Micro Team Protocol"
+slug: doc-micro-team
+date: 2026-03-20
+category: protocol
+excerpt: "Parallel micro team refinement protocol."
+---
+
 # DOC_MICRO_TEAM — Protocolo da Micro Team Paralela de Refinamento
 
 **Pilar:** Estrutura

@@ -1,3 +1,11 @@
+---
+title: "Architecture Ecosystem Tree"
+slug: architecture-ecosystem-tree
+date: 2026-03-20
+category: architecture
+excerpt: "Living ecosystem architecture tree of the Nexus."
+---
+
 # ARQUITETURA — ÁRVORE DO ECOSSISTEMA VIVO
 
 > Documento canônico. Mapa estrutural do Ecossistema Vivo (Camada 2).

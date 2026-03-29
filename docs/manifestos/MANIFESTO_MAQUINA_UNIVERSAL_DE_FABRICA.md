@@ -1,3 +1,11 @@
+---
+title: "Manifesto Universal Factory Machine"
+slug: manifesto-maquina-universal
+date: 2026-03-20
+category: manifesto
+excerpt: "Universal factory machine manifesto."
+---
+
 # MANIFESTO — MÁQUINA UNIVERSAL DE FÁBRICA
 
 > Documento canônico. Versão soberana. Não editar sem consenso de arquitetura.

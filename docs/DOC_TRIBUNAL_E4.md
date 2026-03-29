@@ -1,3 +1,11 @@
+---
+title: "Tribunal E4 Hygiene Verdict"
+slug: doc-tribunal-e4
+date: 2026-03-20
+category: governance
+excerpt: "Hygiene review and merge order verdict from Tribunal E4."
+---
+
 # DOC_TRIBUNAL_E4 — Parecer de Higiene e Ordem de Merge
 
 **Pilar:** Estrutura

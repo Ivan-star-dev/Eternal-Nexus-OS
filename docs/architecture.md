@@ -1,3 +1,11 @@
+---
+title: "Architecture Policy"
+slug: architecture-policy
+date: 2026-03-20
+category: architecture
+excerpt: "Core architecture policy and constraints."
+---
+
 # Architecture Policy
 
 ## Product intent

@@ -1,3 +1,11 @@
+---
+title: "Visual Spine 001"
+slug: doc-visual-spine-001
+date: 2026-03-20
+category: design
+excerpt: "Visual spine of the ecosystem — first canonical pass."
+---
+
 # DOC_VISUAL_SPINE_001 — Espinha Visual do Ecossistema
 
 **Task:** VISUAL-SPINE-001  

@@ -1,3 +1,11 @@
+---
+title: "F6 Thick Shell Technical"
+slug: doc-f6-casca-tecnica
+date: 2026-03-20
+category: architecture
+excerpt: "Executable technical thick shell of the Nexus OS."
+---
+
 # DOC_F6 — Casca Grossa Técnica Executável
 
 **Pilar:** Funcionalidade  

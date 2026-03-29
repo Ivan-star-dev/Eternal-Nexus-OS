@@ -1,3 +1,11 @@
+---
+title: "White Paper"
+slug: white-paper
+date: 2026-03-20
+category: whitepaper
+excerpt: "Eternal Nexus OS — a geopolitical intelligence operating system."
+---
+
 # WHITE PAPER — Eternal Nexus OS
 ## A Geopolitical Intelligence Operating System
 

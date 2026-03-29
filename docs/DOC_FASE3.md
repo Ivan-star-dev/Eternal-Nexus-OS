@@ -1,3 +1,11 @@
+---
+title: "Fase 3 Source of Truth"
+slug: doc-fase3
+date: 2026-03-20
+category: governance
+excerpt: "Repository source of truth for Phase 3 governance."
+---
+
 # DOC_FASE3 — Fonte de Verdade (repositório)
 
 ## 1) Propósito

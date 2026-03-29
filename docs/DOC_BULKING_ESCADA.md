@@ -1,3 +1,11 @@
+---
+title: "Bulking em Escada Protocol"
+slug: doc-bulking-escada
+date: 2026-03-20
+category: protocol
+excerpt: "Operational protocol for cascading bulk documentation."
+---
+
 # DOC_BULKING_ESCADA — Protocolo de Bulking em Escada
 
 **Pilar:** Estrutura

@@ -1,3 +1,11 @@
+---
+title: "Founder Vision Layer"
+slug: founder-vision-layer
+date: 2026-03-20
+category: manifesto
+excerpt: "Canonical blueprint of the founder's vision."
+---
+
 # FOUNDER VISION LAYER — Blueprint Canônico
 
 **Versão:** v1

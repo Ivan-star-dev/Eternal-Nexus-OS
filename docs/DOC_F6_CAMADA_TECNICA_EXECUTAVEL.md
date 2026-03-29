@@ -1,3 +1,11 @@
+---
+title: "F6 Technical Layer"
+slug: doc-f6-camada-tecnica
+date: 2026-03-20
+category: architecture
+excerpt: "Executable technical layer of the thick shell — Phase 3."
+---
+
 # DOC_F6 — Camada Técnica Executável da Casca Grossa (Fase 3)
 
 **Pilar:** Funcionalidade  

@@ -1,3 +1,11 @@
+---
+title: "Stack Snapshot"
+slug: stack-snapshot
+date: 2026-03-20
+category: architecture
+excerpt: "Current technology stack snapshot."
+---
+
 # Stack Snapshot
 
 **Generated:** 2026-03-18 12:03:00

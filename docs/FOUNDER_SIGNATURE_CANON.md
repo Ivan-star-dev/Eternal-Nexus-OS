@@ -1,3 +1,11 @@
+---
+title: "Founder Signature Canon"
+slug: founder-signature-canon
+date: 2026-03-20
+category: manifesto
+excerpt: "The canonical signature and identity mark of the founder."
+---
+
 # FOUNDER SIGNATURE CANON — Assinatura Canônica do Founder
 
 **Versão:** v1.0

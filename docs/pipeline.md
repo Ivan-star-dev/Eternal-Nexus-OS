@@ -1,3 +1,11 @@
+---
+title: "Pipeline"
+slug: pipeline
+date: 2026-03-20
+category: protocol
+excerpt: "Eternal Nexus active pipeline and execution flow."
+---
+
 # Eternal Nexus — Pipeline
 
 > The repository is the transmission channel. Every task flows through this pipeline. No exceptions.

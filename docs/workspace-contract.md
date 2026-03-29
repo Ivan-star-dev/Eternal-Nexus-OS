@@ -1,3 +1,11 @@
+---
+title: "Workspace Contract"
+slug: workspace-contract
+date: 2026-03-20
+category: governance
+excerpt: "Eternal Nexus workspace contract and rules."
+---
+
 # Eternal Nexus — Workspace Contract
 
 > Every pioneer must verify this contract at the start of every session.

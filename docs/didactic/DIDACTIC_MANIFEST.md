@@ -1,3 +1,11 @@
+---
+title: "Didactic Manifest"
+slug: didactic-manifest
+date: 2026-03-20
+category: manifesto
+excerpt: "University-grade didactic project manifest."
+---
+
 # DIDACTIC MANIFEST — Eternal Nexus OS
 ## A University-Grade Didactic Project
 

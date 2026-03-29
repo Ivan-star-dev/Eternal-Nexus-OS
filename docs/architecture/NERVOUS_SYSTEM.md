@@ -1,3 +1,11 @@
+---
+title: "Nervous System v1"
+slug: nervous-system
+date: 2026-03-20
+category: architecture
+excerpt: "Tribunal to Atlas spine — nervous system v1."
+---
+
 # Nervous System v1 — Tribunal→Atlas Spine
 
 > The event backbone connecting all Eternal Nexus organs.

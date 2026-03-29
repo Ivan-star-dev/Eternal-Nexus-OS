@@ -1,3 +1,11 @@
+---
+title: "Manifesto Earth Lab"
+slug: manifesto-earth-lab
+date: 2026-03-20
+category: manifesto
+excerpt: "Earth Lab manifesto — sovereign creation space."
+---
+
 # MANIFESTO — EARTH LAB
 
 > Documento canônico. Produto-manifesto da Máquina Universal de Fábrica.

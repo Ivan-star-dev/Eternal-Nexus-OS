@@ -1,3 +1,11 @@
+---
+title: "Visual Spine 002A"
+slug: doc-visual-spine-002a
+date: 2026-03-20
+category: design
+excerpt: "Localized activation of the visual spine."
+---
+
 # DOC_VISUAL_SPINE_002A — Ativação Localizada da Espinha Visual
 
 **Task:** VISUAL-SPINE-002A  

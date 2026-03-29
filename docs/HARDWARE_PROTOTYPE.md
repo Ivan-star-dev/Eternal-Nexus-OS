@@ -1,3 +1,11 @@
+---
+title: "Hardware Prototype"
+slug: hardware-prototype
+date: 2026-03-20
+category: architecture
+excerpt: "Eternal Nexus Node v0.1 — dedicated physical intelligence terminal."
+---
+
 # HARDWARE PROTOTYPE — Eternal Nexus Node v0.1
 ## Dedicated Physical Intelligence Terminal
 

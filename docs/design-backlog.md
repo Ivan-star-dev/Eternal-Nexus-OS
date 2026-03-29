@@ -1,3 +1,11 @@
+---
+title: "Design Backlog"
+slug: design-backlog
+date: 2026-03-20
+category: design
+excerpt: "Active design backlog and pending visual tasks."
+---
+
 # Design Backlog
 
 > UX debt tracker. Separate from INSIGHTS.md (which is for cross-pioneer learnings, not debt).
