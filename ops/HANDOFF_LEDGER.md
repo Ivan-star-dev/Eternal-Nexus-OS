@@ -6,7 +6,67 @@
 
 ---
 
-## HANDOFF — 2026-03-29 | @copilot | BASTION-TRUTH-SYNC-001 | copilot-swe-agent
+## HANDOFF — 2026-03-29 | @copilot | MATRIX-STATE-PROPAGATION-001 | copilot-swe-agent
+
+**TASK:** MATRIX STATE PROPAGATION — AUTO-SYNC LAW — propagate V7 truth across execution mesh
+**BRANCH:** copilot/consolidate-duplicate-kind-labels
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**PROPAGATION LAYERS SYNCED:**
+
+**1. CANONICAL TRUTH**
+- Branch canónico: `claude/rebuild-bastion-core-rihGX`
+- Branch activo neste workspace: `copilot/consolidate-duplicate-kind-labels`
+- Worktrees físicos: 1 (wt-* são semânticos)
+- Gate activo: V7 TRINITY SURFACES
+
+**2. LIVE_STATE.md §1 — State Table**
+- `Fase ativa` V4 → 🟢 V7 TRINITY SURFACES
+- `Executor ativo` constellation V4 → @cursor/@framer/@codex V7
+- `Frente ativa` V4 → V7 Lab/School/Workshop
+- `Camada atual` V4-INTERACTION-002 → V7_TRINITY_CONTRACT.md SEALED + BASTION v3.0
+- `Estado geral` V4 queue → V4/V5/V6 ✅ · V7 OPEN · CYCLE-CLOSE-001 unblocked
+
+**3. LIVE_STATE.md §2 — Executor Queues**
+- @codex: BULK-01-Codex ELEGÍVEL → CONCLUÍDA · CYCLE-CLOSE-001 added (P1 ELEGÍVEL AGORA)
+- @cursor: BULK backlog showing as open → V7-LAB/SCHOOL/WORKSHOP-SURFACE tasks added (P1/P2)
+- @copilot: BULK-01.2/L-001/L-002 GATE ABERTO → CONCLUÍDA
+- @claude: PLv6.2-b AGUARDA GATE → CONCLUÍDA · FVL-IMPL-001 PLANEJADA → CONCLUÍDA
+
+**4. LIVE_STATE.md §3 — Canalização**
+- Replaced stale V4/BULK semáforo blocks with V7 canonical semáforo
+- Added "Histórico de canalizações (arquivo)" label to old blocks
+
+**5. LIVE_STATE.md §4 — Bloqueios**
+- B-002 (PM canónico): BLOQUEADO → SUPERSEDED (npm confirmado)
+- B-001/B-003 status updated (not blocking V7)
+
+**6. LIVE_STATE.md §5 — Próximos Passos**
+- Replaced 3 stale multi-lists with single clean V7 priority order
+
+**7. PIONEER_MATRIX.md**
+- Appended MATRIX STATE — V7 DISPATCH (2026-03-29) section
+- Pioneer status table: @cursor/framer/codex/claude/copilot/antigravity all labeled
+- v1.3 sealed
+
+**FILES MODIFIED:**
+- `ops/LIVE_STATE.md` — §1 §2 §3 §4 §5 propagated to V7 truth
+- `ops/PIONEER_MATRIX.md` — V7 dispatch table appended (v1.3)
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**PIONEER STATUS:**
+- @cursor: UPDATED — V7-LAB-SURFACE-001 P1 is next
+- @framer: UPDATED — V7-LAB-SURFACE-001 WorkVisual is next
+- @codex: UPDATED — CYCLE-CLOSE-001 is next (desbloqueado)
+- @claude: UPDATED — ARBITER, sem task elegível
+- @copilot: PARTIALLY UPDATED — truth-sync done, aguarda V7 lapidação
+- @antigravity: WAITING ON SYNC — V7 motion layer quando Lab shell fechado
+
+**BLOQUEIOS:** nenhum
+
+---
 
 **TASK:** BASTION REFRESH + WORKTREE TRUTH SYNC — kill operational drift
 **BRANCH:** copilot/consolidate-duplicate-kind-labels
