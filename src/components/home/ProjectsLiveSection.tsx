@@ -1,11 +1,11 @@
 /**
  * ProjectsLiveSection — Projects Gallery Layer (PLv6.2-a)
  *
- * Secção compacta na home que torna visível a Layer 2 (Supabase globe_projects).
+ * Secção compacta na home que torna visível o portfólio activo do sistema.
  * Consume fetchProjectsSummary() — fetcher canónico de PLv6.1.
- * Máx 5 projectos recentes. Link para /atlas onde o portfólio completo vive.
+ * Máx 5 projectos recentes. Links para /lab (portal de trabalho activo).
  *
- * Propósito: Layer 2 deixa de ser só infra e passa a ser visível no produto.
+ * Propósito: projectos deixam de ser só infra e passam a ser visíveis no produto.
  *
  * O que NÃO entra aqui:
  *   - project_metrics / KPIs financeiros
@@ -17,7 +17,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchProjectsSummary, type GlobeProject } from "@/lib/projectsData";
 
@@ -144,11 +144,11 @@ const ProjectsLiveSection = () => {
         >
           <div>
             <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block mb-3">
-              Projetos Registados
+              Sistema Activo
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Projectos{" "}
-              <span className="text-primary italic font-light">Registados</span>
+              <span className="text-primary italic font-light">em Curso</span>
             </h2>
           </div>
 
@@ -192,7 +192,6 @@ const ProjectsLiveSection = () => {
             transition={{ duration: 0.6 }}
             className="border border-border bg-card/50 p-10 text-center"
           >
-            <MapPin className="w-6 h-6 text-muted-foreground/30 mx-auto mb-3" />
             <p className="font-sans text-sm text-muted-foreground">
               Nenhum projecto registado ainda.
             </p>
