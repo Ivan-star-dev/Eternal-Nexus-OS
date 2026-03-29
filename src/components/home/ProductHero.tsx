@@ -65,8 +65,8 @@ function MachineSubstrate() {
       aria-hidden="true"
       style={{
         backgroundImage: `
-          repeating-linear-gradient(0deg, transparent, transparent 63px, rgba(255,255,255,0.018) 63px, rgba(255,255,255,0.018) 64px),
-          repeating-linear-gradient(90deg, transparent, transparent 63px, rgba(255,255,255,0.018) 63px, rgba(255,255,255,0.018) 64px)
+          repeating-linear-gradient(0deg, transparent, transparent 63px, var(--rx-substrate-line) 63px, var(--rx-substrate-line) 64px),
+          repeating-linear-gradient(90deg, transparent, transparent 63px, var(--rx-substrate-line) 63px, var(--rx-substrate-line) 64px)
         `,
       }}
     />
@@ -104,7 +104,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         style={{
           height: "60%",
           background:
-            "linear-gradient(to bottom, transparent 0%, hsl(216 50% 5% / 0.2) 35%, hsl(216 50% 5% / 0.65) 68%, hsl(216 50% 5%) 100%)",
+            "linear-gradient(to bottom, transparent 0%, hsl(var(--background) / 0.2) 35%, hsl(var(--background) / 0.65) 68%, hsl(var(--background)) 100%)",
         }}
         aria-hidden="true"
       />
@@ -113,7 +113,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         className="pointer-events-none absolute inset-y-0 left-0 z-[2]"
         style={{
           width: "18%",
-          background: "linear-gradient(to right, hsl(216 50% 5%) 0%, transparent 100%)",
+          background: "linear-gradient(to right, hsl(var(--background)) 0%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -121,7 +121,7 @@ function GlobeZone({ onHotspotClick }: { onHotspotClick?: (id: string) => void }
         className="pointer-events-none absolute inset-y-0 right-0 z-[2]"
         style={{
           width: "18%",
-          background: "linear-gradient(to left, hsl(216 50% 5%) 0%, transparent 100%)",
+          background: "linear-gradient(to left, hsl(var(--background)) 0%, transparent 100%)",
         }}
         aria-hidden="true"
       />
@@ -408,7 +408,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
   return (
     <motion.section
       ref={sectionRef}
-      style={{ opacity: sectionOpacity, y: sectionY, background: "#060c14" }}
+      style={{ opacity: sectionOpacity, y: sectionY, background: "hsl(var(--background))" }}
       className="relative w-full overflow-hidden"
       aria-label="Heaven Lab — sistema e filhos"
       role="banner"
@@ -440,7 +440,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
         className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-40"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, hsl(216 50% 5% / 0.5) 55%, hsl(216 50% 5%) 100%)",
+            "linear-gradient(to bottom, transparent, hsl(var(--background) / 0.5) 55%, hsl(var(--background)) 100%)",
         }}
         aria-hidden="true"
       />

@@ -97,6 +97,9 @@
     --rx-alert:       12  82% 55%;   /* Cap hit, governance */
     --rx-sovereign:   270 45% 58%;   /* Owner layer */
 
+    /* Machine substrate grid line — dark: near-white whisper */
+    --rx-substrate-line: rgba(255, 255, 255, 0.018);
+
     /* ═══ RUBERRA DEPTH SYSTEM ═══ */
     --petroleum-blue: hsl(210 65% 8%);
     --abyssal: hsl(var(--rx-void));
@@ -245,6 +248,9 @@
     --morabeza-ocean:       195 52% 30%;
 
     /* Sidebar */
+    /* Machine substrate grid line — light: near-navy whisper */
+    --rx-substrate-line: rgba(10, 14, 30, 0.028);
+
     --sidebar-background:           215 28% 93%;
     --sidebar-foreground:           var(--rx-text-prime);
     --sidebar-primary:              var(--rx-gold);
