@@ -158,7 +158,7 @@ function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
         className="relative z-10 mb-10"
         style={{
           height: "0.5px",
-          background: `linear-gradient(to right, ${vein.replace(")", ` / ${lit ? "0.3" : "0.15"})`)}`, transparent)`,
+          background: `linear-gradient(to right, ${vein.replace(")", ` / ${lit ? "0.3" : "0.15"})`)}, transparent)`,
           transition: "background 0.4s",
         }}
       />
