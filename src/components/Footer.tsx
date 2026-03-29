@@ -19,12 +19,12 @@ const Footer = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="relative"
-      style={{ background: "hsl(216 60% 4%)" }}
+      style={{ background: "hsl(var(--background))" }}
     >
       {/* Top separator */}
       <div
         className="absolute top-0 left-0 right-0"
-        style={{ height: "0.5px", background: "rgba(255,255,255,0.05)" }}
+        style={{ height: "0.5px", background: "hsl(var(--border) / 0.3)" }}
         aria-hidden="true"
       />
 
