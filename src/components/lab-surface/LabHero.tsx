@@ -26,8 +26,8 @@ export default function LabHero() {
   const metrics = typeof window !== 'undefined' ? getReturnMetrics('lab') : null;
   const sessionResume =
     session?.is_resume &&
-    (session.re_entry_point.startsWith('lab:') ||
-      session.re_entry_point.startsWith('resume-swarm:'));
+    (session.re_entry_point?.startsWith('lab:') ||
+      session.re_entry_point?.startsWith('resume-swarm:'));
   const isResume = sessionResume || (metrics !== null && metrics.return_count > 0);
 
   // Load most recent artifact title for the resume badge

@@ -37,6 +37,7 @@ export function useOrganism(): OrganismState {
 
   // Sync session to runtime memory layer
   useEffect(() => {
+    if (!session) return; // cold boot — organism sync deferred until session exists
     nexusRuntime.syncSession({
       session_id: session.session_id,
       subject: session.subject ?? '',
@@ -47,10 +48,11 @@ export function useOrganism(): OrganismState {
       scroll_snapshot: session.scroll_snapshot ?? undefined,
     });
   }, [
-    session.session_id,
-    session.re_entry_point,
-    session.is_resume,
-    session.ts_last_active,
+    session,
+    session?.session_id,
+    session?.re_entry_point,
+    session?.is_resume,
+    session?.ts_last_active,
   ]);
 
   // Sync evolution to runtime intelligence layer
