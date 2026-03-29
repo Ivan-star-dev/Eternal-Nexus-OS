@@ -159,7 +159,7 @@ function NetworkSphere() {
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[connections, 3]} />
         </bufferGeometry>
-        <lineBasicMaterial color="#c8a44e" transparent opacity={0.12} />
+        <lineBasicMaterial color="#1a3a5c" transparent opacity={0.06} />
       </lineSegments>
       <points>
         <bufferGeometry>
