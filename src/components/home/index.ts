@@ -1,18 +1,15 @@
-export { default as WorldPulse } from './WorldPulse';
-export { default as ScenarioComparison } from './ScenarioComparison';
-export { default as MetricsTimeline } from './MetricsTimeline';
+// Canonical home/ components — sovereign line only
+// 20 superseded components archived to src/archive/home-superseded/
+// AIInsightsPanel, CollaborationHub, EarthLab, EarthquakeMonitor,
+// EcosystemMap, LearningPathway, LiveEventStream, ManifestoSection,
+// MarketPulse, MetricsTimeline, PlatformStats, QuoteBlock, ResearchCallout,
+// ResearchTrails, RoadmapTimeline, ScenarioComparison, StrategicLayer,
+// V10Proof, WorldClock, WorldPulse
 export { default as ContributionsSection } from './ContributionsSection';
 export { default as DossierCard } from './DossierCard';
+export { default as HeroFirstProof } from './HeroFirstProof';
 export { default as OrganStatusGrid } from './OrganStatusGrid';
+export { default as ProductHero } from './ProductHero';
+export { default as ProjectFocusPanel } from './ProjectFocusPanel';
 export { default as ProjectsLiveSection } from './ProjectsLiveSection';
-export { default as CollaborationHub } from './CollaborationHub';
-export { default as EarthLab } from './EarthLab';
-export { default as LearningPathway } from './LearningPathway';
-export { default as EcosystemMap } from './EcosystemMap';
-export { default as ManifestoSection } from './ManifestoSection';
-export { default as V10Proof } from './V10Proof';
-export { default as WorldClock } from './WorldClock';
-export { default as RoadmapTimeline } from './RoadmapTimeline';
-export { default as PlatformStats } from './PlatformStats';
-export { default as ResearchCallout } from './ResearchCallout';
-export { default as QuoteBlock } from './QuoteBlock';
+export { default as TrinityRow } from './TrinityRow';
