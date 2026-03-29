@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
-import type { ConceptImage } from "@/data/projects";
+import type { ConceptImage, ArtifactKind } from "@/data/projects";
+import { ARTIFACT_KIND_LABELS } from "@/data/projects";
 import { useLightbox } from "@/hooks/useLightbox";
 import { EASE_OUT } from "@/lib/motion/config";
 
 interface GalleryImage {
   src: string;
   caption: string;
-  category: "render" | "technical" | "concept" | "diagram";
+  category: ArtifactKind;
 }
 
 interface ProjectGalleryProps {
@@ -17,13 +18,6 @@ interface ProjectGalleryProps {
   technicalImages: string[];
   conceptImages?: ConceptImage[];
 }
-
-const categoryLabels: Record<string, string> = {
-  render: "CGI RENDER",
-  technical: "TECHNICAL DRAWING",
-  concept: "CONCEPT",
-  diagram: "ENGINEERING DIAGRAM",
-};
 
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0, scale: 0.95 }),
@@ -75,7 +69,7 @@ const ProjectGallery = ({ projectTitle, renderImage, technicalImages, conceptIma
                   : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
               }`}
             >
-              {cat === "all" ? `ALL (${allImages.length})` : `${categoryLabels[cat] || cat} (${allImages.filter((i) => i.category === cat).length})`}
+              {cat === "all" ? `ALL (${allImages.length})` : `${ARTIFACT_KIND_LABELS[cat] || cat} (${allImages.filter((i) => i.category === cat).length})`}
             </button>
           ))}
         </div>
@@ -106,13 +100,13 @@ const ProjectGallery = ({ projectTitle, renderImage, technicalImages, conceptIma
                 <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
                   <ZoomIn className="w-5 h-5 text-primary" />
                   <span className="font-mono text-[0.45rem] tracking-[0.15em] text-primary uppercase">
-                    {categoryLabels[img.category] || img.category}
+                    {ARTIFACT_KIND_LABELS[img.category] || img.category}
                   </span>
                 </div>
                 {/* Category badge */}
                 <div className="absolute top-1.5 left-1.5">
                   <span className="font-mono text-[0.4rem] tracking-[0.1em] uppercase bg-background/80 backdrop-blur-sm border border-border px-1.5 py-0.5 text-muted-foreground">
-                    {categoryLabels[img.category] || img.category}
+                    {ARTIFACT_KIND_LABELS[img.category] || img.category}
                   </span>
                 </div>
               </motion.div>
@@ -174,7 +168,7 @@ const ProjectGallery = ({ projectTitle, renderImage, technicalImages, conceptIma
 
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 max-w-lg text-center px-4">
                 <span className="font-mono text-[0.48rem] tracking-[0.12em] text-primary uppercase block mb-1">
-                  {categoryLabels[filtered[lightboxIndex].category]}
+                  {ARTIFACT_KIND_LABELS[filtered[lightboxIndex].category]}
                 </span>
                 <p className="font-sans text-xs text-muted-foreground">
                   {filtered[lightboxIndex].caption}
