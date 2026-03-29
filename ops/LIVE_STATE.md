@@ -4,7 +4,7 @@
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
 **Última actualização:** 2026-03-29 (sessão SITE-CONVERGENCE-001)
-**Actualizado por:** @claude | STEP1–7 ✅ · SOVEREIGN_PALETTE wired · globe cosmic wrap · 20 dead home/ archived · nav purged to tri-core · trinity routes fixed · homepage below-fold purged · sovereign CTA locked
+**Actualizado por:** @claude | STEP1–7 ✅ · SOVEREIGN_PALETTE wired · globe cosmic wrap · 20 dead home/ archived · nav purged to tri-core · trinity routes fixed · homepage below-fold purged · sovereign CTA locked · ProjectsLiveSection /atlas→/lab · DossierCard FORBIDDEN-08 fixed · PLANNING vein electric
 
 ---
 
@@ -46,8 +46,8 @@ CANONICAL HOMEPAGE (route "/") — LOCKED 2026-03-29:
           └── GlobeScene.tsx    ← cosmic wrap (STEP3)
           └── TrinityRow.tsx    ← routes fixed · veins distinct · label sovereign
           └── HeroFirstProof.tsx ← metrics corrected
-    └── DossierCard grid        ← "Projetos Ativos" — pending visual audit
-    └── ProjectsLiveSection     ← pending visual audit
+    └── DossierCard grid        ← "Projetos Ativos" — FORBIDDEN-08 fixed · PLANNING vein electric · CREATION label ✓
+    └── ProjectsLiveSection     ← /atlas dead route killed → /lab · coords removed · sublabel cleaned ✓
     └── Sovereign CTA           ← /lab · /school · /workshop only
 
 PURGED FROM HOMEPAGE:
@@ -91,8 +91,6 @@ GLOBE TRUTH:
     Lighting: warm sun side + cold space fill + electric backlight
 
 PENDING AUDIT:
-  ProjectsLiveSection  — visual quality unknown
-  DossierCard          — sovereign visual upgrade needed
   ProductHero text     — hero headline copy not yet audited
   ProjectFocusPanel    — may be unused (home/ survivor)
 ```
@@ -153,7 +151,7 @@ PENDING AUDIT:
 | SITE-CONVERGENCE-001 STEP4 | K-16 | **CONCLUÍDA ✓ — 20 dead home/ archived, barrel clean** |
 | SITE-CONVERGENCE-001 STEP5 | K-17 | **CONCLUÍDA ✓ — nav purged, trinity routes+veins fixed, metrics corrected** |
 | SITE-CONVERGENCE-001 STEP6 | K-16 | **CONCLUÍDA ✓ — below-fold purged, sovereign CTA locked** |
-| STEP7 visual audit ProjectsLiveSection + DossierCard | K-17 | NEXT |
+| SITE-CONVERGENCE-001 STEP7 | K-17 | **CONCLUÍDA ✓ — ProjectsLiveSection /atlas→/lab · DossierCard FORBIDDEN-08 fixed · PLANNING vein electric** |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---

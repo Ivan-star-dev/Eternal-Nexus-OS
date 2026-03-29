@@ -6,6 +6,29 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP7 VISUAL AUDIT FIXES
+
+**TASK:** Sovereign visual audit — ProjectsLiveSection + DossierCard
+**STATUS:** STEP7 CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — dead routes killed · FORBIDDEN-08 violation fixed · sovereign veins enforced
+**BRANCH:** claude/setup-ruberra-nexus-IL7Tg
+**COMMIT:** 03d43bb
+
+---
+
+**ProjectsLiveSection — UPGRADE EXECUTED ✅**
+- [D1 FIXED] All `/atlas` links → `/lab` (/atlas does not exist in App.tsx — every card was a 404)
+- [D2 FIXED] Sublabel: "Portfólio Atlas · Layer 2 — Supabase" → "Projetos Registados" (no ops jargon on product surface)
+- [D3 FIXED] MapPin icon + lat/lon coordinates removed from ProjectCard (geoscience tool residue)
+- [D4 FIXED] "Ver Atlas" → "Ver Lab" · "Adicionar no Atlas" → "Adicionar no Lab"
+
+**DossierCard — UPGRADE EXECUTED ✅**
+- [D1 FIXED] `tribunal-approved` removed — FORBIDDEN-08 violation eliminated (two competing accent animations)
+- [D2 FIXED] PLANNING vein: amber `hsl(38 80%)` → electric `hsl(205 100% 52%)` (sovereign electric vein)
+- [D3 FIXED] PLANNING label: "CREATION HUB" → "CREATION"
+
+---
+
 ## HANDOFF — 2026-03-29 | @claude | SITE-CONVERGENCE-001 | STEP5–6 HOMEPAGE LOCKDOWN
 
 **TASK:** Homepage identity lock — nav purge, trinity fix, below-fold purge, sovereign CTA
