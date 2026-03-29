@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão VALUE-ENGINE-001)
-**Actualizado por:** @claude | VALUE-ENGINE-001 ✅ · VALUE_ENGINE_CANON + VALUE_ENGINE_INFUSION_MAP · TestBay 7 validation frameworks · School Value Creation track · track selector in SchoolSurface · commit 01e80da · WEDGE TEST STILL PENDING
+**Última actualização:** 2026-03-29 (sessão VALUE-ENGINE-002)
+**Actualizado por:** @claude | VALUE-ENGINE-002 ✅ · VALUE_ENGINE_CANON + VALUE_ENGINE_INFUSION_MAP · TestBay 7 validation frameworks · School Value Creation track · track selector in SchoolSurface · commit 01e80da · WEDGE TEST STILL PENDING
 
 ---
 
