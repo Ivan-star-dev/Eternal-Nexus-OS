@@ -6,6 +6,132 @@
 
 ---
 
+## HANDOFF — 2026-03-29 | @copilot | MATRIX-STATE-PROPAGATION-001 | copilot-swe-agent
+
+**TASK:** MATRIX STATE PROPAGATION — AUTO-SYNC LAW — propagate V7 truth across execution mesh
+**BRANCH:** copilot/consolidate-duplicate-kind-labels
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**PROPAGATION LAYERS SYNCED:**
+
+**1. CANONICAL TRUTH**
+- Branch canónico: `claude/rebuild-bastion-core-rihGX`
+- Branch activo neste workspace: `copilot/consolidate-duplicate-kind-labels`
+- Worktrees físicos: 1 (wt-* são semânticos)
+- Gate activo: V7 TRINITY SURFACES
+
+**2. LIVE_STATE.md §1 — State Table**
+- `Fase ativa` V4 → 🟢 V7 TRINITY SURFACES
+- `Executor ativo` constellation V4 → @cursor/@framer/@codex V7
+- `Frente ativa` V4 → V7 Lab/School/Workshop
+- `Camada atual` V4-INTERACTION-002 → V7_TRINITY_CONTRACT.md SEALED + BASTION v3.0
+- `Estado geral` V4 queue → V4/V5/V6 ✅ · V7 OPEN · CYCLE-CLOSE-001 unblocked
+
+**3. LIVE_STATE.md §2 — Executor Queues**
+- @codex: BULK-01-Codex ELEGÍVEL → CONCLUÍDA · CYCLE-CLOSE-001 added (P1 ELEGÍVEL AGORA)
+- @cursor: BULK backlog showing as open → V7-LAB/SCHOOL/WORKSHOP-SURFACE tasks added (P1/P2)
+- @copilot: BULK-01.2/L-001/L-002 GATE ABERTO → CONCLUÍDA
+- @claude: PLv6.2-b AGUARDA GATE → CONCLUÍDA · FVL-IMPL-001 PLANEJADA → CONCLUÍDA
+
+**4. LIVE_STATE.md §3 — Canalização**
+- Replaced stale V4/BULK semáforo blocks with V7 canonical semáforo
+- Added "Histórico de canalizações (arquivo)" label to old blocks
+
+**5. LIVE_STATE.md §4 — Bloqueios**
+- B-002 (PM canónico): BLOQUEADO → SUPERSEDED (npm confirmado)
+- B-001/B-003 status updated (not blocking V7)
+
+**6. LIVE_STATE.md §5 — Próximos Passos**
+- Replaced 3 stale multi-lists with single clean V7 priority order
+
+**7. PIONEER_MATRIX.md**
+- Appended MATRIX STATE — V7 DISPATCH (2026-03-29) section
+- Pioneer status table: @cursor/framer/codex/claude/copilot/antigravity all labeled
+- v1.3 sealed
+
+**FILES MODIFIED:**
+- `ops/LIVE_STATE.md` — §1 §2 §3 §4 §5 propagated to V7 truth
+- `ops/PIONEER_MATRIX.md` — V7 dispatch table appended (v1.3)
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**PIONEER STATUS:**
+- @cursor: UPDATED — V7-LAB-SURFACE-001 P1 is next
+- @framer: UPDATED — V7-LAB-SURFACE-001 WorkVisual is next
+- @codex: UPDATED — CYCLE-CLOSE-001 is next (desbloqueado)
+- @claude: UPDATED — ARBITER, sem task elegível
+- @copilot: PARTIALLY UPDATED — truth-sync done, aguarda V7 lapidação
+- @antigravity: WAITING ON SYNC — V7 motion layer quando Lab shell fechado
+
+**BLOQUEIOS:** nenhum
+
+---
+
+**TASK:** BASTION REFRESH + WORKTREE TRUTH SYNC — kill operational drift
+**BRANCH:** copilot/consolidate-duplicate-kind-labels
+**STATUS:** CONCLUÍDA ✅
+
+### ALTERACAO_REAL: sim
+
+**EXECUTADO:**
+
+**1. CANONICAL WORKTREE / BRANCH TRUTH**
+- Branch activo neste workspace: `copilot/consolidate-duplicate-kind-labels`
+- Branch canónico da linha principal: `claude/rebuild-bastion-core-rihGX`
+- Worktree: apenas 1 worktree físico (os `wt-*` são rótulos semânticos, não worktrees Git)
+- Este branch é um PR branch para @copilot WorkStructure tasks
+
+**2. RECENT IMPLEMENTATION TRUTH**
+- Commit 369f304: consolidação de `ArtifactKind` label maps (src/data/projects.ts + ProjectGallery.tsx + Gallery.tsx)
+- Nenhuma implementação V7 neste workspace — V7 vive em `claude/rebuild-bastion-core-rihGX`
+
+**3. BASTION DRIFT KILLED**
+Todos os seguintes tasks foram corrigidos de `elegível`/`em execução` → `✅ CONCLUÍDA`:
+- V4-PROJECT-PAGE-001-MECH → SUPERSEDED por V5-INFRA-SUPABASE-001 ✅
+- V4-MOTION-SURFACES-001 → CONCLUÍDA (V4-CLOSE-GATE BEHAVIOUR-08)
+- V4-INTERACTION-002 → CONCLUÍDA (V4-CLOSE-GATE BEHAVIOUR-01)
+- CLUSTER-ORCHESTRATE-001 → CONCLUÍDA (CODEX_V5_AUDIT.md emitido)
+- BULK-02.2 → CONCLUÍDA (NEXUS_NEURAL_MESH.md lapidado)
+- BULK-01.3-a → CONCLUÍDA (vite timestamps não tracked)
+- BULK-01.3-b → CONCLUÍDA (npm canónico · bun.lock excluído)
+- BULK-01.3-c → CONCLUÍDA (antigravity/ auditado)
+- BULK-01.2/L-001 → CONCLUÍDA (.gitignore sem gaps)
+- BULK-01.2/L-002 → CONCLUÍDA (timestamp não rastreado); DEPENDENCIA_STATUS: pendente → livre
+
+**4. SECTION 5.3 CLEANED**
+- PLv6.2-b (aguarda-gate) → ✅ CONCLUÍDA (referência 5.1)
+- FVL-IMPL-001 (aguarda-gate) → ✅ CONCLUÍDA (referência 5.1)
+- Section header renamed: "PLANEJADAS" → "CONCLUÍDAS DO CICLO V1-6"
+
+**5. CYCLE-CLOSE-001 DESBLOQUEADO**
+- DEPENDENCIA_STATUS: pendente → livre (todas as deps PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + L-002 são ✅)
+- STATUS: elegível (pode entrar agora)
+
+**6. SEMÁFORO v3.0 EMITIDO**
+- Novo bloco BASTION § 10 emitido com estado real: V7 activo, @cursor → V7-LAB-SURFACE-001 (P1)
+
+**7. LIVE_STATE.md ACTUALIZADO**
+- Nova entrada no topo: BASTION-TRUTH-SYNC-001 done
+
+**FILES MODIFIED:**
+- `ops/BASTION.md` — 10 STATUS corrigidos + Section 5.3 renamed + CYCLE-CLOSE-001 unblocked + Semáforo v3.0
+- `ops/LIVE_STATE.md` — nova entrada top
+- `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**4. TRUE NEXT @CURSOR TASK**
+→ **V7-LAB-SURFACE-001** (P1) — única task P1 elegível no BASTION
+→ BULK-01.3-a/b/c: OBSOLETE — não executar, já concluídas
+
+**BLOQUEIOS:** nenhum
+
+**PRÓXIMOS PASSOS:**
+- @cursor → V7-LAB-SURFACE-001 (P1) — referência: ops/V7_TRINITY_CONTRACT.md § SUPERFÍCIE 1 — LAB
+- @framer → V7-LAB-SURFACE-001 WorkVisual (paralelo)
+- @codex → CYCLE-CLOSE-001 (agora desbloqueado)
+
+---
+
 ## HANDOFF — 2026-03-26 | @claude | V7 GATE OPEN + TRINITY CONTRACT SEALED | claude-sonnet-4-6
 
 **TASK:** V7 Gate Open — Write V7_TRINITY_CONTRACT.md + open BASTION V7 tasks
