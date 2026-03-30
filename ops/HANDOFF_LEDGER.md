@@ -6,6 +6,61 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @copilot | OPS-SURFACE-FINAL-001 | SYNC: ops cleanup + git hygiene
+
+**TASK:** BULK-02.2 + BULK-01.2/L-001 + BULK-01.2/L-002 + LIVE_STATE + BASTION sync
+**STATUS:** CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — 5 ficheiros ops/ modificados · 7 ficheiros removidos do tracking git
+**BRANCH:** copilot/sync
+
+---
+
+**FEITO:**
+- [✅] `git rm --cached` — `.claude/settings.local.json` · `.claude/launch.json` · `.claude/worktrees/*` (5 entries) removidos do tracking
+- [✅] `ops/PIONEER_MATRIX.md` — @claude LOOP step 6: outdated "PLv6.2-b / FVL-IMPL-001" gate reference removed
+- [✅] `ops/SESSION_BOOTSTRAP.md` — FASE V3 → V4 · kernels activos actualizados · GATE_V4 ✅ · CRITÉRIO V4 definido · DATA e FICHEIROS CHAVE actualizados
+- [✅] `ops/PRECONDITIONS_BEFORE_HARD_EXECUTION.md` — "Status actual" updated from "elegível" to "concluída ✓"
+- [✅] `ops/BASTION.md` — BULK-02.2 · L-001 · L-002 task forms: STATUS elegível → concluída · GATE fechado · NEXT_TASK updated
+- [✅] `ops/LIVE_STATE.md` — @copilot task table updated: BRAND-DOCS ✓ · OPS-SURFACE ✓ · BULK-02.2 ✓ · L-001 ✓ · L-002 ✓ · LANE B closed
+- [✅] `ops/HANDOFF_LEDGER.md` — esta entrada
+
+**NÃO FEITO:**
+- SESSION_BOOTSTRAP secção de ficheiros-chave ainda referencia BASTION_V3_INSERT (arquivo histórico) → @claude pode actualizar quando V5 spec estiver pronta
+- BATTALION_READINESS_VERDICT.md, V10_PROJECT_LINE_SYSTEM.md, CANONICAL_HARD_EXECUTION_ORDER.md — PLv6.2-b/FVL refs mantidos (documentos históricos, não operacionais)
+
+**BLOQUEIOS:** nenhum
+
+**ARQUIVOS:**
+- `ops/PIONEER_MATRIX.md`
+- `ops/SESSION_BOOTSTRAP.md`
+- `ops/PRECONDITIONS_BEFORE_HARD_EXECUTION.md`
+- `ops/BASTION.md`
+- `ops/LIVE_STATE.md`
+- `ops/HANDOFF_LEDGER.md`
+- `.claude/settings.local.json` (removido do tracking)
+- `.claude/launch.json` (removido do tracking)
+- `.claude/worktrees/cranky-ride` (removido do tracking)
+- `.claude/worktrees/focused-noether` (removido do tracking)
+- `.claude/worktrees/hungry-hertz` (removido do tracking)
+- `.claude/worktrees/jolly-austin` (removido do tracking)
+- `.claude/worktrees/magical-goodall` (removido do tracking)
+
+**PRÓXIMO PASSO:** @cursor → V4-WORLD-PULSE-001 em GlobeScene.tsx · @framer → NS-3 Wonder Layer 5 componentes
+
+**DECISÃO_REC:** @cursor e @framer entram em paralelo no V4 critical path; @claude supervisiona + V5 spec
+
+---
+
+| CAMPO | VALOR |
+|---|---|
+| EXECUTOR | @copilot |
+| TASK_ID | OPS-SURFACE-FINAL-001 |
+| PILAR | operacional |
+| IMPACTO | baixo |
+| NATUREZA | operacional |
+
+---
+
 ## HANDOFF — 2026-03-29 | @copilot | FORCE-TASK-003 | FORÇA-TAREFA V4 LIVING WORLD ACTIVADA
 
 **TASK:** FORCE-TASK-003-OPS — activar FORCE_TASK_ACTIVATION_003 · actualizar ops

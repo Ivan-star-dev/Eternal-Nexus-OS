@@ -3,10 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão FORCE-TASK-003 · @copilot)
-**Actualizado por:** @copilot | FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
-**Última actualização:** 2026-03-29 (sessão RUBERRA-FINISH-PASS)
-**Actualizado por:** @claude | STEP1–7 ✅ + RUBERRA-FINISH-PASS ✅ · globe visual fusion · sovereign dark/light system · ThemeToggle · ProductHero sealed · NavBar sealed · SessionPulse sealed · DossierCard sealed · TrinityRow sealed · Footer fully sealed · homepage 100% theme-aware
+**Última actualização:** 2026-03-30 (sessão OPS-SURFACE-FINAL-001 · @copilot)
+**Actualizado por:** @copilot | BULK-02.2 ✓ · L-001 ✓ · L-002 ✓ · SESSION_BOOTSTRAP → V4 · PIONEER_MATRIX cleaned · BASTION task forms updated · .claude/ local files untracked
 
 ---
 
@@ -140,9 +138,12 @@ PENDING NEXT:
 ### @copilot — K-13 BRAND + K-15 DOCS + K-15 OPS
 | Task | Kernel | Estado |
 |---|---|---|
-| BRAND-DOCS-001 | K-13 | **EXECUTANDO — Lane B** |
-| OPS-SURFACE-001 | K-15 | **EXECUTANDO — Lane B** |
+| BRAND-DOCS-001 | K-13 | **CONCLUÍDA ✓ — V4 state · ops coerente** |
+| OPS-SURFACE-001 | K-15 | **CONCLUÍDA ✓ — SESSION_BOOTSTRAP → V4 · PIONEER_MATRIX cleaned** |
 | FORCE-TASK-003-OPS | K-15 | **CONCLUÍDA ✓ — FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE + BASTION actualizados** |
+| BULK-02.2 | K-15 | **CONCLUÍDA ✓ — ops/ lapidada · PLv4/PLv5/PLv6 orphans removed** |
+| BULK-01.2/L-001 | K-15 | **CONCLUÍDA ✓ — .gitignore auditado · sem gaps** |
+| BULK-01.2/L-002 | K-15 | **CONCLUÍDA ✓ — .claude/ local files removidos do tracking** |
 
 ### @claude — K-16 ARCH + K-17 STRATEGY + K-18 SPEC
 | Task | Kernel | Estado |
@@ -219,8 +220,8 @@ LANE A — CRITICAL PATH V4 (gate V5 depende disto):
   CLUSTER_V4_UI:       K-04+K-06(@framer) — NS-3 Wonder Layer 5 componentes
   CLUSTER_V4_AUDIT:    K-10(@codex) — CI verification + wave report
 
-LANE B — BACKGROUND (paralelo, não bloqueia):
-  CLUSTER_OPS:         K-15 (@copilot) — BULK-02.2 + L-001 + state update ✅
+LANE B — BACKGROUND (concluída):
+  CLUSTER_OPS:         K-15 (@copilot) — BULK-02.2 ✓ · L-001 ✓ · L-002 ✓ · state update ✓
 
 LANE C — PREP (dormentes, specs prontas):
   V5/V6/V7 specs carregadas — activam com gate automático

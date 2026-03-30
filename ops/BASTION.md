@@ -276,14 +276,14 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @copilot                                                │
-│ NEXT_TASK          │ BULK-02.2 completa → @owner decide PLv6.2-b ou FVL     │
+│ GATE               │ fechado — concluída 2026-03-30                          │
+│ NEXT_ACTOR         │ —                                                       │
+│ NEXT_TASK          │ concluída — ver historial 5.1                           │
 │ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
 │ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
 │                    │ suavizar superfície operacional; sem alteração soberana  │
@@ -357,12 +357,12 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ nenhum                                                  │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto                                                  │
+│ GATE               │ fechado — concluída 2026-03-30                          │
 │ NEXT_ACTOR         │ @copilot                                                │
 │ NEXT_TASK          │ BULK-01.2 / L-002                                       │
 │ EVIDENCIA_MINIMA   │ .gitignore actualizado + ALTERACAO_REAL: sim            │
@@ -377,16 +377,16 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkStructure                                           │
 │ DONO_PRINCIPAL     │ @copilot                                                │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
-│ DEPENDENCIA_STATUS │ pendente                                                │
+│ STATUS             │ concluída                                               │
+│ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ BULK-01.2 / L-001                                       │
-│ PODE_ENTRAR_SOZINHO│ não                                                     │
+│ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P3                                                      │
-│ GATE               │ aberto (após L-001)                                     │
+│ GATE               │ fechado — concluída 2026-03-30                          │
 │ NEXT_ACTOR         │ @copilot                                                │
 │ NEXT_TASK          │ BULK-02.2                                               │
-│ EVIDENCIA_MINIMA   │ timestamp file removido do tracking + ALTERACAO_REAL    │
-│ NOTAS_DO_OWNER     │ git rm --cached do timestamp file já rastreado          │
+│ EVIDENCIA_MINIMA   │ .claude/ local files removidos do tracking + ALTERACAO_REAL │
+│ NOTAS_DO_OWNER     │ git rm --cached .claude/settings.local.json · worktrees · launch.json │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

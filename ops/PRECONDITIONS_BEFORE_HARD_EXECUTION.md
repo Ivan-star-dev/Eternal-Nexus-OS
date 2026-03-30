@@ -109,7 +109,7 @@ Não se pode activar um novo batalhão sobre um ciclo que ainda não fechou. O P
 ```
 
 **Owner:** @codex (principal) + @claude (apoio)
-**Status actual:** elegível — aguarda handoffs de PLv6.2-b + FVL-IMPL-001 + BULK-02.2 + BULK-01.2/L-002
+**Status actual:** concluída ✓ — PLv6.2-b ✓ · FVL-IMPL-001 ✓ · BULK-02.2 ✓ · BULK-01.2/L-002 ✓ · sprint V3 fechado
 **Bloco impactado:** Bloco 6 — Execução e Governança
 
 ---

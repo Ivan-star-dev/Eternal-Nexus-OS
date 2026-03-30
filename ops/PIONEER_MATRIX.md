@@ -59,7 +59,7 @@ LOOP @claude:
 3. Executar dentro do pilar e território declarados
 4. Emitir handoff com EVIDENCE_BLOCK
 5. Actualizar LIVE_STATE + BASTION + HANDOFF_LEDGER
-6. Commit + push → aguardar gate do owner (PLv6.2-b / FVL-IMPL-001)
+6. Commit + push → próxima task elegível no BASTION
 ```
 
 ---
