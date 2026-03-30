@@ -106,7 +106,11 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
 
 // ── Section principal ─────────────────────────────────────────────────────────
 
-const ProjectsLiveSection = () => {
+interface ProjectsLiveSectionProps {
+  inChamber?: boolean;
+}
+
+const ProjectsLiveSection = ({ inChamber = false }: ProjectsLiveSectionProps) => {
   const [projects, setProjects] = useState<GlobeProject[]>([]);
   const [total, setTotal] = useState(0);
   const [isLive, setIsLive] = useState(false);
@@ -129,10 +133,10 @@ const ProjectsLiveSection = () => {
 
   return (
     <section
-      className="py-20 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border"
+      className={inChamber ? "py-0" : "py-20 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border"}
       aria-label="Projectos Registados — Lab"
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className={inChamber ? "max-w-[1200px] mx-auto" : "max-w-[1200px] mx-auto"}>
 
         {/* Header */}
         <motion.div

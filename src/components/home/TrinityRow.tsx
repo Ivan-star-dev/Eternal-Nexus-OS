@@ -1,10 +1,7 @@
 /**
  * TrinityRow.tsx
- * Three monumental portals — School · Lab · Creation Hub
- * Each a distinct world. All children of the same mother.
- *
- * Canon: HEAVEN_LAB_REFERENCE_SURFACE.md · RUBERRA Visual Mother ID
- * Upgrade: portal scale · regime words · unique atmospheric backgrounds
+ * Sovereign tri-destination layer: School / Lab / Creation.
+ * Distinct temporal regimes under one organism.
  */
 
 import { useState } from "react";
@@ -18,227 +15,182 @@ interface Portal {
   id: string;
   face: TrinityFace;
   index: number;
-  // Surface label (Ruberra north)
-  pillarName: string;
-  // Regime word — temporal axis
-  regimeWord: string;
-  // Identity line — what it does
+  pillar: string;
+  regime: string;
   identity: string;
-  // Operative tags — JetBrains Mono
-  tags: string;
-  // Route
+  ritual: string;
   path: string;
-  // Unique atmospheric color for background glow
-  glowColor: string;
-  // Original name (preserved for session continuity)
-  name: string;
+  vein: string;
+  veil: string;
 }
 
 const PORTALS: Portal[] = [
   {
-    id: "heaven-lab",
-    face: "heaven_lab",
-    index: 1,
-    pillarName: "SCHOOL",
-    regimeWord: "Past",
-    identity: "Where memory becomes understanding.",
-    tags: "study · understand · remember",
-    path: "/school",
-    glowColor: "hsl(42 78% 52% / 0.07)",
-    name: "Heaven Lab",
-  },
-  {
-    id: "bridge-nova",
+    id: "school",
     face: "bridge_nova",
-    index: 2,
-    pillarName: "LAB",
-    regimeWord: "Present",
-    identity: "Where reality is placed under examination.",
-    tags: "observe · investigate · model",
-    path: "/lab",
-    glowColor: "hsl(172 55% 36% / 0.07)",
-    name: "Bridge Nova",
+    index: 1,
+    pillar: "SCHOOL",
+    regime: "Past",
+    identity: "Memory becomes foundation.",
+    ritual: "learn · retain · transmit",
+    path: "/school",
+    vein: "hsl(42 78% 52%)",
+    veil: "radial-gradient(ellipse at 42% 30%, hsl(42 78% 52% / 0.16) 0%, transparent 64%)",
   },
   {
-    id: "nexus-cria",
+    id: "lab",
+    face: "heaven_lab",
+    index: 2,
+    pillar: "LAB",
+    regime: "Present",
+    identity: "Reality enters examination.",
+    ritual: "observe · test · decide",
+    path: "/lab",
+    vein: "hsl(172 55% 36%)",
+    veil: "radial-gradient(ellipse at 52% 34%, hsl(172 55% 36% / 0.16) 0%, transparent 64%)",
+  },
+  {
+    id: "creation",
     face: "nexus_cria",
     index: 3,
-    pillarName: "CREATION",
-    regimeWord: "Future",
-    identity: "Where systems gain form and authorship takes root.",
-    tags: "design · build · ship",
+    pillar: "CREATION",
+    regime: "Future",
+    identity: "Form gains authorship.",
+    ritual: "design · build · ship",
     path: "/workshop",
-    glowColor: "hsl(205 100% 52% / 0.06)",
-    name: "Nexus Cria",
+    vein: "hsl(205 100% 52%)",
+    veil: "radial-gradient(ellipse at 56% 30%, hsl(205 100% 52% / 0.15) 0%, transparent 64%)",
   },
 ];
 
-// Sovereign vein per portal — one identity, no cross-contamination
-const PORTAL_VEIN: Record<string, string> = {
-  "heaven-lab":  "hsl(42 78% 52%)",   // gold — school / mastery
-  "bridge-nova": "hsl(172 55% 36%)",  // teal — lab / evidence
-  "nexus-cria":  "hsl(205 100% 52%)", // electric — creation / force
-};
-
-const PORTAL_VEIN_DIM: Record<string, string> = {
-  "heaven-lab":  "hsl(42 78% 52% / 0.45)",
-  "bridge-nova": "hsl(172 55% 36% / 0.45)",
-  "nexus-cria":  "hsl(205 100% 52% / 0.45)",
-};
-
-interface PortalNodeProps {
+function PortalNode({
+  portal,
+  delay,
+  isActive,
+}: {
   portal: Portal;
   delay: number;
   isActive: boolean;
-}
-
-function PortalNode({ portal, delay, isActive }: PortalNodeProps) {
+}) {
   const [hovered, setHovered] = useState(false);
   const lit = hovered || isActive;
-  const vein = PORTAL_VEIN[portal.id] ?? "hsl(42 78% 52%)";
-  const veinDim = PORTAL_VEIN_DIM[portal.id] ?? "hsl(42 78% 52% / 0.45)";
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ delay, duration: 0.85, ease: EASE }}
+      viewport={{ once: true, margin: "-70px" }}
+      transition={{ delay, duration: 0.8, ease: EASE }}
+      className="relative flex-1 overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative flex flex-col px-8 md:px-12 py-14 select-none"
-      style={{ minHeight: "500px" }}
     >
-      {/* Unique atmospheric background glow */}
+      <div className="absolute inset-0" style={{ background: portal.veil }} aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700"
+        className="absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse at 50% 40%, ${portal.glowColor} 0%, transparent 65%)`,
-          opacity: lit ? 1.6 : 1,
+          background:
+            "linear-gradient(180deg, hsl(var(--background) / 0.2) 0%, transparent 22%, hsl(var(--background) / 0.55) 100%)",
         }}
-        aria-hidden="true"
+        aria-hidden
       />
 
-      {/* Active-face ring */}
       {isActive && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="absolute inset-0 pointer-events-none"
-          style={{ border: "0.5px solid rgba(200,164,78,0.2)" }}
-          aria-hidden="true"
+          transition={{ duration: 0.45 }}
+          className="absolute inset-0"
+          style={{ border: `0.5px solid ${portal.vein.replace(")", " / 0.45)")}` }}
+          aria-hidden
         />
       )}
 
-      {/* Orbital index + name header */}
-      <div className="relative z-10 flex items-center gap-3 mb-4">
-        <span
-          className="font-mono text-[9px] tabular-nums"
-          style={{ color: `${vein.replace(")", " / 0.3)")}`, letterSpacing: "0.1em" }}
-        >
-          {String(portal.index).padStart(2, "0")}
-        </span>
-        <motion.span
-          animate={{ color: lit ? vein : `${vein.replace(")", " / 0.6)")}` }}
-          transition={{ duration: 0.35 }}
-          className="font-sans font-[500] uppercase"
-          style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "11px",
-            letterSpacing: "0.22em",
-          }}
-        >
-          {portal.pillarName}
-        </motion.span>
-      </div>
-
-      {/* Thin separator — vein color */}
       <div
-        className="relative z-10 mb-10"
-        style={{
-          height: "0.5px",
-          background: `linear-gradient(to right, ${vein.replace(")", ` / ${lit ? "0.3" : "0.15"})`)}, transparent)`,
-          transition: "background 0.4s",
-        }}
-      />
-
-      {/* Regime word — the temporal axis */}
-      <motion.span
-        animate={{ opacity: lit ? 0.5 : 0.28 }}
-        transition={{ duration: 0.4 }}
-        className="relative z-10 block font-serif font-[300] italic leading-none mb-8"
-        style={{
-          fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(34px, 4vw, 48px)",
-          color: "#e4ebf0",
-        }}
+        className="relative z-10 flex h-full flex-col px-5 py-9 sm:px-7 sm:py-11 md:px-9 md:py-12"
+        style={{ minHeight: "420px" }}
       >
-        {portal.regimeWord}
-      </motion.span>
+        <div className="mb-5 flex items-center gap-3 sm:mb-7">
+          <span
+            className="font-mono text-[8px] tabular-nums sm:text-[9px]"
+            style={{
+              color: portal.vein.replace(")", " / 0.48)"),
+              letterSpacing: "0.12em",
+            }}
+          >
+            {String(portal.index).padStart(2, "0")}
+          </span>
+          <span
+            className="font-sans text-[10px] uppercase sm:text-[11px]"
+            style={{
+              fontFamily: "Syne, system-ui, sans-serif",
+              letterSpacing: "0.24em",
+              color: lit ? portal.vein : portal.vein.replace(")", " / 0.72)"),
+            }}
+          >
+            {portal.pillar}
+          </span>
+        </div>
 
-      {/* Identity line */}
-      <motion.p
-        animate={{ opacity: lit ? 0.72 : 0.5 }}
-        transition={{ duration: 0.35 }}
-        className="relative z-10 font-sans font-[400] leading-relaxed mb-8"
-        style={{
-          fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "13px",
-          color: "#e4ebf0",
-          maxWidth: "280px",
-        }}
-      >
-        {portal.identity}
-      </motion.p>
-
-      {/* Regime tags — each portal's own vein color */}
-      <span
-        className="relative z-10 block font-mono"
-        style={{
-          fontFamily: "JetBrains Mono, monospace",
-          fontSize: "9px",
-          letterSpacing: "0.18em",
-          color: veinDim,
-          marginBottom: "auto",
-        }}
-      >
-        {portal.tags}
-      </span>
-
-      {/* Portal CTA — sovereign, not instructional */}
-      <motion.div
-        animate={{ opacity: lit ? 1 : 0.4, x: lit ? 4 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="relative z-10 mt-12"
-      >
-        <Link
-          to={portal.path}
-          className="inline-flex items-center gap-2 font-sans font-[400] transition-colors"
+        <div
+          className="mb-8 h-px sm:mb-10"
           style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: lit ? vein : `${vein.replace(")", " / 0.55)")}`,
+            background: `linear-gradient(to right, ${portal.vein.replace(")", ` / ${lit ? "0.42" : "0.18"})`)}, transparent)`,
+          }}
+        />
+
+        <span
+          className="mb-4 block font-serif italic leading-none sm:mb-6"
+          style={{
+            fontFamily: "Cormorant Garamond, Georgia, serif",
+            fontSize: "clamp(2rem, 6.6vw, 3.5rem)",
+            color: "hsl(var(--rx-text-prime) / 0.82)",
+            opacity: lit ? 0.95 : 0.7,
           }}
         >
-          <span>→</span>
-          <span>{portal.pillarName.charAt(0) + portal.pillarName.slice(1).toLowerCase()}</span>
-        </Link>
-      </motion.div>
-    </motion.div>
-  );
-}
+          {portal.regime}
+        </span>
 
-// Vertical divider between portals
-function PortalDivider() {
-  return (
-    <div
-      className="hidden md:block flex-shrink-0 self-stretch"
-      style={{ width: "0.5px", background: "rgba(255,255,255,0.05)" }}
-      aria-hidden="true"
-    />
+        <p
+          className="max-w-[270px] font-sans text-[13px] leading-relaxed sm:text-[14px]"
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            color: "hsl(var(--rx-text-mid) / 0.96)",
+          }}
+        >
+          {portal.identity}
+        </p>
+
+        <span
+          className="mt-6 block font-mono text-[8px] uppercase sm:mt-8 sm:text-[9px]"
+          style={{
+            letterSpacing: "0.2em",
+            color: portal.vein.replace(")", " / 0.55)"),
+          }}
+        >
+          {portal.ritual}
+        </span>
+
+        <motion.div
+          animate={{ opacity: lit ? 1 : 0.65, x: lit ? 3 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="mt-auto pt-9"
+        >
+          <Link
+            to={portal.path}
+            className="inline-flex items-center gap-2 font-sans text-[10px] uppercase sm:text-[11px]"
+            style={{
+              fontFamily: "Syne, system-ui, sans-serif",
+              letterSpacing: "0.16em",
+              color: lit ? portal.vein : "hsl(var(--rx-text-ghost) / 0.9)",
+            }}
+          >
+            <span>→</span>
+            <span>{portal.pillar}</span>
+          </Link>
+        </motion.div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -248,58 +200,77 @@ interface TrinityRowProps {
 
 export default function TrinityRow({ activeFace }: TrinityRowProps) {
   return (
-    <div>
-      {/* Section orbital label */}
+    <section aria-label="Three sovereign portals">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 1.0 }}
-        className="mb-8 flex items-center justify-center gap-5"
+        viewport={{ once: true, margin: "-70px" }}
+        transition={{ duration: 0.8 }}
+        className="mb-8 flex items-center justify-center gap-4 sm:mb-10 sm:gap-6"
       >
         <motion.span
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          transition={{ delay: 0.1, duration: 0.7, ease: EASE }}
           className="block h-px origin-right"
-          style={{ width: "80px", background: "linear-gradient(to right, transparent, rgba(200,164,78,0.25))" }}
+          style={{
+            width: "min(13vw, 88px)",
+            background: "linear-gradient(to right, transparent, hsl(42 78% 52% / 0.3))",
+          }}
         />
         <span
-          className="font-sans text-[9px] font-[500] uppercase tracking-[0.32em]"
-          style={{ fontFamily: "Syne, system-ui, sans-serif", color: "rgba(200,164,78,0.4)" }}
+          className="font-sans text-[8px] uppercase sm:text-[9px]"
+          style={{
+            fontFamily: "Syne, system-ui, sans-serif",
+            letterSpacing: "0.34em",
+            color: "hsl(42 78% 52% / 0.62)",
+          }}
         >
-          ESCOLHE O TEU DOMÍNIO
+          One organism · Three portals
         </span>
         <motion.span
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
+          transition={{ delay: 0.1, duration: 0.7, ease: EASE }}
           className="block h-px origin-left"
-          style={{ width: "80px", background: "linear-gradient(to left, transparent, rgba(200,164,78,0.25))" }}
+          style={{
+            width: "min(13vw, 88px)",
+            background: "linear-gradient(to left, transparent, hsl(42 78% 52% / 0.3))",
+          }}
         />
       </motion.div>
 
-      {/* Monumental portals — 3 columns separated by fine dividers */}
       <div
-        className="relative flex flex-col md:flex-row w-full overflow-hidden"
+        className="relative overflow-hidden border"
         style={{
-          background: "linear-gradient(180deg, hsl(var(--background) / 0) 0%, hsl(var(--background) / 0.4) 100%)",
-          border: "0.5px solid rgba(255,255,255,0.04)",
+          borderColor: "hsl(var(--rx-rim) / 0.7)",
+          background:
+            "linear-gradient(180deg, hsl(var(--background) / 0) 0%, hsl(var(--background) / 0.3) 100%)",
         }}
       >
-        {PORTALS.map((portal, i) => (
-          <div key={portal.id} className="flex-1 flex flex-col md:flex-row">
-            <PortalNode
-              portal={portal}
-              delay={0.12 * i}
-              isActive={activeFace ? portal.face === activeFace : false}
-            />
-            {i < PORTALS.length - 1 && <PortalDivider />}
-          </div>
-        ))}
+        <div className="flex flex-col md:flex-row">
+          {PORTALS.map((portal, i) => (
+            <div
+              key={portal.id}
+              className="relative flex-1"
+              style={{
+                borderRight:
+                  i < PORTALS.length - 1 ? "0.5px solid hsl(var(--rx-rim) / 0.58)" : "none",
+                borderBottom:
+                  i < PORTALS.length - 1 ? "0.5px solid hsl(var(--rx-rim) / 0.42)" : "none",
+              }}
+            >
+              <PortalNode
+                portal={portal}
+                delay={i * 0.1}
+                isActive={activeFace ? portal.face === activeFace : false}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
