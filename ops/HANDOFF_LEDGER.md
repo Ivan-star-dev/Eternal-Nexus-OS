@@ -25,7 +25,6 @@
 - [✅] `ops/HANDOFF_LEDGER.md` — esta entrada
 
 **NÃO FEITO:**
-- SESSION_BOOTSTRAP secção de ficheiros-chave ainda referencia BASTION_V3_INSERT (arquivo histórico) → @claude pode actualizar quando V5 spec estiver pronta
 - BATTALION_READINESS_VERDICT.md, V10_PROJECT_LINE_SYSTEM.md, CANONICAL_HARD_EXECUTION_ORDER.md — PLv6.2-b/FVL refs mantidos (documentos históricos, não operacionais)
 
 **BLOQUEIOS:** nenhum
