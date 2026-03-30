@@ -58,6 +58,50 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @cursor | RUBERRA-TERMINAL-CONVERGENCE-002 | ENTRANCE GATE SOVEREIGN THRESHOLD
+
+**TASK:** Terminal convergence wave — kill residual button/section DNA in entry gate and hero→trinity cadence
+**STATUS:** CONCLUÍDO ✅ (wave entregue)
+**ALTERACAO_REAL:** sim — 3 ficheiros produto + 1 ficheiro ops actualizados
+**BRANCH:** cursor/current-task-identification-ca0d
+**COMMIT:** d415c34
+**PR:** #202 (draft actualizado)
+
+---
+
+**FEITO:**
+- [✅] **Entrance Gate deixou de ser “CTA row”** e virou chamber de travessia por domínio (`src/pages/Index.tsx`):
+  - `SessionAwareCTA` reescrito como 3 domain-threshold panels (School/Lab/Creation)
+  - cada domínio com era temporal, linha identitária, vein própria e ação de entrada (`Enter/Resume domain`)
+  - estado de continuidade (`resume`) integrado como selo de linha viva acima dos domínios
+- [✅] **Hero→Trinity transição mais cerimonial** (`src/components/home/ProductHero.tsx`):
+  - adição de `ThresholdBridge` entre entrance chamber e trinity
+  - elimina salto funcional e cria passagem ritual explícita
+- [✅] **Trinity threshold energy aumentada** (`src/components/home/TrinityRow.tsx`):
+  - cadência interna reforçada (label + rule + mantra + action)
+  - CTA de portal elevado para “Enter Domain” em bloco de borda soberana
+  - frase identitária expandida para reduzir leitura utilitária
+
+**INTEGRAÇÃO:**
+- Rotas canónicas preservadas (`/lab`, `/school`, `/workshop`, `/access`)
+- Nenhum ficheiro protegido tocado
+- Sem drift para feature/business logic — escopo 100% visual embodiment front
+
+**VALIADAÇÃO EXECUTADA:**
+- `npx eslint src/pages/Index.tsx src/components/home/ProductHero.tsx src/components/home/TrinityRow.tsx` → ✅
+- `npm run typecheck` → ❌ baseline pré-existente em `src/components/lab-surface/LabActiveMission.tsx`
+- `npm run lint` → ❌ baseline pré-existente em `scripts/gates/*.cjs` e `src/vite-env.d.ts` (+ warnings globais)
+
+**NÃO FEITO (intencional):**
+- Não alterado DossierCard/ProjectsLiveSection nesta wave (foco absoluto no gate/threshold/trinity cadence)
+
+**BLOQUEIOS:** nenhum para continuação visual; apenas baseline lint/typecheck global pendente
+
+**PRÓXIMO PASSO RECOMENDADO:**
+- Wave terminal seguinte: elevar “Entrance Chamber silhouette memory” (hero marca memorável ao primeiro olhar) e densificar micro-ritmo mobile do bloco de provas sem aumento de ruído.
+
+---
+
 ## HANDOFF — 2026-03-30 | @cursor | RUBERRA-LAB-SEAL-001 | BLOCK 3 LAB INTERIOR SEALED
 
 **TASK:** RUBERRA-LAB-SEAL-001 — Lab / School / Creator interior embodiment (Block 3)

@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-30 (sessão RUBERRA-VISUAL-ASCENSION-001 · @cursor)
-**Actualizado por:** @cursor | Homepage visual ascension strike ✅ · hero authority ++ · dossier procession (card-DNA removido) · mobile CTA threshold reforçado · trinity/proof/live chamber unificados
+**Última actualização:** 2026-03-30 (sessão RUBERRA-TERMINAL-CONVERGENCE-002 · @cursor)
+**Actualizado por:** @cursor | Terminal convergence wave ✅ · Entrance Gate convertido em domínios de travessia · hero→trinity bridge ritualizado · portal threshold energy elevada · mobile entry authority ++
 
 ---
 
@@ -36,7 +36,7 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
 | **Estado geral** | GATE_V4_OPEN emitido 2026-03-27 · SITE-CONVERGENCE STEP1–7 done 2026-03-29 · **V4 LIVING WORLD EM EXECUÇÃO** |
-| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · Visual ascension strike @cursor (hero+dossier procession+mobile authority) ✅ · Block2(@claude) pendente · Block3(@cursor) concluído ✅ · Block4(@framer) elegível |
+| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · Visual ascension strike @cursor (hero+dossier procession+mobile authority) ✅ · Terminal convergence wave 002 @cursor (Entrance Gate domains + hero→trinity bridge) ✅ · Block2(@claude) pendente · Block3(@cursor) concluído ✅ · Block4(@framer) elegível |
 
 ---
 
