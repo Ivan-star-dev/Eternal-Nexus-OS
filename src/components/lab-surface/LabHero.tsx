@@ -71,8 +71,8 @@ export default function LabHero() {
           inset: 0,
           pointerEvents: "none",
           background: [
-            "radial-gradient(ellipse 55% 60% at 0% 80%, rgba(0,80,200,0.13) 0%, transparent 65%)",
-            "radial-gradient(ellipse 45% 50% at 100% 20%, rgba(0,180,160,0.08) 0%, transparent 60%)",
+            "radial-gradient(ellipse 55% 60% at 0% 80%, hsl(var(--rx-electric) / 0.13) 0%, transparent 65%)",
+            "radial-gradient(ellipse 45% 50% at 100% 20%, hsl(var(--rx-teal) / 0.08) 0%, transparent 60%)",
           ].join(", "),
         }}
       />
@@ -85,8 +85,8 @@ export default function LabHero() {
           inset: 0,
           pointerEvents: "none",
           backgroundImage: [
-            "linear-gradient(rgba(0,170,255,0.03) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(0,170,255,0.03) 1px, transparent 1px)",
+            "linear-gradient(hsl(var(--rx-electric) / 0.03) 1px, transparent 1px)",
+            "linear-gradient(90deg, hsl(var(--rx-electric) / 0.03) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "40px 40px",
           maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%)",
@@ -109,7 +109,7 @@ export default function LabHero() {
               fontSize: "9px",
               letterSpacing: "0.32em",
               textTransform: "uppercase",
-              color: "rgba(0,170,255,0.45)",
+              color: "hsl(var(--rx-electric) / 0.45)",
             }}
           >
             Heaven Lab · Creation Lab
@@ -123,7 +123,7 @@ export default function LabHero() {
               fontFamily: "JetBrains Mono, monospace",
               fontSize: "8px",
               letterSpacing: "0.2em",
-              color: "rgba(0,230,160,0.55)",
+              color: "hsl(var(--rx-signal) / 0.55)",
               textTransform: "uppercase",
             }}
           >
@@ -132,8 +132,8 @@ export default function LabHero() {
                 width: "5px",
                 height: "5px",
                 borderRadius: "50%",
-                background: "#00e5a0",
-                boxShadow: "0 0 6px rgba(0,229,160,0.6)",
+                background: "hsl(var(--rx-signal))",
+                boxShadow: "0 0 6px hsl(var(--rx-signal) / 0.6)",
                 animation: "pulse 2s ease-in-out infinite",
               }}
             />
@@ -150,7 +150,7 @@ export default function LabHero() {
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "clamp(36px, 6vw, 72px)",
             fontWeight: 700,
-            color: "rgba(220,232,245,0.94)",
+            color: "hsl(var(--rx-text-prime) / 0.94)",
             letterSpacing: "-0.03em",
             lineHeight: 1.05,
             margin: "0 0 20px",
@@ -159,7 +159,7 @@ export default function LabHero() {
           Your{" "}
           <span
             style={{
-              background: "linear-gradient(135deg, #00aaff 0%, #00e5a0 100%)",
+              background: "linear-gradient(135deg, hsl(var(--rx-electric)) 0%, hsl(var(--rx-teal)) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -177,7 +177,7 @@ export default function LabHero() {
           style={{
             fontFamily: "Inter, system-ui, sans-serif",
             fontSize: "clamp(15px, 2vw, 18px)",
-            color: "rgba(160,185,210,0.65)",
+            color: "hsl(var(--rx-text-mid) / 0.72)",
             lineHeight: 1.65,
             margin: "0 0 36px",
             maxWidth: "520px",
@@ -197,8 +197,8 @@ export default function LabHero() {
               display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              background: "rgba(0,170,255,0.07)",
-              border: "1px solid rgba(0,170,255,0.2)",
+              background: "hsl(var(--rx-electric) / 0.07)",
+              border: "1px solid hsl(var(--rx-electric) / 0.2)",
               borderRadius: "8px",
               padding: "9px 16px",
               marginBottom: "24px",
@@ -209,9 +209,9 @@ export default function LabHero() {
                 width: "5px",
                 height: "5px",
                 borderRadius: "50%",
-                background: "#00aaff",
+                background: "hsl(var(--rx-electric))",
                 flexShrink: 0,
-                boxShadow: "0 0 6px rgba(0,170,255,0.5)",
+                boxShadow: "0 0 6px hsl(var(--rx-electric) / 0.5)",
               }}
             />
             <span
@@ -219,13 +219,13 @@ export default function LabHero() {
                 fontFamily: "JetBrains Mono, monospace",
                 fontSize: "10px",
                 letterSpacing: "0.1em",
-                color: "rgba(0,170,255,0.75)",
+                color: "hsl(var(--rx-electric) / 0.75)",
               }}
             >
               {metrics && metrics.return_count > 0
                 ? `Visit ${metrics.visit_count} · `
                 : "Resume: "}
-              <span style={{ color: "rgba(200,225,245,0.85)" }}>
+              <span style={{ color: "hsl(var(--rx-text-prime) / 0.85)" }}>
                 {resumeLabel}
               </span>
             </span>
@@ -250,12 +250,12 @@ export default function LabHero() {
               letterSpacing: "0.05em",
               textTransform: "uppercase",
               color: "hsl(var(--background))",
-              background: "linear-gradient(135deg, #00aaff, #00c8d4)",
+              background: "linear-gradient(135deg, hsl(var(--rx-electric)), hsl(var(--rx-teal)))",
               border: "none",
               borderRadius: "8px",
               padding: "13px 28px",
               cursor: "pointer",
-              boxShadow: "0 0 28px -4px rgba(0,170,255,0.35)",
+              boxShadow: "0 0 28px -6px hsl(var(--rx-electric) / 0.3)",
             }}
           >
             {isResume ? "Continue Work" : "Open Work Bay"}
@@ -263,16 +263,16 @@ export default function LabHero() {
 
           <motion.button
             onClick={() => setShowExplainer(v => !v)}
-            whileHover={{ borderColor: "rgba(0,170,255,0.35)", color: "rgba(0,170,255,0.85)" }}
+            whileHover={{ borderColor: "hsl(var(--rx-electric) / 0.35)", color: "hsl(var(--rx-electric) / 0.85)" }}
             style={{
               fontFamily: "Syne, system-ui, sans-serif",
               fontSize: "12px",
               fontWeight: 500,
               letterSpacing: "0.04em",
               textTransform: "uppercase",
-              color: showExplainer ? "rgba(0,170,255,0.85)" : "rgba(160,185,210,0.55)",
+              color: showExplainer ? "hsl(var(--rx-electric) / 0.85)" : "hsl(var(--rx-text-mid) / 0.65)",
               background: "transparent",
-              border: `1px solid ${showExplainer ? "rgba(0,170,255,0.35)" : "rgba(0,170,255,0.15)"}`,
+              border: `1px solid ${showExplainer ? "hsl(var(--rx-electric) / 0.35)" : "hsl(var(--rx-electric) / 0.15)"}`,
               borderRadius: "8px",
               padding: "13px 24px",
               cursor: "pointer",
@@ -294,9 +294,9 @@ export default function LabHero() {
               fontWeight: 500,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: "rgba(20,200,160,0.6)",
-              background: "rgba(20,200,160,0.04)",
-              border: "1px solid rgba(20,200,160,0.18)",
+              color: "hsl(var(--rx-teal) / 0.66)",
+              background: "hsl(var(--rx-teal) / 0.05)",
+              border: "1px solid hsl(var(--rx-teal) / 0.2)",
               borderRadius: "8px",
               padding: "13px 20px",
               textDecoration: "none",
@@ -319,8 +319,8 @@ export default function LabHero() {
               style={{
                 marginTop: "20px",
                 padding: "20px 24px",
-                background: "rgba(0,170,255,0.04)",
-                border: "1px solid rgba(0,170,255,0.12)",
+                background: "hsl(var(--rx-electric) / 0.05)",
+                border: "1px solid hsl(var(--rx-electric) / 0.14)",
                 borderRadius: "10px",
                 display: "flex",
                 flexDirection: "column",
@@ -339,7 +339,7 @@ export default function LabHero() {
                     fontSize: "8px",
                     letterSpacing: "0.25em",
                     textTransform: "uppercase",
-                    color: "rgba(0,170,255,0.55)",
+                    color: "hsl(var(--rx-electric) / 0.55)",
                     flexShrink: 0,
                     marginTop: "3px",
                     minWidth: "44px",
@@ -349,7 +349,7 @@ export default function LabHero() {
                   <span style={{
                     fontFamily: "Inter, system-ui, sans-serif",
                     fontSize: "13px",
-                    color: "rgba(160,185,210,0.65)",
+                    color: "hsl(var(--rx-text-mid) / 0.72)",
                     lineHeight: 1.6,
                   }}>
                     {text}
@@ -370,7 +370,7 @@ export default function LabHero() {
           left: "clamp(20px, 5vw, 72px)",
           right: "clamp(20px, 5vw, 72px)",
           height: "1px",
-          background: "linear-gradient(90deg, rgba(0,170,255,0.18), transparent 60%)",
+          background: "linear-gradient(90deg, hsl(var(--rx-electric) / 0.18), transparent 60%)",
         }}
       />
 

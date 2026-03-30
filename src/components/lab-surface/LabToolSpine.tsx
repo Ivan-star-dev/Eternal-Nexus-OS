@@ -119,7 +119,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
           fontSize: "8px",
           letterSpacing: "0.3em",
           textTransform: "uppercase",
-          color: "rgba(0,170,255,0.3)",
+          color: "hsl(var(--rx-electric) / 0.42)",
           marginBottom: "8px",
           display: "block",
         }}
@@ -139,8 +139,8 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
             whileHover={
               !tool.comingSoon
                 ? {
-                    backgroundColor: "rgba(0,170,255,0.08)",
-                    borderColor: "rgba(0,170,255,0.22)",
+                    backgroundColor: "hsl(var(--rx-electric) / 0.07)",
+                    borderColor: "hsl(var(--rx-electric) / 0.26)",
                     transition: { duration: 0.15 },
                   }
                 : undefined
@@ -151,8 +151,8 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
               justifyContent: "space-between",
               gap: "10px",
               padding: "9px 12px",
-              background: "rgba(0,170,255,0.02)",
-              border: "1px solid rgba(0,170,255,0.07)",
+              background: "hsl(var(--rx-electric) / 0.03)",
+              border: "1px solid hsl(var(--rx-electric) / 0.1)",
               borderRadius: "8px",
               cursor: tool.comingSoon ? "default" : "pointer",
               textAlign: "left",
@@ -164,7 +164,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
               <span
                 style={{
                   fontSize: "13px",
-                  color: "rgba(0,170,255,0.55)",
+                  color: "hsl(var(--rx-electric) / 0.68)",
                   lineHeight: 1,
                 }}
               >
@@ -175,7 +175,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
                   fontFamily: "Syne, system-ui, sans-serif",
                   fontSize: "12px",
                   fontWeight: 500,
-                  color: "rgba(200,220,235,0.75)",
+                  color: "hsl(var(--rx-text-prime) / 0.78)",
                   letterSpacing: "0.01em",
                 }}
               >
@@ -187,7 +187,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
               style={{
                 fontFamily: "JetBrains Mono, monospace",
                 fontSize: "9px",
-                color: "rgba(0,170,255,0.3)",
+                color: "hsl(var(--rx-electric) / 0.42)",
                 letterSpacing: "0.05em",
                 flexShrink: 0,
               }}
@@ -210,7 +210,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
                   top: "50%",
                   transform: "translateY(-50%)",
                   background: "hsl(var(--background) / 0.95)",
-                  border: "1px solid rgba(0,170,255,0.15)",
+                  border: "1px solid hsl(var(--rx-electric) / 0.22)",
                   borderRadius: "6px",
                   padding: "6px 12px",
                   whiteSpace: "nowrap",
@@ -223,7 +223,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
                     fontSize: "9px",
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "rgba(0,170,255,0.5)",
+                    color: "hsl(var(--rx-electric) / 0.58)",
                   }}
                 >
                   Solo-first · Coming soon

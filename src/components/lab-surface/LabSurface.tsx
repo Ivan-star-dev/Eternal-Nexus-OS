@@ -3,7 +3,7 @@
  * Root wrapper for Creation Lab portal surface.
  * V10 upgrade: wires QuickCreate + real artifact flow + tool handlers.
  *
- * Identity: Background token + electric blue accents (#00aaff).
+ * Identity: Background/token-driven accents (electric + teal).
  * Density: MEDIUM — focused work bay, tools dormant until needed.
  * Motion: moderate — purposeful, never decorative.
  *
@@ -108,7 +108,7 @@ export default function LabSurface() {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(ellipse 60% 50% at 20% 50%, rgba(0,100,220,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 20% 50%, hsl(var(--rx-electric) / 0.08) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -127,7 +127,7 @@ export default function LabSurface() {
             fontSize: "8px",
             letterSpacing: "0.35em",
             textTransform: "uppercase",
-            color: "rgba(0,170,255,0.3)",
+            color: "hsl(var(--rx-electric) / 0.42)",
             display: "block",
           }}
         >
@@ -137,7 +137,7 @@ export default function LabSurface() {
           style={{
             height: "1px",
             width: "36px",
-            background: "linear-gradient(90deg, rgba(0,170,255,0.35), transparent)",
+            background: "linear-gradient(90deg, hsl(var(--rx-electric) / 0.34), transparent)",
             marginTop: "10px",
           }}
         />
@@ -152,9 +152,9 @@ export default function LabSurface() {
             fontFamily: "JetBrains Mono, monospace",
             fontSize: "10px",
             letterSpacing: "0.08em",
-            color: "rgba(230,100,80,0.85)",
-            background: "rgba(230,100,80,0.06)",
-            border: "1px solid rgba(230,100,80,0.2)",
+            color: "hsl(var(--rx-alert) / 0.9)",
+            background: "hsl(var(--rx-alert) / 0.08)",
+            border: "1px solid hsl(var(--rx-alert) / 0.28)",
             borderRadius: "6px",
             padding: "8px 14px",
           }}
@@ -216,7 +216,7 @@ export default function LabSurface() {
           left: "clamp(16px, 4vw, 60px)",
           right: "clamp(16px, 4vw, 60px)",
           height: "1px",
-          background: "linear-gradient(90deg, rgba(0,170,255,0.1), transparent)",
+          background: "linear-gradient(90deg, hsl(var(--rx-electric) / 0.14), transparent)",
         }}
       />
     </section>
