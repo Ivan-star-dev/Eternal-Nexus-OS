@@ -196,6 +196,11 @@ Cada item da matriz regista os seguintes campos:
 | RUBERRA-NAV-SEAL-001 | Produto | WorkVisual | @claude | concluída | NavBar: mobile menu hsl(216 50% 5%/0.96) + 5 border-white/[x] → token-driven · SessionPulse rgba(6,12,20,0.78) → hsl(var(--background)/0.78) |
 | RUBERRA-HOMEPAGE-SEAL-001 | Produto | WorkVisual | @claude | concluída | Block 1 complete: DossierCard trinity badge + LIVE pulse bg/border · TrinityRow container gradient · Footer bg + separator → all sovereign token-driven · commit 34ce62b |
 | RUBERRA-FOOTER-TEXT-001 | Produto | WorkVisual | @claude | concluída | Footer micro-seal: 10× rgba(228,235,240/255,255,255,0.xx) ghost text → hsl(var(--rx-text-ghost)) / hsl(var(--rx-text-dim)) · legível em ambos os modos |
+| RUBERRA-ACCESS-SEAL-001 | Produto | WorkVisual | @claude | concluída | Block 2: WaitlistBanner · AuthModal · EmailCaptureModal · DualEntryGate — 4 occurrences hsl(216 50% 5%) → hsl(var(--background)) · commit 46464f7 |
+| RUBERRA-HERO-BLOCK1-001 | Produto | WorkVisual | @claude | concluída | GlobeScene: ParticleFlow (200 noise particles) + EarthquakeLayer removed · ProductHero SovereignText 4 rgba → rx-text tokens · commit 8395675 |
+| RUBERRA-WORKSHOP-BLOCK2-001 | Produto | WorkVisual | @claude | concluída | WorkshopSurface/WorkshopHeader/ProjectGrid — all dark hardcodes → sovereign tokens · Workshop zero dark assumptions · commit f519b97 |
+| PORTAL-CONTENT-BODY-001 | Produto | WorkFunction | @claude | concluída | 9 founder artifacts: WorkshopArtifactPanel C-01/C-02/C-03 · LabBlueprintTemplates L-01/L-02/L-03 · DoctrineMap S-01 Sovereignty Stack · commit e637a7c |
+| PORTAL-PODIUM-CONTENT-001 | Produto | WorkFunction | @claude | concluída | JudgmentArchitecture (School) · LabActiveMission "Sovereign Creator Trap" (Lab) · MechanismDocument (Workshop) · commit be33a88 |
 
 ---
 
@@ -208,18 +213,19 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkVisual                                              │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ RUBERRA-HOMEPAGE-SEAL-001 ✓                             │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P1                                                      │
 │ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_ACTOR         │ @cursor                                                 │
 │ NEXT_TASK          │ RUBERRA-LAB-SEAL-001                                    │
 │ EVIDENCIA_MINIMA   │ 4 ficheiros tocados + zero hsl(216 50% 5%) restante     │
 │ NOTAS_DO_OWNER     │ Block 2: WaitlistBanner · AuthModal · EmailCaptureModal │
 │                    │ · DualEntryGate — button text hsl(216 50% 5%)           │
 │                    │ → hsl(var(--background)) · /access route fully sealed   │
+│ COMMIT             │ 46464f7                                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -232,7 +238,7 @@ Cada item da matriz regista os seguintes campos:
 │ APOIO_SECUNDARIO   │ @claude                                                 │
 │ STATUS             │ elegível                                                │
 │ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ RUBERRA-ACCESS-SEAL-001                                 │
+│ DEPENDE_DE         │ RUBERRA-ACCESS-SEAL-001 ✓                               │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P1                                                      │
 │ GATE               │ aberto                                                  │
@@ -1165,7 +1171,7 @@ DESVIO = STOP imediato + comunicar ao owner
 
 ---
 
-*BASTION.md v4.1 — V4 tasks inseridas (FORCE_TASK_ACTIVATION_003) — 2026-03-29 | @copilot*
+*BASTION.md v4.2 — SYNC-IN: RUBERRA-ACCESS-SEAL-001 concluída · BLOCK1/BLOCK2/CONTENT BODY/PODIUM CONTENT registados — 2026-03-30 | @copilot*
 
 ```
 BASTION ════════════════════════════════════════════════════════════════════

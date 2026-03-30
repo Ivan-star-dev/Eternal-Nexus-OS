@@ -6,6 +6,39 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @copilot | SYNC-IN | OPS SYNC — ACCESS SEAL · HERO BLOCK1 · WORKSHOP BLOCK2 · PORTAL CONTENT
+
+**TASK:** SYNC-IN — sincronizar ops/ com trabalho @claude concluído após último handoff
+**STATUS:** CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — LIVE_STATE.md · BASTION.md · HANDOFF_LEDGER.md actualizados
+**BRANCH:** copilot/sync-in
+
+---
+
+**FEITO:**
+- [✅] `ops/LIVE_STATE.md` — header actualizado · RUBERRA-ACCESS-SEAL-001 marcada CONCLUÍDA ✓ · HERO BLOCK1 + WORKSHOP BLOCK2 registados · PORTAL CONTENT BODY + PODIUM CONTENT registados · PENDING NEXT actualizado (Block 2 removido, Block 3/4 mantidos)
+- [✅] `ops/BASTION.md` — RUBERRA-ACCESS-SEAL-001 STATUS: elegível → concluída + COMMIT 46464f7 · RUBERRA-LAB-SEAL-001 DEPENDE_DE marcada ✓ · 5 novas tasks na tabela histórica 5.1 · versão v4.1 → v4.2
+- [✅] `ops/HANDOFF_LEDGER.md` — esta entrada appended no topo
+
+**COMMITS SINCRONIZADOS:**
+- `46464f7` — RUBERRA-ACCESS-SEAL-001: WaitlistBanner · AuthModal · EmailCaptureModal · DualEntryGate sealed
+- `8395675` — HERO BLOCK1: ParticleFlow/EarthquakeLayer removed · ProductHero SovereignText sealed
+- `f519b97` — WORKSHOP BLOCK2: WorkshopSurface/Header/ProjectGrid fully sovereign
+- `e637a7c` — PORTAL CONTENT BODY: 9 founder artifacts across School/Lab/Workshop
+- `be33a88` — PORTAL PODIUM CONTENT: JudgmentArchitecture · LabActiveMission · MechanismDocument
+
+**NÃO FEITO:** nenhum — sync completo
+
+**BLOQUEIOS:** nenhum
+
+**PRÓXIMO PASSO:**
+@cursor → RUBERRA-LAB-SEAL-001 (Block 3: LabSurface/LabHero/LabEntryHeader/LabToolSpine dark hardcodes → sovereign tokens)
+@framer → RUBERRA-POLISH-001 (Block 4: reduce neon · matte/premium finish · dark mode quality)
+
+**DECISÃO_REC:** @cursor entra a seguir (LAB portal interior seal desbloqueada após ACCESS ✓)
+
+---
+
 ## HANDOFF — 2026-03-29 | @copilot | FORCE-TASK-003 | FORÇA-TAREFA V4 LIVING WORLD ACTIVADA
 
 **TASK:** FORCE-TASK-003-OPS — activar FORCE_TASK_ACTIVATION_003 · actualizar ops
