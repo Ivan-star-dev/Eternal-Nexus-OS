@@ -2,28 +2,48 @@
  * WorkshopHeader.tsx
  * Header for Nexus Cria / Workshop portal.
  *
- * Shows: logotype + teal dot · tagline · stats row
- * Canon: V7-SURFACES-001 · K-04+K-06 · @framer+@cursor
+ * Shows: logotype + teal dot · tagline · live stats from artifact store.
+ * Stats reflect real workshop artifacts — not hardcoded mock data.
+ *
+ * Canon: V7-SURFACES-001 · GAP-CLOSURE-V10-001 · @claude · 2026-03-30
  */
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { listArtifacts } from "@/lib/artifacts/store";
 
 const TEAL = "hsl(172, 55%, 38%)";
 const TEAL_FAINT = "hsla(172, 55%, 38%, 0.35)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-interface StatItem {
-  value: string;
-  label: string;
+function useWorkshopStats() {
+  const [stats, setStats] = useState({ total: 0, plans: 0, drafts: 0 });
+
+  useEffect(() => {
+    const all = listArtifacts({ source: "workshop" });
+    const plans = all.filter(a => a.kind === "plan").length;
+    const drafts = all.filter(a => a.kind === "draft").length;
+    setStats({ total: all.length, plans, drafts });
+  }, []);
+
+  return stats;
 }
 
-const STATS: StatItem[] = [
-  { value: "4", label: "projects" },
-  { value: "2", label: "active" },
-  { value: "1", label: "launching" },
-];
-
 export default function WorkshopHeader() {
+  const stats = useWorkshopStats();
+
+  const statItems = stats.total === 0
+    ? [
+        { value: "0", label: "projects" },
+        { value: "—", label: "plans" },
+        { value: "—", label: "drafts" },
+      ]
+    : [
+        { value: String(stats.total), label: stats.total === 1 ? "project" : "projects" },
+        { value: String(stats.plans), label: stats.plans === 1 ? "plan" : "plans" },
+        { value: String(stats.drafts), label: stats.drafts === 1 ? "draft" : "drafts" },
+      ];
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -16 }}
@@ -50,7 +70,6 @@ export default function WorkshopHeader() {
         >
           Nexus Cria
         </span>
-        {/* Teal dot indicator */}
         <motion.span
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
@@ -80,9 +99,9 @@ export default function WorkshopHeader() {
         Where ideas become real.
       </p>
 
-      {/* Stats row */}
+      {/* Stats row — live from artifact store */}
       <div style={{ display: "flex", gap: "clamp(20px, 4vw, 40px)", flexWrap: "wrap" }}>
-        {STATS.map((stat, i) => (
+        {statItems.map((stat, i) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 8 }}
