@@ -25,6 +25,9 @@ interface LearningStep {
 const GOLD = "hsl(42, 78%, 52%)";
 const GOLD_FAINT = "hsla(42, 78%, 52%, 0.18)";
 const GOLD_MUTED = "hsla(42, 78%, 52%, 0.45)";
+const TEXT_MID = "hsl(var(--rx-text-mid) / 0.72)";
+const TEXT_GHOST = "hsl(var(--rx-text-ghost) / 0.92)";
+const RIM = "hsl(var(--rx-rim) / 0.7)";
 
 type TrackId = "foundations" | "value-creation";
 

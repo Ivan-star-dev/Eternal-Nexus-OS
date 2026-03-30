@@ -68,8 +68,8 @@ export default function LabEntryHeader() {
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.4, ease: EASE }}
           style={{
-            background: "rgba(6,12,20,0.94)",
-            borderBottom: "0.5px solid rgba(0,170,255,0.12)",
+            background: "hsl(var(--background) / 0.94)",
+            borderBottom: "0.5px solid hsl(var(--rx-teal) / 0.18)",
             backdropFilter: "blur(8px)",
             padding: "0 clamp(16px, 4vw, 60px)",
             height: "44px",
@@ -108,7 +108,7 @@ export default function LabEntryHeader() {
                   fontFamily: "JetBrains Mono, monospace",
                   fontSize: "9px",
                   fontWeight: 700,
-                  color: "rgba(10,10,26,0.9)",
+                    color: "hsl(var(--background) / 0.9)",
                   letterSpacing: "0.05em",
                 }}
               >
@@ -122,7 +122,7 @@ export default function LabEntryHeader() {
                 fontFamily: "Syne, system-ui, sans-serif",
                 fontSize: "12px",
                 fontWeight: 500,
-                color: "rgba(228,235,240,0.7)",
+                color: "hsl(var(--rx-text-prime) / 0.74)",
                 textTransform: "capitalize",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
@@ -136,7 +136,7 @@ export default function LabEntryHeader() {
             <span
               aria-hidden="true"
               style={{
-                color: "rgba(228,235,240,0.15)",
+                color: "hsl(var(--rx-text-ghost) / 0.55)",
                 fontFamily: "JetBrains Mono, monospace",
                 fontSize: "10px",
               }}
@@ -150,7 +150,7 @@ export default function LabEntryHeader() {
                 fontFamily: "JetBrains Mono, monospace",
                 fontSize: "9px",
                 letterSpacing: "0.22em",
-                color: "rgba(0,170,255,0.55)",
+                color: "hsl(var(--rx-electric) / 0.62)",
                 textTransform: "uppercase",
                 whiteSpace: "nowrap",
               }}
@@ -189,7 +189,7 @@ export default function LabEntryHeader() {
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                color: "rgba(228,235,240,0.25)",
+                color: "hsl(var(--rx-text-ghost) / 0.72)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -198,11 +198,11 @@ export default function LabEntryHeader() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  "rgba(228,235,240,0.65)";
+                  "hsl(var(--rx-text-prime) / 0.72)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  "rgba(228,235,240,0.25)";
+                  "hsl(var(--rx-text-ghost) / 0.72)";
               }}
             >
               <X size={12} />

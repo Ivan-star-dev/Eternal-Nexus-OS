@@ -2,7 +2,7 @@
  * SchoolSurface.tsx
  * Root wrapper for Bridge Nova / School portal surface.
  *
- * Identity: Deep navy (#0a0f1e), warm gold accents (hsl 42 78% 52%).
+ * Identity: Sovereign matte base, warm gold doctrine accents.
  * Density: LOW — one concept at a time.
  * Motion: subtle — confidence-building, not flashy.
  *
@@ -69,7 +69,7 @@ export default function SchoolSurface() {
                   textAlign: "left",
                 }}
               >
-                <span style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, color: isActive ? "var(--rx-text-primary)" : "var(--rx-text-ghost)" }}>
+                <span style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, color: isActive ? "hsl(var(--rx-text-prime))" : "hsl(var(--rx-text-ghost))" }}>
                   {track.label}
                 </span>
                 <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.12em", textTransform: "uppercase", color: isActive ? `${GOLD}88` : "var(--rx-text-ghost)" }}>
