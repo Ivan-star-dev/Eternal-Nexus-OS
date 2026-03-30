@@ -27,10 +27,42 @@ export default function WorkshopHeader() {
   const [artifactCount, setArtifactCount] = useState(0);
 
   useEffect(() => {
-    const updateCount = () => setArtifactCount(getRecentArtifacts(100).length);
-    updateCount();
-    const timer = window.setInterval(updateCount, 5000);
-    return () => window.clearInterval(timer);
+    let timer: number | undefined;
+
+    const updateCount = () => {
+      setArtifactCount(getRecentArtifacts(100).length);
+    };
+
+   const startTimer = () => {
+      if (timer != null) return;
+      // Ensure we refresh immediately when (re)starting the timer
+      updateCount();
+      timer = window.setInterval(updateCount, 5000);
+    };
+
+    const stopTimer = () => {
+      if (timer == null) return;
+      window.clearInterval(timer);
+      timer = undefined;
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    };
+
+    // Start polling immediately on mount
+    startTimer();
+    // Pause/resume polling based on tab visibility
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      stopTimer();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
 
   const liveProjects = pulses.filter((pulse) => pulse.isLive).length;
