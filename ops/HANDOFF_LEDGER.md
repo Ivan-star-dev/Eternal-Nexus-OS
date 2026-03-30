@@ -12,7 +12,7 @@
 **STATUS:** CONCLUÍDO ✅ (strike entregue)
 **ALTERACAO_REAL:** sim — 6 ficheiros produto + 1 ficheiro ops actualizados
 **BRANCH:** cursor/current-task-identification-ca0d
-**COMMIT:** (nesta sessão)
+**COMMIT:** 78c68a2
 **PR:** #202 (draft actualizado)
 
 ---
