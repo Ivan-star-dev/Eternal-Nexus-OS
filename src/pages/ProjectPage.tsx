@@ -21,20 +21,39 @@ import projectData from "@/data/projects";
 
 const AdvancedProjectInterface = lazy(() => import("@/components/AdvancedProjectInterface"));
 
-// V3: status badge colour map
-const statusBadgeClass: Record<string, string> = {
-  active: "text-yellow-400 border-yellow-400/40 bg-yellow-400/10",
-  completed: "text-emerald-400 border-emerald-400/40 bg-emerald-400/10",
-  "in-progress": "text-blue-400 border-blue-400/40 bg-blue-400/10",
+const statusBadgeTone: Record<string, { color: string; borderColor: string; background: string }> = {
+  active: {
+    color: "hsl(var(--rx-gold))",
+    borderColor: "hsl(var(--rx-gold) / 0.4)",
+    background: "hsl(var(--rx-gold) / 0.12)",
+  },
+  completed: {
+    color: "hsl(var(--rx-teal))",
+    borderColor: "hsl(var(--rx-teal) / 0.4)",
+    background: "hsl(var(--rx-teal) / 0.12)",
+  },
+  "in-progress": {
+    color: "hsl(var(--rx-electric))",
+    borderColor: "hsl(var(--rx-electric) / 0.4)",
+    background: "hsl(var(--rx-electric) / 0.12)",
+  },
 };
 
 const ease = [0.16, 1, 0.3, 1] as const;
+const PROJECT_ACCENT: Record<string, string> = {
+  "deltaspine-nl": "hsl(var(--rx-gold))",
+  "geocore-power": "hsl(var(--rx-teal))",
+  "terra-lenta": "hsl(var(--rx-gold))",
+  "fusion-core": "hsl(var(--rx-electric))",
+  "chip-fold": "hsl(var(--rx-electric))",
+};
 
 const ProjectPage = () => {
   const { id } = useParams<{ id: string }>();
   const { t } = useLanguage();
   const { session, startSession, updateReEntry, updateFruit } = useSession();
   const project = id ? projectData[id] : null;
+  const accent = id ? PROJECT_ACCENT[id] ?? "hsl(var(--rx-gold))" : "hsl(var(--rx-gold))";
 
   // Restore last tab from session if the session subject matches this project.
   // Valid tabs: overview, simulation, technical, financial, risk, timeline, documents.
@@ -90,7 +109,12 @@ const ProjectPage = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="border-b border-border bg-secondary/50 backdrop-blur-sm px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
+        className="px-4 sm:px-6 md:px-12 py-3 flex items-center justify-between"
+        style={{
+          borderBottom: "1px solid hsl(var(--rx-rim) / 0.5)",
+          background: "linear-gradient(180deg, hsl(var(--background) / 0.9), hsl(var(--background) / 0.76))",
+          backdropFilter: "blur(10px)",
+        }}
       >
         {/* V3: breadcrumb meta — font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40 */}
         <div className="flex items-center gap-2 font-mono text-[0.48rem] tracking-[0.15em] uppercase text-paper-dim/40">
@@ -102,7 +126,10 @@ const ProjectPage = () => {
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
           {/* V3: status badge — active=gold, completed=emerald, in-progress=blue */}
-          <span className={`flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5 ${statusBadgeClass[(project.status ?? "active").toLowerCase()] ?? statusBadgeClass["active"]}`}>
+          <span
+            className="flex items-center font-mono text-[0.48rem] tracking-[0.15em] uppercase border px-2 py-0.5"
+            style={statusBadgeTone[(project.status ?? "active").toLowerCase()] ?? statusBadgeTone.active}
+          >
             {project.status ?? "ACTIVE"}
           </span>
           <span className="stamp-classified text-[0.45rem] sm:text-[0.5rem]">{project.classification}</span>
@@ -110,7 +137,7 @@ const ProjectPage = () => {
       </motion.div>
 
       {/* ═══ HERO ═══ */}
-      <section className="relative min-h-[75vh] sm:min-h-[85vh] flex flex-col justify-end overflow-hidden">
+      <section className="relative min-h-[72vh] sm:min-h-[82vh] flex flex-col justify-end overflow-hidden">
         <motion.img
           src={project.heroImage}
           alt={`${project.title} — ${project.subtitle}`}
@@ -120,11 +147,10 @@ const ProjectPage = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 14, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-background/55" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 35%, transparent 0%, hsl(var(--background)) 80%)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(var(--background) / 0.3) 0%, transparent 25%, transparent 55%, hsl(var(--background)) 100%)" }} />
-        <div className="absolute inset-0 scanlines pointer-events-none opacity-30" />
-        <div className="absolute inset-0 engineering-grid pointer-events-none" />
+        <div className="absolute inset-0 bg-background/58" />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 84% 62% at 50% 35%, transparent 0%, hsl(var(--background) / 0.75) 56%, hsl(var(--background)) 86%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(var(--background) / 0.35) 0%, transparent 28%, transparent 60%, hsl(var(--background)) 100%)" }} />
+        <div className="absolute inset-0 engineering-grid pointer-events-none opacity-[0.22]" />
 
         <div className="relative z-10 px-4 sm:px-6 md:px-16 lg:px-20 pb-10 sm:pb-16 max-w-[1300px]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8, ease }} className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -141,7 +167,7 @@ const ProjectPage = () => {
 
           {/* V3: hero title — font-serif font-light text-paper */}
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1, ease }} className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-paper leading-[0.92] mb-3">
-            {project.title.split(" ").slice(0, -1).join(" ")}<span className="text-primary">{project.title.split(" ").slice(-1)}</span>
+            {project.title.split(" ").slice(0, -1).join(" ")}<span style={{ color: accent }}>{project.title.split(" ").slice(-1)}</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8, ease }} className="font-serif text-base sm:text-lg md:text-xl font-light italic text-muted-foreground max-w-2xl leading-relaxed mb-3">
@@ -154,9 +180,21 @@ const ProjectPage = () => {
           </motion.p>
 
           {/* KPI Row with Animated Counters */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.8, ease }} className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.8, ease }} className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl">
             {project.metrics.map((m, i) => (
-              <motion.div key={m.label} className="bg-card/90 backdrop-blur-sm p-4 sm:p-5 md:p-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 + i * 0.1 }}>
+              <motion.div
+                key={m.label}
+                className="p-4 sm:p-5 md:p-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6 + i * 0.1 }}
+                style={{
+                  background: "hsl(var(--background) / 0.68)",
+                  border: "1px solid hsl(var(--rx-rim) / 0.46)",
+                  borderRadius: "10px",
+                  backdropFilter: "blur(6px)",
+                }}
+              >
                 <div className="metric-value text-xl sm:text-2xl md:text-3xl">
                   <AnimatedCounter value={m.value} />
                   {m.unit && <span className="metric-unit">{m.unit}</span>}
@@ -170,10 +208,18 @@ const ProjectPage = () => {
       </section>
 
       {/* ═══ TABBED NAVIGATION ═══ */}
-      <div className="border-t border-border sticky top-14 z-40 bg-background/95 backdrop-blur-xl">
+      <div
+        className="sticky top-14 z-40"
+        style={{
+          borderTop: "1px solid hsl(var(--rx-rim) / 0.45)",
+          borderBottom: "1px solid hsl(var(--rx-rim) / 0.36)",
+          background: "hsl(var(--background) / 0.9)",
+          backdropFilter: "blur(14px)",
+        }}
+      >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-16 lg:px-20">
           <Tabs value={activeTab} onValueChange={(v) => { setActiveTab(v); setTabUserChanged(true); }}>
-            <TabsList className="bg-transparent h-auto p-0 gap-0 w-full justify-start border-b border-border rounded-none overflow-x-auto">
+            <TabsList className="bg-transparent h-auto p-0 gap-0 w-full justify-start rounded-none overflow-x-auto">
               {[
                 { value: "overview", label: "OVERVIEW" },
                 { value: "simulation", label: "SIMULATION" },
@@ -186,7 +232,7 @@ const ProjectPage = () => {
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="font-mono text-[0.58rem] sm:text-[0.65rem] tracking-[0.15em] uppercase rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none text-muted-foreground hover:text-foreground px-4 py-3 transition-colors"
+                  className="font-mono text-[0.58rem] sm:text-[0.65rem] tracking-[0.14em] uppercase rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:bg-muted/35 data-[state=active]:shadow-none text-muted-foreground hover:text-foreground px-4 py-3 transition-colors"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -250,7 +296,13 @@ const ProjectPage = () => {
       </div>
 
       {/* ═══ DOCUMENT FOOTER ═══ */}
-      <section className="border-t border-border py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-20 bg-card">
+      <section
+        className="py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-20"
+        style={{
+          borderTop: "1px solid hsl(var(--rx-rim) / 0.5)",
+          background: "linear-gradient(180deg, hsl(var(--background) / 0.92), hsl(var(--background)))",
+        }}
+      >
         <div className="max-w-[800px] mx-auto text-center">
           <div className="gold-rule mx-auto mb-6 sm:mb-8" />
           <span className="font-mono text-[0.52rem] sm:text-[0.58rem] tracking-[0.2em] text-muted-foreground block mb-2">
