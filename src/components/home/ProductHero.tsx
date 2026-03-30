@@ -280,6 +280,7 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
     offset: ["start start", "end start"],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.92], [1, 0.9]);
+  const trinityBridgeOpacity = useTransform(scrollYProgress, [0.18, 0.62], [0.2, 0.75]);
 
   return (
     <motion.section
@@ -290,6 +291,25 @@ export default function ProductHero({ onHotspotClick }: ProductHeroProps) {
       role="banner"
     >
       <EntranceChamber onHotspotClick={onHotspotClick} />
+
+      <motion.div
+        className="pointer-events-none absolute left-1/2 z-[9] -translate-x-1/2"
+        style={{ bottom: "clamp(8px, 2.2vw, 22px)", opacity: trinityBridgeOpacity }}
+        aria-hidden
+      >
+        <div
+          className="flex flex-col items-center"
+          style={{ color: "hsl(42 78% 52% / 0.72)" }}
+        >
+          <span className="block h-8 w-px bg-[linear-gradient(to_bottom,hsl(42_78%_52%_/_0.62),transparent)] sm:h-10" />
+          <span
+            className="font-mono text-[8px] uppercase"
+            style={{ letterSpacing: "0.22em", color: "hsl(var(--rx-text-ghost) / 0.92)" }}
+          >
+            Trinity Threshold
+          </span>
+        </div>
+      </motion.div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-4 pb-0 pt-10 sm:px-6 md:px-10 lg:px-16">
         <TrinityRowWithSession />

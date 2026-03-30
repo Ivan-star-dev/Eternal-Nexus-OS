@@ -22,6 +22,7 @@ interface Portal {
   path: string;
   vein: string;
   veil: string;
+  threshold: string;
 }
 
 const PORTALS: Portal[] = [
@@ -36,6 +37,7 @@ const PORTALS: Portal[] = [
     path: "/school",
     vein: "hsl(42 78% 52%)",
     veil: "radial-gradient(ellipse at 42% 30%, hsl(42 78% 52% / 0.16) 0%, transparent 64%)",
+    threshold: "Enter Memory",
   },
   {
     id: "lab",
@@ -48,6 +50,7 @@ const PORTALS: Portal[] = [
     path: "/lab",
     vein: "hsl(172 55% 36%)",
     veil: "radial-gradient(ellipse at 52% 34%, hsl(172 55% 36% / 0.16) 0%, transparent 64%)",
+    threshold: "Enter Examination",
   },
   {
     id: "creation",
@@ -60,6 +63,7 @@ const PORTALS: Portal[] = [
     path: "/workshop",
     vein: "hsl(205 100% 52%)",
     veil: "radial-gradient(ellipse at 56% 30%, hsl(205 100% 52% / 0.15) 0%, transparent 64%)",
+    threshold: "Enter Authorship",
   },
 ];
 
@@ -178,15 +182,17 @@ function PortalNode({
         >
           <Link
             to={portal.path}
-            className="inline-flex items-center gap-2 font-sans text-[10px] uppercase sm:text-[11px]"
+            className="inline-flex w-full items-center justify-between border px-3 py-2 font-sans text-[10px] uppercase sm:text-[11px]"
             style={{
               fontFamily: "Syne, system-ui, sans-serif",
               letterSpacing: "0.16em",
               color: lit ? portal.vein : "hsl(var(--rx-text-ghost) / 0.9)",
+              borderColor: lit ? portal.vein.replace(")", " / 0.44)") : "hsl(var(--rx-rim) / 0.62)",
+              background: "hsl(var(--background) / 0.46)",
             }}
           >
-            <span>→</span>
-            <span>{portal.pillar}</span>
+            <span>{portal.threshold}</span>
+            <span aria-hidden>→</span>
           </Link>
         </motion.div>
       </div>
