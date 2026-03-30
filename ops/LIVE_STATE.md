@@ -3,10 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão FORCE-TASK-003 · @copilot)
-**Actualizado por:** @copilot | FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
-**Última actualização:** 2026-03-29 (sessão RUBERRA-FINISH-PASS)
-**Actualizado por:** @claude | STEP1–7 ✅ + RUBERRA-FINISH-PASS ✅ · globe visual fusion · sovereign dark/light system · ThemeToggle · ProductHero sealed · NavBar sealed · SessionPulse sealed · DossierCard sealed · TrinityRow sealed · Footer fully sealed · homepage 100% theme-aware
+**Última actualização:** 2026-03-30 (sessão RUBERRA-LAB-SEAL-001 · @cursor)
+**Actualizado por:** @cursor | Block 3 sealed ✅ · Lab hardcodes removidos nos 4 ficheiros canónicos · School progress live · Workshop interior ligado a dossiers+pulse reais · PR #202 draft
 
 ---
 
@@ -38,7 +36,7 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
 | **Estado geral** | GATE_V4_OPEN emitido 2026-03-27 · SITE-CONVERGENCE STEP1–7 done 2026-03-29 · **V4 LIVING WORLD EM EXECUÇÃO** |
-| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · PENDING: Block2(@claude) · Block3(@cursor) · Block4(@framer) |
+| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · Block2(@claude) pendente · Block3(@cursor) concluído ✅ · Block4(@framer) elegível |
 
 ---
 
@@ -108,8 +106,8 @@ HOMEPAGE SEAL STATUS — 100% THEME-AWARE:
 
 PENDING NEXT:
   Block 2: Access layer seal → @claude  (RUBERRA-ACCESS-SEAL-001)
-  Block 3: Lab interior seal → @cursor  (RUBERRA-LAB-SEAL-001)
-  Block 4: Homepage polish   → @framer  (RUBERRA-POLISH-001)
+  Block 3: Lab interior seal → @cursor  (RUBERRA-LAB-SEAL-001) ✅ CONCLUÍDO 2026-03-30
+  Block 4: Homepage polish   → @framer  (RUBERRA-POLISH-001) · ELEGÍVEL (dependência Block 3 cumprida)
 ```
 
 ---
@@ -126,6 +124,7 @@ PENDING NEXT:
 | V4-WORLD-PULSE-001 | K-07 | **DESBLOQUEADA ✅ → @cursor elegível agora (FORCE_TASK_003)** |
 | V4-TIMELINE-BASE-001 | K-07 | **DESBLOQUEADA ✅ → @cursor elegível agora (FORCE_TASK_003)** |
 | V4-WORLD-FEATURES-001 | K-07+K-08 | **DESBLOQUEADA ✅ → @cursor elegível agora** |
+| RUBERRA-LAB-SEAL-001 | K-16+K-07 | **CONCLUÍDA ✅ — Lab seal + School/Workshop interior embodiment (PR #202)** |
 | V5-RESEARCH-IMPL-001 | K-07+K-08 | LOCKED → trigger: GATE_V5_OPEN |
 | V6-MISSIONS-IMPL-001 | K-07 | LOCKED → trigger: GATE_V6_OPEN |
 

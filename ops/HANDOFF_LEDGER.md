@@ -6,6 +6,57 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @cursor | RUBERRA-LAB-SEAL-001 | BLOCK 3 LAB INTERIOR SEALED
+
+**TASK:** RUBERRA-LAB-SEAL-001 — Lab / School / Creator interior embodiment (Block 3)
+**STATUS:** CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — 7 ficheiros produto + 3 ficheiros ops actualizados
+**BRANCH:** cursor/current-task-identification-ca0d
+**COMMIT:** 455a475
+**PR:** #202 (draft)
+
+---
+
+**FEITO:**
+- [✅] **Lab seal canónico completo** nos 4 ficheiros exigidos:
+  - `src/components/lab-surface/LabSurface.tsx`
+  - `src/components/lab-surface/LabHero.tsx`
+  - `src/components/lab-surface/LabEntryHeader.tsx`
+  - `src/components/lab-surface/LabToolSpine.tsx`
+- [✅] Hardcodes de Block 3 removidos nos targets:
+  - `#060c14` eliminado
+  - `rgba(6,12,20,...)` eliminado
+  - substituídos por `hsl(var(--background)/...)`
+- [✅] `/lab` ficou theme-aware no bloco selado
+- [✅] **School interior menos hollow**: `SchoolNav` progress agora live via `useEvolution()` (deixou de ser `2 of 5 complete` fixo)
+- [✅] **Creator interior embodiment real**:
+  - `WorkshopHeader` ligado a sinais vivos (`projectData` + `useProjectPulse` + artifact store)
+  - `ProjectGrid` deixou de mock e passou a renderizar dossiers reais de `src/data/projects.ts`
+  - navegação real para `/project/:id` nos cartões
+
+**INTEGRAÇÃO:**
+- Fluxo de rotas preservado (`/lab`, `/school`, `/workshop`, `/project/:id`)
+- Nenhum arquivo protegido foi tocado (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`)
+- Mudança concentrada em superfícies interiores, sem drift de arquitetura/nomenclatura
+
+**VALIADAÇÃO EXECUTADA:**
+- `npm run typecheck` → falha por baseline pré-existente (parse error em `LabActiveMission.tsx`, fora do escopo desta task)
+- `npm run lint` → falha por baseline pré-existente (erros em scripts/ e `vite-env.d.ts`, fora do escopo desta task)
+- `rg` nos targets confirma remoção de `#060c14` e `rgba(6,12,20,...)` nos 4 ficheiros canónicos do Lab
+
+**NÃO FEITO (fora de escopo desta task):**
+- Correção dos erros baseline globais de lint/typecheck
+- Block 2 (Access seal) e Block 4 (Polish)
+
+**BLOQUEIOS:** nenhum bloqueio funcional para Block 3; apenas baseline de qualidade global pendente
+
+**PRÓXIMO PASSO:**
+@framer → entrar em `RUBERRA-POLISH-001` (Block 4) com dependência de Block 3 já cumprida
+
+**DECISÃO_REC:** avançar Block 4 sem reabrir Block 3; tratar baseline lint/typecheck numa task de hardening separada
+
+---
+
 ## HANDOFF — 2026-03-29 | @copilot | FORCE-TASK-003 | FORÇA-TAREFA V4 LIVING WORLD ACTIVADA
 
 **TASK:** FORCE-TASK-003-OPS — activar FORCE_TASK_ACTIVATION_003 · actualizar ops
