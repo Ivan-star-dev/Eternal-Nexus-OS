@@ -44,14 +44,31 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 
 ```
 CANONICAL HOMEPAGE (route "/") — ELEVATED 2026-03-30:
-  Index.tsx
+  Index.tsx                     ← dossier item wrappers given `relative` so RitualMarker anchors correctly
     └── ProductHero.tsx
           └── GlobeScene.tsx    ← cosmic wrap (STEP3)
           └── TrinityRow.tsx    ← sovereign trinity veil deepened · one-law chamber continuity
+                                   border divider responsive: bottom on mobile / right on desktop
           └── HeroFirstProof.tsx ← evidence phrase + chamber aura uplifted
     └── DossierCard procession  ← card-grid DNA removido · alternating monumental dossier thresholds
+                                   pulse state lifted to parent (single useProjectPulse for all IDs)
     └── ProjectsLiveSection     ← "Living Registry" integrated under dossier chamber cadence
     └── Sovereign CTA           ← /lab · /school · /workshop only
+
+LAB PORTAL INTERIOR — SEALED 2026-03-30 (Block A · RUBERRA-LAB-SEAL-001):
+  lab-surface/LabSurface.tsx    ← ambient radial / labels / cap messages / bottom marker → rx tokens
+  lab-surface/LabHero.tsx       ← overlays / live indicators / heading / resume badge / CTAs → rx tokens
+  lab-surface/LabEntryHeader.tsx ← bar / labels / premium pill / dismiss → rx tokens
+  lab-surface/LabToolSpine.tsx  ← dormant/reveal surfaces / tooltips → tokenized matte system
+  Zero hardcoded rgba/hex dark assumptions remain in Lab surfaces.
+
+SCHOOL PORTAL — UPDATED 2026-03-30:
+  school-surface/SchoolNav.tsx  ← maturity progress denominator corrected 5→4 (matches level 0|1|2|3)
+                                   progress bar and label now reach 100% / "4 of 4 complete"
+
+WORKSHOP PORTAL — UPDATED 2026-03-30:
+  workshop-surface/WorkshopHeader.tsx ← artifact count polling pauses on tab hidden (visibilitychange)
+  workshop-surface/ProjectGrid.tsx    ← pulseIds memoized to prevent Supabase channel teardown/recreate
 
 PURGED FROM HOMEPAGE:
   DualEntryGate        — removed from flow
