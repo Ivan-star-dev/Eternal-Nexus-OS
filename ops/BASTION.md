@@ -282,7 +282,7 @@ Cada item da matriz regista os seguintes campos:
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P3                                                      │
 │ GATE               │ fechado — concluída 2026-03-30                          │
-│ NEXT_ACTOR         │ —                                                       │
+│ NEXT_ACTOR         │ @copilot                                                │
 │ NEXT_TASK          │ concluída — ver historial 5.1                           │
 │ EVIDENCIA_MINIMA   │ arquivos ops/ tocados + commit id + ALTERACAO_REAL: sim │
 │ NOTAS_DO_OWNER     │ Lapidação de ops/ — remover rastos de PLv4/PLv5/PLv6;  │
