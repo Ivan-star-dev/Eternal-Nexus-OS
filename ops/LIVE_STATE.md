@@ -107,7 +107,6 @@ HOMEPAGE SEAL STATUS — 100% THEME-AWARE:
   Zero hardcoded dark assumptions remain on homepage.
 
 PENDING NEXT:
-  Block 2: Access layer seal → @claude  (RUBERRA-ACCESS-SEAL-001)
   Block 3: Lab interior seal → @cursor  (RUBERRA-LAB-SEAL-001)
   Block 4: Homepage polish   → @framer  (RUBERRA-POLISH-001)
 ```
@@ -166,7 +165,7 @@ PENDING NEXT:
 | RUBERRA-NAV-SEAL-001 | K-16 | **CONCLUÍDA ✓ — NavBar + SessionPulse fully theme-aware** |
 | RUBERRA-HOMEPAGE-SEAL-001 | K-16 | **CONCLUÍDA ✓ — Block 1: DossierCard + TrinityRow + Footer sealed** |
 | RUBERRA-FOOTER-TEXT-001 | K-16 | **CONCLUÍDA ✓ — Footer ghost text 10× → rx-text-ghost/dim** |
-| RUBERRA-ACCESS-SEAL-001 | K-16 | **ELEGÍVEL → @claude · Block 2: access layer 4 button hardcodes** |
+| RUBERRA-ACCESS-SEAL-001 | K-16 | **CONCLUÍDA ✓ — Block 2: access layer 4 files sealed · zero hsl(216 50% 5%) in src/ · NexusSurface+Atlas also fixed** |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---

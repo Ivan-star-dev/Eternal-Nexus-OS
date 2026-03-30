@@ -55,7 +55,7 @@ export default function DualEntryGate() {
       <section
         aria-label="Platform entry — choose your path"
         style={{
-          background: "#07091a",
+          background: "hsl(var(--background))",
           borderTop: "0.5px solid rgba(200,164,78,0.07)",
           borderBottom: "0.5px solid rgba(200,164,78,0.07)",
           padding: "clamp(64px, 10vh, 112px) clamp(16px, 6vw, 80px)",
@@ -123,8 +123,8 @@ export default function DualEntryGate() {
                 flexDirection: "column",
                 gap: "20px",
                 padding: "clamp(28px, 4vw, 44px)",
-                border: "0.5px solid rgba(255,255,255,0.07)",
-                background: "rgba(255,255,255,0.018)",
+                border: "0.5px solid hsl(var(--border) / 0.3)",
+                background: "hsl(var(--rx-depth) / 0.3)",
                 position: "relative",
               }}
             >
@@ -134,7 +134,7 @@ export default function DualEntryGate() {
                     fontFamily: "JetBrains Mono, monospace",
                     fontSize: "8px",
                     letterSpacing: "0.24em",
-                    color: "rgba(228,235,240,0.25)",
+                    color: "hsl(var(--rx-text-ghost))",
                     textTransform: "uppercase",
                     display: "block",
                     marginBottom: "10px",
@@ -147,7 +147,7 @@ export default function DualEntryGate() {
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "clamp(18px, 3vw, 26px)",
                     fontWeight: 700,
-                    color: "rgba(228,235,240,0.82)",
+                    color: "hsl(var(--foreground))",
                     margin: 0,
                     lineHeight: 1.2,
                   }}
@@ -158,7 +158,7 @@ export default function DualEntryGate() {
                   style={{
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "13px",
-                    color: "rgba(228,235,240,0.38)",
+                    color: "hsl(var(--rx-text-dim))",
                     marginTop: "10px",
                     lineHeight: 1.65,
                   }}
@@ -184,21 +184,21 @@ export default function DualEntryGate() {
                     fontWeight: 600,
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "rgba(228,235,240,0.65)",
-                    border: "0.5px solid rgba(255,255,255,0.14)",
+                    color: "hsl(var(--rx-text-mid))",
+                    border: "0.5px solid hsl(var(--border) / 0.3)",
                     padding: "13px 24px",
                     textDecoration: "none",
                     transition: "color 0.2s, border-color 0.2s",
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.color = "rgba(228,235,240,0.9)";
-                    el.style.borderColor = "rgba(255,255,255,0.28)";
+                    el.style.color = "hsl(var(--foreground))";
+                    el.style.borderColor = "hsl(var(--border) / 0.6)";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.color = "rgba(228,235,240,0.65)";
-                    el.style.borderColor = "rgba(255,255,255,0.14)";
+                    el.style.color = "hsl(var(--rx-text-mid))";
+                    el.style.borderColor = "hsl(var(--border) / 0.3)";
                   }}
                   aria-label="Explore the platform — go to World view"
                 >
@@ -293,7 +293,7 @@ export default function DualEntryGate() {
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "clamp(18px, 3vw, 26px)",
                     fontWeight: 700,
-                    color: "rgba(228,235,240,0.92)",
+                    color: "hsl(var(--foreground))",
                     margin: 0,
                     lineHeight: 1.2,
                   }}
@@ -304,7 +304,7 @@ export default function DualEntryGate() {
                   style={{
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "13px",
-                    color: "rgba(228,235,240,0.42)",
+                    color: "hsl(var(--rx-text-dim))",
                     marginTop: "10px",
                     lineHeight: 1.65,
                   }}

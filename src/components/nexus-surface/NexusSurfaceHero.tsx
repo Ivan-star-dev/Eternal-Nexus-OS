@@ -297,7 +297,7 @@ function HeroCTAs() {
             fontSize: "12px",
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "hsl(216 50% 5%)",
+            color: "hsl(var(--background))",
             background: "hsl(42 78% 52%)",
             padding: "14px 28px",
           }}

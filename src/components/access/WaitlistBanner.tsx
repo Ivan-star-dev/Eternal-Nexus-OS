@@ -66,7 +66,7 @@ export default function WaitlistBanner() {
               right: 0,
               height: "56px",
               zIndex: 200,
-              background: "rgba(10,10,26,0.92)",
+              background: "hsl(var(--background) / 0.92)",
               backdropFilter: "blur(12px)",
               borderTop: "0.5px solid rgba(200,164,78,0.18)",
               display: "flex",
@@ -81,7 +81,7 @@ export default function WaitlistBanner() {
               style={{
                 fontFamily: "Syne, system-ui, sans-serif",
                 fontSize: "clamp(11px, 2.5vw, 13px)",
-                color: "rgba(228,235,240,0.65)",
+                color: "hsl(var(--rx-text-mid))",
                 margin: 0,
                 whiteSpace: "nowrap",
                 overflow: "hidden",
@@ -132,7 +132,7 @@ export default function WaitlistBanner() {
                 background: "transparent",
                 border: "none",
                 cursor: "pointer",
-                color: "rgba(228,235,240,0.3)",
+                color: "hsl(var(--rx-text-ghost))",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -141,11 +141,11 @@ export default function WaitlistBanner() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  "rgba(228,235,240,0.7)";
+                  "hsl(var(--rx-text-dim))";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  "rgba(228,235,240,0.3)";
+                  "hsl(var(--rx-text-ghost))";
               }}
             >
               <X size={14} />

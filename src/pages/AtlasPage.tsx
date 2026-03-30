@@ -210,7 +210,7 @@ export default function AtlasPage() {
   );
 
   return (
-    <div className="fixed inset-0" style={{ background: "hsl(216 50% 5%)" }}>
+    <div className="fixed inset-0" style={{ background: "hsl(var(--background))" }}>
       {/* sacred flow — CSS overlays (cinematic vignette + grain) */}
       <VignetteOverlay />
       <GrainOverlay />
