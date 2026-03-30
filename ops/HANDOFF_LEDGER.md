@@ -6,150 +6,36 @@
 
 ---
 
-## HANDOFF — 2026-03-30 | @cursor | RUBERRA-VISUAL-ASCENSION-001 | HOMEPAGE VISUAL TRUTH STRIKE
+## HANDOFF — 2026-03-30 | @copilot | SYNC-IN | OPS SYNC — ACCESS SEAL · HERO BLOCK1 · WORKSHOP BLOCK2 · PORTAL CONTENT
 
-**TASK:** RUBERRA CORP — CURSOR ABSOLUTE VISUAL EVOLUTION REGIME (homepage visual embodiment front)
-**STATUS:** CONCLUÍDO ✅ (strike entregue)
-**ALTERACAO_REAL:** sim — 6 ficheiros produto + 1 ficheiro ops actualizados
-**BRANCH:** cursor/current-task-identification-ca0d
-**COMMIT:** 78c68a2
-**PR:** #202 (draft actualizado)
-
----
-
-**FEITO:**
-- [✅] **Hero authority reforçada** (`ProductHero.tsx`):
-  - title architecture elevada: "Sovereign entry. One truth, three powers."
-  - supporting copy mais contida e governante
-  - CTA primário/secundário com largura full em mobile (threshold feel no first viewport)
-  - atmosfera deepen com gradientes mais densos e coerentes
-- [✅] **Dossier zone saiu de “grid de cards”** (`Index.tsx` + `DossierCard.tsx`):
-  - composição convertida para *procession line* com eixo ritual vertical
-  - marcador ceremonial por dossier (01/02/03) no desktop
-  - cartões reescritos como painéis editoriais de threshold, com alternância espacial
-  - tipografia de título ampliada, subtítulo/tagging mais soberano, CTA de entrada mais consequente
-- [✅] **ProjectsLiveSection unificada ao novo idioma visual** (`ProjectsLiveSection.tsx`):
-  - cards live com matéria/edge/contraste alinhados ao novo chamber
-  - header elevado para “Living Registry / Projects in signal”
-  - badge tones migradas para lógica de veios (sem classe utilitária genérica)
-- [✅] **Trinity + Proof refinados para coerência de organismo**:
-  - `TrinityRow.tsx`: camada atmosférica axial adicionada no container
-  - `HeroFirstProof.tsx`: mother phrase fortalecida e chamber com depth halo interno
-
-**INTEGRAÇÃO:**
-- Rotas e fluxo canónico preservados (`/lab`, `/school`, `/workshop`, `/project/:id`, `/access`)
-- Sem alterações em ficheiros protegidos (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`)
-- Mudança estritamente no front de embodiment visual da homepage
-
-**VALIADAÇÃO EXECUTADA:**
-- `npx eslint src/pages/Index.tsx src/components/home/DossierCard.tsx src/components/home/ProjectsLiveSection.tsx src/components/home/ProductHero.tsx src/components/home/TrinityRow.tsx src/components/home/HeroFirstProof.tsx` → ✅ sem novos problemas nos ficheiros alterados
-- `npm run typecheck` → ❌ falha baseline pré-existente em `src/components/lab-surface/LabActiveMission.tsx` (parse error fora do escopo desta strike)
-- `npm run lint` → ❌ falhas baseline pré-existentes (`scripts/gates/*.cjs`, `src/vite-env.d.ts` + warnings globais) fora do escopo desta strike
-
-**NÃO FEITO (intencional):**
-- Não houve alteração de arquitetura, rotas canónicas, ou fluxo de produto
-- Não houve feature work fora do front visual pedido
-
-**BLOQUEIOS:** nenhum bloqueio funcional para merge do strike visual; apenas baseline lint/typecheck global pendente no repo
-
-**PRÓXIMO PASSO RECOMENDADO:**
-- 1) Hardening pass de baseline (lint/typecheck) em task separada
-- 2) Se desejado, terceira strike visual micro (apenas micro-ritmo mobile no chamber de entrada final)
-
----
-
-## HANDOFF — 2026-03-30 | @cursor | RUBERRA-TERMINAL-CONVERGENCE-002 | ENTRANCE GATE SOVEREIGN THRESHOLD
-
-**TASK:** Terminal convergence wave — kill residual button/section DNA in entry gate and hero→trinity cadence
-**STATUS:** CONCLUÍDO ✅ (wave entregue)
-**ALTERACAO_REAL:** sim — 3 ficheiros produto + 1 ficheiro ops actualizados
-**BRANCH:** cursor/current-task-identification-ca0d
-**COMMIT:** d415c34
-**PR:** #202 (draft actualizado)
-
----
-
-**FEITO:**
-- [✅] **Entrance Gate deixou de ser “CTA row”** e virou chamber de travessia por domínio (`src/pages/Index.tsx`):
-  - `SessionAwareCTA` reescrito como 3 domain-threshold panels (School/Lab/Creation)
-  - cada domínio com era temporal, linha identitária, vein própria e ação de entrada (`Enter/Resume domain`)
-  - estado de continuidade (`resume`) integrado como selo de linha viva acima dos domínios
-- [✅] **Hero→Trinity transição mais cerimonial** (`src/components/home/ProductHero.tsx`):
-  - adição de `ThresholdBridge` entre entrance chamber e trinity
-  - elimina salto funcional e cria passagem ritual explícita
-- [✅] **Trinity threshold energy aumentada** (`src/components/home/TrinityRow.tsx`):
-  - cadência interna reforçada (label + rule + mantra + action)
-  - CTA de portal elevado para “Enter Domain” em bloco de borda soberana
-  - frase identitária expandida para reduzir leitura utilitária
-
-**INTEGRAÇÃO:**
-- Rotas canónicas preservadas (`/lab`, `/school`, `/workshop`, `/access`)
-- Nenhum ficheiro protegido tocado
-- Sem drift para feature/business logic — escopo 100% visual embodiment front
-
-**VALIADAÇÃO EXECUTADA:**
-- `npx eslint src/pages/Index.tsx src/components/home/ProductHero.tsx src/components/home/TrinityRow.tsx` → ✅
-- `npm run typecheck` → ❌ baseline pré-existente em `src/components/lab-surface/LabActiveMission.tsx`
-- `npm run lint` → ❌ baseline pré-existente em `scripts/gates/*.cjs` e `src/vite-env.d.ts` (+ warnings globais)
-
-**NÃO FEITO (intencional):**
-- Não alterado DossierCard/ProjectsLiveSection nesta wave (foco absoluto no gate/threshold/trinity cadence)
-
-**BLOQUEIOS:** nenhum para continuação visual; apenas baseline lint/typecheck global pendente
-
-**PRÓXIMO PASSO RECOMENDADO:**
-- Wave terminal seguinte: elevar “Entrance Chamber silhouette memory” (hero marca memorável ao primeiro olhar) e densificar micro-ritmo mobile do bloco de provas sem aumento de ruído.
-
----
-
-## HANDOFF — 2026-03-30 | @cursor | RUBERRA-LAB-SEAL-001 | BLOCK 3 LAB INTERIOR SEALED
-
-**TASK:** RUBERRA-LAB-SEAL-001 — Lab / School / Creator interior embodiment (Block 3)
+**TASK:** SYNC-IN — sincronizar ops/ com trabalho @claude concluído após último handoff
 **STATUS:** CONCLUÍDO ✅
-**ALTERACAO_REAL:** sim — 7 ficheiros produto + 3 ficheiros ops actualizados
-**BRANCH:** cursor/current-task-identification-ca0d
-**COMMIT:** 455a475
-**PR:** #202 (draft)
+**ALTERACAO_REAL:** sim — LIVE_STATE.md · BASTION.md · HANDOFF_LEDGER.md actualizados
+**BRANCH:** copilot/sync-in
 
 ---
 
 **FEITO:**
-- [✅] **Lab seal canónico completo** nos 4 ficheiros exigidos:
-  - `src/components/lab-surface/LabSurface.tsx`
-  - `src/components/lab-surface/LabHero.tsx`
-  - `src/components/lab-surface/LabEntryHeader.tsx`
-  - `src/components/lab-surface/LabToolSpine.tsx`
-- [✅] Hardcodes de Block 3 removidos nos targets:
-  - `#060c14` eliminado
-  - `rgba(6,12,20,...)` eliminado
-  - substituídos por `hsl(var(--background)/...)`
-- [✅] `/lab` ficou theme-aware no bloco selado
-- [✅] **School interior menos hollow**: `SchoolNav` progress agora live via `useEvolution()` (deixou de ser `2 of 5 complete` fixo)
-- [✅] **Creator interior embodiment real**:
-  - `WorkshopHeader` ligado a sinais vivos (`projectData` + `useProjectPulse` + artifact store)
-  - `ProjectGrid` deixou de mock e passou a renderizar dossiers reais de `src/data/projects.ts`
-  - navegação real para `/project/:id` nos cartões
+- [✅] `ops/LIVE_STATE.md` — header actualizado · RUBERRA-ACCESS-SEAL-001 marcada CONCLUÍDA ✓ · HERO BLOCK1 + WORKSHOP BLOCK2 registados · PORTAL CONTENT BODY + PODIUM CONTENT registados · PENDING NEXT actualizado (Block 2 removido, Block 3/4 mantidos)
+- [✅] `ops/BASTION.md` — RUBERRA-ACCESS-SEAL-001 STATUS: elegível → concluída + COMMIT 46464f7 · RUBERRA-LAB-SEAL-001 DEPENDE_DE marcada ✓ · 5 novas tasks na tabela histórica 5.1 · versão v4.1 → v4.2
+- [✅] `ops/HANDOFF_LEDGER.md` — esta entrada appended no topo
 
-**INTEGRAÇÃO:**
-- Fluxo de rotas preservado (`/lab`, `/school`, `/workshop`, `/project/:id`)
-- Nenhum arquivo protegido foi tocado (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`)
-- Mudança concentrada em superfícies interiores, sem drift de arquitetura/nomenclatura
+**COMMITS SINCRONIZADOS:**
+- `46464f7` — RUBERRA-ACCESS-SEAL-001: WaitlistBanner · AuthModal · EmailCaptureModal · DualEntryGate sealed
+- `8395675` — HERO BLOCK1: ParticleFlow/EarthquakeLayer removed · ProductHero SovereignText sealed
+- `f519b97` — WORKSHOP BLOCK2: WorkshopSurface/Header/ProjectGrid fully sovereign
+- `e637a7c` — PORTAL CONTENT BODY: 9 founder artifacts across School/Lab/Workshop
+- `be33a88` — PORTAL PODIUM CONTENT: JudgmentArchitecture · LabActiveMission · MechanismDocument
 
-**VALIADAÇÃO EXECUTADA:**
-- `npm run typecheck` → falha por baseline pré-existente (parse error em `LabActiveMission.tsx`, fora do escopo desta task)
-- `npm run lint` → falha por baseline pré-existente (erros em scripts/ e `vite-env.d.ts`, fora do escopo desta task)
-- `rg` nos targets confirma remoção de `#060c14` e `rgba(6,12,20,...)` nos 4 ficheiros canónicos do Lab
+**NÃO FEITO:** nenhum — sync completo
 
-**NÃO FEITO (fora de escopo desta task):**
-- Correção dos erros baseline globais de lint/typecheck
-- Block 2 (Access seal) e Block 4 (Polish)
-
-**BLOQUEIOS:** nenhum bloqueio funcional para Block 3; apenas baseline de qualidade global pendente
+**BLOQUEIOS:** nenhum
 
 **PRÓXIMO PASSO:**
-@framer → entrar em `RUBERRA-POLISH-001` (Block 4) com dependência de Block 3 já cumprida
+@cursor → RUBERRA-LAB-SEAL-001 (Block 3: LabSurface/LabHero/LabEntryHeader/LabToolSpine dark hardcodes → sovereign tokens)
+@framer → RUBERRA-POLISH-001 (Block 4: reduce neon · matte/premium finish · dark mode quality)
 
-**DECISÃO_REC:** avançar Block 4 sem reabrir Block 3; tratar baseline lint/typecheck numa task de hardening separada
+**DECISÃO_REC:** @cursor entra a seguir (LAB portal interior seal desbloqueada após ACCESS ✓)
 
 ---
 

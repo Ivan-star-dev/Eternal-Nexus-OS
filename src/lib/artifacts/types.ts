@@ -25,6 +25,7 @@ export type ArtifactSource =
   | 'nexus'        // came from NexusPage interaction
   | 'lab'          // came from Creation Lab
   | 'school'       // came from Bridge Nova / School portal
+  | 'workshop'     // came from Nexus Cria / Workshop portal
   | 'test'         // came from Lab tri-core test portal
   | 'atlas'        // came from Atlas geospatial
   | 'manual'       // user-created directly

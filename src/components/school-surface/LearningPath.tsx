@@ -7,12 +7,13 @@
  * Canon: V7-SURFACES-001 · K-04+K-06 · @framer+@cursor
  */
 
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { saveArtifact } from "@/lib/artifacts/store";
+import { saveArtifact, listArtifacts } from "@/lib/artifacts/store";
 import { useSession } from "@/contexts/SessionContext";
 import { useAuth } from "@/contexts/AuthContext";
 
-type StepStatus = "locked" | "available" | "done";
+type StepStatus = "available" | "done";
 
 interface LearningStep {
   id: string;
@@ -53,41 +54,15 @@ const TRACK_STEPS: Record<TrackId, LearningStep[]> = {
   "value-creation": STEPS_VALUE_CREATION,
 };
 
-// maturityLevel 0→3 maps to steps unlocked:
-// 0=new → step 1 available, rest locked
-// 1=familiar → steps 1-2 done, step 3 available, rest locked
-// 2=practiced → steps 1-3 done, step 4 available, step 5 locked
-// 3=expert → steps 1-4 done, step 5 available
-function resolveStatus(stepIndex: number, maturityLevel: number): StepStatus {
-  const doneThreshold = maturityLevel;           // steps < doneThreshold are done
-  const availableIndex = maturityLevel;          // step at maturityLevel is available
-  if (stepIndex < doneThreshold) return "done";
-  if (stepIndex === availableIndex) return "available";
-  return "locked";
+// Status is derived from real artifact presence — not an artificial maturity gate.
+// A step is "done" if the user has created a lesson artifact tagged with that step id.
+// All steps are always available — no progression lock.
+function resolveStatus(stepId: string, completedIds: Set<string>): StepStatus {
+  return completedIds.has(stepId) ? "done" : "available";
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function LockIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden
-      style={{ flexShrink: 0 }}
-    >
-      <rect x="2" y="5.5" width="8" height="5.5" rx="1.5" fill="rgba(150,165,180,0.3)" />
-      <path
-        d="M4 5.5V4a2 2 0 0 1 4 0v1.5"
-        stroke="rgba(150,165,180,0.3)"
-        strokeWidth="1.2"
-        fill="none"
-      />
-    </svg>
-  );
-}
 
 function CheckIcon() {
   return (
@@ -114,31 +89,11 @@ function CheckIcon() {
 function StepCard({ step, index, status, onBegin }: { step: LearningStep; index: number; status: StepStatus; onBegin: () => void }) {
   const isDone = status === "done";
   const isAvailable = status === "available";
-  const isLocked = status === "locked";
 
-  const borderColor = isAvailable
-    ? GOLD
-    : isDone
-    ? GOLD_FAINT
-    : "rgba(150,165,180,0.1)";
-
-  const numberColor = isAvailable
-    ? GOLD
-    : isDone
-    ? GOLD_MUTED
-    : "rgba(150,165,180,0.25)";
-
-  const titleColor = isLocked
-    ? "rgba(160,175,190,0.35)"
-    : isDone
-    ? "rgba(200,215,230,0.55)"
-    : "rgba(228,235,240,0.9)";
-
-  const descColor = isLocked
-    ? "rgba(150,165,180,0.25)"
-    : isDone
-    ? "rgba(170,185,200,0.4)"
-    : "rgba(170,185,200,0.65)";
+  const borderColor = isDone ? GOLD_FAINT : isAvailable ? `${GOLD}55` : "hsla(var(--border))";
+  const numberColor = isDone ? GOLD_MUTED : GOLD;
+  const titleColor = isDone ? "var(--rx-text-ghost)" : "var(--rx-text-primary)";
+  const descColor = isDone ? "var(--rx-text-ghost)" : "var(--rx-text-dim)";
 
   return (
     <motion.div
@@ -150,9 +105,7 @@ function StepCard({ step, index, status, onBegin }: { step: LearningStep; index:
         gap: "20px",
         alignItems: "flex-start",
         padding: "22px 24px",
-        background: isAvailable
-          ? "rgba(212,160,40,0.05)"
-          : "rgba(255,255,255,0.02)",
+        background: isDone ? "hsl(var(--muted) / 0.02)" : "hsla(42, 78%, 52%, 0.04)",
         border: `1px solid ${borderColor}`,
         borderRadius: "12px",
         transition: "border-color 0.2s, background 0.2s",
@@ -202,7 +155,7 @@ function StepCard({ step, index, status, onBegin }: { step: LearningStep; index:
         </p>
 
         {/* CTA row */}
-        {isAvailable && (
+        {!isDone && (
           <motion.div style={{ marginTop: "10px" }}>
             <motion.button
               whileHover={{ scale: 1.03 }}
@@ -214,7 +167,7 @@ function StepCard({ step, index, status, onBegin }: { step: LearningStep; index:
                 fontWeight: 700,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: "#060c14",
+                color: "hsl(var(--background))",
                 background: GOLD,
                 border: "none",
                 borderRadius: "7px",
@@ -231,7 +184,6 @@ function StepCard({ step, index, status, onBegin }: { step: LearningStep; index:
       {/* Status icon */}
       <div style={{ flexShrink: 0, marginTop: "3px" }}>
         {isDone && <CheckIcon />}
-        {isLocked && <LockIcon />}
       </div>
     </motion.div>
   );
@@ -242,18 +194,34 @@ interface LearningPathProps {
   track?: TrackId;
 }
 
-export default function LearningPath({ maturityLevel, track = "foundations" }: LearningPathProps) {
+export default function LearningPath({ track = "foundations" }: LearningPathProps) {
   const { session, updateReEntry } = useSession();
   const { user } = useAuth();
   const STEPS = TRACK_STEPS[track];
-  const doneCount = Math.min(maturityLevel, STEPS.length);
+  const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
+
+  const loadCompleted = useCallback(() => {
+    const lessons = listArtifacts({ source: "school" });
+    const ids = new Set<string>();
+    for (const a of lessons) {
+      for (const tag of a.tags) {
+        // Step ids are like 's1', 's2', 'v1', 'v2' — match them
+        if (STEPS.some(s => s.id === tag)) ids.add(tag);
+      }
+    }
+    setCompletedIds(ids);
+  }, [STEPS]);
+
+  useEffect(() => { loadCompleted(); }, [loadCompleted]);
+
+  const doneCount = STEPS.filter(s => completedIds.has(s.id)).length;
   const progressPct = Math.round((doneCount / STEPS.length) * 100);
 
   function handleBegin(step: LearningStep) {
     const sessionId = session?.session_id ?? 'anon';
     saveArtifact({
       session_id: sessionId,
-      kind: 'note',
+      kind: 'lesson',
       title: `${step.title} — Study Session`,
       summary: `Began study of "${step.title}". ${step.description}`,
       content: `# ${step.title}\n\n${step.description}\n\n---\n_Started: ${new Date().toISOString()}_`,
@@ -262,6 +230,7 @@ export default function LearningPath({ maturityLevel, track = "foundations" }: L
       userId: user?.id,
     });
     updateReEntry(`school:${track}:step-${step.number}`);
+    loadCompleted();
   }
 
   return (
@@ -300,16 +269,16 @@ export default function LearningPath({ maturityLevel, track = "foundations" }: L
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "clamp(20px, 3vw, 28px)",
             fontWeight: 700,
-            color: "rgba(228,235,240,0.88)",
+            color: "var(--rx-text-primary)",
             margin: 0,
             letterSpacing: "-0.02em",
           }}
         >
           Your path forward
         </h2>
-        {/* Real progression indicator */}
+        {/* Progression indicator — real completion from artifact store */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginTop: "14px" }}>
-          <div style={{ flex: 1, height: "2px", background: "rgba(212,175,55,0.12)", borderRadius: "1px", overflow: "hidden" }}>
+          <div style={{ flex: 1, height: "2px", background: "hsl(var(--muted) / 0.15)", borderRadius: "1px", overflow: "hidden" }}>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progressPct}%` }}
@@ -324,7 +293,13 @@ export default function LearningPath({ maturityLevel, track = "foundations" }: L
       </motion.div>
 
       {STEPS.map((step, i) => (
-        <StepCard key={step.id} step={step} index={i} status={resolveStatus(i, maturityLevel)} onBegin={() => handleBegin(step)} />
+        <StepCard
+          key={step.id}
+          step={step}
+          index={i}
+          status={resolveStatus(step.id, completedIds)}
+          onBegin={() => handleBegin(step)}
+        />
       ))}
     </div>
   );

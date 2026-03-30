@@ -2,75 +2,47 @@
  * WorkshopHeader.tsx
  * Header for Nexus Cria / Workshop portal.
  *
- * Shows: logotype + teal dot · tagline · stats row
- * Canon: V7-SURFACES-001 · K-04+K-06 · @framer+@cursor
+ * Shows: logotype + teal dot · tagline · live stats from artifact store.
+ * Stats reflect real workshop artifacts — not hardcoded mock data.
+ *
+ * Canon: V7-SURFACES-001 · GAP-CLOSURE-V10-001 · @claude · 2026-03-30
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import projectData from "@/data/projects";
-import { getRecentArtifacts } from "@/lib/artifacts/store";
-import { useProjectPulse } from "@/hooks/useProjectPulse";
+import { listArtifacts } from "@/lib/artifacts/store";
 
-const TEAL = "hsl(var(--rx-teal))";
-const TEAL_FAINT = "hsl(var(--rx-teal) / 0.3)";
+const TEAL = "hsl(172, 55%, 38%)";
+const TEAL_FAINT = "hsla(172, 55%, 38%, 0.35)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-interface StatItem {
-  value: string;
-  label: string;
+function useWorkshopStats() {
+  const [stats, setStats] = useState({ total: 0, plans: 0, drafts: 0 });
+
+  useEffect(() => {
+    const all = listArtifacts({ source: "workshop" });
+    const plans = all.filter(a => a.kind === "plan").length;
+    const drafts = all.filter(a => a.kind === "draft").length;
+    setStats({ total: all.length, plans, drafts });
+  }, []);
+
+  return stats;
 }
 
 export default function WorkshopHeader() {
-  const projectIds = useMemo(() => Object.keys(projectData), []);
-  const { pulses } = useProjectPulse(projectIds);
-  const [artifactCount, setArtifactCount] = useState(0);
+  const stats = useWorkshopStats();
 
-  useEffect(() => {
-    let timer: number | undefined;
-
-    const updateCount = () => {
-      setArtifactCount(getRecentArtifacts(100).length);
-    };
-
-   const startTimer = () => {
-      if (timer != null) return;
-      // Ensure we refresh immediately when (re)starting the timer
-      updateCount();
-      timer = window.setInterval(updateCount, 5000);
-    };
-
-    const stopTimer = () => {
-      if (timer == null) return;
-      window.clearInterval(timer);
-      timer = undefined;
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        stopTimer();
-      } else {
-        startTimer();
-      }
-    };
-
-    // Start polling immediately on mount
-    startTimer();
-    // Pause/resume polling based on tab visibility
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      stopTimer();
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, []);
-
-  const liveProjects = pulses.filter((pulse) => pulse.isLive).length;
-  const stats: StatItem[] = [
-    { value: String(projectIds.length), label: "dossiers" },
-    { value: String(liveProjects), label: "live signals" },
-    { value: String(artifactCount), label: "artifacts" },
-  ];
+  const statItems = stats.total === 0
+    ? [
+        { value: "0", label: "projects" },
+        { value: "—", label: "plans" },
+        { value: "—", label: "drafts" },
+      ]
+    : [
+        { value: String(stats.total), label: stats.total === 1 ? "project" : "projects" },
+        { value: String(stats.plans), label: stats.plans === 1 ? "plan" : "plans" },
+        { value: String(stats.drafts), label: stats.drafts === 1 ? "draft" : "drafts" },
+      ];
 
   return (
     <motion.header
@@ -91,14 +63,13 @@ export default function WorkshopHeader() {
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "clamp(24px, 4vw, 36px)",
             fontWeight: 700,
-            color: "hsl(var(--rx-text-prime))",
+            color: "var(--rx-text-primary)",
             letterSpacing: "-0.02em",
             lineHeight: 1,
           }}
         >
           Nexus Cria
         </span>
-        {/* Teal dot indicator */}
         <motion.span
           animate={{ opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
@@ -125,12 +96,12 @@ export default function WorkshopHeader() {
           letterSpacing: "0.01em",
         }}
       >
-        Operational creation surface connected to live dossiers and execution artifacts.
+        Where ideas become real.
       </p>
 
-      {/* Stats row */}
+      {/* Stats row — live from artifact store */}
       <div style={{ display: "flex", gap: "clamp(20px, 4vw, 40px)", flexWrap: "wrap" }}>
-        {stats.map((stat, i) => (
+        {statItems.map((stat, i) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 8 }}

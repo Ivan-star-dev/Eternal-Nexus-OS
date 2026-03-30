@@ -14,6 +14,7 @@ import { useState } from "react";
 import LearningPath from "./LearningPath";
 import DoctrineMap from "./DoctrineMap";
 import JudgmentArchitecture from "./JudgmentArchitecture";
+import ValueCreationDoctrine from "./ValueCreationDoctrine";
 import { usePortalIdentity } from "@/hooks/usePortalIdentity";
 import { useEvolution } from "@/hooks/useEvolution";
 
@@ -81,7 +82,8 @@ export default function SchoolSurface() {
 
         {activeTrack === "foundations" && <JudgmentArchitecture />}
         {activeTrack === "foundations" && <DoctrineMap />}
-        <LearningPath maturityLevel={maturity.level} track={activeTrack} />
+        {activeTrack === "value-creation" && <ValueCreationDoctrine />}
+        <LearningPath maturityLevel={maturity.level as 0 | 1 | 2 | 3} track={activeTrack} />
       </div>
     </main>
   );
