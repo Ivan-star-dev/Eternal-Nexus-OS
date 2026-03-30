@@ -3,6 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
+**Última actualização:** 2026-03-30 (sessão SYNC-IN · @copilot)
+**Actualizado por:** @copilot | SYNC-IN ✅ · RUBERRA-ACCESS-SEAL-001 ✓ · BLOCK1 hero noise ✓ · BLOCK2 workshop seal ✓ · portal CONTENT BODY ✓ · portal PODIUM CONTENT ✓ · ops synced
 **Última actualização:** 2026-03-29 (sessão FORCE-TASK-003 · @copilot)
 **Actualizado por:** @copilot | FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
 **Última actualização:** 2026-03-29 (sessão RUBERRA-FINISH-PASS)
@@ -106,8 +108,32 @@ HOMEPAGE SEAL STATUS — 100% THEME-AWARE:
   ProjectsLiveSection ✅ · SessionPulse ✅ · Footer ✅ (bg + separator + text)
   Zero hardcoded dark assumptions remain on homepage.
 
+ACCESS SEAL — CONCLUÍDA ✅ (commit 46464f7):
+  WaitlistBanner · AuthModal · EmailCaptureModal · DualEntryGate
+  4 occurrences hsl(216 50% 5%) → hsl(var(--background)) — /access fully sovereign
+
+HERO BLOCK1 — CONCLUÍDA ✅ (commit 8395675):
+  GlobeScene: ParticleFlow (200 noise particles) removed · EarthquakeLayer removed
+  ProductHero SovereignText: 4 rgba dark values → rx-text tokens
+  Hero fully theme-aware · light mode headline no longer ghost
+
+WORKSHOP BLOCK2 — CONCLUÍDA ✅ (commit f519b97):
+  WorkshopSurface bg #0d0d14 → hsl(var(--background))
+  WorkshopHeader 3 dark rgba → rx-text tokens · ProjectGrid card/text → rx tokens
+  Workshop obeys sovereign theme system · zero dark assumptions remain
+
+PORTAL CONTENT BODY — CONCLUÍDA ✅ (commit e637a7c):
+  WorkshopArtifactPanel: C-01 · C-02 · C-03 installed (3 founder artifacts)
+  LabBlueprintTemplates: L-01 · L-02 · L-03 extended (3 investigation artifacts)
+  DoctrineMap (S-01): The Sovereignty Stack — 7 layers installed above Foundations
+  SchoolSurface track selector: dark hardcodes → rx-text tokens + hsl(var(--border))
+
+PORTAL PODIUM CONTENT — CONCLUÍDA ✅ (commit be33a88):
+  JudgmentArchitecture (School): 5-part doctrine · 5 J-capacities · Calibration Battery
+  LabActiveMission (Lab): "The Sovereign Creator Trap" — tabbed surface live
+  MechanismDocument (Workshop): 6-part build doctrine · primary article installed
+
 PENDING NEXT:
-  Block 2: Access layer seal → @claude  (RUBERRA-ACCESS-SEAL-001)
   Block 3: Lab interior seal → @cursor  (RUBERRA-LAB-SEAL-001)
   Block 4: Homepage polish   → @framer  (RUBERRA-POLISH-001)
 ```
@@ -166,7 +192,11 @@ PENDING NEXT:
 | RUBERRA-NAV-SEAL-001 | K-16 | **CONCLUÍDA ✓ — NavBar + SessionPulse fully theme-aware** |
 | RUBERRA-HOMEPAGE-SEAL-001 | K-16 | **CONCLUÍDA ✓ — Block 1: DossierCard + TrinityRow + Footer sealed** |
 | RUBERRA-FOOTER-TEXT-001 | K-16 | **CONCLUÍDA ✓ — Footer ghost text 10× → rx-text-ghost/dim** |
-| RUBERRA-ACCESS-SEAL-001 | K-16 | **ELEGÍVEL → @claude · Block 2: access layer 4 button hardcodes** |
+| RUBERRA-ACCESS-SEAL-001 | K-16 | **CONCLUÍDA ✓ — 4 access components sealed · commit 46464f7** |
+| RUBERRA-HERO-BLOCK1-001 | K-16 | **CONCLUÍDA ✓ — ParticleFlow/EarthquakeLayer removed · ProductHero SovereignText sealed · commit 8395675** |
+| RUBERRA-WORKSHOP-BLOCK2-001 | K-16 | **CONCLUÍDA ✓ — Workshop fully sovereign theme-aware · commit f519b97** |
+| PORTAL-CONTENT-BODY-001 | K-16 | **CONCLUÍDA ✓ — 9 founder artifacts across School/Lab/Workshop · commit e637a7c** |
+| PORTAL-PODIUM-CONTENT-001 | K-16 | **CONCLUÍDA ✓ — JudgmentArchitecture · LabActiveMission · MechanismDocument · commit be33a88** |
 | V5-RESEARCH-ARCH-001 | K-16 | STANDBY → trigger: GATE_V5_OPEN |
 
 ---
