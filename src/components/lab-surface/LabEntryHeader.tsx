@@ -68,7 +68,7 @@ export default function LabEntryHeader() {
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.4, ease: EASE }}
           style={{
-            background: "rgba(6,12,20,0.94)",
+            background: "hsl(var(--background) / 0.94)",
             borderBottom: "0.5px solid rgba(0,170,255,0.12)",
             backdropFilter: "blur(8px)",
             padding: "0 clamp(16px, 4vw, 60px)",

@@ -6,7 +6,11 @@
  * Canon: V7-SURFACES-001 · K-04+K-06 · @framer+@cursor
  */
 
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import projectData from "@/data/projects";
+import { getRecentArtifacts } from "@/lib/artifacts/store";
+import { useProjectPulse } from "@/hooks/useProjectPulse";
 
 const TEAL = "hsl(172, 55%, 38%)";
 const TEAL_FAINT = "hsla(172, 55%, 38%, 0.35)";
@@ -17,13 +21,25 @@ interface StatItem {
   label: string;
 }
 
-const STATS: StatItem[] = [
-  { value: "4", label: "projects" },
-  { value: "2", label: "active" },
-  { value: "1", label: "launching" },
-];
-
 export default function WorkshopHeader() {
+  const projectIds = useMemo(() => Object.keys(projectData), []);
+  const { pulses } = useProjectPulse(projectIds);
+  const [artifactCount, setArtifactCount] = useState(0);
+
+  useEffect(() => {
+    const updateCount = () => setArtifactCount(getRecentArtifacts(100).length);
+    updateCount();
+    const timer = window.setInterval(updateCount, 5000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const liveProjects = pulses.filter((pulse) => pulse.isLive).length;
+  const stats: StatItem[] = [
+    { value: String(projectIds.length), label: "dossiers" },
+    { value: String(liveProjects), label: "live signals" },
+    { value: String(artifactCount), label: "artifacts" },
+  ];
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -16 }}
@@ -77,12 +93,12 @@ export default function WorkshopHeader() {
           letterSpacing: "0.01em",
         }}
       >
-        Where ideas become real.
+        Operational creation surface connected to live dossiers and execution artifacts.
       </p>
 
       {/* Stats row */}
       <div style={{ display: "flex", gap: "clamp(20px, 4vw, 40px)", flexWrap: "wrap" }}>
-        {STATS.map((stat, i) => (
+        {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
             initial={{ opacity: 0, y: 8 }}

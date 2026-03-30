@@ -8,12 +8,17 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useEvolution } from "@/hooks/useEvolution";
 
 const GOLD = "hsl(42, 78%, 52%)";
 const GOLD_FAINT = "hsla(42, 78%, 52%, 0.35)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function SchoolNav() {
+  const { maturity } = useEvolution();
+  const completed = Math.min(5, maturity.level + 1);
+  const progress = completed / 5;
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -12 }}
@@ -24,7 +29,7 @@ export default function SchoolNav() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(10,15,30,0.92)",
+        background: "hsl(var(--background) / 0.92)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
         borderBottom: `1px solid ${GOLD_FAINT}`,
@@ -69,7 +74,7 @@ export default function SchoolNav() {
         >
           <motion.div
             initial={{ scaleX: 0 }}
-            animate={{ scaleX: 0.4 }}
+            animate={{ scaleX: progress }}
             transition={{ delay: 0.4, duration: 0.8, ease: EASE }}
             style={{
               height: "100%",
@@ -87,7 +92,7 @@ export default function SchoolNav() {
             color: `${GOLD}99`,
           }}
         >
-          2 of 5 complete
+          {completed} of 5 complete
         </span>
       </div>
 

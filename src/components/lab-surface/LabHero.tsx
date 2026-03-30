@@ -249,7 +249,7 @@ export default function LabHero() {
               fontWeight: 600,
               letterSpacing: "0.05em",
               textTransform: "uppercase",
-              color: "#060c14",
+              color: "hsl(var(--background))",
               background: "linear-gradient(135deg, #00aaff, #00c8d4)",
               border: "none",
               borderRadius: "8px",

@@ -3,7 +3,7 @@
  * Root wrapper for Creation Lab portal surface.
  * V10 upgrade: wires QuickCreate + real artifact flow + tool handlers.
  *
- * Identity: Dark deep blue (#060c14), electric blue accents (#00aaff).
+ * Identity: Background token + electric blue accents (#00aaff).
  * Density: MEDIUM — focused work bay, tools dormant until needed.
  * Motion: moderate — purposeful, never decorative.
  *
@@ -86,7 +86,7 @@ export default function LabSurface() {
       setToolCapMessage(msg);
       setTimeout(() => setToolCapMessage(null), 5000);
     }
-  }, [session]);
+  }, [session, user?.id]);
 
   return (
     <section
@@ -94,7 +94,7 @@ export default function LabSurface() {
       aria-label="Creation Lab"
       data-portal-dense={isDenseAllowed ? "true" : "false"}
       style={{
-        background: "#060c14",
+        background: "hsl(var(--background))",
         minHeight: "100vh",
         padding: "clamp(48px, 8vh, 96px) clamp(16px, 4vw, 60px)",
         position: "relative",

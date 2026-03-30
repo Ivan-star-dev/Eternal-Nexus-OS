@@ -209,7 +209,7 @@ export default function LabToolSpine({ visible, onToolSelect }: LabToolSpineProp
                   left: "calc(100% + 10px)",
                   top: "50%",
                   transform: "translateY(-50%)",
-                  background: "rgba(6,12,20,0.95)",
+                  background: "hsl(var(--background) / 0.95)",
                   border: "1px solid rgba(0,170,255,0.15)",
                   borderRadius: "6px",
                   padding: "6px 12px",

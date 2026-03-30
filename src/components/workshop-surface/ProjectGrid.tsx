@@ -1,13 +1,16 @@
 /**
  * ProjectGrid.tsx
- * 2-col project grid (1-col mobile) for Nexus Cria / Workshop.
+ * Live dossier grid for Nexus Cria / Workshop.
  *
- * 4 mock projects + New Project button (dashed).
- * Progress bar per project (teal fill).
+ * Uses canonical project dataset + pulse activity to render status and progress.
+ * Routes directly to /project/:id dossiers.
  * Canon: V7-SURFACES-001 · K-04+K-06 · @framer+@cursor
  */
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import projectData from "@/data/projects";
+import { useProjectPulse } from "@/hooks/useProjectPulse";
 
 const TEAL = "hsl(172, 55%, 38%)";
 const TEAL_MID = "hsla(172, 55%, 38%, 0.55)";
@@ -22,15 +25,18 @@ interface Project {
   title: string;
   category: Category;
   progress: number;
-  team: number;
+  country: string;
+  status: string;
+  route: string;
 }
 
-const PROJECTS: Project[] = [
-  { id: "w1", title: "Nexus Interface System", category: "Design", progress: 72, team: 3 },
-  { id: "w2", title: "Orbital Data Layer", category: "Build", progress: 48, team: 2 },
-  { id: "w3", title: "Ruberra Market Study", category: "Research", progress: 91, team: 4 },
-  { id: "w4", title: "Beta Launch Package", category: "Launch", progress: 25, team: 5 },
-];
+const CATEGORY_MAP: Record<string, Category> = {
+  "deltaspine-nl": "Build",
+  "geocore-power": "Build",
+  "terra-lenta": "Research",
+  "fusion-core": "Launch",
+  "chip-fold": "Design",
+};
 
 const CATEGORY_COLORS: Record<Category, string> = {
   Design: "hsla(220, 80%, 65%, 0.75)",
@@ -48,7 +54,27 @@ const cardVariants = {
   }),
 };
 
+function estimateProgress(status: string, pulseCount: number): number {
+  const normalized = status.toLowerCase();
+  const base = normalized.includes("active")
+    ? 52
+    : normalized.includes("progress")
+      ? 44
+      : normalized.includes("completed")
+        ? 100
+        : normalized.includes("planning")
+          ? 28
+          : 36;
+  return Math.min(100, Math.max(12, base + Math.min(30, pulseCount * 2)));
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const statusColor =
+    project.status.toLowerCase().includes("active")
+      ? "hsl(155, 65%, 48%)"
+      : project.status.toLowerCase().includes("completed")
+        ? "hsl(42, 78%, 52%)"
+        : "hsl(210, 14%, 65%)";
   return (
     <motion.div
       custom={index}
@@ -169,93 +195,53 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             color: "var(--rx-text-ghost)",
           }}
         >
-          {project.team} member{project.team !== 1 ? "s" : ""}
+          {project.country}
         </span>
 
-        <motion.button
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
+        <Link
+          to={project.route}
           style={{
+            display: "inline-flex",
+            alignItems: "center",
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "11px",
             fontWeight: 600,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: TEAL,
+            color: statusColor,
             background: TEAL_FAINT,
             border: `1px solid ${TEAL_BORDER}`,
             borderRadius: "6px",
             padding: "5px 14px",
             cursor: "pointer",
+            textDecoration: "none",
           }}
         >
           Open
-        </motion.button>
+        </Link>
       </div>
     </motion.div>
   );
 }
 
-function NewProjectCard() {
-  return (
-    <motion.button
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.5, ease: EASE }}
-      whileHover={{
-        borderColor: TEAL_MID,
-        backgroundColor: TEAL_FAINT,
-        transition: { duration: 0.2 },
-      }}
-      style={{
-        background: "transparent",
-        border: `1.5px dashed ${TEAL_BORDER}`,
-        borderRadius: "12px",
-        padding: "22px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "10px",
-        cursor: "pointer",
-        minHeight: "140px",
-        transition: "border-color 0.2s, background 0.2s",
-        width: "100%",
-      }}
-    >
-      <span
-        aria-hidden
-        style={{
-          width: "22px",
-          height: "22px",
-          borderRadius: "50%",
-          border: `1.5px solid ${TEAL_BORDER}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: TEAL_MID,
-          fontSize: "16px",
-          lineHeight: 1,
-          flexShrink: 0,
-        }}
-      >
-        +
-      </span>
-      <span
-        style={{
-          fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "13px",
-          fontWeight: 600,
-          color: "rgba(150,185,185,0.5)",
-          letterSpacing: "0.02em",
-        }}
-      >
-        New Project
-      </span>
-    </motion.button>
-  );
-}
-
 export default function ProjectGrid() {
+  const pulseIds = Object.keys(projectData);
+  const { pulses } = useProjectPulse(pulseIds);
+  const pulseMap = new Map(pulses.map((p) => [p.projectId, p]));
+  const projects: Project[] = Object.entries(projectData).map(([id, data]) => {
+    const pulse = pulseMap.get(id);
+    const status = data.status ?? "active";
+    return {
+      id,
+      title: data.title,
+      category: CATEGORY_MAP[id] ?? "Research",
+      progress: estimateProgress(status, pulse?.activityCount ?? 0),
+      country: data.country,
+      status,
+      route: `/project/${id}`,
+    };
+  });
+
   return (
     <section aria-label="Projects">
       <div
@@ -265,10 +251,9 @@ export default function ProjectGrid() {
           gap: "16px",
         }}
       >
-        {PROJECTS.map((project, i) => (
+        {projects.map((project, i) => (
           <ProjectCard key={project.id} project={project} index={i} />
         ))}
-        <NewProjectCard />
       </div>
     </section>
   );
