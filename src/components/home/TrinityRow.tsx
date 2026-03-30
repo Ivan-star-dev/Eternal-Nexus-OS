@@ -250,6 +250,14 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
             "linear-gradient(180deg, hsl(var(--background) / 0) 0%, hsl(var(--background) / 0.3) 100%)",
         }}
       >
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% -12%, hsl(42 78% 52% / 0.09) 0%, transparent 62%)",
+          }}
+        />
         <div className="flex flex-col md:flex-row">
           {PORTALS.map((portal, i) => (
             <div

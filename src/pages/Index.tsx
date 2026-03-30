@@ -75,6 +75,28 @@ function ChamberLabel({ text }: { text: string }) {
   );
 }
 
+function RitualMarker({ index }: { index: number }) {
+  return (
+    <div className="absolute left-1/2 top-2 z-20 hidden -translate-x-1/2 md:block" aria-hidden>
+      <div
+        className="flex h-7 w-7 items-center justify-center border"
+        style={{
+          borderColor: "hsl(42 78% 52% / 0.32)",
+          background: "hsl(var(--background) / 0.82)",
+          boxShadow: "0 0 24px -14px hsl(42 78% 52% / 0.75)",
+        }}
+      >
+        <span
+          className="font-mono text-[8px] tabular-nums"
+          style={{ letterSpacing: "0.1em", color: "hsl(42 78% 52% / 0.8)" }}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 const Index = () => {
   return (
     <Layout>
@@ -93,7 +115,7 @@ const Index = () => {
             }}
           />
 
-          <div className="relative z-10 mx-auto max-w-[1260px]">
+          <div className="relative z-10 mx-auto max-w-[1300px]">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +123,7 @@ const Index = () => {
               transition={{ duration: 0.75, ease }}
               className="mb-10 text-center sm:mb-14"
             >
-              <ChamberLabel text="Strategic Dossiers" />
+              <ChamberLabel text="Sovereign Dossier Procession" />
               <h2
                 className="font-serif"
                 style={{
@@ -113,8 +135,9 @@ const Index = () => {
                   lineHeight: 1.02,
                 }}
               >
-                Active dossiers,{" "}
-                <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>world-scale intent.</span>
+                Strategic dossiers,
+                <br />
+                <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>ritual entry thresholds.</span>
               </h2>
               <p
                 className="mx-auto mt-4 max-w-[680px] font-sans"
@@ -125,12 +148,20 @@ const Index = () => {
                   lineHeight: 1.7,
                 }}
               >
-                Strategic systems already in motion, surfaced as living dossier
-                matter inside one sovereign line.
+                Not cards. Each dossier is a passage where memory, examination, and
+                authorship acquire operational form.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <div className="relative mx-auto max-w-[1180px]">
+              <div
+                className="pointer-events-none absolute bottom-12 left-1/2 top-2 hidden w-px -translate-x-1/2 md:block"
+                aria-hidden
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent, hsl(42 78% 52% / 0.22) 12%, hsl(var(--rx-rim) / 0.38) 56%, transparent)",
+                }}
+              />
               {homeProjects.map((project, i) => (
                 <motion.div
                   key={project.id}
@@ -138,13 +169,15 @@ const Index = () => {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.08, duration: 0.68, ease }}
+                  className={i === 0 ? "" : "mt-8 sm:mt-10 md:mt-12"}
                 >
+                  <RitualMarker index={i} />
                   <DossierCard project={project} index={i} />
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-12 sm:mt-16">
+            <div className="mt-14 border-t border-border/60 pt-10 sm:mt-16 sm:pt-12">
               <ProjectsLiveSection inChamber />
             </div>
           </div>
@@ -178,7 +211,8 @@ const Index = () => {
                   lineHeight: 1.03,
                 }}
               >
-                Choose your{" "}
+                Choose your
+                <br />
                 <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>sovereign domain.</span>
               </h2>
               <p

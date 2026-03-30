@@ -10,7 +10,7 @@ import { motion, useInView } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const MOTHER_PHRASE =
-  "Not a promise layer. A governing layer already in operation.";
+  "Not a promise surface. A governing organism already in motion.";
 
 interface ProofMetric {
   value: number;
@@ -142,7 +142,7 @@ export default function HeroFirstProof() {
           fontFamily: "Cormorant Garamond, Georgia, serif",
           fontSize: "clamp(20px, 4.8vw, 34px)",
           fontWeight: 300,
-          color: "rgba(228,235,240,0.84)",
+          color: "hsl(var(--rx-text-prime) / 0.86)",
           maxWidth: "760px",
           margin: "0 auto",
           letterSpacing: "-0.01em",
@@ -155,7 +155,7 @@ export default function HeroFirstProof() {
         initial={{ opacity: 0, y: 16 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.3, duration: 0.9, ease: EASE }}
-        className="relative mt-10 sm:mt-14"
+        className="relative mt-10 overflow-hidden sm:mt-14"
         style={{
           padding: "34px 18px",
           background:
@@ -164,6 +164,14 @@ export default function HeroFirstProof() {
           boxShadow: "0 24px 80px -50px hsl(205 100% 52% / 0.35)",
         }}
       >
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, hsl(42 78% 52% / 0.08) 0%, transparent 68%)",
+          }}
+        />
         <span className="absolute top-0 left-0 w-2 h-2 border-t border-l" style={{ borderColor: "rgba(200,164,78,0.25)" }} aria-hidden="true" />
         <span className="absolute top-0 right-0 w-2 h-2 border-t border-r" style={{ borderColor: "rgba(200,164,78,0.25)" }} aria-hidden="true" />
         <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l" style={{ borderColor: "rgba(200,164,78,0.25)" }} aria-hidden="true" />

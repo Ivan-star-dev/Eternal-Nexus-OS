@@ -6,6 +6,58 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @cursor | RUBERRA-VISUAL-ASCENSION-001 | HOMEPAGE VISUAL TRUTH STRIKE
+
+**TASK:** RUBERRA CORP — CURSOR ABSOLUTE VISUAL EVOLUTION REGIME (homepage visual embodiment front)
+**STATUS:** CONCLUÍDO ✅ (strike entregue)
+**ALTERACAO_REAL:** sim — 6 ficheiros produto + 1 ficheiro ops actualizados
+**BRANCH:** cursor/current-task-identification-ca0d
+**COMMIT:** (nesta sessão)
+**PR:** #202 (draft actualizado)
+
+---
+
+**FEITO:**
+- [✅] **Hero authority reforçada** (`ProductHero.tsx`):
+  - title architecture elevada: "Sovereign entry. One truth, three powers."
+  - supporting copy mais contida e governante
+  - CTA primário/secundário com largura full em mobile (threshold feel no first viewport)
+  - atmosfera deepen com gradientes mais densos e coerentes
+- [✅] **Dossier zone saiu de “grid de cards”** (`Index.tsx` + `DossierCard.tsx`):
+  - composição convertida para *procession line* com eixo ritual vertical
+  - marcador ceremonial por dossier (01/02/03) no desktop
+  - cartões reescritos como painéis editoriais de threshold, com alternância espacial
+  - tipografia de título ampliada, subtítulo/tagging mais soberano, CTA de entrada mais consequente
+- [✅] **ProjectsLiveSection unificada ao novo idioma visual** (`ProjectsLiveSection.tsx`):
+  - cards live com matéria/edge/contraste alinhados ao novo chamber
+  - header elevado para “Living Registry / Projects in signal”
+  - badge tones migradas para lógica de veios (sem classe utilitária genérica)
+- [✅] **Trinity + Proof refinados para coerência de organismo**:
+  - `TrinityRow.tsx`: camada atmosférica axial adicionada no container
+  - `HeroFirstProof.tsx`: mother phrase fortalecida e chamber com depth halo interno
+
+**INTEGRAÇÃO:**
+- Rotas e fluxo canónico preservados (`/lab`, `/school`, `/workshop`, `/project/:id`, `/access`)
+- Sem alterações em ficheiros protegidos (`vite.config.ts`, `src/types/index.ts`, `data/projects.ts`, `tailwind.config.ts`)
+- Mudança estritamente no front de embodiment visual da homepage
+
+**VALIADAÇÃO EXECUTADA:**
+- `npx eslint src/pages/Index.tsx src/components/home/DossierCard.tsx src/components/home/ProjectsLiveSection.tsx src/components/home/ProductHero.tsx src/components/home/TrinityRow.tsx src/components/home/HeroFirstProof.tsx` → ✅ sem novos problemas nos ficheiros alterados
+- `npm run typecheck` → ❌ falha baseline pré-existente em `src/components/lab-surface/LabActiveMission.tsx` (parse error fora do escopo desta strike)
+- `npm run lint` → ❌ falhas baseline pré-existentes (`scripts/gates/*.cjs`, `src/vite-env.d.ts` + warnings globais) fora do escopo desta strike
+
+**NÃO FEITO (intencional):**
+- Não houve alteração de arquitetura, rotas canónicas, ou fluxo de produto
+- Não houve feature work fora do front visual pedido
+
+**BLOQUEIOS:** nenhum bloqueio funcional para merge do strike visual; apenas baseline lint/typecheck global pendente no repo
+
+**PRÓXIMO PASSO RECOMENDADO:**
+- 1) Hardening pass de baseline (lint/typecheck) em task separada
+- 2) Se desejado, terceira strike visual micro (apenas micro-ritmo mobile no chamber de entrada final)
+
+---
+
 ## HANDOFF — 2026-03-30 | @cursor | RUBERRA-LAB-SEAL-001 | BLOCK 3 LAB INTERIOR SEALED
 
 **TASK:** RUBERRA-LAB-SEAL-001 — Lab / School / Creator interior embodiment (Block 3)

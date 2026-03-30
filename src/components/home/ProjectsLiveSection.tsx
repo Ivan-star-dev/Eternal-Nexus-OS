@@ -34,14 +34,14 @@ function statusLabel(raw: string): string {
   return raw.toUpperCase().slice(0, 12);
 }
 
-const statusClass: Record<string, string> = {
-  ACTIVE: "bg-accent text-accent-foreground",
-  PLANNING: "bg-primary/20 text-primary",
-  ARCHIVED: "bg-secondary text-secondary-foreground",
+const statusTone: Record<string, string> = {
+  ACTIVE: "hsl(172 55% 36% / 0.86)",
+  PLANNING: "hsl(205 100% 52% / 0.86)",
+  ARCHIVED: "hsl(42 45% 68% / 0.8)",
 };
 
-function badgeClass(s: string): string {
-  return statusClass[s] || "bg-secondary text-secondary-foreground";
+function badgeTone(s: string): string {
+  return statusTone[s] || "hsl(var(--rx-text-mid) / 0.92)";
 }
 
 // ── Skeleton card ─────────────────────────────────────────────────────────────
@@ -66,12 +66,19 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -3 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: index * 0.08, duration: 0.6, ease }}
     >
       <Link to="/lab" className="group block h-full">
-        <div className="relative border border-border bg-card p-5 h-full transition-all duration-400 hover:border-primary/40 hover:shadow-[0_0_30px_-10px_hsl(var(--primary)/0.2)]">
+        <div
+          className="relative h-full border p-5 transition-all duration-400 hover:shadow-[0_20px_70px_-44px_hsl(42_78%_52%_/_0.55)]"
+          style={{
+            borderColor: "hsl(var(--rx-rim) / 0.72)",
+            background:
+              "linear-gradient(180deg, hsl(var(--background) / 0.38) 0%, hsl(var(--background) / 0.62) 100%)",
+          }}
+        >
           {/* Color dot from globe project */}
           <div className="flex items-start justify-between gap-2 mb-3">
             <div className="flex items-center gap-2">
@@ -79,7 +86,14 @@ function ProjectCard({ project, index }: { project: GlobeProject; index: number 
                 className="w-2 h-2 rounded-full flex-shrink-0 mt-[3px]"
                 style={{ backgroundColor: project.color || "hsl(var(--primary))" }}
               />
-              <span className={`font-mono text-[0.48rem] tracking-[0.15em] px-2 py-0.5 uppercase ${badgeClass(label)}`}>
+              <span
+                className="font-mono text-[0.48rem] tracking-[0.15em] px-2 py-0.5 uppercase"
+                style={{
+                  color: badgeTone(label),
+                  border: "0.5px solid hsl(var(--rx-rim) / 0.65)",
+                  background: "hsl(var(--background) / 0.55)",
+                }}
+              >
                 {label}
               </span>
             </div>
@@ -136,7 +150,7 @@ const ProjectsLiveSection = ({ inChamber = false }: ProjectsLiveSectionProps) =>
       className={inChamber ? "py-0" : "py-20 sm:py-24 px-4 sm:px-6 md:px-16 lg:px-20 border-t border-border"}
       aria-label="Projectos Registados — Lab"
     >
-      <div className={inChamber ? "max-w-[1200px] mx-auto" : "max-w-[1200px] mx-auto"}>
+      <div className="max-w-[1200px] mx-auto">
 
         {/* Header */}
         <motion.div
@@ -144,15 +158,18 @@ const ProjectsLiveSection = ({ inChamber = false }: ProjectsLiveSectionProps) =>
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12"
+          className="mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            <span className="font-mono text-[0.55rem] tracking-[0.25em] text-muted-foreground uppercase block mb-3">
-              Sistema Activo
+            <span
+              className="mb-3 block font-mono text-[0.55rem] uppercase text-muted-foreground"
+              style={{ letterSpacing: "0.26em", color: "hsl(42 78% 52% / 0.58)" }}
+            >
+              Living Registry
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
-              Projectos{" "}
-              <span className="text-primary italic font-light">em Curso</span>
+              Projects{" "}
+              <span className="text-primary italic font-light">in signal</span>
             </h2>
           </div>
 
@@ -170,6 +187,10 @@ const ProjectsLiveSection = ({ inChamber = false }: ProjectsLiveSectionProps) =>
             <Link
               to="/lab"
               className="font-mono text-[0.55rem] tracking-[0.12em] border border-border text-foreground px-4 py-2 hover:bg-card hover:border-primary/30 transition-all duration-200 flex items-center gap-2 uppercase"
+              style={{
+                borderColor: "hsl(var(--rx-rim) / 0.72)",
+                background: "hsl(var(--background) / 0.45)",
+              }}
             >
               Ver Lab <ArrowRight className="w-3 h-3" />
             </Link>
@@ -178,11 +199,11 @@ const ProjectsLiveSection = ({ inChamber = false }: ProjectsLiveSectionProps) =>
 
         {/* Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 3 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
         ) : projects.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p, i) => (
               <ProjectCard key={p.id} project={p} index={i} />
             ))}

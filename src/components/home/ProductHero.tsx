@@ -25,7 +25,7 @@ function AtmosphereField() {
           height: "min(110vw, 1400px)",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle at center, hsl(42 78% 52% / 0.12) 0%, hsl(205 100% 52% / 0.06) 26%, hsl(172 55% 36% / 0.08) 46%, transparent 74%)",
+            "radial-gradient(circle at center, hsl(42 78% 52% / 0.14) 0%, hsl(205 100% 52% / 0.08) 24%, hsl(172 55% 36% / 0.1) 48%, transparent 74%)",
           filter: "blur(72px)",
         }}
       />
@@ -35,7 +35,7 @@ function AtmosphereField() {
           width: "min(140vw, 1700px)",
           height: "min(92vw, 980px)",
           background:
-            "radial-gradient(ellipse at center, hsl(205 100% 52% / 0.08) 0%, hsl(172 55% 36% / 0.06) 35%, transparent 72%)",
+            "radial-gradient(ellipse at center, hsl(205 100% 52% / 0.1) 0%, hsl(172 55% 36% / 0.07) 35%, transparent 72%)",
           filter: "blur(95px)",
         }}
       />
@@ -136,13 +136,19 @@ function EntranceCopy() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
-        className="mb-5 flex items-center gap-4 sm:mb-7"
+        className="mb-5 flex flex-col items-center gap-3 sm:mb-7"
       >
         <span
           className="font-mono text-[8px] uppercase tracking-[0.32em] sm:text-[9px]"
           style={{ color: "hsl(42 78% 52% / 0.58)" }}
         >
           ETERNAL NEXUS OS · Sovereign Entry
+        </span>
+        <span
+          className="font-mono text-[8px] uppercase sm:text-[9px]"
+          style={{ letterSpacing: "0.2em", color: "hsl(var(--rx-text-ghost) / 0.88)" }}
+        >
+          Past · Present · Future
         </span>
       </motion.div>
 
@@ -159,9 +165,9 @@ function EntranceCopy() {
           maxWidth: "980px",
         }}
       >
-        One system.
+        Sovereign entry.
         <br />
-        <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>Three portals.</span>
+        <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>One truth, three powers.</span>
       </motion.h1>
 
       <motion.p
@@ -176,23 +182,23 @@ function EntranceCopy() {
           letterSpacing: "0.01em",
         }}
       >
-        Not a landing page. A sovereign operating surface where memory, reality,
-        and authorship converge at world scale.
+        A governed operating surface where memory, examination, and creation
+        converge as one authored system.
       </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.62, duration: 0.8, ease: EASE }}
-        className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-10 sm:gap-4"
+        className="mt-8 flex w-full flex-wrap items-center justify-center gap-3 sm:mt-10 sm:gap-4"
       >
         <Link
           to="/access"
-          className="inline-flex items-center justify-center border px-6 py-3 font-sans uppercase transition-colors sm:px-8"
+          className="inline-flex w-full items-center justify-center border px-6 py-3 font-sans uppercase transition-colors sm:w-auto sm:px-8"
           style={{
             fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "10px",
-            letterSpacing: "0.16em",
+            fontSize: "11px",
+            letterSpacing: "0.17em",
             color: "hsl(var(--background))",
             borderColor: "hsl(42 78% 52% / 0.82)",
             background: "linear-gradient(135deg, hsl(42 78% 52%), hsl(35 90% 64%))",
@@ -202,9 +208,9 @@ function EntranceCopy() {
         </Link>
         <Link
           to="/lab"
-          className="inline-flex items-center justify-center border px-6 py-3 font-mono uppercase transition-colors sm:px-8"
+          className="inline-flex w-full items-center justify-center border px-6 py-3 font-mono uppercase transition-colors sm:w-auto sm:px-8"
           style={{
-            fontSize: "10px",
+            fontSize: "11px",
             letterSpacing: "0.14em",
             color: "hsl(var(--rx-text-prime) / 0.8)",
             borderColor: "hsl(var(--rx-rim) / 0.95)",

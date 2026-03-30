@@ -3,8 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-30 (sessão RUBERRA-LAB-SEAL-001 · @cursor)
-**Actualizado por:** @cursor | Block 3 sealed ✅ · Lab hardcodes removidos nos 4 ficheiros canónicos · School progress live · Workshop interior ligado a dossiers+pulse reais · PR #202 draft
+**Última actualização:** 2026-03-30 (sessão RUBERRA-VISUAL-ASCENSION-001 · @cursor)
+**Actualizado por:** @cursor | Homepage visual ascension strike ✅ · hero authority ++ · dossier procession (card-DNA removido) · mobile CTA threshold reforçado · trinity/proof/live chamber unificados
 
 ---
 
@@ -36,21 +36,21 @@ CONSTELLATION_DISPATCH_001 ═════════════════�
 | **Arquitectura** | NEXUS_KERNEL_OS v1.0 — 8 layers · 18 kernels · dynamic clusters |
 | **Automação** | NEXUS_BRIDGE_AGENT — GitHub Action activo · gate <60s · stall 4h |
 | **Estado geral** | GATE_V4_OPEN emitido 2026-03-27 · SITE-CONVERGENCE STEP1–7 done 2026-03-29 · **V4 LIVING WORLD EM EXECUÇÃO** |
-| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · Block2(@claude) pendente · Block3(@cursor) concluído ✅ · Block4(@framer) elegível |
+| **Estado geral** | Homepage 100% theme-aware ✅ · Globe sealed ✅ · Visual ascension strike @cursor (hero+dossier procession+mobile authority) ✅ · Block2(@claude) pendente · Block3(@cursor) concluído ✅ · Block4(@framer) elegível |
 
 ---
 
 ## 1A. CANONICAL SITE LINE — FONTE DE VERDADE
 
 ```
-CANONICAL HOMEPAGE (route "/") — LOCKED 2026-03-29:
+CANONICAL HOMEPAGE (route "/") — ELEVATED 2026-03-30:
   Index.tsx
     └── ProductHero.tsx
           └── GlobeScene.tsx    ← cosmic wrap (STEP3)
-          └── TrinityRow.tsx    ← routes fixed · veins distinct · label sovereign
-          └── HeroFirstProof.tsx ← metrics corrected
-    └── DossierCard grid        ← "Projetos Ativos" — FORBIDDEN-08 fixed · PLANNING vein electric · CREATION label ✓
-    └── ProjectsLiveSection     ← /atlas dead route killed → /lab · coords removed · sublabel cleaned ✓
+          └── TrinityRow.tsx    ← sovereign trinity veil deepened · one-law chamber continuity
+          └── HeroFirstProof.tsx ← evidence phrase + chamber aura uplifted
+    └── DossierCard procession  ← card-grid DNA removido · alternating monumental dossier thresholds
+    └── ProjectsLiveSection     ← "Living Registry" integrated under dossier chamber cadence
     └── Sovereign CTA           ← /lab · /school · /workshop only
 
 PURGED FROM HOMEPAGE:
