@@ -268,13 +268,12 @@ export default function TrinityRow({ activeFace }: TrinityRowProps) {
           {PORTALS.map((portal, i) => (
             <div
               key={portal.id}
-              className="relative flex-1"
-              style={{
-                borderRight:
-                  i < PORTALS.length - 1 ? "0.5px solid hsl(var(--rx-rim) / 0.58)" : "none",
-                borderBottom:
-                  i < PORTALS.length - 1 ? "0.5px solid hsl(var(--rx-rim) / 0.42)" : "none",
-              }}
+              className={
+                "relative flex-1 " +
+                (i < PORTALS.length - 1
+                  ? "border-b-[0.5px] border-b-[hsl(var(--rx-rim)_/_0.42)] md:border-b-0 md:border-r-[0.5px] md:border-r-[hsl(var(--rx-rim)_/_0.58)]"
+                  : "")
+              }
             >
               <PortalNode
                 portal={portal}
