@@ -3,10 +3,8 @@
 > Documento vivo. Actualizado ao final de cada sessão.
 > Em caso de conflito com BASTION.md, o BASTION prevalece.
 
-**Última actualização:** 2026-03-29 (sessão FORCE-TASK-003 · @copilot)
-**Actualizado por:** @copilot | FORCE_TASK_ACTIVATION_003 emitida · LIVE_STATE actualizado · BASTION V4 tasks inseridas · HANDOFF_LEDGER appended
-**Última actualização:** 2026-03-29 (sessão RUBERRA-FINISH-PASS)
-**Actualizado por:** @claude | STEP1–7 ✅ + RUBERRA-FINISH-PASS ✅ · globe visual fusion · sovereign dark/light system · ThemeToggle · ProductHero sealed · NavBar sealed · SessionPulse sealed · DossierCard sealed · TrinityRow sealed · Footer fully sealed · homepage 100% theme-aware
+**Última actualização:** 2026-03-30 (sessão GUARDIAN-REVIEW-001 · @copilot)
+**Actualizado por:** @copilot | GUARDIAN_REVIEW_001 executado · 4 defects fixados · LIVE_STATE actualizado · HANDOFF_LEDGER appended
 
 ---
 

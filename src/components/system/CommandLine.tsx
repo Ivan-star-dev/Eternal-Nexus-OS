@@ -117,8 +117,8 @@ const COMMANDS: Record<string, TerminalLine[]> = {
 
   branch: [
     { type: "output", content: "" },
-    { type: "gate", content: `BRANCH CANÔNICO:  ${process.env.NEXT_PUBLIC_CANONICAL_BRANCH ?? "claude/rebuild-bastion-core-rihGX"}` },
-    { type: "output", content: `BRANCH SISTEMA:   ${process.env.NEXT_PUBLIC_SYSTEM_BRANCH ?? "cursor/system-face-core-d9db"}` },
+    { type: "gate", content: `BRANCH CANÔNICO:  ${import.meta.env.VITE_CANONICAL_BRANCH ?? "claude/setup-ruberra-nexus-IL7Tg"}` },
+    { type: "output", content: `BRANCH SISTEMA:   ${import.meta.env.VITE_SYSTEM_BRANCH ?? "claude/setup-ruberra-nexus-IL7Tg"}` },
     { type: "comment", content: "# toda escrita, commit e push → branch canônico" },
     { type: "output", content: "" },
   ],

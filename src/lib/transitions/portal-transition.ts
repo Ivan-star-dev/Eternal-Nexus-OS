@@ -6,6 +6,26 @@
  */
 
 import { getCurrentBudget } from '@/lib/fidelity';
+import type { Easing, TargetAndTransition } from 'framer-motion';
+
+/**
+ * Convert a CSS easing string or cubic-bezier() to a Framer Motion Easing value.
+ * Framer Motion uses camelCase names and numeric arrays instead of CSS easing strings.
+ */
+function toFramerEasing(css: string): Easing {
+  const cbMatch = css.match(/cubic-bezier\(\s*([\d.]+),\s*([\d.]+),\s*([\d.]+),\s*([\d.]+)\s*\)/);
+  if (cbMatch) {
+    return [parseFloat(cbMatch[1]), parseFloat(cbMatch[2]), parseFloat(cbMatch[3]), parseFloat(cbMatch[4])];
+  }
+  const cssToFramer: Record<string, Easing> = {
+    'linear': 'linear',
+    'ease': 'easeInOut',
+    'ease-in': 'easeIn',
+    'ease-out': 'easeOut',
+    'ease-in-out': 'easeInOut',
+  };
+  return cssToFramer[css] ?? 'easeOut';
+}
 
 export type TransitionKind =
   | 'soft'      // minor shift — partial base retained, minimal animation
@@ -78,9 +98,9 @@ export interface TransitionContext {
 export interface ResolvedTransition {
   config: TransitionConfig;
   framer_variants: {
-    initial: Record<string, unknown>;
-    animate: Record<string, unknown>;
-    exit: Record<string, unknown>;
+    initial: TargetAndTransition;
+    animate: TargetAndTransition;
+    exit: TargetAndTransition;
   };
 }
 
@@ -126,7 +146,7 @@ function classifyTransitionKind(from: string, to: string): TransitionKind {
   return 'full';
 }
 
-function buildVariants(config: TransitionConfig) {
+function buildVariants(config: TransitionConfig): { initial: TargetAndTransition; animate: TargetAndTransition; exit: TargetAndTransition } {
   if (config.kind === 'instant') {
     return {
       initial: {},
@@ -147,7 +167,7 @@ function buildVariants(config: TransitionConfig) {
       filter: 'blur(0px)',
       transition: {
         duration: config.duration_ms / 1000,
-        ease: config.easing,
+        ease: toFramerEasing(config.easing),
       },
     },
     exit: {
@@ -156,7 +176,7 @@ function buildVariants(config: TransitionConfig) {
       filter: config.blur_out > 0 ? `blur(${config.blur_out / 2}px)` : undefined,
       transition: {
         duration: (config.duration_ms * 0.7) / 1000,
-        ease: 'ease-in',
+        ease: toFramerEasing('ease-in'),
       },
     },
   };

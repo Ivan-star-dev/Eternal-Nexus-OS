@@ -23,7 +23,7 @@ interface Blueprint {
   id: string;
   label: string;
   category: string;
-  artifactKind: "plan" | "synthesis" | "decision";
+  artifactKind: "plan" | "synthesis" | "decision" | "research" | "experiment";
   titleTemplate: string;
   contentTemplate: string;
 }
