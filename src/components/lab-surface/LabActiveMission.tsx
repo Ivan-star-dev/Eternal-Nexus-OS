@@ -59,7 +59,7 @@ const EVIDENCE: EvidenceSignal[] = [
   },
   {
     id: "S2",
-    title: "The "For My Audience" Pivot",
+    title: 'The "For My Audience" Pivot',
     body: "High-growth phases are characterized by creators producing work they personally needed and couldn't find. Plateau phases are characterized by creators producing work for an imagined audience based on performance signals. The pivot from \"for me\" to \"for them\" coincides with plateau onset in the majority of observed cases. This is not obvious while it happens — it feels like maturation.",
   },
   {
