@@ -83,7 +83,7 @@ export default function SchoolSurface() {
         {activeTrack === "foundations" && <JudgmentArchitecture />}
         {activeTrack === "foundations" && <DoctrineMap />}
         {activeTrack === "value-creation" && <ValueCreationDoctrine />}
-        <LearningPath maturityLevel={maturity.level} track={activeTrack} />
+        <LearningPath maturityLevel={maturity.level as 0 | 1 | 2 | 3} track={activeTrack} />
       </div>
     </main>
   );
