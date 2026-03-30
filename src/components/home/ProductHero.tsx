@@ -46,6 +46,13 @@ function AtmosphereField() {
             "linear-gradient(180deg, hsl(var(--background) / 0.2) 0%, transparent 24%, transparent 62%, hsl(var(--background) / 0.86) 100%)",
         }}
       />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 44%, hsl(var(--background) / 0) 0%, hsl(var(--background) / 0.18) 56%, hsl(var(--background) / 0.64) 100%)",
+        }}
+      />
     </div>
   );
 }
@@ -138,87 +145,132 @@ function EntranceCopy() {
         transition={{ delay: 0.2, duration: 0.8, ease: EASE }}
         className="mb-5 flex flex-col items-center gap-3 sm:mb-7"
       >
-        <span
-          className="font-mono text-[8px] uppercase tracking-[0.32em] sm:text-[9px]"
-          style={{ color: "hsl(42 78% 52% / 0.58)" }}
-        >
-          ETERNAL NEXUS OS · Sovereign Entry
-        </span>
-        <span
-          className="font-mono text-[8px] uppercase sm:text-[9px]"
-          style={{ letterSpacing: "0.2em", color: "hsl(var(--rx-text-ghost) / 0.88)" }}
-        >
-          Past · Present · Future
-        </span>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <span
+            className="block h-px"
+            style={{
+              width: "min(12vw, 72px)",
+              background: "linear-gradient(to right, transparent, hsl(42 78% 52% / 0.34))",
+            }}
+          />
+          <span
+            className="font-mono text-[8px] uppercase tracking-[0.32em] sm:text-[9px]"
+            style={{ color: "hsl(42 78% 52% / 0.58)" }}
+          >
+            ETERNAL NEXUS OS · Sovereign Entry
+          </span>
+          <span
+            className="block h-px"
+            style={{
+              width: "min(12vw, 72px)",
+              background: "linear-gradient(to left, transparent, hsl(42 78% 52% / 0.34))",
+            }}
+          />
+        </div>
       </motion.div>
 
-      <motion.h1
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 1.0, ease: EASE }}
-        className="font-serif italic leading-[0.98]"
-        style={{
-          fontFamily: "Cormorant Garamond, Georgia, serif",
-          fontSize: "clamp(2.5rem, 11vw, 6.7rem)",
-          color: "hsl(var(--rx-text-prime))",
-          letterSpacing: "-0.02em",
-          maxWidth: "980px",
-        }}
-      >
-        Sovereign entry.
-        <br />
-        <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>One truth, three powers.</span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.85, ease: EASE }}
-        className="mt-5 max-w-[720px] font-sans leading-relaxed sm:mt-7"
-        style={{
-          fontFamily: "Syne, system-ui, sans-serif",
-          fontSize: "clamp(0.92rem, 3.5vw, 1.2rem)",
-          color: "hsl(var(--rx-text-mid) / 0.94)",
-          letterSpacing: "0.01em",
-        }}
-      >
-        A governed operating surface where memory, examination, and creation
-        converge as one authored system.
-      </motion.p>
-
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.62, duration: 0.8, ease: EASE }}
-        className="mt-8 flex w-full flex-wrap items-center justify-center gap-3 sm:mt-10 sm:gap-4"
+        transition={{ delay: 0.28, duration: 0.95, ease: EASE }}
+        className="relative w-full max-w-[980px] overflow-hidden border px-4 pb-6 pt-5 sm:px-8 sm:pb-8 sm:pt-7 md:px-12 md:pb-10 md:pt-8"
+        style={{
+          borderColor: "hsl(var(--rx-rim) / 0.78)",
+          background:
+            "linear-gradient(180deg, hsl(var(--background) / 0.34) 0%, hsl(var(--background) / 0.68) 100%)",
+          boxShadow: "0 36px 130px -90px hsl(42 78% 52% / 0.5)",
+        }}
       >
-        <Link
-          to="/access"
-          className="inline-flex w-full items-center justify-center border px-6 py-3 font-sans uppercase transition-colors sm:w-auto sm:px-8"
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden
           style={{
-            fontFamily: "Syne, system-ui, sans-serif",
-            fontSize: "11px",
-            letterSpacing: "0.17em",
-            color: "hsl(var(--background))",
-            borderColor: "hsl(42 78% 52% / 0.82)",
-            background: "linear-gradient(135deg, hsl(42 78% 52%), hsl(35 90% 64%))",
+            background:
+              "radial-gradient(ellipse at 50% 0%, hsl(42 78% 52% / 0.1) 0%, transparent 70%)",
           }}
-        >
-          Enter the System
-        </Link>
-        <Link
-          to="/lab"
-          className="inline-flex w-full items-center justify-center border px-6 py-3 font-mono uppercase transition-colors sm:w-auto sm:px-8"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.14em",
-            color: "hsl(var(--rx-text-prime) / 0.8)",
-            borderColor: "hsl(var(--rx-rim) / 0.95)",
-            background: "hsl(var(--background) / 0.45)",
-          }}
-        >
-          Continue in Lab
-        </Link>
+        />
+        <span className="absolute left-0 top-0 h-2.5 w-2.5 border-l border-t" style={{ borderColor: "hsl(42 78% 52% / 0.34)" }} aria-hidden />
+        <span className="absolute right-0 top-0 h-2.5 w-2.5 border-r border-t" style={{ borderColor: "hsl(42 78% 52% / 0.34)" }} aria-hidden />
+        <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b border-l" style={{ borderColor: "hsl(42 78% 52% / 0.34)" }} aria-hidden />
+        <span className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b border-r" style={{ borderColor: "hsl(42 78% 52% / 0.34)" }} aria-hidden />
+
+        <div className="relative z-10">
+          <span
+            className="font-mono text-[8px] uppercase sm:text-[9px]"
+            style={{ letterSpacing: "0.2em", color: "hsl(var(--rx-text-ghost) / 0.88)" }}
+          >
+            Past · Present · Future
+          </span>
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.34, duration: 1.0, ease: EASE }}
+            className="mt-3 font-serif italic leading-[0.96] sm:mt-4"
+            style={{
+              fontFamily: "Cormorant Garamond, Georgia, serif",
+              fontSize: "clamp(2.7rem, 12vw, 7.1rem)",
+              color: "hsl(var(--rx-text-prime))",
+              letterSpacing: "-0.024em",
+              maxWidth: "980px",
+              marginInline: "auto",
+            }}
+          >
+            The system is alive.
+            <br />
+            <span style={{ color: "hsl(42 78% 52% / 0.9)" }}>Enter its trinity.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.85, ease: EASE }}
+            className="mx-auto mt-5 max-w-[760px] font-sans leading-relaxed sm:mt-6"
+            style={{
+              fontFamily: "Syne, system-ui, sans-serif",
+              fontSize: "clamp(0.95rem, 3.7vw, 1.18rem)",
+              color: "hsl(var(--rx-text-mid) / 0.95)",
+              letterSpacing: "0.01em",
+            }}
+          >
+            School guards memory, Lab extracts signal, Creation materializes authorship.
+            One organism governs all three powers.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.62, duration: 0.8, ease: EASE }}
+            className="mt-7 flex w-full flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4"
+          >
+            <Link
+              to="/access"
+              className="inline-flex w-full items-center justify-center border px-6 py-3.5 font-sans uppercase transition-colors sm:w-auto sm:min-w-[320px] sm:px-9"
+              style={{
+                fontFamily: "Syne, system-ui, sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.18em",
+                color: "hsl(var(--background))",
+                borderColor: "hsl(42 78% 52% / 0.86)",
+                background: "linear-gradient(135deg, hsl(42 78% 52%), hsl(35 90% 64%))",
+              }}
+            >
+              Cross sovereign threshold
+            </Link>
+            <Link
+              to="/lab"
+              className="inline-flex w-full items-center justify-center border px-6 py-3.5 font-mono uppercase transition-colors sm:w-auto sm:min-w-[240px] sm:px-8"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.14em",
+                color: "hsl(var(--rx-text-prime) / 0.8)",
+                borderColor: "hsl(var(--rx-rim) / 0.95)",
+                background: "hsl(var(--background) / 0.48)",
+              }}
+            >
+              Continue in Lab
+            </Link>
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );
@@ -228,7 +280,7 @@ function EntranceChamber({ onHotspotClick }: { onHotspotClick?: (id: string) => 
   return (
     <div
       className="relative flex w-full items-center justify-center overflow-hidden"
-      style={{ minHeight: "max(100svh, 760px)" }}
+      style={{ minHeight: "max(100svh, 820px)" }}
     >
       <MachineSubstrate />
       <AtmosphereField />
