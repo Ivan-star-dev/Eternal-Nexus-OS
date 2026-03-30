@@ -233,7 +233,7 @@ Cada item da matriz regista os seguintes campos:
 │ APOIO_SECUNDARIO   │ @claude                                                 │
 │ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
-│ DEPENDE_DE         │ RUBERRA-ACCESS-SEAL-001                                 │
+│ DEPENDE_DE         │ -                                                       │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P1                                                      │
 │ GATE               │ aberto                                                  │
