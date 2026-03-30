@@ -62,7 +62,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
     width: "100%",
     background: "rgba(255,255,255,0.04)",
     border: "0.5px solid rgba(255,255,255,0.1)",
-    color: "rgba(228,235,240,0.88)",
+    color: "hsl(var(--foreground))",
     fontFamily: "JetBrains Mono, monospace",
     fontSize: "13px",
     padding: "13px 14px 13px 38px",
@@ -117,7 +117,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
             <div
               style={{
                 pointerEvents: "auto",
-                background: "#0d0e1f",
+                background: "hsl(var(--background))",
                 border: "0.5px solid rgba(200,164,78,0.18)",
                 padding: "clamp(28px, 5vw, 44px)",
                 width: "100%",
@@ -136,7 +136,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                   background: "transparent",
                   border: "none",
                   cursor: "pointer",
-                  color: "rgba(228,235,240,0.35)",
+                  color: "hsl(var(--rx-text-ghost))",
                   padding: "4px",
                   display: "flex",
                   alignItems: "center",
@@ -144,11 +144,11 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.color =
-                    "rgba(228,235,240,0.75)";
+                    "hsl(var(--rx-text-dim))";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.color =
-                    "rgba(228,235,240,0.35)";
+                    "hsl(var(--rx-text-ghost))";
                 }}
               >
                 <X size={16} />
@@ -175,7 +175,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "clamp(20px, 4vw, 24px)",
                     fontWeight: 700,
-                    color: "rgba(228,235,240,0.92)",
+                    color: "hsl(var(--foreground))",
                     margin: 0,
                     lineHeight: 1.2,
                   }}
@@ -186,7 +186,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                   style={{
                     fontFamily: "Syne, system-ui, sans-serif",
                     fontSize: "13px",
-                    color: "rgba(228,235,240,0.4)",
+                    color: "hsl(var(--rx-text-dim))",
                     marginTop: "8px",
                     lineHeight: 1.6,
                   }}
@@ -209,7 +209,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                       left: "14px",
                       top: "50%",
                       transform: "translateY(-50%)",
-                      color: "rgba(228,235,240,0.25)",
+                      color: "hsl(var(--rx-text-ghost))",
                       pointerEvents: "none",
                     }}
                   />
@@ -244,7 +244,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                       left: "14px",
                       top: "50%",
                       transform: "translateY(-50%)",
-                      color: "rgba(228,235,240,0.25)",
+                      color: "hsl(var(--rx-text-ghost))",
                       pointerEvents: "none",
                     }}
                   />
@@ -344,7 +344,7 @@ export default function AuthModal({ isOpen, onClose }: Props) {
                   style={{
                     fontFamily: "JetBrains Mono, monospace",
                     fontSize: "11px",
-                    color: "rgba(228,235,240,0.25)",
+                    color: "hsl(var(--rx-text-ghost))",
                     textAlign: "center",
                     marginTop: "16px",
                   }}

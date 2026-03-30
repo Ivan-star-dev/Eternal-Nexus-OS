@@ -165,7 +165,7 @@ export default function NexusSurfaceNav() {
               fontSize: "11px",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "hsl(216 50% 5%)",
+              color: "hsl(var(--background))",
               background: "hsl(42 78% 52%)",
               border: "none",
               padding: "8px 20px",
@@ -277,7 +277,7 @@ export default function NexusSurfaceNav() {
                     fontSize: "11px",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: "hsl(216 50% 5%)",
+                    color: "hsl(var(--background))",
                     background: "hsl(42 78% 52%)",
                     padding: "10px 22px",
                   }}

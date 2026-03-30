@@ -208,18 +208,21 @@ Cada item da matriz regista os seguintes campos:
 │ WORKTREE_ALIAS     │ WorkVisual                                              │
 │ DONO_PRINCIPAL     │ @claude                                                 │
 │ APOIO_SECUNDARIO   │ nenhum                                                  │
-│ STATUS             │ elegível                                                │
+│ STATUS             │ concluída                                               │
 │ DEPENDENCIA_STATUS │ livre                                                   │
 │ DEPENDE_DE         │ RUBERRA-HOMEPAGE-SEAL-001 ✓                             │
 │ PODE_ENTRAR_SOZINHO│ sim                                                     │
 │ PRIORIDADE         │ P1                                                      │
 │ GATE               │ aberto                                                  │
-│ NEXT_ACTOR         │ @claude                                                 │
+│ NEXT_ACTOR         │ @cursor                                                 │
 │ NEXT_TASK          │ RUBERRA-LAB-SEAL-001                                    │
 │ EVIDENCIA_MINIMA   │ 4 ficheiros tocados + zero hsl(216 50% 5%) restante     │
 │ NOTAS_DO_OWNER     │ Block 2: WaitlistBanner · AuthModal · EmailCaptureModal │
 │                    │ · DualEntryGate — button text hsl(216 50% 5%)           │
 │                    │ → hsl(var(--background)) · /access route fully sealed   │
+│ EVIDENCIA_ENTREGUE │ ✅ 7 ficheiros selados · zero hsl(216 50% 5%) em src/  │
+│                    │ (excl. CSS vars em index.css) · acesso totalmente       │
+│                    │ theme-aware · NexusSurfaceNav+Hero+AtlasPage também     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

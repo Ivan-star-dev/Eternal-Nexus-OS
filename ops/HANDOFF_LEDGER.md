@@ -6,6 +6,62 @@
 
 ---
 
+## HANDOFF — 2026-03-30 | @claude | RUBERRA-ACCESS-SEAL-001 | BLOCK 2: ACCESS LAYER FULLY SEALED
+
+**TASK:** RUBERRA-ACCESS-SEAL-001 — Block 2: access layer theme-aware seal
+**STATUS:** CONCLUÍDO ✅
+**ALTERACAO_REAL:** sim — 7 ficheiros modificados · zero hsl(216 50% 5%) restante em src/ · acesso totalmente theme-aware
+**BRANCH:** copilot/check-next-task → claude/setup-ruberra-nexus-IL7Tg
+
+---
+
+**FEITO:**
+
+**Block 2 — 4 access files selados:**
+- [✅] `src/components/access/WaitlistBanner.tsx` — banner bg `rgba(10,10,26,0.92)` → `hsl(var(--background)/0.92)` · text/dismiss colors → rx tokens
+- [✅] `src/components/access/AuthModal.tsx` — modal bg `#0d0e1f` → `hsl(var(--background))` · all rgba(228,235,240) text → rx tokens
+- [✅] `src/components/access/EmailCaptureModal.tsx` — modal bg `#0d0e1f` → `hsl(var(--background))` · all rgba(228,235,240) text → rx tokens
+- [✅] `src/components/access/DualEntryGate.tsx` — section bg `#07091a` → `hsl(var(--background))` · left card border/bg → hsl(var(--border)/0.3) + hsl(var(--rx-depth)/0.3) · all rgba text → rx tokens
+
+**Zero hsl(216 50% 5%) sweep — 3 additional files:**
+- [✅] `src/components/nexus-surface/NexusSurfaceNav.tsx` — 2× button text `hsl(216 50% 5%)` → `hsl(var(--background))`
+- [✅] `src/components/nexus-surface/NexusSurfaceHero.tsx` — 1× button text `hsl(216 50% 5%)` → `hsl(var(--background))`
+- [✅] `src/pages/AtlasPage.tsx` — page bg `hsl(216 50% 5%)` → `hsl(var(--background))`
+
+**Token mapping applied:**
+- `rgba(228,235,240,0.9+)` → `hsl(var(--foreground))`
+- `rgba(228,235,240,0.65-0.82)` → `hsl(var(--rx-text-mid))`
+- `rgba(228,235,240,0.38-0.45)` → `hsl(var(--rx-text-dim))`
+- `rgba(228,235,240,0.25-0.35)` → `hsl(var(--rx-text-ghost))`
+- hover states updated accordingly
+
+**NÃO FEITO:** nenhum — Block 2 100% completo
+**BLOQUEIOS:** nenhum
+
+**EVIDENCIA:**
+- `grep -rn "216 50% 5%" src/ | grep -v index.css` → 0 resultados ✅
+- `grep -n "rgba(228,235,240\|#0d0e1f\|#07091a\|rgba(10,10,26" src/components/access/` → 0 resultados ✅
+- 7 ficheiros modificados · BASTION actualizado · LIVE_STATE actualizado
+
+**PRÓXIMO PASSO:** @cursor → RUBERRA-LAB-SEAL-001 (Block 3: Lab interior)
+**DECISÃO_REC:** @cursor entra agora — Lab seal desbloqueia @framer para RUBERRA-POLISH-001
+
+---
+
+## CANALIZACAO — RUBERRA-ACCESS-SEAL-001
+
+| Campo | Valor |
+|---|---|
+| EXECUTOR | @claude |
+| PILAR | Produto |
+| NATUREZA | produto |
+| IMPACTO | alto |
+| BLOCO | Block 2 / RUBERRA seal sequence |
+| PROX_ACTOR | @cursor |
+| PROX_TASK | RUBERRA-LAB-SEAL-001 |
+
+---
+
 ## HANDOFF — 2026-03-29 | @copilot | FORCE-TASK-003 | FORÇA-TAREFA V4 LIVING WORLD ACTIVADA
 
 **TASK:** FORCE-TASK-003-OPS — activar FORCE_TASK_ACTIVATION_003 · actualizar ops
