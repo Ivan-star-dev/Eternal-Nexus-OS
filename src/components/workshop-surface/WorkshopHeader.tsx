@@ -12,8 +12,8 @@ import projectData from "@/data/projects";
 import { getRecentArtifacts } from "@/lib/artifacts/store";
 import { useProjectPulse } from "@/hooks/useProjectPulse";
 
-const TEAL = "hsl(172, 55%, 38%)";
-const TEAL_FAINT = "hsla(172, 55%, 38%, 0.35)";
+const TEAL = "hsl(var(--rx-teal))";
+const TEAL_FAINT = "hsl(var(--rx-teal) / 0.3)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 interface StatItem {
@@ -91,7 +91,7 @@ export default function WorkshopHeader() {
             fontFamily: "Syne, system-ui, sans-serif",
             fontSize: "clamp(24px, 4vw, 36px)",
             fontWeight: 700,
-            color: "var(--rx-text-primary)",
+            color: "hsl(var(--rx-text-prime))",
             letterSpacing: "-0.02em",
             lineHeight: 1,
           }}

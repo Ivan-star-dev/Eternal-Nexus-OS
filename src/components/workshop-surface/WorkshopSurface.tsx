@@ -2,7 +2,7 @@
  * WorkshopSurface.tsx
  * Root wrapper for Nexus Cria / Workshop portal surface.
  *
- * Identity: Dark charcoal (#0d0d14), teal accents (hsl 172 55% 38%).
+ * Identity: Sovereign matte depth with teal authorship accents.
  * Density: MEDIUM — project grid, no overload.
  * Motion: moderate — purposeful transitions.
  *
@@ -31,6 +31,16 @@ export default function WorkshopSurface() {
         overflowX: "hidden",
       }}
     >
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          background:
+            "radial-gradient(ellipse 56% 46% at 78% 18%, hsl(var(--rx-electric) / 0.08) 0%, transparent 66%), radial-gradient(ellipse 54% 46% at 16% 82%, hsl(var(--rx-teal) / 0.06) 0%, transparent 70%)",
+        }}
+      />
       <WorkshopHeader />
       <WorkshopArtifactPanel />
       <ProjectGrid />

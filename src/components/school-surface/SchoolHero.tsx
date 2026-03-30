@@ -21,6 +21,13 @@ const GOLD_FAINT = "hsla(42, 78%, 52%, 0.15)";
 const GOLD_BORDER = "hsla(42, 78%, 52%, 0.22)";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+const GOLD_SURFACE = "hsl(var(--rx-gold) / 0.1)";
+const GOLD_RULE = "hsl(var(--rx-gold) / 0.24)";
+const GOLD_TEXT_SOFT = "hsl(var(--rx-gold) / 0.58)";
+const PRIME_TEXT = "hsl(var(--rx-text-prime) / 0.94)";
+const MID_TEXT = "hsl(var(--rx-text-mid) / 0.9)";
+const GHOST_TEXT = "hsl(var(--rx-text-ghost) / 0.9)";
+
 const MATURITY_LABELS: Record<0 | 1 | 2 | 3, string> = {
   0: "Starting",
   1: "Familiar",
@@ -66,8 +73,8 @@ export default function SchoolHero() {
           inset: 0,
           pointerEvents: "none",
           background: [
-            "radial-gradient(ellipse 50% 55% at 0% 75%, rgba(160,100,20,0.10) 0%, transparent 65%)",
-            "radial-gradient(ellipse 40% 45% at 100% 25%, rgba(212,175,55,0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse 50% 55% at 0% 75%, hsl(var(--rx-gold) / 0.1) 0%, transparent 65%)",
+            "radial-gradient(ellipse 40% 45% at 100% 25%, hsl(var(--rx-gold) / 0.06) 0%, transparent 60%)",
           ].join(", "),
         }}
       />
@@ -111,7 +118,7 @@ export default function SchoolHero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: EASE, delay: 0.08 }}
-          style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 700, color: "rgba(228,235,240,0.94)", letterSpacing: "-0.03em", lineHeight: 1.05, margin: "0 0 20px" }}
+          style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 700, color: PRIME_TEXT, letterSpacing: "-0.03em", lineHeight: 1.05, margin: "0 0 20px" }}
         >
           Your{" "}
           <span style={{ background: `linear-gradient(135deg, ${GOLD} 0%, hsl(35, 90%, 68%) 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
@@ -124,7 +131,7 @@ export default function SchoolHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.16 }}
-          style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "clamp(15px, 2vw, 18px)", color: "rgba(200,185,160,0.60)", lineHeight: 1.65, margin: "0 0 36px", maxWidth: "520px" }}
+          style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "clamp(15px, 2vw, 18px)", color: MID_TEXT, lineHeight: 1.65, margin: "0 0 36px", maxWidth: "520px" }}
         >
           Not courses. Not content. A sovereign progression system — every session builds on the last, every level earned by doing, not watching.
         </motion.p>
@@ -142,13 +149,13 @@ export default function SchoolHero() {
               Mastery Level {maturity.level} — {MATURITY_LABELS[maturity.level]}
             </span>
             {isResume && metrics && (
-              <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.15em", color: "rgba(200,185,155,0.45)", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.15em", color: GOLD_TEXT_SOFT, textTransform: "uppercase" }}>
                 Visit {metrics.visit_count}
               </span>
             )}
           </div>
           {/* Progress bar */}
-          <div style={{ height: "3px", borderRadius: "2px", background: "rgba(212,175,55,0.12)", overflow: "hidden" }}>
+          <div style={{ height: "3px", borderRadius: "2px", background: GOLD_SURFACE, overflow: "hidden" }}>
             <div style={{
               height: "100%",
               width: `${Math.min(100, (maturity.totalSessions / Math.max(1, (maturity.level + 1) * 4)) * 100)}%`,
@@ -158,7 +165,7 @@ export default function SchoolHero() {
             }} />
           </div>
           {/* Session stat */}
-          <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.18em", color: "rgba(200,185,155,0.38)", textTransform: "uppercase" }}>
+          <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.18em", color: GOLD_TEXT_SOFT, textTransform: "uppercase" }}>
             {maturity.totalSessions} session{maturity.totalSessions !== 1 ? "s" : ""} recorded
           </span>
         </motion.div>
@@ -174,7 +181,7 @@ export default function SchoolHero() {
             onClick={handleScrollToPath}
             whileHover={{ scale: 1.025 }}
             whileTap={{ scale: 0.975 }}
-            style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", color: "#0a0a0a", background: `linear-gradient(135deg, ${GOLD}, hsl(35, 90%, 65%))`, border: "none", borderRadius: "8px", padding: "13px 28px", cursor: "pointer", boxShadow: `0 0 28px -4px ${GOLD}55` }}
+            style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", color: "hsl(var(--background))", background: `linear-gradient(135deg, ${GOLD}, hsl(35, 90%, 65%))`, border: "none", borderRadius: "8px", padding: "13px 28px", cursor: "pointer", boxShadow: `0 0 22px -8px ${GOLD}55` }}
           >
             {isResume ? "Continue Path" : "Start Learning"}
           </motion.button>
@@ -182,7 +189,7 @@ export default function SchoolHero() {
           <motion.button
             onClick={() => setShowExplainer(v => !v)}
             whileHover={{ borderColor: GOLD_BORDER, color: GOLD_DIM }}
-            style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em", textTransform: "uppercase", color: showExplainer ? GOLD_DIM : "rgba(200,185,160,0.45)", background: "transparent", border: `1px solid ${showExplainer ? GOLD_BORDER : "hsla(42,78%,52%,0.10)"}`, borderRadius: "8px", padding: "13px 24px", cursor: "pointer", transition: "color 0.2s, border-color 0.2s" }}
+            style={{ fontFamily: "Syne, system-ui, sans-serif", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em", textTransform: "uppercase", color: showExplainer ? GOLD_DIM : GHOST_TEXT, background: "transparent", border: `1px solid ${showExplainer ? GOLD_BORDER : "hsl(var(--rx-gold) / 0.12)"}`, borderRadius: "8px", padding: "13px 24px", cursor: "pointer", transition: "color 0.2s, border-color 0.2s" }}
           >
             {showExplainer ? "Got it" : "How it works"}
           </motion.button>
@@ -205,7 +212,7 @@ export default function SchoolHero() {
               ].map(([label, text]) => (
                 <div key={label} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                   <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "8px", letterSpacing: "0.25em", textTransform: "uppercase", color: GOLD_DIM, flexShrink: 0, marginTop: "3px", minWidth: "48px" }}>{label}</span>
-                  <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "13px", color: "rgba(200,185,160,0.55)", lineHeight: 1.6 }}>{text}</span>
+                  <span style={{ fontFamily: "Inter, system-ui, sans-serif", fontSize: "13px", color: MID_TEXT, lineHeight: 1.6 }}>{text}</span>
                 </div>
               ))}
             </motion.div>
@@ -214,7 +221,7 @@ export default function SchoolHero() {
       </div>
 
       {/* Bottom rule */}
-      <div aria-hidden style={{ position: "absolute", bottom: 0, left: "clamp(20px, 5vw, 72px)", right: "clamp(20px, 5vw, 72px)", height: "1px", background: `linear-gradient(90deg, ${GOLD_BORDER}, transparent 60%)` }} />
+      <div aria-hidden style={{ position: "absolute", bottom: 0, left: "clamp(20px, 5vw, 72px)", right: "clamp(20px, 5vw, 72px)", height: "1px", background: `linear-gradient(90deg, ${GOLD_RULE}, transparent 60%)` }} />
 
       <style>{`@keyframes pulse-gold { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }`}</style>
     </section>

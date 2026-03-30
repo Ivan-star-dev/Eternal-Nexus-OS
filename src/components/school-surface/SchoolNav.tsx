@@ -67,7 +67,7 @@ export default function SchoolNav() {
           style={{
             width: "80px",
             height: "3px",
-            background: "rgba(255,255,255,0.08)",
+            background: "hsl(var(--rx-rim) / 0.55)",
             borderRadius: "2px",
             overflow: "hidden",
           }}
@@ -103,7 +103,7 @@ export default function SchoolNav() {
           fontFamily: "Syne, system-ui, sans-serif",
           fontSize: "12px",
           fontWeight: 500,
-          color: "rgba(200,210,220,0.5)",
+          color: "hsl(var(--rx-text-ghost) / 0.92)",
           textDecoration: "none",
           letterSpacing: "0.04em",
           transition: "color 0.2s",
@@ -111,11 +111,11 @@ export default function SchoolNav() {
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLAnchorElement).style.color =
-            "rgba(200,210,220,0.85)";
+            "hsl(var(--rx-text-mid) / 0.96)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLAnchorElement).style.color =
-            "rgba(200,210,220,0.5)";
+            "hsl(var(--rx-text-ghost) / 0.92)";
         }}
       >
         ← Platform
